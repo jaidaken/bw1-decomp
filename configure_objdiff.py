@@ -93,6 +93,17 @@ def configure_objdiff(validating: bool):
             if validating:
                 print(f'Unexpected source type: "{file}" -> "{output}"', file=sys.stderr)
                 is_valid = False
+    # load the patch libcmt
+    for objfile in [*( cmake_build_dir / "LIBCMT-patched").glob(f"*{obj_suffix}"), *(cmake_build_dir / "LIBCPMT-patched").glob(f"*{obj_suffix}")]:
+        units.append({
+            "name": objfile.name.split(".")[0],
+            "target_path": objfile.relative_to(cmake_build_dir).as_posix(),
+            "base_path": objfile.relative_to(cmake_build_dir).as_posix(),
+            "metadata": {
+                "complete": True,
+                "auto_generated": True,
+            },
+        })
 
     if validating:
         for dirpath, _, filenames in cpp_staging_dir.walk():

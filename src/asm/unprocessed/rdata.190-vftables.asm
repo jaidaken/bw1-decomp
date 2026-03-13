@@ -34,7 +34,7 @@ VftableAndRTTI Fragment                                                         
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@Object@@UAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -48,7 +48,7 @@ VftableAndRTTI Fragment                                                         
 .long ?Get2DRadius@Object@@UAEMXZ
 .long ?GetPlayerWhoLastPickedMeUp@GameThing@@QAEPAVGPlayer@@XZ
 .long ?GetPlayerWhoLastDroppedMe@GameThing@@QAEPAVGPlayer@@XZ
-.long ?IsFootpathLink@MultiMapFixed@@UAE_NXZ, ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                       // [0xf1b08] 0x008a9000 + 0xf1b08 = 0x0099ab08
+.long ?IsFootpathLink@MultiMapFixed@@UAEIXZ, ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                       // [0xf1b08] 0x008a9000 + 0xf1b08 = 0x0099ab08
 .long ?AddFootpathLink@GameThing@@QAEXPAVGFootpath@@@Z
 .long ?GetNearestPathTo@MultiMapFixed@@UAEIPAUMapCoords@@MH@Z, ?UseFootpathIfNecessary@MultiMapFixed@@UAEXPAVLiving@@PBUMapCoords@@E@Z                                                                                       // [0xf1b14] 0x008a9000 + 0xf1b14 = 0x0099ab14
 .long ?AddFootpathLink@MultiMapFixed@@QAEXPAVGFootpath@@@Z
@@ -139,153 +139,153 @@ VftableAndRTTI Fragment                                                         
 .long ?GetUpdateOfBoredomValue@Object@@UAEMPAVReaction@@PAVGameThingWithPos@@@Z
 
 .long ?IsTown@GameThingWithPos@@UAE_NXZ
-.long ?IsTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?TrueFunction@GameThingWithPos@@UAE_NXZ
-.long ?FalseFunction@GameThingWithPos@@UAE_NXZ
+.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?TrueFunction@GameThingWithPos@@UAEIXZ
+.long ?FalseFunction@GameThingWithPos@@UAEIXZ
 
-.long ?IsNotLiving@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAE_NXZ
-.long ?IsTownCentre@GameThingWithPos@@UAE_NXZ
-.long ?IsTotemStatue@GameThingWithPos@@UAE_NXZ
+.long ?IsNotLiving@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAEIXZ
+.long ?IsTownCentre@GameThingWithPos@@UAEIXZ
+.long ?IsTotemStatue@GameThingWithPos@@UAEIXZ
 
-.long ?IsTownDesireFlag@GameThingWithPos@@UAE_NXZ
-.long ?IsRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTownDesireFlag@GameThingWithPos@@UAEIXZ
+.long ?IsRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsRock@Rock@@UAEIXZ
-.long ?IsSpellDispenser@GameThingWithPos@@UAE_NXZ
+.long ?IsSpellDispenser@GameThingWithPos@@UAEIXZ
 
-.long ?IsMist@GameThingWithPos@@UAE_NXZ
-.long ?IsQueryIcon@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLight@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLantern@GameThingWithPos@@UAE_NXZ
+.long ?IsMist@GameThingWithPos@@UAEIXZ
+.long ?IsQueryIcon@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLight@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLantern@GameThingWithPos@@UAEIXZ
 
-.long ?IsAbode@GameThingWithPos@@UAE_NXZ
-.long ?IsField@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsAbode@GameThingWithPos@@UAEIXZ
+.long ?IsField@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsField@GameThingWithPos@@UAE_NXZ
-.long ?IsBuildingMaterial@Object@@UAE_NXZ
+.long ?IsBuildingMaterial@Object@@UAEIXZ
 
-.long ?IsMagicFireBall@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureAction@Object@@UAE_NXZ
-.long ?IsCitadelHeart@GameThingWithPos@@UAE_NXZ
-.long ?IsDamaged@GameThingWithPos@@UAE_NXZ
+.long ?IsMagicFireBall@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureAction@Object@@UAEIXZ
+.long ?IsCitadelHeart@GameThingWithPos@@UAEIXZ
+.long ?IsDamaged@GameThingWithPos@@UAEIXZ
 
-.long ?CanBeHealedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeHealedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?CanBeEatenByCreature@MobileStatic@@UAEIPAVCreature@@@Z
-.long ?CanCreatureEatMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanCreatureEatMe@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?CanBeAttackedByCreature@Rock@@UAEIPAVCreature@@@Z
-.long ?CanBeFrighteningToCreature@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeHelpedByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?CanBeFrighteningToCreature@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeHelpedByCreature@Object@@UAEIPAVCreature@@@Z
 .long ?CanBePlayedWithByCreature@MobileStatic@@UAEIPAVCreature@@@Z
-.long ?CanBeImpressedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeInspectedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodUponByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSleptNextToByCreature@Fixed@@UAE_NPAVCreature@@@Z
+.long ?CanBeImpressedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeInspectedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePoodUponByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSleptNextToByCreature@Fixed@@UAEIPAVCreature@@@Z
 .long ?CanBePickedUpByCreature@Fragment@@UAEIPAVCreature@@@Z
-.long ?CanBeStrokedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeKissedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSetOnFire@Fixed@@UAE_NPAVCreature@@@Z
+.long ?CanBeStrokedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeKissedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSetOnFire@Fixed@@UAEIPAVCreature@@@Z
 .long ?CanBeStompedOnByCreature@MobileStatic@@UAEIPAVCreature@@@Z
-.long ?CanBeThrownByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInAStoragePit@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeDestroyedByStoning@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeExaminedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeFoughtByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeThrownByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInAStoragePit@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeDestroyedByStoning@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeExaminedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeFoughtByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanReceiveGifts@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanActAsAContainer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z, ?NeedsRepair@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsOnFire@Object@@UAE_NPAVCreature@@@Z
-.long ?IsNotOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuilding@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsMushroom@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanReceiveGifts@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanActAsAContainer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z, ?NeedsRepair@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsOnFire@Object@@UAEIPAVCreature@@@Z
+.long ?IsNotOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuilding@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsMushroom@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedForRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInFoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInWoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtBackToCitadel@Object@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedForRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInFoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePutInWoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtBackToCitadel@Object@@UAEIPAVCreature@@@Z
 
-.long ?IsVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerFarFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerFarFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCow@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodOn@Object@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCow@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodOn@Object@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDominantCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDominantCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeDancedWith@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeDancedWith@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsWorshipSite@GameThingWithPos@@UAE_NXZ
 
-.long ?IsWorshipSite@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorshipSite@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?GetWorshipSite@GameThingWithPos@@UAEPAUWorshipSite@@XZ
 .long ?IsWorkshop@GameThingWithPos@@UAE_NXZ
-.long ?IsWorkshop@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorkshop@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsTree@GameThingWithPos@@UAE_NXZ
-.long ?IsTree@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTree@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsPickupableRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsPickupableRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsCitadelPart@GameThingWithPos@@UAE_NXZ
-.long ?IsCitadelPart@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootball@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelPart@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootball@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKickedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeStolenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKickedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeStolenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableScaffold@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableScaffold@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsToyAwayFromHome@MobileStatic@@UAEIPAVCreature@@@Z
 .long ?IsToy@MobileStatic@@UAEIPAVCreature@@@Z
 .long ?IsToyBall@MobileStatic@@UAEIPAVCreature@@@Z
@@ -293,7 +293,7 @@ VftableAndRTTI Fragment                                                         
 .long ?IsToyCuddly@MobileStatic@@UAEIPAVCreature@@@Z
 .long ?IsLiving@GameThingWithPos@@UBE_NXZ
 
-.long ?IsLiving@GameThingWithPos@@UBE_NPAVCreature@@@Z
+.long ?IsLiving@GameThingWithPos@@UBEIPAVCreature@@@Z
 .long ?IsFence@MobileStatic@@UAEIXZ
 .long ?IsSpellIcon@GameThingWithPos@@UBE_NXZ
 .long ?NothingScareyNearMe@GameThingWithPos@@UBE_NXZ
@@ -302,17 +302,17 @@ VftableAndRTTI Fragment                                                         
 .long ?CanBeThrownInTheSeaPlayfully@MobileStatic@@UAEIPAVCreature@@@Z
 .long ?GetCreatureMimicType@Rock@@UAEIXZ
 .long ?GetHowMuchCreatureWantsToLookAtMe@MobileStatic@@UAEMXZ
-.long ?IsFlock@GameThingWithPos@@UBE_NXZ
-.long ?IsDance@GameThingWithPos@@UBE_NXZ
-.long ?IsReward@GameThingWithPos@@UBE_NXZ
+.long ?IsFlock@GameThingWithPos@@UBEIXZ
+.long ?IsDance@GameThingWithPos@@UBEIXZ
+.long ?IsReward@GameThingWithPos@@UBEIXZ
 
-.long ?IsScriptContainer@GameThingWithPos@@UBE_NXZ
-.long ?IsWeather@GameThingWithPos@@UBE_NXZ
-.long ?IsSpell@GameThingWithPos@@UBE_NXZ
-.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAE_NXZ
+.long ?IsScriptContainer@GameThingWithPos@@UBEIXZ
+.long ?IsWeather@GameThingWithPos@@UBEIXZ
+.long ?IsSpell@GameThingWithPos@@UBEIXZ
+.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAEIXZ
 
-.long ?IsMobileWallHug@GameThingWithPos@@UBE_NXZ
-.long ?IsActive@GameThingWithPos@@UBE_NXZ
+.long ?IsMobileWallHug@GameThingWithPos@@UBEIXZ
+.long ?IsActive@GameThingWithPos@@UBEIXZ
 .long ?IsObjectTurningTooFastForCameraToFollowSmoothly@GameThingWithPos@@UBE_NXZ
 .long ?CalculateWhereIWillBeAfterNSeconds@Object@@UAEXMPAULHPoint@@@Z
 
@@ -331,40 +331,40 @@ VftableAndRTTI Fragment                                                         
 .long ?SetControlledByScript@GameThingWithPos@@UAEXH@Z
 .long ?GetDeathReason@GameThingWithPos@@UAE?AW4DEATH_REASON@@XZ
 
-.long ?IsInScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsFemaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsAnimal@GameThingWithPos@@UAE_NXZ
+.long ?IsInScript@GameThingWithPos@@UAEIXZ
+.long ?IsMaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsFemaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsAnimal@GameThingWithPos@@UAEIXZ
 
-.long ?IsAChild@GameThingWithPos@@UAE_NXZ
-.long ?IsHouse@GameThingWithPos@@UAE_NXZ
+.long ?IsAChild@GameThingWithPos@@UAEIXZ
+.long ?IsHouse@GameThingWithPos@@UAEIXZ
 .long ?IsObject@Object@@UAE_NXZ
 .long ?IsFootball@GameThingWithPos@@UBE_NXZ
 
-.long ?IsCitadel@GameThingWithPos@@UAE_NXZ
-.long ?IsForest@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileObject@GameThingWithPos@@UAE_NXZ
+.long ?IsCitadel@GameThingWithPos@@UAEIXZ
+.long ?IsForest@GameThingWithPos@@UAEIXZ
+.long ?IsMobileObject@GameThingWithPos@@UAEIXZ
 .long ?IsMobileStatic@MobileStatic@@UAEIXZ
 
-.long ?IsAnyKindOfTree@GameThingWithPos@@UAE_NXZ
-.long ?IsDeadTree@GameThingWithPos@@UAE_NXZ
-.long ?IsPileFood@GameThingWithPos@@UAE_NXZ
-.long ?IsFeature@GameThingWithPos@@UAE_NXZ
+.long ?IsAnyKindOfTree@GameThingWithPos@@UAEIXZ
+.long ?IsDeadTree@GameThingWithPos@@UAEIXZ
+.long ?IsPileFood@GameThingWithPos@@UAEIXZ
+.long ?IsFeature@GameThingWithPos@@UAEIXZ
 
-.long ?IsScriptMarker@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptHighlight@GameThingWithPos@@UAE_NXZ
-.long ?IsWonder@MultiMapFixed@@UAE_NXZ
-.long ?IsInfluenceRing@GameThingWithPos@@UAE_NXZ
+.long ?IsScriptMarker@GameThingWithPos@@UAEIXZ
+.long ?IsScriptHighlight@GameThingWithPos@@UAEIXZ
+.long ?IsWonder@MultiMapFixed@@UAEIXZ
+.long ?IsInfluenceRing@GameThingWithPos@@UAEIXZ
 
-.long ?IsPuzzleGame@GameThingWithPos@@UAE_NXZ
-.long ?IsScaffold@GameThingWithPos@@UAE_NXZ
-.long ?IsSkeleton@GameThingWithPos@@UBE_NXZ
+.long ?IsPuzzleGame@GameThingWithPos@@UAEIXZ
+.long ?IsScaffold@GameThingWithPos@@UAEIXZ
+.long ?IsSkeleton@GameThingWithPos@@UBEIXZ
 .long ?IsPoisoned@GameThingWithPos@@UBE_NXZ
 
-.long ?IsSpeedUp@GameThingWithPos@@UAE_NXZ
-.long ?IsParticleContainer@GameThingWithPos@@UAE_NXZ
-.long ?IsSacrificeAltar@GameThingWithPos@@UAE_NXZ
-.long ?IsPot@GameThingWithPos@@UAE_NXZ
+.long ?IsSpeedUp@GameThingWithPos@@UAEIXZ
+.long ?IsParticleContainer@GameThingWithPos@@UAEIXZ
+.long ?IsSacrificeAltar@GameThingWithPos@@UAEIXZ
+.long ?IsPot@GameThingWithPos@@UAEIXZ
 
 .long ?IsComputerPlayer@GameThingWithPos@@UBE_NXZ
 .long ?CanBeThrownByPlayer@Fragment@@UAEIXZ
@@ -374,7 +374,7 @@ VftableAndRTTI Fragment                                                         
 .long ?IsSpellShield@GameThingWithPos@@UBE_NXZ
 .long ?IsPileResource@GameThingWithPos@@UBE_NXZ
 .long ?IsScriptTimer@GameThingWithPos@@UBE_NXZ
-.long ?CreateBuildingSite@MultiMapFixed@@UAE_NXZ
+.long ?CreateBuildingSite@MultiMapFixed@@UAEIXZ
 .long ?GetQueryFirstEnumText@Object@@UAE?AW4HELP_TEXT@@XZ
 .long ?GetQueryLastEnumText@Object@@UAE?AW4HELP_TEXT@@XZ
 .long ?GetFOVHelpMessageSet@Object@@UAEIXZ
@@ -407,15 +407,15 @@ VftableAndRTTI Fragment                                                         
 .long ?RemoveMapObject@MultiMapFixed@@UAEXXZ                                                                                                   // [0xf1fe0] 0x008a9000 + 0xf1fe0 = 0x0099afe0
 .long ?InsertMapObjectToCell@Fixed@@UAEXPAUMapCell@@@Z
 .long ?RemoveMapObjectFromCell@Object@@UAEXPAUMapCell@@@Z
-.long ?IsObjectInMap@Object@@UAE_NPAUMapCell@@@Z
+.long ?IsObjectInMap@Object@@UAEIPAUMapCell@@@Z
 .long ?IsObjectInMapCheck@Object@@UAE_NXZ
 .long ?MoveMapObject@MultiMapFixed@@UAEHPAUMapCoords@@@Z
 .long ?ActualMoveMapObject@Rock@@UAEXPBUMapCoords@@@Z
 .long ?GetPtr@Object@@UAEPAV1@XZ
 .long ?GetMeshRadius@Object@@UAEMXZ
 .long ?Get3DObjectForPSys@Object@@UAEPAVGame3DObject@@XZ
-.long ?GetPSysFireFlameMatrix@Object@@UAE_NPAULHMatrix@@@Z
-.long ?GetPSysFireLocalRndFlamePos@Object@@UAE_NPAULHPoint@@PAH@Z
+.long ?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z
+.long ?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z
 .long ?GetPSysFireWorldFlamePos@Object@@UAE_NPBULHPoint@@HPAU2@@Z
 .long ?GetPSysFireLocalFlameScale@Object@@UAEMXZ
 .long ?GetPSysFireMaxFlames@Object@@UAEIXZ
@@ -425,7 +425,7 @@ VftableAndRTTI Fragment                                                         
 .long ?GetHoldRadius@Object@@UAEMXZ
 .long ?GetHoldLoweringMultiplier@MobileStatic@@UAEMXZ
 .long ?GetHoldYRotate@Object@@UAEMXZ
-.long ?HandShouldFeelWithMeshIntersect@Object@@UAE_NXZ
+.long ?HandShouldFeelWithMeshIntersect@Object@@UAEIXZ
 .long ?SetSpecularColor@Object@@UAEXULH3DColor@@@Z
 .long ?GetSpecularColor@Object@@UAE?AULH3DColor@@XZ
 .long ?SetBeliefSprite@Object@@UAEXPAVLH3DSprite@@@Z
@@ -461,12 +461,12 @@ VftableAndRTTI Fragment                                                         
 .long ?ProcessState@Object@@UAEIXZ
 .long ?GetProjectileSpeed@Object@@UAEMXZ
 .long ?CanBePickedUp@MobileStatic@@UAE_NXZ
-.long ?CanBeCrushed@Fixed@@UAE_NXZ
+.long ?CanBeCrushed@Fixed@@UAEIXZ
 .long ?GetTopPos@Object@@UAEMXZ
 .long ?GetVillagerHugRadius@Object@@UAEMXZ
 .long ?GetWeight@Object@@UAEMXZ
 .long ?GetWorldMatrix@MobileStatic@@UAEXPAULHMatrix@@@Z
-.long ?CanBeSuckedIntoVortex@Object@@UAE_NPAVLandscapeVortex@@@Z
+.long ?CanBeSuckedIntoVortex@Object@@UAEIPAVLandscapeVortex@@@Z
 .long ?GetDiscipleStateIfInteractedWith@MultiMapFixed@@UAEIPAVGInterfaceStatus@@PAVVillager@@@Z
 .long ?GetWorkingPos@Object@@UAEPAUMapCoords@@PAU2@PAV1@@Z
 .long ?GetHeightForHandAboveInteractObject@Object@@UAEMXZ
@@ -479,21 +479,21 @@ VftableAndRTTI Fragment                                                         
 .long ?GetFoodType@Object@@UAE?AW4FOOD_TYPE@@XZ
 .long ?GetImpressiveValue@Object@@UAEMXZ
 .long ?IsSpellSeedReturnPoint@Object@@UAE_NXZ
-.long ?IsABeliever@Object@@UAE_NXZ
+.long ?IsABeliever@Object@@UAEIXZ
 .long ?AsMultiMapFixed@MultiMapFixed@@UAEPAV1@XZ
 .long ?ApplyWaterSpell@Object@@UAEMPAVSpellWater@@@Z
-.long ?IsResourceStore@Rock@@UAE_NW4RESOURCE_TYPE@@@Z
-.long ?DeleteObjectAndTakeResource@MultiMapFixed@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.long ?IsResourceStore@Rock@@UAEIW4RESOURCE_TYPE@@@Z
+.long ?DeleteObjectAndTakeResource@MultiMapFixed@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .long ?GetRadiusMultiplierForApplyingPotToPos@Object@@UAEMXZ
-.long ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
+.long ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
 .long ?GetResourceType@Rock@@UAE?AW4RESOURCE_TYPE@@XZ
 .long ?GetDefaultResource@Rock@@UAEHXZ
 .long ?SetPoisonedResource@Object@@UAEXW4RESOURCE_TYPE@@H@Z
 .long ?SetPoisoned@Object@@UAEXH@Z
 .long ?IsLockedInInteract@Object@@UAE_NXZ
-.long ?SetDying@Object@@UAE_NXZ
-.long ?IsAttackable@Object@@UAE_NPAV1@@Z
-.long ?IsAllied@Object@@UAE_NPAV1@@Z
+.long ?SetDying@Object@@UAEIXZ
+.long ?IsAttackable@Object@@UAEIPAV1@@Z
+.long ?IsAllied@Object@@UAEIPAV1@@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@0@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@@Z
 .long ?IsTouching@Object@@UAE_NPAV1@M@Z
@@ -501,25 +501,25 @@ VftableAndRTTI Fragment                                                         
 .long ?EndOnFire@Object@@UAEXXZ
 .long ?GetDistanceFromObject@Object@@UAEMPAV1@@Z
 .long ?GetTribalPower@Object@@UAEMW4TRIBE_TYPE@@@Z
-.long ?ValidForLockedSelectProcess@Fixed@@UAE_NPAVGInterfaceStatus@@@Z, ?NetworkFriendlyStartLockedSelect@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAE_NXZ
+.long ?ValidForLockedSelectProcess@Fixed@@UAEIPAVGInterfaceStatus@@@Z, ?NetworkFriendlyStartLockedSelect@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAEIXZ
 .long ?NetworkUnfriendlyLockedSelect@Object@@UAE_NPAVControlHandUpdateInfo@@@Z
-.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkFriendlyEndLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?ValidAsInterfaceTarget@Object@@UAE_NXZ
-.long ?ValidAsInterfaceLeashTarget@Object@@UAE_NXZ
-.long ?SelectOnlyAfterRecSystem@Object@@UAE_NXZ
+.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkFriendlyEndLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?ValidAsInterfaceTarget@Object@@UAEIXZ
+.long ?ValidAsInterfaceLeashTarget@Object@@UAEIXZ
+.long ?SelectOnlyAfterRecSystem@Object@@UAEIXZ
 .long ?ValidForPlaceInHand@Fragment@@UAEIPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetInMagicHand@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetOutMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetInMagicHand@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetOutMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?ValidToRemoveFromHand@Object@@UAE_NPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?RemoveFromHand@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
-.long ?ValidToShakeFromHand@Object@@UAE_NXZ
-.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAE_NXZ
-.long ?IsTuggable@Object@@UAE_NXZ
+.long ?ValidToShakeFromHand@Object@@UAEIXZ
+.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAEIXZ
+.long ?IsTuggable@Object@@UAEIXZ
 .long ?ValidToApplyThisToObject@MobileStatic@@UAEIPAVGInterfaceStatus@@PAVObject@@@Z
 .long ?ApplyThisToObject@MobileStatic@@UAEIPAVGInterfaceStatus@@PAVObject@@PAUGestureSystemPacketData@@@Z
 .long ?ValidToApplyThisToMapCoord@MobileStatic@@UAEIPAVGInterfaceStatus@@ABUMapCoords@@@Z
@@ -542,8 +542,8 @@ VftableAndRTTI Fragment                                                         
 .long ?ApplyFightThisToMapCoord@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?ValidToFightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?FightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z
-.long ?IsEffectReceiver@Object@@UAE_NPAVEffectValues@@@Z
-.long ?CanBeDestroyedBySpell@Object@@UAE_NPAVSpell@@@Z
+.long ?IsEffectReceiver@Object@@UAEIPAVEffectValues@@@Z
+.long ?CanBeDestroyedBySpell@Object@@UAEIPAVSpell@@@Z
 .long ?GetImportance@Object@@UAEMXZ
 .long ?InitialisePhysicsFromHand@Object@@UAEIPAULHPoint@@0PAVGInterfaceStatus@@PAV1@H@Z
 .long ?InitialisePhysics@Object@@UAEIPBULHPoint@@0PAV1@_NPAVGInterfaceStatus@@@Z
@@ -560,22 +560,22 @@ VftableAndRTTI Fragment                                                         
 .long ?CanBecomeAPhysicsObject@MobileStatic@@UAE_NXZ
 .long ?GetAlwaysRemainsInPhysicsInternalSystem@Object@@UAE_NXZ
 .long ?HasSunk@Object@@UAE_NXZ
-.long ?CreatureMustAvoid@Fragment@@UAE_NPAVCreature@@@Z
+.long ?CreatureMustAvoid@Fragment@@UAEIPAVCreature@@@Z
 .long ?AddToRoutePlan@MobileStatic@@UAEXPAURPHolder@@PAVCreature@@HP6AXHUPoint2D@@MH@Z@Z
 .long ?GetRoutePlanRadius@Object@@UAEMPAVCreature@@@Z
-.long ?VillagerMustAvoid@Fixed@@UAE_NPAVVillager@@@Z
+.long ?VillagerMustAvoid@Fixed@@UAEIPAVVillager@@@Z
 .long ?IsFireMan@Object@@UAE_NXZ
 .long ?IsARootedObject@Object@@UAE_NXZ
 .long ?GetCollideSoundType@Fragment@@UAE?AW4SOUND_COLLISION_TYPE@@XZ
 .long ?IsSolidToNewAbode@MobileStatic@@UAEIXZ
 .long ?RemoveFromGame@Object@@UAEIXZ
 .long ?GetLandingPointCount@Object@@UAEHXZ
-.long ?GetLandingPoint@Object@@UAE_NEPAULHPoint@@@Z
+.long ?GetLandingPoint@Object@@UAEIEPAULHPoint@@@Z
 .long ?GetTastiness@MobileStatic@@UAEIXZ
 .long ?IsScary@Object@@UAE_NXZ
-.long ?GetInspectObjectPos@Object@@UAE_NPAVVillager@@PAUMapCoords@@@Z
+.long ?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z
 .long ?DiscipleInHandNear@Object@@UAEXPAVVillager@@PAVGInterfaceStatus@@@Z
-.long ?GetSpecialPos@Fixed@@UAE_NIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ, ?IsTownArtifact@Fixed@@UAE_NXZ
+.long ?GetSpecialPos@Fixed@@UAEIIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ, ?IsTownArtifact@Fixed@@UAEIXZ
 .long ?ProcessInHand@Object@@UAE_NXZ
 .long ?ProcessInInteract@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?GetObjectCollide@Object@@UAEIXZ
@@ -601,7 +601,7 @@ VftableAndRTTI Fragment                                                         
 .long ?InsertMapObjectToCellAssumeFixed@Fixed@@UAEXPAUMapCell@@@Z
 .long ?IsObjectFullyInMap@MultiMapFixed@@UAE_NXZ                                                                                                   // [0xf22f8] 0x008a9000 + 0xf22f8 = 0x0099b2f8
 .long ?GetDoorPos@MultiMapFixed@@UAEPAUMapCoords@@PAU2@@Z
-.long ?GetInfluence@MultiMapFixed@@UAEMXZ, ?IsPlaytimeStructure@MultiMapFixed@@UAE_NXZ, ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ, ?AddPlaytimeVillager@MultiMapFixed@@UAE_NPAVVillager@@@Z                                                               // [0xf2300] 0x008a9000 + 0xf2300 = 0x0099b300
+.long ?GetInfluence@MultiMapFixed@@UAEMXZ, ?IsPlaytimeStructure@MultiMapFixed@@UAE_NXZ, ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ, ?AddPlaytimeVillager@MultiMapFixed@@UAEIPAVVillager@@@Z                                                               // [0xf2300] 0x008a9000 + 0xf2300 = 0x0099b300
 .long ?CheckMapObject@MultiMapFixed@@UAEXXZ, ?GetResourceDropPosForComputerPlayer@MultiMapFixed@@UAEXPAUMapCoords@@@Z, ?GetPercentBuilt@MultiMapFixed@@UAEMXZ, ?GetPercentRepaired@MultiMapFixed@@UAEMXZ                                                               // [0xf2310] 0x008a9000 + 0xf2310 = 0x0099b310
 .long ?GetPercentRepairedFromWhenDamaged@MultiMapFixed@@UAEMXZ, ?IsRepaired@MultiMapFixed@@UAE_NXZ, ?IsBuilt@MultiMapFixed@@UAE_NXZ, ?GetPercentRepairedForNonFunctional@MultiMapFixed@@UAEMXZ                                                               // [0xf2320] 0x008a9000 + 0xf2320 = 0x0099b320
 .long ?GetPercentForDrawBuilding@MultiMapFixed@@UAEMXZ, ?GetPercentAbodeFullWithAdults@MultiMapFixed@@UAEMXZ, ?GetPercentAbodeFullWithChildren@MultiMapFixed@@UAEMXZ, ?IsDrawBuilding@MultiMapFixed@@UAE_NXZ                                                               // [0xf2330] 0x008a9000 + 0xf2330 = 0x0099b330
@@ -629,7 +629,7 @@ VftableAndRTTI VortexSave                                                       
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@GameThing@@QAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -694,7 +694,7 @@ VftableAndRTTI WayPoint                                                         
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@GameThing@@QAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -793,7 +793,7 @@ VftableAndRTTI WayPoint                                                         
 .long ?GetOverwriteInteractableToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteDropToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteTapToolTip@GameThingWithPos@@UAEIXZ
-.long ?IsCastShadowAtNight@GameThingWithPos@@UAE_NXZ
+.long ?IsCastShadowAtNight@GameThingWithPos@@UAEIXZ
 
 .long ?CleanupWhenDeleted@GameThingWithPos@@UAEXH@Z
 .long ?GetImpressiveType@GameThingWithPos@@UAE?AW4IMPRESSIVE_TYPE@@XZ
@@ -802,171 +802,171 @@ VftableAndRTTI WayPoint                                                         
 
 .long ?GetUpdateOfBoredomValue@GameThingWithPos@@UAEMPAUReaction@@PAV1@@Z
 .long ?IsTown@GameThingWithPos@@UAE_NXZ
-.long ?IsTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?TrueFunction@GameThingWithPos@@UAE_NXZ
+.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?TrueFunction@GameThingWithPos@@UAEIXZ
 
-.long ?FalseFunction@GameThingWithPos@@UAE_NXZ
-.long ?IsNotLiving@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAE_NXZ
-.long ?IsTownCentre@GameThingWithPos@@UAE_NXZ
+.long ?FalseFunction@GameThingWithPos@@UAEIXZ
+.long ?IsNotLiving@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAEIXZ
+.long ?IsTownCentre@GameThingWithPos@@UAEIXZ
 
-.long ?IsTotemStatue@GameThingWithPos@@UAE_NXZ
-.long ?IsTownDesireFlag@GameThingWithPos@@UAE_NXZ
-.long ?IsRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTotemStatue@GameThingWithPos@@UAEIXZ
+.long ?IsTownDesireFlag@GameThingWithPos@@UAEIXZ
+.long ?IsRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsRock@GameThingWithPos@@UAE_NXZ
 
-.long ?IsSpellDispenser@GameThingWithPos@@UAE_NXZ
-.long ?IsMist@GameThingWithPos@@UAE_NXZ
-.long ?IsQueryIcon@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLight@GameThingWithPos@@UAE_NXZ
+.long ?IsSpellDispenser@GameThingWithPos@@UAEIXZ
+.long ?IsMist@GameThingWithPos@@UAEIXZ
+.long ?IsQueryIcon@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLight@GameThingWithPos@@UAEIXZ
 
-.long ?IsStreetLantern@GameThingWithPos@@UAE_NXZ
-.long ?IsAbode@GameThingWithPos@@UAE_NXZ
-.long ?IsField@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStreetLantern@GameThingWithPos@@UAEIXZ
+.long ?IsAbode@GameThingWithPos@@UAEIXZ
+.long ?IsField@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsField@GameThingWithPos@@UAE_NXZ
 
-.long ?IsBuildingMaterial@GameThingWithPos@@UAE_NXZ
-.long ?IsMagicFireBall@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureAction@GameThingWithPos@@UAE_NXZ
-.long ?IsCitadelHeart@GameThingWithPos@@UAE_NXZ
+.long ?IsBuildingMaterial@GameThingWithPos@@UAEIXZ
+.long ?IsMagicFireBall@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureAction@GameThingWithPos@@UAEIXZ
+.long ?IsCitadelHeart@GameThingWithPos@@UAEIXZ
 
-.long ?IsDamaged@GameThingWithPos@@UAE_NXZ
-.long ?CanBeHealedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanCreatureEatMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsDamaged@GameThingWithPos@@UAEIXZ
+.long ?CanBeHealedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanCreatureEatMe@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeAttackedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeFrighteningToCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeHelpedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePlayedWithByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeAttackedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeFrighteningToCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeHelpedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePlayedWithByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeImpressedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeInspectedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodUponByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeImpressedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeInspectedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodUponByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeSleptNextToByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePickedUpByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStrokedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKissedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeSleptNextToByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePickedUpByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStrokedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKissedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeSetOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStompedOnByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeThrownByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeSetOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStompedOnByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeThrownByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBePutInAStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDestroyedByStoning@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeExaminedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBePutInAStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDestroyedByStoning@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeExaminedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeFoughtByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanReceiveGifts@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanActAsAContainer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBeingBuilt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeFoughtByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanReceiveGifts@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanActAsAContainer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBeingBuilt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?NeedsRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsNotOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuilding@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?NeedsRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsNotOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuilding@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsMushroom@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsMushroom@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBePutInFoodPile@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInWoodPile@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBePutInFoodPile@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInWoodPile@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeBroughtBackToCitadel@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerFarFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeBroughtBackToCitadel@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerFarFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCow@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodOn@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCow@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodOn@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsDominantCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDancedWith@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsDominantCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDancedWith@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsWorshipSite@GameThingWithPos@@UAE_NXZ
-.long ?IsWorshipSite@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorshipSite@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?GetWorshipSite@GameThingWithPos@@UAEPAUWorshipSite@@XZ
 .long ?IsWorkshop@GameThingWithPos@@UAE_NXZ
 
-.long ?IsWorkshop@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBuildingWhichIsBeingBuilt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorkshop@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBuildingWhichIsBeingBuilt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsTree@GameThingWithPos@@UAE_NXZ
-.long ?IsTree@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTree@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPickupableRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPickupableRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsCitadelPart@GameThingWithPos@@UAE_NXZ
-.long ?IsCitadelPart@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelPart@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsPlayingFootball@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsPlayingFootball@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKickedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStolenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKickedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStolenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStealableByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableScaffold@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStealableByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableScaffold@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyAwayFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyAwayFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsToy@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyBall@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyDie@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsToy@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyBall@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyDie@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsToyCuddly@GameThingWithPos@@UBE_NPAVCreature@@@Z
 
 .long ?IsLiving@GameThingWithPos@@UBE_NXZ
-.long ?IsLiving@GameThingWithPos@@UBE_NPAVCreature@@@Z
+.long ?IsLiving@GameThingWithPos@@UBEIPAVCreature@@@Z
 .long ?IsFence@GameThingWithPos@@UBE_NXZ
 .long ?IsSpellIcon@GameThingWithPos@@UBE_NXZ
 
@@ -977,17 +977,17 @@ VftableAndRTTI WayPoint                                                         
 
 .long ?GetCreatureMimicType@GameThingWithPos@@UBEIXZ
 .long ?GetHowMuchCreatureWantsToLookAtMe@GameThingWithPos@@UAEMXZ
-.long ?IsFlock@GameThingWithPos@@UBE_NXZ
-.long ?IsDance@GameThingWithPos@@UBE_NXZ
+.long ?IsFlock@GameThingWithPos@@UBEIXZ
+.long ?IsDance@GameThingWithPos@@UBEIXZ
 
-.long ?IsReward@GameThingWithPos@@UBE_NXZ
-.long ?IsScriptContainer@GameThingWithPos@@UBE_NXZ
-.long ?IsWeather@GameThingWithPos@@UBE_NXZ
-.long ?IsSpell@GameThingWithPos@@UBE_NXZ
+.long ?IsReward@GameThingWithPos@@UBEIXZ
+.long ?IsScriptContainer@GameThingWithPos@@UBEIXZ
+.long ?IsWeather@GameThingWithPos@@UBEIXZ
+.long ?IsSpell@GameThingWithPos@@UBEIXZ
 
-.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileWallHug@GameThingWithPos@@UBE_NXZ
-.long ?IsActive@GameThingWithPos@@UBE_NXZ
+.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAEIXZ
+.long ?IsMobileWallHug@GameThingWithPos@@UBEIXZ
+.long ?IsActive@GameThingWithPos@@UBEIXZ
 .long ?IsObjectTurningTooFastForCameraToFollowSmoothly@GameThingWithPos@@UBE_NXZ
 
 .long ?CalculateWhereIWillBeAfterNSeconds@GameThingWithPos@@UAEXMPAULHPoint@@@Z
@@ -1006,41 +1006,41 @@ VftableAndRTTI WayPoint                                                         
 .long ?SetControlledByScript@GameThingWithPos@@UAEXH@Z
 
 .long ?GetDeathReason@GameThingWithPos@@UAE?AW4DEATH_REASON@@XZ
-.long ?IsInScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsFemaleVillager@GameThingWithPos@@UAE_NXZ
+.long ?IsInScript@GameThingWithPos@@UAEIXZ
+.long ?IsMaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsFemaleVillager@GameThingWithPos@@UAEIXZ
 
-.long ?IsAnimal@GameThingWithPos@@UAE_NXZ
-.long ?IsAChild@GameThingWithPos@@UAE_NXZ
-.long ?IsHouse@GameThingWithPos@@UAE_NXZ
-.long ?IsObject@GameThingWithPos@@UBE_NXZ
+.long ?IsAnimal@GameThingWithPos@@UAEIXZ
+.long ?IsAChild@GameThingWithPos@@UAEIXZ
+.long ?IsHouse@GameThingWithPos@@UAEIXZ
+.long ?IsObject@GameThingWithPos@@UBEIXZ
 
 .long ?IsFootball@GameThingWithPos@@UBE_NXZ
-.long ?IsCitadel@GameThingWithPos@@UAE_NXZ
-.long ?IsForest@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileObject@GameThingWithPos@@UAE_NXZ
+.long ?IsCitadel@GameThingWithPos@@UAEIXZ
+.long ?IsForest@GameThingWithPos@@UAEIXZ
+.long ?IsMobileObject@GameThingWithPos@@UAEIXZ
 
-.long ?IsMobileStatic@GameThingWithPos@@UAE_NXZ
-.long ?IsAnyKindOfTree@GameThingWithPos@@UAE_NXZ
-.long ?IsDeadTree@GameThingWithPos@@UAE_NXZ
-.long ?IsPileFood@GameThingWithPos@@UAE_NXZ
+.long ?IsMobileStatic@GameThingWithPos@@UAEIXZ
+.long ?IsAnyKindOfTree@GameThingWithPos@@UAEIXZ
+.long ?IsDeadTree@GameThingWithPos@@UAEIXZ
+.long ?IsPileFood@GameThingWithPos@@UAEIXZ
 
-.long ?IsFeature@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptMarker@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptHighlight@GameThingWithPos@@UAE_NXZ
-.long ?IsWonder@GameThingWithPos@@UAE_NXZ
+.long ?IsFeature@GameThingWithPos@@UAEIXZ
+.long ?IsScriptMarker@GameThingWithPos@@UAEIXZ
+.long ?IsScriptHighlight@GameThingWithPos@@UAEIXZ
+.long ?IsWonder@GameThingWithPos@@UAEIXZ
 
-.long ?IsInfluenceRing@GameThingWithPos@@UAE_NXZ
-.long ?IsPuzzleGame@GameThingWithPos@@UAE_NXZ
-.long ?IsScaffold@GameThingWithPos@@UAE_NXZ
-.long ?IsSkeleton@GameThingWithPos@@UBE_NXZ
+.long ?IsInfluenceRing@GameThingWithPos@@UAEIXZ
+.long ?IsPuzzleGame@GameThingWithPos@@UAEIXZ
+.long ?IsScaffold@GameThingWithPos@@UAEIXZ
+.long ?IsSkeleton@GameThingWithPos@@UBEIXZ
 
 .long ?IsPoisoned@GameThingWithPos@@UBE_NXZ
-.long ?IsSpeedUp@GameThingWithPos@@UAE_NXZ
-.long ?IsParticleContainer@GameThingWithPos@@UAE_NXZ
-.long ?IsSacrificeAltar@GameThingWithPos@@UAE_NXZ
+.long ?IsSpeedUp@GameThingWithPos@@UAEIXZ
+.long ?IsParticleContainer@GameThingWithPos@@UAEIXZ
+.long ?IsSacrificeAltar@GameThingWithPos@@UAEIXZ
 
-.long ?IsPot@GameThingWithPos@@UAE_NXZ
+.long ?IsPot@GameThingWithPos@@UAEIXZ
 .long ?IsComputerPlayer@GameThingWithPos@@UBE_NXZ
 .long ?CanBeThrownByPlayer@GameThingWithPos@@UBE_NXZ
 .long ?SetSkeleton@GameThingWithPos@@UAEXH@Z
@@ -1151,7 +1151,7 @@ VftableAndRTTI Workshop                                                         
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@Object@@UAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -1165,7 +1165,7 @@ VftableAndRTTI Workshop                                                         
 .long ?Get2DRadius@Object@@UAEMXZ
 .long ?GetPlayerWhoLastPickedMeUp@GameThing@@QAEPAVGPlayer@@XZ
 .long ?GetPlayerWhoLastDroppedMe@GameThing@@QAEPAVGPlayer@@XZ
-.long ?IsFootpathLink@MultiMapFixed@@UAE_NXZ, ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                       // [0xf2b90] 0x008a9000 + 0xf2b90 = 0x0099bb90
+.long ?IsFootpathLink@MultiMapFixed@@UAEIXZ, ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                       // [0xf2b90] 0x008a9000 + 0xf2b90 = 0x0099bb90
 .long ?AddFootpathLink@GameThing@@QAEXPAVGFootpath@@@Z
 .long ?GetNearestPathTo@MultiMapFixed@@UAEIPAUMapCoords@@MH@Z                                                                                                   // [0xf2b9c] 0x008a9000 + 0xf2b9c = 0x0099bb9c
 .long ?UseFootpathIfNecessary@MultiMapFixed@@UAEXPAVLiving@@PBUMapCoords@@E@Z                                                                                                   // [0xf2ba0] 0x008a9000 + 0xf2ba0 = 0x0099bba0
@@ -1245,7 +1245,7 @@ VftableAndRTTI Workshop                                                         
 .long ?GetOverwriteInteractableToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteDropToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteTapToolTip@GameThingWithPos@@UAEIXZ
-.long ?IsCastShadowAtNight@Abode@@UAE_NXZ                                                                                                   // [0xf2cc0] 0x008a9000 + 0xf2cc0 = 0x0099bcc0
+.long ?IsCastShadowAtNight@Abode@@UAEIXZ                                                                                                   // [0xf2cc0] 0x008a9000 + 0xf2cc0 = 0x0099bcc0
 .long ?CleanupWhenDeleted@Object@@UAEXH@Z
 
 .long ?GetImpressiveType@GameThingWithPos@@UAE?AW4IMPRESSIVE_TYPE@@XZ
@@ -1253,161 +1253,161 @@ VftableAndRTTI Workshop                                                         
 .long ?GetImpressiveValue@Object@@UAEMPAVLiving@@PAVReaction@@@Z
 .long ?GetUpdateOfBoredomValue@Object@@UAEMPAVReaction@@PAVGameThingWithPos@@@Z
 .long ?IsTown@GameThingWithPos@@UAE_NXZ
-.long ?IsTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTown@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?TrueFunction@GameThingWithPos@@UAE_NXZ
-.long ?FalseFunction@GameThingWithPos@@UAE_NXZ
-.long ?IsNotLiving@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAE_NXZ
+.long ?TrueFunction@GameThingWithPos@@UAEIXZ
+.long ?FalseFunction@GameThingWithPos@@UAEIXZ
+.long ?IsNotLiving@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAEIXZ
 
-.long ?IsTownCentre@GameThingWithPos@@UAE_NXZ
-.long ?IsTotemStatue@GameThingWithPos@@UAE_NXZ
-.long ?IsTownDesireFlag@GameThingWithPos@@UAE_NXZ
-.long ?IsRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTownCentre@GameThingWithPos@@UAEIXZ
+.long ?IsTotemStatue@GameThingWithPos@@UAEIXZ
+.long ?IsTownDesireFlag@GameThingWithPos@@UAEIXZ
+.long ?IsRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsRock@GameThingWithPos@@UAE_NXZ
-.long ?IsSpellDispenser@GameThingWithPos@@UAE_NXZ
-.long ?IsMist@GameThingWithPos@@UAE_NXZ
-.long ?IsQueryIcon@GameThingWithPos@@UAE_NXZ
+.long ?IsSpellDispenser@GameThingWithPos@@UAEIXZ
+.long ?IsMist@GameThingWithPos@@UAEIXZ
+.long ?IsQueryIcon@GameThingWithPos@@UAEIXZ
 
-.long ?IsStreetLight@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLantern@GameThingWithPos@@UAE_NXZ
-.long ?IsAbode@Abode@@UAE_NXZ
-.long ?IsField@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStreetLight@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLantern@GameThingWithPos@@UAEIXZ
+.long ?IsAbode@Abode@@UAEIXZ
+.long ?IsField@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsField@GameThingWithPos@@UAE_NXZ
-.long ?IsBuildingMaterial@Object@@UAE_NXZ
-.long ?IsMagicFireBall@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureAction@Object@@UAE_NXZ
+.long ?IsBuildingMaterial@Object@@UAEIXZ
+.long ?IsMagicFireBall@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureAction@Object@@UAEIXZ
 
-.long ?IsCitadelHeart@GameThingWithPos@@UAE_NXZ
-.long ?IsDamaged@GameThingWithPos@@UAE_NXZ
-.long ?CanBeHealedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeEatenByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanCreatureEatMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeAttackedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeFrighteningToCreature@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeHelpedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePlayedWithByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeImpressedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeInspectedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodUponByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelHeart@GameThingWithPos@@UAEIXZ
+.long ?IsDamaged@GameThingWithPos@@UAEIXZ
+.long ?CanBeHealedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeEatenByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanCreatureEatMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeAttackedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeFrighteningToCreature@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeHelpedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePlayedWithByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeImpressedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeInspectedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePoodUponByCreature@Object@@UAEIPAVCreature@@@Z
 
-.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSleptNextToByCreature@Fixed@@UAE_NPAVCreature@@@Z, ?CanBePickedUpByCreature@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStrokedByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSleptNextToByCreature@Fixed@@UAEIPAVCreature@@@Z, ?CanBePickedUpByCreature@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStrokedByCreature@Object@@UAEIPAVCreature@@@Z
 
-.long ?CanBeKissedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSetOnFire@Fixed@@UAE_NPAVCreature@@@Z, ?CanBeStompedOnByCreature@Abode@@UAE_NPAVCreature@@@Z
-.long ?CanBeThrownByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?CanBeKissedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSetOnFire@Fixed@@UAEIPAVCreature@@@Z, ?CanBeStompedOnByCreature@Abode@@UAEIPAVCreature@@@Z
+.long ?CanBeThrownByCreature@Object@@UAEIPAVCreature@@@Z
 
-.long ?CanBeGivenToVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInAStoragePit@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeDestroyedByStoning@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeExaminedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeFoughtByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanReceiveGifts@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeGivenToVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInAStoragePit@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeDestroyedByStoning@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeExaminedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeFoughtByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanReceiveGifts@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?CanActAsAContainer@Workshop@@UAEIPAVCreature@@@Z
-.long ?IsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z, ?NeedsRepair@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsOnFire@Object@@UAE_NPAVCreature@@@Z
-.long ?IsNotOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z, ?NeedsRepair@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsOnFire@Object@@UAEIPAVCreature@@@Z
+.long ?IsNotOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedForBuilding@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsMushroom@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedForBuilding@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsMushroom@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToTown@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInFoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInWoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInFoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePutInWoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtBackToCitadel@Object@@UAE_NPAVCreature@@@Z
-.long ?IsVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerFarFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtBackToCitadel@Object@@UAEIPAVCreature@@@Z
+.long ?IsVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerFarFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCow@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodOn@Object@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCow@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodOn@Object@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDominantCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDancedWith@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDominantCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDancedWith@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsStoragePit@Workshop@@UAEIPAVCreature@@@Z
 .long ?IsWorshipSite@GameThingWithPos@@UAE_NXZ
-.long ?IsWorshipSite@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorshipSite@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?GetWorshipSite@GameThingWithPos@@UAEPAUWorshipSite@@XZ
 .long ?IsWorkshop@Workshop@@UAEIXZ
 .long ?IsWorkshop@Workshop@@UAEIPAVCreature@@@Z
-.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsTree@GameThingWithPos@@UAE_NXZ
-.long ?IsTree@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTree@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPickupableRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPickupableRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsCitadelPart@GameThingWithPos@@UAE_NXZ
 
-.long ?IsCitadelPart@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootball@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelPart@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootball@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKickedByCreature@Abode@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKickedByCreature@Abode@@UAEIPAVCreature@@@Z
 
-.long ?CanBeStolenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableScaffold@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeStolenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableScaffold@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsToyAwayFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToy@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyBall@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyDie@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsToyAwayFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToy@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyBall@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyDie@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsToyCuddly@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?IsLiving@GameThingWithPos@@UBE_NXZ
-.long ?IsLiving@GameThingWithPos@@UBE_NPAVCreature@@@Z
+.long ?IsLiving@GameThingWithPos@@UBEIPAVCreature@@@Z
 .long ?IsFence@GameThingWithPos@@UBE_NXZ
 
 .long ?IsSpellIcon@GameThingWithPos@@UBE_NXZ
@@ -1417,17 +1417,17 @@ VftableAndRTTI Workshop                                                         
 
 .long ?CanBeThrownInTheSeaPlayfully@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?GetCreatureMimicType@Abode@@UAEIXZ, ?GetHowMuchCreatureWantsToLookAtMe@Abode@@UAEMXZ
-.long ?IsFlock@GameThingWithPos@@UBE_NXZ
+.long ?IsFlock@GameThingWithPos@@UBEIXZ
 
-.long ?IsDance@GameThingWithPos@@UBE_NXZ
-.long ?IsReward@GameThingWithPos@@UBE_NXZ
-.long ?IsScriptContainer@GameThingWithPos@@UBE_NXZ
-.long ?IsWeather@GameThingWithPos@@UBE_NXZ
+.long ?IsDance@GameThingWithPos@@UBEIXZ
+.long ?IsReward@GameThingWithPos@@UBEIXZ
+.long ?IsScriptContainer@GameThingWithPos@@UBEIXZ
+.long ?IsWeather@GameThingWithPos@@UBEIXZ
 
-.long ?IsSpell@GameThingWithPos@@UBE_NXZ
-.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileWallHug@GameThingWithPos@@UBE_NXZ
-.long ?IsActive@GameThingWithPos@@UBE_NXZ
+.long ?IsSpell@GameThingWithPos@@UBEIXZ
+.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAEIXZ
+.long ?IsMobileWallHug@GameThingWithPos@@UBEIXZ
+.long ?IsActive@GameThingWithPos@@UBEIXZ
 
 .long ?IsObjectTurningTooFastForCameraToFollowSmoothly@GameThingWithPos@@UBE_NXZ
 .long ?CalculateWhereIWillBeAfterNSeconds@Abode@@UAEXMPAULHPoint@@@Z
@@ -1446,39 +1446,39 @@ VftableAndRTTI Workshop                                                         
 
 .long ?SetControlledByScript@GameThingWithPos@@UAEXH@Z
 .long ?GetDeathReason@GameThingWithPos@@UAE?AW4DEATH_REASON@@XZ
-.long ?IsInScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMaleVillager@GameThingWithPos@@UAE_NXZ
+.long ?IsInScript@GameThingWithPos@@UAEIXZ
+.long ?IsMaleVillager@GameThingWithPos@@UAEIXZ
 
-.long ?IsFemaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsAnimal@GameThingWithPos@@UAE_NXZ
-.long ?IsAChild@GameThingWithPos@@UAE_NXZ
-.long ?IsHouse@Abode@@UAE_NXZ
+.long ?IsFemaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsAnimal@GameThingWithPos@@UAEIXZ
+.long ?IsAChild@GameThingWithPos@@UAEIXZ
+.long ?IsHouse@Abode@@UAEIXZ
 .long ?IsObject@Object@@UAE_NXZ
 .long ?IsFootball@GameThingWithPos@@UBE_NXZ
-.long ?IsCitadel@GameThingWithPos@@UAE_NXZ
-.long ?IsForest@GameThingWithPos@@UAE_NXZ
+.long ?IsCitadel@GameThingWithPos@@UAEIXZ
+.long ?IsForest@GameThingWithPos@@UAEIXZ
 
-.long ?IsMobileObject@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileStatic@GameThingWithPos@@UAE_NXZ
-.long ?IsAnyKindOfTree@GameThingWithPos@@UAE_NXZ
-.long ?IsDeadTree@GameThingWithPos@@UAE_NXZ
+.long ?IsMobileObject@GameThingWithPos@@UAEIXZ
+.long ?IsMobileStatic@GameThingWithPos@@UAEIXZ
+.long ?IsAnyKindOfTree@GameThingWithPos@@UAEIXZ
+.long ?IsDeadTree@GameThingWithPos@@UAEIXZ
 
-.long ?IsPileFood@GameThingWithPos@@UAE_NXZ
-.long ?IsFeature@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptMarker@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptHighlight@GameThingWithPos@@UAE_NXZ
-.long ?IsWonder@Abode@@UAE_NXZ
-.long ?IsInfluenceRing@GameThingWithPos@@UAE_NXZ
-.long ?IsPuzzleGame@GameThingWithPos@@UAE_NXZ
-.long ?IsScaffold@GameThingWithPos@@UAE_NXZ
+.long ?IsPileFood@GameThingWithPos@@UAEIXZ
+.long ?IsFeature@GameThingWithPos@@UAEIXZ
+.long ?IsScriptMarker@GameThingWithPos@@UAEIXZ
+.long ?IsScriptHighlight@GameThingWithPos@@UAEIXZ
+.long ?IsWonder@Abode@@UAEIXZ
+.long ?IsInfluenceRing@GameThingWithPos@@UAEIXZ
+.long ?IsPuzzleGame@GameThingWithPos@@UAEIXZ
+.long ?IsScaffold@GameThingWithPos@@UAEIXZ
 
-.long ?IsSkeleton@GameThingWithPos@@UBE_NXZ
+.long ?IsSkeleton@GameThingWithPos@@UBEIXZ
 .long ?IsPoisoned@GameThingWithPos@@UBE_NXZ
-.long ?IsSpeedUp@GameThingWithPos@@UAE_NXZ
-.long ?IsParticleContainer@GameThingWithPos@@UAE_NXZ
+.long ?IsSpeedUp@GameThingWithPos@@UAEIXZ
+.long ?IsParticleContainer@GameThingWithPos@@UAEIXZ
 
-.long ?IsSacrificeAltar@GameThingWithPos@@UAE_NXZ
-.long ?IsPot@GameThingWithPos@@UAE_NXZ
+.long ?IsSacrificeAltar@GameThingWithPos@@UAEIXZ
+.long ?IsPot@GameThingWithPos@@UAEIXZ
 .long ?IsComputerPlayer@GameThingWithPos@@UBE_NXZ
 .long ?CanBeThrownByPlayer@GameThingWithPos@@UBE_NXZ
 
@@ -1521,15 +1521,15 @@ VftableAndRTTI Workshop                                                         
 .long ?RemoveMapObject@MultiMapFixed@@UAEXXZ                                                                                                   // [0xf3068] 0x008a9000 + 0xf3068 = 0x0099c068
 .long ?InsertMapObjectToCell@Fixed@@UAEXPAUMapCell@@@Z
 .long ?RemoveMapObjectFromCell@Object@@UAEXPAUMapCell@@@Z
-.long ?IsObjectInMap@Object@@UAE_NPAUMapCell@@@Z
+.long ?IsObjectInMap@Object@@UAEIPAUMapCell@@@Z
 .long ?IsObjectInMapCheck@Object@@UAE_NXZ
 .long ?MoveMapObject@MultiMapFixed@@UAEHPAUMapCoords@@@Z
 .long ?ActualMoveMapObject@Object@@UAEXUMapCoords@@@Z
 .long ?GetPtr@Object@@UAEPAV1@XZ
 .long ?GetMeshRadius@Object@@UAEMXZ
 .long ?Get3DObjectForPSys@Object@@UAEPAVGame3DObject@@XZ
-.long ?GetPSysFireFlameMatrix@Object@@UAE_NPAULHMatrix@@@Z
-.long ?GetPSysFireLocalRndFlamePos@Abode@@UAE_NPAULHPoint@@PAH@Z
+.long ?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z
+.long ?GetPSysFireLocalRndFlamePos@Abode@@UAEIPAULHPoint@@PAH@Z
 .long ?GetPSysFireWorldFlamePos@Object@@UAE_NPBULHPoint@@HPAU2@@Z
 .long ?GetPSysFireLocalFlameScale@Object@@UAEMXZ
 .long ?GetPSysFireMaxFlames@Object@@UAEIXZ
@@ -1539,7 +1539,7 @@ VftableAndRTTI Workshop                                                         
 .long ?GetHoldRadius@Object@@UAEMXZ
 .long ?GetHoldLoweringMultiplier@Object@@UAEMXZ
 .long ?GetHoldYRotate@Object@@UAEMXZ
-.long ?HandShouldFeelWithMeshIntersect@Object@@UAE_NXZ
+.long ?HandShouldFeelWithMeshIntersect@Object@@UAEIXZ
 .long ?SetSpecularColor@Object@@UAEXULH3DColor@@@Z
 .long ?GetSpecularColor@Object@@UAE?AULH3DColor@@XZ
 .long ?SetBeliefSprite@Object@@UAEXPAVLH3DSprite@@@Z
@@ -1574,12 +1574,12 @@ VftableAndRTTI Workshop                                                         
 .long ?ProcessState@Object@@UAEIXZ
 .long ?GetProjectileSpeed@Object@@UAEMXZ
 .long ?CanBePickedUp@Object@@UAE_NXZ
-.long ?CanBeCrushed@Fixed@@UAE_NXZ
+.long ?CanBeCrushed@Fixed@@UAEIXZ
 .long ?GetTopPos@Object@@UAEMXZ
 .long ?GetVillagerHugRadius@Object@@UAEMXZ
 .long ?GetWeight@Object@@UAEMXZ
 .long ?GetWorldMatrix@Object@@UAEXPAULHMatrix@@@Z
-.long ?CanBeSuckedIntoVortex@Object@@UAE_NPAVLandscapeVortex@@@Z
+.long ?CanBeSuckedIntoVortex@Object@@UAEIPAVLandscapeVortex@@@Z
 .long ?GetDiscipleStateIfInteractedWith@Workshop@@UAEIPAVGInterfaceStatus@@PAVVillager@@@Z
 .long ?GetWorkingPos@Object@@UAEPAUMapCoords@@PAU2@PAV1@@Z
 .long ?GetHeightForHandAboveInteractObject@Object@@UAEMXZ
@@ -1592,11 +1592,11 @@ VftableAndRTTI Workshop                                                         
 .long ?GetFoodType@Object@@UAE?AW4FOOD_TYPE@@XZ
 .long ?GetImpressiveValue@Object@@UAEMXZ
 .long ?IsSpellSeedReturnPoint@Object@@UAE_NXZ
-.long ?IsABeliever@Object@@UAE_NXZ
+.long ?IsABeliever@Object@@UAEIXZ
 .long ?AsMultiMapFixed@MultiMapFixed@@UAEPAV1@XZ
 .long ?ApplyWaterSpell@Object@@UAEMPAVSpellWater@@@Z
-.long ?IsResourceStore@Workshop@@UAE_NW4RESOURCE_TYPE@@@Z
-.long ?DeleteObjectAndTakeResource@Workshop@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.long ?IsResourceStore@Workshop@@UAEIW4RESOURCE_TYPE@@@Z
+.long ?DeleteObjectAndTakeResource@Workshop@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .long ?GetRadiusMultiplierForApplyingPotToPos@Object@@UAEMXZ
 .long ?DoCreatureMimicAfterAddingResource@Workshop@@UAE_NW4RESOURCE_TYPE@@AAVGInterfaceStatus@@@Z                                                               // [0xf31a0] 0x008a9000 + 0xf31a0 = 0x0099c1a0
 .long ?GetResourceType@Object@@UAE?AW4RESOURCE_TYPE@@XZ
@@ -1604,9 +1604,9 @@ VftableAndRTTI Workshop                                                         
 .long ?SetPoisonedResource@Object@@UAEXW4RESOURCE_TYPE@@H@Z
 .long ?SetPoisoned@Object@@UAEXH@Z
 .long ?IsLockedInInteract@Object@@UAE_NXZ
-.long ?SetDying@Object@@UAE_NXZ
-.long ?IsAttackable@Object@@UAE_NPAV1@@Z
-.long ?IsAllied@Object@@UAE_NPAV1@@Z
+.long ?SetDying@Object@@UAEIXZ
+.long ?IsAttackable@Object@@UAEIPAV1@@Z
+.long ?IsAllied@Object@@UAEIPAV1@@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@0@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@@Z
 .long ?IsTouching@Object@@UAE_NPAV1@M@Z
@@ -1614,26 +1614,26 @@ VftableAndRTTI Workshop                                                         
 .long ?EndOnFire@Object@@UAEXXZ
 .long ?GetDistanceFromObject@Object@@UAEMPAV1@@Z
 .long ?GetTribalPower@Object@@UAEMW4TRIBE_TYPE@@@Z
-.long ?ValidForLockedSelectProcess@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?NetworkFriendlyStartLockedSelect@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAE_NXZ
+.long ?ValidForLockedSelectProcess@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?NetworkFriendlyStartLockedSelect@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAEIXZ
 .long ?NetworkUnfriendlyLockedSelect@Object@@UAE_NPAVControlHandUpdateInfo@@@Z
-.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkFriendlyEndLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?ValidAsInterfaceTarget@Object@@UAE_NXZ
-.long ?ValidAsInterfaceLeashTarget@Object@@UAE_NXZ
-.long ?SelectOnlyAfterRecSystem@Object@@UAE_NXZ
-.long ?ValidForPlaceInHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetInMagicHand@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetOutMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
+.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkFriendlyEndLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?ValidAsInterfaceTarget@Object@@UAEIXZ
+.long ?ValidAsInterfaceLeashTarget@Object@@UAEIXZ
+.long ?SelectOnlyAfterRecSystem@Object@@UAEIXZ
+.long ?ValidForPlaceInHand@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetInMagicHand@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetOutMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?ValidToRemoveFromHand@Object@@UAE_NPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?RemoveFromHand@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
-.long ?ValidToShakeFromHand@Object@@UAE_NXZ
-.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAE_NXZ
-.long ?IsTuggable@Object@@UAE_NXZ
+.long ?ValidToShakeFromHand@Object@@UAEIXZ
+.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAEIXZ
+.long ?IsTuggable@Object@@UAEIXZ
 .long ?ValidToApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z
 .long ?ApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@PAVGestureSystemPacketData@@@Z
 .long ?ValidToApplyThisToMapCoord@Object@@UAEIPAVGInterfaceStatus@@PAUMapCoords@@@Z
@@ -1655,8 +1655,8 @@ VftableAndRTTI Workshop                                                         
 .long ?ApplyFightThisToMapCoord@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?ValidToFightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?FightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z
-.long ?IsEffectReceiver@Object@@UAE_NPAVEffectValues@@@Z
-.long ?CanBeDestroyedBySpell@Object@@UAE_NPAVSpell@@@Z
+.long ?IsEffectReceiver@Object@@UAEIPAVEffectValues@@@Z
+.long ?CanBeDestroyedBySpell@Object@@UAEIPAVSpell@@@Z
 .long ?GetImportance@Object@@UAEMXZ
 .long ?InitialisePhysicsFromHand@Object@@UAEIPAULHPoint@@0PAVGInterfaceStatus@@PAV1@H@Z
 .long ?InitialisePhysics@Object@@UAEIPBULHPoint@@0PAV1@_NPAVGInterfaceStatus@@@Z
@@ -1672,21 +1672,21 @@ VftableAndRTTI Workshop                                                         
 .long ?CanBecomeAPhysicsObject@Abode@@UAE_NXZ
 .long ?GetAlwaysRemainsInPhysicsInternalSystem@Object@@UAE_NXZ
 .long ?HasSunk@Object@@UAE_NXZ
-.long ?CreatureMustAvoid@MultiMapFixed@@UAE_NPAVCreature@@@Z
+.long ?CreatureMustAvoid@MultiMapFixed@@UAEIPAVCreature@@@Z
 .long ?AddToRoutePlan@Object@@UAEXPAVRPHolder@@PAVCreature@@HP6AXHUPoint2D@@MH@Z@Z
 .long ?GetRoutePlanRadius@Object@@UAEMPAVCreature@@@Z
-.long ?VillagerMustAvoid@Fixed@@UAE_NPAVVillager@@@Z
+.long ?VillagerMustAvoid@Fixed@@UAEIPAVVillager@@@Z
 .long ?IsFireMan@Object@@UAE_NXZ
 .long ?IsARootedObject@Object@@UAE_NXZ
 .long ?GetCollideSoundType@Object@@UAE?AW4SOUND_COLLISION_TYPE@@XZ
-.long ?IsSolidToNewAbode@MultiMapFixed@@UAE_NXZ
+.long ?IsSolidToNewAbode@MultiMapFixed@@UAEIXZ
 .long ?RemoveFromGame@Object@@UAEIXZ
 .long ?GetLandingPointCount@Object@@UAEHXZ
-.long ?GetLandingPoint@Object@@UAE_NEPAULHPoint@@@Z
+.long ?GetLandingPoint@Object@@UAEIEPAULHPoint@@@Z
 .long ?GetTastiness@Object@@UAEIXZ
 .long ?IsScary@Object@@UAE_NXZ
-.long ?GetInspectObjectPos@Abode@@UAE_NPAVVillager@@PAUMapCoords@@@Z, ?DiscipleInHandNear@Abode@@UAEXPAVVillager@@PAVGInterfaceStatus@@@Z, ?GetSpecialPos@Fixed@@UAE_NIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ                                                               // [0xf3310] 0x008a9000 + 0xf3310 = 0x0099c310
-.long ?IsTownArtifact@Fixed@@UAE_NXZ
+.long ?GetInspectObjectPos@Abode@@UAEIPAVVillager@@PAUMapCoords@@@Z, ?DiscipleInHandNear@Abode@@UAEXPAVVillager@@PAVGInterfaceStatus@@@Z, ?GetSpecialPos@Fixed@@UAEIIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ                                                               // [0xf3310] 0x008a9000 + 0xf3310 = 0x0099c310
+.long ?IsTownArtifact@Fixed@@UAEIXZ
 .long ?ProcessInHand@Object@@UAE_NXZ
 .long ?ProcessInInteract@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?GetObjectCollide@Object@@UAEIXZ
@@ -1713,7 +1713,7 @@ VftableAndRTTI Workshop                                                         
 .long ?IsObjectFullyInMap@MultiMapFixed@@UAE_NXZ                                                                                                   // [0xf3380] 0x008a9000 + 0xf3380 = 0x0099c380
 .long ?GetDoorPos@MultiMapFixed@@UAEPAUMapCoords@@PAU2@@Z
 .long ?GetInfluence@Abode@@UAEMXZ, ?IsPlaytimeStructure@MultiMapFixed@@UAE_NXZ                                                                                       // [0xf3388] 0x008a9000 + 0xf3388 = 0x0099c388
-.long ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ, ?AddPlaytimeVillager@MultiMapFixed@@UAE_NPAVVillager@@@Z, ?CheckMapObject@MultiMapFixed@@UAEXXZ, ?GetResourceDropPosForComputerPlayer@MultiMapFixed@@UAEXPAUMapCoords@@@Z                                                               // [0xf3390] 0x008a9000 + 0xf3390 = 0x0099c390
+.long ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ, ?AddPlaytimeVillager@MultiMapFixed@@UAEIPAVVillager@@@Z, ?CheckMapObject@MultiMapFixed@@UAEXXZ, ?GetResourceDropPosForComputerPlayer@MultiMapFixed@@UAEXPAUMapCoords@@@Z                                                               // [0xf3390] 0x008a9000 + 0xf3390 = 0x0099c390
 .long ?GetPercentBuilt@MultiMapFixed@@UAEMXZ, ?GetPercentRepaired@MultiMapFixed@@UAEMXZ, ?GetPercentRepairedFromWhenDamaged@MultiMapFixed@@UAEMXZ, ?IsRepaired@Abode@@UAE_NXZ                                                               // [0xf33a0] 0x008a9000 + 0xf33a0 = 0x0099c3a0
 .long ?IsBuilt@Abode@@UAE_NXZ, ?GetPercentRepairedForNonFunctional@Abode@@UAEMXZ, ?GetPercentForDrawBuilding@MultiMapFixed@@UAEMXZ, ?GetPercentAbodeFullWithAdults@Abode@@UAEMXZ                                                               // [0xf33b0] 0x008a9000 + 0xf33b0 = 0x0099c3b0
 .long ?GetPercentAbodeFullWithChildren@Abode@@UAEMXZ, ?IsDrawBuilding@MultiMapFixed@@UAE_NXZ, ?Built@Abode@@UAE_NXZ, ?Repaired@Abode@@UAE_NXZ                                                               // [0xf33c0] 0x008a9000 + 0xf33c0 = 0x0099c3c0
@@ -1767,7 +1767,7 @@ VftableAndRTTI PlannedWorshipSite                                               
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@GameThing@@QAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -1866,7 +1866,7 @@ VftableAndRTTI PlannedWorshipSite                                               
 .long ?GetOverwriteDropToolTip@GameThingWithPos@@UAEIXZ
 
 .long ?GetOverwriteTapToolTip@GameThingWithPos@@UAEIXZ
-.long ?IsCastShadowAtNight@GameThingWithPos@@UAE_NXZ
+.long ?IsCastShadowAtNight@GameThingWithPos@@UAEIXZ
 .long ?CleanupWhenDeleted@GameThingWithPos@@UAEXH@Z
 .long ?GetImpressiveType@GameThingWithPos@@UAE?AW4IMPRESSIVE_TYPE@@XZ
 
@@ -1875,170 +1875,170 @@ VftableAndRTTI PlannedWorshipSite                                               
 .long ?GetUpdateOfBoredomValue@GameThingWithPos@@UAEMPAUReaction@@PAV1@@Z
 .long ?IsTown@GameThingWithPos@@UAE_NXZ
 
-.long ?IsTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?TrueFunction@GameThingWithPos@@UAE_NXZ
-.long ?FalseFunction@GameThingWithPos@@UAE_NXZ
-.long ?IsNotLiving@GameThingWithPos@@UAE_NXZ
+.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?TrueFunction@GameThingWithPos@@UAEIXZ
+.long ?FalseFunction@GameThingWithPos@@UAEIXZ
+.long ?IsNotLiving@GameThingWithPos@@UAEIXZ
 
-.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAE_NXZ
-.long ?IsTownCentre@GameThingWithPos@@UAE_NXZ
-.long ?IsTotemStatue@GameThingWithPos@@UAE_NXZ
-.long ?IsTownDesireFlag@GameThingWithPos@@UAE_NXZ
+.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAEIXZ
+.long ?IsTownCentre@GameThingWithPos@@UAEIXZ
+.long ?IsTotemStatue@GameThingWithPos@@UAEIXZ
+.long ?IsTownDesireFlag@GameThingWithPos@@UAEIXZ
 
-.long ?IsRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsRock@GameThingWithPos@@UAE_NXZ
-.long ?IsSpellDispenser@GameThingWithPos@@UAE_NXZ
-.long ?IsMist@GameThingWithPos@@UAE_NXZ
+.long ?IsSpellDispenser@GameThingWithPos@@UAEIXZ
+.long ?IsMist@GameThingWithPos@@UAEIXZ
 
-.long ?IsQueryIcon@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLight@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLantern@GameThingWithPos@@UAE_NXZ
-.long ?IsAbode@GameThingWithPos@@UAE_NXZ
+.long ?IsQueryIcon@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLight@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLantern@GameThingWithPos@@UAEIXZ
+.long ?IsAbode@GameThingWithPos@@UAEIXZ
 
-.long ?IsField@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsField@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsField@GameThingWithPos@@UAE_NXZ
-.long ?IsBuildingMaterial@GameThingWithPos@@UAE_NXZ
-.long ?IsMagicFireBall@GameThingWithPos@@UAE_NXZ
+.long ?IsBuildingMaterial@GameThingWithPos@@UAEIXZ
+.long ?IsMagicFireBall@GameThingWithPos@@UAEIXZ
 
-.long ?IsSuitableForCreatureAction@GameThingWithPos@@UAE_NXZ
-.long ?IsCitadelHeart@GameThingWithPos@@UAE_NXZ
-.long ?IsDamaged@GameThingWithPos@@UAE_NXZ
-.long ?CanBeHealedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsSuitableForCreatureAction@GameThingWithPos@@UAEIXZ
+.long ?IsCitadelHeart@GameThingWithPos@@UAEIXZ
+.long ?IsDamaged@GameThingWithPos@@UAEIXZ
+.long ?CanBeHealedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanCreatureEatMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeAttackedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeFrighteningToCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanCreatureEatMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeAttackedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeFrighteningToCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeHelpedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePlayedWithByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeImpressedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeInspectedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeHelpedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePlayedWithByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeImpressedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeInspectedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBePoodUponByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSleptNextToByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePickedUpByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBePoodUponByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSleptNextToByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePickedUpByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeStrokedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKissedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSetOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStompedOnByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeStrokedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKissedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSetOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStompedOnByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeThrownByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInAStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDestroyedByStoning@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeThrownByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInAStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDestroyedByStoning@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeExaminedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeFoughtByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanReceiveGifts@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeExaminedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeFoughtByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanReceiveGifts@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanActAsAContainer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBeingBuilt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?NeedsRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanActAsAContainer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBeingBuilt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?NeedsRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsNotOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuilding@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsMushroom@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsNotOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuilding@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsMushroom@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeGivenToTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInFoodPile@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInWoodPile@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeGivenToTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInFoodPile@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInWoodPile@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtBackToCitadel@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtBackToCitadel@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerFarFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerFarFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsCow@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodOn@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCow@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodOn@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDominantCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDancedWith@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDominantCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDancedWith@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsWorshipSite@GameThingWithPos@@UAE_NXZ
-.long ?IsWorshipSite@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorshipSite@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?GetWorshipSite@GameThingWithPos@@UAEPAUWorshipSite@@XZ
 .long ?IsWorkshop@GameThingWithPos@@UAE_NXZ
-.long ?IsWorkshop@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBuildingWhichIsBeingBuilt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorkshop@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBuildingWhichIsBeingBuilt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsTree@GameThingWithPos@@UAE_NXZ
 
-.long ?IsTree@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTree@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPickupableRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPickupableRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsCitadelPart@GameThingWithPos@@UAE_NXZ
-.long ?IsCitadelPart@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootball@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelPart@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootball@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeKickedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStolenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeKickedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStolenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStealableScaffold@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStealableScaffold@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyAwayFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToy@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyBall@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyAwayFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToy@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyBall@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsToyDie@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsToyDie@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsToyCuddly@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?IsLiving@GameThingWithPos@@UBE_NXZ
-.long ?IsLiving@GameThingWithPos@@UBE_NPAVCreature@@@Z
+.long ?IsLiving@GameThingWithPos@@UBEIPAVCreature@@@Z
 
 .long ?IsFence@GameThingWithPos@@UBE_NXZ
 .long ?IsSpellIcon@GameThingWithPos@@UBE_NXZ
@@ -2050,17 +2050,17 @@ VftableAndRTTI PlannedWorshipSite                                               
 .long ?GetCreatureMimicType@GameThingWithPos@@UBEIXZ
 .long ?GetHowMuchCreatureWantsToLookAtMe@GameThingWithPos@@UAEMXZ
 
-.long ?IsFlock@GameThingWithPos@@UBE_NXZ
-.long ?IsDance@GameThingWithPos@@UBE_NXZ
-.long ?IsReward@GameThingWithPos@@UBE_NXZ
-.long ?IsScriptContainer@GameThingWithPos@@UBE_NXZ
+.long ?IsFlock@GameThingWithPos@@UBEIXZ
+.long ?IsDance@GameThingWithPos@@UBEIXZ
+.long ?IsReward@GameThingWithPos@@UBEIXZ
+.long ?IsScriptContainer@GameThingWithPos@@UBEIXZ
 
-.long ?IsWeather@GameThingWithPos@@UBE_NXZ
-.long ?IsSpell@GameThingWithPos@@UBE_NXZ
-.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileWallHug@GameThingWithPos@@UBE_NXZ
+.long ?IsWeather@GameThingWithPos@@UBEIXZ
+.long ?IsSpell@GameThingWithPos@@UBEIXZ
+.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAEIXZ
+.long ?IsMobileWallHug@GameThingWithPos@@UBEIXZ
 
-.long ?IsActive@GameThingWithPos@@UBE_NXZ
+.long ?IsActive@GameThingWithPos@@UBEIXZ
 .long ?IsObjectTurningTooFastForCameraToFollowSmoothly@GameThingWithPos@@UBE_NXZ
 .long ?CalculateWhereIWillBeAfterNSeconds@GameThingWithPos@@UAEXMPAULHPoint@@@Z
 .long ?AttitudeToCreatureEating@GameThingWithPos@@UAEIXZ
@@ -2077,41 +2077,41 @@ VftableAndRTTI PlannedWorshipSite                                               
 .long ?SetInScript@GameThingWithPos@@UAEXH@Z
 .long ?SetControlledByScript@GameThingWithPos@@UAEXH@Z
 .long ?GetDeathReason@GameThingWithPos@@UAE?AW4DEATH_REASON@@XZ
-.long ?IsInScript@GameThingWithPos@@UAE_NXZ
+.long ?IsInScript@GameThingWithPos@@UAEIXZ
 
-.long ?IsMaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsFemaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsAnimal@GameThingWithPos@@UAE_NXZ
-.long ?IsAChild@GameThingWithPos@@UAE_NXZ
+.long ?IsMaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsFemaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsAnimal@GameThingWithPos@@UAEIXZ
+.long ?IsAChild@GameThingWithPos@@UAEIXZ
 
-.long ?IsHouse@GameThingWithPos@@UAE_NXZ
-.long ?IsObject@GameThingWithPos@@UBE_NXZ
+.long ?IsHouse@GameThingWithPos@@UAEIXZ
+.long ?IsObject@GameThingWithPos@@UBEIXZ
 .long ?IsFootball@GameThingWithPos@@UBE_NXZ
-.long ?IsCitadel@GameThingWithPos@@UAE_NXZ
+.long ?IsCitadel@GameThingWithPos@@UAEIXZ
 
-.long ?IsForest@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileObject@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileStatic@GameThingWithPos@@UAE_NXZ
-.long ?IsAnyKindOfTree@GameThingWithPos@@UAE_NXZ
+.long ?IsForest@GameThingWithPos@@UAEIXZ
+.long ?IsMobileObject@GameThingWithPos@@UAEIXZ
+.long ?IsMobileStatic@GameThingWithPos@@UAEIXZ
+.long ?IsAnyKindOfTree@GameThingWithPos@@UAEIXZ
 
-.long ?IsDeadTree@GameThingWithPos@@UAE_NXZ
-.long ?IsPileFood@GameThingWithPos@@UAE_NXZ
-.long ?IsFeature@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptMarker@GameThingWithPos@@UAE_NXZ
+.long ?IsDeadTree@GameThingWithPos@@UAEIXZ
+.long ?IsPileFood@GameThingWithPos@@UAEIXZ
+.long ?IsFeature@GameThingWithPos@@UAEIXZ
+.long ?IsScriptMarker@GameThingWithPos@@UAEIXZ
 
-.long ?IsScriptHighlight@GameThingWithPos@@UAE_NXZ
-.long ?IsWonder@PlannedMultiMapFixed@@UAE_NXZ
-.long ?IsInfluenceRing@GameThingWithPos@@UAE_NXZ
-.long ?IsPuzzleGame@GameThingWithPos@@UAE_NXZ
+.long ?IsScriptHighlight@GameThingWithPos@@UAEIXZ
+.long ?IsWonder@PlannedMultiMapFixed@@UAEIXZ
+.long ?IsInfluenceRing@GameThingWithPos@@UAEIXZ
+.long ?IsPuzzleGame@GameThingWithPos@@UAEIXZ
 
-.long ?IsScaffold@GameThingWithPos@@UAE_NXZ
-.long ?IsSkeleton@GameThingWithPos@@UBE_NXZ
+.long ?IsScaffold@GameThingWithPos@@UAEIXZ
+.long ?IsSkeleton@GameThingWithPos@@UBEIXZ
 .long ?IsPoisoned@GameThingWithPos@@UBE_NXZ
-.long ?IsSpeedUp@GameThingWithPos@@UAE_NXZ
+.long ?IsSpeedUp@GameThingWithPos@@UAEIXZ
 
-.long ?IsParticleContainer@GameThingWithPos@@UAE_NXZ
-.long ?IsSacrificeAltar@GameThingWithPos@@UAE_NXZ
-.long ?IsPot@GameThingWithPos@@UAE_NXZ
+.long ?IsParticleContainer@GameThingWithPos@@UAEIXZ
+.long ?IsSacrificeAltar@GameThingWithPos@@UAEIXZ
+.long ?IsPot@GameThingWithPos@@UAEIXZ
 .long ?IsComputerPlayer@GameThingWithPos@@UBE_NXZ
 
 .long ?CanBeThrownByPlayer@GameThingWithPos@@UBE_NXZ
@@ -2174,7 +2174,7 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@Object@@UAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -2188,7 +2188,7 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?Get2DRadius@Object@@UAEMXZ
 .long ?GetPlayerWhoLastPickedMeUp@GameThing@@QAEPAVGPlayer@@XZ
 .long ?GetPlayerWhoLastDroppedMe@GameThing@@QAEPAVGPlayer@@XZ
-.long ?IsFootpathLink@MultiMapFixed@@UAE_NXZ, ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                       // [0xf3ab0] 0x008a9000 + 0xf3ab0 = 0x0099cab0
+.long ?IsFootpathLink@MultiMapFixed@@UAEIXZ, ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                       // [0xf3ab0] 0x008a9000 + 0xf3ab0 = 0x0099cab0
 .long ?AddFootpathLink@GameThing@@QAEXPAVGFootpath@@@Z
 .long ?GetNearestPathTo@MultiMapFixed@@UAEIPAUMapCoords@@MH@Z                                                                                                   // [0xf3abc] 0x008a9000 + 0xf3abc = 0x0099cabc
 .long ?UseFootpathIfNecessary@MultiMapFixed@@UAEXPAVLiving@@PBUMapCoords@@E@Z                                                                                                   // [0xf3ac0] 0x008a9000 + 0xf3ac0 = 0x0099cac0
@@ -2273,7 +2273,7 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?GetOverwriteDropToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteTapToolTip@GameThingWithPos@@UAEIXZ
 
-.long ?IsCastShadowAtNight@GameThingWithPos@@UAE_NXZ
+.long ?IsCastShadowAtNight@GameThingWithPos@@UAEIXZ
 .long ?CleanupWhenDeleted@Object@@UAEXH@Z
 
 .long ?GetImpressiveType@GameThingWithPos@@UAE?AW4IMPRESSIVE_TYPE@@XZ
@@ -2281,165 +2281,165 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?GetImpressiveValue@Object@@UAEMPAVLiving@@PAVReaction@@@Z
 .long ?GetUpdateOfBoredomValue@Object@@UAEMPAVReaction@@PAVGameThingWithPos@@@Z
 .long ?IsTown@GameThingWithPos@@UAE_NXZ
-.long ?IsTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTown@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?TrueFunction@GameThingWithPos@@UAE_NXZ
-.long ?FalseFunction@GameThingWithPos@@UAE_NXZ
-.long ?IsNotLiving@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAE_NXZ
+.long ?TrueFunction@GameThingWithPos@@UAEIXZ
+.long ?FalseFunction@GameThingWithPos@@UAEIXZ
+.long ?IsNotLiving@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAEIXZ
 
-.long ?IsTownCentre@GameThingWithPos@@UAE_NXZ
-.long ?IsTotemStatue@GameThingWithPos@@UAE_NXZ
-.long ?IsTownDesireFlag@GameThingWithPos@@UAE_NXZ
-.long ?IsRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTownCentre@GameThingWithPos@@UAEIXZ
+.long ?IsTotemStatue@GameThingWithPos@@UAEIXZ
+.long ?IsTownDesireFlag@GameThingWithPos@@UAEIXZ
+.long ?IsRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsRock@GameThingWithPos@@UAE_NXZ
-.long ?IsSpellDispenser@GameThingWithPos@@UAE_NXZ
-.long ?IsMist@GameThingWithPos@@UAE_NXZ
-.long ?IsQueryIcon@GameThingWithPos@@UAE_NXZ
+.long ?IsSpellDispenser@GameThingWithPos@@UAEIXZ
+.long ?IsMist@GameThingWithPos@@UAEIXZ
+.long ?IsQueryIcon@GameThingWithPos@@UAEIXZ
 
-.long ?IsStreetLight@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLantern@GameThingWithPos@@UAE_NXZ
-.long ?IsAbode@GameThingWithPos@@UAE_NXZ
-.long ?IsField@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStreetLight@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLantern@GameThingWithPos@@UAEIXZ
+.long ?IsAbode@GameThingWithPos@@UAEIXZ
+.long ?IsField@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsField@GameThingWithPos@@UAE_NXZ
-.long ?IsBuildingMaterial@Object@@UAE_NXZ
-.long ?IsMagicFireBall@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureAction@Object@@UAE_NXZ
+.long ?IsBuildingMaterial@Object@@UAEIXZ
+.long ?IsMagicFireBall@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureAction@Object@@UAEIXZ
 
-.long ?IsCitadelHeart@GameThingWithPos@@UAE_NXZ
-.long ?IsDamaged@GameThingWithPos@@UAE_NXZ
-.long ?CanBeHealedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeEatenByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanCreatureEatMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeAttackedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeFrighteningToCreature@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeHelpedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePlayedWithByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeImpressedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeInspectedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodUponByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelHeart@GameThingWithPos@@UAEIXZ
+.long ?IsDamaged@GameThingWithPos@@UAEIXZ
+.long ?CanBeHealedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeEatenByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanCreatureEatMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeAttackedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeFrighteningToCreature@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeHelpedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePlayedWithByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeImpressedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeInspectedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePoodUponByCreature@Object@@UAEIPAVCreature@@@Z
 
-.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSleptNextToByCreature@Fixed@@UAE_NPAVCreature@@@Z
+.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSleptNextToByCreature@Fixed@@UAEIPAVCreature@@@Z
 .long ?CanBePickedUpByCreature@Feature@@UAEIPAVCreature@@@Z
-.long ?CanBeStrokedByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?CanBeStrokedByCreature@Object@@UAEIPAVCreature@@@Z
 
-.long ?CanBeKissedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSetOnFire@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStompedOnByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeThrownByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?CanBeKissedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSetOnFire@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStompedOnByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeThrownByCreature@Object@@UAEIPAVCreature@@@Z
 
-.long ?CanBeGivenToVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInAStoragePit@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeDestroyedByStoning@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeExaminedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeFoughtByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanReceiveGifts@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanActAsAContainer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z, ?NeedsRepair@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsOnFire@Object@@UAE_NPAVCreature@@@Z
-.long ?IsNotOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeGivenToVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInAStoragePit@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeDestroyedByStoning@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeExaminedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeFoughtByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanReceiveGifts@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanActAsAContainer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z, ?NeedsRepair@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsOnFire@Object@@UAEIPAVCreature@@@Z
+.long ?IsNotOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedForBuilding@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedForBuilding@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsMushroom@Feature@@UAEIPAVCreature@@@Z
-.long ?CanBeUsedForRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedForRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToTown@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInFoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInWoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInFoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePutInWoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtBackToCitadel@Object@@UAE_NPAVCreature@@@Z
-.long ?IsVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerFarFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtBackToCitadel@Object@@UAEIPAVCreature@@@Z
+.long ?IsVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerFarFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCow@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodOn@Object@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCow@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodOn@Object@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDominantCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDancedWith@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDominantCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDancedWith@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsWorshipSite@GameThingWithPos@@UAE_NXZ
-.long ?IsWorshipSite@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorshipSite@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?GetWorshipSite@WorshipSiteUpgrade@@UAEPAVWorshipSite@@XZ
 
 .long ?IsWorkshop@GameThingWithPos@@UAE_NXZ
-.long ?IsWorkshop@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorkshop@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsTree@GameThingWithPos@@UAE_NXZ
-.long ?IsTree@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTree@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPickupableRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPickupableRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsCitadelPart@GameThingWithPos@@UAE_NXZ
 
-.long ?IsCitadelPart@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootball@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelPart@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootball@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKickedByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKickedByCreature@Object@@UAEIPAVCreature@@@Z
 
-.long ?CanBeStolenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableScaffold@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeStolenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableScaffold@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsToyAwayFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToy@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyBall@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyDie@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsToyAwayFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToy@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyBall@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyDie@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsToyCuddly@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?IsLiving@GameThingWithPos@@UBE_NXZ
-.long ?IsLiving@GameThingWithPos@@UBE_NPAVCreature@@@Z
+.long ?IsLiving@GameThingWithPos@@UBEIPAVCreature@@@Z
 .long ?IsFence@GameThingWithPos@@UBE_NXZ
 
 .long ?IsSpellIcon@GameThingWithPos@@UBE_NXZ
@@ -2450,17 +2450,17 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?CanBeThrownInTheSeaPlayfully@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?GetCreatureMimicType@GameThingWithPos@@UBEIXZ
 .long ?GetHowMuchCreatureWantsToLookAtMe@Fixed@@UAEMXZ
-.long ?IsFlock@GameThingWithPos@@UBE_NXZ
+.long ?IsFlock@GameThingWithPos@@UBEIXZ
 
-.long ?IsDance@GameThingWithPos@@UBE_NXZ
-.long ?IsReward@GameThingWithPos@@UBE_NXZ
-.long ?IsScriptContainer@GameThingWithPos@@UBE_NXZ
-.long ?IsWeather@GameThingWithPos@@UBE_NXZ
+.long ?IsDance@GameThingWithPos@@UBEIXZ
+.long ?IsReward@GameThingWithPos@@UBEIXZ
+.long ?IsScriptContainer@GameThingWithPos@@UBEIXZ
+.long ?IsWeather@GameThingWithPos@@UBEIXZ
 
-.long ?IsSpell@GameThingWithPos@@UBE_NXZ
-.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileWallHug@GameThingWithPos@@UBE_NXZ
-.long ?IsActive@GameThingWithPos@@UBE_NXZ
+.long ?IsSpell@GameThingWithPos@@UBEIXZ
+.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAEIXZ
+.long ?IsMobileWallHug@GameThingWithPos@@UBEIXZ
+.long ?IsActive@GameThingWithPos@@UBEIXZ
 
 .long ?IsObjectTurningTooFastForCameraToFollowSmoothly@GameThingWithPos@@UBE_NXZ
 .long ?CalculateWhereIWillBeAfterNSeconds@Object@@UAEXMPAULHPoint@@@Z
@@ -2479,39 +2479,39 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 
 .long ?SetControlledByScript@GameThingWithPos@@UAEXH@Z
 .long ?GetDeathReason@GameThingWithPos@@UAE?AW4DEATH_REASON@@XZ
-.long ?IsInScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMaleVillager@GameThingWithPos@@UAE_NXZ
+.long ?IsInScript@GameThingWithPos@@UAEIXZ
+.long ?IsMaleVillager@GameThingWithPos@@UAEIXZ
 
-.long ?IsFemaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsAnimal@GameThingWithPos@@UAE_NXZ
-.long ?IsAChild@GameThingWithPos@@UAE_NXZ
-.long ?IsHouse@GameThingWithPos@@UAE_NXZ
+.long ?IsFemaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsAnimal@GameThingWithPos@@UAEIXZ
+.long ?IsAChild@GameThingWithPos@@UAEIXZ
+.long ?IsHouse@GameThingWithPos@@UAEIXZ
 .long ?IsObject@Object@@UAE_NXZ
 .long ?IsFootball@GameThingWithPos@@UBE_NXZ
-.long ?IsCitadel@GameThingWithPos@@UAE_NXZ
-.long ?IsForest@GameThingWithPos@@UAE_NXZ
+.long ?IsCitadel@GameThingWithPos@@UAEIXZ
+.long ?IsForest@GameThingWithPos@@UAEIXZ
 
-.long ?IsMobileObject@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileStatic@GameThingWithPos@@UAE_NXZ
-.long ?IsAnyKindOfTree@GameThingWithPos@@UAE_NXZ
-.long ?IsDeadTree@GameThingWithPos@@UAE_NXZ
+.long ?IsMobileObject@GameThingWithPos@@UAEIXZ
+.long ?IsMobileStatic@GameThingWithPos@@UAEIXZ
+.long ?IsAnyKindOfTree@GameThingWithPos@@UAEIXZ
+.long ?IsDeadTree@GameThingWithPos@@UAEIXZ
 
-.long ?IsPileFood@GameThingWithPos@@UAE_NXZ
+.long ?IsPileFood@GameThingWithPos@@UAEIXZ
 .long ?IsFeature@Feature@@UAEIXZ
-.long ?IsScriptMarker@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptHighlight@GameThingWithPos@@UAE_NXZ
-.long ?IsWonder@MultiMapFixed@@UAE_NXZ
-.long ?IsInfluenceRing@GameThingWithPos@@UAE_NXZ
-.long ?IsPuzzleGame@GameThingWithPos@@UAE_NXZ
-.long ?IsScaffold@GameThingWithPos@@UAE_NXZ
+.long ?IsScriptMarker@GameThingWithPos@@UAEIXZ
+.long ?IsScriptHighlight@GameThingWithPos@@UAEIXZ
+.long ?IsWonder@MultiMapFixed@@UAEIXZ
+.long ?IsInfluenceRing@GameThingWithPos@@UAEIXZ
+.long ?IsPuzzleGame@GameThingWithPos@@UAEIXZ
+.long ?IsScaffold@GameThingWithPos@@UAEIXZ
 
-.long ?IsSkeleton@GameThingWithPos@@UBE_NXZ
+.long ?IsSkeleton@GameThingWithPos@@UBEIXZ
 .long ?IsPoisoned@GameThingWithPos@@UBE_NXZ
-.long ?IsSpeedUp@GameThingWithPos@@UAE_NXZ
-.long ?IsParticleContainer@GameThingWithPos@@UAE_NXZ
+.long ?IsSpeedUp@GameThingWithPos@@UAEIXZ
+.long ?IsParticleContainer@GameThingWithPos@@UAEIXZ
 
-.long ?IsSacrificeAltar@GameThingWithPos@@UAE_NXZ
-.long ?IsPot@GameThingWithPos@@UAE_NXZ
+.long ?IsSacrificeAltar@GameThingWithPos@@UAEIXZ
+.long ?IsPot@GameThingWithPos@@UAEIXZ
 .long ?IsComputerPlayer@GameThingWithPos@@UBE_NXZ
 .long ?CanBeThrownByPlayer@GameThingWithPos@@UBE_NXZ
 
@@ -2521,7 +2521,7 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?IsPileResource@GameThingWithPos@@UBE_NXZ
 
 .long ?IsScriptTimer@GameThingWithPos@@UBE_NXZ
-.long ?CreateBuildingSite@MultiMapFixed@@UAE_NXZ
+.long ?CreateBuildingSite@MultiMapFixed@@UAEIXZ
 .long ?GetQueryFirstEnumText@Feature@@UAE?AW4HELP_TEXT@@XZ
 .long ?GetQueryLastEnumText@Feature@@UAE?AW4HELP_TEXT@@XZ
 .long ?GetFOVHelpMessageSet@Object@@UAEIXZ
@@ -2554,15 +2554,15 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?RemoveMapObject@MultiMapFixed@@UAEXXZ                                                                                                   // [0xf3f88] 0x008a9000 + 0xf3f88 = 0x0099cf88
 .long ?InsertMapObjectToCell@Fixed@@UAEXPAUMapCell@@@Z
 .long ?RemoveMapObjectFromCell@Object@@UAEXPAUMapCell@@@Z
-.long ?IsObjectInMap@Object@@UAE_NPAUMapCell@@@Z
+.long ?IsObjectInMap@Object@@UAEIPAUMapCell@@@Z
 .long ?IsObjectInMapCheck@Object@@UAE_NXZ
 .long ?MoveMapObject@MultiMapFixed@@UAEHPAUMapCoords@@@Z
 .long ?ActualMoveMapObject@Object@@UAEXUMapCoords@@@Z
 .long ?GetPtr@Object@@UAEPAV1@XZ
 .long ?GetMeshRadius@Object@@UAEMXZ
 .long ?Get3DObjectForPSys@Object@@UAEPAVGame3DObject@@XZ
-.long ?GetPSysFireFlameMatrix@Object@@UAE_NPAULHMatrix@@@Z
-.long ?GetPSysFireLocalRndFlamePos@Object@@UAE_NPAULHPoint@@PAH@Z
+.long ?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z
+.long ?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z
 .long ?GetPSysFireWorldFlamePos@Object@@UAE_NPBULHPoint@@HPAU2@@Z
 .long ?GetPSysFireLocalFlameScale@Object@@UAEMXZ
 .long ?GetPSysFireMaxFlames@Object@@UAEIXZ
@@ -2572,7 +2572,7 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?GetHoldRadius@Object@@UAEMXZ
 .long ?GetHoldLoweringMultiplier@Object@@UAEMXZ
 .long ?GetHoldYRotate@Object@@UAEMXZ
-.long ?HandShouldFeelWithMeshIntersect@Object@@UAE_NXZ
+.long ?HandShouldFeelWithMeshIntersect@Object@@UAEIXZ
 .long ?SetSpecularColor@Object@@UAEXULH3DColor@@@Z
 .long ?GetSpecularColor@Object@@UAE?AULH3DColor@@XZ
 .long ?SetBeliefSprite@Object@@UAEXPAVLH3DSprite@@@Z
@@ -2608,12 +2608,12 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?ProcessState@Object@@UAEIXZ
 .long ?GetProjectileSpeed@Object@@UAEMXZ
 .long ?CanBePickedUp@Object@@UAE_NXZ
-.long ?CanBeCrushed@Fixed@@UAE_NXZ
+.long ?CanBeCrushed@Fixed@@UAEIXZ
 .long ?GetTopPos@Object@@UAEMXZ
 .long ?GetVillagerHugRadius@Object@@UAEMXZ
 .long ?GetWeight@Object@@UAEMXZ
 .long ?GetWorldMatrix@Object@@UAEXPAULHMatrix@@@Z
-.long ?CanBeSuckedIntoVortex@Object@@UAE_NPAVLandscapeVortex@@@Z
+.long ?CanBeSuckedIntoVortex@Object@@UAEIPAVLandscapeVortex@@@Z
 .long ?GetDiscipleStateIfInteractedWith@MultiMapFixed@@UAEIPAVGInterfaceStatus@@PAVVillager@@@Z
 .long ?GetWorkingPos@Object@@UAEPAUMapCoords@@PAU2@PAV1@@Z
 .long ?GetHeightForHandAboveInteractObject@Object@@UAEMXZ
@@ -2626,21 +2626,21 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?GetFoodType@Object@@UAE?AW4FOOD_TYPE@@XZ
 .long ?GetImpressiveValue@Object@@UAEMXZ
 .long ?IsSpellSeedReturnPoint@Object@@UAE_NXZ
-.long ?IsABeliever@Object@@UAE_NXZ
+.long ?IsABeliever@Object@@UAEIXZ
 .long ?AsMultiMapFixed@MultiMapFixed@@UAEPAV1@XZ
 .long ?ApplyWaterSpell@Object@@UAEMPAVSpellWater@@@Z
-.long ?IsResourceStore@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@@Z
-.long ?DeleteObjectAndTakeResource@MultiMapFixed@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.long ?IsResourceStore@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@@Z
+.long ?DeleteObjectAndTakeResource@MultiMapFixed@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .long ?GetRadiusMultiplierForApplyingPotToPos@Object@@UAEMXZ
-.long ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
+.long ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
 .long ?GetResourceType@Object@@UAE?AW4RESOURCE_TYPE@@XZ
 .long ?GetDefaultResource@Object@@UAEHXZ
 .long ?SetPoisonedResource@Object@@UAEXW4RESOURCE_TYPE@@H@Z
 .long ?SetPoisoned@Object@@UAEXH@Z
 .long ?IsLockedInInteract@Object@@UAE_NXZ
-.long ?SetDying@Object@@UAE_NXZ
-.long ?IsAttackable@Object@@UAE_NPAV1@@Z
-.long ?IsAllied@Object@@UAE_NPAV1@@Z
+.long ?SetDying@Object@@UAEIXZ
+.long ?IsAttackable@Object@@UAEIPAV1@@Z
+.long ?IsAllied@Object@@UAEIPAV1@@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@0@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@@Z
 .long ?IsTouching@Object@@UAE_NPAV1@M@Z
@@ -2648,26 +2648,26 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?EndOnFire@Object@@UAEXXZ
 .long ?GetDistanceFromObject@Object@@UAEMPAV1@@Z
 .long ?GetTribalPower@Object@@UAEMW4TRIBE_TYPE@@@Z
-.long ?ValidForLockedSelectProcess@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?NetworkFriendlyStartLockedSelect@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAE_NXZ
+.long ?ValidForLockedSelectProcess@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?NetworkFriendlyStartLockedSelect@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAEIXZ
 .long ?NetworkUnfriendlyLockedSelect@Object@@UAE_NPAVControlHandUpdateInfo@@@Z
-.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkFriendlyEndLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?ValidAsInterfaceTarget@Object@@UAE_NXZ
-.long ?ValidAsInterfaceLeashTarget@Object@@UAE_NXZ
-.long ?SelectOnlyAfterRecSystem@Object@@UAE_NXZ
-.long ?ValidForPlaceInHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetInMagicHand@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetOutMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
+.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkFriendlyEndLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?ValidAsInterfaceTarget@Object@@UAEIXZ
+.long ?ValidAsInterfaceLeashTarget@Object@@UAEIXZ
+.long ?SelectOnlyAfterRecSystem@Object@@UAEIXZ
+.long ?ValidForPlaceInHand@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetInMagicHand@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetOutMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?ValidToRemoveFromHand@Object@@UAE_NPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?RemoveFromHand@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
-.long ?ValidToShakeFromHand@Object@@UAE_NXZ
-.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAE_NXZ
-.long ?IsTuggable@Object@@UAE_NXZ
+.long ?ValidToShakeFromHand@Object@@UAEIXZ
+.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAEIXZ
+.long ?IsTuggable@Object@@UAEIXZ
 .long ?ValidToApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z
 .long ?ApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@PAVGestureSystemPacketData@@@Z
 .long ?ValidToApplyThisToMapCoord@Object@@UAEIPAVGInterfaceStatus@@PAUMapCoords@@@Z
@@ -2690,8 +2690,8 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?ApplyFightThisToMapCoord@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?ValidToFightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?FightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z
-.long ?IsEffectReceiver@Object@@UAE_NPAVEffectValues@@@Z
-.long ?CanBeDestroyedBySpell@Object@@UAE_NPAVSpell@@@Z
+.long ?IsEffectReceiver@Object@@UAEIPAVEffectValues@@@Z
+.long ?CanBeDestroyedBySpell@Object@@UAEIPAVSpell@@@Z
 .long ?GetImportance@Object@@UAEMXZ
 .long ?InitialisePhysicsFromHand@Object@@UAEIPAULHPoint@@0PAVGInterfaceStatus@@PAV1@H@Z
 .long ?InitialisePhysics@Object@@UAEIPBULHPoint@@0PAV1@_NPAVGInterfaceStatus@@@Z
@@ -2708,23 +2708,23 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?CanBecomeAPhysicsObject@Object@@UAE_NXZ
 .long ?GetAlwaysRemainsInPhysicsInternalSystem@Object@@UAE_NXZ
 .long ?HasSunk@Object@@UAE_NXZ
-.long ?CreatureMustAvoid@MultiMapFixed@@UAE_NPAVCreature@@@Z
+.long ?CreatureMustAvoid@MultiMapFixed@@UAEIPAVCreature@@@Z
 .long ?AddToRoutePlan@Object@@UAEXPAVRPHolder@@PAVCreature@@HP6AXHUPoint2D@@MH@Z@Z
 .long ?GetRoutePlanRadius@Object@@UAEMPAVCreature@@@Z
-.long ?VillagerMustAvoid@Fixed@@UAE_NPAVVillager@@@Z
+.long ?VillagerMustAvoid@Fixed@@UAEIPAVVillager@@@Z
 .long ?IsFireMan@Object@@UAE_NXZ
 .long ?IsARootedObject@Object@@UAE_NXZ
 .long ?GetCollideSoundType@Object@@UAE?AW4SOUND_COLLISION_TYPE@@XZ
-.long ?IsSolidToNewAbode@MultiMapFixed@@UAE_NXZ
+.long ?IsSolidToNewAbode@MultiMapFixed@@UAEIXZ
 .long ?RemoveFromGame@Object@@UAEIXZ
 .long ?GetLandingPointCount@Object@@UAEHXZ
-.long ?GetLandingPoint@Object@@UAE_NEPAULHPoint@@@Z
+.long ?GetLandingPoint@Object@@UAEIEPAULHPoint@@@Z
 .long ?GetTastiness@Object@@UAEIXZ
 .long ?IsScary@Object@@UAE_NXZ
-.long ?GetInspectObjectPos@Object@@UAE_NPAVVillager@@PAUMapCoords@@@Z
+.long ?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z
 .long ?DiscipleInHandNear@Object@@UAEXPAVVillager@@PAVGInterfaceStatus@@@Z
-.long ?GetSpecialPos@Fixed@@UAE_NIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ
-.long ?IsTownArtifact@Fixed@@UAE_NXZ
+.long ?GetSpecialPos@Fixed@@UAEIIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ
+.long ?IsTownArtifact@Fixed@@UAEIXZ
 .long ?ProcessInHand@Object@@UAE_NXZ
 .long ?ProcessInInteract@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?GetObjectCollide@Object@@UAEIXZ
@@ -2751,7 +2751,7 @@ VftableAndRTTI WorshipSiteUpgrade                                               
 .long ?IsObjectFullyInMap@MultiMapFixed@@UAE_NXZ                                                                                                   // [0xf42a0] 0x008a9000 + 0xf42a0 = 0x0099d2a0
 .long ?GetDoorPos@MultiMapFixed@@UAEPAUMapCoords@@PAU2@@Z
 .long ?GetInfluence@MultiMapFixed@@UAEMXZ, ?IsPlaytimeStructure@MultiMapFixed@@UAE_NXZ                                                                                       // [0xf42a8] 0x008a9000 + 0xf42a8 = 0x0099d2a8
-.long ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ, ?AddPlaytimeVillager@MultiMapFixed@@UAE_NPAVVillager@@@Z, ?CheckMapObject@MultiMapFixed@@UAEXXZ, ?GetResourceDropPosForComputerPlayer@MultiMapFixed@@UAEXPAUMapCoords@@@Z                                                               // [0xf42b0] 0x008a9000 + 0xf42b0 = 0x0099d2b0
+.long ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ, ?AddPlaytimeVillager@MultiMapFixed@@UAEIPAVVillager@@@Z, ?CheckMapObject@MultiMapFixed@@UAEXXZ, ?GetResourceDropPosForComputerPlayer@MultiMapFixed@@UAEXPAUMapCoords@@@Z                                                               // [0xf42b0] 0x008a9000 + 0xf42b0 = 0x0099d2b0
 .long ?GetPercentBuilt@MultiMapFixed@@UAEMXZ, ?GetPercentRepaired@MultiMapFixed@@UAEMXZ, ?GetPercentRepairedFromWhenDamaged@MultiMapFixed@@UAEMXZ
 .long ?IsRepaired@WorshipSiteUpgrade@@UAE_NXZ                                                               // [0xf42c0] 0x008a9000 + 0xf42c0 = 0x0099d2c0
 .long ?IsBuilt@WorshipSiteUpgrade@@UAE_NXZ
@@ -2783,7 +2783,7 @@ VftableAndRTTI PlannedWorshipSiteUpgrade                                        
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@GameThing@@QAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -2881,7 +2881,7 @@ VftableAndRTTI PlannedWorshipSiteUpgrade                                        
 .long ?GetOverwriteDropToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteTapToolTip@GameThingWithPos@@UAEIXZ
 
-.long ?IsCastShadowAtNight@GameThingWithPos@@UAE_NXZ
+.long ?IsCastShadowAtNight@GameThingWithPos@@UAEIXZ
 .long ?CleanupWhenDeleted@GameThingWithPos@@UAEXH@Z
 .long ?GetImpressiveType@GameThingWithPos@@UAE?AW4IMPRESSIVE_TYPE@@XZ
 .long ?GetImpressiveIntensity@GameThingWithPos@@UAEMW4IMPRESSIVE_TYPE@@@Z
@@ -2889,171 +2889,171 @@ VftableAndRTTI PlannedWorshipSiteUpgrade                                        
 .long ?GetImpressiveValue@GameThingWithPos@@UAEMPAULiving@@PAUReaction@@@Z
 .long ?GetUpdateOfBoredomValue@GameThingWithPos@@UAEMPAUReaction@@PAV1@@Z
 .long ?IsTown@GameThingWithPos@@UAE_NXZ
-.long ?IsTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTown@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?TrueFunction@GameThingWithPos@@UAE_NXZ
-.long ?FalseFunction@GameThingWithPos@@UAE_NXZ
-.long ?IsNotLiving@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAE_NXZ
+.long ?TrueFunction@GameThingWithPos@@UAEIXZ
+.long ?FalseFunction@GameThingWithPos@@UAEIXZ
+.long ?IsNotLiving@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAEIXZ
 
-.long ?IsTownCentre@GameThingWithPos@@UAE_NXZ
-.long ?IsTotemStatue@GameThingWithPos@@UAE_NXZ
-.long ?IsTownDesireFlag@GameThingWithPos@@UAE_NXZ
-.long ?IsRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTownCentre@GameThingWithPos@@UAEIXZ
+.long ?IsTotemStatue@GameThingWithPos@@UAEIXZ
+.long ?IsTownDesireFlag@GameThingWithPos@@UAEIXZ
+.long ?IsRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsRock@GameThingWithPos@@UAE_NXZ
-.long ?IsSpellDispenser@GameThingWithPos@@UAE_NXZ
-.long ?IsMist@GameThingWithPos@@UAE_NXZ
-.long ?IsQueryIcon@GameThingWithPos@@UAE_NXZ
+.long ?IsSpellDispenser@GameThingWithPos@@UAEIXZ
+.long ?IsMist@GameThingWithPos@@UAEIXZ
+.long ?IsQueryIcon@GameThingWithPos@@UAEIXZ
 
-.long ?IsStreetLight@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLantern@GameThingWithPos@@UAE_NXZ
-.long ?IsAbode@GameThingWithPos@@UAE_NXZ
-.long ?IsField@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStreetLight@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLantern@GameThingWithPos@@UAEIXZ
+.long ?IsAbode@GameThingWithPos@@UAEIXZ
+.long ?IsField@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsField@GameThingWithPos@@UAE_NXZ
-.long ?IsBuildingMaterial@GameThingWithPos@@UAE_NXZ
-.long ?IsMagicFireBall@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureAction@GameThingWithPos@@UAE_NXZ
+.long ?IsBuildingMaterial@GameThingWithPos@@UAEIXZ
+.long ?IsMagicFireBall@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureAction@GameThingWithPos@@UAEIXZ
 
-.long ?IsCitadelHeart@GameThingWithPos@@UAE_NXZ
-.long ?IsDamaged@GameThingWithPos@@UAE_NXZ
-.long ?CanBeHealedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelHeart@GameThingWithPos@@UAEIXZ
+.long ?IsDamaged@GameThingWithPos@@UAEIXZ
+.long ?CanBeHealedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanCreatureEatMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeAttackedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeFrighteningToCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeHelpedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanCreatureEatMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeAttackedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeFrighteningToCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeHelpedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBePlayedWithByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeImpressedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeInspectedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodUponByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBePlayedWithByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeImpressedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeInspectedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodUponByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSleptNextToByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePickedUpByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStrokedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSleptNextToByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePickedUpByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStrokedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeKissedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSetOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStompedOnByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeThrownByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeKissedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSetOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStompedOnByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeThrownByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeGivenToVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInAStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDestroyedByStoning@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeGivenToVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInAStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDestroyedByStoning@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeExaminedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeFoughtByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanReceiveGifts@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanActAsAContainer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeExaminedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeFoughtByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanReceiveGifts@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanActAsAContainer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsBeingBuilt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?NeedsRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsNotOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsBeingBuilt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?NeedsRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsNotOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedForBuilding@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsMushroom@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedForBuilding@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsMushroom@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToTown@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInFoodPile@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInWoodPile@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInFoodPile@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInWoodPile@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtBackToCitadel@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerFarFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtBackToCitadel@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerFarFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCow@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCow@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBePoodOn@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBePoodOn@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDominantCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDancedWith@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDominantCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDancedWith@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsWorshipSite@GameThingWithPos@@UAE_NXZ
-.long ?IsWorshipSite@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorshipSite@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?GetWorshipSite@GameThingWithPos@@UAEPAUWorshipSite@@XZ
 
 .long ?IsWorkshop@GameThingWithPos@@UAE_NXZ
-.long ?IsWorkshop@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBuildingWhichIsBeingBuilt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorkshop@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBuildingWhichIsBeingBuilt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsTree@GameThingWithPos@@UAE_NXZ
-.long ?IsTree@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTree@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPickupableRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPickupableRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsCitadelPart@GameThingWithPos@@UAE_NXZ
 
-.long ?IsCitadelPart@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootball@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelPart@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootball@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKickedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKickedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeStolenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableScaffold@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeStolenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableScaffold@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsToyAwayFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToy@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyBall@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyDie@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsToyAwayFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToy@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyBall@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyDie@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsToyCuddly@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?IsLiving@GameThingWithPos@@UBE_NXZ
-.long ?IsLiving@GameThingWithPos@@UBE_NPAVCreature@@@Z
+.long ?IsLiving@GameThingWithPos@@UBEIPAVCreature@@@Z
 .long ?IsFence@GameThingWithPos@@UBE_NXZ
 
 .long ?IsSpellIcon@GameThingWithPos@@UBE_NXZ
@@ -3064,17 +3064,17 @@ VftableAndRTTI PlannedWorshipSiteUpgrade                                        
 .long ?CanBeThrownInTheSeaPlayfully@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?GetCreatureMimicType@GameThingWithPos@@UBEIXZ
 .long ?GetHowMuchCreatureWantsToLookAtMe@GameThingWithPos@@UAEMXZ
-.long ?IsFlock@GameThingWithPos@@UBE_NXZ
+.long ?IsFlock@GameThingWithPos@@UBEIXZ
 
-.long ?IsDance@GameThingWithPos@@UBE_NXZ
-.long ?IsReward@GameThingWithPos@@UBE_NXZ
-.long ?IsScriptContainer@GameThingWithPos@@UBE_NXZ
-.long ?IsWeather@GameThingWithPos@@UBE_NXZ
+.long ?IsDance@GameThingWithPos@@UBEIXZ
+.long ?IsReward@GameThingWithPos@@UBEIXZ
+.long ?IsScriptContainer@GameThingWithPos@@UBEIXZ
+.long ?IsWeather@GameThingWithPos@@UBEIXZ
 
-.long ?IsSpell@GameThingWithPos@@UBE_NXZ
-.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileWallHug@GameThingWithPos@@UBE_NXZ
-.long ?IsActive@GameThingWithPos@@UBE_NXZ
+.long ?IsSpell@GameThingWithPos@@UBEIXZ
+.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAEIXZ
+.long ?IsMobileWallHug@GameThingWithPos@@UBEIXZ
+.long ?IsActive@GameThingWithPos@@UBEIXZ
 
 .long ?IsObjectTurningTooFastForCameraToFollowSmoothly@GameThingWithPos@@UBE_NXZ
 .long ?CalculateWhereIWillBeAfterNSeconds@GameThingWithPos@@UAEXMPAULHPoint@@@Z
@@ -3093,40 +3093,40 @@ VftableAndRTTI PlannedWorshipSiteUpgrade                                        
 
 .long ?SetControlledByScript@GameThingWithPos@@UAEXH@Z
 .long ?GetDeathReason@GameThingWithPos@@UAE?AW4DEATH_REASON@@XZ
-.long ?IsInScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMaleVillager@GameThingWithPos@@UAE_NXZ
+.long ?IsInScript@GameThingWithPos@@UAEIXZ
+.long ?IsMaleVillager@GameThingWithPos@@UAEIXZ
 
-.long ?IsFemaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsAnimal@GameThingWithPos@@UAE_NXZ
-.long ?IsAChild@GameThingWithPos@@UAE_NXZ
-.long ?IsHouse@GameThingWithPos@@UAE_NXZ
+.long ?IsFemaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsAnimal@GameThingWithPos@@UAEIXZ
+.long ?IsAChild@GameThingWithPos@@UAEIXZ
+.long ?IsHouse@GameThingWithPos@@UAEIXZ
 
-.long ?IsObject@GameThingWithPos@@UBE_NXZ
+.long ?IsObject@GameThingWithPos@@UBEIXZ
 .long ?IsFootball@GameThingWithPos@@UBE_NXZ
-.long ?IsCitadel@GameThingWithPos@@UAE_NXZ
-.long ?IsForest@GameThingWithPos@@UAE_NXZ
+.long ?IsCitadel@GameThingWithPos@@UAEIXZ
+.long ?IsForest@GameThingWithPos@@UAEIXZ
 
-.long ?IsMobileObject@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileStatic@GameThingWithPos@@UAE_NXZ
-.long ?IsAnyKindOfTree@GameThingWithPos@@UAE_NXZ
-.long ?IsDeadTree@GameThingWithPos@@UAE_NXZ
+.long ?IsMobileObject@GameThingWithPos@@UAEIXZ
+.long ?IsMobileStatic@GameThingWithPos@@UAEIXZ
+.long ?IsAnyKindOfTree@GameThingWithPos@@UAEIXZ
+.long ?IsDeadTree@GameThingWithPos@@UAEIXZ
 
-.long ?IsPileFood@GameThingWithPos@@UAE_NXZ
-.long ?IsFeature@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptMarker@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptHighlight@GameThingWithPos@@UAE_NXZ
-.long ?IsWonder@PlannedMultiMapFixed@@UAE_NXZ
-.long ?IsInfluenceRing@GameThingWithPos@@UAE_NXZ
-.long ?IsPuzzleGame@GameThingWithPos@@UAE_NXZ
-.long ?IsScaffold@GameThingWithPos@@UAE_NXZ
+.long ?IsPileFood@GameThingWithPos@@UAEIXZ
+.long ?IsFeature@GameThingWithPos@@UAEIXZ
+.long ?IsScriptMarker@GameThingWithPos@@UAEIXZ
+.long ?IsScriptHighlight@GameThingWithPos@@UAEIXZ
+.long ?IsWonder@PlannedMultiMapFixed@@UAEIXZ
+.long ?IsInfluenceRing@GameThingWithPos@@UAEIXZ
+.long ?IsPuzzleGame@GameThingWithPos@@UAEIXZ
+.long ?IsScaffold@GameThingWithPos@@UAEIXZ
 
-.long ?IsSkeleton@GameThingWithPos@@UBE_NXZ
+.long ?IsSkeleton@GameThingWithPos@@UBEIXZ
 .long ?IsPoisoned@GameThingWithPos@@UBE_NXZ
-.long ?IsSpeedUp@GameThingWithPos@@UAE_NXZ
-.long ?IsParticleContainer@GameThingWithPos@@UAE_NXZ
+.long ?IsSpeedUp@GameThingWithPos@@UAEIXZ
+.long ?IsParticleContainer@GameThingWithPos@@UAEIXZ
 
-.long ?IsSacrificeAltar@GameThingWithPos@@UAE_NXZ
-.long ?IsPot@GameThingWithPos@@UAE_NXZ
+.long ?IsSacrificeAltar@GameThingWithPos@@UAEIXZ
+.long ?IsPot@GameThingWithPos@@UAEIXZ
 .long ?IsComputerPlayer@GameThingWithPos@@UBE_NXZ
 .long ?CanBeThrownByPlayer@GameThingWithPos@@UBE_NXZ
 
@@ -3169,7 +3169,7 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@Object@@UAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -3183,7 +3183,7 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?Get2DRadius@Object@@UAEMXZ
 .long ?GetPlayerWhoLastPickedMeUp@GameThing@@QAEPAVGPlayer@@XZ
 .long ?GetPlayerWhoLastDroppedMe@GameThing@@QAEPAVGPlayer@@XZ
-.long ?IsFootpathLink@MultiMapFixed@@UAE_NXZ, ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                       // [0xf48e8] 0x008a9000 + 0xf48e8 = 0x0099d8e8
+.long ?IsFootpathLink@MultiMapFixed@@UAEIXZ, ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                       // [0xf48e8] 0x008a9000 + 0xf48e8 = 0x0099d8e8
 .long ?AddFootpathLink@GameThing@@QAEXPAVGFootpath@@@Z
 .long ?GetNearestPathTo@MultiMapFixed@@UAEIPAUMapCoords@@MH@Z, ?UseFootpathIfNecessary@MultiMapFixed@@UAEXPAVLiving@@PBUMapCoords@@E@Z                                                                                       // [0xf48f4] 0x008a9000 + 0xf48f4 = 0x0099d8f4
 .long ?AddFootpathLink@MultiMapFixed@@QAEXPAVGFootpath@@@Z
@@ -3264,7 +3264,7 @@ VftableAndRTTI WorshipSpellIcon                                                 
 
 .long ?GetOverwriteDropToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteTapToolTip@SpellIcon@@UAEIXZ
-.long ?IsCastShadowAtNight@GameThingWithPos@@UAE_NXZ
+.long ?IsCastShadowAtNight@GameThingWithPos@@UAEIXZ
 .long ?CleanupWhenDeleted@Object@@UAEXH@Z
 
 .long ?GetImpressiveType@GameThingWithPos@@UAE?AW4IMPRESSIVE_TYPE@@XZ
@@ -3273,162 +3273,162 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?GetUpdateOfBoredomValue@Object@@UAEMPAVReaction@@PAVGameThingWithPos@@@Z
 
 .long ?IsTown@GameThingWithPos@@UAE_NXZ
-.long ?IsTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?TrueFunction@GameThingWithPos@@UAE_NXZ
-.long ?FalseFunction@GameThingWithPos@@UAE_NXZ
+.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?TrueFunction@GameThingWithPos@@UAEIXZ
+.long ?FalseFunction@GameThingWithPos@@UAEIXZ
 
-.long ?IsNotLiving@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAE_NXZ
-.long ?IsTownCentre@GameThingWithPos@@UAE_NXZ
-.long ?IsTotemStatue@GameThingWithPos@@UAE_NXZ
+.long ?IsNotLiving@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAEIXZ
+.long ?IsTownCentre@GameThingWithPos@@UAEIXZ
+.long ?IsTotemStatue@GameThingWithPos@@UAEIXZ
 
-.long ?IsTownDesireFlag@GameThingWithPos@@UAE_NXZ
-.long ?IsRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTownDesireFlag@GameThingWithPos@@UAEIXZ
+.long ?IsRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsRock@GameThingWithPos@@UAE_NXZ
-.long ?IsSpellDispenser@GameThingWithPos@@UAE_NXZ
+.long ?IsSpellDispenser@GameThingWithPos@@UAEIXZ
 
-.long ?IsMist@GameThingWithPos@@UAE_NXZ
-.long ?IsQueryIcon@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLight@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLantern@GameThingWithPos@@UAE_NXZ
+.long ?IsMist@GameThingWithPos@@UAEIXZ
+.long ?IsQueryIcon@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLight@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLantern@GameThingWithPos@@UAEIXZ
 
-.long ?IsAbode@GameThingWithPos@@UAE_NXZ
-.long ?IsField@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsAbode@GameThingWithPos@@UAEIXZ
+.long ?IsField@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsField@GameThingWithPos@@UAE_NXZ
-.long ?IsBuildingMaterial@Object@@UAE_NXZ
+.long ?IsBuildingMaterial@Object@@UAEIXZ
 
-.long ?IsMagicFireBall@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureAction@Object@@UAE_NXZ
-.long ?IsCitadelHeart@GameThingWithPos@@UAE_NXZ
-.long ?IsDamaged@GameThingWithPos@@UAE_NXZ
+.long ?IsMagicFireBall@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureAction@Object@@UAEIXZ
+.long ?IsCitadelHeart@GameThingWithPos@@UAEIXZ
+.long ?IsDamaged@GameThingWithPos@@UAEIXZ
 
-.long ?CanBeHealedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeEatenByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanCreatureEatMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeAttackedByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?CanBeHealedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeEatenByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanCreatureEatMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeAttackedByCreature@Object@@UAEIPAVCreature@@@Z
 .long ?CanBeFrighteningToCreature@SpellIcon@@UAEIPAVCreature@@@Z
-.long ?CanBeHelpedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePlayedWithByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeImpressedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeInspectedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodUponByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSleptNextToByCreature@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBePickedUpByCreature@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStrokedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeKissedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSetOnFire@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStompedOnByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeThrownByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInAStoragePit@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeDestroyedByStoning@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeExaminedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeFoughtByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeHelpedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePlayedWithByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeImpressedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeInspectedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePoodUponByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSleptNextToByCreature@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBePickedUpByCreature@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStrokedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeKissedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSetOnFire@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStompedOnByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeThrownByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInAStoragePit@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeDestroyedByStoning@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeExaminedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeFoughtByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanReceiveGifts@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanActAsAContainer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z, ?NeedsRepair@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsOnFire@Object@@UAE_NPAVCreature@@@Z
-.long ?IsNotOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuilding@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsMushroom@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanReceiveGifts@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanActAsAContainer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z, ?NeedsRepair@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsOnFire@Object@@UAEIPAVCreature@@@Z
+.long ?IsNotOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuilding@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsMushroom@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedForRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInFoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInWoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtBackToCitadel@Object@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedForRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInFoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePutInWoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtBackToCitadel@Object@@UAEIPAVCreature@@@Z
 
-.long ?IsVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerFarFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerFarFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCow@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodOn@Object@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCow@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodOn@Object@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDominantCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDominantCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeDancedWith@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeDancedWith@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsWorshipSite@GameThingWithPos@@UAE_NXZ
 
-.long ?IsWorshipSite@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorshipSite@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?GetWorshipSite@WorshipSpellIcon@@UAEPAVWorshipSite@@XZ
 .long ?IsWorkshop@GameThingWithPos@@UAE_NXZ
-.long ?IsWorkshop@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorkshop@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsTree@GameThingWithPos@@UAE_NXZ
-.long ?IsTree@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTree@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsPickupableRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsPickupableRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsCitadelPart@GameThingWithPos@@UAE_NXZ
-.long ?IsCitadelPart@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootball@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCitadelPart@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootball@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKickedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeStolenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKickedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeStolenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableScaffold@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableScaffold@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyAwayFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToy@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyAwayFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToy@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsToyBall@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyDie@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsToyBall@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyDie@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsToyCuddly@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?IsLiving@GameThingWithPos@@UBE_NXZ
 
-.long ?IsLiving@GameThingWithPos@@UBE_NPAVCreature@@@Z
+.long ?IsLiving@GameThingWithPos@@UBEIPAVCreature@@@Z
 .long ?IsFence@GameThingWithPos@@UBE_NXZ
 .long ?IsSpellIcon@SpellIcon@@UAEIXZ
 .long ?NothingScareyNearMe@GameThingWithPos@@UBE_NXZ
@@ -3438,17 +3438,17 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?CanBeThrownInTheSeaPlayfully@GameThingWithPos@@UBE_NPAVCreature@@@Z
 .long ?GetCreatureMimicType@GameThingWithPos@@UBEIXZ
 .long ?GetHowMuchCreatureWantsToLookAtMe@Fixed@@UAEMXZ
-.long ?IsFlock@GameThingWithPos@@UBE_NXZ
-.long ?IsDance@GameThingWithPos@@UBE_NXZ
-.long ?IsReward@GameThingWithPos@@UBE_NXZ
+.long ?IsFlock@GameThingWithPos@@UBEIXZ
+.long ?IsDance@GameThingWithPos@@UBEIXZ
+.long ?IsReward@GameThingWithPos@@UBEIXZ
 
-.long ?IsScriptContainer@GameThingWithPos@@UBE_NXZ
-.long ?IsWeather@GameThingWithPos@@UBE_NXZ
-.long ?IsSpell@GameThingWithPos@@UBE_NXZ
-.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAE_NXZ
+.long ?IsScriptContainer@GameThingWithPos@@UBEIXZ
+.long ?IsWeather@GameThingWithPos@@UBEIXZ
+.long ?IsSpell@GameThingWithPos@@UBEIXZ
+.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAEIXZ
 
-.long ?IsMobileWallHug@GameThingWithPos@@UBE_NXZ
-.long ?IsActive@GameThingWithPos@@UBE_NXZ
+.long ?IsMobileWallHug@GameThingWithPos@@UBEIXZ
+.long ?IsActive@GameThingWithPos@@UBEIXZ
 .long ?IsObjectTurningTooFastForCameraToFollowSmoothly@GameThingWithPos@@UBE_NXZ
 .long ?CalculateWhereIWillBeAfterNSeconds@Object@@UAEXMPAULHPoint@@@Z
 
@@ -3467,40 +3467,40 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?SetControlledByScript@GameThingWithPos@@UAEXH@Z
 .long ?GetDeathReason@GameThingWithPos@@UAE?AW4DEATH_REASON@@XZ
 
-.long ?IsInScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsFemaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsAnimal@GameThingWithPos@@UAE_NXZ
+.long ?IsInScript@GameThingWithPos@@UAEIXZ
+.long ?IsMaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsFemaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsAnimal@GameThingWithPos@@UAEIXZ
 
-.long ?IsAChild@GameThingWithPos@@UAE_NXZ
-.long ?IsHouse@GameThingWithPos@@UAE_NXZ
+.long ?IsAChild@GameThingWithPos@@UAEIXZ
+.long ?IsHouse@GameThingWithPos@@UAEIXZ
 .long ?IsObject@Object@@UAE_NXZ
 .long ?IsFootball@GameThingWithPos@@UBE_NXZ
 
-.long ?IsCitadel@GameThingWithPos@@UAE_NXZ
-.long ?IsForest@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileObject@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileStatic@GameThingWithPos@@UAE_NXZ
+.long ?IsCitadel@GameThingWithPos@@UAEIXZ
+.long ?IsForest@GameThingWithPos@@UAEIXZ
+.long ?IsMobileObject@GameThingWithPos@@UAEIXZ
+.long ?IsMobileStatic@GameThingWithPos@@UAEIXZ
 
-.long ?IsAnyKindOfTree@GameThingWithPos@@UAE_NXZ
-.long ?IsDeadTree@GameThingWithPos@@UAE_NXZ
-.long ?IsPileFood@GameThingWithPos@@UAE_NXZ
-.long ?IsFeature@GameThingWithPos@@UAE_NXZ
+.long ?IsAnyKindOfTree@GameThingWithPos@@UAEIXZ
+.long ?IsDeadTree@GameThingWithPos@@UAEIXZ
+.long ?IsPileFood@GameThingWithPos@@UAEIXZ
+.long ?IsFeature@GameThingWithPos@@UAEIXZ
 
-.long ?IsScriptMarker@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptHighlight@GameThingWithPos@@UAE_NXZ
-.long ?IsWonder@MultiMapFixed@@UAE_NXZ
-.long ?IsInfluenceRing@GameThingWithPos@@UAE_NXZ
+.long ?IsScriptMarker@GameThingWithPos@@UAEIXZ
+.long ?IsScriptHighlight@GameThingWithPos@@UAEIXZ
+.long ?IsWonder@MultiMapFixed@@UAEIXZ
+.long ?IsInfluenceRing@GameThingWithPos@@UAEIXZ
 
-.long ?IsPuzzleGame@GameThingWithPos@@UAE_NXZ
-.long ?IsScaffold@GameThingWithPos@@UAE_NXZ
-.long ?IsSkeleton@GameThingWithPos@@UBE_NXZ
+.long ?IsPuzzleGame@GameThingWithPos@@UAEIXZ
+.long ?IsScaffold@GameThingWithPos@@UAEIXZ
+.long ?IsSkeleton@GameThingWithPos@@UBEIXZ
 .long ?IsPoisoned@GameThingWithPos@@UBE_NXZ
 
-.long ?IsSpeedUp@GameThingWithPos@@UAE_NXZ
-.long ?IsParticleContainer@GameThingWithPos@@UAE_NXZ
-.long ?IsSacrificeAltar@GameThingWithPos@@UAE_NXZ
-.long ?IsPot@GameThingWithPos@@UAE_NXZ
+.long ?IsSpeedUp@GameThingWithPos@@UAEIXZ
+.long ?IsParticleContainer@GameThingWithPos@@UAEIXZ
+.long ?IsSacrificeAltar@GameThingWithPos@@UAEIXZ
+.long ?IsPot@GameThingWithPos@@UAEIXZ
 
 .long ?IsComputerPlayer@GameThingWithPos@@UBE_NXZ
 .long ?CanBeThrownByPlayer@GameThingWithPos@@UBE_NXZ
@@ -3510,7 +3510,7 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?IsSpellShield@GameThingWithPos@@UBE_NXZ
 .long ?IsPileResource@GameThingWithPos@@UBE_NXZ
 .long ?IsScriptTimer@GameThingWithPos@@UBE_NXZ
-.long ?CreateBuildingSite@MultiMapFixed@@UAE_NXZ
+.long ?CreateBuildingSite@MultiMapFixed@@UAEIXZ
 .long ?GetQueryFirstEnumText@Object@@UAE?AW4HELP_TEXT@@XZ
 .long ?GetQueryLastEnumText@Object@@UAE?AW4HELP_TEXT@@XZ
 .long ?GetFOVHelpMessageSet@Object@@UAEIXZ
@@ -3544,15 +3544,15 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?RemoveMapObject@MultiMapFixed@@UAEXXZ                                                                                                   // [0xf4dc0] 0x008a9000 + 0xf4dc0 = 0x0099ddc0
 .long ?InsertMapObjectToCell@Fixed@@UAEXPAUMapCell@@@Z
 .long ?RemoveMapObjectFromCell@Object@@UAEXPAUMapCell@@@Z
-.long ?IsObjectInMap@Object@@UAE_NPAUMapCell@@@Z
+.long ?IsObjectInMap@Object@@UAEIPAUMapCell@@@Z
 .long ?IsObjectInMapCheck@Object@@UAE_NXZ
 .long ?MoveMapObject@SpellIcon@@UAEHPBUMapCoords@@@Z
 .long ?ActualMoveMapObject@Object@@UAEXUMapCoords@@@Z
 .long ?GetPtr@Object@@UAEPAV1@XZ
 .long ?GetMeshRadius@Object@@UAEMXZ
 .long ?Get3DObjectForPSys@Object@@UAEPAVGame3DObject@@XZ
-.long ?GetPSysFireFlameMatrix@Object@@UAE_NPAULHMatrix@@@Z
-.long ?GetPSysFireLocalRndFlamePos@Object@@UAE_NPAULHPoint@@PAH@Z
+.long ?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z
+.long ?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z
 .long ?GetPSysFireWorldFlamePos@Object@@UAE_NPBULHPoint@@HPAU2@@Z
 .long ?GetPSysFireLocalFlameScale@Object@@UAEMXZ
 .long ?GetPSysFireMaxFlames@Object@@UAEIXZ
@@ -3562,7 +3562,7 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?GetHoldRadius@Object@@UAEMXZ
 .long ?GetHoldLoweringMultiplier@Object@@UAEMXZ
 .long ?GetHoldYRotate@Object@@UAEMXZ
-.long ?HandShouldFeelWithMeshIntersect@Object@@UAE_NXZ
+.long ?HandShouldFeelWithMeshIntersect@Object@@UAEIXZ
 .long ?SetSpecularColor@SpellIcon@@UAEXULH3DColor@@@Z
 .long ?GetSpecularColor@SpellIcon@@UAE?AULH3DColor@@XZ
 .long ?SetBeliefSprite@Object@@UAEXPAVLH3DSprite@@@Z
@@ -3598,12 +3598,12 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?ProcessState@Object@@UAEIXZ
 .long ?GetProjectileSpeed@Object@@UAEMXZ
 .long ?CanBePickedUp@Object@@UAE_NXZ
-.long ?CanBeCrushed@Fixed@@UAE_NXZ
+.long ?CanBeCrushed@Fixed@@UAEIXZ
 .long ?GetTopPos@Object@@UAEMXZ
 .long ?GetVillagerHugRadius@Object@@UAEMXZ
 .long ?GetWeight@Object@@UAEMXZ
 .long ?GetWorldMatrix@Object@@UAEXPAULHMatrix@@@Z
-.long ?CanBeSuckedIntoVortex@Object@@UAE_NPAVLandscapeVortex@@@Z
+.long ?CanBeSuckedIntoVortex@Object@@UAEIPAVLandscapeVortex@@@Z
 .long ?GetDiscipleStateIfInteractedWith@MultiMapFixed@@UAEIPAVGInterfaceStatus@@PAVVillager@@@Z
 .long ?GetWorkingPos@Object@@UAEPAUMapCoords@@PAU2@PAV1@@Z
 .long ?GetHeightForHandAboveInteractObject@Object@@UAEMXZ
@@ -3616,20 +3616,20 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?GetFoodType@Object@@UAE?AW4FOOD_TYPE@@XZ
 .long ?GetImpressiveValue@Object@@UAEMXZ
 .long ?IsSpellSeedReturnPoint@SpellIcon@@UBE_NXZ
-.long ?IsABeliever@Object@@UAE_NXZ
+.long ?IsABeliever@Object@@UAEIXZ
 .long ?AsMultiMapFixed@MultiMapFixed@@UAEPAV1@XZ
 .long ?ApplyWaterSpell@Object@@UAEMPAVSpellWater@@@Z
-.long ?IsResourceStore@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@@Z, ?DeleteObjectAndTakeResource@MultiMapFixed@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.long ?IsResourceStore@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@@Z, ?DeleteObjectAndTakeResource@MultiMapFixed@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .long ?GetRadiusMultiplierForApplyingPotToPos@Object@@UAEMXZ
-.long ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
+.long ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
 .long ?GetResourceType@Object@@UAE?AW4RESOURCE_TYPE@@XZ
 .long ?GetDefaultResource@Object@@UAEHXZ
 .long ?SetPoisonedResource@Object@@UAEXW4RESOURCE_TYPE@@H@Z
 .long ?SetPoisoned@Object@@UAEXH@Z
 .long ?IsLockedInInteract@Object@@UAE_NXZ
-.long ?SetDying@Object@@UAE_NXZ
-.long ?IsAttackable@Object@@UAE_NPAV1@@Z
-.long ?IsAllied@Object@@UAE_NPAV1@@Z
+.long ?SetDying@Object@@UAEIXZ
+.long ?IsAttackable@Object@@UAEIPAV1@@Z
+.long ?IsAllied@Object@@UAEIPAV1@@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@0@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@@Z
 .long ?IsTouching@Object@@UAE_NPAV1@M@Z
@@ -3637,25 +3637,25 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?EndOnFire@Object@@UAEXXZ
 .long ?GetDistanceFromObject@Object@@UAEMPAV1@@Z
 .long ?GetTribalPower@Object@@UAEMW4TRIBE_TYPE@@@Z
-.long ?ValidForLockedSelectProcess@Fixed@@UAE_NPAVGInterfaceStatus@@@Z, ?NetworkFriendlyStartLockedSelect@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAE_NXZ
+.long ?ValidForLockedSelectProcess@Fixed@@UAEIPAVGInterfaceStatus@@@Z, ?NetworkFriendlyStartLockedSelect@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAEIXZ
 .long ?NetworkUnfriendlyLockedSelect@Object@@UAE_NPAVControlHandUpdateInfo@@@Z
-.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkFriendlyEndLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?ValidAsInterfaceTarget@Object@@UAE_NXZ
+.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkFriendlyEndLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?ValidAsInterfaceTarget@Object@@UAEIXZ
 .long ?ValidAsInterfaceLeashTarget@SpellIcon@@UAEIXZ
-.long ?SelectOnlyAfterRecSystem@Object@@UAE_NXZ
-.long ?ValidForPlaceInHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetInMagicHand@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetOutMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
+.long ?SelectOnlyAfterRecSystem@Object@@UAEIXZ
+.long ?ValidForPlaceInHand@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetInMagicHand@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetOutMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?ValidToRemoveFromHand@Object@@UAE_NPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?RemoveFromHand@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
-.long ?ValidToShakeFromHand@Object@@UAE_NXZ
-.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAE_NXZ
-.long ?IsTuggable@Object@@UAE_NXZ
+.long ?ValidToShakeFromHand@Object@@UAEIXZ
+.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAEIXZ
+.long ?IsTuggable@Object@@UAEIXZ
 .long ?ValidToApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z
 .long ?ApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@PAVGestureSystemPacketData@@@Z
 .long ?ValidToApplyThisToMapCoord@Object@@UAEIPAVGInterfaceStatus@@PAUMapCoords@@@Z
@@ -3679,7 +3679,7 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?ValidToFightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?FightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z
 .long ?IsEffectReceiver@WorshipSpellIcon@@UAEIPAVEffectValues@@@Z
-.long ?CanBeDestroyedBySpell@Object@@UAE_NPAVSpell@@@Z
+.long ?CanBeDestroyedBySpell@Object@@UAEIPAVSpell@@@Z
 .long ?GetImportance@Object@@UAEMXZ
 .long ?InitialisePhysicsFromHand@Object@@UAEIPAULHPoint@@0PAVGInterfaceStatus@@PAV1@H@Z
 .long ?InitialisePhysics@Object@@UAEIPBULHPoint@@0PAV1@_NPAVGInterfaceStatus@@@Z
@@ -3696,22 +3696,22 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?CanBecomeAPhysicsObject@Object@@UAE_NXZ
 .long ?GetAlwaysRemainsInPhysicsInternalSystem@Object@@UAE_NXZ
 .long ?HasSunk@Object@@UAE_NXZ
-.long ?CreatureMustAvoid@MultiMapFixed@@UAE_NPAVCreature@@@Z
+.long ?CreatureMustAvoid@MultiMapFixed@@UAEIPAVCreature@@@Z
 .long ?AddToRoutePlan@Object@@UAEXPAVRPHolder@@PAVCreature@@HP6AXHUPoint2D@@MH@Z@Z
 .long ?GetRoutePlanRadius@Object@@UAEMPAVCreature@@@Z
-.long ?VillagerMustAvoid@Fixed@@UAE_NPAVVillager@@@Z
+.long ?VillagerMustAvoid@Fixed@@UAEIPAVVillager@@@Z
 .long ?IsFireMan@Object@@UAE_NXZ
 .long ?IsARootedObject@Object@@UAE_NXZ
 .long ?GetCollideSoundType@Object@@UAE?AW4SOUND_COLLISION_TYPE@@XZ
-.long ?IsSolidToNewAbode@MultiMapFixed@@UAE_NXZ
+.long ?IsSolidToNewAbode@MultiMapFixed@@UAEIXZ
 .long ?RemoveFromGame@Object@@UAEIXZ
 .long ?GetLandingPointCount@Object@@UAEHXZ
-.long ?GetLandingPoint@Object@@UAE_NEPAULHPoint@@@Z
+.long ?GetLandingPoint@Object@@UAEIEPAULHPoint@@@Z
 .long ?GetTastiness@Object@@UAEIXZ
 .long ?IsScary@Object@@UAE_NXZ
-.long ?GetInspectObjectPos@Object@@UAE_NPAVVillager@@PAUMapCoords@@@Z
+.long ?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z
 .long ?DiscipleInHandNear@Object@@UAEXPAVVillager@@PAVGInterfaceStatus@@@Z
-.long ?GetSpecialPos@Fixed@@UAE_NIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ, ?IsTownArtifact@Fixed@@UAE_NXZ
+.long ?GetSpecialPos@Fixed@@UAEIIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ, ?IsTownArtifact@Fixed@@UAEIXZ
 .long ?ProcessInHand@Object@@UAE_NXZ
 .long ?ProcessInInteract@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?GetObjectCollide@Object@@UAEIXZ
@@ -3737,7 +3737,7 @@ VftableAndRTTI WorshipSpellIcon                                                 
 .long ?InsertMapObjectToCellAssumeFixed@Fixed@@UAEXPAUMapCell@@@Z
 .long ?IsObjectFullyInMap@MultiMapFixed@@UAE_NXZ                                                                                                   // [0xf50d8] 0x008a9000 + 0xf50d8 = 0x0099e0d8
 .long ?GetDoorPos@MultiMapFixed@@UAEPAUMapCoords@@PAU2@@Z
-.long ?GetInfluence@MultiMapFixed@@UAEMXZ, ?IsPlaytimeStructure@MultiMapFixed@@UAE_NXZ, ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ, ?AddPlaytimeVillager@MultiMapFixed@@UAE_NPAVVillager@@@Z                                                               // [0xf50e0] 0x008a9000 + 0xf50e0 = 0x0099e0e0
+.long ?GetInfluence@MultiMapFixed@@UAEMXZ, ?IsPlaytimeStructure@MultiMapFixed@@UAE_NXZ, ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ, ?AddPlaytimeVillager@MultiMapFixed@@UAEIPAVVillager@@@Z                                                               // [0xf50e0] 0x008a9000 + 0xf50e0 = 0x0099e0e0
 .long ?CheckMapObject@MultiMapFixed@@UAEXXZ, ?GetResourceDropPosForComputerPlayer@MultiMapFixed@@UAEXPAUMapCoords@@@Z, ?GetPercentBuilt@MultiMapFixed@@UAEMXZ, ?GetPercentRepaired@MultiMapFixed@@UAEMXZ                                                               // [0xf50f0] 0x008a9000 + 0xf50f0 = 0x0099e0f0
 .long ?GetPercentRepairedFromWhenDamaged@MultiMapFixed@@UAEMXZ
 .long ?IsRepaired@SpellIcon@@UAE_NXZ
@@ -3771,7 +3771,7 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?IsAvailable@GameThing@@QAE_NXZ
 .long ?IsCreature@GameThing@@QAE_NPAVCreature@@@Z
 .long ?IsCreature@GameThing@@UAE_NXZ
-.long ?IsCreatureNotTooNear@GameThing@@UAE_NPAVCreature@@@Z
+.long ?IsCreatureNotTooNear@GameThing@@UAEIPAVCreature@@@Z
 .long ?GetDrawImportance@Object@@UAEMXZ
 .long ?GetMaxAlignmentChangePerGameTurn@GameThing@@UAEMXZ
 .long ?GetComputerSeen@GameThing@@UAE_NXZ
@@ -3785,7 +3785,7 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?Get2DRadius@Object@@UAEMXZ
 .long ?GetPlayerWhoLastPickedMeUp@GameThing@@QAEPAVGPlayer@@XZ
 .long ?GetPlayerWhoLastDroppedMe@GameThing@@QAEPAVGPlayer@@XZ
-.long ?IsFootpathLink@MultiMapFixed@@UAE_NXZ                                                                                                   // [0xf522c] 0x008a9000 + 0xf522c = 0x0099e22c
+.long ?IsFootpathLink@MultiMapFixed@@UAEIXZ                                                                                                   // [0xf522c] 0x008a9000 + 0xf522c = 0x0099e22c
 .long ?GetFootpathLink@MultiMapFixed@@UAEPAVGFootpathLink@@XZ                                                                                                   // [0xf5230] 0x008a9000 + 0xf5230 = 0x0099e230
 .long ?AddFootpathLink@GameThing@@QAEXPAVGFootpath@@@Z
 .long ?GetNearestPathTo@MultiMapFixed@@UAEIPAUMapCoords@@MH@Z, ?UseFootpathIfNecessary@MultiMapFixed@@UAEXPAVLiving@@PBUMapCoords@@E@Z                                                                                       // [0xf5238] 0x008a9000 + 0xf5238 = 0x0099e238
@@ -3866,7 +3866,7 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?GetOverwriteInteractableToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteDropToolTip@GameThingWithPos@@UAEIXZ
 .long ?GetOverwriteTapToolTip@GameThingWithPos@@UAEIXZ
-.long ?IsCastShadowAtNight@GameThingWithPos@@UAE_NXZ
+.long ?IsCastShadowAtNight@GameThingWithPos@@UAEIXZ
 .long ?CleanupWhenDeleted@Object@@UAEXH@Z
 
 .long ?GetImpressiveType@GameThingWithPos@@UAE?AW4IMPRESSIVE_TYPE@@XZ
@@ -3874,161 +3874,161 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?GetImpressiveValue@Object@@UAEMPAVLiving@@PAVReaction@@@Z
 .long ?GetUpdateOfBoredomValue@Object@@UAEMPAVReaction@@PAVGameThingWithPos@@@Z
 .long ?IsTown@GameThingWithPos@@UAE_NXZ
-.long ?IsTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichAngerAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?TrueFunction@GameThingWithPos@@UAE_NXZ
+.long ?IsActivityObjectWhichCompassionAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsActivityObjectWhichPlayfulnessAppliesTo@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?TrueFunction@GameThingWithPos@@UAEIXZ
 
-.long ?FalseFunction@GameThingWithPos@@UAE_NXZ
-.long ?IsNotLiving@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAE_NXZ
-.long ?IsTownCentre@GameThingWithPos@@UAE_NXZ
+.long ?FalseFunction@GameThingWithPos@@UAEIXZ
+.long ?IsNotLiving@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureActivity@GameThingWithPos@@UAEIXZ
+.long ?IsTownCentre@GameThingWithPos@@UAEIXZ
 
-.long ?IsTotemStatue@GameThingWithPos@@UAE_NXZ
-.long ?IsTownDesireFlag@GameThingWithPos@@UAE_NXZ
-.long ?IsRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTotemStatue@GameThingWithPos@@UAEIXZ
+.long ?IsTownDesireFlag@GameThingWithPos@@UAEIXZ
+.long ?IsRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsRock@GameThingWithPos@@UAE_NXZ
 
-.long ?IsSpellDispenser@GameThingWithPos@@UAE_NXZ
-.long ?IsMist@GameThingWithPos@@UAE_NXZ
-.long ?IsQueryIcon@GameThingWithPos@@UAE_NXZ
-.long ?IsStreetLight@GameThingWithPos@@UAE_NXZ
+.long ?IsSpellDispenser@GameThingWithPos@@UAEIXZ
+.long ?IsMist@GameThingWithPos@@UAEIXZ
+.long ?IsQueryIcon@GameThingWithPos@@UAEIXZ
+.long ?IsStreetLight@GameThingWithPos@@UAEIXZ
 
-.long ?IsStreetLantern@GameThingWithPos@@UAE_NXZ
-.long ?IsAbode@GameThingWithPos@@UAE_NXZ
-.long ?IsField@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStreetLantern@GameThingWithPos@@UAEIXZ
+.long ?IsAbode@GameThingWithPos@@UAEIXZ
+.long ?IsField@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsField@GameThingWithPos@@UAE_NXZ
-.long ?IsBuildingMaterial@Object@@UAE_NXZ
-.long ?IsMagicFireBall@GameThingWithPos@@UAE_NXZ
-.long ?IsSuitableForCreatureAction@Object@@UAE_NXZ
-.long ?IsCitadelHeart@GameThingWithPos@@UAE_NXZ
+.long ?IsBuildingMaterial@Object@@UAEIXZ
+.long ?IsMagicFireBall@GameThingWithPos@@UAEIXZ
+.long ?IsSuitableForCreatureAction@Object@@UAEIXZ
+.long ?IsCitadelHeart@GameThingWithPos@@UAEIXZ
 
-.long ?IsDamaged@GameThingWithPos@@UAE_NXZ
-.long ?CanBeHealedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeEatenByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanCreatureEatMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeAttackedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeFrighteningToCreature@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeHelpedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePlayedWithByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeImpressedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeInspectedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodUponByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSleptNextToByCreature@Fixed@@UAE_NPAVCreature@@@Z, ?CanBePickedUpByCreature@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStrokedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeKissedByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeSetOnFire@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStompedOnByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeThrownByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInAStoragePit@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeDestroyedByStoning@Fixed@@UAE_NPAVCreature@@@Z
-.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeExaminedByCreature@Object@@UAE_NPAVCreature@@@Z
+.long ?IsDamaged@GameThingWithPos@@UAEIXZ
+.long ?CanBeHealedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeEatenByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanCreatureEatMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeAttackedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeFrighteningToCreature@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeHelpedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePlayedWithByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeImpressedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeInspectedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePoodUponByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeBefriendedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSleptNextToByCreature@Fixed@@UAEIPAVCreature@@@Z, ?CanBePickedUpByCreature@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStrokedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeKissedByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeSetOnFire@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStompedOnByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeThrownByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInAStoragePit@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeDestroyedByStoning@Fixed@@UAEIPAVCreature@@@Z
+.long ?CanBeStonedAndEatenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeExaminedByCreature@Object@@UAEIPAVCreature@@@Z
 
-.long ?CanBeFoughtByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanReceiveGifts@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanActAsAContainer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?NeedsRepair@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsOnFire@Object@@UAE_NPAVCreature@@@Z
-.long ?IsNotOnFire@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForBuilding@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeFoughtByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanReceiveGifts@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanActAsAContainer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?NeedsRepair@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsOnFire@Object@@UAEIPAVCreature@@@Z
+.long ?IsNotOnFire@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForBuilding@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsMushroom@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedForRepair@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeGivenToTown@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInFoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBePutInWoodPile@Object@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtBackToCitadel@Object@@UAE_NPAVCreature@@@Z
-.long ?IsVillager@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerFarFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsMushroom@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedForRepair@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeGivenToTown@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeUsedToHoldWater@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePutInFoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanBePutInWoodPile@Object@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicFoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanHaveMagicWoodCastOnMe@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtBackToCitadel@Object@@UAEIPAVCreature@@@Z
+.long ?IsVillager@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerFarFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerInTownWithoutManyBreeders@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCow@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBePoodOn@Object@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerNotWorshipping@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCow@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBePoodOn@Object@@UAEIPAVCreature@@@Z
 
-.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenImpressedRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsVillagerWhoHasNotBeenDancedWithRecently@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesVillagerBelongToATownWhichIsAlreadyImpressed@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?DoesTotemBelongToATownWhichIsVeryImpressedIndeed@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsDominantCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeDancedWith@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsDominantCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeDancedWith@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
 
 .long ?IsWorshipSite@GameThingWithPos@@UAE_NXZ
-.long ?IsWorshipSite@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorshipSite@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?GetWorshipSite@GameThingWithPos@@UAEPAUWorshipSite@@XZ
 .long ?IsWorkshop@GameThingWithPos@@UAE_NXZ
 
-.long ?IsWorkshop@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsWorkshop@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsBuildingWhichIsBeingBuilt@MultiMapFixed@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldWhichNeedsWatering@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsFieldWithFoodInIt@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsFieldBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToAnotherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStoragePitBelongingToMyPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?BenefitsFromHavingWaterSprinkledOnIt@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsTree@GameThingWithPos@@UAE_NXZ
-.long ?IsTree@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTree@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTreeNotTooNearPlannedForest@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTreeBigEnoughForCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAFoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsAWoodPileOutsideStoragePit@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsDoingSomethingInteresting@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPickupableRock@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?CanBeUsedForBuildingHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPickupableRock@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsCitadelPart@CitadelPart@@UAEIXZ
 .long ?IsCitadelPart@CitadelPart@@UAEIPAVCreature@@@Z
 
-.long ?IsPlayingFootball@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsPlayingFootball@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndMySideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsPlayingFootballAndOtherSideHasJustScored@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeBroughtHomeByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsAnimalBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellAggressive@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellCompassionate@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?CanBeKickedByCreature@Object@@UAE_NPAVCreature@@@Z
-.long ?CanBeStolenByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsOneOffSpellPlayful@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsOneOffSpellToRestoreHealth@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?CanBeKickedByCreature@Object@@UAEIPAVCreature@@@Z
+.long ?CanBeStolenByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsStealableByCreature@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsStealableScaffold@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsStealableByCreature@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsStealableScaffold@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsTownBelongingToOtherPlayer@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyAwayFromHome@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsTotemWithStealableSpell@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsCreatureNotAvailableForJointActivity@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyAwayFromHome@GameThingWithPos@@UAEIPAVCreature@@@Z
 
-.long ?IsToy@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyBall@GameThingWithPos@@UAE_NPAVCreature@@@Z
-.long ?IsToyDie@GameThingWithPos@@UAE_NPAVCreature@@@Z
+.long ?IsToy@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyBall@GameThingWithPos@@UAEIPAVCreature@@@Z
+.long ?IsToyDie@GameThingWithPos@@UAEIPAVCreature@@@Z
 .long ?IsToyCuddly@GameThingWithPos@@UBE_NPAVCreature@@@Z
 
 .long ?IsLiving@GameThingWithPos@@UBE_NXZ
-.long ?IsLiving@GameThingWithPos@@UBE_NPAVCreature@@@Z
+.long ?IsLiving@GameThingWithPos@@UBEIPAVCreature@@@Z
 .long ?IsFence@GameThingWithPos@@UBE_NXZ
 .long ?IsSpellIcon@GameThingWithPos@@UBE_NXZ
 
@@ -4039,17 +4039,17 @@ VftableAndRTTI WorshipTotem                                                     
 
 .long ?GetCreatureMimicType@GameThingWithPos@@UBEIXZ
 .long ?GetHowMuchCreatureWantsToLookAtMe@Fixed@@UAEMXZ
-.long ?IsFlock@GameThingWithPos@@UBE_NXZ
-.long ?IsDance@GameThingWithPos@@UBE_NXZ
+.long ?IsFlock@GameThingWithPos@@UBEIXZ
+.long ?IsDance@GameThingWithPos@@UBEIXZ
 
-.long ?IsReward@GameThingWithPos@@UBE_NXZ
-.long ?IsScriptContainer@GameThingWithPos@@UBE_NXZ
-.long ?IsWeather@GameThingWithPos@@UBE_NXZ
-.long ?IsSpell@GameThingWithPos@@UBE_NXZ
+.long ?IsReward@GameThingWithPos@@UBEIXZ
+.long ?IsScriptContainer@GameThingWithPos@@UBEIXZ
+.long ?IsWeather@GameThingWithPos@@UBEIXZ
+.long ?IsSpell@GameThingWithPos@@UBEIXZ
 
-.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileWallHug@GameThingWithPos@@UBE_NXZ
-.long ?IsActive@GameThingWithPos@@UBE_NXZ
+.long ?IsDeletedWhenReleasedFromScript@GameThingWithPos@@UAEIXZ
+.long ?IsMobileWallHug@GameThingWithPos@@UBEIXZ
+.long ?IsActive@GameThingWithPos@@UBEIXZ
 .long ?IsObjectTurningTooFastForCameraToFollowSmoothly@GameThingWithPos@@UBE_NXZ
 .long ?CalculateWhereIWillBeAfterNSeconds@Object@@UAEXMPAULHPoint@@@Z
 .long ?AttitudeToCreatureEating@GameThingWithPos@@UAEIXZ
@@ -4066,41 +4066,41 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?SetControlledByScript@GameThingWithPos@@UAEXH@Z
 
 .long ?GetDeathReason@GameThingWithPos@@UAE?AW4DEATH_REASON@@XZ
-.long ?IsInScript@GameThingWithPos@@UAE_NXZ
-.long ?IsMaleVillager@GameThingWithPos@@UAE_NXZ
-.long ?IsFemaleVillager@GameThingWithPos@@UAE_NXZ
+.long ?IsInScript@GameThingWithPos@@UAEIXZ
+.long ?IsMaleVillager@GameThingWithPos@@UAEIXZ
+.long ?IsFemaleVillager@GameThingWithPos@@UAEIXZ
 
-.long ?IsAnimal@GameThingWithPos@@UAE_NXZ
-.long ?IsAChild@GameThingWithPos@@UAE_NXZ
-.long ?IsHouse@GameThingWithPos@@UAE_NXZ
+.long ?IsAnimal@GameThingWithPos@@UAEIXZ
+.long ?IsAChild@GameThingWithPos@@UAEIXZ
+.long ?IsHouse@GameThingWithPos@@UAEIXZ
 .long ?IsObject@Object@@UAE_NXZ
 
 .long ?IsFootball@GameThingWithPos@@UBE_NXZ
-.long ?IsCitadel@GameThingWithPos@@UAE_NXZ
-.long ?IsForest@GameThingWithPos@@UAE_NXZ
-.long ?IsMobileObject@GameThingWithPos@@UAE_NXZ
+.long ?IsCitadel@GameThingWithPos@@UAEIXZ
+.long ?IsForest@GameThingWithPos@@UAEIXZ
+.long ?IsMobileObject@GameThingWithPos@@UAEIXZ
 
-.long ?IsMobileStatic@GameThingWithPos@@UAE_NXZ
-.long ?IsAnyKindOfTree@GameThingWithPos@@UAE_NXZ
-.long ?IsDeadTree@GameThingWithPos@@UAE_NXZ
-.long ?IsPileFood@GameThingWithPos@@UAE_NXZ
+.long ?IsMobileStatic@GameThingWithPos@@UAEIXZ
+.long ?IsAnyKindOfTree@GameThingWithPos@@UAEIXZ
+.long ?IsDeadTree@GameThingWithPos@@UAEIXZ
+.long ?IsPileFood@GameThingWithPos@@UAEIXZ
 
-.long ?IsFeature@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptMarker@GameThingWithPos@@UAE_NXZ
-.long ?IsScriptHighlight@GameThingWithPos@@UAE_NXZ
-.long ?IsWonder@MultiMapFixed@@UAE_NXZ
+.long ?IsFeature@GameThingWithPos@@UAEIXZ
+.long ?IsScriptMarker@GameThingWithPos@@UAEIXZ
+.long ?IsScriptHighlight@GameThingWithPos@@UAEIXZ
+.long ?IsWonder@MultiMapFixed@@UAEIXZ
 
-.long ?IsInfluenceRing@GameThingWithPos@@UAE_NXZ
-.long ?IsPuzzleGame@GameThingWithPos@@UAE_NXZ
-.long ?IsScaffold@GameThingWithPos@@UAE_NXZ
-.long ?IsSkeleton@GameThingWithPos@@UBE_NXZ
+.long ?IsInfluenceRing@GameThingWithPos@@UAEIXZ
+.long ?IsPuzzleGame@GameThingWithPos@@UAEIXZ
+.long ?IsScaffold@GameThingWithPos@@UAEIXZ
+.long ?IsSkeleton@GameThingWithPos@@UBEIXZ
 
 .long ?IsPoisoned@GameThingWithPos@@UBE_NXZ
-.long ?IsSpeedUp@GameThingWithPos@@UAE_NXZ
-.long ?IsParticleContainer@GameThingWithPos@@UAE_NXZ
+.long ?IsSpeedUp@GameThingWithPos@@UAEIXZ
+.long ?IsParticleContainer@GameThingWithPos@@UAEIXZ
 .long ?IsSacrificeAltar@WorshipTotem@@UAEIXZ
 
-.long ?IsPot@GameThingWithPos@@UAE_NXZ
+.long ?IsPot@GameThingWithPos@@UAEIXZ
 .long ?IsComputerPlayer@GameThingWithPos@@UBE_NXZ
 .long ?CanBeThrownByPlayer@GameThingWithPos@@UBE_NXZ
 .long ?SetSkeleton@GameThingWithPos@@UAEXH@Z
@@ -4109,7 +4109,7 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?IsSpellShield@GameThingWithPos@@UBE_NXZ
 .long ?IsPileResource@GameThingWithPos@@UBE_NXZ
 .long ?IsScriptTimer@GameThingWithPos@@UBE_NXZ
-.long ?CreateBuildingSite@MultiMapFixed@@UAE_NXZ
+.long ?CreateBuildingSite@MultiMapFixed@@UAEIXZ
 .long ?GetQueryFirstEnumText@Object@@UAE?AW4HELP_TEXT@@XZ
 .long ?GetQueryLastEnumText@Object@@UAE?AW4HELP_TEXT@@XZ
 .long ?GetFOVHelpMessageSet@Object@@UAEIXZ
@@ -4142,15 +4142,15 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?RemoveMapObject@MultiMapFixed@@UAEXXZ                                                                                                   // [0xf5704] 0x008a9000 + 0xf5704 = 0x0099e704
 .long ?InsertMapObjectToCell@Fixed@@UAEXPAUMapCell@@@Z
 .long ?RemoveMapObjectFromCell@Object@@UAEXPAUMapCell@@@Z
-.long ?IsObjectInMap@Object@@UAE_NPAUMapCell@@@Z
+.long ?IsObjectInMap@Object@@UAEIPAUMapCell@@@Z
 .long ?IsObjectInMapCheck@Object@@UAE_NXZ
 .long ?MoveMapObject@MultiMapFixed@@UAEHPAUMapCoords@@@Z
 .long ?ActualMoveMapObject@Object@@UAEXUMapCoords@@@Z
 .long ?GetPtr@Object@@UAEPAV1@XZ
 .long ?GetMeshRadius@Object@@UAEMXZ
 .long ?Get3DObjectForPSys@Object@@UAEPAVGame3DObject@@XZ
-.long ?GetPSysFireFlameMatrix@Object@@UAE_NPAULHMatrix@@@Z
-.long ?GetPSysFireLocalRndFlamePos@Object@@UAE_NPAULHPoint@@PAH@Z
+.long ?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z
+.long ?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z
 .long ?GetPSysFireWorldFlamePos@Object@@UAE_NPBULHPoint@@HPAU2@@Z
 .long ?GetPSysFireLocalFlameScale@Object@@UAEMXZ
 .long ?GetPSysFireMaxFlames@Object@@UAEIXZ
@@ -4160,7 +4160,7 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?GetHoldRadius@Object@@UAEMXZ
 .long ?GetHoldLoweringMultiplier@Object@@UAEMXZ
 .long ?GetHoldYRotate@Object@@UAEMXZ
-.long ?HandShouldFeelWithMeshIntersect@Object@@UAE_NXZ
+.long ?HandShouldFeelWithMeshIntersect@Object@@UAEIXZ
 .long ?SetSpecularColor@WorshipTotem@@UAEXULH3DColor@@@Z
 .long ?GetSpecularColor@WorshipTotem@@UAE?AULH3DColor@@XZ
 .long ?SetBeliefSprite@Object@@UAEXPAVLH3DSprite@@@Z
@@ -4196,12 +4196,12 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?ProcessState@Object@@UAEIXZ
 .long ?GetProjectileSpeed@Object@@UAEMXZ
 .long ?CanBePickedUp@Object@@UAE_NXZ
-.long ?CanBeCrushed@Fixed@@UAE_NXZ
+.long ?CanBeCrushed@Fixed@@UAEIXZ
 .long ?GetTopPos@Object@@UAEMXZ
 .long ?GetVillagerHugRadius@Object@@UAEMXZ
 .long ?GetWeight@Object@@UAEMXZ
 .long ?GetWorldMatrix@Object@@UAEXPAULHMatrix@@@Z
-.long ?CanBeSuckedIntoVortex@Object@@UAE_NPAVLandscapeVortex@@@Z
+.long ?CanBeSuckedIntoVortex@Object@@UAEIPAVLandscapeVortex@@@Z
 .long ?GetDiscipleStateIfInteractedWith@MultiMapFixed@@UAEIPAVGInterfaceStatus@@PAVVillager@@@Z
 .long ?GetWorkingPos@Object@@UAEPAUMapCoords@@PAU2@PAV1@@Z
 .long ?GetHeightForHandAboveInteractObject@Object@@UAEMXZ
@@ -4214,21 +4214,21 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?GetFoodType@Object@@UAE?AW4FOOD_TYPE@@XZ
 .long ?GetImpressiveValue@Object@@UAEMXZ
 .long ?IsSpellSeedReturnPoint@WorshipTotem@@UBE_NXZ
-.long ?IsABeliever@Object@@UAE_NXZ
+.long ?IsABeliever@Object@@UAEIXZ
 .long ?AsMultiMapFixed@MultiMapFixed@@UAEPAV1@XZ
 .long ?ApplyWaterSpell@Object@@UAEMPAVSpellWater@@@Z
-.long ?IsResourceStore@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@@Z
-.long ?DeleteObjectAndTakeResource@MultiMapFixed@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.long ?IsResourceStore@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@@Z
+.long ?DeleteObjectAndTakeResource@MultiMapFixed@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .long ?GetRadiusMultiplierForApplyingPotToPos@Object@@UAEMXZ
-.long ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
+.long ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
 .long ?GetResourceType@Object@@UAE?AW4RESOURCE_TYPE@@XZ
 .long ?GetDefaultResource@Object@@UAEHXZ
 .long ?SetPoisonedResource@Object@@UAEXW4RESOURCE_TYPE@@H@Z
 .long ?SetPoisoned@Object@@UAEXH@Z
 .long ?IsLockedInInteract@Object@@UAE_NXZ
-.long ?SetDying@Object@@UAE_NXZ
-.long ?IsAttackable@Object@@UAE_NPAV1@@Z
-.long ?IsAllied@Object@@UAE_NPAV1@@Z
+.long ?SetDying@Object@@UAEIXZ
+.long ?IsAttackable@Object@@UAEIPAV1@@Z
+.long ?IsAllied@Object@@UAEIPAV1@@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@0@Z
 .long ?IsTouching@Object@@UAE_NPAUMapCoords@@@Z
 .long ?IsTouching@Object@@UAE_NPAV1@M@Z
@@ -4236,25 +4236,25 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?EndOnFire@Object@@UAEXXZ
 .long ?GetDistanceFromObject@Object@@UAEMPAV1@@Z
 .long ?GetTribalPower@Object@@UAEMW4TRIBE_TYPE@@@Z
-.long ?ValidForLockedSelectProcess@Fixed@@UAE_NPAVGInterfaceStatus@@@Z, ?NetworkFriendlyStartLockedSelect@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAE_NXZ
+.long ?ValidForLockedSelectProcess@Fixed@@UAEIPAVGInterfaceStatus@@@Z, ?NetworkFriendlyStartLockedSelect@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?NetworkUnfriendlyStartLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAEIXZ
 .long ?NetworkUnfriendlyLockedSelect@Object@@UAE_NPAVControlHandUpdateInfo@@@Z
-.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ
-.long ?NetworkFriendlyEndLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?ValidAsInterfaceTarget@Object@@UAE_NXZ
-.long ?ValidAsInterfaceLeashTarget@Object@@UAE_NXZ
-.long ?SelectOnlyAfterRecSystem@Object@@UAE_NXZ
-.long ?ValidForPlaceInHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetInMagicHand@Fixed@@UAE_NPAVGInterfaceStatus@@@Z
-.long ?InterfaceSetOutMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
+.long ?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ
+.long ?NetworkFriendlyEndLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?ValidAsInterfaceTarget@Object@@UAEIXZ
+.long ?ValidAsInterfaceLeashTarget@Object@@UAEIXZ
+.long ?SelectOnlyAfterRecSystem@Object@@UAEIXZ
+.long ?ValidForPlaceInHand@Object@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetInMagicHand@Fixed@@UAEIPAVGInterfaceStatus@@@Z
+.long ?InterfaceSetOutMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?ValidToRemoveFromHand@Object@@UAE_NPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .long ?RemoveFromHand@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
-.long ?ValidToShakeFromHand@Object@@UAE_NXZ
-.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAE_NXZ
-.long ?IsTuggable@Object@@UAE_NXZ
+.long ?ValidToShakeFromHand@Object@@UAEIXZ
+.long ?InterfaceMustBeInInfluenceForInteraction@Object@@UAEIXZ
+.long ?IsTuggable@Object@@UAEIXZ
 .long ?ValidToApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z
 .long ?ApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@PAVGestureSystemPacketData@@@Z
 .long ?ValidToApplyThisToMapCoord@Object@@UAEIPAVGInterfaceStatus@@PAUMapCoords@@@Z
@@ -4295,21 +4295,21 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?CanBecomeAPhysicsObject@Object@@UAE_NXZ
 .long ?GetAlwaysRemainsInPhysicsInternalSystem@Object@@UAE_NXZ
 .long ?HasSunk@Object@@UAE_NXZ
-.long ?CreatureMustAvoid@MultiMapFixed@@UAE_NPAVCreature@@@Z
+.long ?CreatureMustAvoid@MultiMapFixed@@UAEIPAVCreature@@@Z
 .long ?AddToRoutePlan@Object@@UAEXPAVRPHolder@@PAVCreature@@HP6AXHUPoint2D@@MH@Z@Z
 .long ?GetRoutePlanRadius@Object@@UAEMPAVCreature@@@Z
-.long ?VillagerMustAvoid@Fixed@@UAE_NPAVVillager@@@Z
+.long ?VillagerMustAvoid@Fixed@@UAEIPAVVillager@@@Z
 .long ?IsFireMan@Object@@UAE_NXZ
 .long ?IsARootedObject@Object@@UAE_NXZ
 .long ?GetCollideSoundType@Object@@UAE?AW4SOUND_COLLISION_TYPE@@XZ
-.long ?IsSolidToNewAbode@MultiMapFixed@@UAE_NXZ
+.long ?IsSolidToNewAbode@MultiMapFixed@@UAEIXZ
 .long ?RemoveFromGame@Object@@UAEIXZ
 .long ?GetLandingPointCount@Object@@UAEHXZ
-.long ?GetLandingPoint@Object@@UAE_NEPAULHPoint@@@Z
+.long ?GetLandingPoint@Object@@UAEIEPAULHPoint@@@Z
 .long ?GetTastiness@Object@@UAEIXZ
 .long ?IsScary@Object@@UAE_NXZ
-.long ?GetInspectObjectPos@Object@@UAE_NPAVVillager@@PAUMapCoords@@@Z
-.long 0x00781010, ?GetSpecialPos@Fixed@@UAE_NIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ, ?IsTownArtifact@Fixed@@UAE_NXZ                                                               // [0xf59b0] 0x008a9000 + 0xf59b0 = 0x0099e9b0
+.long ?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z
+.long 0x00781010, ?GetSpecialPos@Fixed@@UAEIIPAUMapCoords@@@Z, ?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ, ?IsTownArtifact@Fixed@@UAEIXZ                                                               // [0xf59b0] 0x008a9000 + 0xf59b0 = 0x0099e9b0
 .long ?ProcessInHand@Object@@UAE_NXZ
 .long ?ProcessInInteract@Object@@UAEIPAVGInterfaceStatus@@@Z
 .long ?GetObjectCollide@Object@@UAEIXZ
@@ -4336,7 +4336,7 @@ VftableAndRTTI WorshipTotem                                                     
 .long ?IsObjectFullyInMap@MultiMapFixed@@UAE_NXZ                                                                                                   // [0xf5a1c] 0x008a9000 + 0xf5a1c = 0x0099ea1c
 .long ?GetDoorPos@MultiMapFixed@@UAEPAUMapCoords@@PAU2@@Z
 .long ?GetInfluence@MultiMapFixed@@UAEMXZ, ?IsPlaytimeStructure@MultiMapFixed@@UAE_NXZ, ?IsPlaytimeStarted@MultiMapFixed@@UAE_NXZ                                                                           // [0xf5a24] 0x008a9000 + 0xf5a24 = 0x0099ea24
-.long ?AddPlaytimeVillager@MultiMapFixed@@UAE_NPAVVillager@@@Z, ?CheckMapObject@MultiMapFixed@@UAEXXZ, ?GetResourceDropPosForComputerPlayer@MultiMapFixed@@UAEXPAUMapCoords@@@Z, ?GetPercentBuilt@MultiMapFixed@@UAEMXZ                                                               // [0xf5a30] 0x008a9000 + 0xf5a30 = 0x0099ea30
+.long ?AddPlaytimeVillager@MultiMapFixed@@UAEIPAVVillager@@@Z, ?CheckMapObject@MultiMapFixed@@UAEXXZ, ?GetResourceDropPosForComputerPlayer@MultiMapFixed@@UAEXPAUMapCoords@@@Z, ?GetPercentBuilt@MultiMapFixed@@UAEMXZ                                                               // [0xf5a30] 0x008a9000 + 0xf5a30 = 0x0099ea30
 .long ?GetPercentRepaired@MultiMapFixed@@UAEMXZ, ?GetPercentRepairedFromWhenDamaged@MultiMapFixed@@UAEMXZ
 .long ?IsRepaired@CitadelPart@@UAE_NXZ
 .long ?IsBuilt@CitadelPart@@UAE_NXZ                                                               // [0xf5a40] 0x008a9000 + 0xf5a40 = 0x0099ea40

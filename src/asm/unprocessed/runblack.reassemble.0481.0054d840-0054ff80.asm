@@ -93,7 +93,7 @@
 .extern ?GetYear@GGameInfo@@QAEMXZ
 .extern ?Process@GGameInfo@@QAEXXZ
 .extern _jmp_addr_0x00557ba0
-.extern ?LoadAllGame@GameOSFile@@SA_NPAD@Z
+.extern ?LoadAllGame@GameOSFile@@SAIPAD@Z
 .extern _jmp_addr_0x00563ff0
 .extern _jmp_addr_0x00564050
 .extern _jmp_addr_0x00564160
@@ -2456,7 +2456,7 @@ _jmp_addr_0x0054ec80:    push               ecx                                 
                          {disp32} ja        .Lbl_addr_0x0054fa8d                          // 0x0054f6e9    0f879e030000
                          jmp                dword ptr [eax*4 + 0x54ff60]                  // 0x0054f6ef    ff248560ff5400
                          push               0x00d01838                                    // 0x0054f6f6    683818d000
-                         call               ?LoadAllGame@GameOSFile@@SA_NPAD@Z            // 0x0054f6fb    e8b0900000
+                         call               ?LoadAllGame@GameOSFile@@SAIPAD@Z            // 0x0054f6fb    e8b0900000
                          add                esp, 0x04                                     // 0x0054f700    83c404
                          test               eax, eax                                      // 0x0054f703    85c0
                          {disp8} je         .Lbl_addr_0x0054f780                          // 0x0054f705    7479

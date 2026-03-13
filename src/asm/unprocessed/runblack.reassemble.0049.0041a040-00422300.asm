@@ -93,7 +93,7 @@
 .extern ?ConvertGameAngleTo3D@GUtils@@SAMJ@Z
 .extern ?ConvertWholeDistanceToMeters@GUtils@@SAMJ@Z
 .extern _jmp_addr_0x0074e2b0
-.extern ?FindNearestDrinkingWater@GUtils@@SA_NAAUMapCoords@@0M@Z
+.extern ?FindNearestDrinkingWater@GUtils@@SAIAAUMapCoords@@0M@Z
 .extern _jmp_addr_0x0074f310
 .extern _jmp_addr_0x007a1400
 .extern  ??3@YAXPAX@Z
@@ -170,7 +170,7 @@
 .globl _globl_ct_0x00421e40
 .globl ?GetTown@MultiMapFixed@@UAEPAVTown@@XZ
 .globl ?GetArrivePos@MultiMapFixed@@UAEPAUMapCoords@@PAU2@@Z
-.globl ?IsWonder@MultiMapFixed@@UAE_NXZ
+.globl ?IsWonder@MultiMapFixed@@UAEIXZ
 .globl ?GetPercentAbodeFullWithAdults@MultiMapFixed@@UAEMXZ
 .globl ?GetPercentAbodeFullWithChildren@MultiMapFixed@@UAEMXZ
 .globl ?GetDestructionMesh@MultiMapFixed@@UAEPAVLH3DMesh@@XZ
@@ -201,7 +201,7 @@
 .globl ?IsPosValidForTurnAngle@Animal@@UAE_NABUMapCoords@@@Z
 .globl ?ValidToApplyThisToObject@Animal@@UAEIPAVGInterfaceStatus@@PAVObject@@@Z
 .globl ?ApplyThisToObject@Animal@@UAEIPAVGInterfaceStatus@@PAVObject@@PAUGestureSystemPacketData@@@Z
-.globl ?IsFinalState@Animal@@UAE_NW4VILLAGER_STATES@@@Z
+.globl ?IsFinalState@Animal@@UAEIW4VILLAGER_STATES@@@Z
 .globl ?ResolveLoad@Animal@@UAEXXZ
 .globl ?IsChild@Animal@@UAE_NXZ
 .globl ?GetSaveType@PieceVillager@@UAEIXZ
@@ -2385,7 +2385,7 @@ _jmp_addr_0x0041b1f0:    ret                                                    
                          push               eax                                           // 0x0041b429    50
                          call               ?SetDomainCentrePos@Flock@@QAEXABUMapCoords@@@Z                          // 0x0041b42a    e8f1471100
                          ret                                                              // 0x0041b42f    c3
-?IsFinalState@Animal@@UAE_NW4VILLAGER_STATES@@@Z:
+?IsFinalState@Animal@@UAEIW4VILLAGER_STATES@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                   // 0x0041b430    8b442404
                          and                eax, 0x000000ff                               // 0x0041b434    25ff000000
                          lea                ecx, dword ptr [eax + eax * 0x2]              // 0x0041b439    8d0c40
@@ -13863,7 +13863,7 @@ _jmp_addr_0x004213c0:    push               esi                                 
                          {disp8} lea        ecx, dword ptr [esp + 0x28]                   // 0x004214d7    8d4c2428
                          push               ecx                                           // 0x004214db    51
                          push               ebp                                           // 0x004214dc    55
-                         call               ?FindNearestDrinkingWater@GUtils@@SA_NAAUMapCoords@@0M@Z                            // 0x004214dd    e8bece3200
+                         call               ?FindNearestDrinkingWater@GUtils@@SAIAAUMapCoords@@0M@Z                            // 0x004214dd    e8bece3200
                          add                esp, 0x0c                                     // 0x004214e2    83c40c
                          test               eax, eax                                      // 0x004214e5    85c0
                          {disp8} jne        .Lbl_addr_0x004214f3                          // 0x004214e7    750a
@@ -15177,7 +15177,7 @@ _jmp_addr_0x00421f50:    push               edi                                 
                          nop                                                              // 0x0042204d    90
                          nop                                                              // 0x0042204e    90
                          nop                                                              // 0x0042204f    90
-?IsWonder@MultiMapFixed@@UAE_NXZ:
+?IsWonder@MultiMapFixed@@UAEIXZ:
                          xor.s              eax, eax                                      // 0x00422050    33c0
                          ret                                                              // 0x00422052    c3
                          nop                                                              // 0x00422053    90

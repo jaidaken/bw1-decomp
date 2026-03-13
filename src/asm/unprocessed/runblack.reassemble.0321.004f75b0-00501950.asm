@@ -147,7 +147,7 @@
 .globl _globl_ct_0x004ff990
 .globl ?MaintainSpell@Creature@@UAEXIM@Z
 .globl ?UpdateSpellInfo@Creature@@UAEXPAVSpell@@PAUPSysProcessInfo@@@Z
-.globl ?CanBeSuckedIntoVortex@Creature@@UAE_NPAVLandscapeVortex@@@Z
+.globl ?CanBeSuckedIntoVortex@Creature@@UAEIPAVLandscapeVortex@@@Z
 .globl ?GetPSysBeamTargetPos@Creature@@UAEXPAULHPoint@@@Z
 .globl ?SetArgumentOfSubActionAgenda@SubArgumentObjectAndInteger@@UAEXPAVCreatureSubActionAgenda@@I@Z
 .globl ?SetArgumentOfSubActionAgenda@SubArgumentInteger@@UAEXPAVCreatureSubActionAgenda@@I@Z
@@ -1943,7 +1943,7 @@ _jmp_addr_0x004f89d0:    mov                eax, dword ptr [ecx]                
                          nop                                                              // 0x004f8a0d    90
                          nop                                                              // 0x004f8a0e    90
                          nop                                                              // 0x004f8a0f    90
-?CanBeSuckedIntoVortex@Creature@@UAE_NPAVLandscapeVortex@@@Z:
+?CanBeSuckedIntoVortex@Creature@@UAEIPAVLandscapeVortex@@@Z:
                          push               esi                                           // 0x004f8a10    56
                          mov.s              esi, ecx                                      // 0x004f8a11    8bf1
                          {disp32} mov       al, byte ptr [esi + 0x0000037c]               // 0x004f8a13    8a867c030000

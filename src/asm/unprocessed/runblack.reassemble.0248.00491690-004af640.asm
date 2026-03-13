@@ -31643,7 +31643,7 @@ _jmp_addr_0x004a6910:    sub                esp, 0x18                           
                          nop                                                               // 0x004aca6d    90
                          nop                                                               // 0x004aca6e    90
                          nop                                                               // 0x004aca6f    90
-?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAE_NK@Z:
+?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAEIK@Z:
                          sub                esp, 0x2c                                      // 0x004aca70    83ec2c
                          push               ebx                                            // 0x004aca73    53
                          push               ebp                                            // 0x004aca74    55
@@ -31836,7 +31836,7 @@ _jmp_addr_0x004a6910:    sub                esp, 0x18                           
                          nop                                                               // 0x004accaf    90
                          {disp8} mov        eax, dword ptr [esp + 0x04]                    // 0x004accb0    8b442404
                          push               eax                                            // 0x004accb4    50
-                         call               ?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAE_NK@Z                           // 0x004accb5    e8b6fdffff
+                         call               ?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAEIK@Z                           // 0x004accb5    e8b6fdffff
                          ret                0x0004                                         // 0x004accba    c20400
                          nop                                                               // 0x004accbd    90
                          nop                                                               // 0x004accbe    90
@@ -31929,14 +31929,14 @@ _jmp_addr_0x004a6910:    sub                esp, 0x18                           
                          nop                                                               // 0x004acdaf    90
                          {disp8} mov        eax, dword ptr [esp + 0x04]                    // 0x004acdb0    8b442404
                          push               eax                                            // 0x004acdb4    50
-                         call               ?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAE_NK@Z                           // 0x004acdb5    e8b6fcffff
+                         call               ?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAEIK@Z                           // 0x004acdb5    e8b6fcffff
                          ret                0x0004                                         // 0x004acdba    c20400
                          nop                                                               // 0x004acdbd    90
                          nop                                                               // 0x004acdbe    90
                          nop                                                               // 0x004acdbf    90
                          {disp8} mov        eax, dword ptr [esp + 0x04]                    // 0x004acdc0    8b442404
                          push               eax                                            // 0x004acdc4    50
-                         call               ?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAE_NK@Z                           // 0x004acdc5    e8a6fcffff
+                         call               ?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAEIK@Z                           // 0x004acdc5    e8a6fcffff
                          ret                0x0004                                         // 0x004acdca    c20400
                          nop                                                               // 0x004acdcd    90
                          nop                                                               // 0x004acdce    90

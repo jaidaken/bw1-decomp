@@ -113,7 +113,7 @@
 .globl _jmp_addr_0x005f1010
 .globl _jmp_addr_0x005f10b0
 .globl ?StopReacting@Living@@UAEXXZ
-.globl ?IsAvailableForReaction@Living@@UAE_NW4REACTION@@@Z
+.globl ?IsAvailableForReaction@Living@@UAEIW4REACTION@@@Z
 .globl ?ProcessReaction@Living@@QAEXXZ
 .globl ?SetupLookAtObject@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z
 .globl ?FleeFromSpellPriority@Living@@UAEEPAVReaction@@0@Z
@@ -130,7 +130,7 @@
 .globl ?GotoFoodReaction@PuzzleHorse@@UAE_NXZ
 .globl ?GotoWoodReaction@PuzzleHorse@@UAE_NXZ
 .globl ?GetTopState@Living@@QBE?AW4VILLAGER_STATES@@XZ
-.globl ?SetupMoveToObject@Living@@QAE_NPAVObject@@E@Z
+.globl ?SetupMoveToObject@Living@@QAEIPAVObject@@E@Z
 .globl @SetupMoveToPos__6LivingFRC9MapCoordsUc@13
 .globl @SetupMoveToWithHug__6LivingFRC9MapCoordsUc@13
 .globl @SetTopState__6LivingFUc@12
@@ -940,7 +940,7 @@ _jmp_addr_0x005f10b0:    push               esi                                 
                          nop                                                              // 0x005f11ed    90
                          nop                                                              // 0x005f11ee    90
                          nop                                                              // 0x005f11ef    90
-?IsAvailableForReaction@Living@@UAE_NW4REACTION@@@Z:
+?IsAvailableForReaction@Living@@UAEIW4REACTION@@@Z:
                          push               ebx                                           // 0x005f11f0    53
                          push               esi                                           // 0x005f11f1    56
                          mov.s              esi, ecx                                      // 0x005f11f2    8bf1
@@ -3211,7 +3211,7 @@ _globl_ct_0x005f27c0:    {disp32} jmp       .Lbl_addr_0x005f27d0                
                          nop                                                              // 0x005f27fd    90
                          nop                                                              // 0x005f27fe    90
                          nop                                                              // 0x005f27ff    90
-?SetupMoveToObject@Living@@QAE_NPAVObject@@E@Z:
+?SetupMoveToObject@Living@@QAEIPAVObject@@E@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                   // 0x005f2800    8b442404
                          push               esi                                           // 0x005f2804    56
                          mov.s              esi, ecx                                      // 0x005f2805    8bf1

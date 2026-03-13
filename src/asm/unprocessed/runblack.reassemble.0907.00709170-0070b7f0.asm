@@ -59,7 +59,7 @@
 .extern _jmp_addr_0x0074cde0
 .extern _jmp_addr_0x0078cc10
 .extern _jmp_addr_0x00792fb0
-.extern ?StartScript@Temple@@QAE_NK@Z
+.extern ?StartScript@Temple@@QAEIK@Z
 .extern _jmp_addr_0x007a1400
 .extern @Read__8LHOSFileFPvUlPUl@20
 .extern @Write__8LHOSFileFPvUlPUl@20
@@ -2821,7 +2821,7 @@ _jmp_addr_0x0070a510:    {disp32} fld       dword ptr [data_bytes + 0x3d07d8]   
                          {disp8} mov        edx, dword ptr [esi + 0x78]                   // 0x0070ada3    8b5678
                          {disp32} mov       ecx, dword ptr [eax + 0x000059b4]             // 0x0070ada6    8b88b4590000
                          push               edx                                           // 0x0070adac    52
-                         call               ?StartScript@Temple@@QAE_NK@Z                 // 0x0070adad    e86e9c0800
+                         call               ?StartScript@Temple@@QAEIK@Z                 // 0x0070adad    e86e9c0800
 .Lbl_addr_0x0070adb2:    pop                edi                                           // 0x0070adb2    5f
                          pop                esi                                           // 0x0070adb3    5e
                          mov                eax, 0x00000001                               // 0x0070adb4    b801000000

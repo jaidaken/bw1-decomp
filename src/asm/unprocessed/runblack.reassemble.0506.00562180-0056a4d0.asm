@@ -20,7 +20,7 @@
 .extern ?IsMultiplayerGame@GGame@@QBE_NXZ
 .extern _jmp_addr_0x00557ff0
 .extern _jmp_addr_0x00558050
-.extern ?LoadAllGame@GameOSFile@@SA_NPAD@Z
+.extern ?LoadAllGame@GameOSFile@@SAIPAD@Z
 .extern _jmp_addr_0x00558db0
 .extern @LoadInstance__10GameOSFileFPP9GameThing@12
 .extern ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z
@@ -2962,7 +2962,7 @@ _jmp_addr_0x00563ff0:    {disp32} mov       ecx, dword ptr [_game]              
                          {disp8} lea        edx, dword ptr [esp + 0x10]                   // 0x00564027    8d542410
                          push               edx                                           // 0x0056402b    52
                          {disp32} mov       dword ptr [data_bytes + 0x43ffc0], 0x00000014 // 0x0056402c    c705c05fe00014000000
-                         call               ?LoadAllGame@GameOSFile@@SA_NPAD@Z            // 0x00564036    e87547ffff
+                         call               ?LoadAllGame@GameOSFile@@SAIPAD@Z            // 0x00564036    e87547ffff
                          add                esp, 0x00000118                               // 0x0056403b    81c418010000
                          ret                                                              // 0x00564041    c3
                          nop                                                              // 0x00564042    90

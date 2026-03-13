@@ -157,7 +157,7 @@
 .globl ?GetDefaultFireCentrePos@DeadTree@@UAEPAULHPoint@@PAU2@@Z
 .globl ?GetDefaultFireRadius@DeadTree@@UAEMXZ
 .globl ?StartOnFire@DeadTree@@UAEXXZ
-.globl ?CreatureMustAvoid@DeadTree@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@DeadTree@@UAEIPAVCreature@@@Z
 .globl ?EndOnFire@DeadTree@@UAEXXZ
 .globl ?ValidToApplyThisToObject@DeadTree@@UAEIPAVGInterfaceStatus@@PAVObject@@@Z
 .globl ?ApplyThisToObject@DeadTree@@UAEIPAVGInterfaceStatus@@PAVObject@@PAUGestureSystemPacketData@@@Z
@@ -3896,7 +3896,7 @@ _jmp_addr_0x00510bb0:    push               ebx                                 
                          nop                                                              // 0x00510e2d    90
                          nop                                                              // 0x00510e2e    90
                          nop                                                              // 0x00510e2f    90
-?CreatureMustAvoid@DeadTree@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@DeadTree@@UAEIPAVCreature@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                   // 0x00510e30    8b442404
                          test               eax, eax                                      // 0x00510e34    85c0
                          {disp8} je         .Lbl_addr_0x00510e57                          // 0x00510e36    741f

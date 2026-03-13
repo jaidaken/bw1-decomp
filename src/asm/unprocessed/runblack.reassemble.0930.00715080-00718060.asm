@@ -86,12 +86,12 @@
 .extern ?GetWorshipSpeed@TotemStatue@@QAEMXZ
 .extern @SetWorshipPercentage__11TotemStatueFf@12
 .extern @__ct__4TownFRC9MapCoordsPC9GTownInfoP7GPlayer10TRIBE_TYPEPcUli@36
-.extern ?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z
+.extern ?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z
 .extern ?FindAbodeWithSpaceInTown@Town@@QAEPAVAbode@@PAVVillager@@M@Z
 .extern ?SetBeliefInPlayer@Town@@QAEXPAVGPlayer@@M@Z
 .extern ?SetWorshipPercentage@Town@@QAEXM@Z
-.extern ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z
-.extern ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z
+.extern ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z
+.extern ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z
 .extern ?GetTemporaryResourceStorePotOrPos@Town@@QAEPAXABUMapCoords@@AAU2@W4RESOURCE_TYPE@@@Z
 .extern _jmp_addr_0x0073fda0
 .extern @AddSpell__10TownCentreF15SPELL_SEED_TYPE@12
@@ -860,7 +860,7 @@ _jmp_addr_0x00715150:    push               0x0                                 
                          {disp32} mov       edx, dword ptr [ecx + 0x00d9d79c]             // 0x0071592f    8b919cd7d900
                          push               edx                                           // 0x00715935    52
                          mov.s              ecx, eax                                      // 0x00715936    8bc8
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z     // 0x00715938    e8437a0200
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z     // 0x00715938    e8437a0200
                          xor.s              eax, eax                                      // 0x0071593d    33c0
                          pop                edi                                           // 0x0071593f    5f
                          pop                esi                                           // 0x00715940    5e
@@ -886,7 +886,7 @@ _jmp_addr_0x00715150:    push               0x0                                 
                          {disp32} mov       edx, dword ptr [esi + 0x00d9d79c]             // 0x00715980    8b969cd7d900
                          push               edx                                           // 0x00715986    52
                          mov.s              ecx, edi                                      // 0x00715987    8bcf
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z     // 0x00715989    e8f2790200
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z     // 0x00715989    e8f2790200
                          {disp32} mov       ecx, dword ptr [edi + 0x000009a4]             // 0x0071598e    8b8fa4090000
                          cmp.s              ecx, ebx                                      // 0x00715994    3bcb
                          {disp32} je        .Lbl_addr_0x00717e8a                          // 0x00715996    0f84ee240000
@@ -933,15 +933,15 @@ _jmp_addr_0x00715150:    push               0x0                                 
                          push               esi                                           // 0x00715a1d    56
                          mov.s              ecx, edi                                      // 0x00715a1e    8bcf
                          mov.s              ebx, eax                                      // 0x00715a20    8bd8
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z     // 0x00715a22    e859790200
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z     // 0x00715a22    e859790200
                          push               ebx                                           // 0x00715a27    53
                          mov.s              ecx, edi                                      // 0x00715a28    8bcf
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z       // 0x00715a2a    e8017c0200
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z       // 0x00715a2a    e8017c0200
                          test               eax, eax                                      // 0x00715a2f    85c0
                          {disp32} jne       .Lbl_addr_0x00717e8a                          // 0x00715a31    0f8553240000
                          push               ebx                                           // 0x00715a37    53
                          mov.s              ecx, edi                                      // 0x00715a38    8bcf
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z     // 0x00715a3a    e841790200
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z     // 0x00715a3a    e841790200
                          xor.s              eax, eax                                      // 0x00715a3f    33c0
                          pop                edi                                           // 0x00715a41    5f
                          pop                esi                                           // 0x00715a42    5e
@@ -994,7 +994,7 @@ _jmp_addr_0x00715150:    push               0x0                                 
                          {disp32} je        .Lbl_addr_0x00717e8a                          // 0x00715add    0f84a7230000
 .Lbl_addr_0x00715ae3:    push               esi                                           // 0x00715ae3    56
                          mov.s              ecx, eax                                      // 0x00715ae4    8bc8
-                         call               ?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z // 0x00715ae6    e8a5450200
+                         call               ?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z // 0x00715ae6    e8a5450200
                          xor.s              eax, eax                                      // 0x00715aeb    33c0
                          pop                edi                                           // 0x00715aed    5f
                          pop                esi                                           // 0x00715aee    5e
@@ -1044,7 +1044,7 @@ _jmp_addr_0x00715150:    push               0x0                                 
                          {disp32} je        .Lbl_addr_0x00717e8a                          // 0x00715b80    0f8404230000
 .Lbl_addr_0x00715b86:    push               esi                                           // 0x00715b86    56
                          mov.s              ecx, eax                                      // 0x00715b87    8bc8
-                         call               ?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z // 0x00715b89    e802450200
+                         call               ?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z // 0x00715b89    e802450200
                          xor.s              eax, eax                                      // 0x00715b8e    33c0
                          pop                edi                                           // 0x00715b90    5f
                          pop                esi                                           // 0x00715b91    5e
@@ -1209,7 +1209,7 @@ _jmp_addr_0x00715150:    push               0x0                                 
                          {disp8} jne        .Lbl_addr_0x00715dee                          // 0x00715da9    7543
                          push               edi                                           // 0x00715dab    57
                          mov.s              ecx, ebx                                      // 0x00715dac    8bcb
-                         call               ?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z // 0x00715dae    e8dd420200
+                         call               ?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z // 0x00715dae    e8dd420200
                          xor.s              eax, eax                                      // 0x00715db3    33c0
                          pop                edi                                           // 0x00715db5    5f
                          pop                esi                                           // 0x00715db6    5e

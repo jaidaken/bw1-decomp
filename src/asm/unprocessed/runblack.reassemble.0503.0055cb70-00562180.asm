@@ -205,7 +205,7 @@
 .globl ?IsCastShadowAtNight@StoragePit@@UAEIXZ
 .globl ?CanActAsAContainer@StoragePit@@UAEIPAVCreature@@@Z
 .globl ?CanBeEatenByCreature@StoragePit@@UAEIPAVCreature@@@Z
-.globl ?IsResourceStore@StoragePit@@UAE_NW4RESOURCE_TYPE@@@Z
+.globl ?IsResourceStore@StoragePit@@UAEIW4RESOURCE_TYPE@@@Z
 .globl ?GetSaveType@StoragePit@@UAEIXZ
 .globl ?GetDebugText@StoragePit@@UAEPADXZ
 .globl ??_GStoragePit@@UAEPAXI@Z
@@ -326,7 +326,7 @@
 .globl ?GetPlayer@Tree@@UAEPAVGPlayer@@XZ
 .globl ?GetReactionPower@Tree@@UAEMXZ
 .globl ?CastTree@Tree@@UAEPAVTree@@XZ
-.globl ?IsResourceStore@Tree@@UAE_NW4RESOURCE_TYPE@@@Z
+.globl ?IsResourceStore@Tree@@UAEIW4RESOURCE_TYPE@@@Z
 .globl ?GetCarriedTreeType@Tree@@UAEIXZ
 .globl ?IsTree@Tree@@UAEIPAVCreature@@@Z
 .globl ?CanBePlayedWithByCreature@Tree@@UAEIPAVCreature@@@Z
@@ -1020,7 +1020,7 @@ _jmp_addr_0x0055cc60:    push               esi                                 
                          nop                                                               // 0x0055cd1d    90
                          nop                                                               // 0x0055cd1e    90
                          nop                                                               // 0x0055cd1f    90
-?IsResourceStore@StoragePit@@UAE_NW4RESOURCE_TYPE@@@Z:
+?IsResourceStore@StoragePit@@UAEIW4RESOURCE_TYPE@@@Z:
                          mov                eax, 0x00000001                                // 0x0055cd20    b801000000
                          ret                0x0004                                         // 0x0055cd25    c20400
                          nop                                                               // 0x0055cd28    90
@@ -3002,7 +3002,7 @@ _jmp_addr_0x0055d7f0:    push               esi                                 
                          nop                                                               // 0x0055d8ed    90
                          nop                                                               // 0x0055d8ee    90
                          nop                                                               // 0x0055d8ef    90
-?IsResourceStore@Tree@@UAE_NW4RESOURCE_TYPE@@@Z:
+?IsResourceStore@Tree@@UAEIW4RESOURCE_TYPE@@@Z:
                          xor.s              eax, eax                                       // 0x0055d8f0    33c0
                          ret                0x0004                                         // 0x0055d8f2    c20400
                          nop                                                               // 0x0055d8f5    90

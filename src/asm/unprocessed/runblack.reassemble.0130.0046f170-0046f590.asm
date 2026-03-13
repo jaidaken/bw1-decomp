@@ -24,7 +24,7 @@
 .globl _jmp_addr_0x0046f2b0
 .globl _jmp_addr_0x0046f2f0
 .globl _jmp_addr_0x0046f330
-.globl ?IsKeyDown@BindableAction@@SA_NW4LH_KEY@@@Z
+.globl ?IsKeyDown@BindableAction@@SAIW4LH_KEY@@@Z
 .globl _jmp_addr_0x0046f440
 .globl _jmp_addr_0x0046f460
 .globl _jmp_addr_0x0046f480
@@ -257,7 +257,7 @@ _jmp_addr_0x0046f330:    {disp32} mov     eax, dword ptr [ecx + 0x00000208]     
 .Lbl_addr_0x0046f3b5:    mov              eax, 0x00000001                               // 0x0046f3b5    b801000000
                          ret                                                            // 0x0046f3ba    c3
                          call             ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9                          // 0x0046f3bb    e8b924f9ff
-?IsKeyDown@BindableAction@@SA_NW4LH_KEY@@@Z:
+?IsKeyDown@BindableAction@@SAIW4LH_KEY@@@Z:
                                          {disp8} mov      eax, dword ptr [esp + 0x04]                   // 0x0046f3c0    8b442404
                          cmp              eax, 0x2a                                     // 0x0046f3c4    83f82a
                          {disp8} je       .Lbl_addr_0x0046f3ce                          // 0x0046f3c7    7405
@@ -371,14 +371,14 @@ _jmp_addr_0x0046f480:    {disp32} mov     eax, dword ptr [ecx + 0x00000100]     
                          {disp32} mov     esi, dword ptr [ecx + 0x00000184]             // 0x0046f4c9    8bb184010000
                          {disp8} je       .Lbl_addr_0x0046f4f6                          // 0x0046f4cf    7425
                          push             eax                                           // 0x0046f4d1    50
-                         call             ?IsKeyDown@BindableAction@@SA_NW4LH_KEY@@@Z   // 0x0046f4d2    e8e9feffff
+                         call             ?IsKeyDown@BindableAction@@SAIW4LH_KEY@@@Z   // 0x0046f4d2    e8e9feffff
                          add              esp, 0x04                                     // 0x0046f4d7    83c404
                          test             eax, eax                                      // 0x0046f4da    85c0
                          {disp8} je       .Lbl_addr_0x0046f4f6                          // 0x0046f4dc    7418
                          test             esi, esi                                      // 0x0046f4de    85f6
                          {disp8} je       .Lbl_addr_0x0046f4ef                          // 0x0046f4e0    740d
                          push             esi                                           // 0x0046f4e2    56
-                         call             ?IsKeyDown@BindableAction@@SA_NW4LH_KEY@@@Z   // 0x0046f4e3    e8d8feffff
+                         call             ?IsKeyDown@BindableAction@@SAIW4LH_KEY@@@Z   // 0x0046f4e3    e8d8feffff
                          add              esp, 0x04                                     // 0x0046f4e8    83c404
                          test             eax, eax                                      // 0x0046f4eb    85c0
                          {disp8} je       .Lbl_addr_0x0046f4f6                          // 0x0046f4ed    7407

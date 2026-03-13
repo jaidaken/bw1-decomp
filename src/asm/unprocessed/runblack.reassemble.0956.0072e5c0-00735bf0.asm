@@ -35,7 +35,7 @@
 .extern _jmp_addr_0x005254c0
 .extern _jmp_addr_0x00525910
 .extern ?RemovePotFromStructure@MultiMapFixed@@UAEXPAVPotStructure@@@Z
-.extern ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
+.extern ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
 .extern ?GetCamera@GGame@@QAEPAVGCamera@@XZ
 .extern _jmp_addr_0x00555880
 .extern ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z
@@ -183,7 +183,7 @@
 .globl _jmp_addr_0x00730a60
 .globl _jmp_addr_0x00730ab0
 .globl ?CreateSprites@FireEffect@@QAEPAVFireGraphic@@XZ
-.extern ?GetPSysFireLocalRndFlamePos@Object@@UAE_NPAULHPoint@@PAH@Z
+.extern ?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z
 .globl _jmp_addr_0x00732ad0
 .globl ?GetFirstCaused@FireEffect@@QAEIXZ
 .globl _jmp_addr_0x00732c00
@@ -237,8 +237,8 @@
 .globl _globl_ct_0x007351f0
 .globl _globl_ct_0x00735410
 .globl _globl_ct_0x00735860
-.globl ?GetPSysFireFlameMatrix@Object@@UAE_NPAULHMatrix@@@Z
-.globl ?GetPSysFireLocalRndFlamePos@Object@@UAE_NPAULHPoint@@PAH@Z
+.globl ?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z
+.globl ?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z
 .globl ?GetPSysFireWorldFlamePos@Object@@UAE_NPBULHPoint@@HPAU2@@Z
 .globl ?GetPSysFireLocalFlameScale@Object@@UAEMXZ
 .globl ?GetPSysFireMaxFlames@Object@@UAEIXZ
@@ -268,7 +268,7 @@
 .globl ?SetPoisonedResource@StoragePit@@UAEXW4RESOURCE_TYPE@@H@Z
 .globl ?IsPoisoned@StoragePit@@UAEIXZ
 .globl ?ReactToPhysicsImpact@StoragePit@@UAEXPAVPhysicsObject@@_N@Z
-.globl ?DeleteObjectAndTakeResource@StoragePit@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.globl ?DeleteObjectAndTakeResource@StoragePit@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .globl ?DoCreatureMimicAfterAddingResource@StoragePit@@UAE_NW4RESOURCE_TYPE@@AAVGInterfaceStatus@@@Z
 .globl ?Save@StoragePit@@UAEIAAVGameOSFile@@@Z
 .globl ?Load@StoragePit@@UAEIAAVGameOSFile@@@Z
@@ -292,7 +292,7 @@
 .globl ?Load@GStreetLantern@@UAEIAAVGameOSFile@@@Z
 .globl ?Save@GStreetLantern@@UAEIAAVGameOSFile@@@Z
 .globl ?GetScriptObjectType@GStreetLantern@@UAEIXZ
-.globl ?CreatureMustAvoid@GStreetLantern@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@GStreetLantern@@UAEIPAVCreature@@@Z
 .globl ?ToBeDeleted@GStreetLight@@UAEXH@Z
 .globl ?GetDistanceFromObject@GStreetLight@@UAEMPBUMapCoords@@@Z
 .globl ?Save@GStreetLight@@UAEIAAVGameOSFile@@@Z
@@ -6241,7 +6241,7 @@ _globl_ct_0x007310e0:    call               .Lbl_addr_0x007310f0                
                          nop                                                              // 0x0073262d    90
                          nop                                                              // 0x0073262e    90
                          nop                                                              // 0x0073262f    90
-?GetPSysFireFlameMatrix@Object@@UAE_NPAULHMatrix@@@Z:
+?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z:
                          {disp8} mov        eax, dword ptr [ecx + 0x40]                   // 0x00732630    8b4140
                          test               eax, eax                                      // 0x00732633    85c0
                          {disp8} jne        .Lbl_addr_0x0073263c                          // 0x00732635    7505
@@ -6371,7 +6371,7 @@ _globl_ct_0x007310e0:    call               .Lbl_addr_0x007310f0                
                          nop                                                              // 0x0073276d    90
                          nop                                                              // 0x0073276e    90
                          nop                                                              // 0x0073276f    90
-?GetPSysFireLocalRndFlamePos@Object@@UAE_NPAULHPoint@@PAH@Z:
+?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z:
                          sub                esp, 0x30                                     // 0x00732770    83ec30
                          push               ebx                                           // 0x00732773    53
                          push               esi                                           // 0x00732774    56
@@ -8032,7 +8032,7 @@ _jmp_addr_0x007336e0:    sub                esp, 0x0c                           
                          nop                                                              // 0x0073374d    90
                          nop                                                              // 0x0073374e    90
                          nop                                                              // 0x0073374f    90
-?DeleteObjectAndTakeResource@StoragePit@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z:
+?DeleteObjectAndTakeResource@StoragePit@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z:
                          push               ebx                                           // 0x00733750    53
                          push               ebp                                           // 0x00733751    55
                          push               esi                                           // 0x00733752    56
@@ -8118,7 +8118,7 @@ _jmp_addr_0x007337d0:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          push               esi                                           // 0x0073381b    56
                          mov.s              edi, ecx                                      // 0x0073381c    8bf9
                          push               ebx                                           // 0x0073381e    53
-                         call               ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z                          // 0x0073381f    e8ecb9dfff
+                         call               ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z                          // 0x0073381f    e8ecb9dfff
                          test               eax, eax                                      // 0x00733824    85c0
                          {disp32} jne       .Lbl_addr_0x007338bb                          // 0x00733826    0f858f000000
                          test               ebx, ebx                                      // 0x0073382c    85db
@@ -10264,7 +10264,7 @@ _jmp_addr_0x00734a30:    {disp32} mov       eax, dword ptr [_game]              
                          nop                                                              // 0x00734d4d    90
                          nop                                                              // 0x00734d4e    90
                          nop                                                              // 0x00734d4f    90
-?CreatureMustAvoid@GStreetLantern@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@GStreetLantern@@UAEIPAVCreature@@@Z:
                          xor.s              eax, eax                                      // 0x00734d50    33c0
                          ret                0x0004                                        // 0x00734d52    c20400
                          nop                                                              // 0x00734d55    90

@@ -393,7 +393,7 @@
 .globl ?GetSaveType@Field@@UAEIXZ
 .globl ?GetDebugText@Field@@UAEPADXZ
 .globl ??_GField@@UAEPAXI@Z
-.globl ?CreatureMustAvoid@Field@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@Field@@UAEIPAVCreature@@@Z
 .globl ?ToBeDeleted@Field@@UAEXH@Z
 .globl ?Draw@Field@@UAEXXZ
 .globl ?GetFireGPHXDrawn@Field@@UAEXPA_N000@Z
@@ -413,8 +413,8 @@
 .globl ?GetArrivePos@Field@@UAEPAUMapCoords@@PAU2@@Z
 .globl ?InterfaceSetInMagicHand@Field@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?ProcessInInteract@Field@@UAEIPAVGInterfaceStatus@@@Z
-.globl ?NetworkFriendlyStartLockedSelect@Field@@UAE_NPAVGInterfaceStatus@@@Z
-.globl ?ValidForLockedSelectProcess@Field@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?NetworkFriendlyStartLockedSelect@Field@@UAEIPAVGInterfaceStatus@@@Z
+.globl ?ValidForLockedSelectProcess@Field@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?NetworkUnfriendlyLockedSelect@Field@@UAEIPAUControlHandUpdateInfo@@@Z
 .globl ?NetworkUnfriendlyEndLockedSelect@Field@@UAEIXZ
 .globl ?NetworkFriendlyEndLockedSelect@Field@@UAEIPAVGInterfaceStatus@@@Z
@@ -15285,7 +15285,7 @@ _globl_ct_0x00527cf0:    call               .Lbl_addr_0x00527d00                
                          nop                                                                     // 0x005280bd    90
                          nop                                                                     // 0x005280be    90
                          nop                                                                     // 0x005280bf    90
-?CreatureMustAvoid@Field@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@Field@@UAEIPAVCreature@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                          // 0x005280c0    8b442404
                          test               eax, eax                                             // 0x005280c4    85c0
                          {disp8} je         .Lbl_addr_0x005280e7                                 // 0x005280c6    741f
@@ -17574,7 +17574,7 @@ _jmp_addr_0x005293a0:    sub                esp, 0x0c                           
                          nop                                                                     // 0x005298fd    90
                          nop                                                                     // 0x005298fe    90
                          nop                                                                     // 0x005298ff    90
-?NetworkFriendlyStartLockedSelect@Field@@UAE_NPAVGInterfaceStatus@@@Z:
+?NetworkFriendlyStartLockedSelect@Field@@UAEIPAVGInterfaceStatus@@@Z:
                          sub                esp, 0x08                                            // 0x00529900    83ec08
                          push               esi                                                  // 0x00529903    56
                          mov.s              esi, ecx                                             // 0x00529904    8bf1
@@ -17650,7 +17650,7 @@ _jmp_addr_0x005293a0:    sub                esp, 0x0c                           
                          add                esp, 0x08                                            // 0x005299d5    83c408
                          ret                0x0004                                               // 0x005299d8    c20400
                          call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9                                 // 0x005299db    e8997eedff
-?ValidForLockedSelectProcess@Field@@UAE_NPAVGInterfaceStatus@@@Z:
+?ValidForLockedSelectProcess@Field@@UAEIPAVGInterfaceStatus@@@Z:
                          {disp32} fld       dword ptr [ecx + 0x000000d0]                         // 0x005299e0    d981d0000000
                          {disp32} fcomp     dword ptr [_rdata_float0p0]                          // 0x005299e6    d81d98a38a00
                          fnstsw             ax                                                   // 0x005299ec    dfe0

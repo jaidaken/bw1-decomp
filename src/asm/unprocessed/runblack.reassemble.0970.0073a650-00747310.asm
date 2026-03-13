@@ -18,7 +18,7 @@
 .extern ??0PlannedAbode@@QAE@ABUMapCoords@@PBVGAbodeInfo@@PAVTown@@MMMH@Z
 .extern ?Init@PlannedAbode@@QAEXPAVTown@@@Z
 .extern ?GetInfo@PlannedAbode@@SAPAVGPlannedAbodeInfo@@XZ
-.extern ?FUN_004056f0@PlannedAbode@@QAE_NH@Z
+.extern ?FUN_004056f0@PlannedAbode@@QAEIH@Z
 .extern ?Find@GAbodeInfo@@SAPAV1@W4TRIBE_TYPE@@W4ABODE_NUMBER@@@Z
 .extern ?GetAbodeText@Abode@@QAEPADPAD@Z
 .extern ?SaveObject@Abode@@UAEIPAVLHOSFile@@PBUMapCoords@@@Z
@@ -153,7 +153,7 @@
 .extern _jmp_addr_0x0064c0e0
 .extern _jmp_addr_0x0064c300
 .extern _jmp_addr_0x0064d0e0
-.extern ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z
+.extern ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z
 .extern _jmp_addr_0x0066c5c0
 .extern _jmp_addr_0x0066c640
 .extern _jmp_addr_0x0066cf10
@@ -212,14 +212,14 @@
 .extern _GetIncrementSpiralSizeFromRadius__6GUtilsFff@8
 .extern ?SetAbode@Villager@@QAEXPAVAbode@@@Z
 .extern ?GetAbode@Villager@@QAEPAVAbode@@XZ
-.extern ?IsAvailableForWorshipSite@Villager@@QAE_NH@Z
+.extern ?IsAvailableForWorshipSite@Villager@@QAEIH@Z
 .extern ?IsAtOrOnTheWayToWorshipSite@Villager@@QAE_NXZ
 .extern ?SetVillagerDisciple@Villager@@QAEIPAVGameThing@@W4VILLAGER_DISCIPLE@@H@Z
 .extern ?SetTown@Villager@@QAEXPAVTown@@@Z
 .extern ??0MissionaryControl@@QAE@PAVVillager@@PAVGPlayer@@@Z
 .extern ?FindChildrenAndOrphanThem@Villager@@QAEXXZ
 .extern ?CheckWorshipActivity@Villager@@QAEMH@Z
-.extern ?RemoveVillagerFromWorshipSite@Villager@@QAE_NXZ
+.extern ?RemoveVillagerFromWorshipSite@Villager@@QAEIXZ
 .extern ?GetDesireToBeSupplied@Workshop@@QAEMXZ
 .extern _jmp_addr_0x0077a3a0
 .extern _jmp_addr_0x0077a480
@@ -266,7 +266,7 @@
 .globl ?RequestANewAbode@Town@@QAEIW4ABODE_TYPE@@@Z
 .globl ?FindAbodeWithSpaceInTown@Town@@QAEPAVAbode@@PAVVillager@@M@Z
 .globl ?FindClosesFieldToWithFood@Town@@QAEPAVField@@ABUMapCoords@@@Z
-.globl ?IsVillagerInHomelessList@Town@@QAE_NPAVVillager@@@Z
+.globl ?IsVillagerInHomelessList@Town@@QAEIPAVVillager@@@Z
 .globl ?GetStoragePit@Town@@QAEPAVStoragePit@@XZ
 .globl ?Birthday@Town@@QAEXXZ
 .globl _jmp_addr_0x0073b5e0
@@ -307,11 +307,11 @@
 .globl _jmp_addr_0x0073d2a0
 .globl _jmp_addr_0x0073d2e0
 .globl ?GetNextSpellIcon@Town@@QAEPAVTownSpellIcon@@PAV2@@Z
-.globl ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z
+.globl ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z
 .globl _jmp_addr_0x0073d450
 .globl _jmp_addr_0x0073d500
 .globl _jmp_addr_0x0073d5a0
-.globl ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z
+.globl ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z
 .globl _jmp_addr_0x0073d650
 .globl _jmp_addr_0x0073d690
 .globl _jmp_addr_0x0073d7d0
@@ -320,7 +320,7 @@
 .globl _jmp_addr_0x0073d8d0
 .globl _jmp_addr_0x0073daa0
 .globl _jmp_addr_0x0073daf0
-.globl ?GetFlock@Town@@QAE_NW4LIVING_TYPE@@H@Z
+.globl ?GetFlock@Town@@QAEIW4LIVING_TYPE@@H@Z
 .globl _jmp_addr_0x0073dec0
 .globl ??0PlayerTownInteract@@QAE@XZ  
 .globl _jmp_addr_0x0073e0a0
@@ -491,7 +491,7 @@
 .globl ?InteractsWithPhysicsObjects@TownDesireFlags@@UAE_NXZ
 .globl ?Process@TownDesireFlags@@UAEIXZ
 .globl ?Draw@TownDesireFlags@@UAEXXZ
-.globl ?CreatureMustAvoid@TownDesireFlags@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@TownDesireFlags@@UAEIPAVCreature@@@Z
 .globl ?GetQueryFirstEnumText@TownDesireFlags@@UAE?AW4HELP_TEXT@@XZ
 .globl ?GetQueryLastEnumText@TownDesireFlags@@UAE?AW4HELP_TEXT@@XZ
 .globl ?GetFOVHelpMessageSet@TownDesireFlags@@UAEIXZ
@@ -706,7 +706,7 @@ _jmp_addr_0x0073a7d0:    push               ecx                                 
                          xor.s              edi, edi                                             // 0x0073a81b    33ff
 .Lbl_addr_0x0073a81d:    push               edi                                                  // 0x0073a81d    57
                          mov.s              ecx, esi                                             // 0x0073a81e    8bce
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z         // 0x0073a820    e80b2e0000
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z         // 0x0073a820    e80b2e0000
                          test               eax, eax                                             // 0x0073a825    85c0
                          {disp8} je         .Lbl_addr_0x0073a832                                 // 0x0073a827    7409
                          push               ebp                                                  // 0x0073a829    55
@@ -832,7 +832,7 @@ _jmp_addr_0x0073a8f0:    push               ebp                                 
 .Lbl_addr_0x0073a957:    xor.s              esi, esi                                             // 0x0073a957    33f6
 .Lbl_addr_0x0073a959:    push               esi                                                  // 0x0073a959    56
                          mov.s              ecx, edi                                             // 0x0073a95a    8bcf
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z         // 0x0073a95c    e8cf2c0000
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z         // 0x0073a95c    e8cf2c0000
                          test               eax, eax                                             // 0x0073a961    85c0
                          {disp8} je         .Lbl_addr_0x0073a96f                                 // 0x0073a963    740a
                          push               0x1                                                  // 0x0073a965    6a01
@@ -2030,7 +2030,7 @@ _jmp_addr_0x0073b260:    push               ebx                                 
                          nop                                                                     // 0x0073b57e    90
                          nop                                                                     // 0x0073b57f    90
 
-?IsVillagerInHomelessList@Town@@QAE_NPAVVillager@@@Z:
+?IsVillagerInHomelessList@Town@@QAEIPAVVillager@@@Z:
                          {disp32} mov       eax, dword ptr [ecx + 0x00000768]                    // 0x0073b580    8b8168070000
                          test               eax, eax                                             // 0x0073b586    85c0
                          {disp8} je         .Lbl_addr_0x0073b59c                                 // 0x0073b588    7412
@@ -2140,7 +2140,7 @@ _jmp_addr_0x0073b620:    sub                esp, 0x08                           
                          {disp8} je         .Lbl_addr_0x0073b69b                                 // 0x0073b68c    740d
                          push               ebx                                                  // 0x0073b68e    53
                          mov.s              ecx, esi                                             // 0x0073b68f    8bce
-                         call               ?FUN_004056f0@PlannedAbode@@QAE_NH@Z                                 // 0x0073b691    e85aa0ccff
+                         call               ?FUN_004056f0@PlannedAbode@@QAEIH@Z                                 // 0x0073b691    e85aa0ccff
                          cmp                eax, 0x01                                            // 0x0073b696    83f801
                          {disp8} je         .Lbl_addr_0x0073b6aa                                 // 0x0073b699    740f
 .Lbl_addr_0x0073b69b:    {disp8} mov        edi, dword ptr [edi + 0x44]                          // 0x0073b69b    8b7f44
@@ -2906,7 +2906,7 @@ _jmp_addr_0x0073bca0:    push               ebp                                 
 .Lbl_addr_0x0073bd99:    {disp8} mov        edx, dword ptr [esp + 0x10]                          // 0x0073bd99    8b542410
                          push               edx                                                  // 0x0073bd9d    52
                          mov.s              ecx, esi                                             // 0x0073bd9e    8bce
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z         // 0x0073bda0    e88b180000
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z         // 0x0073bda0    e88b180000
                          test               eax, eax                                             // 0x0073bda5    85c0
                          {disp8} je         .Lbl_addr_0x0073bdee                                 // 0x0073bda7    7445
                          mov                ecx, dword ptr [ebx]                                 // 0x0073bda9    8b0b
@@ -3231,7 +3231,7 @@ _jmp_addr_0x0073bca0:    push               ebp                                 
 .Lbl_addr_0x0073c143:    {disp8} mov        ecx, dword ptr [esp + 0x18]                          // 0x0073c143    8b4c2418
                          push               ecx                                                  // 0x0073c147    51
                          mov.s              ecx, esi                                             // 0x0073c148    8bce
-                         call               ?IsAvailableForWorshipSite@Villager@@QAE_NH@Z        // 0x0073c14a    e8d1660100
+                         call               ?IsAvailableForWorshipSite@Villager@@QAEIH@Z        // 0x0073c14a    e8d1660100
                          test               eax, eax                                             // 0x0073c14f    85c0
                          {disp32} je        .Lbl_addr_0x0073c1da                                 // 0x0073c151    0f8483000000
                          push               0x8                                                  // 0x0073c157    6a08
@@ -3299,7 +3299,7 @@ _jmp_addr_0x0073bca0:    push               ebp                                 
                          {disp8} mov        esi, dword ptr [esp + 0x10]                          // 0x0073c218    8b742410
                          push               eax                                                  // 0x0073c21c    50
                          mov.s              ecx, esi                                             // 0x0073c21d    8bce
-                         call               ?IsAvailableForWorshipSite@Villager@@QAE_NH@Z        // 0x0073c21f    e8fc650100
+                         call               ?IsAvailableForWorshipSite@Villager@@QAEIH@Z        // 0x0073c21f    e8fc650100
                          test               eax, eax                                             // 0x0073c224    85c0
                          {disp8} je         .Lbl_addr_0x0073c2a5                                 // 0x0073c226    747d
                          push               0x8                                                  // 0x0073c228    6a08
@@ -4045,7 +4045,7 @@ _jmp_addr_0x0073c9b0:    push               ebx                                 
                          mov.s              esi, eax                                             // 0x0073cae7    8bf0
                          push               esi                                                  // 0x0073cae9    56
                          mov.s              ecx, ebp                                             // 0x0073caea    8bcd
-                         call               ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z                                 // 0x0073caec    e85f0cf1ff
+                         call               ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z                                 // 0x0073caec    e85f0cf1ff
                          test               eax, eax                                             // 0x0073caf1    85c0
                          {disp8} je         .Lbl_addr_0x0073cb29                                 // 0x0073caf3    7434
                          {disp8} mov        ecx, dword ptr [esi + 0x30]                          // 0x0073caf5    8b4e30
@@ -4062,7 +4062,7 @@ _jmp_addr_0x0073c9b0:    push               ebx                                 
                          mov.s              ebp, eax                                             // 0x0073cb11    8be8
                          push               ebp                                                  // 0x0073cb13    55
                          mov.s              ecx, ebx                                             // 0x0073cb14    8bcb
-                         call               ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z                                 // 0x0073cb16    e8350cf1ff
+                         call               ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z                                 // 0x0073cb16    e8350cf1ff
                          test               eax, eax                                             // 0x0073cb1b    85c0
                          {disp8} je         .Lbl_addr_0x0073cb29                                 // 0x0073cb1d    740a
                          {disp8} mov        ecx, dword ptr [ebp + 0x30]                          // 0x0073cb1f    8b4d30
@@ -5012,7 +5012,7 @@ _jmp_addr_0x0073d2e0:    push               esi                                 
                          nop                                                                     // 0x0073d37e    90
                          nop                                                                     // 0x0073d37f    90
 
-?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z:
+?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z:
                          push               ebp                                                  // 0x0073d380    55
                          push               edi                                                  // 0x0073d381    57
                          {disp8} mov        edi, dword ptr [esp + 0x0c]                          // 0x0073d382    8b7c240c
@@ -5179,7 +5179,7 @@ _jmp_addr_0x0073d500:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          mov.s              ebp, ecx                                             // 0x0073d51c    8be9
                          push               edi                                                  // 0x0073d51e    57
                          {disp8} mov        dword ptr [esp + 0x14], esi                          // 0x0073d51f    89742414
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z         // 0x0073d523    e808010000
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z         // 0x0073d523    e808010000
                          test               eax, eax                                             // 0x0073d528    85c0
                          {disp8} je         .Lbl_addr_0x0073d58f                                 // 0x0073d52a    7463
                          push               ebx                                                  // 0x0073d52c    53
@@ -5200,7 +5200,7 @@ _jmp_addr_0x0073d500:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          {disp8} je         .Lbl_addr_0x0073d574                                 // 0x0073d556    741c
                          push               esi                                                  // 0x0073d558    56
                          mov.s              ecx, ebp                                             // 0x0073d559    8bcd
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z         // 0x0073d55b    e8d0000000
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z         // 0x0073d55b    e8d0000000
                          test               eax, eax                                             // 0x0073d560    85c0
                          {disp8} je         .Lbl_addr_0x0073d574                                 // 0x0073d562    7410
                          push               esi                                                  // 0x0073d564    56
@@ -5254,7 +5254,7 @@ _jmp_addr_0x0073d5a0:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          {disp8} je         .Lbl_addr_0x0073d5d9                                 // 0x0073d5cf    7408
                          push               eax                                                  // 0x0073d5d1    50
                          mov.s              ecx, ebp                                             // 0x0073d5d2    8bcd
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z       // 0x0073d5d4    e8a7fdffff
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z       // 0x0073d5d4    e8a7fdffff
 .Lbl_addr_0x0073d5d9:    inc                esi                                                  // 0x0073d5d9    46
                          add                ebx, 0x04                                            // 0x0073d5da    83c304
                          cmp                esi, 0x03                                            // 0x0073d5dd    83fe03
@@ -5307,7 +5307,7 @@ _jmp_addr_0x0073d5a0:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          nop                                                                     // 0x0073d62e    90
                          nop                                                                     // 0x0073d62f    90
 
-?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z:
+?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z:
                          {disp8} mov        edx, dword ptr [esp + 0x04]                          // 0x0073d630    8b542404
                          push               esi                                                  // 0x0073d634    56
                          {disp32} mov       esi, dword ptr [ecx + edx * 0x4 + 0x00000dfc]        // 0x0073d635    8bb491fc0d0000
@@ -6084,7 +6084,7 @@ _jmp_addr_0x0073daf0:    sub                esp, 0x24                           
                          nop                                                                     // 0x0073de2d    90
                          nop                                                                     // 0x0073de2e    90
                          nop                                                                     // 0x0073de2f    90
-?GetFlock@Town@@QAE_NW4LIVING_TYPE@@H@Z:
+?GetFlock@Town@@QAEIW4LIVING_TYPE@@H@Z:
                          push               ebx                                                  // 0x0073de30    53
                          push               esi                                                  // 0x0073de31    56
                          {disp8} mov        esi, dword ptr [esp + 0x0c]                          // 0x0073de32    8b74240c
@@ -6499,7 +6499,7 @@ _jmp_addr_0x0073e1f0:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          call               ?SetAbode@Villager@@QAEXPAVAbode@@@Z                 // 0x0073e247    e8942b0100
                          {disp8} jmp        .Lbl_addr_0x0073e29f                                 // 0x0073e24c    eb51
 .Lbl_addr_0x0073e24e:    mov.s              ecx, edi                                             // 0x0073e24e    8bcf
-                         call               ?IsVillagerInHomelessList@Town@@QAE_NPAVVillager@@@Z                                 // 0x0073e250    e82bd3ffff
+                         call               ?IsVillagerInHomelessList@Town@@QAEIPAVVillager@@@Z                                 // 0x0073e250    e82bd3ffff
                          test               eax, eax                                             // 0x0073e255    85c0
                          {disp8} je         .Lbl_addr_0x0073e29f                                 // 0x0073e257    7446
                          {disp32} mov       eax, dword ptr [edi + 0x00000768]                    // 0x0073e259    8b8768070000
@@ -6527,7 +6527,7 @@ _jmp_addr_0x0073e1f0:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          test               byte ptr [esi + 0x000000e0], 0x02                    // 0x0073e2a7    f686e000000002
                          {disp8} je         .Lbl_addr_0x0073e2b7                                 // 0x0073e2ae    7407
                          mov.s              ecx, esi                                             // 0x0073e2b0    8bce
-                         call               ?RemoveVillagerFromWorshipSite@Villager@@QAE_NXZ     // 0x0073e2b2    e889e10200
+                         call               ?RemoveVillagerFromWorshipSite@Villager@@QAEIXZ     // 0x0073e2b2    e889e10200
 .Lbl_addr_0x0073e2b7:    push               ebp                                                  // 0x0073e2b7    55
                          mov.s              ecx, esi                                             // 0x0073e2b8    8bce
                          call               ?SetTown@Villager@@QAEXPAVTown@@@Z                   // 0x0073e2ba    e871820100
@@ -10456,7 +10456,7 @@ _jmp_addr_0x00740d90:    push               ecx                                 
                          {disp8} mov        dword ptr [esp + 0x0c], eax                          // 0x00740d9c    8944240c
 .Lbl_addr_0x00740da0:    push               eax                                                  // 0x00740da0    50
                          mov.s              ecx, ebx                                             // 0x00740da1    8bcb
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z         // 0x00740da3    e888c8ffff
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z         // 0x00740da3    e888c8ffff
                          test               eax, eax                                             // 0x00740da8    85c0
                          {disp8} je         .Lbl_addr_0x00740df1                                 // 0x00740daa    7445
                          {disp8} mov        eax, dword ptr [esp + 0x0c]                          // 0x00740dac    8b44240c
@@ -10473,15 +10473,15 @@ _jmp_addr_0x00740d90:    push               ecx                                 
                          push               ecx                                                  // 0x00740dd3    51
                          mov.s              ecx, edi                                             // 0x00740dd4    8bcf
                          mov.s              esi, eax                                             // 0x00740dd6    8bf0
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z       // 0x00740dd8    e8a3c5ffff
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z       // 0x00740dd8    e8a3c5ffff
                          push               esi                                                  // 0x00740ddd    56
                          mov.s              ecx, edi                                             // 0x00740dde    8bcf
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z         // 0x00740de0    e84bc8ffff
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z         // 0x00740de0    e84bc8ffff
                          test               eax, eax                                             // 0x00740de5    85c0
                          {disp8} jne        .Lbl_addr_0x00740df1                                 // 0x00740de7    7508
                          push               esi                                                  // 0x00740de9    56
                          mov.s              ecx, edi                                             // 0x00740dea    8bcf
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z       // 0x00740dec    e88fc5ffff
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z       // 0x00740dec    e88fc5ffff
 .Lbl_addr_0x00740df1:    {disp8} lea        edx, dword ptr [esp + 0x0c]                          // 0x00740df1    8d54240c
                          push               0x0                                                  // 0x00740df5    6a00
                          push               edx                                                  // 0x00740df7    52
@@ -15396,7 +15396,7 @@ _MakeFunctional__10TownCentreFv:
                          xor.s              edi, edi                                             // 0x00743eb3    33ff
 .Lbl_addr_0x00743eb5:    push               edi                                                  // 0x00743eb5    57
                          mov.s              ecx, ebp                                             // 0x00743eb6    8bcd
-                         call               ?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z         // 0x00743eb8    e87397ffff
+                         call               ?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z         // 0x00743eb8    e87397ffff
                          test               eax, eax                                             // 0x00743ebd    85c0
                          {disp8} je         .Lbl_addr_0x00743ef7                                 // 0x00743ebf    7436
                          push               edi                                                  // 0x00743ec1    57
@@ -17818,7 +17818,7 @@ _jmp_addr_0x00745770:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          mov.s              edi, eax                                             // 0x00745c64    8bf8
                          push               edi                                                  // 0x00745c66    57
                          mov.s              ecx, ebx                                             // 0x00745c67    8bcb
-                         call               ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z                                 // 0x00745c69    e8e27af0ff
+                         call               ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z                                 // 0x00745c69    e8e27af0ff
                          test               eax, eax                                             // 0x00745c6e    85c0
                          {disp8} je         .Lbl_addr_0x00745c8f                                 // 0x00745c70    741d
                          {disp8} fld        dword ptr [esp + 0x0c]                               // 0x00745c72    d944240c
@@ -19445,7 +19445,7 @@ _jmp_addr_0x007469d0:    push               esi                                 
                          nop                                                                     // 0x00746ddd    90
                          nop                                                                     // 0x00746dde    90
                          nop                                                                     // 0x00746ddf    90
-?CreatureMustAvoid@TownDesireFlags@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@TownDesireFlags@@UAEIPAVCreature@@@Z:
                          xor.s              eax, eax                                             // 0x00746de0    33c0
                          ret                0x0004                                               // 0x00746de2    c20400
                          nop                                                                     // 0x00746de5    90

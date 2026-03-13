@@ -118,7 +118,7 @@
 .extern ?SetAbode@Villager@@QAEXPAVAbode@@@Z
 .extern ?GetAbode@Villager@@QAEPAVAbode@@XZ
 .extern ?SetTown@Villager@@QAEXPAVTown@@@Z
-.extern ?MakeHomelessNoStateChange@Villager@@QAE_NXZ
+.extern ?MakeHomelessNoStateChange@Villager@@QAEIXZ
 .extern _jmp_addr_0x007714b0
 .extern _jmp_addr_0x007a1400
 .extern  ??3@YAXPAX@Z
@@ -160,7 +160,7 @@
 .globl ?AddStructureToTown@Town@@QAEXPAVMultiMapFixed@@@Z
 .globl ?AddAbodeToTownStats@Town@@QAEXPAVAbode@@@Z
 .globl _jmp_addr_0x00739a60
-.globl ?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z
+.globl ?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z
 .globl ?GetBestPlanned@Town@@QAEPAVPlannedMultiMapFixed@@AAMW4ABODE_TYPE@@@Z
 .globl ?GetDesireToBeBuilt@Town@@QAEMPBVGMultiMapFixedInfo@@K@Z
 
@@ -183,8 +183,8 @@
 .globl ?ToBeDeleted@Totem@@UAEXH@Z
 .globl ?DeleteDependancys@PuzzleTotem@@UAEXXZ
 .globl ?CallVirtualFunctionsForCreation@Totem@@UAEXABUMapCoords@@@Z
-.globl ?ValidForLockedSelectProcess@Totem@@UAE_NPAVGInterfaceStatus@@@Z
-.globl ?NetworkFriendlyStartLockedSelect@Totem@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?ValidForLockedSelectProcess@Totem@@UAEIPAVGInterfaceStatus@@@Z
+.globl ?NetworkFriendlyStartLockedSelect@Totem@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?NetworkUnfriendlyStartLockedSelect@Totem@@UAEIXZ
 .globl ?NetworkUnfriendlyEndLockedSelect@Totem@@UAEIXZ
 .globl ?NetworkFriendlyEndLockedSelect@Totem@@UAEIPAVGInterfaceStatus@@@Z
@@ -203,8 +203,8 @@
 .globl ?GetTown@TotemStatue@@UAEPAVTown@@XZ
 .globl ?GetPlayer@TotemStatue@@UAEPAVGPlayer@@XZ
 .globl ?GetWorshipSite@TotemStatue@@UAEPAVWorshipSite@@XZ
-.globl ?ValidForLockedSelectProcess@TotemStatue@@UAE_NPAVGInterfaceStatus@@@Z
-.globl ?NetworkFriendlyStartLockedSelect@TotemStatue@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?ValidForLockedSelectProcess@TotemStatue@@UAEIPAVGInterfaceStatus@@@Z
+.globl ?NetworkFriendlyStartLockedSelect@TotemStatue@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?NetworkUnfriendlyStartLockedSelect@TotemStatue@@UAEIXZ
 .globl ?NetworkUnfriendlyEndLockedSelect@TotemStatue@@UAEIXZ
 .globl ?NetworkFriendlyEndLockedSelect@TotemStatue@@UAEIPAVGInterfaceStatus@@@Z
@@ -222,9 +222,9 @@
 .globl ?GetCreatureBeliefType@Town@@UAEIXZ
 .globl ?GetCreatureBeliefListType@Town@@UAEIXZ
 .globl ?IsScriptContainer@Town@@UBEIXZ
-.globl ?IsTown@Town@@UAE_NPAVCreature@@@Z
-.globl ?IsActivityObjectWhichCompassionAppliesTo@Town@@UAE_NPAVCreature@@@Z
-.globl ?IsActivityObjectWhichPlayfulnessAppliesTo@Town@@UAE_NPAVCreature@@@Z
+.globl ?IsTown@Town@@UAEIPAVCreature@@@Z
+.globl ?IsActivityObjectWhichCompassionAppliesTo@Town@@UAEIPAVCreature@@@Z
+.globl ?IsActivityObjectWhichPlayfulnessAppliesTo@Town@@UAEIPAVCreature@@@Z
 .globl ?IsTown@Town@@UAE_NXZ
 .globl ?IsSuitableForCreatureActivity@Town@@UAEIXZ
 .globl ?CanBePlayedWithByCreature@Town@@UAEIPAVCreature@@@Z
@@ -1756,7 +1756,7 @@ _jmp_addr_0x007374c0:    push               esi                                 
                          pop                esi                                            // 0x0073751d    5e
                          ret                                                               // 0x0073751e    c3
                          nop                                                               // 0x0073751f    90
-?ValidForLockedSelectProcess@Totem@@UAE_NPAVGInterfaceStatus@@@Z:
+?ValidForLockedSelectProcess@Totem@@UAEIPAVGInterfaceStatus@@@Z:
                          push               esi                                            // 0x00737520    56
                          mov.s              esi, ecx                                       // 0x00737521    8bf1
                          {disp8} mov        ecx, dword ptr [esp + 0x08]                    // 0x00737523    8b4c2408
@@ -1796,7 +1796,7 @@ _jmp_addr_0x007374c0:    push               esi                                 
                          nop                                                               // 0x0073756d    90
                          nop                                                               // 0x0073756e    90
                          nop                                                               // 0x0073756f    90
-?NetworkFriendlyStartLockedSelect@Totem@@UAE_NPAVGInterfaceStatus@@@Z:
+?NetworkFriendlyStartLockedSelect@Totem@@UAEIPAVGInterfaceStatus@@@Z:
                          push               esi                                            // 0x00737570    56
                          {disp8} mov        esi, dword ptr [esp + 0x08]                    // 0x00737571    8b742408
                          mov                eax, dword ptr [esi]                           // 0x00737575    8b06
@@ -3337,7 +3337,7 @@ _jmp_addr_0x00738470:    {disp32} fld       dword ptr [ecx + 0x00000080]        
                          nop                                                               // 0x007384fd    90
                          nop                                                               // 0x007384fe    90
                          nop                                                               // 0x007384ff    90
-?ValidForLockedSelectProcess@TotemStatue@@UAE_NPAVGInterfaceStatus@@@Z:
+?ValidForLockedSelectProcess@TotemStatue@@UAEIPAVGInterfaceStatus@@@Z:
                          push               esi                                            // 0x00738500    56
                          mov.s              esi, ecx                                       // 0x00738501    8bf1
                          {disp8} mov        ecx, dword ptr [esp + 0x08]                    // 0x00738503    8b4c2408
@@ -3402,7 +3402,7 @@ _jmp_addr_0x00738470:    {disp32} fld       dword ptr [ecx + 0x00000080]        
                          nop                                                               // 0x0073858d    90
                          nop                                                               // 0x0073858e    90
                          nop                                                               // 0x0073858f    90
-?NetworkFriendlyStartLockedSelect@TotemStatue@@UAE_NPAVGInterfaceStatus@@@Z:
+?NetworkFriendlyStartLockedSelect@TotemStatue@@UAEIPAVGInterfaceStatus@@@Z:
                          push               esi                                            // 0x00738590    56
                          {disp8} mov        esi, dword ptr [esp + 0x08]                    // 0x00738591    8b742408
                          mov                eax, dword ptr [esi]                           // 0x00738595    8b06
@@ -4481,7 +4481,7 @@ _jmp_addr_0x00738ff0:    push               ebx                                 
                          nop                                                               // 0x0073921d    90
                          nop                                                               // 0x0073921e    90
                          nop                                                               // 0x0073921f    90
-?IsTown@Town@@UAE_NPAVCreature@@@Z:
+?IsTown@Town@@UAEIPAVCreature@@@Z:
                          mov                eax, 0x00000001                                // 0x00739220    b801000000
                          ret                0x0004                                         // 0x00739225    c20400
                          nop                                                               // 0x00739228    90
@@ -4492,7 +4492,7 @@ _jmp_addr_0x00738ff0:    push               ebx                                 
                          nop                                                               // 0x0073922d    90
                          nop                                                               // 0x0073922e    90
                          nop                                                               // 0x0073922f    90
-?IsActivityObjectWhichCompassionAppliesTo@Town@@UAE_NPAVCreature@@@Z:
+?IsActivityObjectWhichCompassionAppliesTo@Town@@UAEIPAVCreature@@@Z:
                          mov                eax, 0x00000001                                // 0x00739230    b801000000
                          ret                0x0004                                         // 0x00739235    c20400
                          nop                                                               // 0x00739238    90
@@ -4503,7 +4503,7 @@ _jmp_addr_0x00738ff0:    push               ebx                                 
                          nop                                                               // 0x0073923d    90
                          nop                                                               // 0x0073923e    90
                          nop                                                               // 0x0073923f    90
-?IsActivityObjectWhichPlayfulnessAppliesTo@Town@@UAE_NPAVCreature@@@Z:
+?IsActivityObjectWhichPlayfulnessAppliesTo@Town@@UAEIPAVCreature@@@Z:
                          mov                eax, 0x00000001                                // 0x00739240    b801000000
                          ret                0x0004                                         // 0x00739245    c20400
                          nop                                                               // 0x00739248    90
@@ -5767,7 +5767,7 @@ _jmp_addr_0x00739a60:    push               ebx                                 
                          nop                                                               // 0x0073a08e    90
                          nop                                                               // 0x0073a08f    90
 
-?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z:
+?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z:
                          push               ebx                                            // 0x0073a090    53
                          push               esi                                            // 0x0073a091    56
                          push               edi                                            // 0x0073a092    57
@@ -5813,7 +5813,7 @@ _jmp_addr_0x00739a60:    push               ebx                                 
                          pop                ebx                                            // 0x0073a101    5b
                          ret                0x0004                                         // 0x0073a102    c20400
 .Lbl_addr_0x0073a105:    mov.s              ecx, esi                                       // 0x0073a105    8bce
-                         call               ?MakeHomelessNoStateChange@Villager@@QAE_NXZ   // 0x0073a107    e834710200
+                         call               ?MakeHomelessNoStateChange@Villager@@QAEIXZ   // 0x0073a107    e834710200
 .Lbl_addr_0x0073a10c:    {disp32} mov       ecx, dword ptr [edi + 0x0000061c]              // 0x0073a10c    8b8f1c060000
                          add                ecx, dword ptr [edi + 0x00000618]              // 0x0073a112    038f18060000
                          cmp                ecx, 0x01                                      // 0x0073a118    83f901

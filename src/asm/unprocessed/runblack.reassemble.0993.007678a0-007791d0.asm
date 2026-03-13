@@ -343,7 +343,7 @@
 .globl ?GetScriptObjectType@Fragment@@UAEIXZ
 .globl ?GetCollideSoundType@Fragment@@UAE?AW4SOUND_COLLISION_TYPE@@XZ
 .globl ?ShouldFootpathsGoRound@Fragment@@UAE_NXZ
-.globl ?CreatureMustAvoid@Fragment@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@Fragment@@UAEIPAVCreature@@@Z
 .globl ?GetSaveType@VortexSave@@UAEIXZ
 .globl ??_GVortexSave@@UAEPAXI@Z
 .globl ?Save@VortexSave@@UAEIAAVGameOSFile@@@Z
@@ -4268,7 +4268,7 @@ _jmp_addr_0x0076eaf0:    push               esi                                 
                          nop                                                                // 0x0076f7ed    90
                          nop                                                                // 0x0076f7ee    90
                          nop                                                                // 0x0076f7ef    90
-?CreatureMustAvoid@Fragment@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@Fragment@@UAEIPAVCreature@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                     // 0x0076f7f0    8b442404
                          test               eax, eax                                        // 0x0076f7f4    85c0
                          {disp8} jne        .Lbl_addr_0x0076f7fd                            // 0x0076f7f6    7505

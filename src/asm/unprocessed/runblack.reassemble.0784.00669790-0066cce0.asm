@@ -17,7 +17,7 @@
 .extern ?MyInterface@GGame@@QAEPAVGInterface@@XZ
 .extern ??0GameThing@@QAE@XZ
 .extern _jmp_addr_0x0056fa80
-.extern ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z
+.extern ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z
 .extern _jmp_addr_0x005c4840
 .extern _jmp_addr_0x005c48e0
 .extern _jmp_addr_0x005c7b70
@@ -69,7 +69,7 @@
 .extern ?Get3DAngleFromXZ@GUtils@@SAMABUMapCoords@@0@Z
 .extern ?GetPosFromAngle@GUtils@@SAPAUMapCoords@@MM@Z
 .extern ?GetAbode@Villager@@QAEPAVAbode@@XZ
-.extern ?IsAvailableForWorshipSite@Villager@@QAE_NH@Z
+.extern ?IsAvailableForWorshipSite@Villager@@QAEIH@Z
 .extern ?SetVillagerDisciple@Villager@@QAEIPAVGameThing@@W4VILLAGER_DISCIPLE@@H@Z
 .extern ?SetupMoveToPos@Villager@@QAE_NABUMapCoords@@W4VILLAGER_STATES@@@Z
 .extern _jmp_addr_0x00779a50
@@ -1358,7 +1358,7 @@ start_0x00669790_0x0066cce0:
                          {disp8} je         .Lbl_addr_0x0066a548                          // 0x0066a4ec    745a
 .Lbl_addr_0x0066a4ee:    push               0x0                                           // 0x0066a4ee    6a00
                          mov.s              ecx, esi                                      // 0x0066a4f0    8bce
-                         call               ?IsAvailableForWorshipSite@Villager@@QAE_NH@Z // 0x0066a4f2    e829830e00
+                         call               ?IsAvailableForWorshipSite@Villager@@QAEIH@Z // 0x0066a4f2    e829830e00
                          test               eax, eax                                      // 0x0066a4f7    85c0
                          {disp8} je         .Lbl_addr_0x0066a53a                          // 0x0066a4f9    743f
                          mov                edx, dword ptr [esi]                          // 0x0066a4fb    8b16
@@ -1397,7 +1397,7 @@ start_0x00669790_0x0066cce0:
                          {disp8} je         .Lbl_addr_0x0066a5a9                          // 0x0066a562    7445
 .Lbl_addr_0x0066a564:    push               0x0                                           // 0x0066a564    6a00
                          mov.s              ecx, esi                                      // 0x0066a566    8bce
-                         call               ?IsAvailableForWorshipSite@Villager@@QAE_NH@Z // 0x0066a568    e8b3820e00
+                         call               ?IsAvailableForWorshipSite@Villager@@QAEIH@Z // 0x0066a568    e8b3820e00
                          test               eax, eax                                      // 0x0066a56d    85c0
                          {disp8} je         .Lbl_addr_0x0066a58b                          // 0x0066a56f    741a
                          {disp8} lea        eax, dword ptr [esi + 0x14]                   // 0x0066a571    8d4614
@@ -4885,7 +4885,7 @@ _jmp_addr_0x0066c640:    push               esi                                 
                          test               ecx, ecx                                      // 0x0066c961    85c9
                          {disp8} je         .Lbl_addr_0x0066c9ba                          // 0x0066c963    7455
                          push               ebx                                           // 0x0066c965    53
-                         call               ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z                          // 0x0066c966    e895aaf2ff
+                         call               ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z                          // 0x0066c966    e895aaf2ff
                          cmp                eax, 0x01                                     // 0x0066c96b    83f801
                          {disp8} jne        .Lbl_addr_0x0066c9ba                          // 0x0066c96e    754a
                          {disp8} mov        ecx, dword ptr [edi + 0x40]                   // 0x0066c970    8b4f40

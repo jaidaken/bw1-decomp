@@ -239,7 +239,7 @@
 .globl ?AddReaction@Creature@@UAEXPAVReaction@@W4VILLAGER_STATES@@@Z
 .globl ?StartReacting@Creature@@UAEXW4REACTION@@PAVGameThingWithPos@@PAVReaction@@@Z
 .globl ?UpdateHowImpressed@Creature@@UAEXPAVReaction@@H@Z
-.globl ?IsAvailableForReaction@Creature@@UAE_NW4REACTION@@@Z
+.globl ?IsAvailableForReaction@Creature@@UAEIW4REACTION@@@Z
 .globl ?StandardNumGameTurnsToReactFunction@Creature@@UAEIPAVGameThingWithPos@@IM@Z
 .globl ?StandardNumGameTurnsBeforeReactingAgainFunction@Creature@@UAEIPAVGameThingWithPos@@IM@Z
 .globl ?NumGameTurnsToReactToCreatureFunction@Creature@@UAEIPAVGameThingWithPos@@IM@Z
@@ -7793,7 +7793,7 @@ _globl_ct_0x004f2660:    {disp32} jmp       .Lbl_addr_0x004f2670                
                          nop                                                                     // 0x004f281d    90
                          nop                                                                     // 0x004f281e    90
                          nop                                                                     // 0x004f281f    90
-?IsAvailableForReaction@Creature@@UAE_NW4REACTION@@@Z:
+?IsAvailableForReaction@Creature@@UAEIW4REACTION@@@Z:
                          push               esi                                                  // 0x004f2820    56
                          mov.s              esi, ecx                                             // 0x004f2821    8bf1
                          mov                eax, dword ptr [esi]                                 // 0x004f2823    8b06

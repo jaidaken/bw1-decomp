@@ -79,7 +79,7 @@
 .globl ?KeyDown@SetupControl@@UAEXW4LHKey@@W4LHKeyMod@@@Z
 .globl ?SetToolTip@SetupControl@@QAEXPA_W@Z
 .globl ?SetToolTip@SetupControl@@QAEXK@Z
-.globl ?HitTest@SetupControl@@UAE_NHH@Z
+.globl ?HitTest@SetupControl@@UAEIHH@Z
 .globl ?Drag@SetupControl@@UAEXHH@Z
 .globl ??_GSetupControl@@UAEPAXI@Z
 .globl ?MouseDown@SetupControl@@UAEXHH_N@Z
@@ -2567,7 +2567,7 @@ _jmp_addr_0x00408f80:    push               ebx                                 
                          nop                                                              // 0x0040930d    90
                          nop                                                              // 0x0040930e    90
                          nop                                                              // 0x0040930f    90
-?HitTest@SetupControl@@UAE_NHH@Z:
+?HitTest@SetupControl@@UAEIHH@Z:
                          {disp8} mov        edx, dword ptr [esp + 0x04]                   // 0x00409310    8b542404
                          cmp                edx, dword ptr [ecx + 0x08]                   // 0x00409314    3b5108
                          {disp8} jl         .Lbl_addr_0x00409334                          // 0x00409317    7c1b

@@ -24,7 +24,7 @@
 .extern ?SetSpeed@Villager@@QAEXJH@Z
 .extern ?IsAvailableToBeSummonedByCreature@Villager@@QAE_NXZ
 .extern ?SetupMoveToPos@Villager@@QAE_NABUMapCoords@@W4VILLAGER_STATES@@@Z
-.extern ?StartWorshippingCreature@Villager@@QAE_NPAVCreature@@@Z
+.extern ?StartWorshippingCreature@Villager@@QAEIPAVCreature@@@Z
 .extern _jmp_addr_0x007a1400
 .extern ___RTDynamicCast
 .extern ??2@YAPAXI@Z
@@ -249,7 +249,7 @@ start_0x00501bc0_0x00502660:
 .Lbl_addr_0x00501e22:    {disp8} mov        esi, dword ptr [ebx + 0x04]                   // 0x00501e22    8b7304
                          push               ebp                                           // 0x00501e25    55
                          mov.s              ecx, esi                                      // 0x00501e26    8bce
-                         call               ?StartWorshippingCreature@Villager@@QAE_NPAVCreature@@@Z                          // 0x00501e28    e8b3a82600
+                         call               ?StartWorshippingCreature@Villager@@QAEIPAVCreature@@@Z                          // 0x00501e28    e8b3a82600
                          cmp                eax, 0x01                                     // 0x00501e2d    83f801
                          {disp8} jne        .Lbl_addr_0x00501e9e                          // 0x00501e30    756c
                          test               esi, esi                                      // 0x00501e32    85f6

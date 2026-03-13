@@ -189,7 +189,7 @@
 .globl ??_GPFootball@@UAEPAXI@Z
 .globl ?Draw@PFootball@@UAEXXZ
 .globl ?CallVirtualFunctionsForCreation@PFootball@@UAEXABUMapCoords@@@Z
-.globl ?AddPlaytimeVillager@PFootball@@UAE_NPAVVillager@@@Z
+.globl ?AddPlaytimeVillager@PFootball@@UAEIPAVVillager@@@Z
 .globl ??_GPhysicsObject@@UAEPAXI@Z
 
 start_0x00641fe0_0x006464f0:
@@ -3204,7 +3204,7 @@ _globl_ct_0x00643650:    call               .Lbl_addr_0x00643660                
                          nop                                                               // 0x006441fd    90
                          nop                                                               // 0x006441fe    90
                          nop                                                               // 0x006441ff    90
-?AddPlaytimeVillager@PFootball@@UAE_NPAVVillager@@@Z:
+?AddPlaytimeVillager@PFootball@@UAEIPAVVillager@@@Z:
                          {disp8} mov        ecx, dword ptr [esp + 0x04]                    // 0x00644200    8b4c2404
                          call               ?CheckPlaytimeAvailableToPlayPFootball@Villager@@QAEIXZ                           // 0x00644204    e8e7ee1100
                          ret                0x0004                                         // 0x00644209    c20400

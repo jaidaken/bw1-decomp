@@ -56,7 +56,7 @@
 .extern _jmp_addr_0x004ff9f0
 .extern ?SubStatePerformPickUpParameter@Creature@@QAEIPAVCreatureBelief@@@Z
 .extern ?StartDance@Dance@@QAEXXZ
-.extern ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z
+.extern ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z
 .extern ?GetFirstObjectInCurrentHand@GInterfaceStatus@@QAEPAVObject@@XZ
 .extern _jmp_addr_0x005e3260
 .extern _jmp_addr_0x005fc790
@@ -318,7 +318,7 @@ start_0x00504cd0_0x005076a0:
                          test               ecx, ecx                                             // 0x00504f39    85c9
                          {disp8} je         .Lbl_addr_0x00504f69                                 // 0x00504f3b    742c
                          push               esi                                                  // 0x00504f3d    56
-                         call               ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z   // 0x00504f3e    e8bd240900
+                         call               ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z   // 0x00504f3e    e8bd240900
                          {disp32} mov       eax, dword ptr [esi + 0x00000164]                    // 0x00504f43    8b8664010000
                          {disp32} mov       ecx, dword ptr [eax + 0x00000fb4]                    // 0x00504f49    8b88b40f0000
                          add                eax, 0x00000fa8                                      // 0x00504f4f    05a80f0000

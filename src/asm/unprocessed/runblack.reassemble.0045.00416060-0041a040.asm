@@ -32,7 +32,7 @@
 .extern ?__nw@Base@@SAPAXK@Z
 .extern _jmp_addr_0x00436960
 .extern ??3Base@@SAXPAXK@Z
-.extern ?CanBeInspectedByCreature@Object@@UAE_NPAVCreature@@@Z
+.extern ?CanBeInspectedByCreature@Object@@UAEIPAVCreature@@@Z
 .extern _jmp_addr_0x00511d80
 .extern _jmp_addr_0x0051fb20
 .extern _jmp_addr_0x0051fea0
@@ -135,22 +135,22 @@
 .globl ?SetMapChild@Object@@UAEXPAV1@PAUMapCell@@@Z
 .globl _StorePreviousState__6LivingFv
 .globl ?GetDebugText@GameThingWithPos@@QAEPADXZ
-.globl ?IsWonder@GameThingWithPos@@UAE_NXZ
+.globl ?IsWonder@GameThingWithPos@@UAEIXZ
 .globl ?CreateBuildingSite@GameThingWithPos@@UBE_NXZ
 .globl ?GetTown@Object@@UAEPAVTown@@XZ
 .globl ?GetMapChild@Object@@UAEPAV1@PBUMapCell@@@Z
 .globl ?Process@Object@@UAEIXZ
 .globl ?AsMultiMapFixed@Object@@UAEPAVMultiMapFixed@@XZ
-.globl ?IsResourceStore@Object@@UAE_NW4RESOURCE_TYPE@@@Z
+.globl ?IsResourceStore@Object@@UAEIW4RESOURCE_TYPE@@@Z
 .globl ?StartOnFire@Object@@UAEXXZ
-.globl ?ValidForLockedSelectProcess@Object@@UAE_NPAVGInterfaceStatus@@@Z
-.globl ?NetworkFriendlyStartLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?ValidForLockedSelectProcess@Object@@UAEIPAVGInterfaceStatus@@@Z
+.globl ?NetworkFriendlyStartLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?InterfaceValidToTap@Object@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?InterfaceTap@Object@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?ChecksVerticesVObjects@Object@@UAEIXZ
-.globl ?IsSolidToNewAbode@Object@@UAE_NXZ
+.globl ?IsSolidToNewAbode@Object@@UAEIXZ
 .globl ?GetTownArtifact@Object@@UAEPAVGameThing@@XZ
-.globl ?IsTownArtifact@Object@@UAE_NXZ
+.globl ?IsTownArtifact@Object@@UAEIXZ
 .globl ?ShouldFootpathsGoRound@Object@@UAE_NXZ
 .globl ?GetCollideData@Object@@UAEPAVNewCollide@@XZ
 .globl ?GetMesh@GAnimalInfo@@UBEIXZ
@@ -171,8 +171,8 @@
 .globl ?ArrivesAtWoodReaction@PuzzleHorse@@UAE_NXZ
 .globl ?EnterInHand@Living@@UAEIW4VILLAGER_STATES@@0@Z
 .globl ?IsStateForInterface@Living@@UBE_NW4VILLAGER_STATES@@@Z
-.globl ?IsInterestedInWoodObject@Living@@UAE_NPAVObject@@@Z
-.globl ?IsAvailableForBeliefButNotReaction@Living@@UAE_NW4REACTION@@@Z
+.globl ?IsInterestedInWoodObject@Living@@UAEIPAVObject@@@Z
+.globl ?IsAvailableForBeliefButNotReaction@Living@@UAEIW4REACTION@@@Z
 .globl ?UpdateHowImpressed@Living@@UAEXPAVReaction@@H@Z
 .globl ?SetupReactToWood@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z
 .globl ?SetupReactToMagicShield@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z
@@ -278,7 +278,7 @@
 .globl ?GetHoldLoweringMultiplier@Animal@@UAEMXZ
 .globl ?ValidForPlaceInHand@Animal@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?InterfaceSetInMagicHand@Animal@@UAEIPAVGInterfaceStatus@@@Z
-.globl ?IsInterestedInFoodObject@Animal@@UAE_NPAVObject@@@Z
+.globl ?IsInterestedInFoodObject@Animal@@UAEIPAVObject@@@Z
 .globl ?SetAge@PuzzleHorse@@UAEXI@Z
 
 start_0x00416060_0x0041a040:
@@ -1894,7 +1894,7 @@ _StorePreviousState__6LivingFv:
                          sete               al                                            // 0x00417079    0f94c0
                          ret                0x0004                                        // 0x0041707c    c20400
                          nop                                                              // 0x0041707f    90
-?IsInterestedInWoodObject@Living@@UAE_NPAVObject@@@Z:
+?IsInterestedInWoodObject@Living@@UAEIPAVObject@@@Z:
                          xor.s              eax, eax                                      // 0x00417080    33c0
                          ret                0x0004                                        // 0x00417082    c20400
                          nop                                                              // 0x00417085    90
@@ -1908,7 +1908,7 @@ _StorePreviousState__6LivingFv:
                          nop                                                              // 0x0041708d    90
                          nop                                                              // 0x0041708e    90
                          nop                                                              // 0x0041708f    90
-?IsAvailableForBeliefButNotReaction@Living@@UAE_NW4REACTION@@@Z:
+?IsAvailableForBeliefButNotReaction@Living@@UAEIW4REACTION@@@Z:
                          xor.s              eax, eax                                      // 0x00417090    33c0
                          ret                0x0004                                        // 0x00417092    c20400
                          nop                                                              // 0x00417095    90
@@ -2572,7 +2572,7 @@ _StorePreviousState__6LivingFv:
                          {disp8} mov        ecx, dword ptr [esp + 0x08]                   // 0x004173ef    8b4c2408
                          push               ecx                                           // 0x004173f3    51
                          mov.s              ecx, esi                                      // 0x004173f4    8bce
-                         call               ?CanBeInspectedByCreature@Object@@UAE_NPAVCreature@@@Z                          // 0x004173f6    e845c70c00
+                         call               ?CanBeInspectedByCreature@Object@@UAEIPAVCreature@@@Z                          // 0x004173f6    e845c70c00
                          test               eax, eax                                      // 0x004173fb    85c0
                          {disp8} je         .Lbl_addr_0x00417408                          // 0x004173fd    7409
                          mov                eax, 0x00000001                               // 0x004173ff    b801000000
@@ -3546,7 +3546,7 @@ _StorePreviousState__6LivingFv:
                          nop                                                              // 0x004178cd    90
                          nop                                                              // 0x004178ce    90
                          nop                                                              // 0x004178cf    90
-?IsWonder@GameThingWithPos@@UAE_NXZ:
+?IsWonder@GameThingWithPos@@UAEIXZ:
                          xor.s              eax, eax                                      // 0x004178d0    33c0
                          ret                                                              // 0x004178d2    c3
                          nop                                                              // 0x004178d3    90
@@ -5871,7 +5871,7 @@ _jmp_addr_0x00419120:    sub                esp, 0x24                           
                          nop                                                              // 0x004192cd    90
                          nop                                                              // 0x004192ce    90
                          nop                                                              // 0x004192cf    90
-?IsResourceStore@Object@@UAE_NW4RESOURCE_TYPE@@@Z:
+?IsResourceStore@Object@@UAEIW4RESOURCE_TYPE@@@Z:
                          xor.s              eax, eax                                      // 0x004192d0    33c0
                          ret                0x0004                                        // 0x004192d2    c20400
                          nop                                                              // 0x004192d5    90
@@ -5956,7 +5956,7 @@ _jmp_addr_0x00419120:    sub                esp, 0x24                           
                          nop                                                              // 0x0041932d    90
                          nop                                                              // 0x0041932e    90
                          nop                                                              // 0x0041932f    90
-?ValidForLockedSelectProcess@Object@@UAE_NPAVGInterfaceStatus@@@Z:
+?ValidForLockedSelectProcess@Object@@UAEIPAVGInterfaceStatus@@@Z:
                          xor.s              eax, eax                                      // 0x00419330    33c0
                          ret                0x0004                                        // 0x00419332    c20400
                          nop                                                              // 0x00419335    90
@@ -6022,7 +6022,7 @@ _jmp_addr_0x00419340:    push               esi                                 
                          pop                esi                                           // 0x004193c9    5e
                          ret                                                              // 0x004193ca    c3
                          call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9                          // 0x004193cb    e8a984feff
-?NetworkFriendlyStartLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z:
+?NetworkFriendlyStartLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z:
                          mov                eax, 0x00000001                               // 0x004193d0    b801000000
                          ret                0x0004                                        // 0x004193d5    c20400
                          nop                                                              // 0x004193d8    90
@@ -6482,7 +6482,7 @@ _jmp_addr_0x00419490:    sub                esp, 0x18                           
                          nop                                                              // 0x0041989d    90
                          nop                                                              // 0x0041989e    90
                          nop                                                              // 0x0041989f    90
-?IsSolidToNewAbode@Object@@UAE_NXZ:
+?IsSolidToNewAbode@Object@@UAEIXZ:
                          xor.s              eax, eax                                      // 0x004198a0    33c0
                          ret                                                              // 0x004198a2    c3
                          nop                                                              // 0x004198a3    90
@@ -6584,7 +6584,7 @@ _jmp_addr_0x00419490:    sub                esp, 0x18                           
                          nop                                                              // 0x0041996d    90
                          nop                                                              // 0x0041996e    90
                          nop                                                              // 0x0041996f    90
-?IsTownArtifact@Object@@UAE_NXZ:
+?IsTownArtifact@Object@@UAEIXZ:
                          xor.s              eax, eax                                      // 0x00419970    33c0
                          ret                                                              // 0x00419972    c3
                          nop                                                              // 0x00419973    90
@@ -6827,7 +6827,7 @@ _jmp_addr_0x00419a60:    {disp32} mov       eax, dword ptr [data_bytes + 0x30dc3
                          nop                                                              // 0x00419bbd    90
                          nop                                                              // 0x00419bbe    90
                          nop                                                              // 0x00419bbf    90
-?IsInterestedInFoodObject@Animal@@UAE_NPAVObject@@@Z:
+?IsInterestedInFoodObject@Animal@@UAEIPAVObject@@@Z:
                          push               esi                                           // 0x00419bc0    56
                          {disp8} mov        esi, dword ptr [esp + 0x08]                   // 0x00419bc1    8b742408
                          mov                eax, dword ptr [esi]                          // 0x00419bc5    8b06

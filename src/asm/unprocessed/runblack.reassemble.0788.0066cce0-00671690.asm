@@ -56,7 +56,7 @@
 .extern ?Load@MobileObject@@UAEIAAVGameOSFile@@@Z
 .extern ?InitialisePhysicsFromHand@Object@@UAEIPAULHPoint@@0PAVGInterfaceStatus@@PAV1@H@Z
 .extern ?EndPhysics@Object@@UAEXPAVPhysicsObject@@_N@Z
-.extern ?InterfaceSetInMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
+.extern ?InterfaceSetInMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z
 .extern ?InteractsWithPhysicsObjects@Object@@UAE_NXZ
 .extern _jmp_addr_0x00637cc0
 .extern ?Get2DRadius@Object@@UAEMXZ
@@ -177,10 +177,10 @@
 .globl ?InterfaceSetInMagicHand@Pot@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?JustRemoveResource@PotStructure@@UAEIW4RESOURCE_TYPE@@IPA_N@Z
 .globl ?IsPartOfStructure@PotStructure@@UAE_NXZ
-.globl ?IsResourceStore@PotStructure@@UAE_NW4RESOURCE_TYPE@@@Z
+.globl ?IsResourceStore@PotStructure@@UAEIW4RESOURCE_TYPE@@@Z
 .globl ?EndPhysics@Pot@@UAEXPAVPhysicsObject@@_N@Z
 .globl ?ReactToPhysicsImpact@Pot@@UAEXPAVPhysicsObject@@_N@Z
-.globl ?DeleteObjectAndTakeResource@Pot@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.globl ?DeleteObjectAndTakeResource@Pot@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .globl ?ValidToApplyThisToObject@Pot@@UAEIPAVGInterfaceStatus@@PAVObject@@@Z
 .globl ?ApplyThisToObject@Pot@@UAEIPAVGInterfaceStatus@@PAVObject@@PAUGestureSystemPacketData@@@Z
 .globl ?ApplyThisToMapCoord@Pot@@UAEIPAVGInterfaceStatus@@ABUMapCoords@@PAUGestureSystemPacketData@@@Z
@@ -189,7 +189,7 @@
 .globl ?GetDebugText@PileFood@@UAEPADXZ
 .globl ??_GPileFood@@UAEPAXI@Z
 .globl ?ToBeDeleted@PileFood@@UAEXH@Z
-.globl ?CreatureMustAvoid@PileFood@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@PileFood@@UAEIPAVCreature@@@Z
 .globl ?GetQueryFirstEnumText@PileFood@@UAE?AW4HELP_TEXT@@XZ
 .globl ?GetQueryLastEnumText@PileFood@@UAE?AW4HELP_TEXT@@XZ
 .globl ?Get3DType@PileFood@@UAE?AW4LH3DObject__ObjectType@@XZ
@@ -198,9 +198,9 @@
 .globl ?IsField@PileResource@@UAEIPAVCreature@@@Z
 .globl ?GetLife@PileResource@@UAEMXZ
 .globl ?SetLife@PileResource@@UAEXM@Z
-.globl ?ValidForLockedSelectProcess@PileResource@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?ValidForLockedSelectProcess@PileResource@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?ProcessInInteract@PileResource@@UAEIPAVGInterfaceStatus@@@Z
-.globl ?NetworkFriendlyStartLockedSelect@PileResource@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?NetworkFriendlyStartLockedSelect@PileResource@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?NetworkUnfriendlyLockedSelect@PileResource@@UAEIPAUControlHandUpdateInfo@@@Z
 .globl ?NetworkUnfriendlyEndLockedSelect@PileResource@@UAEIXZ
 .globl ?NetworkFriendlyEndLockedSelect@PileResource@@UAEIPAVGInterfaceStatus@@@Z
@@ -241,7 +241,7 @@
 .globl ?Process@PrayerIcon@@UAEIXZ
 .globl ?GetCitadel@PrayerIcon@@UAEPAVCitadel@@XZ
 .globl ?Draw@PrayerIcon@@UAEXXZ
-.globl ?CreatureMustAvoid@PrayerSite@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@PrayerSite@@UAEIPAVCreature@@@Z
 .globl ?ToBeDeleted@Pot@@UAEXH@Z
 .globl ?CallVirtualFunctionsForCreation@Pot@@UAEXABUMapCoords@@@Z
 .globl ?JustAddResource@Pot@@UAEIW4RESOURCE_TYPE@@I_N@Z
@@ -251,7 +251,7 @@
 .globl ?ToBeDeleted@PotStructure@@UAEXH@Z
 .globl ?Save@PotStructure@@UAEIAAVGameOSFile@@@Z
 .globl ?Load@PotStructure@@UAEIAAVGameOSFile@@@Z
-.globl ?IsResourceStore@Pot@@UAE_NW4RESOURCE_TYPE@@@Z
+.globl ?IsResourceStore@Pot@@UAEIW4RESOURCE_TYPE@@@Z
 .globl ?DummyThereIsNoDrawingObjectVftableItsPureVirtualButCRequiresAValue@PowerSpinRunner@@UAEXXZ
 
 start_0x0066cce0_0x00671690:
@@ -1311,7 +1311,7 @@ _jmp_addr_0x0066d6a0:    {disp8} mov        al, byte ptr [ecx + 0x74]           
                          {disp8} mov        eax, dword ptr [esp + 0x08]                   // 0x0066d718    8b442408
                          push               eax                                           // 0x0066d71c    50
                          mov.s              ecx, esi                                      // 0x0066d71d    8bce
-                         call               ?InterfaceSetInMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z                          // 0x0066d71f    e83c9ffcff
+                         call               ?InterfaceSetInMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z                          // 0x0066d71f    e83c9ffcff
                          pop                esi                                           // 0x0066d724    5e
                          ret                0x0004                                        // 0x0066d725    c20400
                          nop                                                              // 0x0066d728    90
@@ -1628,7 +1628,7 @@ _jmp_addr_0x0066d6a0:    {disp8} mov        al, byte ptr [ecx + 0x74]           
                          nop                                                              // 0x0066da2d    90
                          nop                                                              // 0x0066da2e    90
                          nop                                                              // 0x0066da2f    90
-?IsResourceStore@PotStructure@@UAE_NW4RESOURCE_TYPE@@@Z:
+?IsResourceStore@PotStructure@@UAEIW4RESOURCE_TYPE@@@Z:
                          push               esi                                           // 0x0066da30    56
                          mov.s              esi, ecx                                      // 0x0066da31    8bf1
                          mov                eax, dword ptr [esi]                          // 0x0066da33    8b06
@@ -1661,7 +1661,7 @@ _jmp_addr_0x0066d6a0:    {disp8} mov        al, byte ptr [ecx + 0x74]           
 .Lbl_addr_0x0066da77:    {disp8} mov        ecx, dword ptr [esp + 0x08]                   // 0x0066da77    8b4c2408
                          push               ecx                                           // 0x0066da7b    51
                          mov.s              ecx, esi                                      // 0x0066da7c    8bce
-                         call               ?IsResourceStore@Pot@@UAE_NW4RESOURCE_TYPE@@@Z// 0x0066da7e    e8dd1a0000
+                         call               ?IsResourceStore@Pot@@UAEIW4RESOURCE_TYPE@@@Z// 0x0066da7e    e8dd1a0000
                          pop                esi                                           // 0x0066da83    5e
                          ret                0x0004                                        // 0x0066da84    c20400
                          nop                                                              // 0x0066da87    90
@@ -1968,7 +1968,7 @@ _jmp_addr_0x0066d6a0:    {disp8} mov        al, byte ptr [ecx + 0x74]           
                          nop                                                              // 0x0066dd2d    90
                          nop                                                              // 0x0066dd2e    90
                          nop                                                              // 0x0066dd2f    90
-?DeleteObjectAndTakeResource@Pot@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z:
+?DeleteObjectAndTakeResource@Pot@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x08]                   // 0x0066dd30    8b442408
                          {disp8} mov        edx, dword ptr [esp + 0x04]                   // 0x0066dd34    8b542404
                          push               eax                                           // 0x0066dd38    50
@@ -2485,7 +2485,7 @@ _jmp_addr_0x0066e1c0:    push               esi                                 
                          nop                                                              // 0x0066e1ed    90
                          nop                                                              // 0x0066e1ee    90
                          nop                                                              // 0x0066e1ef    90
-?CreatureMustAvoid@PileFood@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@PileFood@@UAEIPAVCreature@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                   // 0x0066e1f0    8b442404
                          test               eax, eax                                      // 0x0066e1f4    85c0
                          {disp8} je         .Lbl_addr_0x0066e217                          // 0x0066e1f6    741f
@@ -2817,7 +2817,7 @@ _jmp_addr_0x0066e1c0:    push               esi                                 
                          nop                                                              // 0x0066e4ed    90
                          nop                                                              // 0x0066e4ee    90
                          nop                                                              // 0x0066e4ef    90
-?ValidForLockedSelectProcess@PileResource@@UAE_NPAVGInterfaceStatus@@@Z:
+?ValidForLockedSelectProcess@PileResource@@UAEIPAVGInterfaceStatus@@@Z:
                          mov                eax, dword ptr [ecx]                          // 0x0066e4f0    8b01
                          push               esi                                           // 0x0066e4f2    56
                          {disp8} mov        esi, dword ptr [ecx + 0x28]                   // 0x0066e4f3    8b7128
@@ -3001,7 +3001,7 @@ _jmp_addr_0x0066e1c0:    push               esi                                 
                          pop                ebx                                           // 0x0066e709    5b
                          add                esp, 0x0c                                     // 0x0066e70a    83c40c
                          ret                0x0004                                        // 0x0066e70d    c20400
-?NetworkFriendlyStartLockedSelect@PileResource@@UAE_NPAVGInterfaceStatus@@@Z:
+?NetworkFriendlyStartLockedSelect@PileResource@@UAEIPAVGInterfaceStatus@@@Z:
                          sub                esp, 0x08                                     // 0x0066e710    83ec08
                          push               ebx                                           // 0x0066e713    53
                          push               ebp                                           // 0x0066e714    55
@@ -4411,7 +4411,7 @@ _jmp_addr_0x0066f270:    sub                esp, 0x3c                           
                          nop                                                              // 0x0066f55d    90
                          nop                                                              // 0x0066f55e    90
                          nop                                                              // 0x0066f55f    90
-?IsResourceStore@Pot@@UAE_NW4RESOURCE_TYPE@@@Z:
+?IsResourceStore@Pot@@UAEIW4RESOURCE_TYPE@@@Z:
                          xor.s              eax, eax                                      // 0x0066f560    33c0
                          ret                0x0004                                        // 0x0066f562    c20400
                          nop                                                              // 0x0066f565    90
@@ -6408,7 +6408,7 @@ _globl_ct_0x006706f0:    call               .Lbl_addr_0x00670700                
                          nop                                                              // 0x00670a0d    90
                          nop                                                              // 0x00670a0e    90
                          nop                                                              // 0x00670a0f    90
-?CreatureMustAvoid@PrayerSite@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@PrayerSite@@UAEIPAVCreature@@@Z:
                          xor.s              eax, eax                                      // 0x00670a10    33c0
                          ret                0x0004                                        // 0x00670a12    c20400
                          nop                                                              // 0x00670a15    90

@@ -101,7 +101,7 @@
 .extern ?GetPlayerNumber@GPlayer@@QBEEXZ
 .extern ?IsNeutral@GPlayer@@QAE_NXZ
 .extern _jmp_addr_0x0064d6a0
-.extern ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z
+.extern ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z
 .extern _jmp_addr_0x0064da80
 .extern ?GameRand@GRand@@SAHJ@Z
 .extern ?GameFloatRand@GRand@@SAMM@Z
@@ -288,7 +288,7 @@
 .globl _jmp_addr_0x0074e270
 .globl _jmp_addr_0x0074e290
 .globl _jmp_addr_0x0074e2b0
-.globl ?FindNearestDrinkingWater@GUtils@@SA_NAAUMapCoords@@0M@Z  
+.globl ?FindNearestDrinkingWater@GUtils@@SAIAAUMapCoords@@0M@Z  
 .globl _jmp_addr_0x0074e4c0
 .globl _jmp_addr_0x0074eb40
 .globl ?GetMidPoint@GUtils@@SAXAAUMapCoords@@0M@Z
@@ -370,7 +370,7 @@
 .globl ?ApplyThisToMapCoord@Tree@@UAEIPAVGInterfaceStatus@@ABUMapCoords@@PAUGestureSystemPacketData@@@Z
 .globl ?GetWorkingPos@Tree@@UAEPAUMapCoords@@PAU2@PAVObject@@@Z
 .globl ?IsTreeBigEnoughForCreature@Tree@@UAEIPAVCreature@@@Z
-.globl ?CreatureMustAvoid@Tree@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@Tree@@UAEIPAVCreature@@@Z
 .globl ?GetScriptObjectType@Tree@@UAEIXZ
 .globl ?GetDiscipleStateIfInteractedWith@Tree@@UAEIPAVGInterfaceStatus@@PAVVillager@@@Z
 .globl ?ApplyWaterSpell@Tree@@UAEMPAVSpellWater@@@Z
@@ -1637,7 +1637,7 @@ _jmp_addr_0x00747c70:    push               esi                                 
                          mov.s              ebx, eax                                       // 0x00747f67    8bd8
                          push               ebx                                            // 0x00747f69    53
                          mov.s              ecx, edi                                       // 0x00747f6a    8bcf
-                         call               ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z                           // 0x00747f6c    e8df57f0ff
+                         call               ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z                           // 0x00747f6c    e8df57f0ff
                          test               eax, eax                                       // 0x00747f71    85c0
                          {disp8} je         .Lbl_addr_0x00747fa5                           // 0x00747f73    7430
                          {disp8} fld        dword ptr [esp + 0x0c]                         // 0x00747f75    d944240c
@@ -1788,7 +1788,7 @@ _jmp_addr_0x00747c70:    push               esi                                 
                          mov.s              ebx, eax                                       // 0x00748183    8bd8
                          push               ebx                                            // 0x00748185    53
                          mov.s              ecx, edi                                       // 0x00748186    8bcf
-                         call               ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z                           // 0x00748188    e8c355f0ff
+                         call               ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z                           // 0x00748188    e8c355f0ff
                          test               eax, eax                                       // 0x0074818d    85c0
                          {disp8} je         .Lbl_addr_0x007481c1                           // 0x0074818f    7430
                          {disp8} fld        dword ptr [esp + 0x0c]                         // 0x00748191    d944240c
@@ -7688,7 +7688,7 @@ _jmp_addr_0x0074bd20:    push               esi                                 
 .Lbl_addr_0x0074c0da:    xor.s              eax, eax                                       // 0x0074c0da    33c0
                          ret                0x0004                                         // 0x0074c0dc    c20400
                          nop                                                               // 0x0074c0df    90
-?CreatureMustAvoid@Tree@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@Tree@@UAEIPAVCreature@@@Z:
                          push               esi                                            // 0x0074c0e0    56
                          push               edi                                            // 0x0074c0e1    57
                          {disp8} mov        edi, dword ptr [esp + 0x0c]                    // 0x0074c0e2    8b7c240c
@@ -11350,7 +11350,7 @@ _jmp_addr_0x0074e2b0:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          nop                                                               // 0x0074e39d    90
                          nop                                                               // 0x0074e39e    90
                          nop                                                               // 0x0074e39f    90
-?FindNearestDrinkingWater@GUtils@@SA_NAAUMapCoords@@0M@Z:
+?FindNearestDrinkingWater@GUtils@@SAIAAUMapCoords@@0M@Z:
                                                                push               ebx                                            // 0x0074e3a0    53
                          {disp8} mov        ebx, dword ptr [esp + 0x10]                    // 0x0074e3a1    8b5c2410
                          push               esi                                            // 0x0074e3a5    56

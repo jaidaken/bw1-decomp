@@ -73,7 +73,7 @@
 .extern ?Create@Creature@@SAPAV1@ABUMapCoords@@PBVCreatureInfo@@PAVGPlayer@@@Z
 .extern _jmp_addr_0x0047f020
 .extern _jmp_addr_0x004c80b0
-.extern ?CanBePickedUpByCreature@Object@@UAE_NPAVCreature@@@Z
+.extern ?CanBePickedUpByCreature@Object@@UAEIPAVCreature@@@Z
 .extern _jmp_addr_0x004e9590
 .extern _jmp_addr_0x004ea900
 .extern _jmp_addr_0x0050ac50
@@ -119,7 +119,7 @@
 .extern ?Save@GameThing@@QAEIAAVGGameOSFile@@@Z
 .extern ?Load@GameThing@@QAEIAAVGGameOSFile@@@Z
 .extern ?CheckAndSetSaved@GameThing@@QAE_NXZ
-.extern ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z
+.extern ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z
 .extern _jmp_addr_0x00597ed0
 .extern _jmp_addr_0x005981d0
 .extern ?Reset@HelpSystem@@QAEXXZ
@@ -181,7 +181,7 @@
 .extern ?InitialisePhysicsFromHand@Object@@UAEIPAULHPoint@@0PAVGInterfaceStatus@@PAV1@H@Z
 .extern ?InitialisePhysics@Object@@UAEIPBULHPoint@@0PAV1@_NPAVGInterfaceStatus@@@Z
 .extern ?EndPhysics@Object@@UAEXPAVPhysicsObject@@_N@Z
-.extern ?InterfaceSetInMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z
+.extern ?InterfaceSetInMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z
 .extern @ActualMoveMapObject__6ObjectFRC9MapCoords@12
 .extern ?ThrowObjectFromHand@Object@@UAEIPAVGInterfaceStatus@@H@Z
 .extern ?GetImpressiveValue@Object@@UAEMPAVLiving@@PAVReaction@@@Z
@@ -298,7 +298,7 @@
 .extern _jmp_addr_0x0073b7a0
 .extern ?AddBuildingSiteNoFixedCheck@Town@@QAEPAVBuildingSite@@PAVPlannedMultiMapFixed@@@Z
 .extern ?GetTribe@Town@@QBEPAVGTribeInfo@@XZ
-.extern ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z
+.extern ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z
 .extern _jmp_addr_0x0073d8d0
 .extern _jmp_addr_0x0073daa0
 .extern _jmp_addr_0x0073daf0
@@ -589,8 +589,8 @@
 .globl ?GetUpdateOfBoredomValue@Scaffold@@UAEMPAVReaction@@PAVGameThingWithPos@@@Z
 .globl ?GetScriptObjectType@Scaffold@@UAEIXZ
 .globl ?ThrowObjectFromHand@Scaffold@@UAEIPAVGInterfaceStatus@@H@Z
-.globl ?IsResourceStore@Scaffold@@UAE_NW4RESOURCE_TYPE@@@Z
-.globl ?DeleteObjectAndTakeResource@Scaffold@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.globl ?IsResourceStore@Scaffold@@UAEIW4RESOURCE_TYPE@@@Z
+.globl ?DeleteObjectAndTakeResource@Scaffold@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .globl ?AddResource@Scaffold@@UAEIW4RESOURCE_TYPE@@IPAVGInterfaceStatus@@_NPBUMapCoords@@H@Z
 .globl ?SaveObject@Scaffold@@UAEIAAULHOSFile@@ABUMapCoords@@@Z
 .globl ??_GGScript@@UAEPAXI@Z
@@ -11018,7 +11018,7 @@ _jmp_addr_0x006e58c0:    push               ebx                                 
                          push               eax                                           // 0x006e619c    50
                          {disp32} jmp       .Lbl_addr_0x006e6365                          // 0x006e619d    e9c3010000
 .Lbl_addr_0x006e61a2:    push               edi                                           // 0x006e61a2    57
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z     // 0x006e61a3    e8d8710500
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z     // 0x006e61a3    e8d8710500
                          test               eax, eax                                      // 0x006e61a8    85c0
                          {disp8} je         .Lbl_addr_0x006e6203                          // 0x006e61aa    7457
                          {disp8} lea        ecx, dword ptr [esi + 0x14]                   // 0x006e61ac    8d4e14
@@ -11112,7 +11112,7 @@ _jmp_addr_0x006e58c0:    push               ebx                                 
                          test               ecx, ecx                                      // 0x006e62b8    85c9
                          {disp8} je         .Lbl_addr_0x006e62c4                          // 0x006e62ba    7408
                          push               edi                                           // 0x006e62bc    57
-                         call               ?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z     // 0x006e62bd    e8be700500
+                         call               ?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z     // 0x006e62bd    e8be700500
                          {disp8} jmp        .Lbl_addr_0x006e62d5                          // 0x006e62c2    eb11
 .Lbl_addr_0x006e62c4:    mov                edx, dword ptr [esi]                          // 0x006e62c4    8b16
                          push               0x1                                           // 0x006e62c6    6a01
@@ -13289,7 +13289,7 @@ _jmp_addr_0x006e7560:    sub                esp, 0x5c                           
 ?CanBePickedUpByCreature@Rock@@UAEIPAVCreature@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                   // 0x006e7a70    8b442404
                          push               eax                                           // 0x006e7a74    50
-                         call               ?CanBePickedUpByCreature@Object@@UAE_NPAVCreature@@@Z                          // 0x006e7a75    e8a6bfdfff
+                         call               ?CanBePickedUpByCreature@Object@@UAEIPAVCreature@@@Z                          // 0x006e7a75    e8a6bfdfff
                          ret                0x0004                                        // 0x006e7a7a    c20400
                          nop                                                              // 0x006e7a7d    90
                          nop                                                              // 0x006e7a7e    90
@@ -15990,7 +15990,7 @@ _jmp_addr_0x006e9610:    push               esi                                 
                          {disp8} mov        edi, dword ptr [esp + 0x14]                   // 0x006e96e4    8b7c2414
                          mov.s              esi, ecx                                      // 0x006e96e8    8bf1
                          push               edi                                           // 0x006e96ea    57
-                         call               ?InterfaceSetInMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z                          // 0x006e96eb    e870dff4ff
+                         call               ?InterfaceSetInMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z                          // 0x006e96eb    e870dff4ff
                          mov.s              ebp, eax                                      // 0x006e96f0    8be8
                          xor.s              ebx, ebx                                      // 0x006e96f2    33db
                          cmp.s              ebp, ebx                                      // 0x006e96f4    3beb
@@ -18064,7 +18064,7 @@ _jmp_addr_0x006eaa40:    {disp32} mov       edx, dword ptr [ecx + 0x00000094]   
                          nop                                                              // 0x006eae9d    90
                          nop                                                              // 0x006eae9e    90
                          nop                                                              // 0x006eae9f    90
-?IsResourceStore@Scaffold@@UAE_NW4RESOURCE_TYPE@@@Z:
+?IsResourceStore@Scaffold@@UAEIW4RESOURCE_TYPE@@@Z:
                          cmp                dword ptr [esp + 0x04], 0x01                  // 0x006eaea0    837c240401
                          {disp8} jne        .Lbl_addr_0x006eaeb8                          // 0x006eaea5    7511
                          call               _jmp_addr_0x006e8b10                          // 0x006eaea7    e864dcffff
@@ -18077,7 +18077,7 @@ _jmp_addr_0x006eaa40:    {disp32} mov       edx, dword ptr [ecx + 0x00000094]   
                          nop                                                              // 0x006eaebd    90
                          nop                                                              // 0x006eaebe    90
                          nop                                                              // 0x006eaebf    90
-?DeleteObjectAndTakeResource@Scaffold@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z:
+?DeleteObjectAndTakeResource@Scaffold@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z:
                          {disp8} mov        eax, dword ptr [ecx + 0x68]                   // 0x006eaec0    8b4168
                          test               eax, eax                                      // 0x006eaec3    85c0
                          {disp8} je         .Lbl_addr_0x006eaede                          // 0x006eaec5    7417
@@ -24621,7 +24621,7 @@ _globl_ct_0x006ef390:    {disp32} jmp       .Lbl_addr_0x006ef3a0                
                          {disp32} mov       edx, dword ptr [ecx + 0x00250090]             // 0x006ef88c    8b9190002500
                          {disp8} mov        ecx, dword ptr [edx + 0x50]                   // 0x006ef892    8b4a50
                          push               esi                                           // 0x006ef895    56
-                         call               ?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z // 0x006ef896    e8f5a70400
+                         call               ?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z // 0x006ef896    e8f5a70400
 .Lbl_addr_0x006ef89b:    xor.s              eax, eax                                      // 0x006ef89b    33c0
                          pop                esi                                           // 0x006ef89d    5e
                          ret                                                              // 0x006ef89e    c3
@@ -24722,7 +24722,7 @@ _globl_ct_0x006ef390:    {disp32} jmp       .Lbl_addr_0x006ef3a0                
                          call               ?RemoveVillager@Town@@QAEXPAVVillager@@@Z     // 0x006ef9b5    e856e80400
 .Lbl_addr_0x006ef9ba:    {disp8} mov        ecx, dword ptr [esp + 0x10]                   // 0x006ef9ba    8b4c2410
                          push               esi                                           // 0x006ef9be    56
-                         call               ?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z // 0x006ef9bf    e8cca60400
+                         call               ?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z // 0x006ef9bf    e8cca60400
                          {disp8} mov        ecx, dword ptr [esp + 0x0c]                   // 0x006ef9c4    8b4c240c
                          push               0x4                                           // 0x006ef9c8    6a04
                          push               ecx                                           // 0x006ef9ca    51
@@ -25586,7 +25586,7 @@ _jmp_addr_0x006efdc0:    push               ecx                                 
                          {disp32} mov       edx, dword ptr [ecx + 0x00250090]             // 0x006f02e2    8b9190002500
                          {disp8} mov        ecx, dword ptr [edx + 0x4c]                   // 0x006f02e8    8b4a4c
                          push               esi                                           // 0x006f02eb    56
-                         call               ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z                          // 0x006f02ec    e80f71eaff
+                         call               ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z                          // 0x006f02ec    e80f71eaff
                          push               0x5                                           // 0x006f02f1    6a05
                          push               esi                                           // 0x006f02f3    56
                          call               _jmp_addr_0x006f82e0                          // 0x006f02f4    e8e77f0000
@@ -25683,7 +25683,7 @@ _jmp_addr_0x006efdc0:    push               ecx                                 
                          call               dword ptr [eax + 0xb08]                       // 0x006f03f2    ff90080b0000
 .Lbl_addr_0x006f03f8:    push               esi                                           // 0x006f03f8    56
                          mov.s              ecx, edi                                      // 0x006f03f9    8bcf
-                         call               ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z                          // 0x006f03fb    e80070eaff
+                         call               ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z                          // 0x006f03fb    e80070eaff
                          push               0x5                                           // 0x006f0400    6a05
                          push               esi                                           // 0x006f0402    56
                          call               _jmp_addr_0x006f82e0                          // 0x006f0403    e8d87e0000

@@ -71,8 +71,8 @@
 .globl ?ValidToSelectFightThisToMapCoord@Creature@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .globl ?ValidToApplyFightThisToMapCoord@Creature@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
 .globl ?ValidToFightThisToObject@Creature@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z
-.globl ?ValidForLockedSelectProcess@Creature@@UAE_NPAVGInterfaceStatus@@@Z
-.globl ?NetworkFriendlyStartLockedSelect@Creature@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?ValidForLockedSelectProcess@Creature@@UAEIPAVGInterfaceStatus@@@Z
+.globl ?NetworkFriendlyStartLockedSelect@Creature@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?NetworkFriendlyEndLockedSelect@Creature@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?IsReadyForNetworkUnfriendlyLockedSelect@Creature@@UAEIXZ
 .globl ?NetworkUnfriendlyLockedSelect@Creature@@UAEIPAUControlHandUpdateInfo@@@Z
@@ -191,7 +191,7 @@ start_0x00476d10_0x00477ec0:
                          nop                                                         // 0x00476e0d    90
                          nop                                                         // 0x00476e0e    90
                          nop                                                         // 0x00476e0f    90
-?ValidForLockedSelectProcess@Creature@@UAE_NPAVGInterfaceStatus@@@Z:
+?ValidForLockedSelectProcess@Creature@@UAEIPAVGInterfaceStatus@@@Z:
                          push               esi                                      // 0x00476e10    56
                          mov.s              esi, ecx                                 // 0x00476e11    8bf1
                          {disp8} mov        eax, dword ptr [esi + 0x28]              // 0x00476e13    8b4628
@@ -228,7 +228,7 @@ start_0x00476d10_0x00477ec0:
                          nop                                                         // 0x00476e6d    90
                          nop                                                         // 0x00476e6e    90
                          nop                                                         // 0x00476e6f    90
-?NetworkFriendlyStartLockedSelect@Creature@@UAE_NPAVGInterfaceStatus@@@Z:
+?NetworkFriendlyStartLockedSelect@Creature@@UAEIPAVGInterfaceStatus@@@Z:
                          call               .Lbl_addr_0x00477b20                     // 0x00476e70    e8ab0c0000
                          {disp8} mov        eax, dword ptr [esp + 0x04]              // 0x00476e75    8b442404
                          or                 byte ptr [eax + 0x24], 0x20              // 0x00476e79    80482420

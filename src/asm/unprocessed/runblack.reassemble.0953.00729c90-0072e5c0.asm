@@ -250,8 +250,8 @@
 .globl ?SetUpDestroyedReaction@SpellShield@@UAEXXZ
 .globl ?CalculateCostToMaintain@SpellShield@@UAEMXZ
 .globl ?CloseDown@SpellShield@@UAEXXZ
-.globl ?IsPointDefinietlyWithinShieldVolume@MagicShield@@UAE_NPBUMapCoords@@@Z
-.globl ?IsPointDefinietlyWithinShieldVolume@PhysicalShield@@UAE_NPBUMapCoords@@@Z
+.globl ?IsPointDefinietlyWithinShieldVolume@MagicShield@@UAEIPBUMapCoords@@@Z
+.globl ?IsPointDefinietlyWithinShieldVolume@PhysicalShield@@UAEIPBUMapCoords@@@Z
 .globl ?GetImpressiveValue@SpellShield@@UAEMPAVLiving@@PAVReaction@@@Z
 .globl ?Load@SpellShield@@UAEIAAVGameOSFile@@@Z
 .globl ?Save@SpellShield@@UAEIAAVGameOSFile@@@Z
@@ -263,7 +263,7 @@
 .globl ?GetDebugText@MapShield@@UAEPADXZ
 .globl ??_GMapShield@@UAEPAXI@Z
 .globl ?GetPlayer@MapShield@@UAEPAVGPlayer@@XZ
-.globl ?CreatureMustAvoid@MapShield@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@MapShield@@UAEIPAVCreature@@@Z
 .globl ?GetMesh@MapShield@@UBEHXZ
 .globl ?GetTopPos@MapShield@@UAEMXZ
 .globl ?CanBecomeAPhysicsObject@MapShield@@UAE_NXZ
@@ -276,7 +276,7 @@
 .globl ?DrawShield@MagicShield@@UAEXXZ
 .globl ?Draw@MagicShield@@UAEXXZ
 .globl ?IsEffectReceiver@MagicShield@@UAEIPAVEffectValues@@@Z
-.globl ?SetDying@MagicShield@@UAE_NXZ
+.globl ?SetDying@MagicShield@@UAEIXZ
 .globl ?InteractsWithPhysicsObjects@MagicShield@@UAE_NXZ
 .globl ?Get3DType@MagicShield@@UAE?AW4LH3DObject__ObjectType@@XZ
 .globl ?Load@MagicShield@@UAEIAAVGameOSFile@@@Z
@@ -296,7 +296,7 @@
 .globl ?Draw@PhysicalShield@@UAEXXZ
 .globl ?SetUpPhysOb@PhysicalShield@@UAEXPAUPhysOb@@@Z
 .globl ?DrawShield@PhysicalShield@@UAEXXZ
-.globl ?SetDying@PhysicalShield@@UAE_NXZ
+.globl ?SetDying@PhysicalShield@@UAEIXZ
 .globl ?ProcessShield@PhysicalShield@@UAEXXZ
 .globl ?InteractsWithPhysicsObjects@PhysicalShield@@UAE_NXZ
 .globl ?ReactToPhysicsImpact@PhysicalShield@@UAEXPAVPhysicsObject@@_N@Z
@@ -3254,7 +3254,7 @@ _jmp_addr_0x0072b4b0:    {disp8} mov        eax, dword ptr [esp + 0x08]         
                          nop                                                              // 0x0072b84d    90
                          nop                                                              // 0x0072b84e    90
                          nop                                                              // 0x0072b84f    90
-?IsPointDefinietlyWithinShieldVolume@MagicShield@@UAE_NPBUMapCoords@@@Z:
+?IsPointDefinietlyWithinShieldVolume@MagicShield@@UAEIPBUMapCoords@@@Z:
                          sub                esp, 0x18                                     // 0x0072b850    83ec18
                          push               esi                                           // 0x0072b853    56
                          mov.s              esi, ecx                                      // 0x0072b854    8bf1
@@ -3313,7 +3313,7 @@ _jmp_addr_0x0072b4b0:    {disp8} mov        eax, dword ptr [esp + 0x08]         
                          nop                                                              // 0x0072b8dd    90
                          nop                                                              // 0x0072b8de    90
                          nop                                                              // 0x0072b8df    90
-?IsPointDefinietlyWithinShieldVolume@PhysicalShield@@UAE_NPBUMapCoords@@@Z:
+?IsPointDefinietlyWithinShieldVolume@PhysicalShield@@UAEIPBUMapCoords@@@Z:
                          sub                esp, 0x20                                     // 0x0072b8e0    83ec20
                          push               esi                                           // 0x0072b8e3    56
                          push               edi                                           // 0x0072b8e4    57
@@ -4290,7 +4290,7 @@ _jmp_addr_0x0072bf80:    {disp32} mov       eax, dword ptr [_game]              
                          nop                                                              // 0x0072c16d    90
                          nop                                                              // 0x0072c16e    90
                          nop                                                              // 0x0072c16f    90
-?CreatureMustAvoid@MapShield@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@MapShield@@UAEIPAVCreature@@@Z:
                          push               esi                                           // 0x0072c170    56
                          mov.s              esi, ecx                                      // 0x0072c171    8bf1
                          {disp8} mov        ecx, dword ptr [esp + 0x08]                   // 0x0072c173    8b4c2408
@@ -4573,7 +4573,7 @@ _jmp_addr_0x0072c1f0:    push               esi                                 
                          nop                                                              // 0x0072c31d    90
                          nop                                                              // 0x0072c31e    90
                          nop                                                              // 0x0072c31f    90
-?SetDying@MagicShield@@UAE_NXZ:
+?SetDying@MagicShield@@UAEIXZ:
                          mov                eax, dword ptr [ecx]                          // 0x0072c320    8b01
                          push               0x0                                           // 0x0072c322    6a00
                          call               dword ptr [eax + 0xc]                         // 0x0072c324    ff500c
@@ -5859,7 +5859,7 @@ _jmp_addr_0x0072cb50:    push               esi                                 
                          nop                                                              // 0x0072d16d    90
                          nop                                                              // 0x0072d16e    90
                          nop                                                              // 0x0072d16f    90
-?SetDying@PhysicalShield@@UAE_NXZ:
+?SetDying@PhysicalShield@@UAEIXZ:
                          mov                eax, 0x00000001                               // 0x0072d170    b801000000
                          {disp32} mov       byte ptr [ecx + 0x000000f8], al               // 0x0072d175    8881f8000000
                          {disp8} mov        dword ptr [ecx + 0x60], 0x00000000            // 0x0072d17b    c7416000000000

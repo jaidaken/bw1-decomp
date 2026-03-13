@@ -106,7 +106,7 @@
 .extern _jmp_addr_0x00887de0
 
 .globl _jmp_addr_0x00597190
-.globl ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z
+.globl ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z
 .globl _jmp_addr_0x00597ed0
 .globl ?CalculateDancePosition@GroupBehaviour@@QAEXABUMapCoords@@PAU2@PAVDanceGroup@@K@Z
 .globl _jmp_addr_0x005981d0
@@ -414,7 +414,7 @@ _AddAction__14GroupBehaviourFfR18LHDynamicStack_Ul_23DANCE_GROUP_ACTION_TYPERC24
                          pop                ebx                                           // 0x005973f6    5b
                          ret                0x0010                                        // 0x005973f7    c21000
                          call               dword ptr [__imp__CoFileTimeToDosDateTime@4]  // 0x005973fa    ff1578998a00
-?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z:
+?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z:
                          sub                esp, 0x0c                                     // 0x00597400    83ec0c
                          push               ebx                                           // 0x00597403    53
                          push               ebp                                           // 0x00597404    55
@@ -1345,7 +1345,7 @@ _LoadDance__14GroupBehaviourFPCc:
 .Lbl_addr_0x00597eb7:    {disp8} mov        ecx, dword ptr [esi + 0x04]                   // 0x00597eb7    8b4e04
                          push               ecx                                           // 0x00597eba    51
                          mov.s              ecx, edi                                      // 0x00597ebb    8bcf
-                         call               ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z                          // 0x00597ebd    e83ef5ffff
+                         call               ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z                          // 0x00597ebd    e83ef5ffff
                          mov                esi, dword ptr [esi]                          // 0x00597ec2    8b36
                          test               esi, esi                                      // 0x00597ec4    85f6
                          {disp8} jne        .Lbl_addr_0x00597eb7                          // 0x00597ec6    75ef

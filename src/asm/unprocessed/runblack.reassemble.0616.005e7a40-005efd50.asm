@@ -97,7 +97,7 @@
 .extern ?Spiral@GUtils@@SAPBUJustMapXZ@@AAJ0@Z
 .extern ?ConvertAngle3DToGame@GUtils@@SAIM@Z
 .extern ?SigmoidThreshold@GUtils@@SAMMM@Z
-.extern ?IsStateEntryFunctionSameAs@Villager@@QBE_NKK@Z
+.extern ?IsStateEntryFunctionSameAs@Villager@@QBEIKK@Z
 .extern ?SetupMoveToPos@Villager@@QAE_NABUMapCoords@@W4VILLAGER_STATES@@@Z
 .extern _jmp_addr_0x0078ea20
 .extern _jmp_addr_0x007a1400
@@ -242,7 +242,7 @@
 .globl ?MoveAlongPath@Living@@UAEIXZ
 .globl ??_GLHLobby@@UAEPAXI@Z
 .globl ?MoveByTeleport@Living@@UAEXABUMapCoords@@@Z
-.globl ?SetDying@Living@@UAE_NXZ
+.globl ?SetDying@Living@@UAEIXZ
 .globl ?GetNumTurnsToDieOver@Living@@UAEIXZ
 .globl ?Dying@PuzzleHorse@@UAE_NXZ
 .globl ?Downed@Living@@UAE_NXZ
@@ -264,7 +264,7 @@
 .globl ?ExitInScript@Living@@UAEHW4VILLAGER_STATES@@@Z
 .globl ?EnterDanceInScript@Living@@UAEIW4VILLAGER_STATES@@0@Z
 .globl ?ExitDanceInScript@Living@@UAEHW4VILLAGER_STATES@@@Z
-.globl ?CreatureMustAvoid@Living@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@Living@@UAEIPAVCreature@@@Z
 .globl ?EnterMoveToPos@Living@@UAEIW4VILLAGER_STATES@@0@Z
 .globl ?ExitMoveToPos@Living@@UAEHE@Z
 .globl ?ExitBeingEaten@Living@@UAEHE@Z
@@ -6769,7 +6769,7 @@ _jmp_addr_0x005ec2a0:    push               esi                                 
                          pop                esi                                           // 0x005ec386    5e
                          ret                0x0004                                        // 0x005ec387    c20400
                          call               dword ptr [__imp__GetOpenFileNameA@4]         // 0x005ec38a    ff1570998a00
-?SetDying@Living@@UAE_NXZ:
+?SetDying@Living@@UAEIXZ:
                          push               esi                                           // 0x005ec390    56
                          mov.s              esi, ecx                                      // 0x005ec391    8bf1
                          test               byte ptr [esi + 0x24], 0x40                   // 0x005ec393    f6462440
@@ -8890,7 +8890,7 @@ _SetAge__6LivingFUl:
                          push               esi                                           // 0x005ed81d    56
                          push               ecx                                           // 0x005ed81e    51
                          mov.s              ecx, eax                                      // 0x005ed81f    8bc8
-                         call               ?IsStateEntryFunctionSameAs@Villager@@QBE_NKK@Z                          // 0x005ed821    e8aa4c1600
+                         call               ?IsStateEntryFunctionSameAs@Villager@@QBEIKK@Z                          // 0x005ed821    e8aa4c1600
                          test               eax, eax                                      // 0x005ed826    85c0
                          {disp32} jne       .Lbl_addr_0x005ed98c                          // 0x005ed828    0f855e010000
                          {disp32} mov       eax, dword ptr [ebx + 0x000000b0]             // 0x005ed82e    8b83b0000000
@@ -9097,7 +9097,7 @@ _SetAge__6LivingFUl:
                          push               edi                                           // 0x005eda86    57
                          push               ecx                                           // 0x005eda87    51
                          mov.s              ecx, eax                                      // 0x005eda88    8bc8
-                         call               ?IsStateEntryFunctionSameAs@Villager@@QBE_NKK@Z                          // 0x005eda8a    e8414a1600
+                         call               ?IsStateEntryFunctionSameAs@Villager@@QBEIKK@Z                          // 0x005eda8a    e8414a1600
                          test               eax, eax                                      // 0x005eda8f    85c0
                          {disp8} jne        .Lbl_addr_0x005edac3                          // 0x005eda91    7530
                          {disp32} mov       eax, dword ptr [esi + 0x000000b0]             // 0x005eda93    8b86b0000000
@@ -9194,7 +9194,7 @@ _SetAge__6LivingFUl:
                          pop                esi                                           // 0x005edb96    5e
                          ret                0x0004                                        // 0x005edb97    c20400
                          call               dword ptr [__imp__TrackMouseEvent@4]          // 0x005edb9a    ff151c908a00
-?CreatureMustAvoid@Living@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@Living@@UAEIPAVCreature@@@Z:
                          xor.s              eax, eax                                      // 0x005edba0    33c0
                          ret                0x0004                                        // 0x005edba2    c20400
                          nop                                                              // 0x005edba5    90

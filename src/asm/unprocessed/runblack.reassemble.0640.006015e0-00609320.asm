@@ -64,7 +64,7 @@
 .extern @RemoveMapObjectFromCell__6ObjectFP7MapCell@12
 .extern ?GetPhysicsConstantsType@Object@@UAEIXZ
 .extern _jmp_addr_0x00637cc0
-.extern ?CreatureMustAvoid@Object@@UAE_NPAVCreature@@@Z
+.extern ?CreatureMustAvoid@Object@@UAEIPAVCreature@@@Z
 .extern ?AddToRoutePlan@Object@@UAEXPAVRPHolder@@PAVCreature@@HP6AXHUPoint2D@@MH@Z@Z
 .extern _jmp_addr_0x00638b00
 .extern ?GetHoldLoweringMultiplier@Object@@UAEMXZ
@@ -312,7 +312,7 @@
 .globl ?GetScriptObjectType@Poo@@UAEIXZ
 .globl ?GetHoldType@Poo@@UAE?AW4HOLD_TYPE@@XZ
 .globl ?InterfaceSetInMagicHand@FieldCrop@@UAEIPAVGInterfaceStatus@@@Z
-.globl ?CreatureMustAvoid@FieldCrop@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@FieldCrop@@UAEIPAVCreature@@@Z
 .globl ?GetMesh@GMobileStaticInfo@@UBEIXZ
 .globl ?GetBaseInfo@GMobileStaticInfo@@UAEPAVGBaseInfo@@AAI@Z
 .globl ??_GGMobileStaticInfo@@UAEPAXI@Z
@@ -327,7 +327,7 @@
 .globl ?GetWorldMatrix@MobileStatic@@UAEXPAULHMatrix@@@Z
 .globl ?GetBoundingSphere@MobileStatic@@UAEXAAULHPoint@@AAM@Z
 .globl ?ReactToPhysicsImpact@MobileStatic@@UAEXPAVPhysicsObject@@_N@Z
-.globl ?CreatureMustAvoid@MobileStatic@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@MobileStatic@@UAEIPAVCreature@@@Z
 .globl ?IsToy@MobileStatic@@UAEIPAVCreature@@@Z
 .globl ?IsToyBall@MobileStatic@@UAEIPAVCreature@@@Z
 .globl ?IsToyDie@MobileStatic@@UAEIPAVCreature@@@Z
@@ -11369,7 +11369,7 @@ _jmp_addr_0x00607e10:    mov                dword ptr [ecx], 0x008e2f18         
                          pop                esi                                           // 0x00608436    5e
                          ret                0x0004                                        // 0x00608437    c20400
                          call               dword ptr [__imp__BinkGetSummary@8]           // 0x0060843a    ff1560998a00
-?CreatureMustAvoid@FieldCrop@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@FieldCrop@@UAEIPAVCreature@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                   // 0x00608440    8b442404
                          test               eax, eax                                      // 0x00608444    85c0
                          {disp8} je         .Lbl_addr_0x00608467                          // 0x00608446    741f
@@ -12581,10 +12581,10 @@ _jmp_addr_0x00608840:    {disp8} mov        ecx, dword ptr [esp + 0x08]         
                          nop                                                              // 0x0060900d    90
                          nop                                                              // 0x0060900e    90
                          nop                                                              // 0x0060900f    90
-?CreatureMustAvoid@MobileStatic@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@MobileStatic@@UAEIPAVCreature@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x04]                   // 0x00609010    8b442404
                          push               eax                                           // 0x00609014    50
-                         call               ?CreatureMustAvoid@Object@@UAE_NPAVCreature@@@Z                          // 0x00609015    e826f70200
+                         call               ?CreatureMustAvoid@Object@@UAEIPAVCreature@@@Z                          // 0x00609015    e826f70200
                          ret                0x0004                                        // 0x0060901a    c20400
                          nop                                                              // 0x0060901d    90
                          nop                                                              // 0x0060901e    90

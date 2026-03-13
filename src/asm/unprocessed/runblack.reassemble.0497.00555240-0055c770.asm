@@ -403,7 +403,7 @@
 .globl _jmp_addr_0x00558050
 .globl _jmp_addr_0x00558160
 .globl ?ReadInfo@PhysicsSaveInfo@@SAXAAVGameOSFile@@@Z
-.globl ?LoadAllGame@GameOSFile@@SA_NPAD@Z
+.globl ?LoadAllGame@GameOSFile@@SAIPAD@Z
 .globl _jmp_addr_0x00558db0
 .globl @LoadInstance__10GameOSFileFPP9GameThing@12
 
@@ -5486,7 +5486,7 @@ _jmp_addr_0x00558160:    sub                esp, 0x0000074c                     
                          nop                                                              // 0x005587ad    90
                          nop                                                              // 0x005587ae    90
                          nop                                                              // 0x005587af    90
-?LoadAllGame@GameOSFile@@SA_NPAD@Z:
+?LoadAllGame@GameOSFile@@SAIPAD@Z:
                                   sub                esp, 0x00000450                               // 0x005587b0    81ec50040000
                          push               ebx                                           // 0x005587b6    53
                          push               ebp                                           // 0x005587b7    55

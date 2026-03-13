@@ -96,7 +96,7 @@
 .extern ?GetPlayerNumber@GPlayer@@QBEEXZ
 .extern @GetPlayer3DColor__7GPlayerFv@12
 .extern _jmp_addr_0x0064d5d0
-.extern ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z
+.extern ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z
 .extern ?GetPlayerColour@GPlayer@@QBE?AULH3DColor@@XZ
 .extern _jmp_addr_0x0066cf10
 .extern _jmp_addr_0x0066d660
@@ -427,7 +427,7 @@
 .globl ?GetDebugText@BigForest@@UAEPADXZ
 .globl ??_GBigForest@@UAEPAXI@Z
 .globl ?ToBeDeleted@BigForest@@UAEXH@Z
-.globl ?CreatureMustAvoid@BigForest@@UAE_NPAVCreature@@@Z
+.globl ?CreatureMustAvoid@BigForest@@UAEIPAVCreature@@@Z
 .globl ?Draw@BigForest@@UAEXXZ
 .globl ?SaveObject@BigForest@@UAEIAAULHOSFile@@ABUMapCoords@@@Z
 .globl ?CallVirtualFunctionsForCreation@BigForest@@UAEXABUMapCoords@@@Z
@@ -452,7 +452,7 @@
 .globl ?CanBeUsedForThrowingDamageByCreature@MobileStatic@@UAEIPAVCreature@@@Z
 .globl ?IsMobileStatic@MobileStatic@@UAEIXZ
 .globl ?IsCastShadowAtNight@MobileStatic@@UAEIXZ
-.globl ?IsResourceStore@Rock@@UAE_NW4RESOURCE_TYPE@@@Z
+.globl ?IsResourceStore@Rock@@UAEIW4RESOURCE_TYPE@@@Z
 .globl ?SetPlayer@Rock@@UAEXPAVGPlayer@@@Z
 .globl ?IsRock@Rock@@UAEIXZ
 .globl ?IsMovable@Rock@@UAE_NXZ
@@ -498,7 +498,7 @@
 .globl ?CreatePileWood@CitadelBuildingSite@@UAEXXZ
 .globl ?GetResourcePosAndYAngle@CitadelBuildingSite@@UAEXIIPAM@Z
 .globl ?GetPileWood@CitadelBuildingSite@@UAEPAVPot@@ABUMapCoords@@@Z
-.globl ?IsLinkedToThisBuildingSite@CitadelBuildingSite@@UAE_NPAVPot@@@Z
+.globl ?IsLinkedToThisBuildingSite@CitadelBuildingSite@@UAEIPAVPot@@@Z
 .globl ?RemovePotFromStructure@CitadelBuildingSite@@UAEXPAVPotStructure@@@Z
 .globl ?Save@CitadelBuildingSite@@UAEIAAVGameOSFile@@@Z
 .globl ?Load@CitadelBuildingSite@@UAEIAAVGameOSFile@@@Z
@@ -510,7 +510,7 @@
 .globl ??_GStandardBuildingSite@@UAEPAXI@Z
 .globl ?CreatePileWood@StandardBuildingSite@@UAEXXZ
 .globl ?RemovePotFromStructure@StandardBuildingSite@@UAEXPAVPotStructure@@@Z
-.globl ?IsLinkedToThisBuildingSite@StandardBuildingSite@@UAE_NPAVPot@@@Z
+.globl ?IsLinkedToThisBuildingSite@StandardBuildingSite@@UAEIPAVPot@@@Z
 .globl ?Save@StandardBuildingSite@@UAEIAAVGameOSFile@@@Z
 .globl ?Load@StandardBuildingSite@@UAEIAAVGameOSFile@@@Z
 .globl ?Process@StandardBuildingSite@@UAEXXZ
@@ -6978,7 +6978,7 @@ _jmp_addr_0x004380b0:    {disp32} mov       ecx, dword ptr [_game]              
                          mov.s              edi, eax                                             // 0x004383b2    8bf8
                          push               edi                                                  // 0x004383b4    57
                          mov.s              ecx, ebx                                             // 0x004383b5    8bcb
-                         call               ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z                                 // 0x004383b7    e894532100
+                         call               ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z                                 // 0x004383b7    e894532100
                          test               eax, eax                                             // 0x004383bc    85c0
                          {disp8} je         .Lbl_addr_0x004383c9                                 // 0x004383be    7409
                          {disp8} mov        ecx, dword ptr [edi + 0x30]                          // 0x004383c0    8b4f30
@@ -7248,7 +7248,7 @@ _jmp_addr_0x004383d0:    sub                esp, 0x24                           
                          mov.s              esi, eax                                             // 0x00438716    8bf0
                          push               esi                                                  // 0x00438718    56
                          mov.s              ecx, edi                                             // 0x00438719    8bcf
-                         call               ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z                                 // 0x0043871b    e830502100
+                         call               ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z                                 // 0x0043871b    e830502100
                          test               eax, eax                                             // 0x00438720    85c0
                          {disp8} je         .Lbl_addr_0x00438742                                 // 0x00438722    741e
                          {disp8} lea        ecx, dword ptr [ebx + 0x14]                          // 0x00438724    8d4b14
@@ -7266,7 +7266,7 @@ _jmp_addr_0x004383d0:    sub                esp, 0x24                           
                          ret                0x0004                                               // 0x0043873f    c20400
 .Lbl_addr_0x00438742:    push               esi                                                  // 0x00438742    56
                          mov.s              ecx, ebp                                             // 0x00438743    8bcd
-                         call               ?IsMemberOfThisPlayer@GPlayer@@QAE_NPAVGInterfaceStatus@@@Z                                 // 0x00438745    e806502100
+                         call               ?IsMemberOfThisPlayer@GPlayer@@QAEIPAVGInterfaceStatus@@@Z                                 // 0x00438745    e806502100
                          test               eax, eax                                             // 0x0043874a    85c0
                          {disp8} je         .Lbl_addr_0x0043875a                                 // 0x0043874c    740c
                          {disp8} mov        ecx, dword ptr [esi + 0x30]                          // 0x0043874e    8b4e30
@@ -8196,7 +8196,7 @@ _globl_ct_0x00438c10:    call               .Lbl_addr_0x00438c20                
                          nop                                                                     // 0x00438f4d    90
                          nop                                                                     // 0x00438f4e    90
                          nop                                                                     // 0x00438f4f    90
-?CreatureMustAvoid@BigForest@@UAE_NPAVCreature@@@Z:
+?CreatureMustAvoid@BigForest@@UAEIPAVCreature@@@Z:
                          call               _jmp_addr_0x00637cc0                                 // 0x00438f50    e86bed1f00
                          ret                0x0004                                               // 0x00438f55    c20400
                          nop                                                                     // 0x00438f58    90
@@ -9066,7 +9066,7 @@ _globl_ct_0x00439590:    {disp32} mov       cl, byte ptr [_DAT_00fac934]        
                          nop                                                                     // 0x0043970d    90
                          nop                                                                     // 0x0043970e    90
                          nop                                                                     // 0x0043970f    90
-?IsResourceStore@Rock@@UAE_NW4RESOURCE_TYPE@@@Z:
+?IsResourceStore@Rock@@UAEIW4RESOURCE_TYPE@@@Z:
                          xor.s              eax, eax                                             // 0x00439710    33c0
                          ret                0x0004                                               // 0x00439712    c20400
                          nop                                                                     // 0x00439715    90
@@ -15113,7 +15113,7 @@ _jmp_addr_0x0043d200:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          nop                                                                     // 0x0043d57d    90
                          nop                                                                     // 0x0043d57e    90
                          nop                                                                     // 0x0043d57f    90
-?IsLinkedToThisBuildingSite@CitadelBuildingSite@@UAE_NPAVPot@@@Z:
+?IsLinkedToThisBuildingSite@CitadelBuildingSite@@UAEIPAVPot@@@Z:
                          {disp8} mov        edx, dword ptr [esp + 0x04]                          // 0x0043d580    8b542404
                          xor.s              eax, eax                                             // 0x0043d584    33c0
                          add                ecx, 0x00000644                                      // 0x0043d586    81c144060000
@@ -15443,7 +15443,7 @@ _jmp_addr_0x0043d690:    push               esi                                 
                          nop                                                                     // 0x0043d82d    90
                          nop                                                                     // 0x0043d82e    90
                          nop                                                                     // 0x0043d82f    90
-?IsLinkedToThisBuildingSite@StandardBuildingSite@@UAE_NPAVPot@@@Z:
+?IsLinkedToThisBuildingSite@StandardBuildingSite@@UAEIPAVPot@@@Z:
                          {disp32} mov       ecx, dword ptr [ecx + 0x00000644]                    // 0x0043d830    8b8944060000
                          {disp8} mov        edx, dword ptr [esp + 0x04]                          // 0x0043d836    8b542404
                          xor.s              eax, eax                                             // 0x0043d83a    33c0

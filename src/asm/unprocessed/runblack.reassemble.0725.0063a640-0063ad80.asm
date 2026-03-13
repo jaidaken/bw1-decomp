@@ -41,7 +41,7 @@
 .globl ?BlocksTownClearArea@Object@@UAE_NXZ
 .globl ?GetSacrificeValue@Object@@UAEMXZ
 .globl ?ApplyWaterSpell@Object@@UAEMPAVSpellWater@@@Z
-.globl ?DeleteObjectAndTakeResource@Object@@UAE_NPAV1@PAVGInterfaceStatus@@@Z
+.globl ?DeleteObjectAndTakeResource@Object@@UAEIPAV1@PAVGInterfaceStatus@@@Z
 .globl ?GetRadiusMultiplierForApplyingPotToPos@Object@@UAEMXZ
 .globl ?DoCreatureMimicAfterAddingResource@Object@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
 .globl ?DropSfx@Object@@UAEIXZ
@@ -378,7 +378,7 @@ _jmp_addr_0x0063a710:    push               ebx                                 
                          nop                                                              // 0x0063a92d    90
                          nop                                                              // 0x0063a92e    90
                          nop                                                              // 0x0063a92f    90
-?DeleteObjectAndTakeResource@Object@@UAE_NPAV1@PAVGInterfaceStatus@@@Z:
+?DeleteObjectAndTakeResource@Object@@UAEIPAV1@PAVGInterfaceStatus@@@Z:
                          xor.s              eax, eax                                      // 0x0063a930    33c0
                          ret                0x0008                                        // 0x0063a932    c20800
                          nop                                                              // 0x0063a935    90

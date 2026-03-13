@@ -205,7 +205,7 @@
 .globl _jmp_addr_0x007849d0
 .globl _jmp_addr_0x00784a30
 .globl _CreateChallengeFiles__13ChallengeRoomFPc@0
-.globl ?StartScript@ChallengeRoom@@QAE_NK@Z
+.globl ?StartScript@ChallengeRoom@@QAEIK@Z
 .globl _jmp_addr_0x00784c70
 .globl ?ChallengeLoad@ChallengeRoom@@QAEXAAVGameOSFile@@@Z
 .globl _jmp_addr_0x00784de0
@@ -9838,7 +9838,7 @@ _globl_ct_0x00784bf0:    {disp32} jmp       .Lbl_addr_0x00784c00                
                          nop                                                              // 0x00784c0d    90
                          nop                                                              // 0x00784c0e    90
                          nop                                                              // 0x00784c0f    90
-?StartScript@ChallengeRoom@@QAE_NK@Z:
+?StartScript@ChallengeRoom@@QAEIK@Z:
                          {disp32} mov       edx, dword ptr [data_bytes + 0x40abd8]        // 0x00784c10    8b15d80bdd00
                          push               esi                                           // 0x00784c16    56
                          {disp8} mov        esi, dword ptr [esp + 0x08]                   // 0x00784c17    8b742408

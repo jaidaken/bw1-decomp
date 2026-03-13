@@ -39,7 +39,7 @@
 .extern ?Load@GameThingWithPos@@QAEIAAVGameOSFile@@@Z
 .extern ?SetToZero@GameThingWithPos@@QAEXXZ
 .extern _jmp_addr_0x0057d440
-.extern ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z
+.extern ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z
 .extern @GetNearestTown__9MapCoordsCFf@12
 .extern ?ConvertToText@MapCoords@@QAEPADPAD@Z
 .extern ?IsWater@MapCoords@@QBEIXZ
@@ -140,9 +140,9 @@
 .globl ??1GameThingWithPos@@UAE@XZ
 .globl ?GetScale@GameThingWithPos@@UBEMXZ
 .globl ?SetScale@GameThingWithPos@@UAEXM@Z
-.globl ?CanBeFrighteningToCreature@Object@@UAE_NPAVCreature@@@Z
+.globl ?CanBeFrighteningToCreature@Object@@UAEIPAVCreature@@@Z
 .globl ?GetMesh@Object@@UAEHXZ
-.globl ?CanBeCrushed@Object@@UAE_NXZ
+.globl ?CanBeCrushed@Object@@UAEIXZ
 .globl ?GetRadius@GArena@@UAEMXZ
 .globl ?GetText@GArena@@UAEPBDXZ
 .globl ?GetSaveType@GArena@@UAEIXZ
@@ -3034,7 +3034,7 @@ _globl_ct_0x00425c20:    {disp32} mov       cl, byte ptr [_DAT_00fac934]        
                          nop                                                              // 0x00425c4d    90
                          nop                                                              // 0x00425c4e    90
                          nop                                                              // 0x00425c4f    90
-?CanBeCrushed@Object@@UAE_NXZ:
+?CanBeCrushed@Object@@UAEIXZ:
                          xor.s              eax, eax                                      // 0x00425c50    33c0
                          ret                                                              // 0x00425c52    c3
                          nop                                                              // 0x00425c53    90
@@ -3050,7 +3050,7 @@ _globl_ct_0x00425c20:    {disp32} mov       cl, byte ptr [_DAT_00fac934]        
                          nop                                                              // 0x00425c5d    90
                          nop                                                              // 0x00425c5e    90
                          nop                                                              // 0x00425c5f    90
-?CanBeFrighteningToCreature@Object@@UAE_NPAVCreature@@@Z:
+?CanBeFrighteningToCreature@Object@@UAEIPAVCreature@@@Z:
                          xor.s              eax, eax                                      // 0x00425c60    33c0
                          ret                0x0004                                        // 0x00425c62    c20400
                          nop                                                              // 0x00425c65    90
@@ -3988,7 +3988,7 @@ _jmp_addr_0x00426230:    push               esi                                 
 .Lbl_addr_0x00426568:    {disp8} mov        edi, dword ptr [esp + 0x18]                   // 0x00426568    8b7c2418
                          {disp8} mov        ecx, dword ptr [esi + 0x2c]                   // 0x0042656c    8b4e2c
                          push               edi                                           // 0x0042656f    57
-                         call               ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z                          // 0x00426570    e88b0e1700
+                         call               ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z                          // 0x00426570    e88b0e1700
                          test               eax, eax                                      // 0x00426575    85c0
                          {disp8} je         .Lbl_addr_0x00426595                          // 0x00426577    741c
                          mov                eax, dword ptr [edi]                          // 0x00426579    8b07

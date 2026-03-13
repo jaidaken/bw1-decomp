@@ -436,7 +436,7 @@
 .globl ?GetScriptObjectType@SpellDispenser@@UAEIXZ
 .globl ?CalculateCostToMaintain@SpellFlock@@UAEMXZ
 .globl ?CloseDown@SpellFlock@@UAEXXZ
-.globl ?NeedsContinualPackets@SpellFlock@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?NeedsContinualPackets@SpellFlock@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?GetParticleType@SpellFlockFlying@@UAEXXZ
 .globl ?Process@SpellFlockFlying@@UAEIXZ
 .globl ?Draw@SpellFlockFlying@@UAEXXZ
@@ -472,7 +472,7 @@
 .globl ?InitWithObject@Spell@@UAEHPAVGameThing@@PAVObject@@PAVSpellCastData@@ABUPSysProcessInfo@@@Z
 .globl ?SpellEvent@Spell@@UAEXABVSpellEventInfo@@@Z
 .globl ?ProcessSpellSeed@Spell@@UAEXXZ
-.globl ?NeedsContinualPackets@Spell@@UAE_NPAVGInterfaceStatus@@@Z
+.globl ?NeedsContinualPackets@Spell@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?Save@Spell@@UAEIAAVGameOSFile@@@Z
 .globl ?Load@Spell@@UAEIAAVGameOSFile@@@Z
 .globl ?InitWithPos@SpellFlock@@UAEHPAVGameThing@@ABUMapCoords@@PAVSpellCastData@@ABUPSysProcessInfo@@@Z
@@ -8798,7 +8798,7 @@ _jmp_addr_0x00721480:    {disp32} mov       eax, dword ptr [_game]              
                          nop                                                                     // 0x007214bd    90
                          nop                                                                     // 0x007214be    90
                          nop                                                                     // 0x007214bf    90
-?NeedsContinualPackets@Spell@@UAE_NPAVGInterfaceStatus@@@Z:
+?NeedsContinualPackets@Spell@@UAEIPAVGInterfaceStatus@@@Z:
                          push               esi                                                  // 0x007214c0    56
                          mov.s              esi, ecx                                             // 0x007214c1    8bf1
                          call               .Lbl_addr_0x00721510                                 // 0x007214c3    e848000000
@@ -11757,7 +11757,7 @@ _jmp_addr_0x00723210:    xor.s              eax, eax                            
                          nop                                                                     // 0x0072327d    90
                          nop                                                                     // 0x0072327e    90
                          nop                                                                     // 0x0072327f    90
-?NeedsContinualPackets@SpellFlock@@UAE_NPAVGInterfaceStatus@@@Z:
+?NeedsContinualPackets@SpellFlock@@UAEIPAVGInterfaceStatus@@@Z:
                          push               esi                                                  // 0x00723280    56
                          mov.s              esi, ecx                                             // 0x00723281    8bf1
                          mov                eax, dword ptr [esi]                                 // 0x00723283    8b06
@@ -11787,7 +11787,7 @@ _jmp_addr_0x00723210:    xor.s              eax, eax                            
                          ret                0x0004                                               // 0x007232bd    c20400
 .Lbl_addr_0x007232c0:    push               edi                                                  // 0x007232c0    57
                          mov.s              ecx, esi                                             // 0x007232c1    8bce
-                         call               ?NeedsContinualPackets@Spell@@UAE_NPAVGInterfaceStatus@@@Z                                 // 0x007232c3    e8f8e1ffff
+                         call               ?NeedsContinualPackets@Spell@@UAEIPAVGInterfaceStatus@@@Z                                 // 0x007232c3    e8f8e1ffff
                          pop                edi                                                  // 0x007232c8    5f
                          pop                esi                                                  // 0x007232c9    5e
                          ret                0x0004                                               // 0x007232ca    c20400

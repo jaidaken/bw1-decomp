@@ -34,7 +34,7 @@
 .extern _jmp_addr_0x005551d0
 .extern ?MyInterface@GGame@@QAEPAVGInterface@@XZ
 .extern _jmp_addr_0x0056fa70
-.extern ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z
+.extern ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z
 .extern _jmp_addr_0x005d06e0
 .extern _jmp_addr_0x005d0730
 .extern ?GetFirstObjectInCurrentHand@GInterfaceStatus@@QAEPAVObject@@XZ
@@ -572,7 +572,7 @@ start_0x006f1b20_0x006f5210:
                          {disp8} je         .Lbl_addr_0x006f2127                                 // 0x006f210e    7417
                          push               esi                                                  // 0x006f2110    56
                          mov.s              ecx, ebp                                             // 0x006f2111    8bcd
-                         call               ?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z   // 0x006f2113    e8e852eaff
+                         call               ?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z   // 0x006f2113    e8e852eaff
                          push               0x5                                                  // 0x006f2118    6a05
                          push               esi                                                  // 0x006f211a    56
                          call               _jmp_addr_0x006f82e0                                 // 0x006f211b    e8c0610000

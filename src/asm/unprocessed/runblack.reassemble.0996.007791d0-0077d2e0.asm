@@ -49,8 +49,8 @@
 .extern ?Built@MultiMapFixed@@UAE_NXZ
 .extern ?SaveObject@MultiMapFixed@@UAEIPAVLHOSFile@@PBUMapCoords@@@Z
 .extern ?RemovePotFromStructure@MultiMapFixed@@UAEXPAVPotStructure@@@Z
-.extern ?IsResourceStore@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@@Z
-.extern ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
+.extern ?IsResourceStore@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@@Z
+.extern ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z
 .extern @GetNearestPathToQuick__13GFootpathLinkFRC9MapCoordsRC9MapCoordsfRiPP13GFootpathNode@28
 .extern _jmp_addr_0x00538ec0
 .extern ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z
@@ -219,14 +219,14 @@
 .globl ?Process@Workshop@@UAEIXZ
 .globl ?AddResource@Workshop@@UAEIW4RESOURCE_TYPE@@IPAVGInterfaceStatus@@_NPBUMapCoords@@H@Z
 .globl ?RemoveResource@Workshop@@UAEIW4RESOURCE_TYPE@@IPAVGInterfaceStatus@@PA_N@Z
-.globl ?DeleteObjectAndTakeResource@Workshop@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z
+.globl ?DeleteObjectAndTakeResource@Workshop@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z
 .globl ?Save@Workshop@@UAEIAAVGameOSFile@@@Z
 .globl ?Load@Workshop@@UAEIAAVGameOSFile@@@Z
 .globl ?ResolveLoad@Workshop@@UAEXXZ
 .globl ?GetDiscipleStateIfInteractedWith@Workshop@@UAEIPAVGInterfaceStatus@@PAVVillager@@@Z
 .globl ?ScaffoldMoved@Workshop@@UAEXPAVScaffold@@@Z
 .globl ?GetShowNeedsPos@Workshop@@UAEIIPAUMapCoords@@@Z
-.globl ?IsResourceStore@Workshop@@UAE_NW4RESOURCE_TYPE@@@Z
+.globl ?IsResourceStore@Workshop@@UAEIW4RESOURCE_TYPE@@@Z
 .globl ?DoCreatureMimicAfterAddingResource@Workshop@@UAE_NW4RESOURCE_TYPE@@AAVGInterfaceStatus@@@Z
 .globl ?CreateBuildingSite@Workshop@@UAEIXZ
 .globl ?GetBaseInfo@GWorshipSiteInfo@@UAEPAVGBaseInfo@@AAI@Z
@@ -234,7 +234,7 @@
 .globl ?ToBeDeleted@WorshipSite@@UAEXH@Z
 .globl ?Built@WorshipSite@@UAE_NXZ
 .globl ?RemovePotFromStructure@WorshipSite@@UAEXPAVPotStructure@@@Z
-.globl ?GetInspectObjectPos@WorshipSite@@UAE_NPAVVillager@@PAUMapCoords@@@Z
+.globl ?GetInspectObjectPos@WorshipSite@@UAEIPAVVillager@@PAUMapCoords@@@Z
 .globl ?Process@WorshipSite@@UAEIXZ
 .globl ?CallVirtualFunctionsForCreation@WorshipSite@@UAEXABUMapCoords@@@Z
 .globl ?GetResource@WorshipSite@@UAEIW4RESOURCE_TYPE@@@Z
@@ -1686,7 +1686,7 @@ _jmp_addr_0x00779d30:    {disp8} mov        eax, dword ptr [esp + 0x04]         
                          call               dword ptr [edx + 0x8e8]                       // 0x00779f16    ff92e8080000
                          pop                esi                                           // 0x00779f1c    5e
                          ret                0x0010                                        // 0x00779f1d    c21000
-?DeleteObjectAndTakeResource@Workshop@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z:
+?DeleteObjectAndTakeResource@Workshop@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z:
                          {disp8} mov        eax, dword ptr [esp + 0x08]                   // 0x00779f20    8b442408
                          {disp8} mov        edx, dword ptr [esp + 0x04]                   // 0x00779f24    8b542404
                          push               eax                                           // 0x00779f28    50
@@ -2354,11 +2354,11 @@ _jmp_addr_0x0077a480:    push               ebx                                 
                          nop                                                              // 0x0077a64d    90
                          nop                                                              // 0x0077a64e    90
                          nop                                                              // 0x0077a64f    90
-?IsResourceStore@Workshop@@UAE_NW4RESOURCE_TYPE@@@Z:
+?IsResourceStore@Workshop@@UAEIW4RESOURCE_TYPE@@@Z:
                          push               esi                                           // 0x0077a650    56
                          {disp8} mov        esi, dword ptr [esp + 0x08]                   // 0x0077a651    8b742408
                          push               esi                                           // 0x0077a655    56
-                         call               ?IsResourceStore@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@@Z                          // 0x0077a656    e8954bdbff
+                         call               ?IsResourceStore@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@@Z                          // 0x0077a656    e8954bdbff
                          test               eax, eax                                      // 0x0077a65b    85c0
                          {disp8} jne        .Lbl_addr_0x0077a66d                          // 0x0077a65d    750e
                          cmp                esi, 0x01                                     // 0x0077a65f    83fe01
@@ -2389,7 +2389,7 @@ _jmp_addr_0x0077a480:    push               ebx                                 
                          push               esi                                           // 0x0077a68b    56
                          mov.s              edi, ecx                                      // 0x0077a68c    8bf9
                          push               ebx                                           // 0x0077a68e    53
-                         call               ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAE_NW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z                          // 0x0077a68f    e87c4bdbff
+                         call               ?DoCreatureMimicAfterAddingResource@MultiMapFixed@@UAEIW4RESOURCE_TYPE@@PAVGInterfaceStatus@@@Z                          // 0x0077a68f    e87c4bdbff
                          test               eax, eax                                      // 0x0077a694    85c0
                          {disp8} jne        .Lbl_addr_0x0077a6b0                          // 0x0077a696    7518
                          cmp                ebx, 0x01                                     // 0x0077a698    83fb01
@@ -3203,7 +3203,7 @@ _jmp_addr_0x0077ac50:    sub                esp, 0x0c                           
                          call               ?RemovePotFromStructure@MultiMapFixed@@UAEXPAVPotStructure@@@Z                          // 0x0077ae27    e83443dbff
                          ret                0x0004                                        // 0x0077ae2c    c20400
                          nop                                                              // 0x0077ae2f    90
-?GetInspectObjectPos@WorshipSite@@UAE_NPAVVillager@@PAUMapCoords@@@Z:
+?GetInspectObjectPos@WorshipSite@@UAEIPAVVillager@@PAUMapCoords@@@Z:
                          sub                esp, 0x0c                                     // 0x0077ae30    83ec0c
                          {disp8} lea        eax, dword ptr [esp + 0x00]                   // 0x0077ae33    8d442400
                          push               eax                                           // 0x0077ae37    50

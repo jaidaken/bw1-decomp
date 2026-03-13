@@ -211,7 +211,7 @@
 .globl ?IsScriptState@Living@@UBE_NW4VILLAGER_STATES@@@Z
 .globl ?IsScriptInterruptableState@Living@@UBE_NW4VILLAGER_STATES@@@Z
 .globl ?IsStateExitFunctionSameAs@Living@@UBE_NW4VILLAGER_STATES@@@Z
-.globl ?IsInterestedInFoodObject@Living@@UAE_NPAVObject@@@Z
+.globl ?IsInterestedInFoodObject@Living@@UAEIPAVObject@@@Z
 .globl ?SetupReactToFallingTree@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z
 .globl ?ReactToDroppedByHandPriority@Living@@UAEEPAVReaction@@0@Z
 .globl ?ReactToFallingTreePriority@Living@@UAEEPAVReaction@@0@Z
@@ -222,7 +222,7 @@
 .globl ?CallOutofAnimationFunction@Creature@@UAEHW4VILLAGER_STATES@@@Z
 .globl ?GetPlayer@Creature@@UAEPAVGPlayer@@XZ
 .globl ?RemoveDance@Creature@@UAEXXZ
-.globl ?IsFinalState@Creature@@UAE_NW4VILLAGER_STATES@@@Z
+.globl ?IsFinalState@Creature@@UAEIW4VILLAGER_STATES@@@Z
 .globl ?IsReachable@Creature@@UAE_NXZ
 .globl ?ValidForPlaceInHand@Creature@@UAEIPAVGInterfaceStatus@@@Z
 .globl ?GetCreatureBeliefType@Creature@@UAEIXZ
@@ -2298,7 +2298,7 @@ _ProcessState__8CreatureFv:
                          nop                                                                     // 0x00473e8d    90
                          nop                                                                     // 0x00473e8e    90
                          nop                                                                     // 0x00473e8f    90
-?IsInterestedInFoodObject@Living@@UAE_NPAVObject@@@Z:
+?IsInterestedInFoodObject@Living@@UAEIPAVObject@@@Z:
                          xor.s              eax, eax                                             // 0x00473e90    33c0
                          ret                0x0004                                               // 0x00473e92    c20400
                          nop                                                                     // 0x00473e95    90
@@ -2439,7 +2439,7 @@ _ProcessState__8CreatureFv:
                          {disp32} mov       dword ptr [ecx + 0x00001074], 0x00000000             // 0x00473f30    c7817410000000000000
                          ret                                                                     // 0x00473f3a    c3
                          call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9                                 // 0x00473f3b    e839d9f8ff
-?IsFinalState@Creature@@UAE_NW4VILLAGER_STATES@@@Z:
+?IsFinalState@Creature@@UAEIW4VILLAGER_STATES@@@Z:
                          xor.s              eax, eax                                             // 0x00473f40    33c0
                          ret                0x0004                                               // 0x00473f42    c20400
                          nop                                                                     // 0x00473f45    90

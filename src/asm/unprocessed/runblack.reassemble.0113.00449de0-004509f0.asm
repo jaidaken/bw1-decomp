@@ -17,7 +17,7 @@
 .extern _jmp_addr_0x00442eb0
 .extern _jmp_addr_0x00442fe0
 .extern _jmp_addr_0x004509f0
-.extern ?InsideInclusion@CameraExclusion@@SA_NULHPoint@@0PAU2@1@Z
+.extern ?InsideInclusion@CameraExclusion@@SAIULHPoint@@0PAU2@1@Z
 .extern @__ct__14CameraModeNew3FP7GCamera@12
 .extern _jmp_addr_0x004576c0
 .extern _jmp_addr_0x00458e50
@@ -3548,7 +3548,7 @@ _jmp_addr_0x0044c160:    sub                esp, 0x000000b4                     
                          mov.s              ecx, esp                                      // 0x0044c3a5    8bcc
                          push               edx                                           // 0x0044c3a7    52
                          call               @__ct__7LHPointFRC7LHPoint@12                 // 0x0044c3a8    e8130c0000
-                         call               ?InsideInclusion@CameraExclusion@@SA_NULHPoint@@0PAU2@1@Z                                       // 0x0044c3ad    e86e9a0000
+                         call               ?InsideInclusion@CameraExclusion@@SAIULHPoint@@0PAU2@1@Z                                       // 0x0044c3ad    e86e9a0000
                          add                esp, 0x20                                     // 0x0044c3b2    83c420
                          test               al, al                                        // 0x0044c3b5    84c0
                          {disp32} jne       .Lbl_addr_0x0044cf7b                          // 0x0044c3b7    0f85be0b0000
@@ -4121,7 +4121,7 @@ _jmp_addr_0x0044c160:    sub                esp, 0x000000b4                     
                          mov.s              ecx, esp                                      // 0x0044cb0e    8bcc
                          push               edx                                           // 0x0044cb10    52
                          call               @__ct__7LHPointFRC7LHPoint@12                 // 0x0044cb11    e8aa040000
-                         call               ?InsideInclusion@CameraExclusion@@SA_NULHPoint@@0PAU2@1@Z                                       // 0x0044cb16    e805930000
+                         call               ?InsideInclusion@CameraExclusion@@SAIULHPoint@@0PAU2@1@Z                                       // 0x0044cb16    e805930000
                          add                esp, 0x20                                     // 0x0044cb1b    83c420
                          test               al, al                                        // 0x0044cb1e    84c0
                          {disp32} jne       .Lbl_addr_0x0044cf7b                          // 0x0044cb20    0f8555040000

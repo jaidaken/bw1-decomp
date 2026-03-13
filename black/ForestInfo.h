@@ -21,6 +21,7 @@ class Base;
 class GForestInfo: public GContainerInfo
 {
 public:
+    uint32_t field_0x14; /* 0x14 */
 
     // Override methods
 
@@ -37,8 +38,9 @@ struct Base;
 struct GForestInfo
 {
   struct GContainerInfo super;  /* 0x0 */
+  uint32_t field_0x14;          /* 0x14 */
 };
-static_assert(sizeof(struct GForestInfo) == 0x148, "Data type is of wrong size");
+static_assert(sizeof(struct GForestInfo) == 0x18, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

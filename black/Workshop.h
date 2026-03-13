@@ -50,25 +50,25 @@ public:
     // win1.41 00779310 mac 10164960 Workshop::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0077a630 mac 10161f20 Workshop::GetShowNeedsPos(unsigned long, MapCoords *)
-    virtual uint32_t GetShowNeedsPos(uint32_t param_1, MapCoords* param_2);
+    virtual uint32_t GetShowNeedsPos(unsigned long param_1, MapCoords* param_2);
     // win1.41 0077a130 mac 101625f0 Workshop::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00779f40 mac 101629d0 Workshop::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00779300 mac 10164920 Workshop::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0077a330 mac 101625a0 Workshop::ResolveLoad(void)
     virtual void ResolveLoad();
     // win1.41 007792e0 mac 10164890 Workshop::CanActAsAContainer(Creature *)
-    virtual bool CanActAsAContainer(Creature* param_1);
+    virtual bool32_t CanActAsAContainer(Creature* param_1);
     // win1.41 007792f0 mac 101648e0 Workshop::IsStoragePit(Creature *)
-    virtual bool IsStoragePit(Creature* param_1);
+    virtual bool32_t IsStoragePit(Creature* param_1);
     // win1.41 007792c0 mac inlined Workshop::IsWorkshop_0(void)
-    virtual bool IsWorkshop();
+    virtual bool32_t IsWorkshop();
     // win1.41 007792d0 mac inlined Workshop::IsWorkshop_1(Creature *)
-    virtual bool IsWorkshop(Creature* param_1);
+    virtual bool32_t IsWorkshop(Creature* param_1);
     // win1.41 0077a6d0 mac 10161cd0 Workshop::CreateBuildingSite(void)
-    virtual bool CreateBuildingSite();
+    virtual bool32_t CreateBuildingSite();
     // win1.41 0077a610 mac 10161f90 Workshop::ScaffoldMoved(Scaffold *)
     virtual void ScaffoldMoved(Scaffold* param_1);
     // win1.41 007797f0 mac 10163a50 Workshop::Process(void)
@@ -78,15 +78,15 @@ public:
     // win1.41 0077a340 mac 10162470 Workshop::GetDiscipleStateIfInteractedWith(GInterfaceStatus *, Villager *)
     virtual uint32_t GetDiscipleStateIfInteractedWith(GInterfaceStatus* param_1, Villager* param_2);
     // win1.41 007793e0 mac 101643c0 Workshop::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 007792b0 mac 101647d0 Workshop::Get3DType(void)
     virtual LH3DObject::ObjectType Get3DType();
     // win1.41 0077a650 mac 10161e90 Workshop::IsResourceStore(RESOURCE_TYPE)
-    virtual bool IsResourceStore(RESOURCE_TYPE param_1);
+    virtual bool32_t IsResourceStore(RESOURCE_TYPE param_1);
     // win1.41 00779f20 mac 10162d40 Workshop::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-    virtual bool DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
+    virtual bool32_t DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
     // win1.41 0077a680 mac 10161d90 Workshop::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
-    virtual bool DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus* param_2);
+    virtual bool DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus& param_2);
 
     // Non-virtual methods
 
@@ -189,9 +189,9 @@ void __fastcall CallVirtualFunctionsForCreation__8WorkshopFRC9MapCoords(struct O
 // win1.41 007792b0 mac 101647d0 Workshop::Get3DType(void)
 enum LH3DObject__ObjectType __fastcall Get3DType__8WorkshopFv(struct Object* this) asm("?Get3DType@Workshop@@UAE?AW4LH3DObject__ObjectType@@XZ");
 // win1.41 0077a650 mac 10161e90 Workshop::IsResourceStore(RESOURCE_TYPE)
-bool __fastcall IsResourceStore__8WorkshopF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@Workshop@@UAE_NW4RESOURCE_TYPE@@@Z");
+bool __fastcall IsResourceStore__8WorkshopF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@Workshop@@UAEIW4RESOURCE_TYPE@@@Z");
 // win1.41 00779f20 mac 10162d40 Workshop::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool __fastcall DeleteObjectAndTakeResource__8WorkshopFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@Workshop@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z");
+bool __fastcall DeleteObjectAndTakeResource__8WorkshopFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@Workshop@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z");
 // win1.41 0077a680 mac 10161d90 Workshop::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
 bool __fastcall DoCreatureMimicAfterAddingResource__8WorkshopF13RESOURCE_TYPER16GInterfaceStatus(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1, struct GInterfaceStatus* param_2) asm("?DoCreatureMimicAfterAddingResource@Workshop@@UAE_NW4RESOURCE_TYPE@@AAVGInterfaceStatus@@@Z");
 

@@ -82,7 +82,7 @@ public:
     // win1.41 006363c0 mac 101cbbe0 GObjectInfo::_dt(void)
     virtual ~GObjectInfo();
     // win1.41 004012c0 mac 10511e08 GObjectInfo::GetDebugText(void)
-    virtual const char* GetDebugText();
+    virtual const char* GetDebugText() const;
     // win1.41 0042b380 mac 104cc120 GObjectInfo::GetBaseInfo(unsigned long &)
     virtual GBaseInfo* GetBaseInfo(uint32_t& param_1);
     // win1.41 0042b370 mac 1016ddf0 GObjectInfo::GetMesh( const(void))

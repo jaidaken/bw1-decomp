@@ -22,15 +22,15 @@ struct DBInfo;
 class MultiplayerDatabase
 {
 public:
-    bool field_0x4;
+    bool32_t field_0x4;
     DBInfo* info;
     char* field_0xc;
 
     // Virtual functions
 
-    virtual bool Send(); /* 0x0 */
+    virtual bool32_t Send(); /* 0x0 */
     // win1.41 00633610 mac 10109f20 MultiplayerDatabase::ReceiveReturnData(void)
-    virtual bool ReceiveReturnData();
+    virtual bool32_t ReceiveReturnData();
 
     // Constructors
 

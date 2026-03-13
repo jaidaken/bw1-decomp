@@ -21,6 +21,7 @@ class Base;
 class GMagicTeleportInfo: public GMagicInfo
 {
 public:
+    uint32_t field_0x58; /* 0x58 */
 
     // Override methods
 
@@ -37,8 +38,9 @@ struct Base;
 struct GMagicTeleportInfo
 {
   struct GMagicInfo super;  /* 0x0 */
+  uint32_t field_0x58;  /* 0x58 */
 };
-static_assert(sizeof(struct GMagicTeleportInfo) == 0x58, "Data type is of wrong size");
+static_assert(sizeof(struct GMagicTeleportInfo) == 0x5c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

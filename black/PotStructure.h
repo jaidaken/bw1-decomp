@@ -60,15 +60,15 @@ public:
     // win1.41 0066ee10 mac 10117970 PotStructure::RemoveResource(RESOURCE_TYPE, unsigned long, GInterfaceStatus *, bool *)
     virtual uint32_t RemoveResource(RESOURCE_TYPE param_1, uint32_t param_2, GInterfaceStatus* param_3, bool* param_4);
     // win1.41 0066db10 mac 1011b060 PotStructure::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0066da90 mac 1011b150 PotStructure::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055d640 mac 101160a0 PotStructure::CanBeThrownByPlayer(void)
-    virtual bool CanBeThrownByPlayer();
+    virtual bool32_t CanBeThrownByPlayer();
     // win1.41 0066db90 mac 1011afa0 PotStructure::CallVirtualFunctionsForCreation(const MapCoords&)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* coords);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& coords);
     // win1.41 0066da30 mac 1011b250 PotStructure::IsResourceStore(RESOURCE_TYPE)
-    virtual bool IsResourceStore(RESOURCE_TYPE param_1);
+    virtual bool32_t IsResourceStore(RESOURCE_TYPE param_1);
     // win1.41 0066d480 mac inlined PotStructure::SetSize(void)
     virtual void SetSize();
     // win1.41 0066da00 mac 10077bc0 PotStructure::IsPartOfStructure(void)
@@ -158,7 +158,7 @@ uint32_t __fastcall CanBeThrownByPlayer__12PotStructureFv(struct GameThingWithPo
 // win1.41 0066db90 mac 1011afa0 PotStructure::CallVirtualFunctionsForCreation(const MapCoords&)
 void __fastcall CallVirtualFunctionsForCreation__12PotStructureFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* coords) asm("?CallVirtualFunctionsForCreation@PotStructure@@UAEXABUMapCoords@@@Z");
 // win1.41 0066da30 mac 1011b250 PotStructure::IsResourceStore(RESOURCE_TYPE)
-bool __fastcall IsResourceStore__12PotStructureF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@PotStructure@@UAE_NW4RESOURCE_TYPE@@@Z");
+bool __fastcall IsResourceStore__12PotStructureF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@PotStructure@@UAEIW4RESOURCE_TYPE@@@Z");
 // win1.41 0066d480 mac inlined PotStructure::SetSize(void)
 void __fastcall SetSize__12PotStructureFv(struct Pot* this) asm("?SetSize@PotStructure@@UAEXXZ");
 // win1.41 0066da00 mac 10077bc0 PotStructure::IsPartOfStructure(void)

@@ -41,17 +41,17 @@ public:
     // win1.41 004208d0 mac 10176ab0 SpellWolf::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 004210b0 mac 10176d80 SpellWolf::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 004211d0 mac 10176bb0 SpellWolf::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 004208c0 mac 10176a70 SpellWolf::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0051c560 mac 100c4a10 SpellWolf::Draw(void)
     virtual void Draw();
     // win1.41 00420910 mac 10177d60 SpellWolf::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 00420cf0 mac 101777b0 SpellWolf::SetDying(void)
-    virtual bool SetDying();
+    virtual bool32_t SetDying();
     // win1.41 0041c6a0 mac 1016ee70 SpellWolf::StandAnimation(void)
     virtual uint32_t StandAnimation();
     // win1.41 004209b0 mac 10177c00 SpellWolf::SetSpeed(long)
@@ -131,7 +131,7 @@ void __fastcall Draw__9SpellWolfFv(struct Object* this) asm("?Draw@SpellWolf@@UA
 // win1.41 00420910 mac 10177d60 SpellWolf::CallVirtualFunctionsForCreation(MapCoords const &)
 void __fastcall CallVirtualFunctionsForCreation__9SpellWolfFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* param_1) asm("?CallVirtualFunctionsForCreation@SpellWolf@@UAEXABUMapCoords@@@Z");
 // win1.41 00420cf0 mac 101777b0 SpellWolf::SetDying(void)
-bool __fastcall SetDying__9SpellWolfFv(struct Object* this) asm("?SetDying@SpellWolf@@UAE_NXZ");
+bool32_t __fastcall SetDying__9SpellWolfFv(struct Object* this) asm("?SetDying@SpellWolf@@UAE_NXZ");
 // win1.41 0041c6a0 mac 1016ee70 SpellWolf::StandAnimation(void)
 uint32_t __fastcall StandAnimation__9SpellWolfFv(struct Object* this) asm("?StandAnimation@SpellWolf@@UAEIXZ");
 // win1.41 004209b0 mac 10177c00 SpellWolf::SetSpeed(long)

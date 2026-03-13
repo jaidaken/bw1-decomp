@@ -24,8 +24,8 @@ class GBaseInfo;
 class GPrayerIconInfo: public GSingleMapFixedInfo
 {
 public:
-    uint32_t field_0x100;
     uint32_t field_0x104;
+    uint32_t field_0x108;
 
     // Override methods
 
@@ -45,10 +45,10 @@ struct GBaseInfo;
 struct GPrayerIconInfo
 {
   struct GSingleMapFixedInfo super;  /* 0x0 */
-  uint32_t field_0x100;
   uint32_t field_0x104;
+  uint32_t field_0x108;
 };
-static_assert(sizeof(struct GPrayerIconInfo) == 0x108, "Data type is of wrong size");
+static_assert(sizeof(struct GPrayerIconInfo) == 0x10c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

@@ -14,7 +14,7 @@
 
 class Base;
 class GameThing;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 
 // win1.41 00bea928 mac inlined Furniture::`RTTI Type Descriptor'

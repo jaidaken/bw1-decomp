@@ -22,15 +22,19 @@ class GameOSFile;
 class VortexSave: public GameThing
 {
 public:
+    uint32_t field_0x14; /* 0x14 */
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
+    uint32_t field_0x20; /* 0x20 */
 
     // Override methods
 
     // win1.41 0076f870 mac 1015f3f0 VortexSave::_dt(void)
     virtual ~VortexSave();
     // win1.41 0076fdc0 mac 1015e890 VortexSave::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0076fb40 mac 1015ed90 VortexSave::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0076f860 mac 1015e730 VortexSave::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0076ffe0 mac 1015e770 VortexSave::ResolveLoad(void)
@@ -47,8 +51,12 @@ struct GameOSFile;
 struct VortexSave
 {
   struct GameThing super;  /* 0x0 */
+  uint32_t field_0x14; /* 0x14 */
+  uint32_t field_0x18; /* 0x18 */
+  uint32_t field_0x1c; /* 0x1c */
+  uint32_t field_0x20; /* 0x20 */
 };
-static_assert(sizeof(struct VortexSave) == 0x14, "Data type is of wrong size");
+static_assert(sizeof(struct VortexSave) == 0x24, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

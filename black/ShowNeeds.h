@@ -42,11 +42,11 @@ public:
     // win1.41 0055dd30 mac 10146370 ShowNeeds::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00719d30 mac 10145850 ShowNeeds::GetShowNeedsPos(unsigned long, MapCoords *)
-    virtual uint32_t GetShowNeedsPos(uint32_t param_1, MapCoords* param_2);
+    virtual uint32_t GetShowNeedsPos(unsigned long param_1, MapCoords* param_2);
     // win1.41 00719cf0 mac 101458d0 ShowNeeds::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00719cb0 mac 10145970 ShowNeeds::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055dd20 mac 10146330 ShowNeeds::GetSaveType(void)
     virtual uint32_t GetSaveType();
 

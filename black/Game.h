@@ -193,9 +193,9 @@ public:
     // win1.41 0054b9c0 mac 10496160 GGame::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00554830 mac 10354cc0 GGame::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& file);
+    virtual bool32_t Load(GameOSFile& file);
     // win1.41 00554090 mac 104935a0 GGame::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& file);
+    virtual bool32_t Save(GameOSFile& file);
     // win1.41 0054b9b0 mac 10512c00 GGame::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00555080 mac 100c76b0 GGame::ResolveLoad(void)
@@ -224,37 +224,37 @@ public:
     // win1.41 0054c180 mac 1003a410 GGame::GetCamera(void)
     GCamera* GetCamera();
     // win1.41 0054c190 mac 101c8360 GGame::StartGame(void)
-    void StartGame();
+    uint32_t StartGame();
     // win1.41 0054c340 mac 10079850 GGame::ProcessFrameInputs(void)
     void ProcessFrameInputs();
     // win1.41 0054c3d0 mac 1001e260 GGame::ProcessGameInputs(void)
-    void ProcessGameInputs();
+    uint32_t ProcessGameInputs();
     // win1.41 0054c420 mac 10083f50 GGame::ProcessBufferedKeys(void)
-    void ProcessBufferedKeys();
+    uint32_t ProcessBufferedKeys();
     // win1.41 0054c4a0 mac 10029760 GGame::LocalTimerSaysDoATurn(void)
     bool LocalTimerSaysDoATurn();
     // win1.41 0054cc30 mac 10029320 GGame::ProcessNetworkPackets(void)
-    void ProcessNetworkPackets();
+    uint32_t ProcessNetworkPackets();
     // win1.41 0054ced0 mac 100dc070 GGame::DoNetworkStart(void)
-    void DoNetworkStart();
+    uint32_t DoNetworkStart();
     // win1.41 0054cf20 mac 100e23b0 GGame::Loop(void)
-    void Loop();
+    uint32_t Loop();
     // win1.41 0054d620 mac 1001e2f0 GGame::ProcessOneGameTurn(void)
-    void ProcessOneGameTurn();
+    uint32_t ProcessOneGameTurn();
     // win1.41 0054d820 mac 10083dd0 GGame::ProcessGameCode(void)
-    void ProcessGameCode();
+    uint32_t ProcessGameCode();
     // win1.41 0054d840 mac inlined GGame::DisplayPlayerTextMessages(void)
     void DisplayPlayerTextMessages();
     // win1.41 0054d850 mac 10079980 GGame::ProcessGraphicsEngine(unsigned long, unsigned long)
-    void ProcessGraphicsEngine(uint32_t param_1, uint32_t param_2);
+    void ProcessGraphicsEngine(unsigned long param_1, unsigned long param_2);
     // win1.41 0054da80 mac 10033dd0 GGame::Process3dEngine(void)
-    void Process3dEngine();
+    uint32_t Process3dEngine();
     // win1.41 0054e4f0 mac 10083c70 GGame::StartTurn(void)
-    void StartTurn();
+    uint32_t StartTurn();
     // win1.41 0054e5c0 mac 100665c0 GGame::ProcessTurn(void)
-    void ProcessTurn();
+    uint32_t ProcessTurn();
     // win1.41 0054e960 mac 10070430 GGame::EndTurn(void)
-    void EndTurn();
+    uint32_t EndTurn();
     // win1.41 0054ef40 mac 10514230 GGame::InitOneTimeOnly(void)
     uint32_t InitOneTimeOnly();
     // win1.41 0054f3b0 mac 101b9770 GGame::Init(void)
@@ -286,7 +286,7 @@ public:
     // win1.41 00550980 mac 1005c2a0 GGame::GetNextPlayerAndNeutral(GPlayer *)
     GPlayer* GetNextPlayerAndNeutral(GPlayer* player);
     // win1.41 005509b0 mac 100586e0 GGame::GetPlayer(unsigned long)
-    GPlayer* GetPlayer(uint32_t param_1);
+    GPlayer* GetPlayer(unsigned long param_1);
     // win1.41 005509e0 mac 1000be00 GGame::GetPlayerFromReal(unsigned long)
     GPlayer* GetPlayerFromReal(unsigned long param_1);
     // win1.41 00550a10 mac inlined GGame::GetPlayerInterfaceFromReal(unsigned long)

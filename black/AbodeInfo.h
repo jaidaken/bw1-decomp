@@ -90,7 +90,7 @@ public:
     // Non-virtual methods
 
     // win1.41 00404b10 mac 1015a260 GAbodeInfo::IsOkToCreateAtPos(MapCoords const &, float, float, Town *) const
-    bool IsOkToCreateAtPos(const MapCoords& coords, float param_2, float param_3, Town* town) const;
+    bool IsOkToCreateAtPos(const MapCoords* coords, float param_2, float param_3, Town* town) const;
     // win1.41 00405a60 mac inlined GAbodeInfo::GetDescription(void)
     const char* GetDescription();
     // win1.41 0042e520 mac inlined GAbodeInfo::LoadBinary(LHFile *)
@@ -196,7 +196,7 @@ void __fastcall LoadBinary__10GAbodeInfoFP6LHFile(struct GAbodeInfo* this, const
 // win1.41 00401320 mac 101ca240 GAbodeInfo::~GAbodeInfo(unsigned int)
 void __fastcall __dt__10GAbodeInfoFUi(struct Base* this, const void* edx, uint32_t param_1) asm("??_GGAbodeInfo@@UAE@XZ");
 // win1.41 00401270 mac 103d3790 GAbodeInfo::GetBaseInfo(ulong&)
-struct GBaseInfo* __fastcall GetBaseInfo__10GAbodeInfoFRUl(struct GBaseInfo* this, const void* edx, uint32_t* param_1) asm("?GetBaseInfo@GAbodeInfo@@UAEPAVGBaseInfo@@AAK@Z");
+struct GBaseInfo* __fastcall GetBaseInfo__10GAbodeInfoFRUl(struct GBaseInfo* this, const void* edx, uint32_t* param_1) asm("?GetBaseInfo@GAbodeInfo@@UAEPAVGBaseInfo@@AAI@Z");
 // win1.41 00401240 mac 1019a370 GAbodeInfo::GetMesh() const
 uint32_t __fastcall GetMesh__10GAbodeInfoCFv(const struct GObjectInfo* this) asm("?GetMesh@GAbodeInfo@@UBE?AW4MeshId@@XZ");
 // win1.41 00401250 mac 106fde70 GAbodeInfo::GetAbodeType() const

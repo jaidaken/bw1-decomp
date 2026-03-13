@@ -26,7 +26,7 @@ struct GameThingWithPosVftable;
 struct GestureSystemPacketData;
 struct MapCell;
 struct MapCoords;
-struct NewCollide;
+class NewCollide;
 class PhysicsObject;
 class Villager;
 
@@ -46,19 +46,19 @@ public:
     // win1.41 0052df20 mac 100e1bd0 FixedObject::GetTownArtifactValue(void)
     float GetTownArtifactValue();
     // win1.41 0052e170 mac inlined FixedObject::Load(GameOSFile &)
-    bool Load(GameOSFile& file);
+    bool32_t Load(GameOSFile& file);
     // win1.41 0052e140 mac 100e17b0 FixedObject::Save(GameOSFile &)
-    bool Save(GameOSFile& file);
+    bool32_t Save(GameOSFile& file);
     // win1.41 00401400 mac 10513b00 FixedObject::CanBeFrighteningToCreature(Creature *)
-    bool CanBeFrighteningToCreature(Creature* creature);
+    bool32_t CanBeFrighteningToCreature(Creature* creature);
     // win1.41 00401410 mac 10570f10 FixedObject::CanBeSleptNextToByCreature(Creature *)
-    bool CanBeSleptNextToByCreature(Creature* creature);
+    bool32_t CanBeSleptNextToByCreature(Creature* creature);
     // win1.41 00401440 mac 1056c2a0 FixedObject::CanBePickedUpByCreature(Creature *)
-    bool CanBePickedUpByCreature(Creature* creature);
+    bool32_t CanBePickedUpByCreature(Creature* creature);
     // win1.41 00401430 mac 100b19c0 FixedObject::CanBeSetOnFire(Creature *)
-    bool CanBeSetOnFire(Creature* creature);
+    bool32_t CanBeSetOnFire(Creature* creature);
     // win1.41 00401420 mac 105e81f0 FixedObject::CanBeDestroyedByStoning(Creature *)
-    bool CanBeDestroyedByStoning(Creature* creature);
+    bool32_t CanBeDestroyedByStoning(Creature* creature);
     // win1.41 004d1b80 mac 10242ed0 FixedObject::GetHowMuchCreatureWantsToLookAtMe(void)
     float GetHowMuchCreatureWantsToLookAtMe();
     // win1.41 0052de30 mac 100e1ea0 FixedObject::Create3DObject(void)
@@ -70,23 +70,23 @@ public:
     // win1.41 0052dea0 mac 100e1d30 FixedObject::InsertMapObjectToCell(MapCell *)
     void InsertMapObjectToCell(MapCell* cell);
     // win1.41 00401450 mac 1057a200 FixedObject::CanBeCrushed(void)
-    bool CanBeCrushed();
+    bool32_t CanBeCrushed();
     // win1.41 0052eb90 mac 100dff80 FixedObject::ValidForLockedSelectProcess(GInterfaceStatus *)
-    bool ValidForLockedSelectProcess(GInterfaceStatus* status);
+    bool32_t ValidForLockedSelectProcess(GInterfaceStatus* status);
     // win1.41 0052eba0 mac 100dff20 FixedObject::NetworkFriendlyStartLockedSelect(GInterfaceStatus *)
-    bool NetworkFriendlyStartLockedSelect(GInterfaceStatus* status);
+    bool32_t NetworkFriendlyStartLockedSelect(GInterfaceStatus* status);
     // win1.41 0052e0e0 mac 100e1840 FixedObject::InterfaceSetInMagicHand(GInterfaceStatus *)
-    bool InterfaceSetInMagicHand(GInterfaceStatus* status);
+    bool32_t InterfaceSetInMagicHand(GInterfaceStatus* status);
     // win1.41 0052df50 mac 100e1950 FixedObject::EndPhysics(PhysicsObject *, bool)
     void EndPhysics(PhysicsObject* param_1, bool param_2);
     // win1.41 00401460 mac 10554e40 FixedObject::VillagerMustAvoid(Villager *)
-    bool VillagerMustAvoid(Villager* param_1);
+    bool32_t VillagerMustAvoid(Villager* param_1);
     // win1.41 0052de50 mac 100e1df0 FixedObject::GetSpecialPos(unsigned long, MapCoords *)
-    bool GetSpecialPos(uint32_t index, MapCoords* pos);
+    bool32_t GetSpecialPos(unsigned long index, MapCoords* pos);
     // win1.41 00401470 mac 1057ad40 FixedObject::GetTownArtifact(void)
     GameThing* GetTownArtifact();
     // win1.41 00401480 mac 10588280 FixedObject::IsTownArtifact(void)
-    bool IsTownArtifact();
+    bool32_t IsTownArtifact();
     // win1.41 0052dee0 mac 100e1c70 FixedObject::InsertMapObjectToCellAssumeFixed(MapCell *)
     virtual void InsertMapObjectToCellAssumeFixed(MapCell* cell); /* 0x85c */
     // win1.41 004252f0 mac 100a9cd0 FixedObject::IsObjectFullyInMap(void)
@@ -97,7 +97,7 @@ public:
     // win1.41 0052dd80 mac inlined FixedObject::FixedObject(void)
     Fixed();
     // win1.41 0052ddc0 mac 100e1fb0 FixedObject::FixedObject(MapCoords const &, GObjectInfo const *, float, float)
-    Fixed(const MapCoords& coords, const GObjectInfo* info, float y_angle, float scale);
+    Fixed(const MapCoords* coords, const GObjectInfo* info, float y_angle, float scale);
 
     // Non-virtual Destructors
 
@@ -205,15 +205,15 @@ uint32_t __fastcall Load__11FixedObjectFR10GameOSFile(struct GameThing* this, co
 // win1.41 0052e140 mac 100e17b0 FixedObject::Save(GameOSFile &)
 uint32_t __fastcall Save__11FixedObjectFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* file) asm("?Save@Fixed@@UAEIPAVGameOSFile@@@Z");
 // win1.41 00401400 mac 10513b00 FixedObject::CanBeFrighteningToCreature(Creature *)
-bool32_t __fastcall CanBeFrighteningToCreature__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeFrighteningToCreature@Fixed@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeFrighteningToCreature__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeFrighteningToCreature@Fixed@@UAEIPAVCreature@@@Z");
 // win1.41 00401410 mac 10570f10 FixedObject::CanBeSleptNextToByCreature(Creature *)
-bool32_t __fastcall CanBeSleptNextToByCreature__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeSleptNextToByCreature@Fixed@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeSleptNextToByCreature__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeSleptNextToByCreature@Fixed@@UAEIPAVCreature@@@Z");
 // win1.41 00401440 mac 1056c2a0 FixedObject::CanBePickedUpByCreature(Creature *)
-bool32_t __fastcall CanBePickedUpByCreature__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePickedUpByCreature@Fixed@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBePickedUpByCreature__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePickedUpByCreature@Fixed@@UAEIPAVCreature@@@Z");
 // win1.41 00401430 mac 100b19c0 FixedObject::CanBeSetOnFire(Creature *)
-bool32_t __fastcall CanBeSetOnFire__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeSetOnFire@Fixed@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeSetOnFire__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeSetOnFire@Fixed@@UAEIPAVCreature@@@Z");
 // win1.41 00401420 mac 105e81f0 FixedObject::CanBeDestroyedByStoning(Creature *)
-bool32_t __fastcall CanBeDestroyedByStoning__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeDestroyedByStoning@Fixed@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeDestroyedByStoning__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeDestroyedByStoning@Fixed@@UAEIPAVCreature@@@Z");
 // win1.41 004d1b80 mac 10242ed0 FixedObject::GetHowMuchCreatureWantsToLookAtMe(void)
 float __fastcall GetHowMuchCreatureWantsToLookAtMe__11FixedObjectFv(struct GameThingWithPos* this) asm("?GetHowMuchCreatureWantsToLookAtMe@Fixed@@UAEMXZ");
 // win1.41 0052de30 mac 100e1ea0 FixedObject::Create3DObject(void)
@@ -225,23 +225,23 @@ void __fastcall RemoveMapObject__11FixedObjectFv(struct Object* this) asm("?Remo
 // win1.41 0052dea0 mac 100e1d30 FixedObject::InsertMapObjectToCell(MapCell *)
 void __fastcall InsertMapObjectToCell__11FixedObjectFP7MapCell(struct Object* this, const void* edx, struct MapCell* cell) asm("?InsertMapObjectToCell@Fixed@@UAEXPAUMapCell@@@Z");
 // win1.41 00401450 mac 1057a200 FixedObject::CanBeCrushed(void)
-bool32_t __fastcall CanBeCrushed__11FixedObjectFv(struct Object* this) asm("?CanBeCrushed@Fixed@@UAE_NXZ");
+bool32_t __fastcall CanBeCrushed__11FixedObjectFv(struct Object* this) asm("?CanBeCrushed@Fixed@@UAEIXZ");
 // win1.41 0052eb90 mac 100dff80 FixedObject::ValidForLockedSelectProcess(GInterfaceStatus *)
-bool32_t __fastcall ValidForLockedSelectProcess__11FixedObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?ValidForLockedSelectProcess@Fixed@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall ValidForLockedSelectProcess__11FixedObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?ValidForLockedSelectProcess@Fixed@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 0052eba0 mac 100dff20 FixedObject::NetworkFriendlyStartLockedSelect(GInterfaceStatus *)
-bool32_t __fastcall NetworkFriendlyStartLockedSelect__11FixedObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?NetworkFriendlyStartLockedSelect@Fixed@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall NetworkFriendlyStartLockedSelect__11FixedObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?NetworkFriendlyStartLockedSelect@Fixed@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 0052e0e0 mac 100e1840 FixedObject::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool32_t __fastcall InterfaceSetInMagicHand__11FixedObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?InterfaceSetInMagicHand@Fixed@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall InterfaceSetInMagicHand__11FixedObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?InterfaceSetInMagicHand@Fixed@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 0052df50 mac 100e1950 FixedObject::EndPhysics(PhysicsObject *, bool)
 void __fastcall EndPhysics__11FixedObjectFP13PhysicsObjectb(struct Object* this, const void* edx, struct PhysicsObject* param_1, bool param_2) asm("?EndPhysics@Fixed@@UAEXPAVPhysicsObject@@_N@Z");
 // win1.41 00401460 mac 10554e40 FixedObject::VillagerMustAvoid(Villager *)
-bool32_t __fastcall VillagerMustAvoid__11FixedObjectFP8Villager(struct Object* this, const void* edx, struct Villager* param_1) asm("?VillagerMustAvoid@Fixed@@UAE_NPAVVillager@@@Z");
+bool32_t __fastcall VillagerMustAvoid__11FixedObjectFP8Villager(struct Object* this, const void* edx, struct Villager* param_1) asm("?VillagerMustAvoid@Fixed@@UAEIPAVVillager@@@Z");
 // win1.41 0052de50 mac 100e1df0 FixedObject::GetSpecialPos(unsigned long, MapCoords *)
-bool32_t __fastcall GetSpecialPos__11FixedObjectFUlP9MapCoords(struct Object* this, const void* edx, uint32_t index, struct MapCoords* pos) asm("?GetSpecialPos@Fixed@@UAE_NIPAUMapCoords@@@Z");
+bool32_t __fastcall GetSpecialPos__11FixedObjectFUlP9MapCoords(struct Object* this, const void* edx, uint32_t index, struct MapCoords* pos) asm("?GetSpecialPos@Fixed@@UAEIIPAUMapCoords@@@Z");
 // win1.41 00401470 mac 1057ad40 FixedObject::GetTownArtifact(void)
 struct GameThing* __fastcall GetTownArtifact__11FixedObjectFv(struct Object* this) asm("?GetTownArtifact@Fixed@@UAEPAVGameThing@@XZ");
 // win1.41 00401480 mac 10588280 FixedObject::IsTownArtifact(void)
-bool32_t __fastcall IsTownArtifact__11FixedObjectFv(struct Object* this) asm("?IsTownArtifact@Fixed@@UAE_NXZ");
+bool32_t __fastcall IsTownArtifact__11FixedObjectFv(struct Object* this) asm("?IsTownArtifact@Fixed@@UAEIXZ");
 // win1.41 0052dee0 mac 100e1c70 FixedObject::InsertMapObjectToCellAssumeFixed(MapCell *)
 void __fastcall InsertMapObjectToCellAssumeFixed__11FixedObjectFP7MapCell(struct Fixed* this, const void* edx, struct MapCell* cell) asm("?InsertMapObjectToCellAssumeFixed@Fixed@@UAEXPAUMapCell@@@Z");
 // win1.41 004252f0 mac 100a9cd0 FixedObject::IsObjectFullyInMap(void)

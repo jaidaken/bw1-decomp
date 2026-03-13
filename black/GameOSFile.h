@@ -18,7 +18,7 @@
 // Forward Declares
 
 class GBaseInfo;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 
 // win1.41 00bec9b8 mac inlined GameOSFile::`RTTI Type Descriptor'
@@ -51,7 +51,7 @@ public:
     // Static methods
 
     // win1.41 005587b0 mac 1030ef00 GameOSFile::LoadAllGame(char *)
-    static bool LoadAllGame(char* filename);
+    static bool32_t LoadAllGame(char* filename);
 
     // Non-virtual methods
 
@@ -126,7 +126,7 @@ extern const struct LHOSFileVftable __vt__10GameOSFile asm("??_7GameOSFile@@6B@"
 // Static methods
 
 // win1.41 005587b0 mac 1030ef00 GameOSFile::LoadAllGame(char *)
-bool __cdecl LoadAllGame__10GameOSFileFPc(char* filename) asm("?LoadAllGame@GameOSFile@@SA_NPAD@Z");
+bool __cdecl LoadAllGame__10GameOSFileFPc(char* filename) asm("?LoadAllGame@GameOSFile@@SAIPAD@Z");
 
 // Non-virtual methods
 

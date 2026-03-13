@@ -24,6 +24,8 @@ struct MapCoords;
 class GFishFarmInfo: public GMultiMapFixedInfo
 {
 public:
+    uint32_t field_0x120; /* 0x120 */
+    uint32_t field_0x124; /* 0x124 */
 
     // Override methods
 
@@ -32,7 +34,7 @@ public:
     // win1.41 0052c2e0 mac 100da3d0 GFishFarmInfo::GetBaseInfo(unsigned long &)
     virtual GBaseInfo* GetBaseInfo(uint32_t& param_1);
     // win1.41 0052d100 mac 100db8c0 GFishFarmInfo::IsOkToCreateAtPos( const(MapCoords const &, float, float))
-    virtual bool IsOkToCreateAtPos(const MapCoords* param_1, float param_2, float param_3);
+    virtual bool IsOkToCreateAtPos(const MapCoords& param_1, float param_2, float param_3) const;
 };
 
 #else // __cplusplus
@@ -46,8 +48,10 @@ struct MapCoords;
 struct GFishFarmInfo
 {
   struct GMultiMapFixedInfo super;  /* 0x0 */
+  uint32_t field_0x120;  /* 0x120 */
+  uint32_t field_0x124;  /* 0x124 */
 };
-static_assert(sizeof(struct GFishFarmInfo) == 0x120, "Data type is of wrong size");
+static_assert(sizeof(struct GFishFarmInfo) == 0x128, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

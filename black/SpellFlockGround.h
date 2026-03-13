@@ -32,9 +32,9 @@ public:
     // win1.41 0055d2e0 mac 1051bf80 SpellFlockGround::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00724bb0 mac 1051c030 SpellFlockGround::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00724bd0 mac 1051bfc0 SpellFlockGround::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055d2d0 mac 1051bf40 SpellFlockGround::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00724290 mac 1051ccf0 SpellFlockGround::GetParticleType(void)
@@ -56,7 +56,7 @@ struct SpellFlockGround
 {
   struct SpellFlock super;  /* 0x0 */
 };
-static_assert(sizeof(struct SpellFlockGround) == 0xf4, "Data type is of wrong size");
+static_assert(sizeof(struct SpellFlockGround) == 0x110, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

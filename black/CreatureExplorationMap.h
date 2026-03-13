@@ -23,6 +23,7 @@ public:
     uint32_t field_0x8;
     MapCoords coords;
     uint16_t field_0x18[0x40][0x40];
+    uint8_t field_0x2018[0x400]; /* 0x2018 */
 
     // Override methods
 
@@ -68,8 +69,9 @@ struct CreatureExplorationMap
   uint32_t field_0x8;
   struct MapCoords coords;
   uint16_t field_0x18[0x40][0x40];
+  uint8_t field_0x2018[0x400]; /* 0x2018 */
 };
-static_assert(sizeof(struct CreatureExplorationMap) == 0x2018, "Data type is of wrong size");
+static_assert(sizeof(struct CreatureExplorationMap) == 0x2418, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

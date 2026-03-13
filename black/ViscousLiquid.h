@@ -9,7 +9,7 @@
 // Forward Declares
 
 class GameOSFile;
-struct LH3DMesh;
+class LH3DMesh;
 struct LH3DPrimitive;
 
 struct FragVertex

@@ -119,17 +119,17 @@ public:
     // win1.41 005ce300 mac 10357e40 GInterface::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 005d04d0 mac 10358550 GInterface::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 005d0490 mac 103585e0 GInterface::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 005ce2f0 mac 10357e00 GInterface::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 005d0590 mac 103581e0 GInterface::SaveExtraData(GameOSFile &)
-    virtual void SaveExtraData(GameOSFile* param_1);
+    virtual void SaveExtraData(GameOSFile& param_1);
     // win1.41 005d0510 mac 10358340 GInterface::ResolveLoad(void)
     virtual void ResolveLoad();
     // win1.41 005ce2e0 mac 10074680 GInterface::IsActive( const(void))
-    virtual bool IsActive();
+    virtual bool32_t IsActive() const;
     // win1.41 005ce2d0 mac 10357dc0 GInterface::GetText(void)
     virtual const char* GetText();
 
@@ -154,7 +154,7 @@ public:
     // win1.41 005d9130 mac 100315f0 GInterface::UpdateAllLeashes(void)
     void UpdateAllLeashes();
     // win1.41 005d9d80 mac 10004300 GInterface::SendMessageA(INTERFACE_MESSAGE_TYPES, LHCoord *)
-    bool SendMessageA(INTERFACE_MESSAGE_TYPES param_1, LHCoord* param_2);
+    bool32_t SendMessageA(INTERFACE_MESSAGE_TYPES param_1, LHCoord* param_2);
 };
 
 #else // __cplusplus
@@ -279,7 +279,7 @@ void __fastcall UpdateHandRenderCollide__10GInterfaceFv(struct GInterface* this)
 // win1.41 005d9130 mac 100315f0 GInterface::UpdateAllLeashes(void)
 void __fastcall UpdateAllLeashes__10GInterfaceFv(struct GInterface* this) asm("?UpdateAllLeashes@GInterface@@QAEXXZ");
 // win1.41 005d9d80 mac 10004300 GInterface::SendMessageA(INTERFACE_MESSAGE_TYPES, LHCoord *)
-bool __fastcall SendMessageA__10GInterfaceF23INTERFACE_MESSAGE_TYPESP7LHCoord(struct GInterface* this, const void* edx, enum INTERFACE_MESSAGE_TYPES param_1, struct LHCoord* param_2) asm("?SendMessageA@GInterface@@QAE_NW4INTERFACE_MESSAGE_TYPES@@PAULHCoord@@@Z");
+bool __fastcall SendMessageA__10GInterfaceF23INTERFACE_MESSAGE_TYPESP7LHCoord(struct GInterface* this, const void* edx, enum INTERFACE_MESSAGE_TYPES param_1, struct LHCoord* param_2) asm("?SendMessageA@GInterface@@QAEIW4INTERFACE_MESSAGE_TYPES@@PAULHCoord@@@Z");
 
 // Override methods
 

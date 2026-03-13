@@ -34,6 +34,44 @@ class Reaction;
 class PhysicalShield: public MapShield
 {
 public:
+    uint32_t field_0x68; /* 0x68 */
+    uint32_t field_0x6c; /* 0x6c */
+    uint32_t field_0x70; /* 0x70 */
+    uint32_t field_0x74; /* 0x74 */
+    uint32_t field_0x78; /* 0x78 */
+    uint32_t field_0x7c; /* 0x7c */
+    uint32_t field_0x80; /* 0x80 */
+    uint32_t field_0x84; /* 0x84 */
+    uint32_t field_0x88; /* 0x88 */
+    uint32_t field_0x8c; /* 0x8c */
+    uint32_t field_0x90; /* 0x90 */
+    uint32_t field_0x94; /* 0x94 */
+    uint32_t field_0x98; /* 0x98 */
+    uint32_t field_0x9c; /* 0x9c */
+    uint32_t field_0xa0; /* 0xa0 */
+    uint32_t field_0xa4; /* 0xa4 */
+    uint32_t field_0xa8; /* 0xa8 */
+    uint32_t field_0xac; /* 0xac */
+    uint32_t field_0xb0; /* 0xb0 */
+    uint32_t field_0xb4; /* 0xb4 */
+    uint32_t field_0xb8; /* 0xb8 */
+    uint32_t field_0xbc; /* 0xbc */
+    uint32_t field_0xc0; /* 0xc0 */
+    uint32_t field_0xc4; /* 0xc4 */
+    uint32_t field_0xc8; /* 0xc8 */
+    uint32_t field_0xcc; /* 0xcc */
+    uint32_t field_0xd0; /* 0xd0 */
+    uint32_t field_0xd4; /* 0xd4 */
+    uint32_t field_0xd8; /* 0xd8 */
+    uint32_t field_0xdc; /* 0xdc */
+    uint32_t field_0xe0; /* 0xe0 */
+    uint32_t field_0xe4; /* 0xe4 */
+    uint32_t field_0xe8; /* 0xe8 */
+    uint32_t field_0xec; /* 0xec */
+    uint32_t field_0xf0; /* 0xf0 */
+    uint32_t field_0xf4; /* 0xf4 */
+    uint32_t field_0xf8; /* 0xf8 */
+    uint32_t field_0xfc; /* 0xfc */
 
     // Override methods
 
@@ -44,27 +82,27 @@ public:
     // win1.41 0072cb10 mac 10533f80 PhysicalShield::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0072c410 mac 10530bd0 PhysicalShield::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0072c700 mac 10530750 PhysicalShield::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0072cb00 mac 10533f40 PhysicalShield::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0072d7f0 mac 1052ee20 PhysicalShield::GetImpressiveValue(Living *, Reaction *)
     virtual float GetImpressiveValue(Living* param_1, Reaction* param_2);
     // win1.41 0072ce60 mac 1052fe10 PhysicalShield::ApplyEffect(EffectValues &, int)
-    virtual void ApplyEffect(EffectValues* param_1, int param_2);
+    virtual void ApplyEffect(EffectValues& param_1, int param_2);
     // win1.41 0072ce80 mac 1052fda0 PhysicalShield::DestroyedByEffect(GPlayer *, float)
-    virtual bool DestroyedByEffect(GPlayer* param_1, float param_2);
+    virtual bool32_t DestroyedByEffect(GPlayer* param_1, float param_2);
     // win1.41 0072cea0 mac 1052fd70 PhysicalShield::Draw(void)
     virtual void Draw();
     // win1.41 0072ccb0 mac 10530110 PhysicalShield::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0072ce50 mac 1052fe80 PhysicalShield::Get3DType(void)
     virtual LH3DObject::ObjectType Get3DType();
     // win1.41 0072d170 mac 1052f8a0 PhysicalShield::SetDying(void)
-    virtual bool SetDying();
+    virtual bool32_t SetDying();
     // win1.41 0072cc80 mac 10530260 PhysicalShield::IsEffectReceiver(EffectValues *)
-    virtual bool IsEffectReceiver(EffectValues* param_1);
+    virtual bool32_t IsEffectReceiver(EffectValues* param_1);
     // win1.41 0072d7e0 mac 1052ef50 PhysicalShield::GetPhysicsConstantsType(void)
     virtual uint32_t GetPhysicsConstantsType();
     // win1.41 0072ceb0 mac 1052fce0 PhysicalShield::SetUpPhysOb(PhysOb *)
@@ -80,7 +118,7 @@ public:
     // win1.41 0072ced0 mac 1052f980 PhysicalShield::DrawShield(void)
     virtual void DrawShield();
     // win1.41 0072b8e0 mac 10532c50 PhysicalShield::IsPointDefinietlyWithinShieldVolume(MapCoords const &)
-    virtual bool IsPointDefinietlyWithinShieldVolume(const MapCoords* param_1);
+    virtual bool32_t IsPointDefinietlyWithinShieldVolume(const MapCoords* param_1);
 };
 
 #else // __cplusplus
@@ -103,8 +141,46 @@ struct Reaction;
 struct PhysicalShield
 {
   struct MapShield super;  /* 0x0 */
+  uint32_t field_0x68; /* 0x68 */
+  uint32_t field_0x6c; /* 0x6c */
+  uint32_t field_0x70; /* 0x70 */
+  uint32_t field_0x74; /* 0x74 */
+  uint32_t field_0x78; /* 0x78 */
+  uint32_t field_0x7c; /* 0x7c */
+  uint32_t field_0x80; /* 0x80 */
+  uint32_t field_0x84; /* 0x84 */
+  uint32_t field_0x88; /* 0x88 */
+  uint32_t field_0x8c; /* 0x8c */
+  uint32_t field_0x90; /* 0x90 */
+  uint32_t field_0x94; /* 0x94 */
+  uint32_t field_0x98; /* 0x98 */
+  uint32_t field_0x9c; /* 0x9c */
+  uint32_t field_0xa0; /* 0xa0 */
+  uint32_t field_0xa4; /* 0xa4 */
+  uint32_t field_0xa8; /* 0xa8 */
+  uint32_t field_0xac; /* 0xac */
+  uint32_t field_0xb0; /* 0xb0 */
+  uint32_t field_0xb4; /* 0xb4 */
+  uint32_t field_0xb8; /* 0xb8 */
+  uint32_t field_0xbc; /* 0xbc */
+  uint32_t field_0xc0; /* 0xc0 */
+  uint32_t field_0xc4; /* 0xc4 */
+  uint32_t field_0xc8; /* 0xc8 */
+  uint32_t field_0xcc; /* 0xcc */
+  uint32_t field_0xd0; /* 0xd0 */
+  uint32_t field_0xd4; /* 0xd4 */
+  uint32_t field_0xd8; /* 0xd8 */
+  uint32_t field_0xdc; /* 0xdc */
+  uint32_t field_0xe0; /* 0xe0 */
+  uint32_t field_0xe4; /* 0xe4 */
+  uint32_t field_0xe8; /* 0xe8 */
+  uint32_t field_0xec; /* 0xec */
+  uint32_t field_0xf0; /* 0xf0 */
+  uint32_t field_0xf4; /* 0xf4 */
+  uint32_t field_0xf8; /* 0xf8 */
+  uint32_t field_0xfc; /* 0xfc */
 };
-static_assert(sizeof(struct PhysicalShield) == 0x68, "Data type is of wrong size");
+static_assert(sizeof(struct PhysicalShield) == 0x100, "Data type is of wrong size");
 
 // Object Oriented datastructures
 
@@ -144,7 +220,7 @@ void __fastcall CallVirtualFunctionsForCreation__14PhysicalShieldFRC9MapCoords(s
 // win1.41 0072ce50 mac 1052fe80 PhysicalShield::Get3DType(void)
 enum LH3DObject__ObjectType __fastcall Get3DType__14PhysicalShieldFv(struct Object* this) asm("?Get3DType@PhysicalShield@@UAE?AW4LH3DObject__ObjectType@@XZ");
 // win1.41 0072d170 mac 1052f8a0 PhysicalShield::SetDying(void)
-bool __fastcall SetDying__14PhysicalShieldFv(struct Object* this) asm("?SetDying@PhysicalShield@@UAE_NXZ");
+bool32_t __fastcall SetDying__14PhysicalShieldFv(struct Object* this) asm("?SetDying@PhysicalShield@@UAEIXZ");
 // win1.41 0072cc80 mac 10530260 PhysicalShield::IsEffectReceiver(EffectValues *)
 uint32_t __fastcall IsEffectReceiver__14PhysicalShieldFP12EffectValues(struct Object* this, const void* edx, struct EffectValues* param_1) asm("?IsEffectReceiver@PhysicalShield@@UAEIPAVEffectValues@@@Z");
 // win1.41 0072d7e0 mac 1052ef50 PhysicalShield::GetPhysicsConstantsType(void)
@@ -162,7 +238,7 @@ void __fastcall ProcessShield__14PhysicalShieldFv(struct MapShield* this) asm("?
 // win1.41 0072ced0 mac 1052f980 PhysicalShield::DrawShield(void)
 void __fastcall DrawShield__14PhysicalShieldFv(struct MapShield* this) asm("?DrawShield@PhysicalShield@@UAEXXZ");
 // win1.41 0072b8e0 mac 10532c50 PhysicalShield::IsPointDefinietlyWithinShieldVolume(MapCoords const &)
-bool __fastcall IsPointDefinietlyWithinShieldVolume__14PhysicalShieldFRC9MapCoords(struct MapShield* this, const void* edx, const struct MapCoords* param_1) asm("?IsPointDefinietlyWithinShieldVolume@PhysicalShield@@UAE_NPBUMapCoords@@@Z");
+bool __fastcall IsPointDefinietlyWithinShieldVolume__14PhysicalShieldFRC9MapCoords(struct MapShield* this, const void* edx, const struct MapCoords* param_1) asm("?IsPointDefinietlyWithinShieldVolume@PhysicalShield@@UAEIPBUMapCoords@@@Z");
 
 #endif // __cplusplus
 

@@ -56,13 +56,13 @@ public:
     // win1.41 00443840 mac 10198640 GCamera::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 004433a0 mac 10198870 GCamera::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 004430e0 mac 10198d40 GCamera::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00441b20 mac 101982e0 GCamera::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00441b00 mac 10086270 GCamera::IsMoving( const(void))
-    virtual bool IsMoving();
+    virtual bool IsMoving() const;
     // win1.41 00441af0 mac 101980f0 GCamera::GetText(void)
     virtual const char* GetText();
     // win1.41 00441b10 mac 101982b0 GCamera::GetHeight(void)

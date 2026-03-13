@@ -48,7 +48,7 @@ struct Temple
     // Non-virtual methods
 
     // win1.41 00794a20 mac 10536350 Temple::StartScript(unsigned long)
-    bool StartScript(unsigned long param_1);
+    bool32_t StartScript(unsigned long param_1);
 };
 
 #else // __cplusplus
@@ -96,7 +96,7 @@ struct Temple* __fastcall __ct__6TempleFv(struct Temple* this) asm("??0Temple@@Q
 // Non-virtual methods
 
 // win1.41 00794a20 mac 10536350 Temple::StartScript(unsigned long)
-bool __fastcall StartScript__6TempleFUl(struct Temple* this, const void* edx, unsigned long param_1) asm("?StartScript@Temple@@QAE_NK@Z");
+bool __fastcall StartScript__6TempleFUl(struct Temple* this, const void* edx, unsigned long param_1) asm("?StartScript@Temple@@QAEIK@Z");
 
 #endif // __cplusplus
 

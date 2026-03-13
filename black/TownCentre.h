@@ -25,7 +25,7 @@ class GameOSFile;
 class GameThing;
 class GameThingWithPos;
 class LH3DObject;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class MultiMapFixed;
 class Object;
@@ -60,9 +60,9 @@ public:
     // win1.41 0055dba0 mac 1055bf20 TownCentre::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00744880 mac 10559dc0 TownCentre::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00744830 mac 10559e60 TownCentre::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055db90 mac 1055bee0 TownCentre::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 007448c0 mac 10559d40 TownCentre::ResolveLoad(void)
@@ -70,13 +70,13 @@ public:
     // win1.41 007449e0 mac inlined TownCentre::GetArrivePos(MapCoords *)
     virtual MapCoords* GetArrivePos(MapCoords* param_1);
     // win1.41 0055db60 mac 1055be20 TownCentre::IsCastShadowAtNight(void)
-    virtual bool IsCastShadowAtNight();
+    virtual bool32_t IsCastShadowAtNight();
     // win1.41 0055db70 mac 1055be60 TownCentre::IsTownCentre(void)
-    virtual bool IsTownCentre();
+    virtual bool32_t IsTownCentre();
     // win1.41 0055db40 mac 1055bd90 TownCentre::CanActAsAContainer(Creature *)
-    virtual bool CanActAsAContainer(Creature* param_1);
+    virtual bool32_t CanActAsAContainer(Creature* param_1);
     // win1.41 0055db50 mac 1055bde0 TownCentre::IsStoragePit(Creature *)
-    virtual bool IsStoragePit(Creature* param_1);
+    virtual bool32_t IsStoragePit(Creature* param_1);
     // win1.41 007445d0 mac 10559f30 TownCentre::ReduceLife(float, GPlayer *)
     virtual void ReduceLife(float param_1, GPlayer* param_2);
     // win1.41 00744320 mac 1055a570 TownCentre::IncreaseLife(float)
@@ -88,7 +88,7 @@ public:
     // win1.41 007448e0 mac 10559c20 TownCentre::GetDiscipleStateIfInteractedWith(GInterfaceStatus *, Villager *)
     virtual uint32_t GetDiscipleStateIfInteractedWith(GInterfaceStatus* param_1, Villager* param_2);
     // win1.41 00743cf0 mac 1055b3c0 TownCentre::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* coords);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& coords);
     // win1.41 0055db20 mac 1055bd00 TownCentre::Get3DType(void)
     virtual LH3DObject::ObjectType Get3DType();
     // win1.41 0055db10 mac 1055bcb0 TownCentre::InterfaceValidToTap(GInterfaceStatus *)
@@ -119,14 +119,14 @@ public:
     // Static methods
 
     // win1.41 00743c90 mac 1055b520 TownCentre::Create(MapCoords const &, GAbodeInfo const *, Town *, float, float, float, int)
-    static TownCentre* Create(const MapCoords* coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7);
+    static TownCentre* Create(const MapCoords& coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7);
     // win1.41 007447f0 mac 1006eae0 TownCentre::DrawAll(void)
     static void DrawAll();
 
     // Constructors
 
     // win1.41 00743a60 mac 1055bb20 TownCentre::TownCentre(MapCoords const &, GAbodeInfo const *, Town *, float, float, float, int)
-    TownCentre(const MapCoords& coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7);
+    TownCentre(const MapCoords* coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7);
 
     // Non-virtual methods
 
@@ -145,7 +145,7 @@ public:
     // win1.41 00744010 mac 1055ad20 TownCentre::AddPowerUp(SPELL_SEED_TYPE, POWER_UP_TYPE)
     void AddPowerUp(SPELL_SEED_TYPE seed_type, POWER_UP_TYPE power_up_type);
     // win1.41 00744050 mac 1055aac0 TownCentre::AddSpell(SPELL_SEED_TYPE)
-    bool AddSpell(SPELL_SEED_TYPE seed_type);
+    bool32_t AddSpell(SPELL_SEED_TYPE seed_type);
 };
 
 #else // __cplusplus
@@ -227,7 +227,7 @@ struct TownCentreSpellIcon* __fastcall FindSpellIcon__10TownCentreF15SPELL_SEED_
 // win1.41 00744010 mac 1055ad20 TownCentre::AddPowerUp(SPELL_SEED_TYPE, POWER_UP_TYPE)
 void __fastcall AddPowerUp__10TownCentreF15SPELL_SEED_TYPE13POWER_UP_TYPE(struct TownCentre* this, const void* edx, enum SPELL_SEED_TYPE seed_type, enum POWER_UP_TYPE power_up_type) asm("?AddPowerUp@TownCentre@@QAEXW4SPELL_SEED_TYPE@@W4POWER_UP_TYPE@@@Z");
 // win1.41 00744050 mac 1055aac0 TownCentre::AddSpell(SPELL_SEED_TYPE)
-bool __fastcall AddSpell__10TownCentreF15SPELL_SEED_TYPE(struct TownCentre* this, const void* edx, enum SPELL_SEED_TYPE seed_type) asm("?AddSpell@TownCentre@@QAE_NW4SPELL_SEED_TYPE@@@Z");
+bool __fastcall AddSpell__10TownCentreF15SPELL_SEED_TYPE(struct TownCentre* this, const void* edx, enum SPELL_SEED_TYPE seed_type) asm("?AddSpell@TownCentre@@QAEIW4SPELL_SEED_TYPE@@@Z");
 
 // Override methods
 

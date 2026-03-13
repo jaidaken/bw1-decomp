@@ -23,6 +23,12 @@ class GameThing;
 class Particle3DSprite: public RenderParticle
 {
 public:
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
+    uint32_t field_0x20; /* 0x20 */
+    uint32_t field_0x24; /* 0x24 */
+    uint32_t field_0x28; /* 0x28 */
+    uint32_t field_0x2c; /* 0x2c */
 
     // Override methods
 
@@ -31,7 +37,7 @@ public:
     // win1.41 0055f050 mac inlined Particle3DSprite::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00695ac0 mac inlined Particle3DSprite::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
 };
 
 #else // __cplusplus
@@ -45,8 +51,14 @@ struct GameThing;
 struct Particle3DSprite
 {
   struct RenderParticle super;  /* 0x0 */
+  uint32_t field_0x18; /* 0x18 */
+  uint32_t field_0x1c; /* 0x1c */
+  uint32_t field_0x20; /* 0x20 */
+  uint32_t field_0x24; /* 0x24 */
+  uint32_t field_0x28; /* 0x28 */
+  uint32_t field_0x2c; /* 0x2c */
 };
-static_assert(sizeof(struct Particle3DSprite) == 0x18, "Data type is of wrong size");
+static_assert(sizeof(struct Particle3DSprite) == 0x30, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

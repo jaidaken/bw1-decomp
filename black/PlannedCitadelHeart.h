@@ -30,7 +30,7 @@ public:
     // win1.41 004655a0 mac 101c2050 PlannedCitadelHeart::_dt(void)
     virtual ~PlannedCitadelHeart();
     // win1.41 00468df0 mac 101bbe50 PlannedCitadelHeart::CreateBuildingSite(void)
-    virtual bool CreateBuildingSite();
+    virtual bool32_t CreateBuildingSite();
     // win1.41 00465a20 mac 101bf550 PlannedCitadelHeart::CreatePlanned(float)
     virtual MultiMapFixed* CreatePlanned(float param_1);
 };
@@ -48,7 +48,7 @@ struct PlannedCitadelHeart
 {
   struct PlannedCitadelPart super;  /* 0x0 */
 };
-static_assert(sizeof(struct PlannedCitadelHeart) == 0x48, "Data type is of wrong size");
+static_assert(sizeof(struct PlannedCitadelHeart) == 0x4c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

@@ -24,6 +24,17 @@ struct LHPoint;
 class PSysSound: public PSysBase
 {
 public:
+    uint32_t field_0x14; /* 0x14 */
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
+    uint32_t field_0x20; /* 0x20 */
+    uint32_t field_0x24; /* 0x24 */
+    uint32_t field_0x28; /* 0x28 */
+    uint32_t field_0x2c; /* 0x2c */
+    uint32_t field_0x30; /* 0x30 */
+    uint32_t field_0x34; /* 0x34 */
+    uint32_t field_0x38; /* 0x38 */
+    uint32_t field_0x3c; /* 0x3c */
 
     // Override methods
 
@@ -34,9 +45,9 @@ public:
     // win1.41 006d0f40 mac 10486980 PSysSound::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 006d13a0 mac 10486b50 PSysSound::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 006d14a0 mac 104869c0 PSysSound::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 006d0f30 mac 10486940 PSysSound::GetSaveType(void)
     virtual uint32_t GetSaveType();
 };
@@ -53,8 +64,19 @@ struct LHPoint;
 struct PSysSound
 {
   struct PSysBase super;  /* 0x0 */
+  uint32_t field_0x14; /* 0x14 */
+  uint32_t field_0x18; /* 0x18 */
+  uint32_t field_0x1c; /* 0x1c */
+  uint32_t field_0x20; /* 0x20 */
+  uint32_t field_0x24; /* 0x24 */
+  uint32_t field_0x28; /* 0x28 */
+  uint32_t field_0x2c; /* 0x2c */
+  uint32_t field_0x30; /* 0x30 */
+  uint32_t field_0x34; /* 0x34 */
+  uint32_t field_0x38; /* 0x38 */
+  uint32_t field_0x3c; /* 0x3c */
 };
-static_assert(sizeof(struct PSysSound) == 0x14, "Data type is of wrong size");
+static_assert(sizeof(struct PSysSound) == 0x40, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

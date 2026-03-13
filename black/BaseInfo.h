@@ -31,12 +31,12 @@ public:
     // Virtual functions
 
     // win1.41 004140b0 mac 10578110 GBaseInfo::GetDebugText(void) const
-    virtual const char* GetDebugText(); /* 0x1c */
+    virtual const char* GetDebugText() const; /* 0x1c */
     // win1.41 00436c60 mac 1055df70 GBaseInfo::GetDebugColor(void) const
-    virtual LHColor* GetDebugColor(LHColor* color); /* 0x20 */
+    virtual LHColor* GetDebugColor(LHColor* color) const; /* 0x20 */
     virtual GBaseInfo* GetBaseInfo(uint32_t& param_1);
     // win1.41 00401230 mac 101228b0 GBaseInfo::UpdateValue(void)
-    virtual void UpdateValue(float param_1, uint32_t param_2, uint32_t param_3);
+    virtual void UpdateValue(float param_1, unsigned long param_2, unsigned long param_3);
 
     // Static methods
 
@@ -69,7 +69,7 @@ public:
     // Virtual functions
 
     // win1.41 0055c770 mac 10043c50 BaseInfo::IsClear(void) const
-    virtual bool IsClear(); /* 0x0 */
+    virtual bool IsClear() const; /* 0x0 */
 
     // Constructors
 

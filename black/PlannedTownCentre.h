@@ -41,7 +41,7 @@ public:
     // Static methods
 
     // win1.41 007444d0 mac 1055a160 PlannedTownCentre::Create(MapCoords const &, GAbodeInfo const *, Town *, float, float)
-    static PlannedTownCentre* Create(const MapCoords* coords, const GAbodeInfo* info, Town* town, float param_4, float param_5);
+    static PlannedTownCentre* Create(const MapCoords& coords, const GAbodeInfo* info, Town* town, float param_4, float param_5);
 
     // Constructors
 

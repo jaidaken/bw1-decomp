@@ -35,7 +35,7 @@ public:
     // Override methods
 
     // win1.41 0040d310 mac 101670b0 SetupBigButton::HitTest(int, int)
-    virtual bool HitTest(int x, int y);
+    virtual bool32_t HitTest(int x, int y);
     // win1.41 0040ceb0 mac 103deac0 SetupBigButton::Draw(bool, bool)
     virtual void Draw(bool hovered, bool selected);
     // win1.41 0040d2f0 mac 101689f0 SetupBigButton::KeyDown(int, int)
@@ -87,7 +87,7 @@ struct SetupBigButton* __fastcall __ct__14SetupBigButtonFiiiPwiii(struct SetupBi
 // Override methods
 
 // win1.41 0040d310 mac 101670b0 SetupBigButton::HitTest(int, int)
-bool __fastcall HitTest__14SetupBigButtonFii(struct SetupControl* this, const void* edx, int x, int y) asm("?HitTest@SetupBigButton@@UAE_NHH@Z");
+bool __fastcall HitTest__14SetupBigButtonFii(struct SetupControl* this, const void* edx, int x, int y) asm("?HitTest@SetupBigButton@@UAEIHH@Z");
 // win1.41 0040ceb0 mac 103deac0 SetupBigButton::Draw(bool, bool)
 void __fastcall Draw__14SetupBigButtonFbb(struct SetupControl* this, const void* edx, bool hovered, bool selected) asm("?Draw@SetupBigButton@@UAEX_N0@Z");
 // win1.41 0040d2f0 mac 101689f0 SetupBigButton::KeyDown(int, int)

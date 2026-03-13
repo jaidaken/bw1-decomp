@@ -29,7 +29,7 @@ public:
     // Override methods
 
     // win1.41 00571f00 mac 10328c60 SetupStaticTextNoHit::HitTest(int, int)
-    virtual bool HitTest(int x, int y);
+    virtual bool32_t HitTest(int x, int y);
     // win1.41 00571f10 mac 10328bc0 SetupStaticTextNoHit::~SetupStaticTextNoHit(void)
     virtual ~SetupStaticTextNoHit();
 
@@ -74,7 +74,7 @@ struct SetupStaticTextNoHit* __fastcall __ct__20SetupStaticTextNoHitFiiiiiPw11TE
 // Override methods
 
 // win1.41 00571f00 mac 10328c60 SetupStaticTextNoHit::HitTest(int, int)
-bool __fastcall HitTest__20SetupStaticTextNoHitFii(struct SetupControl* this, const void* edx, int x, int y) asm("?HitTest@SetupStaticTextNoHit@@UAE_NHH@Z");
+bool __fastcall HitTest__20SetupStaticTextNoHitFii(struct SetupControl* this, const void* edx, int x, int y) asm("?HitTest@SetupStaticTextNoHit@@UAEIHH@Z");
 // win1.41 00571f10 mac 10328bc0 SetupStaticTextNoHit::~SetupStaticTextNoHit(void)
 void __fastcall __dt__20SetupStaticTextNoHitFb(struct SetupControl* this, const void* edx, bool param_1) asm("??_DSetupStaticTextNoHit@@QAEXXZ");
 

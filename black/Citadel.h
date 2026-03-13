@@ -23,7 +23,7 @@ class GTribeInfo;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-struct LH3DMesh;
+class LH3DMesh;
 class Living;
 struct MapCoords;
 class Town;
@@ -62,9 +62,9 @@ public:
     // win1.41 00462ad0 mac 101b6ff0 Citadel::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00463dc0 mac 101b71d0 Citadel::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00463b00 mac 101b7db0 Citadel::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00462ac0 mac 101b6fb0 Citadel::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00462a60 mac 101b6e50 Citadel::GetCreatureBeliefType(void)
@@ -74,15 +74,15 @@ public:
     // win1.41 00462a80 mac 101b6ed0 Citadel::GetOrigin(void)
     virtual uint32_t GetOrigin();
     // win1.41 004e40e0 mac 105e5f60 Citadel::IsActivityObjectWhichAngerAppliesTo(Creature *)
-    virtual bool IsActivityObjectWhichAngerAppliesTo(Creature* param_1);
+    virtual bool32_t IsActivityObjectWhichAngerAppliesTo(Creature* param_1);
     // win1.41 00462a90 mac 101b6f00 Citadel::IsSuitableForCreatureActivity(void)
-    virtual bool IsSuitableForCreatureActivity();
+    virtual bool32_t IsSuitableForCreatureActivity();
     // win1.41 004d1b50 mac 10242fd0 Citadel::GetHowMuchCreatureWantsToLookAtMe(void)
     virtual float GetHowMuchCreatureWantsToLookAtMe();
     // win1.41 00462aa0 mac 101b6f50 Citadel::GetText(void)
     virtual const char* GetText();
     // win1.41 00462ab0 mac 101b6f80 Citadel::IsCitadel(void)
-    virtual bool IsCitadel();
+    virtual bool32_t IsCitadel();
 
     // Static methods
 
@@ -183,7 +183,7 @@ uint32_t __fastcall GetCreatureBeliefListType__7CitadelFv(struct GameThingWithPo
 // win1.41 00462a80 mac 101b6ed0 Citadel::GetOrigin(void)
 uint32_t __fastcall GetOrigin__7CitadelFv(struct GameThingWithPos* this) asm("?GetOrigin@Citadel@@UAEIXZ");
 // win1.41 004e40e0 mac 105e5f60 Citadel::IsActivityObjectWhichAngerAppliesTo(Creature *)
-bool __fastcall IsActivityObjectWhichAngerAppliesTo__7CitadelFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichAngerAppliesTo@Citadel@@UAE_NPAVCreature@@@Z");
+bool __fastcall IsActivityObjectWhichAngerAppliesTo__7CitadelFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichAngerAppliesTo@Citadel@@UAEIPAVCreature@@@Z");
 // win1.41 00462a90 mac 101b6f00 Citadel::IsSuitableForCreatureActivity(void)
 uint32_t __fastcall IsSuitableForCreatureActivity__7CitadelFv(struct GameThingWithPos* this) asm("?IsSuitableForCreatureActivity@Citadel@@UAEIXZ");
 // win1.41 004d1b50 mac 10242fd0 Citadel::GetHowMuchCreatureWantsToLookAtMe(void)

@@ -23,6 +23,11 @@ class GObjectInfo;
 class GMagicLivingInfo: public GLivingInfo
 {
 public:
+    uint32_t field_0x1f4; /* 0x1f4 */
+    uint32_t field_0x1f8; /* 0x1f8 */
+    uint32_t field_0x1fc; /* 0x1fc */
+    uint32_t field_0x200; /* 0x200 */
+    uint32_t field_0x204; /* 0x204 */
 
     // Override methods
 
@@ -45,8 +50,13 @@ struct GObjectInfo;
 struct GMagicLivingInfo
 {
   struct GLivingInfo super;  /* 0x0 */
+  uint32_t field_0x1f4; /* 0x1f4 */
+  uint32_t field_0x1f8; /* 0x1f8 */
+  uint32_t field_0x1fc; /* 0x1fc */
+  uint32_t field_0x200; /* 0x200 */
+  uint32_t field_0x204; /* 0x204 */
 };
-static_assert(sizeof(struct GMagicLivingInfo) == 0x1f4, "Data type is of wrong size");
+static_assert(sizeof(struct GMagicLivingInfo) == 0x208, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

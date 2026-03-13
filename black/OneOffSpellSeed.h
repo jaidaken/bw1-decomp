@@ -21,7 +21,7 @@ class GInterfaceStatus;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class Object;
 class SpellSeed;
@@ -50,9 +50,9 @@ public:
     // win1.41 0055d160 mac 105263d0 OneOffSpellSeed::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0072aa20 mac 10526a70 OneOffSpellSeed::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0072a930 mac 10526be0 OneOffSpellSeed::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055d150 mac 10526390 OneOffSpellSeed::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0072ac50 mac 10526640 OneOffSpellSeed::GetOverwritePickUpToolTip(void)
@@ -60,19 +60,19 @@ public:
     // win1.41 0072ac80 mac 105265f0 OneOffSpellSeed::GetOverwriteTapToolTip(void)
     virtual uint32_t GetOverwriteTapToolTip();
     // win1.41 004e48f0 mac 105e4890 OneOffSpellSeed::CanBeEatenByCreature(Creature *)
-    virtual bool CanBeEatenByCreature(Creature* param_1);
+    virtual bool32_t CanBeEatenByCreature(Creature* param_1);
     // win1.41 004e4ab0 mac 105e4260 OneOffSpellSeed::IsOneOffSpellBelongingToOtherPlayer(Creature *)
-    virtual bool IsOneOffSpellBelongingToOtherPlayer(Creature* param_1);
+    virtual bool32_t IsOneOffSpellBelongingToOtherPlayer(Creature* param_1);
     // win1.41 0072ab00 mac 105269e0 OneOffSpellSeed::IsOneOffSpellAggressive(Creature *)
-    virtual bool IsOneOffSpellAggressive(Creature* param_1);
+    virtual bool32_t IsOneOffSpellAggressive(Creature* param_1);
     // win1.41 0072ab20 mac 10526950 OneOffSpellSeed::IsOneOffSpellCompassionate(Creature *)
-    virtual bool IsOneOffSpellCompassionate(Creature* param_1);
+    virtual bool32_t IsOneOffSpellCompassionate(Creature* param_1);
     // win1.41 0072ab40 mac 105268c0 OneOffSpellSeed::IsOneOffSpellPlayful(Creature *)
-    virtual bool IsOneOffSpellPlayful(Creature* param_1);
+    virtual bool32_t IsOneOffSpellPlayful(Creature* param_1);
     // win1.41 0072ab60 mac 10526820 OneOffSpellSeed::IsOneOffSpellToRestoreHealth(Creature *)
-    virtual bool IsOneOffSpellToRestoreHealth(Creature* param_1);
+    virtual bool32_t IsOneOffSpellToRestoreHealth(Creature* param_1);
     // win1.41 004e4040 mac 105e6170 OneOffSpellSeed::IsStealableSpell(Creature *)
-    virtual bool IsStealableSpell(Creature* param_1);
+    virtual bool32_t IsStealableSpell(Creature* param_1);
     // win1.41 0072ac90 mac 10526550 OneOffSpellSeed::GetQueryFirstEnumText(void)
     virtual HELP_TEXT GetQueryFirstEnumText();
     // win1.41 0072acb0 mac 105264c0 OneOffSpellSeed::GetQueryLastEnumText(void)
@@ -84,15 +84,15 @@ public:
     // win1.41 00518c50 mac 100c8340 OneOffSpellSeed::DrawOutOfMap(bool)
     virtual void DrawOutOfMap(bool param_1);
     // win1.41 0072a450 mac 105276e0 OneOffSpellSeed::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0072a530 mac 105275c0 OneOffSpellSeed::InterfaceSetInMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetInMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 0072a630 mac 10527330 OneOffSpellSeed::InterfaceValidToTap(GInterfaceStatus *)
     virtual uint32_t InterfaceValidToTap(GInterfaceStatus* param_1);
     // win1.41 0072a640 mac 105271d0 OneOffSpellSeed::InterfaceTap(GInterfaceStatus *)
     virtual uint32_t InterfaceTap(GInterfaceStatus* param_1);
     // win1.41 0072a520 mac 10527690 OneOffSpellSeed::IsEffectReceiver(EffectValues *)
-    virtual bool IsEffectReceiver(EffectValues* param_1);
+    virtual bool32_t IsEffectReceiver(EffectValues* param_1);
     // win1.41 0072a920 mac 10526d60 OneOffSpellSeed::GetPhysicsConstantsType(void)
     virtual uint32_t GetPhysicsConstantsType();
     // win1.41 0072ab80 mac 105266e0 OneOffSpellSeed::SaveObject(LHOSFile &, MapCoords const &)

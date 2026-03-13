@@ -21,6 +21,17 @@ class Base;
 class GFieldInfo: public GMultiMapFixedInfo
 {
 public:
+    uint32_t field_0x120; /* 0x120 */
+    uint32_t field_0x124; /* 0x124 */
+    uint32_t field_0x128; /* 0x128 */
+    uint32_t field_0x12c; /* 0x12c */
+    uint32_t field_0x130; /* 0x130 */
+    uint32_t field_0x134; /* 0x134 */
+    uint32_t field_0x138; /* 0x138 */
+    uint32_t field_0x13c; /* 0x13c */
+    uint32_t field_0x140; /* 0x140 */
+    uint32_t field_0x144; /* 0x144 */
+    uint32_t field_0x148; /* 0x148 */
 
     // Override methods
 
@@ -37,8 +48,19 @@ struct Base;
 struct GFieldInfo
 {
   struct GMultiMapFixedInfo super;  /* 0x0 */
+  uint32_t field_0x120; /* 0x120 */
+  uint32_t field_0x124; /* 0x124 */
+  uint32_t field_0x128; /* 0x128 */
+  uint32_t field_0x12c; /* 0x12c */
+  uint32_t field_0x130; /* 0x130 */
+  uint32_t field_0x134; /* 0x134 */
+  uint32_t field_0x138; /* 0x138 */
+  uint32_t field_0x13c; /* 0x13c */
+  uint32_t field_0x140; /* 0x140 */
+  uint32_t field_0x144; /* 0x144 */
+  uint32_t field_0x148; /* 0x148 */
 };
-static_assert(sizeof(struct GFieldInfo) == 0x120, "Data type is of wrong size");
+static_assert(sizeof(struct GFieldInfo) == 0x14c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

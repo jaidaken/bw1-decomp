@@ -51,13 +51,13 @@ public:
     // win1.41 0066e030 mac 1011d5f0 PileFood::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0066f5e0 mac 10116570 PileFood::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0066f5a0 mac 10116600 PileFood::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0066e020 mac 1011d5b0 PileFood::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0055d690 mac 1011d570 PileFood::IsPileFood(void)
-    virtual bool IsPileFood();
+    virtual bool32_t IsPileFood();
     // win1.41 0066e2a0 mac 10119c00 PileFood::GetQueryFirstEnumText(void)
     virtual HELP_TEXT GetQueryFirstEnumText();
     // win1.41 0066e2d0 mac 10119b60 PileFood::GetQueryLastEnumText(void)
@@ -65,13 +65,13 @@ public:
     // win1.41 0051bf80 mac 10030810 PileFood::Draw(void)
     virtual void Draw();
     // win1.41 0066e1a0 mac 10119ea0 PileFood::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0066e380 mac 10119a40 PileFood::Get3DType(void)
     virtual LH3DObject::ObjectType Get3DType();
     // win1.41 0066ec50 mac 10117fe0 PileFood::GetResourceType(void)
     virtual RESOURCE_TYPE GetResourceType();
     // win1.41 0066e1f0 mac 10119d80 PileFood::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
 
     // Constructors
 
@@ -157,7 +157,7 @@ enum LH3DObject__ObjectType __fastcall Get3DType__8PileFoodFv(struct Object* thi
 // win1.41 0066ec50 mac 10117fe0 PileFood::GetResourceType(void)
 enum RESOURCE_TYPE __fastcall GetResourceType__8PileFoodFv(struct Object* this) asm("?GetResourceType@PileFood@@UAE?AW4RESOURCE_TYPE@@XZ");
 // win1.41 0066e1f0 mac 10119d80 PileFood::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__8PileFoodFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@PileFood@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__8PileFoodFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@PileFood@@UAEIPAVCreature@@@Z");
 
 DECLARE_LH_LIST_HEAD(PileFood);
 

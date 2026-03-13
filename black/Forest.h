@@ -48,7 +48,7 @@ public:
     // win1.41 00539c60 mac 100f2300 Forest::ToBeDeleted(int)
     virtual void ToBeDeleted(int param_1);
     // win1.41 00539ae0 mac 100ef710 Forest::IsFootpathLink(void)
-    virtual bool IsFootpathLink();
+    virtual bool32_t IsFootpathLink();
     // win1.41 00539af0 mac 100ef750 Forest::GetFootpathLink(void)
     virtual GFootpathLink* GetFootpathLink();
     // win1.41 0053acf0 mac 100f07e0 Forest::GetNearestPathTo(MapCoords const &, float, int)
@@ -64,9 +64,9 @@ public:
     // win1.41 00539b10 mac 100ef7d0 Forest::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0053b070 mac 100ef950 Forest::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& file);
+    virtual bool32_t Load(GameOSFile& file);
     // win1.41 0053ae40 mac 100efda0 Forest::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& file);
+    virtual bool32_t Save(GameOSFile& file);
     // win1.41 00539b00 mac 100ef790 Forest::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00539a80 mac 100ef580 Forest::GetCreatureBeliefType(void)
@@ -74,13 +74,13 @@ public:
     // win1.41 00539a90 mac 100ef5c0 Forest::GetCreatureBeliefListType(void)
     virtual uint32_t GetCreatureBeliefListType();
     // win1.41 00539ab0 mac 100ef650 Forest::IsActivityObjectWhichAngerAppliesTo(Creature *)
-    virtual bool IsActivityObjectWhichAngerAppliesTo(Creature* param_1);
+    virtual bool32_t IsActivityObjectWhichAngerAppliesTo(Creature* param_1);
     // win1.41 00539aa0 mac 100ef600 Forest::IsSuitableForCreatureActivity(void)
-    virtual bool IsSuitableForCreatureActivity();
+    virtual bool32_t IsSuitableForCreatureActivity();
     // win1.41 00539ac0 mac 100ef6b0 Forest::GetText(void)
     virtual const char* GetText();
     // win1.41 00539ad0 mac 100ef6e0 Forest::IsForest(void)
-    virtual bool IsForest();
+    virtual bool32_t IsForest();
 
     // Constructors
 
@@ -183,7 +183,7 @@ bool __fastcall IsFunctional__6ForestFv(struct GameThing* this) asm("?IsFunction
 // win1.41 00539b10 mac 100ef7d0 Forest::GetDebugText(void)
 char* __fastcall GetDebugText__6ForestFv(struct GameThing* this) asm("?GetDebugText@Forest@@UAEPADXZ");
 // win1.41 0053b070 mac 100ef950 Forest::Load(GameOSFile &)
-bool __fastcall Load__6ForestFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* file) asm("?Load@Forest@@UAE_NAAVGameOSFile@@@Z");
+bool __fastcall Load__6ForestFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* file) asm("?Load@Forest@@UAEIAAVGameOSFile@@@Z");
 // win1.41 0053ae40 mac 100efda0 Forest::Save(GameOSFile &)
 uint32_t __fastcall Save__6ForestFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* param_1) asm("?Save@Forest@@UAEIAAVGameOSFile@@@Z");
 // win1.41 00539b00 mac 100ef790 Forest::GetSaveType(void)
@@ -193,7 +193,7 @@ uint32_t __fastcall GetCreatureBeliefType__6ForestFv(struct GameThingWithPos* th
 // win1.41 00539a90 mac 100ef5c0 Forest::GetCreatureBeliefListType(void)
 uint32_t __fastcall GetCreatureBeliefListType__6ForestFv(struct GameThingWithPos* this) asm("?GetCreatureBeliefListType@Forest@@UAEIXZ");
 // win1.41 00539ab0 mac 100ef650 Forest::IsActivityObjectWhichAngerAppliesTo(Creature *)
-bool __fastcall IsActivityObjectWhichAngerAppliesTo__6ForestFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichAngerAppliesTo@Forest@@UAE_NPAVCreature@@@Z");
+bool __fastcall IsActivityObjectWhichAngerAppliesTo__6ForestFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichAngerAppliesTo@Forest@@UAEIPAVCreature@@@Z");
 // win1.41 00539aa0 mac 100ef600 Forest::IsSuitableForCreatureActivity(void)
 uint32_t __fastcall IsSuitableForCreatureActivity__6ForestFv(struct GameThingWithPos* this) asm("?IsSuitableForCreatureActivity@Forest@@UAEIXZ");
 // win1.41 00539ac0 mac 100ef6b0 Forest::GetText(void)

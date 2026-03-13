@@ -38,7 +38,7 @@ public:
     // win1.41 005d9e80 mac 10368b50 GInterfaceMessageBuffer::Init(unsigned short)
     void Init(unsigned short param_1);
     // win1.41 005d9f10 mac 1009c3b0 GInterfaceMessageBuffer::Add(INTERFACE_MESSAGE_TYPES, GInterfaceCollide *, LHCoord *)
-    bool Add(INTERFACE_MESSAGE_TYPES param_1, GInterfaceCollide* param_2, LHCoord* param_3);
+    bool32_t Add(INTERFACE_MESSAGE_TYPES param_1, GInterfaceCollide* param_2, LHCoord* param_3);
 };
 
 #else // __cplusplus
@@ -75,7 +75,7 @@ extern const struct BaseVftable __vt__23GInterfaceMessageBuffer asm("??_7GInterf
 // win1.41 005d9e80 mac 10368b50 GInterfaceMessageBuffer::Init(unsigned short)
 void __fastcall Init__23GInterfaceMessageBufferFUs(struct GInterfaceMessageBuffer* this, const void* edx, unsigned short param_1) asm("?Init@GInterfaceMessageBuffer@@QAEXG@Z");
 // win1.41 005d9f10 mac 1009c3b0 GInterfaceMessageBuffer::Add(INTERFACE_MESSAGE_TYPES, GInterfaceCollide *, LHCoord *)
-bool __fastcall Add__23GInterfaceMessageBufferF23INTERFACE_MESSAGE_TYPESP17GInterfaceCollideP7LHCoord(struct GInterfaceMessageBuffer* this, const void* edx, enum INTERFACE_MESSAGE_TYPES param_1, struct GInterfaceCollide* param_2, struct LHCoord* param_3) asm("?Add@GInterfaceMessageBuffer@@QAE_NW4INTERFACE_MESSAGE_TYPES@@PAVGInterfaceCollide@@PAULHCoord@@@Z");
+bool __fastcall Add__23GInterfaceMessageBufferF23INTERFACE_MESSAGE_TYPESP17GInterfaceCollideP7LHCoord(struct GInterfaceMessageBuffer* this, const void* edx, enum INTERFACE_MESSAGE_TYPES param_1, struct GInterfaceCollide* param_2, struct LHCoord* param_3) asm("?Add@GInterfaceMessageBuffer@@QAEIW4INTERFACE_MESSAGE_TYPES@@PAVGInterfaceCollide@@PAULHCoord@@@Z");
 
 // Override methods
 

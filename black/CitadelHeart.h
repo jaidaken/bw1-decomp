@@ -30,9 +30,9 @@ class GameOSFile;
 class GameThing;
 class GameThingWithPos;
 class LH3DObject;
-struct LH3DSprite;
+class LH3DSprite;
 struct LHMatrix;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class MultiMapFixed;
 struct PhysOb;
@@ -72,7 +72,7 @@ public:
     // win1.41 00464880 mac 101c2690 LeashObj::GetQueryLastEnumText(void)
     virtual HELP_TEXT GetQueryLastEnumText();
     // win1.41 00464850 mac 101c2590 LeashObj::ValidAsInterfaceLeashTarget(void)
-    virtual bool ValidAsInterfaceLeashTarget();
+    virtual bool32_t ValidAsInterfaceLeashTarget();
     // win1.41 00464450 mac 101c1a60 LeashObj::InterfaceValidToTap(GInterfaceStatus *)
     virtual uint32_t InterfaceValidToTap(GInterfaceStatus* param_1);
     // win1.41 00464490 mac 101c18f0 LeashObj::InterfaceTap(GInterfaceStatus *)
@@ -138,17 +138,17 @@ public:
     // win1.41 00464bb0 mac 101c23c0 CitadelHeart::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 004657f0 mac 101bf6e0 CitadelHeart::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& file);
+    virtual bool32_t Load(GameOSFile& file);
     // win1.41 004655c0 mac 101bf9c0 CitadelHeart::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00464ba0 mac 101c2380 CitadelHeart::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00465a10 mac 101bf690 CitadelHeart::ResolveLoad(void)
     virtual void ResolveLoad();
     // win1.41 00464b80 mac 101c2250 CitadelHeart::IsCitadelHeart(void)
-    virtual bool IsCitadelHeart();
+    virtual bool32_t IsCitadelHeart();
     // win1.41 00468dc0 mac 101bbf10 CitadelHeart::CreateBuildingSite(void)
-    virtual bool CreateBuildingSite();
+    virtual bool32_t CreateBuildingSite();
     // win1.41 004680b0 mac 101bd410 CitadelHeart::GetScriptObjectType(void)
     virtual uint32_t GetScriptObjectType();
     // win1.41 00464b20 mac inlined CitadelHeart::SetSpecularColor(LH3DColor)
@@ -158,7 +158,7 @@ public:
     // win1.41 00468c30 mac 101bc080 CitadelHeart::GetActualObjectToEffect(GPlayer *, bool)
     virtual void* GetActualObjectToEffect(GPlayer* param_1, bool param_2);
     // win1.41 00468da0 mac 101bc010 CitadelHeart::DestroyedByEffect(GPlayer *, float)
-    virtual bool DestroyedByEffect(GPlayer* param_1, float param_2);
+    virtual bool32_t DestroyedByEffect(GPlayer* param_1, float param_2);
     // win1.41 004665a0 mac 1008a6f0 CitadelHeart::Process(void)
     virtual uint32_t Process();
     // win1.41 00464b90 mac 10011680 CitadelHeart::Draw(void)
@@ -166,7 +166,7 @@ public:
     // win1.41 00467870 mac 101be3b0 CitadelHeart::GetWorldMatrix(LHMatrix *)
     virtual void GetWorldMatrix(LHMatrix* param_1);
     // win1.41 004675a0 mac 101be430 CitadelHeart::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* coords);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& coords);
     // win1.41 00464b40 mac 101be8a0 CitadelHeart::Get3DType(void)
     virtual LH3DObject::ObjectType Get3DType();
     // win1.41 00467b60 mac 101bdef0 CitadelHeart::GetPhysicsConstantsType(void)
@@ -176,7 +176,7 @@ public:
     // win1.41 00467b40 mac 101bdf40 CitadelHeart::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 00467b30 mac 101bdfc0 CitadelHeart::ChecksVerticesVObjects(void)
-    virtual bool ChecksVerticesVObjects();
+    virtual bool32_t ChecksVerticesVObjects();
     // win1.41 00467bb0 mac 101bdc10 CitadelHeart::ReactToPhysicsImpact(PhysicsObject *, bool)
     virtual void ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2);
     // win1.41 004680d0 mac 101bceb0 CitadelHeart::AddToRoutePlan(RPHolder *, Creature *, int, void (*)(int, Point2D, float, int))
@@ -219,7 +219,7 @@ public:
     // win1.41 00464da0 mac 101c0af0 CitadelHeart::SetToZero(void)
     void SetToZero();
     // win1.41 00465110 mac 101c03b0 CitadelHeart::CreateBuiltWorshipSite(MapCoords const &, GWorshipSiteInfo const *, Citadel *, GTribeInfo const *)
-    WorshipSite* CreateBuiltWorshipSite(const MapCoords* coords, const GWorshipSiteInfo* info, const Citadel* citadel, const GTribeInfo* tribe_info);
+    WorshipSite* CreateBuiltWorshipSite(const MapCoords& coords, const GWorshipSiteInfo* info, const Citadel* citadel, const GTribeInfo* tribe_info);
 };
 
 #else // __cplusplus

@@ -36,7 +36,7 @@ public:
     // Override methods
 
     // win1.41 00410f90 mac 10112370 SetupCheckBox::HitTest(int, int)
-    virtual bool HitTest(int x, int y);
+    virtual bool32_t HitTest(int x, int y);
     // win1.41 00410b80 mac 103c4a20 SetupCheckBox::Draw(bool, bool)
     virtual void Draw(bool hovered, bool selected);
     // win1.41 00411020 mac 103dbde0 SetupCheckBox::Click(int, int)
@@ -91,7 +91,7 @@ struct SetupCheckBox* __fastcall __ct__13SetupCheckBoxFiiibiPwi(struct SetupChec
 // Override methods
 
 // win1.41 00410f90 mac 10112370 SetupCheckBox::HitTest(int, int)
-bool __fastcall HitTest__13SetupCheckBoxFii(struct SetupControl* this, const void* edx, int x, int y) asm("?HitTest@SetupCheckBox@@UAE_NHH@Z");
+bool __fastcall HitTest__13SetupCheckBoxFii(struct SetupControl* this, const void* edx, int x, int y) asm("?HitTest@SetupCheckBox@@UAEIHH@Z");
 // win1.41 00410b80 mac 103c4a20 SetupCheckBox::Draw(bool, bool)
 void __fastcall Draw__13SetupCheckBoxFbb(struct SetupControl* this, const void* edx, bool hovered, bool selected) asm("?Draw@SetupCheckBox@@UAEX_N0@Z");
 // win1.41 00411020 mac 103dbde0 SetupCheckBox::Click(int, int)

@@ -51,7 +51,7 @@ public:
     // win1.41 00409180 mac 1032c7e0 SetupControl::SetFocus(bool)
     virtual void SetFocus(bool focus);
     // win1.41 00409310 mac 10310540 SetupControl::HitTest(int, int)
-    virtual bool HitTest(int x, int y); /* 0x10 */
+    virtual bool32_t HitTest(int x, int y); /* 0x10 */
     virtual void Draw(bool hovered, bool selected);
     // win1.41 00409340 mac inlined SetupControl::Drag(int, int)
     virtual void Drag(int x, int y);
@@ -81,7 +81,7 @@ public:
     // win1.41 inlined mac inlined SetupControl::GetTextSize(void)
     int GetTextSize();
     // win1.41 00409210 mac 1057a320 SetupControl::SetToolTip(unsigned long)
-    void SetToolTip(uint32_t tooltip_id);
+    void SetToolTip(unsigned long tooltip_id);
     // win1.41 004092f0 mac 100c4fd0 SetupControl::SetToolTip(wchar_t *)
     void SetToolTip(const char16_t* tooltip);
 };
@@ -173,7 +173,7 @@ void __fastcall Hide__12SetupControlFb(struct SetupControl* this, const void* ed
 // win1.41 00409180 mac 1032c7e0 SetupControl::SetFocus(bool)
 void __fastcall SetFocus__12SetupControlFb(struct SetupControl* this, const void* edx, bool focus) asm("?SetFocus@SetupControl@@UAEX_N@Z");
 // win1.41 00409310 mac 10310540 SetupControl::HitTest(int, int)
-bool __fastcall HitTest__12SetupControlFii(struct SetupControl* this, const void* edx, int x, int y) asm("?HitTest@SetupControl@@UAE_NHH@Z");
+bool __fastcall HitTest__12SetupControlFii(struct SetupControl* this, const void* edx, int x, int y) asm("?HitTest@SetupControl@@UAEIHH@Z");
 // win1.41 00409340 mac inlined SetupControl::Drag(int, int)
 void __fastcall Drag__12SetupControlFii(struct SetupControl* this, const void* edx, int x, int y) asm("?Drag@SetupControl@@UAEXHH@Z");
 // win1.41 00409350 mac 100a6190 SetupControl::MouseDown(int, int, bool)

@@ -22,6 +22,18 @@ class GBaseInfo;
 class GPotInfo: public GMobileObjectInfo
 {
 public:
+    uint32_t field_0x114; /* 0x114 */
+    uint32_t field_0x118; /* 0x118 */
+    uint32_t field_0x11c; /* 0x11c */
+    uint32_t field_0x120; /* 0x120 */
+    uint32_t field_0x124; /* 0x124 */
+    uint32_t field_0x128; /* 0x128 */
+    uint32_t field_0x12c; /* 0x12c */
+    uint32_t field_0x130; /* 0x130 */
+    uint32_t field_0x134; /* 0x134 */
+    uint32_t field_0x138; /* 0x138 */
+    uint32_t field_0x13c; /* 0x13c */
+    uint32_t field_0x140; /* 0x140 */
 
     // Override methods
 
@@ -41,8 +53,20 @@ struct GBaseInfo;
 struct GPotInfo
 {
   struct GMobileObjectInfo super;  /* 0x0 */
+  uint32_t field_0x114; /* 0x114 */
+  uint32_t field_0x118; /* 0x118 */
+  uint32_t field_0x11c; /* 0x11c */
+  uint32_t field_0x120; /* 0x120 */
+  uint32_t field_0x124; /* 0x124 */
+  uint32_t field_0x128; /* 0x128 */
+  uint32_t field_0x12c; /* 0x12c */
+  uint32_t field_0x130; /* 0x130 */
+  uint32_t field_0x134; /* 0x134 */
+  uint32_t field_0x138; /* 0x138 */
+  uint32_t field_0x13c; /* 0x13c */
+  uint32_t field_0x140; /* 0x140 */
 };
-static_assert(sizeof(struct GPotInfo) == 0x114, "Data type is of wrong size");
+static_assert(sizeof(struct GPotInfo) == 0x144, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

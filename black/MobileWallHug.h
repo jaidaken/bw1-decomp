@@ -78,9 +78,9 @@ public:
     // win1.41 00474910 mac 103c19a0 MobileWallHug::_dt(void)
     virtual ~MobileWallHug();
     // win1.41 0060c740 mac 103c23a0 MobileWallHug::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0060c420 mac 103c28c0 MobileWallHug::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0060c070 mac 100321c0 MobileWallHug::GetSpeedInMetres( const(void))
     virtual float GetSpeedInMetres() const;
     // win1.41 0060c080 mac 103c3320 MobileWallHug::SetSpeedInMetres(float, int)
@@ -98,13 +98,13 @@ public:
     // win1.41 0060c040 mac 103c3450 MobileWallHug::GetMovementDirection(LHPoint *)
     virtual void GetMovementDirection(LHPoint* param_1);
     // win1.41 00416f80 mac 1002c440 MobileWallHug::IsMobileWallHug( const(void))
-    virtual bool IsMobileWallHug() const;
+    virtual bool32_t IsMobileWallHug() const;
     // win1.41 0060c020 mac 103c3520 MobileWallHug::GetFacingDirection(void)
     virtual float GetFacingDirection();
     // win1.41 0060dac0 mac 103c1a50 MobileWallHug::SetYAngle(float)
     virtual void SetYAngle(float param_1);
     // win1.41 0060ad60 mac 1004abe0 MobileWallHug::AreWeThere(MapCoords const &, float)
-    virtual bool AreWeThere(const MapCoords* param_1, float param_2); /* 0x85c */
+    virtual bool AreWeThere(const MapCoords& param_1, float param_2); /* 0x85c */
     // win1.41 00416f70 mac 100482a0 MobileWallHug::GetDestPos(void)
     virtual MapCoords* GetDestPos(); /* 0x860 */
     // win1.41 0060fc50 mac 10084230 MobileWallHug::SetSpeed(long)
@@ -114,7 +114,7 @@ public:
     // win1.41 0060aee0 mac 103c3b10 MobileWallHug::MoveTo3D(void)
     virtual void MoveTo3D();
     // win1.41 0060bc40 mac 103c3780 MobileWallHug::SetNewWander(MapCoords const &, long, long)
-    virtual void SetNewWander(const MapCoords* param_1, int param_2, int param_3); /* 0x870 */
+    virtual void SetNewWander(const MapCoords& param_1, int param_2, int param_3); /* 0x870 */
 
     // Constructors
 
@@ -128,7 +128,7 @@ public:
     // win1.41 00609d10 mac inlined MobileWallHug::RebuildMoveByStep(void)
     void RebuildMoveByStep();
     // win1.41 0060abc0 mac 1001c770 MobileWallHug::SetupMobileMoveToPos(MapCoords const &, MOVE_TO_STATES)
-    void SetupMobileMoveToPos(const MapCoords* coords, MOVE_TO_STATES move_to_state);
+    void SetupMobileMoveToPos(const MapCoords& coords, MOVE_TO_STATES move_to_state);
     // win1.41 0060acd0 mac 103c3ee0 MobileWallHug::SetupMobileMoveToObject(Object *)
     void SetupMobileMoveToObject(Object* param_1);
     // win1.41 0060ad40 mac 1005f4a0 MobileWallHug::AreWeThere(float)
@@ -155,7 +155,7 @@ struct SubCollideBlockPos
     // Non-virtual methods
 
     // win1.41 inlined mac inlined SubCollideBlockPos::operator<( const(SubCollideBlockPos const &))
-    bool operator<(const SubCollideBlockPos* other);
+    bool32_t operator<(const SubCollideBlockPos* other);
 };
 
 struct CircleHugStateInfoT
@@ -186,7 +186,7 @@ struct LinearSquareSweepStruct
     // win1.41 inlined mac inlined LinearSquareSweepStruct::Reset(void) Guessed
     void Reset();
     // win1.41 inlined mac inlined LinearSquareSweepStruct::operator<(LinearSquareSweepStruct *) Guessed
-    bool operator<(LinearSquareSweepStruct* other);
+    bool32_t operator<(LinearSquareSweepStruct* other);
 };
 
 #else // __cplusplus
@@ -308,7 +308,7 @@ void __fastcall SetupMobileMoveToPos__13MobileWallHugFRC9MapCoords14MOVE_TO_STAT
 // win1.41 0060acd0 mac 103c3ee0 MobileWallHug::SetupMobileMoveToObject(Object *)
 void __fastcall SetupMobileMoveToObject__13MobileWallHugFP6Object(struct MobileWallHug* this, const void* edx, struct Object* param_1) asm("?SetupMobileMoveToObject@MobileWallHug@@QAEXPAVObject@@@Z");
 // win1.41 0060ad40 mac 1005f4a0 MobileWallHug::AreWeThere(float)
-bool __fastcall AreWeThere__13MobileWallHugFf(struct MobileWallHug* this, const void* edx, float param_1) asm("?AreWeThere@MobileWallHug@@QAE_NM@Z");
+bool __fastcall AreWeThere__13MobileWallHugFf(struct MobileWallHug* this, const void* edx, float param_1) asm("?AreWeThere@MobileWallHug@@QAEIM@Z");
 // win1.41 0060af20 mac 10047250 MobileWallHug::MoveTo(void)
 int __fastcall MoveTo__13MobileWallHugFv(struct MobileWallHug* this) asm("?MoveTo@MobileWallHug@@QAEHXZ");
 // win1.41 0060bfa0 mac 103c3600 MobileWallHug::InitStepsXZ(void)

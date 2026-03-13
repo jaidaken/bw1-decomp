@@ -21,7 +21,7 @@ class GameOSFile;
 class GameThing;
 class GameThingWithPos;
 struct GestureSystemPacketData;
-class LHOSFile;
+struct LHOSFile;
 struct LHPoint;
 struct MapCoords;
 class Object;
@@ -52,17 +52,17 @@ public:
     // win1.41 0071be30 mac 1050fb30 DeadTree::GetGuidanceResourceType(void)
     virtual uint32_t GetGuidanceResourceType();
     // win1.41 00511630 mac 100c1a50 DeadTree::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 005115c0 mac 100c1b30 DeadTree::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 005109e0 mac 100c4120 DeadTree::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 005109d0 mac inlined DeadTree::IsRock_0(void)
-    virtual bool IsRock();
+    virtual bool32_t IsRock();
     // win1.41 00510980 mac 100c0e80 DeadTree::IsAnyKindOfTree(void)
-    virtual bool IsAnyKindOfTree();
+    virtual bool32_t IsAnyKindOfTree();
     // win1.41 00510990 mac 100c0ec0 DeadTree::IsDeadTree(void)
-    virtual bool IsDeadTree();
+    virtual bool32_t IsDeadTree();
     // win1.41 005115b0 mac 100c1c10 DeadTree::GetScriptObjectType(void)
     virtual uint32_t GetScriptObjectType();
     // win1.41 005110d0 mac 100c2890 DeadTree::GetHoldType(void)
@@ -72,7 +72,7 @@ public:
     // win1.41 005110f0 mac 100c27d0 DeadTree::GetHoldLoweringMultiplier(void)
     virtual float GetHoldLoweringMultiplier();
     // win1.41 005109c0 mac 100c0fa0 DeadTree::HandShouldFeelWithMeshIntersect(void)
-    virtual bool HandShouldFeelWithMeshIntersect();
+    virtual bool32_t HandShouldFeelWithMeshIntersect();
     // win1.41 00510ce0 mac inlined DeadTree::GetDefaultFireCentrePos(LHPoint *)
     virtual LHPoint* GetDefaultFireCentrePos(LHPoint* param_1);
     // win1.41 00510e10 mac 100c2f40 DeadTree::GetDefaultFireRadius(void)
@@ -82,7 +82,7 @@ public:
     // win1.41 00511590 mac 100c1c50 DeadTree::GetWeight(void)
     virtual float GetWeight();
     // win1.41 00510a90 mac 100c3b20 DeadTree::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 00511ad0 mac 100c1020 DeadTree::GetWoodValue(void)
     virtual float GetWoodValue();
     // win1.41 005110c0 mac 100c28d0 DeadTree::GetResourceType(void)
@@ -98,7 +98,7 @@ public:
     // win1.41 00510ee0 mac 100c2a40 DeadTree::ApplyThisToObject(GInterfaceStatus *, Object *, GestureSystemPacketData *)
     virtual uint32_t ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2, GestureSystemPacketData* param_3);
     // win1.41 00511050 mac 100c2910 DeadTree::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3);
+    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3);
     // win1.41 005109a0 mac 100c0f00 DeadTree::InterfaceValidToTap(GInterfaceStatus *)
     virtual uint32_t InterfaceValidToTap(GInterfaceStatus* param_1);
     // win1.41 005109b0 mac 100c0f50 DeadTree::InterfaceTap(GInterfaceStatus *)
@@ -116,7 +116,7 @@ public:
     // win1.41 00511a10 mac 100c1250 DeadTree::CanBecomeAPhysicsObject(void)
     virtual bool CanBecomeAPhysicsObject();
     // win1.41 00510e30 mac 100c2e50 DeadTree::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
     // win1.41 00511200 mac 100c2450 DeadTree::IsARootedObject(void)
     virtual bool IsARootedObject();
     // win1.41 00511130 mac 100c2640 DeadTree::GetCollideSoundType(void)
@@ -246,7 +246,7 @@ void __fastcall ReactToPhysicsImpact__8DeadTreeFP13PhysicsObjectb(struct Object*
 // win1.41 00511a10 mac 100c1250 DeadTree::CanBecomeAPhysicsObject(void)
 bool __fastcall CanBecomeAPhysicsObject__8DeadTreeFv(struct Object* this) asm("?CanBecomeAPhysicsObject@DeadTree@@UAE_NXZ");
 // win1.41 00510e30 mac 100c2e50 DeadTree::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__8DeadTreeFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@DeadTree@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__8DeadTreeFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@DeadTree@@UAEIPAVCreature@@@Z");
 // win1.41 00511200 mac 100c2450 DeadTree::IsARootedObject(void)
 bool __fastcall IsARootedObject__8DeadTreeFv(struct Object* this) asm("?IsARootedObject@DeadTree@@UAE_NXZ");
 // win1.41 00511130 mac 100c2640 DeadTree::GetCollideSoundType(void)

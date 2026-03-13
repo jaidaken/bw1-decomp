@@ -45,29 +45,37 @@ public:
     // Virtual functions
 
     // win1.41 0055cbe0 mac 10111890 PlannedMultiMapFixed::GetDebugText(void)
+#ifdef STAGING_BASE_PA
+    char* GetDebugText();
+#else
     virtual char* GetDebugText();
+#endif
     // win1.41 00648af0 mac 10114cd0 PlannedMultiMapFixed::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& file);
+    virtual bool32_t Load(GameOSFile& file);
     // win1.41 00648990 mac 10114ef0 PlannedMultiMapFixed::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& file);
+    virtual bool32_t Save(GameOSFile& file);
     // win1.41 0055cbd0 mac inlined PlannedMultiMapFixed::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 004050c0 mac 1017d1b0 PlannedMultiMapFixed::GetScale(void)
+#ifdef STAGING_BASE_PMF
+    virtual float GetScale() const;
+#else
     virtual float GetScale();
+#endif
     // win1.41 004050d0 mac 103509e0 PlannedMultiMapFixed::SetScale(float)
     virtual void SetScale(float scale);
     // win1.41 00648940 mac 10115200 PlannedMultiMapFixed::GetText(void)
     virtual const char* GetText();
     // win1.41 00465560 mac 100d17b0 PlannedMultiMapFixed::IsWonder(void)
-    virtual bool IsWonder();
+    virtual bool32_t IsWonder();
     // win1.41 00648950 mac inlined PlannedMultiMapFixed::CreateBuildingSite(void)
-    virtual bool CreateBuildingSite();
+    virtual bool32_t CreateBuildingSite();
     // win1.41 00469660 mac 100bd510 PlannedMultiMapFixed::CreatePlanned(float)
     virtual MultiMapFixed* CreatePlanned(float param_1); /* 0x500 */
     // win1.41 00465540 mac 100d1720 PlannedMultiMapFixed::CreatePlannedNoFixedCheck(float)
     virtual MultiMapFixed* CreatePlannedNoFixedCheck(float param_1);
     // win1.41 00648c50 mac 10114bf0 PlannedMultiMapFixed::PostCreatePlanned(MultiMapFixed&)
-    virtual void PostCreatePlanned(MultiMapFixed* param_1);
+    virtual void PostCreatePlanned(MultiMapFixed& param_1);
     // win1.41 00465550 mac 100d1770 PlannedMultiMapFixed::IsCivic(void)
     virtual bool IsCivic();
     // win1.41 00465570 mac 100d17f0 PlannedMultiMapFixed::GetAbodeType(void)
@@ -170,7 +178,7 @@ void __fastcall SetScale__20PlannedMultiMapFixedFf(struct GameThingWithPos* this
 // win1.41 00648940 mac 10115200 PlannedMultiMapFixed::GetText(void)
 const char* __fastcall GetText__20PlannedMultiMapFixedFv(struct GameThingWithPos* this) asm("?GetText@PlannedMultiMapFixed@@UAEPBDXZ");
 // win1.41 00465560 mac 100d17b0 PlannedMultiMapFixed::IsWonder(void)
-bool __fastcall IsWonder__20PlannedMultiMapFixedFv(struct GameThingWithPos* this) asm("?IsWonder@PlannedMultiMapFixed@@UAE_NXZ");
+bool __fastcall IsWonder__20PlannedMultiMapFixedFv(struct GameThingWithPos* this) asm("?IsWonder@PlannedMultiMapFixed@@UAEIXZ");
 // win1.41 00648950 mac inlined PlannedMultiMapFixed::CreateBuildingSite(void)
 bool32_t __fastcall CreateBuildingSite__20PlannedMultiMapFixedFv(struct GameThingWithPos* this) asm("?CreateBuildingSite@PlannedMultiMapFixed@@UBE_NXZ");
 // win1.41 00469660 mac 100bd510 PlannedMultiMapFixed::CreatePlanned(float)

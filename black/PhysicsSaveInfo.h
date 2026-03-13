@@ -5,7 +5,7 @@
 
 // Forward Declares
 
-struct GameOSFile;
+class GameOSFile;
 
 struct PhysicsSaveInfo
 {

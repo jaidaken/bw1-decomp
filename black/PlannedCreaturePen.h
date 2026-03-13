@@ -42,7 +42,7 @@ struct PlannedCreaturePen
 {
   struct PlannedCitadelPart super;  /* 0x0 */
 };
-static_assert(sizeof(struct PlannedCreaturePen) == 0x48, "Data type is of wrong size");
+static_assert(sizeof(struct PlannedCreaturePen) == 0x4c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

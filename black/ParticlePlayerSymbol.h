@@ -21,6 +21,8 @@ class Base;
 class ParticlePlayerSymbol: public RenderParticle
 {
 public:
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
 
     // Override methods
 
@@ -37,8 +39,10 @@ struct Base;
 struct ParticlePlayerSymbol
 {
   struct RenderParticle super;  /* 0x0 */
+  uint32_t field_0x18;  /* 0x18 */
+  uint32_t field_0x1c;  /* 0x1c */
 };
-static_assert(sizeof(struct ParticlePlayerSymbol) == 0x18, "Data type is of wrong size");
+static_assert(sizeof(struct ParticlePlayerSymbol) == 0x20, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

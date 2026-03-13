@@ -22,6 +22,13 @@ class GBaseInfo;
 class GRewardInfo: public GMobileObjectInfo
 {
 public:
+    uint32_t field_0x114; /* 0x114 */
+    uint32_t field_0x118; /* 0x118 */
+    uint32_t field_0x11c; /* 0x11c */
+    uint32_t field_0x120; /* 0x120 */
+    uint32_t field_0x124; /* 0x124 */
+    uint32_t field_0x128; /* 0x128 */
+    uint32_t field_0x12c; /* 0x12c */
 
     // Override methods
 
@@ -41,8 +48,15 @@ struct GBaseInfo;
 struct GRewardInfo
 {
   struct GMobileObjectInfo super;  /* 0x0 */
+  uint32_t field_0x114; /* 0x114 */
+  uint32_t field_0x118; /* 0x118 */
+  uint32_t field_0x11c; /* 0x11c */
+  uint32_t field_0x120; /* 0x120 */
+  uint32_t field_0x124; /* 0x124 */
+  uint32_t field_0x128; /* 0x128 */
+  uint32_t field_0x12c; /* 0x12c */
 };
-static_assert(sizeof(struct GRewardInfo) == 0x114, "Data type is of wrong size");
+static_assert(sizeof(struct GRewardInfo) == 0x130, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

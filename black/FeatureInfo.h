@@ -24,6 +24,7 @@ class GObjectInfo;
 class GFeatureInfo: public GMultiMapFixedInfo
 {
 public:
+    uint32_t field_0x120; /* 0x120 */
 
     // Override methods
 
@@ -34,9 +35,9 @@ public:
     // win1.41 00421ea0 mac 100a5310 GFeatureInfo::GetMesh( const(void))
     virtual uint32_t GetMesh() const;
     // win1.41 00421e80 mac inlined GFeatureInfo::GetAbodeType( const(void))
-    virtual ABODE_TYPE GetAbodeType();
+    virtual ABODE_TYPE GetAbodeType() const;
     // win1.41 00421e90 mac inlined GFeatureInfo::GetAbodeNumber( const(void))
-    virtual ABODE_NUMBER GetAbodeNumber();
+    virtual ABODE_NUMBER GetAbodeNumber() const;
 };
 
 #else // __cplusplus
@@ -50,8 +51,9 @@ struct GObjectInfo;
 struct GFeatureInfo
 {
   struct GMultiMapFixedInfo super;  /* 0x0 */
+  uint32_t field_0x120;  /* 0x120 */
 };
-static_assert(sizeof(struct GFeatureInfo) == 0x120, "Data type is of wrong size");
+static_assert(sizeof(struct GFeatureInfo) == 0x124, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

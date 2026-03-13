@@ -20,7 +20,7 @@ class GameThing;
 struct MapCoords;
 struct PSysProcessInfo;
 class Spell;
-struct SpellCastData;
+class SpellCastData;
 
 // win1.41 00beccc0 mac inlined SpellFlock::`RTTI Type Descriptor'
 // win1.41 009adfa0 mac inlined SpellFlock::`RTTI Base Class Descriptor'
@@ -29,23 +29,30 @@ struct SpellCastData;
 class SpellFlock: public SpellWithObjects
 {
 public:
+    uint32_t field_0xf4; /* 0xf4 */
+    uint32_t field_0xf8; /* 0xf8 */
+    uint32_t field_0xfc; /* 0xfc */
+    uint32_t field_0x100; /* 0x100 */
+    uint32_t field_0x104; /* 0x104 */
+    uint32_t field_0x108; /* 0x108 */
+    uint32_t field_0x10c; /* 0x10c */
 
     // Override methods
 
     // win1.41 0055d250 mac 1030e480 SpellFlock::_dt(void)
     virtual ~SpellFlock();
     // win1.41 00724780 mac 1051c560 SpellFlock::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 007248a0 mac 1051c390 SpellFlock::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00723280 mac 1051e660 SpellFlock::NeedsContinualPackets(GInterfaceStatus *)
-    virtual bool NeedsContinualPackets(GInterfaceStatus* param_1);
+    virtual bool32_t NeedsContinualPackets(GInterfaceStatus* param_1);
     // win1.41 007233d0 mac 1051e2b0 SpellFlock::Process(void)
     virtual uint32_t Process();
     // win1.41 00723270 mac 1051e760 SpellFlock::CloseDown(void)
     virtual void CloseDown();
     // win1.41 007232d0 mac 1051e4a0 SpellFlock::InitWithPos(GameThing *, MapCoords const &, SpellCastData *, PSysProcessInfo const &)
-    virtual int InitWithPos(GameThing* param_1, const MapCoords* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4);
+    virtual int InitWithPos(GameThing* param_1, const MapCoords& param_2, SpellCastData* param_3, const PSysProcessInfo& param_4);
     // win1.41 00723240 mac 1051e7b0 SpellFlock::CalculateCostToMaintain(void)
     virtual float CalculateCostToMaintain();
 };
@@ -66,8 +73,15 @@ struct SpellCastData;
 struct SpellFlock
 {
   struct SpellWithObjects super;  /* 0x0 */
+  uint32_t field_0xf4; /* 0xf4 */
+  uint32_t field_0xf8; /* 0xf8 */
+  uint32_t field_0xfc; /* 0xfc */
+  uint32_t field_0x100; /* 0x100 */
+  uint32_t field_0x104; /* 0x104 */
+  uint32_t field_0x108; /* 0x108 */
+  uint32_t field_0x10c; /* 0x10c */
 };
-static_assert(sizeof(struct SpellFlock) == 0xf4, "Data type is of wrong size");
+static_assert(sizeof(struct SpellFlock) == 0x110, "Data type is of wrong size");
 
 // Object Oriented datastructures
 
@@ -89,7 +103,7 @@ uint32_t __fastcall Load__10SpellFlockFR10GameOSFile(struct GameThing* this, con
 // win1.41 007248a0 mac 1051c390 SpellFlock::Save(GameOSFile &)
 uint32_t __fastcall Save__10SpellFlockFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* param_1) asm("?Save@SpellFlock@@UAEIAAVGameOSFile@@@Z");
 // win1.41 00723280 mac 1051e660 SpellFlock::NeedsContinualPackets(GInterfaceStatus *)
-bool __fastcall NeedsContinualPackets__10SpellFlockFP16GInterfaceStatus(struct Spell* this, const void* edx, struct GInterfaceStatus* param_1) asm("?NeedsContinualPackets@SpellFlock@@UAE_NPAVGInterfaceStatus@@@Z");
+bool __fastcall NeedsContinualPackets__10SpellFlockFP16GInterfaceStatus(struct Spell* this, const void* edx, struct GInterfaceStatus* param_1) asm("?NeedsContinualPackets@SpellFlock@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 007233d0 mac 1051e2b0 SpellFlock::Process(void)
 uint32_t __fastcall Process__10SpellFlockFv(struct Spell* this) asm("?Process@SpellFlock@@UAEIXZ");
 // win1.41 00723270 mac 1051e760 SpellFlock::CloseDown(void)

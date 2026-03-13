@@ -23,16 +23,16 @@ public:
     // win1.41 0063abb0 mac 103da2c0 Game3DObject::Create(LH3DObject::ObjectType)
     static Game3DObject* Create(ObjectType type);
     // win1.41 0063ad80 mac 103d9ee0 Game3DObject::Create(MapCoords const &, LH3DObject::ObjectType, MESH_LIST, float, float)
-    static Game3DObject* Create(const MapCoords* coords, ObjectType type, MESH_LIST mesh, float param_4, float param_5);
+    static Game3DObject* Create(const MapCoords& coords, ObjectType type, MESH_LIST mesh, float param_4, float param_5);
 
     // Non-virtual methods
 
     // win1.41 0063abc0 mac 103da030 Game3DObject::GetAltitudeFondation(void) const
-    float GetAltitudeFondation();
+    float GetAltitudeFondation() const;
     // win1.41 0063afe0 mac 10019840 Game3DObject::GetDoorPosition(MapCoords *) const
     bool GetDoorPosition(MapCoords* position);
     // win1.41 0063b060 mac 103d9d50 Game3DObject::GetSpecialPos(unsigned long, MapCoords &) const
-    bool GetSpecialPos(uint32_t index, MapCoords* coords);
+    bool GetSpecialPos(unsigned long index, MapCoords* coords);
 };
 
 #else // __cplusplus

@@ -23,6 +23,8 @@ class GObjectInfo;
 class GPrayerSiteInfo: public GMultiMapFixedInfo
 {
 public:
+    uint32_t field_0x120; /* 0x120 */
+    uint32_t field_0x124; /* 0x124 */
 
     // Override methods
 
@@ -45,8 +47,10 @@ struct GObjectInfo;
 struct GPrayerSiteInfo
 {
   struct GMultiMapFixedInfo super;  /* 0x0 */
+  uint32_t field_0x120;  /* 0x120 */
+  uint32_t field_0x124;  /* 0x124 */
 };
-static_assert(sizeof(struct GPrayerSiteInfo) == 0x120, "Data type is of wrong size");
+static_assert(sizeof(struct GPrayerSiteInfo) == 0x128, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

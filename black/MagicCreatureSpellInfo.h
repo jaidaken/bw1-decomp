@@ -21,6 +21,23 @@ class Base;
 class GMagicCreatureSpellInfo: public GMagicInfo
 {
 public:
+    uint32_t field_0x58; /* 0x58 */
+    uint32_t field_0x5c; /* 0x5c */
+    uint32_t field_0x60; /* 0x60 */
+    uint32_t field_0x64; /* 0x64 */
+    uint32_t field_0x68; /* 0x68 */
+    uint32_t field_0x6c; /* 0x6c */
+    uint32_t field_0x70; /* 0x70 */
+    uint32_t field_0x74; /* 0x74 */
+    uint32_t field_0x78; /* 0x78 */
+    uint32_t field_0x7c; /* 0x7c */
+    uint32_t field_0x80; /* 0x80 */
+    uint32_t field_0x84; /* 0x84 */
+    uint32_t field_0x88; /* 0x88 */
+    uint32_t field_0x8c; /* 0x8c */
+    uint32_t field_0x90; /* 0x90 */
+    uint32_t field_0x94; /* 0x94 */
+    uint32_t field_0x98; /* 0x98 */
 
     // Override methods
 
@@ -37,8 +54,25 @@ struct Base;
 struct GMagicCreatureSpellInfo
 {
   struct GMagicInfo super;  /* 0x0 */
+  uint32_t field_0x58; /* 0x58 */
+  uint32_t field_0x5c; /* 0x5c */
+  uint32_t field_0x60; /* 0x60 */
+  uint32_t field_0x64; /* 0x64 */
+  uint32_t field_0x68; /* 0x68 */
+  uint32_t field_0x6c; /* 0x6c */
+  uint32_t field_0x70; /* 0x70 */
+  uint32_t field_0x74; /* 0x74 */
+  uint32_t field_0x78; /* 0x78 */
+  uint32_t field_0x7c; /* 0x7c */
+  uint32_t field_0x80; /* 0x80 */
+  uint32_t field_0x84; /* 0x84 */
+  uint32_t field_0x88; /* 0x88 */
+  uint32_t field_0x8c; /* 0x8c */
+  uint32_t field_0x90; /* 0x90 */
+  uint32_t field_0x94; /* 0x94 */
+  uint32_t field_0x98; /* 0x98 */
 };
-static_assert(sizeof(struct GMagicCreatureSpellInfo) == 0x58, "Data type is of wrong size");
+static_assert(sizeof(struct GMagicCreatureSpellInfo) == 0x9c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

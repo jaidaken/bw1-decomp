@@ -19,7 +19,7 @@ class GInterfaceStatus;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class Object;
 class PhysicsObject;
@@ -31,6 +31,7 @@ class PhysicsObject;
 class Bonfire: public Rock
 {
 public:
+    uint32_t field_0x94; /* 0x94 */
 
     // Override methods
 
@@ -39,9 +40,9 @@ public:
     // win1.41 004397f0 mac 100b3ec0 Bonfire::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00439a00 mac 100b4800 Bonfire::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00439990 mac 100b48d0 Bonfire::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 004397e0 mac 100b3e80 Bonfire::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 004397c0 mac 100b3dd0 Bonfire::PhysicsEditorCreate(int)
@@ -51,9 +52,9 @@ public:
     // win1.41 00439a90 mac 1001a450 Bonfire::Draw(void)
     virtual void Draw();
     // win1.41 00439840 mac 100b4c70 Bonfire::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 00439790 mac 100b3cf0 Bonfire::ValidForPlaceInHand(GInterfaceStatus *)
-    virtual bool ValidForPlaceInHand(GInterfaceStatus* param_1);
+    virtual bool32_t ValidForPlaceInHand(GInterfaceStatus* param_1);
     // win1.41 00439780 mac 100b3ca0 Bonfire::InterfaceValidToTap(GInterfaceStatus *)
     virtual uint32_t InterfaceValidToTap(GInterfaceStatus* param_1);
     // win1.41 004397b0 mac 100b3d80 Bonfire::InteractsWithPhysicsObjects(void)
@@ -85,8 +86,9 @@ struct PhysicsObject;
 struct Bonfire
 {
   struct Rock super;  /* 0x0 */
+  uint32_t field_0x94;  /* 0x94 */
 };
-static_assert(sizeof(struct Bonfire) == 0x94, "Data type is of wrong size");
+static_assert(sizeof(struct Bonfire) == 0x98, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

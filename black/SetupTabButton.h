@@ -27,9 +27,9 @@ class SetupControl;
 class SetupTabButton: public SetupButton
 {
 public:
-    bool32_t selected; /* 0x244 */
-    bool32_t first_in_row;
-    bool32_t last_in_row;
+    bool selected; /* 0x244 */
+    bool first_in_row;
+    bool last_in_row;
     LH3DColor color; /* 0x250 */
 
     // Override methods

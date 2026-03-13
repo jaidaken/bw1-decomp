@@ -13,7 +13,7 @@
 // Forward Declares
 
 class Base;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class MultiMapFixed;
 class Object;

@@ -179,9 +179,9 @@ public:
     // win1.41 007392a0 mac 105594a0 Town::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0073f450 mac 1054aa80 Town::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0073ed30 mac 1054c770 Town::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00739290 mac 10559470 Town::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 007412e0 mac 10547990 Town::ResolveLoad(void)
@@ -199,23 +199,23 @@ public:
     // win1.41 00739220 mac inlined Town::IsTown_1(Creature *)
     virtual bool IsTown(Creature* param_1);
     // win1.41 004e47f0 mac 105e4b50 Town::IsActivityObjectWhichAngerAppliesTo(Creature *)
-    virtual bool IsActivityObjectWhichAngerAppliesTo(Creature* param_1);
+    virtual bool32_t IsActivityObjectWhichAngerAppliesTo(Creature* param_1);
     // win1.41 00739230 mac 105592e0 Town::IsActivityObjectWhichCompassionAppliesTo(Creature *)
-    virtual bool IsActivityObjectWhichCompassionAppliesTo(Creature* param_1);
+    virtual bool32_t IsActivityObjectWhichCompassionAppliesTo(Creature* param_1);
     // win1.41 00739240 mac 10559340 Town::IsActivityObjectWhichPlayfulnessAppliesTo(Creature *)
-    virtual bool IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1);
+    virtual bool32_t IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1);
     // win1.41 004e4750 mac 105e4c40 Town::IsTownBelongingToAnotherPlayer(Creature *)
-    virtual bool IsTownBelongingToAnotherPlayer(Creature* param_1);
+    virtual bool32_t IsTownBelongingToAnotherPlayer(Creature* param_1);
     // win1.41 00739260 mac 105593a0 Town::IsSuitableForCreatureActivity(void)
-    virtual bool IsSuitableForCreatureActivity();
+    virtual bool32_t IsSuitableForCreatureActivity();
     // win1.41 00739270 mac 105593f0 Town::CanBePlayedWithByCreature(Creature *)
-    virtual bool CanBePlayedWithByCreature(Creature* param_1);
+    virtual bool32_t CanBePlayedWithByCreature(Creature* param_1);
     // win1.41 0073c940 mac 1006fa90 Town::GetWorshipSite(void)
     virtual WorshipSite* GetWorshipSite();
     // win1.41 004e4140 mac 105e5e00 Town::IsTownBelongingToOtherPlayer(Creature *)
-    virtual bool IsTownBelongingToOtherPlayer(Creature* param_1);
+    virtual bool32_t IsTownBelongingToOtherPlayer(Creature* param_1);
     // win1.41 00739210 mac 105591b0 Town::IsScriptContainer( const(void))
-    virtual bool IsScriptContainer();
+    virtual bool32_t IsScriptContainer() const;
     // win1.41 00739280 mac 10559440 Town::GetText(void)
     virtual const char* GetText();
     // win1.41 00747f00 mac 10065180 Town::CalculateDesireForFood(void)
@@ -246,7 +246,7 @@ public:
     // win1.41 00739a20 mac 105567f0 Town::AddAbodeToTownStats(Abode *)
     void AddAbodeToTownStats(Abode* abode);
     // win1.41 0073a090 mac 10556400 Town::AddVillagerToTown(Villager *)
-    bool AddVillagerToTown(Villager* villager);
+    bool32_t AddVillagerToTown(Villager* villager);
     // win1.41 0073a140 mac 10007ca0 Town::GetBestPlanned(float &, ABODE_TYPE)
     PlannedMultiMapFixed* GetBestPlanned(float* param_1, ABODE_TYPE param_2);
     // win1.41 0073a1a0 mac 100896c0 Town::GetDesireToBeBuilt(GMultiMapFixedInfo const *, unsigned long)
@@ -262,7 +262,7 @@ public:
     // win1.41 0073b370 mac 10554d60 Town::FindAbodeWithSpaceInTown(Villager *, float)
     Abode* FindAbodeWithSpaceInTown(Villager* villager, float min_score);
     // win1.41 0073b3d0 mac 10554c70 Town::FindClosesFieldToWithFood(MapCoords const &)
-    Field* FindClosesFieldToWithFood(const MapCoords* param_1);
+    Field* FindClosesFieldToWithFood(const MapCoords& param_1);
     // win1.41 0073b580 mac 10554bd0 Town::IsVillagerInHomelessList(Villager *)
     bool32_t IsVillagerInHomelessList(Villager* villager);
     // win1.41 0073b5b0 mac 100572e0 Town::GetStoragePit(void)
@@ -284,13 +284,13 @@ public:
     // win1.41 0073c0f0 mac 10552710 Town::AdjustWorshipersWorshipping(long, int, int)
     void AdjustWorshipersWorshipping(long param_1, int param_2, int param_3);
     // win1.41 0073c840 mac 1005d020 Town::GetTribe(void) const
-    GTribeInfo* GetTribe();
+    GTribeInfo* GetTribe() const;
     // win1.41 0073c860 mac 10092530 Town::GetWorshipersNeeded(int, int, int *)
     int GetWorshipersNeeded(int param_1, int param_2, int* result);
     // win1.41 0073cf00 mac 10551920 Town::IsBuildingSiteValid(BuildingSite *)
     bool32_t IsBuildingSiteValid(BuildingSite* param_1);
     // win1.41 0073cf60 mac 10097910 Town::GetBestBuildingSite(MapCoords const &, int)
-    bool32_t GetBestBuildingSite(const MapCoords* param_1, int param_2);
+    bool32_t GetBestBuildingSite(const MapCoords& param_1, int param_2);
     // win1.41 0073d080 mac 105516a0 Town::AddPlanned(PlannedMultiMapFixed *)
     void AddPlanned(PlannedMultiMapFixed* planned);
     // win1.41 0073d0d0 mac 10551530 Town::RemovePlanned(PlannedMultiMapFixed *)
@@ -300,11 +300,11 @@ public:
     // win1.41 0073d360 mac 10550fd0 Town::GetNextSpellIcon(TownSpellIcon *)
     TownSpellIcon* GetNextSpellIcon(TownSpellIcon* icon);
     // win1.41 0073d380 mac 10550e80 Town::AddMagicTypesHeld(MAGIC_TYPE)
-    bool AddMagicTypesHeld(MAGIC_TYPE type);
+    bool32_t AddMagicTypesHeld(MAGIC_TYPE type);
     // win1.41 0073d630 mac 10550b00 Town::IsMagicTypeHeld(MAGIC_TYPE)
-    bool IsMagicTypeHeld(MAGIC_TYPE type);
+    bool32_t IsMagicTypeHeld(MAGIC_TYPE type);
     // win1.41 0073de30 mac 1054fb60 Town::GetFlock(LIVING_TYPE, int)
-    bool GetFlock(LIVING_TYPE param_1, int param_2);
+    bool32_t GetFlock(LIVING_TYPE param_1, int param_2);
     // win1.41 0073e1d0 mac 1054f6b0 Town::GetTotemStatue(void)
     TotemStatue* GetTotemStatue();
     // win1.41 0073e210 mac 1054f460 Town::RemoveVillager(Villager *)
@@ -316,7 +316,7 @@ public:
     // win1.41 0073e420 mac 10055140 Town::GetRawDesire(TOWN_DESIRE_INFO)
     float GetRawDesire(TOWN_DESIRE_INFO param_1);
     // win1.41 0073e900 mac 1054e460 Town::GetTemporaryResourceStorePotOrPos(MapCoords const &, MapCoords &, RESOURCE_TYPE)
-    void* GetTemporaryResourceStorePotOrPos(const MapCoords* param_1, MapCoords* param_2, RESOURCE_TYPE param_3);
+    void* GetTemporaryResourceStorePotOrPos(const MapCoords& param_1, MapCoords* param_2, RESOURCE_TYPE param_3);
     // win1.41 0073eb00 mac 1054dfe0 Town::AssignForestsToTown(void)
     void AssignForestsToTown();
     // win1.41 00740250 mac 10549810 Town::GetBestWorkshop(MapCoords &, int, int)
@@ -509,7 +509,7 @@ void __fastcall AddStructureToTown__4TownFP13MultiMapFixed(struct Town* this, co
 // win1.41 00739a20 mac 105567f0 Town::AddAbodeToTownStats(Abode *)
 void __fastcall AddAbodeToTownStats__4TownFP5Abode(struct Town* this, const void* edx, struct Abode* abode) asm("?AddAbodeToTownStats@Town@@QAEXPAVAbode@@@Z");
 // win1.41 0073a090 mac 10556400 Town::AddVillagerToTown(Villager *)
-bool __fastcall AddVillagerToTown__4TownFP8Villager(struct Town* this, const void* edx, struct Villager* villager) asm("?AddVillagerToTown@Town@@QAE_NPAVVillager@@@Z");
+bool __fastcall AddVillagerToTown__4TownFP8Villager(struct Town* this, const void* edx, struct Villager* villager) asm("?AddVillagerToTown@Town@@QAEIPAVVillager@@@Z");
 // win1.41 0073a140 mac 10007ca0 Town::GetBestPlanned(float &, ABODE_TYPE)
 struct PlannedMultiMapFixed* __fastcall GetBestPlanned__4TownFRf10ABODE_TYPE(struct Town* this, const void* edx, float* param_1, enum ABODE_TYPE param_2) asm("?GetBestPlanned@Town@@QAEPAVPlannedMultiMapFixed@@AAMW4ABODE_TYPE@@@Z");
 // win1.41 0073a1a0 mac 100896c0 Town::GetDesireToBeBuilt(GMultiMapFixedInfo const *, unsigned long)
@@ -527,7 +527,7 @@ struct Abode* __fastcall FindAbodeWithSpaceInTown__4TownFP8Villagerf(struct Town
 // win1.41 0073b3d0 mac 10554c70 Town::FindClosesFieldToWithFood(MapCoords const &)
 struct Field* __fastcall FindClosesFieldToWithFood__4TownFRC9MapCoords(struct Town* this, const void* edx, const struct MapCoords* param_1) asm("?FindClosesFieldToWithFood@Town@@QAEPAVField@@ABUMapCoords@@@Z");
 // win1.41 0073b580 mac 10554bd0 Town::IsVillagerInHomelessList(Villager *)
-bool32_t __fastcall IsVillagerInHomelessList__4TownFP8Villager(struct Town* this, const void* edx, struct Villager* villager) asm("?IsVillagerInHomelessList@Town@@QAE_NPAVVillager@@@Z");
+bool32_t __fastcall IsVillagerInHomelessList__4TownFP8Villager(struct Town* this, const void* edx, struct Villager* villager) asm("?IsVillagerInHomelessList@Town@@QAEIPAVVillager@@@Z");
 // win1.41 0073b5b0 mac 100572e0 Town::GetStoragePit(void)
 struct StoragePit* __fastcall GetStoragePit__4TownFv(struct Town* this) asm("?GetStoragePit@Town@@QAEPAVStoragePit@@XZ");
 // win1.41 0073b5d0 mac 10554b00 Town::Birthday(void)
@@ -563,11 +563,11 @@ void __fastcall AllVillagersCheckNeedNewAbode__4TownFv(struct Town* this) asm("?
 // win1.41 0073d360 mac 10550fd0 Town::GetNextSpellIcon(TownSpellIcon *)
 struct TownSpellIcon* __fastcall GetNextSpellIcon__4TownFP13TownSpellIcon(const struct Town* this, const void* edx, struct TownSpellIcon* icon) asm("?GetNextSpellIcon@Town@@QAEPAVTownSpellIcon@@PAV2@@Z");
 // win1.41 0073d380 mac 10550e80 Town::AddMagicTypesHeld(MAGIC_TYPE)
-bool __fastcall AddMagicTypesHeld__4TownF10MAGIC_TYPE(struct Town* this, const void* edx, enum MAGIC_TYPE type) asm("?AddMagicTypesHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z");
+bool __fastcall AddMagicTypesHeld__4TownF10MAGIC_TYPE(struct Town* this, const void* edx, enum MAGIC_TYPE type) asm("?AddMagicTypesHeld@Town@@QAEIW4MAGIC_TYPE@@@Z");
 // win1.41 0073d630 mac 10550b00 Town::IsMagicTypeHeld(MAGIC_TYPE)
-bool __fastcall IsMagicTypeHeld__4TownF10MAGIC_TYPE(struct Town* this, const void* edx, enum MAGIC_TYPE type) asm("?IsMagicTypeHeld@Town@@QAE_NW4MAGIC_TYPE@@@Z");
+bool __fastcall IsMagicTypeHeld__4TownF10MAGIC_TYPE(struct Town* this, const void* edx, enum MAGIC_TYPE type) asm("?IsMagicTypeHeld@Town@@QAEIW4MAGIC_TYPE@@@Z");
 // win1.41 0073de30 mac 1054fb60 Town::GetFlock(LIVING_TYPE, int)
-bool __fastcall GetFlock__4TownF11LIVING_TYPEi(struct Town* this, const void* edx, enum LIVING_TYPE param_1, int param_2) asm("?GetFlock@Town@@QAE_NW4LIVING_TYPE@@H@Z");
+bool __fastcall GetFlock__4TownF11LIVING_TYPEi(struct Town* this, const void* edx, enum LIVING_TYPE param_1, int param_2) asm("?GetFlock@Town@@QAEIW4LIVING_TYPE@@H@Z");
 // win1.41 0073e1d0 mac 1054f6b0 Town::GetTotemStatue(void)
 struct TotemStatue* __fastcall GetTotemStatue__4TownFv(struct Town* this) asm("?GetTotemStatue@Town@@QAEPAVTotemStatue@@XZ");
 // win1.41 0073e210 mac 1054f460 Town::RemoveVillager(Villager *)
@@ -640,15 +640,15 @@ uint32_t __fastcall GetOrigin__4TownFv(struct GameThingWithPos* this) asm("?GetO
 // win1.41 00739250 mac inlined Town::IsTown_0(void)
 bool __fastcall IsTown_0__4TownFv(struct GameThingWithPos* this) asm("?IsTown@Town@@UAE_NXZ");
 // win1.41 00739220 mac inlined Town::IsTown_1(Creature *)
-bool __fastcall IsTown_1__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsTown@Town@@UAE_NPAVCreature@@@Z");
+bool __fastcall IsTown_1__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsTown@Town@@UAEIPAVCreature@@@Z");
 // win1.41 004e47f0 mac 105e4b50 Town::IsActivityObjectWhichAngerAppliesTo(Creature *)
-bool __fastcall IsActivityObjectWhichAngerAppliesTo__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichAngerAppliesTo@Town@@UAE_NPAVCreature@@@Z");
+bool __fastcall IsActivityObjectWhichAngerAppliesTo__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichAngerAppliesTo@Town@@UAEIPAVCreature@@@Z");
 // win1.41 00739230 mac 105592e0 Town::IsActivityObjectWhichCompassionAppliesTo(Creature *)
-bool __fastcall IsActivityObjectWhichCompassionAppliesTo__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichCompassionAppliesTo@Town@@UAE_NPAVCreature@@@Z");
+bool __fastcall IsActivityObjectWhichCompassionAppliesTo__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichCompassionAppliesTo@Town@@UAEIPAVCreature@@@Z");
 // win1.41 00739240 mac 10559340 Town::IsActivityObjectWhichPlayfulnessAppliesTo(Creature *)
-bool __fastcall IsActivityObjectWhichPlayfulnessAppliesTo__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichPlayfulnessAppliesTo@Town@@UAE_NPAVCreature@@@Z");
+bool __fastcall IsActivityObjectWhichPlayfulnessAppliesTo__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsActivityObjectWhichPlayfulnessAppliesTo@Town@@UAEIPAVCreature@@@Z");
 // win1.41 004e4750 mac 105e4c40 Town::IsTownBelongingToAnotherPlayer(Creature *)
-bool __fastcall IsTownBelongingToAnotherPlayer__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsTownBelongingToAnotherPlayer@Town@@UAE_NPAVCreature@@@Z");
+bool __fastcall IsTownBelongingToAnotherPlayer__4TownFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?IsTownBelongingToAnotherPlayer@Town@@UAEIPAVCreature@@@Z");
 // win1.41 00739260 mac 105593a0 Town::IsSuitableForCreatureActivity(void)
 uint32_t __fastcall IsSuitableForCreatureActivity__4TownFv(struct GameThingWithPos* this) asm("?IsSuitableForCreatureActivity@Town@@UAEIXZ");
 // win1.41 00739270 mac 105593f0 Town::CanBePlayedWithByCreature(Creature *)

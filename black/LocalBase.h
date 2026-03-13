@@ -29,7 +29,7 @@ public:
     // Static methods
 
     // win1.41 005f8790 mac 1009eb9c LocalBase::operator new(unsigned long)
-    static LocalBase* __nw(size_t size, const char* file_name, uint32_t line);
+    static LocalBase* __nw(unsigned long size, const char* file_name, uint32_t line);
 
     // Constructors
 

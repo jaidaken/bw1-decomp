@@ -20,7 +20,7 @@ public:
     // Override methods
 
     // win1.41 006868e0 mac 10402ae0 TestFunnel::Eval( const(float, float *, float *))
-    virtual void Eval(float param_1, float* param_2, float* param_3);
+    virtual void Eval(float param_1, float* param_2, float* param_3) const;
 };
 
 // win1.41 00c02588 mac inlined TestFunnelParab::`RTTI Type Descriptor'
@@ -34,7 +34,7 @@ public:
     // Override methods
 
     // win1.41 00686910 mac 104029c0 TestFunnelParab::Eval( const(float, float *, float *))
-    virtual void Eval(float param_1, float* param_2, float* param_3);
+    virtual void Eval(float param_1, float* param_2, float* param_3) const;
 };
 
 // win1.41 00c02568 mac inlined TestFunnelSpout::`RTTI Type Descriptor'
@@ -48,7 +48,7 @@ public:
     // Override methods
 
     // win1.41 00686940 mac 10402a20 TestFunnelSpout::Eval( const(float, float *, float *))
-    virtual void Eval(float param_1, float* param_2, float* param_3);
+    virtual void Eval(float param_1, float* param_2, float* param_3) const;
 };
 
 #else // __cplusplus

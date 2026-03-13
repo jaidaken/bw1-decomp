@@ -21,12 +21,7 @@ class Base;
 class GContainerInfo: public GBaseInfo
 {
 public:
-    uint32_t field_0x10;
-    uint8_t field_0x14[0xfc];
-    uint32_t field_0x110;
-    uint8_t field_0x114[0x2c];
-    float field_0x140;
-    float field_0x144;
+    uint32_t field_0x10; /* 0x10 */
 
     // Override methods
 
@@ -45,14 +40,9 @@ struct Base;
 struct GContainerInfo
 {
   struct GBaseInfo super;  /* 0x0 */
-  uint32_t field_0x10;
-  uint8_t field_0x14[0xfc];
-  uint32_t field_0x110;
-  uint8_t field_0x114[0x2c];
-  float field_0x140;
-  float field_0x144;
+  uint32_t field_0x10;     /* 0x10 */
 };
-static_assert(sizeof(struct GContainerInfo) == 0x148, "Data type is of wrong size");
+static_assert(sizeof(struct GContainerInfo) == 0x14, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

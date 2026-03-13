@@ -17,7 +17,7 @@ class GameThing;
 struct MapCoords;
 struct PSysProcessInfo;
 class Spell;
-struct SpellCastData;
+class SpellCastData;
 
 // win1.41 00becc10 mac inlined SpellTeleport::`RTTI Type Descriptor'
 // win1.41 009add18 mac inlined SpellTeleport::`RTTI Base Class Descriptor'
@@ -36,7 +36,7 @@ public:
     // win1.41 0055d850 mac 103b1a90 SpellTeleport::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 005fbeb0 mac 103b1550 SpellTeleport::InitWithPos(GameThing *, MapCoords const &, SpellCastData *, PSysProcessInfo const &)
-    virtual int InitWithPos(GameThing* param_1, const MapCoords* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4);
+    virtual int InitWithPos(GameThing* param_1, const MapCoords& param_2, SpellCastData* param_3, const PSysProcessInfo& param_4);
 };
 
 #else // __cplusplus

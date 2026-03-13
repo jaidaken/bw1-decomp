@@ -94,7 +94,7 @@ struct BindableAction
     // Static methods
 
     // win1.41 0046f3c0 mac 10090c30 BindableAction::IsKeyDown(LH_KEY)
-    static bool IsKeyDown(LH_KEY key);
+    static bool32_t IsKeyDown(LH_KEY key);
 
     // Constructors
 
@@ -198,7 +198,7 @@ static_assert(sizeof(struct BindableAction) == 0x30c, "Data type is of wrong siz
 // Static methods
 
 // win1.41 0046f3c0 mac 10090c30 BindableAction::IsKeyDown(LH_KEY)
-bool __cdecl IsKeyDown__14BindableActionF6LH_KEY(enum LH_KEY key) asm("?IsKeyDown@BindableAction@@SA_NW4LH_KEY@@@Z");
+bool __cdecl IsKeyDown__14BindableActionF6LH_KEY(enum LH_KEY key) asm("?IsKeyDown@BindableAction@@SAIW4LH_KEY@@@Z");
 
 // Constructors
 

@@ -21,7 +21,7 @@ class GPlayer;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 
 // win1.41 00c02408 mac inlined MagicFireBall::`RTTI Type Descriptor'
@@ -50,33 +50,33 @@ public:
     // win1.41 00682b40 mac 103fd410 MagicFireBall::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00683320 mac 103fb710 MagicFireBall::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 006832b0 mac 103fb800 MagicFireBall::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00682b30 mac 103fd3d0 MagicFireBall::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00682a50 mac 103fcf70 MagicFireBall::IsMagicFireBall(void)
-    virtual bool IsMagicFireBall();
+    virtual bool32_t IsMagicFireBall();
     // win1.41 00682a80 mac 103fd050 MagicFireBall::CanBePickedUpByCreature(Creature *)
-    virtual bool CanBePickedUpByCreature(Creature* param_1);
+    virtual bool32_t CanBePickedUpByCreature(Creature* param_1);
     // win1.41 00682a90 mac 103fd0a0 MagicFireBall::CanBeSetOnFire(Creature *)
-    virtual bool CanBeSetOnFire(Creature* param_1);
+    virtual bool32_t CanBeSetOnFire(Creature* param_1);
     // win1.41 00682aa0 mac 103fd0f0 MagicFireBall::CanBeStompedOnByCreature(Creature *)
-    virtual bool CanBeStompedOnByCreature(Creature* param_1);
+    virtual bool32_t CanBeStompedOnByCreature(Creature* param_1);
     // win1.41 00682ab0 mac 103fd140 MagicFireBall::CanBeThrownByCreature(Creature *)
-    virtual bool CanBeThrownByCreature(Creature* param_1);
+    virtual bool32_t CanBeThrownByCreature(Creature* param_1);
     // win1.41 00682ac0 mac 103fd190 MagicFireBall::CanBePutInAStoragePit(Creature *)
-    virtual bool CanBePutInAStoragePit(Creature* param_1);
+    virtual bool32_t CanBePutInAStoragePit(Creature* param_1);
     // win1.41 00682ad0 mac 103fd1e0 MagicFireBall::CanBeDestroyedByStoning(Creature *)
-    virtual bool CanBeDestroyedByStoning(Creature* param_1);
+    virtual bool32_t CanBeDestroyedByStoning(Creature* param_1);
     // win1.41 00682ae0 mac 103fd230 MagicFireBall::CanBeStonedAndEatenByCreature(Creature *)
-    virtual bool CanBeStonedAndEatenByCreature(Creature* param_1);
+    virtual bool32_t CanBeStonedAndEatenByCreature(Creature* param_1);
     // win1.41 00682af0 mac 103fd290 MagicFireBall::CanBeExaminedByCreature(Creature *)
-    virtual bool CanBeExaminedByCreature(Creature* param_1);
+    virtual bool32_t CanBeExaminedByCreature(Creature* param_1);
     // win1.41 00682b00 mac 103fd2e0 MagicFireBall::CanBeFoughtByCreature(Creature *)
-    virtual bool CanBeFoughtByCreature(Creature* param_1);
+    virtual bool32_t CanBeFoughtByCreature(Creature* param_1);
     // win1.41 00682b10 mac 103fd330 MagicFireBall::CanActAsAContainer(Creature *)
-    virtual bool CanActAsAContainer(Creature* param_1);
+    virtual bool32_t CanActAsAContainer(Creature* param_1);
     // win1.41 00682d30 mac 103fc650 MagicFireBall::GetHeight(void)
     virtual float GetHeight();
     // win1.41 00682d10 mac 103fc710 MagicFireBall::InsertMapObject(void)
@@ -90,11 +90,11 @@ public:
     // win1.41 00682f20 mac 103fc010 MagicFireBall::Draw(void)
     virtual void Draw();
     // win1.41 00682dd0 mac 103fc3d0 MagicFireBall::ValidForPlaceInHand(GInterfaceStatus *)
-    virtual bool ValidForPlaceInHand(GInterfaceStatus* param_1);
+    virtual bool32_t ValidForPlaceInHand(GInterfaceStatus* param_1);
     // win1.41 00682e80 mac 103fc040 MagicFireBall::InterfaceSetInMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetInMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 00682a40 mac 103fcf30 MagicFireBall::IsTuggable(void)
-    virtual bool IsTuggable();
+    virtual bool32_t IsTuggable();
     // win1.41 00682e40 mac 103fc2d0 MagicFireBall::InterfaceValidToTap(GInterfaceStatus *)
     virtual uint32_t InterfaceValidToTap(GInterfaceStatus* param_1);
     // win1.41 00682e50 mac 103fc190 MagicFireBall::InterfaceTap(GInterfaceStatus *)

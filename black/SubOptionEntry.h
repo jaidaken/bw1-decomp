@@ -27,7 +27,7 @@ class SubOptionEntry
 public:
     // Virtual functions
 
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3); /* 0x0 */
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3); /* 0x0 */
     virtual bool32_t UpdateMouse(LHCoord coord, INTERFACE_MESSAGE_TYPES types, int param_2);
     virtual bool32_t UpdateKeyboard(LH_KEY key, uint16_t param_2);
 };
@@ -43,7 +43,7 @@ public:
     // Override methods
 
     // win1.41 0078db60 mac 1010f040 SubOptionEntryButton::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078dc40 mac 1010ef20 SubOptionEntryButton::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078dcd0 mac 1010eed0 SubOptionEntryButton::UpdateKeyboard(LH_KEY, unsigned short)
@@ -61,7 +61,7 @@ public:
     // Override methods
 
     // win1.41 0078deb0 mac 1010e9a0 SubOptionEntryCheckBoxChecked::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078df60 mac 1010e880 SubOptionEntryCheckBoxChecked::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078dff0 mac 1010e820 SubOptionEntryCheckBoxChecked::UpdateKeyboard(LH_KEY, unsigned short)
@@ -79,7 +79,7 @@ public:
     // Override methods
 
     // win1.41 0078dd20 mac 1010ecf0 SubOptionEntryCheckBoxUnChecked::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078ddd0 mac 1010ebd0 SubOptionEntryCheckBoxUnChecked::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078de60 mac 1010eb70 SubOptionEntryCheckBoxUnChecked::UpdateKeyboard(LH_KEY, unsigned short)
@@ -97,7 +97,7 @@ public:
     // Override methods
 
     // win1.41 0078e7a0 mac 1010d690 SubOptionEntryFrame::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078e850 mac 1010d630 SubOptionEntryFrame::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078e860 mac 1010d5e0 SubOptionEntryFrame::UpdateKeyboard(LH_KEY, unsigned short)
@@ -115,7 +115,7 @@ public:
     // Override methods
 
     // win1.41 0078e5d0 mac 1010da10 SubOptionEntryListBox::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078e6a0 mac 1010d8b0 SubOptionEntryListBox::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078e750 mac 1010d860 SubOptionEntryListBox::UpdateKeyboard(LH_KEY, unsigned short)
@@ -133,7 +133,7 @@ public:
     // Override methods
 
     // win1.41 0078e0c0 mac 1010e480 SubOptionEntryPicture::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078e190 mac 1010e380 SubOptionEntryPicture::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078e1f0 mac 1010e330 SubOptionEntryPicture::UpdateKeyboard(LH_KEY, unsigned short)
@@ -151,7 +151,7 @@ public:
     // Override methods
 
     // win1.41 0078e250 mac 1010e140 SubOptionEntryScroll::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078e320 mac 1010dff0 SubOptionEntryScroll::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078e3c0 mac 1010dfa0 SubOptionEntryScroll::UpdateKeyboard(LH_KEY, unsigned short)
@@ -169,7 +169,7 @@ public:
     // Override methods
 
     // win1.41 0078e040 mac 1010e720 SubOptionEntrySlider::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078e060 mac 1010e6c0 SubOptionEntrySlider::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078e070 mac 1010e670 SubOptionEntrySlider::UpdateKeyboard(LH_KEY, unsigned short)
@@ -187,7 +187,7 @@ public:
     // Override methods
 
     // win1.41 0078e410 mac 1010ddc0 SubOptionEntryText::GetSubMeshData(SubMeshDrawData &, int, int)
-    virtual void GetSubMeshData(SubMeshDrawData* param_1, int param_2, int param_3);
+    virtual void GetSubMeshData(SubMeshDrawData& param_1, int param_2, int param_3);
     // win1.41 0078e4e0 mac 1010dd60 SubOptionEntryText::UpdateMouse(LHCoord, INTERFACE_MESSAGE_TYPES, int)
     virtual uint32_t UpdateMouse(LHCoord param_1, INTERFACE_MESSAGE_TYPES param_2, int param_3);
     // win1.41 0078e4f0 mac 1010dc10 SubOptionEntryText::UpdateKeyboard(LH_KEY, unsigned short)

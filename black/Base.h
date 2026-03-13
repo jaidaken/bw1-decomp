@@ -11,7 +11,7 @@
 
 // Forward Declares
 
-struct Archive;
+class Archive;
 class BaseInfo;
 struct LHPoint;
 
@@ -29,7 +29,7 @@ public:
     // Virtual functions
 
     // win1.41 004011b0 mac 101228f0 Base::Serialise(Archive&)
-    virtual void Serialise(Archive* param_1); /* 0x0 */
+    virtual void Serialise(Archive& param_1); /* 0x0 */
     // win1.41 00401210 mac 10082770 Base::~Base(void)
     virtual ~Base();
     // win1.41 004011c0 mac 1056ecc0 Base::Delete(int)
@@ -46,9 +46,9 @@ public:
     // Static methods
 
     // win1.41 004366f0 mac 1009ebc0 Base::operator new(unsigned long)
-    static void* __nw(size_t size, const char* file_name, uint32_t line);
+    static void* __nw(unsigned long size, const char* file_name, uint32_t line);
     // win1.41 00436970 mac 10425a80 Base::operator delete(void*, unsigned long)
-    static void __dl(void* ptr, size_t size);
+    void operator delete(void* ptr, size_t size);
 
     // Constructors
 

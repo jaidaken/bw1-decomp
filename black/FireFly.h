@@ -19,8 +19,8 @@ class Base;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-struct LH3DSprite;
-class LHOSFile;
+class LH3DSprite;
+struct LHOSFile;
 class PhysicsObject;
 
 // win1.41 00be9dc0 mac inlined FireFly::`RTTI Type Descriptor'
@@ -62,17 +62,17 @@ public:
     // win1.41 0052a300 mac 100d66d0 FireFly::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0052bbc0 mac 100d6850 FireFly::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0052b870 mac 100d7020 FireFly::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0052a2f0 mac 100d6690 FireFly::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0052a1d0 mac 100da180 FireFly::IsMoving( const(void))
-    virtual bool IsMoving();
+    virtual bool IsMoving() const;
     // win1.41 0052aa90 mac 100d9130 FireFly::Draw(void)
     virtual void Draw();
     // win1.41 0052a510 mac 100d9950 FireFly::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0052a1a0 mac 100da240 FireFly::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 0052a1b0 mac 100da1f0 FireFly::ReactToPhysicsImpact(PhysicsObject *, bool)
@@ -89,7 +89,7 @@ public:
 
     // Constructors
 
-    // win1.41 0052a280 mac 100d9e20 FireFly::FireFly(const MapCoords&)
+    // win1.41 0052a280 mac 100d9e20 FireFly::FireFly(const MapCoords*)
     FireFly(MapCoords* coords);
     // win1.41 0052a340 mac 100d9e04 FireFly::FireFly(void)
     FireFly();

@@ -48,9 +48,9 @@ public:
     // Non-virtual methods
 
     // win1.41 005fb3f0 mac 103ae2c0 GMagicInfo::GetMagicInfoText(void) const
-    const char* GetMagicInfoText();
+    const char* GetMagicInfoText() const;
     // win1.41 005fb680 mac 103adc30 GMagicInfo::GetMagicEffectInfo(void) const
-    GMagicEffectInfo* GetMagicEffectInfo();
+    GMagicEffectInfo* GetMagicEffectInfo() const;
 };
 
 #else // __cplusplus

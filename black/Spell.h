@@ -28,8 +28,8 @@ class Living;
 class Object;
 struct PSysProcessInfo;
 class Reaction;
-struct SpellCastData;
-struct SpellEventInfo;
+class SpellCastData;
+class SpellEventInfo;
 class WorshipSite;
 
 // win1.41 00be0300 mac inlined Spell::`RTTI Type Descriptor'
@@ -95,9 +95,9 @@ public:
     // win1.41 0071bc30 mac 1050fe70 Spell::GetSampleForAttack(void)
     virtual uint32_t GetSampleForAttack();
     // win1.41 00721cd0 mac 10514eb0 Spell::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00721930 mac 105155b0 Spell::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0071faf0 mac 10514e40 Spell::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0055cec0 mac 103b1fa0 Spell::GetCreatureBeliefType(void)
@@ -119,13 +119,13 @@ public:
     // win1.41 007216d0 mac 105162d0 Spell::GetUpdateOfBoredomValue(Reaction *, GameThingWithPos *)
     virtual float GetUpdateOfBoredomValue(Reaction* param_1, GameThingWithPos* param_2);
     // win1.41 0055cee0 mac 103b2030 Spell::IsSuitableForCreatureAction(void)
-    virtual bool IsSuitableForCreatureAction();
+    virtual bool32_t IsSuitableForCreatureAction();
     // win1.41 0055ced0 mac 103b1fe0 Spell::CanBeFrighteningToCreature(Creature *)
-    virtual bool CanBeFrighteningToCreature(Creature* param_1);
+    virtual bool32_t CanBeFrighteningToCreature(Creature* param_1);
     // win1.41 00720240 mac 10518ca0 Spell::GetWorshipSite(void)
     virtual WorshipSite* GetWorshipSite();
     // win1.41 0055ce50 mac 103b1df0 Spell::IsSpell( const(void))
-    virtual bool IsSpell() const;
+    virtual bool32_t IsSpell() const;
     // win1.41 0055cf00 mac 103b20a0 Spell::GetText(void)
     virtual const char* GetText();
     // win1.41 007218a0 mac 10515fb0 Spell::GetQueryFirstEnumText(void)
@@ -151,7 +151,7 @@ public:
     // win1.41 007203e0 mac 105188d0 Spell::DebugDraw(void)
     virtual void DebugDraw(); /* 0x510 */
     // win1.41 007214c0 mac 105166c0 Spell::NeedsContinualPackets(GInterfaceStatus *)
-    virtual bool NeedsContinualPackets(GInterfaceStatus* param_1);
+    virtual bool32_t NeedsContinualPackets(GInterfaceStatus* param_1);
     // win1.41 0055ce00 mac 103b1ce0 Spell::HasEnoughChantsAndLifeForRecast(void)
     virtual void HasEnoughChantsAndLifeForRecast();
     // win1.41 0055ce10 mac 103b1d30 Spell::UpdateStruckReaction(void)
@@ -373,7 +373,7 @@ void __fastcall Draw__5SpellFv(struct Spell* this) asm("?Draw@Spell@@UAEXXZ");
 // win1.41 007203e0 mac 105188d0 Spell::DebugDraw(void)
 void __fastcall DebugDraw__5SpellFv(struct Spell* this) asm("?DebugDraw@Spell@@UAEXXZ");
 // win1.41 007214c0 mac 105166c0 Spell::NeedsContinualPackets(GInterfaceStatus *)
-bool __fastcall NeedsContinualPackets__5SpellFP16GInterfaceStatus(struct Spell* this, const void* edx, struct GInterfaceStatus* param_1) asm("?NeedsContinualPackets@Spell@@UAE_NPAVGInterfaceStatus@@@Z");
+bool __fastcall NeedsContinualPackets__5SpellFP16GInterfaceStatus(struct Spell* this, const void* edx, struct GInterfaceStatus* param_1) asm("?NeedsContinualPackets@Spell@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 0055ce00 mac 103b1ce0 Spell::HasEnoughChantsAndLifeForRecast(void)
 void __fastcall HasEnoughChantsAndLifeForRecast__5SpellFv(struct Spell* this) asm("?HasEnoughChantsAndLifeForRecast@Spell@@UAEXXZ");
 // win1.41 0055ce10 mac 103b1d30 Spell::UpdateStruckReaction(void)

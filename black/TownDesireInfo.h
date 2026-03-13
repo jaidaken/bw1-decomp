@@ -61,7 +61,7 @@ public:
     // Non-virtual methods
 
     // win1.41 00746580 mac 1005ebc0 GTownDesireInfo::GetDesireFunctions(void) const
-    GTownDesireFunction* GetDesireFunctions();
+    GTownDesireFunction* GetDesireFunctions() const;
 };
 
 #else // __cplusplus

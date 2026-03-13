@@ -23,6 +23,7 @@ class GameThing;
 class PlannedWorshipSite: public PlannedCitadelPart
 {
 public:
+    uint32_t field_0x4c; /* 0x4c */
 
     // Override methods
 
@@ -31,9 +32,9 @@ public:
     // win1.41 0077bf00 mac 105ab150 PlannedWorshipSite::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0077bf90 mac 105b0dc0 PlannedWorshipSite::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0077bf30 mac 105b0ea0 PlannedWorshipSite::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0077bef0 mac 105ab110 PlannedWorshipSite::GetSaveType(void)
     virtual uint32_t GetSaveType();
 };
@@ -49,8 +50,9 @@ struct GameThing;
 struct PlannedWorshipSite
 {
   struct PlannedCitadelPart super;  /* 0x0 */
+  uint32_t field_0x4c;              /* 0x4c */
 };
-static_assert(sizeof(struct PlannedWorshipSite) == 0x48, "Data type is of wrong size");
+static_assert(sizeof(struct PlannedWorshipSite) == 0x50, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

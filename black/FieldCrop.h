@@ -55,13 +55,13 @@ public:
     // win1.41 006081e0 mac 103bb330 FieldCrop::SetLife(float)
     virtual void SetLife(float param_1);
     // win1.41 006083e0 mac 103bac40 FieldCrop::InterfaceSetInMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetInMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 00608360 mac 103bae90 FieldCrop::ValidToApplyThisToObject(GInterfaceStatus *, Object *)
     virtual uint32_t ValidToApplyThisToObject(GInterfaceStatus* param_1, Object* param_2);
     // win1.41 00608390 mac 103badc0 FieldCrop::ApplyThisToObject(GInterfaceStatus *, Object *, GestureSystemPacketData *)
     virtual uint32_t ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2, GestureSystemPacketData* param_3);
     // win1.41 006082b0 mac 103bb140 FieldCrop::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3);
+    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3);
     // win1.41 006082e0 mac 103bb0c0 FieldCrop::GetPhysicsConstantsType(void)
     virtual uint32_t GetPhysicsConstantsType();
     // win1.41 006082f0 mac 103bafd0 FieldCrop::SetUpPhysOb(PhysOb *)
@@ -71,7 +71,7 @@ public:
     // win1.41 006082d0 mac 103bb100 FieldCrop::CanBecomeAPhysicsObject(void)
     virtual bool CanBecomeAPhysicsObject();
     // win1.41 00608440 mac 103baba0 FieldCrop::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
     // win1.41 00608350 mac 103baf40 FieldCrop::IsARootedObject(void)
     virtual bool IsARootedObject();
 };
@@ -146,7 +146,7 @@ bool __fastcall InteractsWithPhysicsObjects__9FieldCropFv(struct Object* this) a
 // win1.41 006082d0 mac 103bb100 FieldCrop::CanBecomeAPhysicsObject(void)
 bool __fastcall CanBecomeAPhysicsObject__9FieldCropFv(struct Object* this) asm("?CanBecomeAPhysicsObject@FieldCrop@@UAE_NXZ");
 // win1.41 00608440 mac 103baba0 FieldCrop::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__9FieldCropFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@FieldCrop@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__9FieldCropFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@FieldCrop@@UAEIPAVCreature@@@Z");
 // win1.41 00608350 mac 103baf40 FieldCrop::IsARootedObject(void)
 bool __fastcall IsARootedObject__9FieldCropFv(struct Object* this) asm("?IsARootedObject@FieldCrop@@UAE_NXZ");
 

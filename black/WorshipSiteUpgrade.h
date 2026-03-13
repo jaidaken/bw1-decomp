@@ -17,7 +17,7 @@ class Base;
 class GPlayer;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class MultiMapFixed;
 class Object;

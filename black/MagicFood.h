@@ -29,6 +29,7 @@ class Object;
 class MagicFood: public PileFood
 {
 public:
+    uint32_t field_0xbc; /* 0xbc */
 
     // Override methods
 
@@ -41,17 +42,17 @@ public:
     // win1.41 005fa9b0 mac 103abec0 MagicFood::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 005fab40 mac 103abf00 MagicFood::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 005fab00 mac 103abf90 MagicFood::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 005fa9a0 mac 103abe80 MagicFood::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 005fa990 mac 103abe40 MagicFood::GetImpressiveType(void)
     virtual IMPRESSIVE_TYPE GetImpressiveType();
     // win1.41 004e4a20 mac 105e43b0 MagicFood::IsAFoodPileOutsideStoragePit(Creature *)
-    virtual bool IsAFoodPileOutsideStoragePit(Creature* param_1);
+    virtual bool32_t IsAFoodPileOutsideStoragePit(Creature* param_1);
     // win1.41 005faab0 mac 103ac020 MagicFood::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
 };
 
 #else // __cplusplus
@@ -70,8 +71,9 @@ struct Object;
 struct MagicFood
 {
   struct PileFood super;  /* 0x0 */
+  uint32_t field_0xbc;  /* 0xbc */
 };
-static_assert(sizeof(struct MagicFood) == 0xbc, "Data type is of wrong size");
+static_assert(sizeof(struct MagicFood) == 0xc0, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

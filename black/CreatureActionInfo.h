@@ -21,6 +21,7 @@ class Base;
 class CreatureActionInfo: public GBaseInfo
 {
 public:
+    uint8_t field_0x10[0x100]; /* 0x10 */
 
     // Override methods
 
@@ -39,8 +40,9 @@ struct Base;
 struct CreatureActionInfo
 {
   struct GBaseInfo super;  /* 0x0 */
+  uint8_t field_0x10[0x100]; /* 0x10 */
 };
-static_assert(sizeof(struct CreatureActionInfo) == 0x10, "Data type is of wrong size");
+static_assert(sizeof(struct CreatureActionInfo) == 0x110, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

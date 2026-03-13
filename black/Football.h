@@ -49,15 +49,15 @@ public:
     // win1.41 00531320 mac 102b8870 Football::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 005336e0 mac 102b89e0 Football::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 005332a0 mac 102b9230 Football::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00531310 mac 102b8830 Football::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00531180 mac 102bd4d0 Football::GetCreatureBeliefType(void)
     virtual uint32_t GetCreatureBeliefType();
     // win1.41 00531280 mac 102b8610 Football::IsFootball(void)
-    virtual bool IsFootball();
+    virtual bool32_t IsFootball();
     // win1.41 00531e40 mac 102bc020 Football::ReduceLife(float, GPlayer *)
     virtual void ReduceLife(float param_1, GPlayer* param_2);
     // win1.41 00533e40 mac 102be320 Football::Process(void)
@@ -65,13 +65,13 @@ public:
     // win1.41 00531610 mac 102bccb0 Football::Draw(void)
     virtual void Draw();
     // win1.41 00530f80 mac 102bd510 Football::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 005312e0 mac 102b8760 Football::Get3DType(void)
     virtual LH3DObject::ObjectType Get3DType();
     // win1.41 00531930 mac 102bcad0 Football::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 005312f0 mac 102b87a0 Football::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
     // win1.41 00533b30 mac inlined Football::GetDoorPos(MapCoords *)
     virtual MapCoords* GetDoorPos(MapCoords* param_1);
     // win1.41 00531290 mac 102b8650 Football::IsRepaired(void)
@@ -84,7 +84,7 @@ public:
     // win1.41 00531410 mac 102bd040 Football::GetBall(void)
     void* GetBall();
     // win1.41 00532960 mac 102baa80 Football::IsPlayerOnHomeTeam(Villager *)
-    bool IsPlayerOnHomeTeam(Villager* param_1);
+    bool32_t IsPlayerOnHomeTeam(Villager* param_1);
     // win1.41 00532c80 mac 102ba570 Football::GetGoalPosition(unsigned long)
     void GetGoalPosition(unsigned long param_1);
 };
@@ -204,7 +204,7 @@ extern const struct AbodeVftable __vt__8Football asm("??_7Football@@6B@");
 // win1.41 00531410 mac 102bd040 Football::GetBall(void)
 void* __fastcall GetBall__8FootballFv(struct Football* this) asm("?GetBall@Football@@QAEPAXXZ");
 // win1.41 00532960 mac 102baa80 Football::IsPlayerOnHomeTeam(Villager *)
-bool __fastcall IsPlayerOnHomeTeam__8FootballFP8Villager(struct Football* this, const void* edx, struct Villager* param_1) asm("?IsPlayerOnHomeTeam@Football@@QAE_NPAVVillager@@@Z");
+bool __fastcall IsPlayerOnHomeTeam__8FootballFP8Villager(struct Football* this, const void* edx, struct Villager* param_1) asm("?IsPlayerOnHomeTeam@Football@@QAEIPAVVillager@@@Z");
 // win1.41 00532c80 mac 102ba570 Football::GetGoalPosition(unsigned long)
 void __fastcall GetGoalPosition__8FootballFUl(struct Football* this, const void* edx, unsigned long param_1) asm("?GetGoalPosition@Football@@QAEXK@Z");
 
@@ -243,7 +243,7 @@ enum LH3DObject__ObjectType __fastcall Get3DType__8FootballFv(struct Object* thi
 // win1.41 00531930 mac 102bcad0 Football::InteractsWithPhysicsObjects(void)
 bool __fastcall InteractsWithPhysicsObjects__8FootballFv(struct Object* this) asm("?InteractsWithPhysicsObjects@Football@@UAE_NXZ");
 // win1.41 005312f0 mac 102b87a0 Football::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__8FootballFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@Football@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__8FootballFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@Football@@UAEIPAVCreature@@@Z");
 // win1.41 00533b30 mac inlined Football::GetDoorPos(MapCoords *)
 struct MapCoords* __fastcall GetDoorPos__8FootballFP9MapCoords(struct MultiMapFixed* this, const void* edx, struct MapCoords* param_1) asm("?GetDoorPos@Football@@UAEPAUMapCoords@@PAU2@@Z");
 // win1.41 00531290 mac 102b8650 Football::IsRepaired(void)

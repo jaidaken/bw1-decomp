@@ -9,7 +9,7 @@
 
 // Forward Declares
 
-struct LH3DSprite;
+class LH3DSprite;
 
 struct BookmarkGraphic
 {

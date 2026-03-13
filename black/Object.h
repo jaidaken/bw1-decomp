@@ -36,16 +36,16 @@ class GameOSFile;
 class GameThing;
 struct GameThingVftable;
 struct GestureSystemPacketData;
-struct LH3DSprite;
+class LH3DSprite;
 struct LHMatrix;
-class LHOSFile;
+struct LHOSFile;
 struct LHPoint;
 struct LHRegion;
 class LandscapeVortex;
 class Living;
 struct MapCell;
 class MultiMapFixed;
-struct NewCollide;
+class NewCollide;
 struct PhysOb;
 class PhysicsObject;
 struct Point2D;
@@ -97,9 +97,9 @@ public:
     // win1.41 005190e0 mac 1008d3a0 Object::DrawInHand(GInterfaceStatus *)
     virtual void DrawInHand(GInterfaceStatus* param_1);
     // win1.41 00639eb0 mac 103d1b20 Object::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& file);
+    virtual bool32_t Load(GameOSFile& file);
     // win1.41 00639b90 mac 103d1d50 Object::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& file);
+    virtual bool32_t Save(GameOSFile& file);
     // win1.41 0063a020 mac 103d1940 Object::ResolveLoad(void)
     virtual void ResolveLoad();
     // win1.41 00402600 mac 1004b110 Object::GetLife(void)
@@ -109,13 +109,21 @@ public:
     // win1.41 00639200 mac 103d3c80 Object::SetScale(float)
     virtual void SetScale(float scale);
     // win1.41 004027c0 mac 1016ea00 Object::GetDistanceFromObject(MapCoords &)
+#ifdef STAGING_BASE_OBJ
+    virtual float GetDistanceFromObject(MapCoords* target);
+#else
     virtual float GetDistanceFromObject(const MapCoords* target);
+#endif
     // win1.41 006394e0 mac 103d35f0 Object::GetPhysicsMovementDirection(LHPoint *)
     virtual void GetPhysicsMovementDirection(LHPoint* pos);
     // win1.41 00402710 mac 10032610 Object::IsMoving( const(void))
+#ifdef STAGING_BASE_OBJ
+    virtual bool IsMoving();
+#else
     virtual bool IsMoving() const;
+#endif
     // win1.41 006392b0 mac 10037930 Object::IsObjectInMap(void)
-    virtual bool IsObjectInMap();
+    virtual bool32_t IsObjectInMap();
     // win1.41 0063a780 mac 103d07e0 Object::IsDrowning(void)
     virtual bool IsDrowning();
     // win1.41 006377f0 mac 103d6d80 Object::CleanupWhenDeleted(int)
@@ -177,7 +185,11 @@ public:
     // win1.41 00639b20 mac 103d2290 Object::SetInScript(int)
     virtual void SetInScript(int param_1);
     // win1.41 004029f0 mac 100219d0 Object::IsObject( const(void))
+#ifdef STAGING_BASE_OBJ
+    virtual bool IsObject();
+#else
     virtual bool32_t IsObject() const;
+#endif
     // win1.41 00638580 mac 103d4f70 Object::GetQueryFirstEnumText(void)
     virtual HELP_TEXT GetQueryFirstEnumText();
     // win1.41 00638590 mac 103d4f10 Object::GetQueryLastEnumText(void)
@@ -213,7 +225,7 @@ public:
     // win1.41 00402560 mac 1030b0c0 Object::IsReachable(void)
     virtual bool IsReachable(); /* 0x530 */
     // win1.41 0063a920 mac 103d03c0 Object::BlocksTownClearArea( const(void))
-    virtual bool BlocksTownClearArea();
+    virtual bool BlocksTownClearArea() const;
     // win1.41 006365f0 mac 103d9010 Object::Create3DObject(void)
     virtual void Create3DObject();
     // win1.41 00418c90 mac 100540e0 Object::GetMapChild(MapCell const &)
@@ -233,9 +245,9 @@ public:
     // win1.41 006366b0 mac 103d8d10 Object::IsObjectInMapCheck(void)
     virtual bool IsObjectInMapCheck();
     // win1.41 00636a40 mac 1004d070 Object::MoveMapObject(MapCoords const &)
-    virtual int MoveMapObject(const MapCoords& param_2);
+    virtual int MoveMapObject(const MapCoords* param_2);
     // win1.41 00638040 mac 10055200 Object::ActualMoveMapObject(MapCoords const &)
-    virtual void ActualMoveMapObject(const MapCoords& param_1); /* 0x560 */
+    virtual void ActualMoveMapObject(const MapCoords* param_1); /* 0x560 */
     // win1.41 00402570 mac 103dca60 Object::GetPtr(void)
     virtual Object* GetPtr();
     // win1.41 00636bd0 mac 103d8710 Object::GetMeshRadius( const(void))
@@ -243,9 +255,9 @@ public:
     // win1.41 00402580 mac 103dc890 Object::Get3DObjectForPSys(void)
     virtual Game3DObject* Get3DObjectForPSys();
     // win1.41 00732630 mac 101499d0 Object::GetPSysFireFlameMatrix(LHMatrix *)
-    virtual bool GetPSysFireFlameMatrix(LHMatrix* matrix); /* 0x570 */
+    virtual bool32_t GetPSysFireFlameMatrix(LHMatrix* matrix); /* 0x570 */
     // win1.41 00732770 mac 10149520 Object::GetPSysFireLocalRndFlamePos(LHPoint *, long *)
-    virtual bool GetPSysFireLocalRndFlamePos(LHPoint* point, int* param_2);
+    virtual bool32_t GetPSysFireLocalRndFlamePos(LHPoint* point, int* param_2);
     // win1.41 00732660 mac 10149810 Object::GetPSysFireWorldFlamePos(LHPoint const &, long, LHPoint *)
     virtual bool GetPSysFireWorldFlamePos(const LHPoint& param_1, int param_2, LHPoint* param_3);
     // win1.41 00732950 mac 101493c0 Object::GetPSysFireLocalFlameScale(void)
@@ -287,13 +299,13 @@ public:
     // win1.41 00637c20 mac 103d63c0 Object::ReduceLifeDueToBurning(float, GPlayer *)
     virtual void ReduceLifeDueToBurning(float param_1, GPlayer* param_2);
     // win1.41 00637900 mac 103d6a00 Object::FillInEffectDefenceMultiplier(EffectNumbers &)
-    virtual void FillInEffectDefenceMultiplier(EffectNumbers& param_1);
+    virtual void FillInEffectDefenceMultiplier(EffectNumbers* param_1);
     // win1.41 00637980 mac 103d6510 Object::ApplyEffect(EffectValues &, int)
     virtual void ApplyEffect(EffectValues& param_1, int param_2);
     // win1.41 00637d00 mac 103d6120 Object::GetDamageEffect(EffectValues &)
-    virtual float GetDamageEffect(EffectValues& values); /* 0x5d0 */
+    virtual float GetDamageEffect(EffectValues* values); /* 0x5d0 */
     // win1.41 00637d80 mac 103d6050 Object::GetHealEffect(EffectValues &)
-    virtual float GetHealEffect(EffectValues& values);
+    virtual float GetHealEffect(EffectValues* values);
     // win1.41 00637cf0 mac 103d6220 Object::GetActualObjectToEffect(GPlayer *, bool)
     virtual void* GetActualObjectToEffect(GPlayer* player, bool param_2);
     // win1.41 006392c0 mac 103d38b0 Object::DrawValue(long, float)
@@ -311,17 +323,21 @@ public:
     // win1.41 00639ac0 mac 103d2490 Object::GetDefaultFireRadius(void)
     virtual float GetDefaultFireRadius();
     // win1.41 006378e0 mac 103d6ad0 Object::DestroyedByEffect(GPlayer *, float)
-    virtual bool DestroyedByEffect(GPlayer* player, float param_2);
+    virtual bool32_t DestroyedByEffect(GPlayer* player, float param_2);
     // win1.41 00418fc0 mac 100a9d90 Object::Process(void)
     virtual uint32_t Process();
     // win1.41 00402650 mac 10368aa0 Object::ProcessBySpell(Spell *)
     virtual uint32_t ProcessBySpell(Spell* spell); /* 0x600 */
     // win1.41 00637ff0 mac 103d57e0 Object::ApplySingleEffect(EFFECT_TYPE, float, GameThing *, MapCoords const &)
-    virtual void ApplySingleEffect(EFFECT_TYPE param_1, float param_2, GameThing* param_3, const MapCoords& param_4);
+    virtual void ApplySingleEffect(EFFECT_TYPE param_1, float param_2, GameThing* param_3, const MapCoords* param_4);
     // win1.41 00425340 mac 10368d70 Object::GetMesh( const(void))
     virtual int GetMesh() const;
     // win1.41 00402660 mac 10368ae0 Object::GetDetailMesh( const(DETAIL_LEVEL))
+#ifdef STAGING_BASE_OBJ
+    virtual int GetDetailMesh(int detail);
+#else
     virtual int GetDetailMesh(int detail) const;
+#endif
     // win1.41 004648b0 mac 100e33f0 Object::Draw(void)
     virtual void Draw(); /* 0x610 */
     // win1.41 0051c820 mac 1001aa40 Object::DrawOutOfMap(bool)
@@ -347,7 +363,7 @@ public:
     // win1.41 00638200 mac 1007e8a0 Object::GetWorldMatrix(LHMatrix *)
     virtual void GetWorldMatrix(LHMatrix* out);
     // win1.41 00639b60 mac 103d21e0 Object::CanBeSuckedIntoVortex(LandscapeVortex *)
-    virtual bool CanBeSuckedIntoVortex(LandscapeVortex* param_1); /* 0x640 */
+    virtual bool32_t CanBeSuckedIntoVortex(LandscapeVortex* param_1); /* 0x640 */
     // win1.41 00639b80 mac 103d2110 Object::GetDiscipleStateIfInteractedWith(GInterfaceStatus *, Villager *)
     virtual uint32_t GetDiscipleStateIfInteractedWith(GInterfaceStatus* status, Villager* villager);
     // win1.41 00639550 mac 103d3460 Object::GetWorkingPos(Object *)
@@ -367,11 +383,19 @@ public:
     // win1.41 006395c0 mac 103d3390 Object::GetWoodValue(void)
     virtual float GetWoodValue();
     // win1.41 00402700 mac 10062630 Object::GetFoodType(void)
+#ifdef STAGING_BASE_OBJ
+    virtual FOOD_TYPE GetFoodType();
+#else
     FOOD_TYPE GetFoodType();
+#endif
     // win1.41 00639390 mac 103d3840 Object::GetImpressiveValue(void)
     float GetImpressiveValue();
     // win1.41 00402730 mac 1056f400 Object::IsSpellSeedReturnPoint( const(void))
-    virtual bool IsSpellSeedReturnPoint() const; /* 0x670 */
+#ifdef STAGING_BASE_OBJ
+    virtual bool IsSpellSeedReturnPoint();
+#else
+    virtual bool IsSpellSeedReturnPoint() const;
+#endif /* 0x670 */
     // win1.41 00402740 mac 104d62b0 Object::IsABeliever(void)
     virtual bool32_t IsABeliever();
     // win1.41 004192c0 mac 100a9dc0 Object::AsMultiMapFixed(void)
@@ -379,9 +403,9 @@ public:
     // win1.41 0063a8e0 mac 103d0400 Object::ApplyWaterSpell(SpellWater *)
     virtual float ApplyWaterSpell(SpellWater* spell);
     // win1.41 004192d0 mac 100a9e00 Object::IsResourceStore(RESOURCE_TYPE)
-    virtual bool IsResourceStore(RESOURCE_TYPE type); /* 0x680 */
+    virtual bool32_t IsResourceStore(RESOURCE_TYPE type); /* 0x680 */
     // win1.41 0063a930 mac 103d0360 Object::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-    virtual bool DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
+    virtual bool32_t DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
     // win1.41 0063aad0 mac 103d0050 Object::GetRadiusMultiplierForApplyingPotToPos(void)
     virtual float GetRadiusMultiplierForApplyingPotToPos();
     // win1.41 0063aae0 mac 103cffe0 Object::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
@@ -397,15 +421,15 @@ public:
     // win1.41 00402790 mac 10109690 Object::IsLockedInInteract(void)
     virtual bool IsLockedInInteract(); /* 0x6a0 */
     // win1.41 004027a0 mac 10109580 Object::SetDying(void)
-    virtual bool SetDying();
+    virtual bool32_t SetDying();
     // win1.41 00636ab0 mac 103d8820 Object::IsAttackable(Object *)
-    virtual bool IsAttackable(Object* param_1);
+    virtual bool32_t IsAttackable(Object* param_1);
     // win1.41 00636af0 mac 103d8770 Object::IsAllied(Object *)
-    virtual bool IsAllied(Object* param_1);
+    virtual bool32_t IsAllied(Object* param_1);
     // win1.41 00637e60 mac 103d5970 Object::IsTouching(MapCoords const &, MapCoords const &)
-    virtual bool IsTouching(const MapCoords& param_1, const MapCoords& param_2);
+    virtual bool IsTouching(const MapCoords* param_1, const MapCoords* param_2);
     // win1.41 00637e30 mac 103d5ef0 Object::IsTouching(MapCoords const &)
-    virtual bool IsTouching(const MapCoords& param_1);
+    virtual bool IsTouching(const MapCoords* param_1);
     // win1.41 00419300 mac 100a9e50 Object::StartOnFire(void)
     virtual void StartOnFire();
     // win1.41 004027b0 mac 100a8170 Object::EndOnFire(void)
@@ -423,7 +447,11 @@ public:
     // win1.41 004027e0 mac 1056c2f0 Object::IsReadyForNetworkUnfriendlyLockedSelect(void)
     virtual bool32_t IsReadyForNetworkUnfriendlyLockedSelect();
     // win1.41 004027f0 mac 10577790 Object::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
+#ifdef STAGING_BASE_OBJ
+    virtual bool NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1);
+#else
     virtual bool32_t NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1);
+#endif
     // win1.41 00402800 mac 1037fcb0 Object::GetReadyForNetworkUnfriendlyEndLockedSelect(void)
     virtual bool32_t GetReadyForNetworkUnfriendlyEndLockedSelect(); /* 0x6e0 */
     // win1.41 00402810 mac 102fd0c0 Object::IsReadyForNetworkUnfriendlyEndLockedSelect(void)
@@ -445,9 +473,17 @@ public:
     // win1.41 00637670 mac 103d7280 Object::InterfaceSetOutMagicHand(GInterfaceStatus *)
     virtual bool32_t InterfaceSetOutMagicHand(GInterfaceStatus* status);
     // win1.41 00402880 mac 1040fc60 Object::ValidToRemoveFromHand(GInterfaceStatus *, MapCoords const &)
-    virtual bool32_t ValidToRemoveFromHand(GInterfaceStatus* status, const MapCoords& param_2);
+#ifdef STAGING_BASE_OBJ
+    virtual bool ValidToRemoveFromHand(GInterfaceStatus* status, const MapCoords* param_2);
+#else
+    virtual bool ValidToRemoveFromHand(GInterfaceStatus* status, const MapCoords* param_2);
+#endif
     // win1.41 00402890 mac 100b16a0 Object::RemoveFromHand(GInterfaceStatus *, MapCoords const &)
-    virtual uint32_t RemoveFromHand(GInterfaceStatus* status, const MapCoords& param_2);
+#ifdef STAGING_BASE_OBJ
+    virtual uint32_t RemoveFromHand(GInterfaceStatus* status, const MapCoords* param_2);
+#else
+    virtual uint32_t RemoveFromHand(GInterfaceStatus* status, const MapCoords* param_2);
+#endif
     // win1.41 00636aa0 mac 100933f0 Object::ValidToShakeFromHand(void)
     virtual bool32_t ValidToShakeFromHand(); /* 0x710 */
     // win1.41 004028a0 mac 101ca2e0 Object::InterfaceMustBeInInfluenceForInteraction(void)
@@ -459,15 +495,27 @@ public:
     // win1.41 004028c0 mac 10513670 Object::ApplyThisToObject(GInterfaceStatus *, Object *, GestureSystemPacketData *)
     virtual uint32_t ApplyThisToObject(GInterfaceStatus* status, Object* param_2, GestureSystemPacketData* param_3); /* 0x720 */
     // win1.41 004028d0 mac 10110bf0 Object::ValidToApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-    virtual uint32_t ValidToApplyThisToMapCoord(GInterfaceStatus* status, const MapCoords& param_2);
+#ifdef STAGING_BASE_OBJ
+    virtual uint32_t ValidToApplyThisToMapCoord(GInterfaceStatus* status, MapCoords* param_2);
+#else
+    virtual uint32_t ValidToApplyThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2);
+#endif
     // win1.41 004028e0 mac 10110b70 Object::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* status, const MapCoords& param_2, GestureSystemPacketData* param_3);
+#ifdef STAGING_BASE_OBJ
+    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2, GestureSystemPacketData* param_3);
+#else
+    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2, GestureSystemPacketData* param_3);
+#endif
     // win1.41 004028f0 mac 1055f210 Object::ValidForLockedApplyProcess(GInterfaceStatus *)
     virtual uint32_t ValidForLockedApplyProcess(GInterfaceStatus* status);
     // win1.41 00402900 mac 1016baf0 Object::ApplyUnlockProcess(GInterfaceStatus *)
     virtual uint32_t ApplyUnlockProcess(GInterfaceStatus* status); /* 0x730 */
     // win1.41 00402910 mac 10364e10 Object::IsInterfacePowerUpWhenInHand( const(void))
-    virtual bool IsInterfacePowerUpWhenInHand() const;
+#ifdef STAGING_BASE_OBJ
+    virtual bool32_t IsInterfacePowerUpWhenInHand();
+#else
+    virtual bool32_t IsInterfacePowerUpWhenInHand() const;
+#endif
     // win1.41 00402920 mac 103ad050 Object::ApplyOnlyAfterRecSystem(void)
     virtual uint32_t ApplyOnlyAfterRecSystem();
     // win1.41 00402930 mac 10101e60 Object::ApplyOnlyAfterReleased(void)
@@ -487,21 +535,41 @@ public:
     // win1.41 006385e0 mac 103d4a70 Object::ThrowObjectFromHand(GInterfaceStatus *, int)
     virtual uint32_t ThrowObjectFromHand(GInterfaceStatus* status, int param_2);
     // win1.41 00402980 mac 1016aaf0 Object::ValidToSelectFightThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-    virtual uint32_t ValidToSelectFightThisToMapCoord(GInterfaceStatus* status, const MapCoords& param_2);
+#ifdef STAGING_BASE_OBJ
+    virtual uint32_t ValidToSelectFightThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2);
+#else
+    virtual uint32_t ValidToSelectFightThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2);
+#endif
     // win1.41 00402990 mac 1056d5f0 Object::ValidToApplyFightThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-    virtual uint32_t ValidToApplyFightThisToMapCoord(GInterfaceStatus* status, const MapCoords& param_2); /* 0x760 */
+#ifdef STAGING_BASE_OBJ
+    virtual uint32_t ValidToApplyFightThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2); /* 0x760 */
+#else
+    virtual uint32_t ValidToApplyFightThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2); /* 0x760 */
+#endif
     // win1.41 004029a0 mac 103692a0 Object::SelectFightThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-    virtual uint32_t SelectFightThisToMapCoord(GInterfaceStatus* status, const MapCoords& param_2);
+#ifdef STAGING_BASE_OBJ
+    virtual uint32_t SelectFightThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2);
+#else
+    virtual uint32_t SelectFightThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2);
+#endif
     // win1.41 004029b0 mac 103690d0 Object::ApplyFightThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-    virtual uint32_t ApplyFightThisToMapCoord(GInterfaceStatus* status, const MapCoords& param_2);
+#ifdef STAGING_BASE_OBJ
+    virtual uint32_t ApplyFightThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2);
+#else
+    virtual uint32_t ApplyFightThisToMapCoord(GInterfaceStatus* status, const MapCoords* param_2);
+#endif
     // win1.41 004029c0 mac 10369240 Object::ValidToFightThisToObject(GInterfaceStatus *, MapCoords const &)
-    virtual uint32_t ValidToFightThisToObject(GInterfaceStatus* status, const MapCoords& param_2);
+#ifdef STAGING_BASE_OBJ
+    virtual uint32_t ValidToFightThisToObject(GInterfaceStatus* status, const MapCoords* param_2);
+#else
+    virtual uint32_t ValidToFightThisToObject(GInterfaceStatus* status, const MapCoords* param_2);
+#endif
     // win1.41 004029d0 mac 101cbb80 Object::FightThisToObject(GInterfaceStatus *, Object *)
     virtual uint32_t FightThisToObject(GInterfaceStatus* status, Object* param_2); /* 0x770 */
     // win1.41 004029e0 mac 100068d0 Object::IsEffectReceiver(EffectValues *)
-    virtual bool IsEffectReceiver(EffectValues* param_1);
+    virtual bool32_t IsEffectReceiver(EffectValues* param_1);
     // win1.41 00639960 mac 103d2ba0 Object::CanBeDestroyedBySpell(Spell *)
-    virtual bool CanBeDestroyedBySpell(Spell* param_1);
+    virtual bool32_t CanBeDestroyedBySpell(Spell* param_1);
     // win1.41 00638cf0 mac 103d3f30 Object::GetImportance(void)
     virtual float GetImportance();
     // win1.41 00636f00 mac 103d7760 Object::CanBeDestroyedBySpell_2(void)
@@ -521,11 +589,11 @@ public:
     // win1.41 006377b0 mac 103d6f30 Object::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 00419890 mac 100a9e80 Object::ChecksVerticesVObjects(void)
-    virtual bool ChecksVerticesVObjects(); /* 0x7a0 */
+    virtual bool32_t ChecksVerticesVObjects(); /* 0x7a0 */
     // win1.41 006377d0 mac 103d6e50 Object::ShouldPhysicsRaiseObjectUntilNotIntersectingThis(Object *)
     virtual void ShouldPhysicsRaiseObjectUntilNotIntersectingThis(Object* param_1);
     // win1.41 00402a00 mac 100b06b0 Object::PhysicallyDestroysAbodes(void)
-    virtual bool PhysicallyDestroysAbodes();
+    virtual bool32_t PhysicallyDestroysAbodes();
     // win1.41 006377c0 mac 103d6ee0 Object::ReactToPhysicsImpact(PhysicsObject *, bool)
     virtual void ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2);
     // win1.41 006377e0 mac 103d6e10 Object::CanBecomeAPhysicsObject(void)
@@ -535,7 +603,7 @@ public:
     // win1.41 00637470 mac 103d7730 Object::HasSunk(void)
     virtual bool HasSunk();
     // win1.41 00638740 mac 103d48a0 Object::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
     // win1.41 00638790 mac 103d43b0 Object::AddToRoutePlan(RPHolder *, Creature *, int, void (*)(int, Point2D, float, int))
     virtual void AddToRoutePlan(RPHolder* param_1, Creature* param_2, int param_3, void (__cdecl* param_4)(int param_1, Point2D param_2, float param_3, int param_4)); /* 0x7c0 */
     // win1.41 006384c0 mac 103d5070 Object::GetRoutePlanRadius(Creature *)
@@ -555,13 +623,13 @@ public:
     // win1.41 00638430 mac 103d52a0 Object::GetLandingPointCount(void)
     virtual int GetLandingPointCount(); /* 0x7e0 */
     // win1.41 00638450 mac 103d5230 Object::GetLandingPoint(unsigned char, LHPoint *)
-    virtual bool GetLandingPoint(uint8_t param_1, LHPoint* param_2);
+    virtual bool32_t GetLandingPoint(uint8_t param_1, LHPoint* param_2);
     // win1.41 00402ab0 mac 103e2750 Object::GetTastiness(void)
     virtual uint32_t GetTastiness();
     // win1.41 00402ac0 mac 102fd110 Object::IsScary(void)
     virtual bool IsScary();
     // win1.41 00638cb0 mac 103d3fe0 Object::GetInspectObjectPos(Villager *, MapCoords *)
-    virtual bool GetInspectObjectPos(Villager* param_1, MapCoords* pos); /* 0x7f0 */
+    virtual bool32_t GetInspectObjectPos(Villager* param_1, MapCoords* pos); /* 0x7f0 */
     // win1.41 0063ab10 mac 103cfef0 Object::DiscipleInHandNear(Villager &, GInterfaceStatus &)
     virtual void DiscipleInHandNear(Villager& param_1, GInterfaceStatus& status);
     // win1.41 00638cd0 mac 103d3f70 Object::GetSpecialPos(unsigned long, MapCoords *)
@@ -590,7 +658,7 @@ public:
     virtual float GetFacingPitch();
     // win1.41 00402b10 mac 1058c010 Object::SetHeadPos(MapCoords *)
     virtual void SetHeadPos(MapCoords* param_1);
-    virtual size_t SaveObject(LHOSFile& file, const MapCoords& coords);
+    virtual size_t SaveObject(LHOSFile& file, const MapCoords* coords);
     // win1.41 00402b30 mac 1016e7f0 Object::IsAPotFromABuildingSite(void)
     virtual bool IsAPotFromABuildingSite(); /* 0x830 */
     // win1.41 00636cd0 mac 103d8340 Object::GetNearestEdgeOfObject(Object *)
@@ -598,7 +666,7 @@ public:
     // win1.41 00636d30 mac 103d8250 Object::GetNearestPosOfObject(Object *)
     virtual void GetNearestPosOfObject(Object* param_1);
     // win1.41 00636da0 mac 103d8190 Object::GetNearestEdgeToPos(MapCoords const &)
-    virtual void GetNearestEdgeToPos(const MapCoords& param_1);
+    virtual void GetNearestEdgeToPos(const MapCoords* param_1);
     // win1.41 00636df0 mac 103d80e0 Object::GetNearestEdge(float, float)
     virtual void GetNearestEdge(float param_1, float param_2); /* 0x840 */
     // win1.41 0063a220 mac 103d1140 Object::GetImmersionTexture(void)
@@ -624,7 +692,7 @@ public:
     // win1.41 00636450 mac 103d9480 Object::Object(void)
     Object();
     // win1.41 00636520 mac 103d90d0 Object::Object(MapCoords const &, GObjectInfo const *)
-    Object(const MapCoords& coords, const GObjectInfo* info);
+    Object(const MapCoords* coords, const GObjectInfo* info);
 
     // Non-virtual Destructors
 
@@ -636,7 +704,7 @@ public:
     // win1.41 00637e00 mac 103d5f70 Object::IsTouching(Object *, float)
     bool IsTouching(Object* param_1, float param_2);
     // win1.41 00638560 mac 1005ba80 Object::GetMapChild(MapCoords const &)
-    Object* GetMapChild(const MapCoords* coord);
+    Object* GetMapChild(const MapCoords& coord);
     // win1.41 0063a810 mac 103d04b0 Object::CreateSmokyStuff(long, float, LH3DColor)
     bool32_t CreateSmokyStuff(long param_1, float param_2, LH3DColor param_3);
 };
@@ -800,7 +868,7 @@ struct ObjectVftable
   void (__fastcall* SetPoisonedResource)(struct Object* this, const void* edx, enum RESOURCE_TYPE type, int param_2);
   void (__fastcall* SetPoisoned)(struct Object* this, const void* edx, int param_1);
   bool (__fastcall* IsLockedInInteract)(struct Object* this);  /* 0x6a0 */
-  bool (__fastcall* SetDying)(struct Object* this);
+  bool32_t (__fastcall* SetDying)(struct Object* this);
   bool (__fastcall* IsAttackable)(struct Object* this, const void* edx, struct Object* param_1);
   bool (__fastcall* IsAllied)(struct Object* this, const void* edx, struct Object* param_1);
   bool (__fastcall* IsTouching_1)(const struct Object* this, const void* edx, struct MapCoords* param_1, struct MapCoords* param_2);  /* 0x6b0 */
@@ -1017,7 +1085,7 @@ void __fastcall GetPhysicsMovementDirection__6ObjectFP7LHPoint(struct GameThingW
 // win1.41 00402710 mac 10032610 Object::IsMoving( const(void))
 bool __fastcall IsMoving__6ObjectCFv(const struct GameThingWithPos* this) asm("?IsMoving@Object@@UAE_NXZ");
 // win1.41 006392b0 mac 10037930 Object::IsObjectInMap(void)
-bool __fastcall IsObjectInMap__6ObjectFv(struct GameThingWithPos* this) asm("?IsObjectInMap@Object@@UAE_NXZ");
+bool32_t __fastcall IsObjectInMap__6ObjectFv(struct GameThingWithPos* this) asm("?IsObjectInMap@Object@@UAE_NXZ");
 // win1.41 0063a780 mac 103d07e0 Object::IsDrowning(void)
 bool __fastcall IsDrowning__6ObjectFv(struct GameThingWithPos* this) asm("?IsDrowning@Object@@UAE_NXZ");
 // win1.41 006377f0 mac 103d6d80 Object::CleanupWhenDeleted(int)
@@ -1027,49 +1095,49 @@ float __fastcall GetImpressiveValue__6ObjectFP6LivingP8Reaction(struct GameThing
 // win1.41 00639940 mac 103d2cf0 Object::GetUpdateOfBoredomValue(Reaction *, GameThingWithPos *)
 float __fastcall GetUpdateOfBoredomValue__6ObjectFP8ReactionP16GameThingWithPos(struct GameThingWithPos* this, const void* edx, struct Reaction* param_1, struct GameThingWithPos* param_2) asm("?GetUpdateOfBoredomValue@Object@@UAEMPAVReaction@@PAVGameThingWithPos@@@Z");
 // win1.41 00638550 mac 103d5010 Object::IsBuildingMaterial(void)
-bool32_t __fastcall IsBuildingMaterial__6ObjectFv(struct GameThingWithPos* this) asm("?IsBuildingMaterial@Object@@UAE_NXZ");
+bool32_t __fastcall IsBuildingMaterial__6ObjectFv(struct GameThingWithPos* this) asm("?IsBuildingMaterial@Object@@UAEIXZ");
 // win1.41 00402a20 mac 103db180 Object::IsSuitableForCreatureAction(void)
-bool32_t __fastcall IsSuitableForCreatureAction__6ObjectFv(struct GameThingWithPos* this) asm("?IsSuitableForCreatureAction@Object@@UAE_NXZ");
+bool32_t __fastcall IsSuitableForCreatureAction__6ObjectFv(struct GameThingWithPos* this) asm("?IsSuitableForCreatureAction@Object@@UAEIXZ");
 // win1.41 004e48c0 mac 105e4960 Object::CanBeEatenByCreature(Creature *)
-bool32_t __fastcall CanBeEatenByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeEatenByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeEatenByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeEatenByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00402a40 mac 100db5e0 Object::CanBeAttackedByCreature(Creature *)
-bool32_t __fastcall CanBeAttackedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeAttackedByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeAttackedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeAttackedByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00425c60 mac 100ade90 Object::CanBeFrighteningToCreature(Creature *)
-bool32_t __fastcall CanBeFrighteningToCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeFrighteningToCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeFrighteningToCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeFrighteningToCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00402a80 mac 1056cf30 Object::CanBeHelpedByCreature(Creature *)
-bool32_t __fastcall CanBeHelpedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeHelpedByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeHelpedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeHelpedByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00402a60 mac 100b95a0 Object::CanBePlayedWithByCreature(Creature *)
-bool32_t __fastcall CanBePlayedWithByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePlayedWithByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBePlayedWithByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePlayedWithByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00402a70 mac 105a25d0 Object::CanBeImpressedByCreature(Creature *)
-bool32_t __fastcall CanBeImpressedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeImpressedByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeImpressedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeImpressedByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3b40 mac 105e70f0 Object::CanBeInspectedByCreature(Creature *)
-bool32_t __fastcall CanBeInspectedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeInspectedByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeInspectedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeInspectedByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3eb0 mac 105e66c0 Object::CanBePoodUponByCreature(Creature *)
-bool32_t __fastcall CanBePoodUponByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePoodUponByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBePoodUponByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePoodUponByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3a20 mac 105e7240 Object::CanBePickedUpByCreature(Creature *)
-bool32_t __fastcall CanBePickedUpByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePickedUpByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBePickedUpByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePickedUpByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3b00 mac 105e7170 Object::CanBeStrokedByCreature(Creature *)
-bool32_t __fastcall CanBeStrokedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeStrokedByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeStrokedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeStrokedByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3c10 mac 105e6e70 Object::CanBeStompedOnByCreature(Creature *)
-bool32_t __fastcall CanBeStompedOnByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeStompedOnByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeStompedOnByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeStompedOnByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3cf0 mac 105e6cb0 Object::CanBeThrownByCreature(Creature *)
-bool32_t __fastcall CanBeThrownByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeThrownByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeThrownByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeThrownByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3d40 mac 105e6b50 Object::CanBePutInAStoragePit(Creature *)
-bool32_t __fastcall CanBePutInAStoragePit__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePutInAStoragePit@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBePutInAStoragePit__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePutInAStoragePit@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00402a90 mac 103e4d10 Object::CanBeExaminedByCreature(Creature *)
-bool32_t __fastcall CanBeExaminedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeExaminedByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeExaminedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeExaminedByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00402aa0 mac 1054f410 Object::IsOnFire(Creature *)
-bool32_t __fastcall IsOnFire__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?IsOnFire@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall IsOnFire__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?IsOnFire@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3d90 mac 105e6a70 Object::CanBePutInFoodPile(Creature *)
-bool32_t __fastcall CanBePutInFoodPile__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePutInFoodPile@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBePutInFoodPile__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePutInFoodPile@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3dd0 mac 105e69a0 Object::CanBePutInWoodPile(Creature *)
-bool32_t __fastcall CanBePutInWoodPile__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePutInWoodPile@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBePutInWoodPile__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePutInWoodPile@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e3bb0 mac 105e6f50 Object::CanBeBroughtBackToCitadel(Creature *)
-bool32_t __fastcall CanBeBroughtBackToCitadel__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeBroughtBackToCitadel@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeBroughtBackToCitadel__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeBroughtBackToCitadel@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00402a30 mac 100ba330 Object::CanBePoodOn(Creature *)
-bool32_t __fastcall CanBePoodOn__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePoodOn@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBePoodOn__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBePoodOn@Object@@UAEIPAVCreature@@@Z");
 // win1.41 004e4320 mac 105e56c0 Object::CanBeKickedByCreature(Creature *)
-bool32_t __fastcall CanBeKickedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeKickedByCreature@Object@@UAE_NPAVCreature@@@Z");
+bool32_t __fastcall CanBeKickedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature) asm("?CanBeKickedByCreature@Object@@UAEIPAVCreature@@@Z");
 // win1.41 0063b8d0 mac 103da7f0 Object::CalculateWhereIWillBeAfterNSeconds(float, LHPoint *)
 void __fastcall CalculateWhereIWillBeAfterNSeconds__6ObjectFfP7LHPoint(struct GameThingWithPos* this, const void* edx, float seconds, struct LHPoint* outPos) asm("?CalculateWhereIWillBeAfterNSeconds@Object@@UAEXMPAULHPoint@@@Z");
 // win1.41 00402b40 mac 1016dc30 Object::GetText(void)
@@ -1131,7 +1199,7 @@ void __fastcall InsertMapObjectToCell__6ObjectFP7MapCell(struct Object* this, co
 // win1.41 006368d0 mac 10053bc0 Object::RemoveMapObjectFromCell(MapCell *)
 void __fastcall RemoveMapObjectFromCell__6ObjectFP7MapCell(struct Object* this, const void* edx, struct MapCell* cell) asm("?RemoveMapObjectFromCell@Object@@UAEXPAUMapCell@@@Z");
 // win1.41 006367d0 mac 10054140 Object::IsObjectInMap(MapCell *)
-bool __fastcall IsObjectInMap__6ObjectFP7MapCell(struct Object* this, const void* edx, struct MapCell* cell) asm("?IsObjectInMap@Object@@UAE_NPAUMapCell@@@Z");
+bool __fastcall IsObjectInMap__6ObjectFP7MapCell(struct Object* this, const void* edx, struct MapCell* cell) asm("?IsObjectInMap@Object@@UAEIPAUMapCell@@@Z");
 // win1.41 006366b0 mac 103d8d10 Object::IsObjectInMapCheck(void)
 bool __fastcall IsObjectInMapCheck__6ObjectFv(struct Object* this) asm("?IsObjectInMapCheck@Object@@UAE_NXZ");
 // win1.41 00636a40 mac 1004d070 Object::MoveMapObject(MapCoords const &)
@@ -1145,9 +1213,9 @@ float __fastcall GetMeshRadius__6ObjectCFv(const struct Object* this) asm("?GetM
 // win1.41 00402580 mac 103dc890 Object::Get3DObjectForPSys(void)
 struct Game3DObject* __fastcall Get3DObjectForPSys__6ObjectFv(struct Object* this) asm("?Get3DObjectForPSys@Object@@UAEPAVGame3DObject@@XZ");
 // win1.41 00732630 mac 101499d0 Object::GetPSysFireFlameMatrix(LHMatrix *)
-bool __fastcall GetPSysFireFlameMatrix__6ObjectFP8LHMatrix(struct Object* this, const void* edx, struct LHMatrix* matrix) asm("?GetPSysFireFlameMatrix@Object@@UAE_NPAULHMatrix@@@Z");
+bool __fastcall GetPSysFireFlameMatrix__6ObjectFP8LHMatrix(struct Object* this, const void* edx, struct LHMatrix* matrix) asm("?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z");
 // win1.41 00732770 mac 10149520 Object::GetPSysFireLocalRndFlamePos(LHPoint *, long *)
-bool __fastcall GetPSysFireLocalRndFlamePos__6ObjectFP7LHPointPl(struct Object* this, const void* edx, struct LHPoint* point, int* param_2) asm("?GetPSysFireLocalRndFlamePos@Object@@UAE_NPAULHPoint@@PAH@Z");
+bool __fastcall GetPSysFireLocalRndFlamePos__6ObjectFP7LHPointPl(struct Object* this, const void* edx, struct LHPoint* point, int* param_2) asm("?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z");
 // win1.41 00732660 mac 10149810 Object::GetPSysFireWorldFlamePos(LHPoint const &, long, LHPoint *)
 bool __fastcall GetPSysFireWorldFlamePos__6ObjectFRC7LHPointlP7LHPoint(struct Object* this, const void* edx, const struct LHPoint* param_1, int param_2, struct LHPoint* param_3) asm("?GetPSysFireWorldFlamePos@Object@@UAE_NPBULHPoint@@HPAU2@@Z");
 // win1.41 00732950 mac 101493c0 Object::GetPSysFireLocalFlameScale(void)
@@ -1167,7 +1235,7 @@ float __fastcall GetHoldLoweringMultiplier__6ObjectFv(struct Object* this) asm("
 // win1.41 004025a0 mac 10097700 Object::GetHoldYRotate(void)
 float __fastcall GetHoldYRotate__6ObjectFv(struct Object* this) asm("?GetHoldYRotate@Object@@UAEMXZ");
 // win1.41 004025b0 mac 100a0df0 Object::HandShouldFeelWithMeshIntersect(void)
-bool32_t __fastcall HandShouldFeelWithMeshIntersect__6ObjectFv(struct Object* this) asm("?HandShouldFeelWithMeshIntersect@Object@@UAE_NXZ");
+bool32_t __fastcall HandShouldFeelWithMeshIntersect__6ObjectFv(struct Object* this) asm("?HandShouldFeelWithMeshIntersect@Object@@UAEIXZ");
 // win1.41 004025c0 mac 10513b50 Object::SetSpecularColor(unsigned long)
 void __fastcall SetSpecularColor__6ObjectFUl(struct Object* this, const void* edx, struct LH3DColor color) asm("?SetSpecularColor@Object@@UAEXULH3DColor@@@Z");
 // win1.41 004025d0 mac 10110ae0 Object::GetSpecularColor(void)
@@ -1239,7 +1307,7 @@ float __fastcall GetProjectileSpeed__6ObjectFv(struct Object* this) asm("?GetPro
 // win1.41 004026a0 mac 103e4940 Object::CanBePickedUp(void)
 bool __fastcall CanBePickedUp__6ObjectFv(struct Object* this) asm("?CanBePickedUp@Object@@UAE_NXZ");
 // win1.41 00425c50 mac 100add90 Object::CanBeCrushed(void)
-bool32_t __fastcall CanBeCrushed__6ObjectFv(struct Object* this) asm("?CanBeCrushed@Object@@UAE_NXZ");
+bool32_t __fastcall CanBeCrushed__6ObjectFv(struct Object* this) asm("?CanBeCrushed@Object@@UAEIXZ");
 // win1.41 00638160 mac 103d5490 Object::GetTopPos(void)
 float __fastcall GetTopPos__6ObjectFv(struct Object* this) asm("?GetTopPos@Object@@UAEMXZ");
 // win1.41 004026b0 mac 100a7df0 Object::GetVillagerHugRadius(void)
@@ -1249,7 +1317,7 @@ float __fastcall GetWeight__6ObjectFv(struct Object* this) asm("?GetWeight@Objec
 // win1.41 00638200 mac 1007e8a0 Object::GetWorldMatrix(LHMatrix *)
 void __fastcall GetWorldMatrix__6ObjectFP8LHMatrix(struct Object* this, const void* edx, struct LHMatrix* out) asm("?GetWorldMatrix@Object@@UAEXPAULHMatrix@@@Z");
 // win1.41 00639b60 mac 103d21e0 Object::CanBeSuckedIntoVortex(LandscapeVortex *)
-bool __fastcall CanBeSuckedIntoVortex__6ObjectFP15LandscapeVortex(struct Object* this, const void* edx, struct LandscapeVortex* param_1) asm("?CanBeSuckedIntoVortex@Object@@UAE_NPAVLandscapeVortex@@@Z");
+bool __fastcall CanBeSuckedIntoVortex__6ObjectFP15LandscapeVortex(struct Object* this, const void* edx, struct LandscapeVortex* param_1) asm("?CanBeSuckedIntoVortex@Object@@UAEIPAVLandscapeVortex@@@Z");
 // win1.41 00639b80 mac 103d2110 Object::GetDiscipleStateIfInteractedWith(GInterfaceStatus *, Villager *)
 uint32_t __fastcall GetDiscipleStateIfInteractedWith__6ObjectFP16GInterfaceStatusP8Villager(struct Object* this, const void* edx, struct GInterfaceStatus* status, struct Villager* villager) asm("?GetDiscipleStateIfInteractedWith@Object@@UAEIPAVGInterfaceStatus@@PAVVillager@@@Z");
 // win1.41 00639550 mac 103d3460 Object::GetWorkingPos(Object *)
@@ -1275,15 +1343,15 @@ float __fastcall GetImpressiveValue__6ObjectFv(struct Object* this) asm("?GetImp
 // win1.41 00402730 mac 1056f400 Object::IsSpellSeedReturnPoint( const(void))
 bool __fastcall IsSpellSeedReturnPoint__6ObjectCFv(const struct Object* this) asm("?IsSpellSeedReturnPoint@Object@@UAE_NXZ");
 // win1.41 00402740 mac 104d62b0 Object::IsABeliever(void)
-bool32_t __fastcall IsABeliever__6ObjectFv(struct Object* this) asm("?IsABeliever@Object@@UAE_NXZ");
+bool32_t __fastcall IsABeliever__6ObjectFv(struct Object* this) asm("?IsABeliever@Object@@UAEIXZ");
 // win1.41 004192c0 mac 100a9dc0 Object::AsMultiMapFixed(void)
 struct MultiMapFixed* __fastcall AsMultiMapFixed__6ObjectFv(struct Object* this) asm("?AsMultiMapFixed@Object@@UAEPAVMultiMapFixed@@XZ");
 // win1.41 0063a8e0 mac 103d0400 Object::ApplyWaterSpell(SpellWater *)
 float __fastcall ApplyWaterSpell__6ObjectFP10SpellWater(struct Object* this, const void* edx, struct SpellWater* spell) asm("?ApplyWaterSpell@Object@@UAEMPAVSpellWater@@@Z");
 // win1.41 004192d0 mac 100a9e00 Object::IsResourceStore(RESOURCE_TYPE)
-bool __fastcall IsResourceStore__6ObjectF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE type) asm("?IsResourceStore@Object@@UAE_NW4RESOURCE_TYPE@@@Z");
+bool __fastcall IsResourceStore__6ObjectF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE type) asm("?IsResourceStore@Object@@UAEIW4RESOURCE_TYPE@@@Z");
 // win1.41 0063a930 mac 103d0360 Object::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool __fastcall DeleteObjectAndTakeResource__6ObjectFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@Object@@UAE_NPAV1@PAVGInterfaceStatus@@@Z");
+bool __fastcall DeleteObjectAndTakeResource__6ObjectFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@Object@@UAEIPAV1@PAVGInterfaceStatus@@@Z");
 // win1.41 0063aad0 mac 103d0050 Object::GetRadiusMultiplierForApplyingPotToPos(void)
 float __fastcall GetRadiusMultiplierForApplyingPotToPos__6ObjectFv(struct Object* this) asm("?GetRadiusMultiplierForApplyingPotToPos@Object@@UAEMXZ");
 // win1.41 0063aae0 mac 103cffe0 Object::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
@@ -1299,11 +1367,11 @@ void __fastcall SetPoisoned__6ObjectFi(struct Object* this, const void* edx, int
 // win1.41 00402790 mac 10109690 Object::IsLockedInInteract(void)
 bool __fastcall IsLockedInInteract__6ObjectFv(struct Object* this) asm("?IsLockedInInteract@Object@@UAE_NXZ");
 // win1.41 004027a0 mac 10109580 Object::SetDying(void)
-bool __fastcall SetDying__6ObjectFv(struct Object* this) asm("?SetDying@Object@@UAE_NXZ");
+bool32_t __fastcall SetDying__6ObjectFv(struct Object* this) asm("?SetDying@Object@@UAEIXZ");
 // win1.41 00636ab0 mac 103d8820 Object::IsAttackable(Object *)
-bool __fastcall IsAttackable__6ObjectFP6Object(struct Object* this, const void* edx, struct Object* param_1) asm("?IsAttackable@Object@@UAE_NPAV1@@Z");
+bool __fastcall IsAttackable__6ObjectFP6Object(struct Object* this, const void* edx, struct Object* param_1) asm("?IsAttackable@Object@@UAEIPAV1@@Z");
 // win1.41 00636af0 mac 103d8770 Object::IsAllied(Object *)
-bool __fastcall IsAllied__6ObjectFP6Object(struct Object* this, const void* edx, struct Object* param_1) asm("?IsAllied@Object@@UAE_NPAV1@@Z");
+bool __fastcall IsAllied__6ObjectFP6Object(struct Object* this, const void* edx, struct Object* param_1) asm("?IsAllied@Object@@UAEIPAV1@@Z");
 // win1.41 00637e60 mac 103d5970 Object::IsTouching(MapCoords const &, MapCoords const &)
 bool __fastcall IsTouching__6ObjectFRC9MapCoordsRC9MapCoords(const struct Object* this, const void* edx, struct MapCoords* param_1, struct MapCoords* param_2) asm("?IsTouching@Object@@UAE_NPAUMapCoords@@0@Z");
 // win1.41 00637e30 mac 103d5ef0 Object::IsTouching(MapCoords const &)
@@ -1317,45 +1385,45 @@ float __fastcall GetDistanceFromObject__6ObjectFP6Object(struct Object* this, co
 // win1.41 006399d0 mac 10003b20 Object::GetTribalPower(TRIBE_TYPE)
 float __fastcall GetTribalPower__6ObjectF10TRIBE_TYPE(struct Object* this, const void* edx, enum TRIBE_TYPE param_1) asm("?GetTribalPower@Object@@UAEMW4TRIBE_TYPE@@@Z");
 // win1.41 00419330 mac 100addd0 Object::ValidForLockedSelectProcess(GInterfaceStatus *)
-bool32_t __fastcall ValidForLockedSelectProcess__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?ValidForLockedSelectProcess@Object@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall ValidForLockedSelectProcess__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?ValidForLockedSelectProcess@Object@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 004193d0 mac 100ade30 Object::NetworkFriendlyStartLockedSelect(GInterfaceStatus *)
-bool32_t __fastcall NetworkFriendlyStartLockedSelect__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?NetworkFriendlyStartLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall NetworkFriendlyStartLockedSelect__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?NetworkFriendlyStartLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 004027d0 mac 1016eda0 Object::NetworkUnfriendlyStartLockedSelect(void)
-bool32_t __fastcall NetworkUnfriendlyStartLockedSelect__6ObjectFv(struct Object* this) asm("?NetworkUnfriendlyStartLockedSelect@Object@@UAE_NXZ");
+bool32_t __fastcall NetworkUnfriendlyStartLockedSelect__6ObjectFv(struct Object* this) asm("?NetworkUnfriendlyStartLockedSelect@Object@@UAEIXZ");
 // win1.41 004027e0 mac 1056c2f0 Object::IsReadyForNetworkUnfriendlyLockedSelect(void)
-bool32_t __fastcall IsReadyForNetworkUnfriendlyLockedSelect__6ObjectFv(struct Object* this) asm("?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAE_NXZ");
+bool32_t __fastcall IsReadyForNetworkUnfriendlyLockedSelect__6ObjectFv(struct Object* this) asm("?IsReadyForNetworkUnfriendlyLockedSelect@Object@@UAEIXZ");
 // win1.41 004027f0 mac 10577790 Object::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
 bool32_t __fastcall NetworkUnfriendlyLockedSelect__6ObjectFP21ControlHandUpdateInfo(struct Object* this, const void* edx, struct ControlHandUpdateInfo* param_1) asm("?NetworkUnfriendlyLockedSelect@Object@@UAE_NPAVControlHandUpdateInfo@@@Z");
 // win1.41 00402800 mac 1037fcb0 Object::GetReadyForNetworkUnfriendlyEndLockedSelect(void)
-bool32_t __fastcall GetReadyForNetworkUnfriendlyEndLockedSelect__6ObjectFv(struct Object* this) asm("?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ");
+bool32_t __fastcall GetReadyForNetworkUnfriendlyEndLockedSelect__6ObjectFv(struct Object* this) asm("?GetReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ");
 // win1.41 00402810 mac 102fd0c0 Object::IsReadyForNetworkUnfriendlyEndLockedSelect(void)
-bool32_t __fastcall IsReadyForNetworkUnfriendlyEndLockedSelect__6ObjectFv(struct Object* this) asm("?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ");
+bool32_t __fastcall IsReadyForNetworkUnfriendlyEndLockedSelect__6ObjectFv(struct Object* this) asm("?IsReadyForNetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ");
 // win1.41 00402820 mac 103e2470 Object::NetworkUnfriendlyEndLockedSelect(void)
-bool32_t __fastcall NetworkUnfriendlyEndLockedSelect__6ObjectFv(struct Object* this) asm("?NetworkUnfriendlyEndLockedSelect@Object@@UAE_NXZ");
+bool32_t __fastcall NetworkUnfriendlyEndLockedSelect__6ObjectFv(struct Object* this) asm("?NetworkUnfriendlyEndLockedSelect@Object@@UAEIXZ");
 // win1.41 00402830 mac 1041d9a0 Object::NetworkFriendlyEndLockedSelect(GInterfaceStatus *)
-bool32_t __fastcall NetworkFriendlyEndLockedSelect__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?NetworkFriendlyEndLockedSelect@Object@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall NetworkFriendlyEndLockedSelect__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?NetworkFriendlyEndLockedSelect@Object@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 00402840 mac 1017df80 Object::ValidAsInterfaceTarget(void)
-bool32_t __fastcall ValidAsInterfaceTarget__6ObjectFv(struct Object* this) asm("?ValidAsInterfaceTarget@Object@@UAE_NXZ");
+bool32_t __fastcall ValidAsInterfaceTarget__6ObjectFv(struct Object* this) asm("?ValidAsInterfaceTarget@Object@@UAEIXZ");
 // win1.41 00402850 mac 1016daa0 Object::ValidAsInterfaceLeashTarget(void)
-bool32_t __fastcall ValidAsInterfaceLeashTarget__6ObjectFv(struct Object* this) asm("?ValidAsInterfaceLeashTarget@Object@@UAE_NXZ");
+bool32_t __fastcall ValidAsInterfaceLeashTarget__6ObjectFv(struct Object* this) asm("?ValidAsInterfaceLeashTarget@Object@@UAEIXZ");
 // win1.41 00402860 mac 103e0d10 Object::SelectOnlyAfterRecSystem(void)
-bool32_t __fastcall SelectOnlyAfterRecSystem__6ObjectFv(struct Object* this) asm("?SelectOnlyAfterRecSystem@Object@@UAE_NXZ");
+bool32_t __fastcall SelectOnlyAfterRecSystem__6ObjectFv(struct Object* this) asm("?SelectOnlyAfterRecSystem@Object@@UAEIXZ");
 // win1.41 00402870 mac 105995f0 Object::ValidForPlaceInHand(GInterfaceStatus *)
-bool32_t __fastcall ValidForPlaceInHand__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?ValidForPlaceInHand@Object@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall ValidForPlaceInHand__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?ValidForPlaceInHand@Object@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 00637660 mac 103d7300 Object::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool32_t __fastcall InterfaceSetInMagicHand__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?InterfaceSetInMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall InterfaceSetInMagicHand__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?InterfaceSetInMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 00637670 mac 103d7280 Object::InterfaceSetOutMagicHand(GInterfaceStatus *)
-bool32_t __fastcall InterfaceSetOutMagicHand__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?InterfaceSetOutMagicHand@Object@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall InterfaceSetOutMagicHand__6ObjectFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* status) asm("?InterfaceSetOutMagicHand@Object@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 00402880 mac 1040fc60 Object::ValidToRemoveFromHand(GInterfaceStatus *, MapCoords const &)
 bool32_t __fastcall ValidToRemoveFromHand__6ObjectFP16GInterfaceStatusRC9MapCoords(struct Object* this, const void* edx, struct GInterfaceStatus* status, const struct MapCoords* param_2) asm("?ValidToRemoveFromHand@Object@@UAE_NPAVGInterfaceStatus@@PBUMapCoords@@@Z");
 // win1.41 00402890 mac 100b16a0 Object::RemoveFromHand(GInterfaceStatus *, MapCoords const &)
 uint32_t __fastcall RemoveFromHand__6ObjectFP16GInterfaceStatusRC9MapCoords(struct Object* this, const void* edx, struct GInterfaceStatus* status, const struct MapCoords* param_2) asm("?RemoveFromHand@Object@@UAEIPAVGInterfaceStatus@@PBUMapCoords@@@Z");
 // win1.41 00636aa0 mac 100933f0 Object::ValidToShakeFromHand(void)
-bool32_t __fastcall ValidToShakeFromHand__6ObjectFv(struct Object* this) asm("?ValidToShakeFromHand@Object@@UAE_NXZ");
+bool32_t __fastcall ValidToShakeFromHand__6ObjectFv(struct Object* this) asm("?ValidToShakeFromHand@Object@@UAEIXZ");
 // win1.41 004028a0 mac 101ca2e0 Object::InterfaceMustBeInInfluenceForInteraction(void)
-bool32_t __fastcall InterfaceMustBeInInfluenceForInteraction__6ObjectFv(struct Object* this) asm("?InterfaceMustBeInInfluenceForInteraction@Object@@UAE_NXZ");
+bool32_t __fastcall InterfaceMustBeInInfluenceForInteraction__6ObjectFv(struct Object* this) asm("?InterfaceMustBeInInfluenceForInteraction@Object@@UAEIXZ");
 // win1.41 00636a90 mac 103d8920 Object::IsTuggable(void)
-bool32_t __fastcall IsTuggable__6ObjectFv(struct Object* this) asm("?IsTuggable@Object@@UAE_NXZ");
+bool32_t __fastcall IsTuggable__6ObjectFv(struct Object* this) asm("?IsTuggable@Object@@UAEIXZ");
 // win1.41 004028b0 mac 101652d0 Object::ValidToApplyThisToObject(GInterfaceStatus *, Object *)
 uint32_t __fastcall ValidToApplyThisToObject__6ObjectFP16GInterfaceStatusP6Object(struct Object* this, const void* edx, struct GInterfaceStatus* status, struct Object* param_2) asm("?ValidToApplyThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z");
 // win1.41 004028c0 mac 10513670 Object::ApplyThisToObject(GInterfaceStatus *, Object *, GestureSystemPacketData *)
@@ -1401,9 +1469,9 @@ uint32_t __fastcall ValidToFightThisToObject__6ObjectFP16GInterfaceStatusRC9MapC
 // win1.41 004029d0 mac 101cbb80 Object::FightThisToObject(GInterfaceStatus *, Object *)
 uint32_t __fastcall FightThisToObject__6ObjectFP16GInterfaceStatusP6Object(struct Object* this, const void* edx, struct GInterfaceStatus* status, struct Object* param_2) asm("?FightThisToObject@Object@@UAEIPAVGInterfaceStatus@@PAV1@@Z");
 // win1.41 004029e0 mac 100068d0 Object::IsEffectReceiver(EffectValues *)
-bool32_t __fastcall IsEffectReceiver__6ObjectFP12EffectValues(struct Object* this, const void* edx, struct EffectValues* param_1) asm("?IsEffectReceiver@Object@@UAE_NPAVEffectValues@@@Z");
+bool32_t __fastcall IsEffectReceiver__6ObjectFP12EffectValues(struct Object* this, const void* edx, struct EffectValues* param_1) asm("?IsEffectReceiver@Object@@UAEIPAVEffectValues@@@Z");
 // win1.41 00639960 mac 103d2ba0 Object::CanBeDestroyedBySpell(Spell *)
-bool32_t __fastcall CanBeDestroyedBySpell__6ObjectFP5Spell(struct Object* this, const void* edx, struct Spell* param_1) asm("?CanBeDestroyedBySpell@Object@@UAE_NPAVSpell@@@Z");
+bool32_t __fastcall CanBeDestroyedBySpell__6ObjectFP5Spell(struct Object* this, const void* edx, struct Spell* param_1) asm("?CanBeDestroyedBySpell@Object@@UAEIPAVSpell@@@Z");
 // win1.41 00638cf0 mac 103d3f30 Object::GetImportance(void)
 float __fastcall GetImportance__6ObjectFv(struct Object* this) asm("?GetImportance@Object@@UAEMXZ");
 // win1.41 00636f00 mac 103d7760 Object::CanBeDestroyedBySpell_2(void)
@@ -1437,13 +1505,13 @@ bool __fastcall GetAlwaysRemainsInPhysicsInternalSystem__6ObjectFv(struct Object
 // win1.41 00637470 mac 103d7730 Object::HasSunk(void)
 bool __fastcall HasSunk__6ObjectFv(struct Object* this) asm("?HasSunk@Object@@UAE_NXZ");
 // win1.41 00638740 mac 103d48a0 Object::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__6ObjectFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@Object@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__6ObjectFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00638790 mac 103d43b0 Object::AddToRoutePlan(RPHolder *, Creature *, int, void (*)(int, Point2D, float, int))
 void __fastcall AddToRoutePlan__6ObjectFP8RPHolderP8CreatureiPFi7Point2Dfi_v(struct Object* this, const void* edx, struct RPHolder* param_1, struct Creature* param_2, int param_3, void (__cdecl* param_4)(int param_1, struct Point2D param_2, float param_3, int param_4)) asm("?AddToRoutePlan@Object@@UAEXPAVRPHolder@@PAVCreature@@HP6AXHUPoint2D@@MH@Z@Z");
 // win1.41 006384c0 mac 103d5070 Object::GetRoutePlanRadius(Creature *)
 float __fastcall GetRoutePlanRadius__6ObjectFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?GetRoutePlanRadius@Object@@UAEMPAVCreature@@@Z");
 // win1.41 00638be0 mac 103d41e0 Object::VillagerMustAvoid(Villager *)
-bool32_t __fastcall VillagerMustAvoid__6ObjectFP8Villager(struct Object* this, const void* edx, struct Villager* param_1) asm("?VillagerMustAvoid@Object@@UAE_NPAVVillager@@@Z");
+bool32_t __fastcall VillagerMustAvoid__6ObjectFP8Villager(struct Object* this, const void* edx, struct Villager* param_1) asm("?VillagerMustAvoid@Object@@UAEIPAVVillager@@@Z");
 // win1.41 00639a00 mac 103d2b20 Object::IsFireMan(void)
 bool __fastcall IsFireMan__6ObjectFv(struct Object* this) asm("?IsFireMan@Object@@UAE_NXZ");
 // win1.41 00638730 mac 10097740 Object::IsARootedObject(void)
@@ -1451,27 +1519,27 @@ bool __fastcall IsARootedObject__6ObjectFv(struct Object* this) asm("?IsARootedO
 // win1.41 00637690 mac 103d7220 Object::GetCollideSoundType(void)
 enum SOUND_COLLISION_TYPE __fastcall GetCollideSoundType__6ObjectFv(struct Object* this) asm("?GetCollideSoundType@Object@@UAE?AW4SOUND_COLLISION_TYPE@@XZ");
 // win1.41 004198a0 mac 101bd530 Object::IsSolidToNewAbode(void)
-bool32_t __fastcall IsSolidToNewAbode__6ObjectFv(struct Object* this) asm("?IsSolidToNewAbode@Object@@UAE_NXZ");
+bool32_t __fastcall IsSolidToNewAbode__6ObjectFv(struct Object* this) asm("?IsSolidToNewAbode@Object@@UAEIXZ");
 // win1.41 00639b50 mac 103d2250 Object::RemoveFromGame(void)
 uint32_t __fastcall RemoveFromGame__6ObjectFv(struct Object* this) asm("?RemoveFromGame@Object@@UAEIXZ");
 // win1.41 00638430 mac 103d52a0 Object::GetLandingPointCount(void)
 int __fastcall GetLandingPointCount__6ObjectFv(struct Object* this) asm("?GetLandingPointCount@Object@@UAEHXZ");
 // win1.41 00638450 mac 103d5230 Object::GetLandingPoint(unsigned char, LHPoint *)
-bool __fastcall GetLandingPoint__6ObjectFUcP7LHPoint(struct Object* this, const void* edx, uint8_t param_1, struct LHPoint* param_2) asm("?GetLandingPoint@Object@@UAE_NEPAULHPoint@@@Z");
+bool __fastcall GetLandingPoint__6ObjectFUcP7LHPoint(struct Object* this, const void* edx, uint8_t param_1, struct LHPoint* param_2) asm("?GetLandingPoint@Object@@UAEIEPAULHPoint@@@Z");
 // win1.41 00402ab0 mac 103e2750 Object::GetTastiness(void)
 uint32_t __fastcall GetTastiness__6ObjectFv(struct Object* this) asm("?GetTastiness@Object@@UAEIXZ");
 // win1.41 00402ac0 mac 102fd110 Object::IsScary(void)
 bool __fastcall IsScary__6ObjectFv(struct Object* this) asm("?IsScary@Object@@UAE_NXZ");
 // win1.41 00638cb0 mac 103d3fe0 Object::GetInspectObjectPos(Villager *, MapCoords *)
-bool __fastcall GetInspectObjectPos__6ObjectFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos) asm("?GetInspectObjectPos@Object@@UAE_NPAVVillager@@PAUMapCoords@@@Z");
+bool __fastcall GetInspectObjectPos__6ObjectFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos) asm("?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z");
 // win1.41 0063ab10 mac 103cfef0 Object::DiscipleInHandNear(Villager &, GInterfaceStatus &)
 void __fastcall DiscipleInHandNear__6ObjectFR8VillagerR16GInterfaceStatus(struct Object* this, const void* edx, struct Villager* param_1, struct GInterfaceStatus* status) asm("?DiscipleInHandNear@Object@@UAEXPAVVillager@@PAVGInterfaceStatus@@@Z");
 // win1.41 00638cd0 mac 103d3f70 Object::GetSpecialPos(unsigned long, MapCoords *)
-bool32_t __fastcall GetSpecialPos__6ObjectFUlP9MapCoords(struct Object* this, const void* edx, uint32_t index, struct MapCoords* pos) asm("?GetSpecialPos@Object@@UAE_NIPAUMapCoords@@@Z");
+bool32_t __fastcall GetSpecialPos__6ObjectFUlP9MapCoords(struct Object* this, const void* edx, uint32_t index, struct MapCoords* pos) asm("?GetSpecialPos@Object@@UAEIIPAUMapCoords@@@Z");
 // win1.41 00419960 mac 100adee0 Object::GetTownArtifact(void)
 struct GameThing* __fastcall GetTownArtifact__6ObjectFv(struct Object* this) asm("?GetTownArtifact@Object@@UAEPAVGameThing@@XZ");
 // win1.41 00419970 mac 100adf20 Object::IsTownArtifact(void)
-bool32_t __fastcall IsTownArtifact__6ObjectFv(struct Object* this) asm("?IsTownArtifact@Object@@UAE_NXZ");
+bool32_t __fastcall IsTownArtifact__6ObjectFv(struct Object* this) asm("?IsTownArtifact@Object@@UAEIXZ");
 // win1.41 00639ad0 mac 1008a4c0 Object::ProcessInHand(void)
 bool __fastcall ProcessInHand__6ObjectFv(struct Object* this) asm("?ProcessInHand@Object@@UAE_NXZ");
 // win1.41 00639b10 mac 103d22d0 Object::ProcessInInteract(GInterfaceStatus *)

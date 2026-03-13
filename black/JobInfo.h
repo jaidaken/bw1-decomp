@@ -21,6 +21,24 @@ class Base;
 class GJobInfo: public GBaseInfo
 {
 public:
+    uint32_t field_0x10; /* 0x10 */
+    uint32_t field_0x14; /* 0x14 */
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
+    uint32_t field_0x20; /* 0x20 */
+    uint32_t field_0x24; /* 0x24 */
+    uint32_t field_0x28; /* 0x28 */
+    uint32_t field_0x2c; /* 0x2c */
+    uint32_t field_0x30; /* 0x30 */
+    uint32_t field_0x34; /* 0x34 */
+    uint32_t field_0x38; /* 0x38 */
+    uint32_t field_0x3c; /* 0x3c */
+    uint32_t field_0x40; /* 0x40 */
+    uint32_t field_0x44; /* 0x44 */
+    uint32_t field_0x48; /* 0x48 */
+    uint32_t field_0x4c; /* 0x4c */
+    uint32_t field_0x50; /* 0x50 */
+    uint32_t field_0x54; /* 0x54 */
 
     // Override methods
 
@@ -32,7 +50,7 @@ public:
     // Non-virtual methods
 
     // win1.41 005e1740 mac 100fe450 GJobInfo::GetJobActivity(void) const
-    uint32_t GetJobActivity();
+    uint32_t GetJobActivity() const;
 };
 
 #else // __cplusplus
@@ -44,8 +62,26 @@ struct Base;
 struct GJobInfo
 {
   struct GBaseInfo super;  /* 0x0 */
+  uint32_t field_0x10; /* 0x10 */
+  uint32_t field_0x14; /* 0x14 */
+  uint32_t field_0x18; /* 0x18 */
+  uint32_t field_0x1c; /* 0x1c */
+  uint32_t field_0x20; /* 0x20 */
+  uint32_t field_0x24; /* 0x24 */
+  uint32_t field_0x28; /* 0x28 */
+  uint32_t field_0x2c; /* 0x2c */
+  uint32_t field_0x30; /* 0x30 */
+  uint32_t field_0x34; /* 0x34 */
+  uint32_t field_0x38; /* 0x38 */
+  uint32_t field_0x3c; /* 0x3c */
+  uint32_t field_0x40; /* 0x40 */
+  uint32_t field_0x44; /* 0x44 */
+  uint32_t field_0x48; /* 0x48 */
+  uint32_t field_0x4c; /* 0x4c */
+  uint32_t field_0x50; /* 0x50 */
+  uint32_t field_0x54; /* 0x54 */
 };
-static_assert(sizeof(struct GJobInfo) == 0x10, "Data type is of wrong size");
+static_assert(sizeof(struct GJobInfo) == 0x58, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

@@ -26,7 +26,7 @@ class GameThing;
 class GameThingWithPos;
 struct GestureSystemPacketData;
 struct LHMatrix;
-class LHOSFile;
+struct LHOSFile;
 struct MapCell;
 struct MapCoords;
 class Object;
@@ -73,9 +73,9 @@ public:
     // win1.41 00425be0 mac 100adc60 MobileObject::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00607d00 mac 103bb660 MobileObject::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00607c40 mac 103bb7a0 MobileObject::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00425bd0 mac 100adc20 MobileObject::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00607ab0 mac 103bbc80 MobileObject::PhysicsEditorCreate(int)
@@ -83,21 +83,21 @@ public:
     // win1.41 00607430 mac 103bcc00 MobileObject::GetCreatureBeliefType(void)
     virtual uint32_t GetCreatureBeliefType();
     // win1.41 00425bb0 mac 100adb90 MobileObject::CanBePlayedWithByCreature(Creature *)
-    virtual bool CanBePlayedWithByCreature(Creature* param_1);
+    virtual bool32_t CanBePlayedWithByCreature(Creature* param_1);
     // win1.41 00425b90 mac 100adae0 MobileObject::CanBeStompedOnByCreature(Creature *)
-    virtual bool CanBeStompedOnByCreature(Creature* param_1);
+    virtual bool32_t CanBeStompedOnByCreature(Creature* param_1);
     // win1.41 004e4ce0 mac 105e3ad0 MobileObject::IsMushroom(Creature *)
-    virtual bool IsMushroom(Creature* param_1);
+    virtual bool32_t IsMushroom(Creature* param_1);
     // win1.41 00425b70 mac 100ada60 MobileObject::CanBeUsedToHoldWater(Creature *)
-    virtual bool CanBeUsedToHoldWater(Creature* param_1);
+    virtual bool32_t CanBeUsedToHoldWater(Creature* param_1);
     // win1.41 00425ba0 mac 100adb30 MobileObject::CanBeThrownInTheSeaPlayfully(Creature *)
-    virtual bool CanBeThrownInTheSeaPlayfully(Creature* param_1);
+    virtual bool32_t CanBeThrownInTheSeaPlayfully(Creature* param_1);
     // win1.41 00425b60 mac 100ada10 MobileObject::GetCreatureMimicType(void)
     virtual uint32_t GetCreatureMimicType();
     // win1.41 00425bc0 mac 100adbe0 MobileObject::IsMobileObject(void)
-    virtual bool IsMobileObject();
+    virtual bool32_t IsMobileObject();
     // win1.41 006079e0 mac 103bc0b0 MobileObject::IsPoisoned(void)
-    virtual bool IsPoisoned();
+    virtual bool32_t IsPoisoned();
     // win1.41 00607b60 mac 103bbc40 MobileObject::GetScriptObjectType(void)
     virtual uint32_t GetScriptObjectType();
     // win1.41 00425b10 mac 100ad890 MobileObject::GetXAngle(void)
@@ -129,7 +129,7 @@ public:
     // win1.41 00607560 mac 103bc790 MobileObject::GetWorldMatrix(LHMatrix *)
     virtual void GetWorldMatrix(LHMatrix* param_1);
     // win1.41 00607150 mac 103bd200 MobileObject::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 00607c20 mac 103bb8f0 MobileObject::GetResourceType(void)
     virtual RESOURCE_TYPE GetResourceType();
     // win1.41 00607bf0 mac 103bb9a0 MobileObject::GetDefaultResource(void)

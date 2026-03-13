@@ -17,7 +17,7 @@ class Base;
 class GInterfaceStatus;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 
 // win1.41 009ceb00 mac inlined CitadelEntrance::`RTTI Type Descriptor'

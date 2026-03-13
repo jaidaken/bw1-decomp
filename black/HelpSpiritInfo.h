@@ -22,6 +22,7 @@ class GBaseInfo;
 class HelpSpiritInfo: public GLivingInfo
 {
 public:
+    uint32_t field_0x1f4; /* 0x1f4 */
 
     // Override methods
 
@@ -41,8 +42,9 @@ struct GBaseInfo;
 struct HelpSpiritInfo
 {
   struct GLivingInfo super;  /* 0x0 */
+  uint32_t field_0x1f4;  /* 0x1f4 */
 };
-static_assert(sizeof(struct HelpSpiritInfo) == 0x1f4, "Data type is of wrong size");
+static_assert(sizeof(struct HelpSpiritInfo) == 0x1f8, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

@@ -25,30 +25,35 @@ struct LHColor;
 class GTownInfo: public GContainerInfo
 {
 public:
-    float field_0x148;
-    float field_0x14c;
-    uint32_t field_0x150;
-    float field_0x154;
-    float field_0x158;
-    float field_0x15c;
-    uint32_t field_0x160;
-    float field_0x164;
-    uint32_t field_0x168;
-    float field_0x16c;
-    float field_0x170;
-    float field_0x174;
-    float field_0x178;
-    float field_0x17c;
-    float field_0x180;
-    float field_0x184;
-    float field_0x188;
+    uint8_t field_0x14[0xfc];   /* 0x14 */
+    uint32_t field_0x110;       /* 0x110 */
+    uint8_t field_0x114[0x2c];  /* 0x114 */
+    float field_0x140;          /* 0x140 */
+    float field_0x144;          /* 0x144 */
+    float field_0x148;          /* 0x148 */
+    float field_0x14c;          /* 0x14c */
+    uint32_t field_0x150;       /* 0x150 */
+    float field_0x154;          /* 0x154 */
+    float field_0x158;          /* 0x158 */
+    float field_0x15c;          /* 0x15c */
+    uint32_t field_0x160;       /* 0x160 */
+    float field_0x164;          /* 0x164 */
+    uint32_t field_0x168;       /* 0x168 */
+    float field_0x16c;          /* 0x16c */
+    float field_0x170;          /* 0x170 */
+    float field_0x174;          /* 0x174 */
+    float field_0x178;          /* 0x178 */
+    float field_0x17c;          /* 0x17c */
+    float field_0x180;          /* 0x180 */
+    float field_0x184;          /* 0x184 */
+    float field_0x188;          /* 0x188 */
 
     // Override methods
 
     // win1.41 00738fc0 mac 10545c00 GTownInfo::_dt(void)
     virtual ~GTownInfo();
     // win1.41 0073fd80 mac inlined GTownInfo::GetDebugColor( const(LHColor *))
-    virtual LHColor* GetDebugColor(LHColor* param_1);
+    virtual LHColor* GetDebugColor(LHColor* param_1) const;
     // win1.41 00738f70 mac 10545ba0 GTownInfo::GetBaseInfo(unsigned long &)
     virtual GBaseInfo* GetBaseInfo(uint32_t& param_1);
 };
@@ -64,23 +69,28 @@ struct LHColor;
 struct GTownInfo
 {
   struct GContainerInfo super;  /* 0x0 */
-  float field_0x148;
-  float field_0x14c;
-  uint32_t field_0x150;
-  float field_0x154;
-  float field_0x158;
-  float field_0x15c;
-  uint32_t field_0x160;
-  float field_0x164;
-  uint32_t field_0x168;
-  float field_0x16c;
-  float field_0x170;
-  float field_0x174;
-  float field_0x178;
-  float field_0x17c;
-  float field_0x180;
-  float field_0x184;
-  float field_0x188;
+  uint8_t field_0x14[0xfc];    /* 0x14 */
+  uint32_t field_0x110;        /* 0x110 */
+  uint8_t field_0x114[0x2c];   /* 0x114 */
+  float field_0x140;           /* 0x140 */
+  float field_0x144;           /* 0x144 */
+  float field_0x148;           /* 0x148 */
+  float field_0x14c;           /* 0x14c */
+  uint32_t field_0x150;        /* 0x150 */
+  float field_0x154;           /* 0x154 */
+  float field_0x158;           /* 0x158 */
+  float field_0x15c;           /* 0x15c */
+  uint32_t field_0x160;        /* 0x160 */
+  float field_0x164;           /* 0x164 */
+  uint32_t field_0x168;        /* 0x168 */
+  float field_0x16c;           /* 0x16c */
+  float field_0x170;           /* 0x170 */
+  float field_0x174;           /* 0x174 */
+  float field_0x178;           /* 0x178 */
+  float field_0x17c;           /* 0x17c */
+  float field_0x180;           /* 0x180 */
+  float field_0x184;           /* 0x184 */
+  float field_0x188;           /* 0x188 */
 };
 static_assert(sizeof(struct GTownInfo) == 0x18c, "Data type is of wrong size");
 

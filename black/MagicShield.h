@@ -36,21 +36,21 @@ public:
     // win1.41 0072c220 mac 10534190 MagicShield::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0072c3d0 mac 10531080 MagicShield::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0072c3f0 mac 10531020 MagicShield::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0072c210 mac 10534150 MagicShield::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0072c300 mac 10531370 MagicShield::Draw(void)
     virtual void Draw();
     // win1.41 0072c2a0 mac 10531420 MagicShield::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0072c340 mac 10531220 MagicShield::Get3DType(void)
     virtual LH3DObject::ObjectType Get3DType();
     // win1.41 0072c320 mac 105312c0 MagicShield::SetDying(void)
-    virtual bool SetDying();
+    virtual bool32_t SetDying();
     // win1.41 0072c310 mac 10531320 MagicShield::IsEffectReceiver(EffectValues *)
-    virtual bool IsEffectReceiver(EffectValues* param_1);
+    virtual bool32_t IsEffectReceiver(EffectValues* param_1);
     // win1.41 0072c330 mac 10531270 MagicShield::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 0072c2e0 mac 105313e0 MagicShield::ProcessShield(void)
@@ -58,7 +58,7 @@ public:
     // win1.41 0072c2f0 mac 105313a0 MagicShield::DrawShield(void)
     virtual void DrawShield();
     // win1.41 0072b850 mac 10532df0 MagicShield::IsPointDefinietlyWithinShieldVolume(MapCoords const &)
-    virtual bool IsPointDefinietlyWithinShieldVolume(const MapCoords* param_1);
+    virtual bool32_t IsPointDefinietlyWithinShieldVolume(const MapCoords* param_1);
 };
 
 #else // __cplusplus
@@ -108,7 +108,7 @@ void __fastcall CallVirtualFunctionsForCreation__11MagicShieldFRC9MapCoords(stru
 // win1.41 0072c340 mac 10531220 MagicShield::Get3DType(void)
 enum LH3DObject__ObjectType __fastcall Get3DType__11MagicShieldFv(struct Object* this) asm("?Get3DType@MagicShield@@UAE?AW4LH3DObject__ObjectType@@XZ");
 // win1.41 0072c320 mac 105312c0 MagicShield::SetDying(void)
-bool __fastcall SetDying__11MagicShieldFv(struct Object* this) asm("?SetDying@MagicShield@@UAE_NXZ");
+bool32_t __fastcall SetDying__11MagicShieldFv(struct Object* this) asm("?SetDying@MagicShield@@UAEIXZ");
 // win1.41 0072c310 mac 10531320 MagicShield::IsEffectReceiver(EffectValues *)
 uint32_t __fastcall IsEffectReceiver__11MagicShieldFP12EffectValues(struct Object* this, const void* edx, struct EffectValues* param_1) asm("?IsEffectReceiver@MagicShield@@UAEIPAVEffectValues@@@Z");
 // win1.41 0072c330 mac 10531270 MagicShield::InteractsWithPhysicsObjects(void)
@@ -118,7 +118,7 @@ void __fastcall ProcessShield__11MagicShieldFv(struct MapShield* this) asm("?Pro
 // win1.41 0072c2f0 mac 105313a0 MagicShield::DrawShield(void)
 void __fastcall DrawShield__11MagicShieldFv(struct MapShield* this) asm("?DrawShield@MagicShield@@UAEXXZ");
 // win1.41 0072b850 mac 10532df0 MagicShield::IsPointDefinietlyWithinShieldVolume(MapCoords const &)
-bool __fastcall IsPointDefinietlyWithinShieldVolume__11MagicShieldFRC9MapCoords(struct MapShield* this, const void* edx, const struct MapCoords* param_1) asm("?IsPointDefinietlyWithinShieldVolume@MagicShield@@UAE_NPBUMapCoords@@@Z");
+bool __fastcall IsPointDefinietlyWithinShieldVolume__11MagicShieldFRC9MapCoords(struct MapShield* this, const void* edx, const struct MapCoords* param_1) asm("?IsPointDefinietlyWithinShieldVolume@MagicShield@@UAEIPBUMapCoords@@@Z");
 
 #endif // __cplusplus
 

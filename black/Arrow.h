@@ -23,6 +23,7 @@ class GameThing;
 class Arrow: public MobileObject
 {
 public:
+    uint32_t field_0x68; /* 0x68 */
 
     // Override methods
 
@@ -43,8 +44,9 @@ struct GameThing;
 struct Arrow
 {
   struct MobileObject super;  /* 0x0 */
+  uint32_t field_0x68;  /* 0x68 */
 };
-static_assert(sizeof(struct Arrow) == 0x68, "Data type is of wrong size");
+static_assert(sizeof(struct Arrow) == 0x6c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

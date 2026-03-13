@@ -34,7 +34,7 @@ public:
     // win1.41 0040b4a0 mac 103f18b0 SetupMultiList::~SetupMultiList(void)
     virtual ~SetupMultiList();
     // win1.41 0040b530 mac 1047e020 SetupMultiList::IsSelected(int)
-    virtual bool IsSelected(int index);
+    virtual bool32_t IsSelected(int index);
 
     // Constructors
 
@@ -84,7 +84,7 @@ void __fastcall Click__14SetupMultiListFii(struct SetupControl* this, const void
 // win1.41 0040b4a0 mac 103f18b0 SetupMultiList::~SetupMultiList(void)
 void __fastcall __dt__14SetupMultiListFb(struct SetupControl* this, const void* edx, bool param_1) asm("??_DSetupMultiList@@QAEXXZ");
 // win1.41 0040b530 mac 1047e020 SetupMultiList::IsSelected(int)
-bool __fastcall IsSelected__14SetupMultiListFi(struct SetupList* this, const void* edx, int index) asm("?IsSelected@SetupMultiList@@UAE_NH@Z");
+bool __fastcall IsSelected__14SetupMultiListFi(struct SetupList* this, const void* edx, int index) asm("?IsSelected@SetupMultiList@@UAEIH@Z");
 
 #endif // __cplusplus
 

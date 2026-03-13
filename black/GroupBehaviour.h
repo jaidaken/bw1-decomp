@@ -73,9 +73,9 @@ public:
     // win1.41 00596320 mac 100fa080 GroupBehaviour::ToBeDeleted(int)
     virtual void ToBeDeleted(int param_1);
     // win1.41 005985c0 mac 100f4e70 GroupBehaviour::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& file);
+    virtual bool32_t Load(GameOSFile& file);
     // win1.41 00598240 mac 100f5a80 GroupBehaviour::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& file);
+    virtual bool32_t Save(GameOSFile& file);
     // win1.41 005964a0 mac 106ffb98 GroupBehaviour::Process(void)
     virtual void Process(); /* 0x500 */
     // win1.41 00596700 mac 100f90b0 GroupBehaviour::UpdateGroupBasedOnAction(DanceGroup *, DANCE_GROUP_ACTION_TYPE, DanceGroupActionArgument const &, unsigned long)
@@ -97,9 +97,9 @@ public:
     // Non-virtual methods
 
     // win1.41 00597400 mac 100f8550 GroupBehaviour::FindDanceGroup(Living *)
-    bool FindDanceGroup(Living* param_1);
+    bool32_t FindDanceGroup(Living* param_1);
     // win1.41 00597f20 mac 100f68a0 GroupBehaviour::CalculateDancePosition(MapCoords const &, MapCoords *, DanceGroup *, unsigned long)
-    void CalculateDancePosition(const MapCoords* param_1, MapCoords* param_2, DanceGroup* param_3, unsigned long param_4);
+    void CalculateDancePosition(const MapCoords& param_1, MapCoords* param_2, DanceGroup* param_3, unsigned long param_4);
 };
 
 // win1.41 00be8270 mac inlined DanceEditState::`RTTI Type Descriptor'
@@ -133,9 +133,9 @@ public:
     // win1.41 0050e390 mac 102aee40 DanceKeyAction::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0050ea00 mac 102ae600 DanceKeyAction::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0050e880 mac 102ae810 DanceKeyAction::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0050e380 mac 102aee00 DanceKeyAction::GetSaveType(void)
     virtual uint32_t GetSaveType();
 };
@@ -225,7 +225,7 @@ struct GroupBehaviour* __fastcall __ct__14GroupBehaviourFv(struct GroupBehaviour
 // Non-virtual methods
 
 // win1.41 00597400 mac 100f8550 GroupBehaviour::FindDanceGroup(Living *)
-bool __fastcall FindDanceGroup__14GroupBehaviourFP6Living(struct GroupBehaviour* this, const void* edx, struct Living* param_1) asm("?FindDanceGroup@GroupBehaviour@@QAE_NPAVLiving@@@Z");
+bool __fastcall FindDanceGroup__14GroupBehaviourFP6Living(struct GroupBehaviour* this, const void* edx, struct Living* param_1) asm("?FindDanceGroup@GroupBehaviour@@QAEIPAVLiving@@@Z");
 // win1.41 00597f20 mac 100f68a0 GroupBehaviour::CalculateDancePosition(MapCoords const &, MapCoords *, DanceGroup *, unsigned long)
 void __fastcall CalculateDancePosition__14GroupBehaviourFRC9MapCoordsP9MapCoordsP10DanceGroupUl(struct GroupBehaviour* this, const void* edx, const struct MapCoords* param_1, struct MapCoords* param_2, struct DanceGroup* param_3, unsigned long param_4) asm("?CalculateDancePosition@GroupBehaviour@@QAEXABUMapCoords@@PAU2@PAVDanceGroup@@K@Z");
 

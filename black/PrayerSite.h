@@ -27,6 +27,11 @@ class Town;
 class PrayerSite: public MultiMapFixed
 {
 public:
+    uint32_t field_0x7c; /* 0x7c */
+    uint32_t field_0x80; /* 0x80 */
+    uint32_t field_0x84; /* 0x84 */
+    uint32_t field_0x88; /* 0x88 */
+    uint32_t field_0x8c; /* 0x8c */
 
     // Override methods
 
@@ -43,7 +48,7 @@ public:
     // win1.41 006707f0 mac inlined PrayerSite::GetMesh( const(void))
     virtual int GetMesh() const;
     // win1.41 00670a10 mac inlined PrayerSite::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
 };
 
 #else // __cplusplus
@@ -60,8 +65,13 @@ struct Town;
 struct PrayerSite
 {
   struct MultiMapFixed super;  /* 0x0 */
+  uint32_t field_0x7c; /* 0x7c */
+  uint32_t field_0x80; /* 0x80 */
+  uint32_t field_0x84; /* 0x84 */
+  uint32_t field_0x88; /* 0x88 */
+  uint32_t field_0x8c; /* 0x8c */
 };
-static_assert(sizeof(struct PrayerSite) == 0x7c, "Data type is of wrong size");
+static_assert(sizeof(struct PrayerSite) == 0x90, "Data type is of wrong size");
 
 // Object Oriented datastructures
 
@@ -89,7 +99,7 @@ uint32_t __fastcall Process__10PrayerSiteFv(struct Object* this) asm("?Process@P
 // win1.41 006707f0 mac inlined PrayerSite::GetMesh( const(void))
 int __fastcall GetMesh__10PrayerSiteCFv(const struct Object* this) asm("?GetMesh@PrayerSite@@UBEHXZ");
 // win1.41 00670a10 mac inlined PrayerSite::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__10PrayerSiteFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@PrayerSite@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__10PrayerSiteFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@PrayerSite@@UAEIPAVCreature@@@Z");
 
 #endif // __cplusplus
 

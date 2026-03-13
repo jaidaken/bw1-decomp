@@ -23,7 +23,7 @@ class GPlayer;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class Object;
 class PhysicsObject;
@@ -55,9 +55,9 @@ public:
     // win1.41 004694e0 mac 101c37f0 CitadelPart::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 004698b0 mac 101c2780 CitadelPart::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& file);
+    virtual bool32_t Load(GameOSFile& file);
     // win1.41 00469830 mac 101c2870 CitadelPart::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 004694d0 mac 101c37b0 CitadelPart::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00464aa0 mac 101c2460 CitadelPart::GetCreatureBeliefType(void)
@@ -65,23 +65,23 @@ public:
     // win1.41 00464a80 mac 1008aa80 CitadelPart::GetCitadel(void)
     virtual Citadel* GetCitadel();
     // win1.41 00464b00 mac inlined CitadelPart::IsCitadelPart_0(void)
-    virtual bool IsCitadelPart();
+    virtual bool32_t IsCitadelPart();
     // win1.41 00464b10 mac inlined CitadelPart::IsCitadelPart_1(Creature *)
-    virtual bool IsCitadelPart(Creature* param_1);
+    virtual bool32_t IsCitadelPart(Creature* param_1);
     // win1.41 00469780 mac 101c2a50 CitadelPart::GetActualObjectToEffect(GPlayer *, bool)
     virtual void* GetActualObjectToEffect(GPlayer* param_1, bool param_2);
     // win1.41 004695c0 mac 101c32d0 CitadelPart::DestroyedByEffect(GPlayer *, float)
-    virtual bool DestroyedByEffect(GPlayer* param_1, float param_2);
+    virtual bool32_t DestroyedByEffect(GPlayer* param_1, float param_2);
     // win1.41 00469490 mac 101ba510 CitadelPart::Process(void)
     virtual uint32_t Process();
     // win1.41 00464a90 mac 101c2400 CitadelPart::GetMesh( const(void))
     virtual int GetMesh() const;
     // win1.41 00469760 mac 101c2b70 CitadelPart::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 004694b0 mac 101c3720 CitadelPart::Get3DType(void)
     virtual LH3DObject::ObjectType Get3DType();
     // win1.41 004695d0 mac inlined CitadelPart::CanBeDestroyedBySpell_1(Spell *)
-    virtual bool CanBeDestroyedBySpell(Spell* param_1);
+    virtual bool32_t CanBeDestroyedBySpell(Spell* param_1);
     // win1.41 004697f0 mac 101c2970 CitadelPart::ReactToPhysicsImpact(PhysicsObject *, bool)
     virtual void ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2);
     // win1.41 004694c0 mac 101c3760 CitadelPart::SaveObject(LHOSFile &, MapCoords const &)

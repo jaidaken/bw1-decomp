@@ -57,9 +57,9 @@ public:
     // win1.41 0071bcd0 mac 1050fda0 Rock::GetSampleForAttack(void)
     virtual uint32_t GetSampleForAttack();
     // win1.41 006e7870 mac 1013cfa0 Rock::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 006e77b0 mac 1013d0c0 Rock::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00561380 mac 100c41e0 Rock::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 006e79f0 mac 1013c460 Rock::PhysicsEditorCreate(int)
@@ -67,15 +67,15 @@ public:
     // win1.41 006e7a60 mac 1013c420 Rock::GetOverwriteTapToolTip(void)
     virtual uint32_t GetOverwriteTapToolTip();
     // win1.41 00439730 mac inlined Rock::IsRock_0(void)
-    virtual bool IsRock();
+    virtual bool32_t IsRock();
     // win1.41 00439760 mac 100b4030 Rock::CanBeAttackedByCreature(Creature *)
-    virtual bool CanBeAttackedByCreature(Creature* param_1);
+    virtual bool32_t CanBeAttackedByCreature(Creature* param_1);
     // win1.41 006e7a70 mac 1013c3c0 Rock::CanBePickedUpByCreature(Creature *)
-    virtual bool CanBePickedUpByCreature(Creature* param_1);
+    virtual bool32_t CanBePickedUpByCreature(Creature* param_1);
     // win1.41 00439750 mac 100b3ff0 Rock::GetCreatureMimicType(void)
     virtual uint32_t GetCreatureMimicType();
     // win1.41 006e7070 mac 1013dbc0 Rock::CanBeThrownByPlayer(void)
-    virtual bool CanBeThrownByPlayer();
+    virtual bool32_t CanBeThrownByPlayer();
     // win1.41 006e79e0 mac 1000ef30 Rock::GetScriptObjectType(void)
     virtual uint32_t GetScriptObjectType();
     // win1.41 006e7210 mac 1013d710 Rock::ActualMoveMapObject(MapCoords const &)
@@ -83,13 +83,13 @@ public:
     // win1.41 00517f10 mac 10042fe0 Rock::Draw(void)
     virtual void Draw();
     // win1.41 00439710 mac 100b3f00 Rock::IsResourceStore(RESOURCE_TYPE)
-    virtual bool IsResourceStore(RESOURCE_TYPE param_1);
+    virtual bool32_t IsResourceStore(RESOURCE_TYPE param_1);
     // win1.41 006e70c0 mac 1013dad0 Rock::GetResourceType(void)
     virtual RESOURCE_TYPE GetResourceType();
     // win1.41 006e7090 mac 1013db10 Rock::GetDefaultResource(void)
     virtual int GetDefaultResource();
     // win1.41 006e7030 mac 1013dc40 Rock::ValidForPlaceInHand(GInterfaceStatus *)
-    virtual bool ValidForPlaceInHand(GInterfaceStatus* param_1);
+    virtual bool32_t ValidForPlaceInHand(GInterfaceStatus* param_1);
     // win1.41 006e7450 mac 1013d680 Rock::InterfaceValidToTap(GInterfaceStatus *)
     virtual uint32_t InterfaceValidToTap(GInterfaceStatus* param_1);
     // win1.41 006e7480 mac 1013d4e0 Rock::InterfaceTap(GInterfaceStatus *)
@@ -110,7 +110,7 @@ public:
     // Constructors
 
     // win1.41 006e6f70 mac 1013dda0 Rock::Rock(MapCoords const &, GMobileStaticInfo const *, Object *, GPlayer *, float, float)
-    Rock(const MapCoords& coords, const GMobileStaticInfo* info, Object* param_3, GPlayer* param_4, float param_5, float param_6);
+    Rock(const MapCoords* coords, const GMobileStaticInfo* info, Object* param_3, GPlayer* param_4, float param_5, float param_6);
 };
 
 #else // __cplusplus
@@ -209,7 +209,7 @@ void __fastcall ActualMoveMapObject__4RockFRC9MapCoords(struct Object* this, con
 // win1.41 00517f10 mac 10042fe0 Rock::Draw(void)
 void __fastcall Draw__4RockFv(struct Object* this) asm("?Draw@Rock@@UAEXXZ");
 // win1.41 00439710 mac 100b3f00 Rock::IsResourceStore(RESOURCE_TYPE)
-bool __fastcall IsResourceStore__4RockF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@Rock@@UAE_NW4RESOURCE_TYPE@@@Z");
+bool __fastcall IsResourceStore__4RockF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@Rock@@UAEIW4RESOURCE_TYPE@@@Z");
 // win1.41 006e70c0 mac 1013dad0 Rock::GetResourceType(void)
 enum RESOURCE_TYPE __fastcall GetResourceType__4RockFv(struct Object* this) asm("?GetResourceType@Rock@@UAE?AW4RESOURCE_TYPE@@XZ");
 // win1.41 006e7090 mac 1013db10 Rock::GetDefaultResource(void)

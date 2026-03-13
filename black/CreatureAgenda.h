@@ -82,7 +82,7 @@ public:
     // Non-virtual methods
 
     // win1.41 004aca70 mac 10217d60 CreatureAgenda::ConstructSubActionsForAttackerThrowBallAtGoal(unsigned long)
-    bool ConstructSubActionsForAttackerThrowBallAtGoal(unsigned long param_1);
+    bool32_t ConstructSubActionsForAttackerThrowBallAtGoal(unsigned long param_1);
 };
 
 #else // __cplusplus
@@ -160,7 +160,7 @@ struct CreatureAgenda* __fastcall __ct__14CreatureAgendaFP8CreaturePC12CreatureI
 // Non-virtual methods
 
 // win1.41 004aca70 mac 10217d60 CreatureAgenda::ConstructSubActionsForAttackerThrowBallAtGoal(unsigned long)
-bool __fastcall ConstructSubActionsForAttackerThrowBallAtGoal__14CreatureAgendaFUl(struct CreatureAgenda* this, const void* edx, unsigned long param_1) asm("?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAE_NK@Z");
+bool __fastcall ConstructSubActionsForAttackerThrowBallAtGoal__14CreatureAgendaFUl(struct CreatureAgenda* this, const void* edx, unsigned long param_1) asm("?ConstructSubActionsForAttackerThrowBallAtGoal@CreatureAgenda@@QAEIK@Z");
 
 // Override methods
 

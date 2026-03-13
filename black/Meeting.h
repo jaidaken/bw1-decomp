@@ -24,6 +24,12 @@ class Town;
 class Meeting: public GameThingWithPos
 {
 public:
+    uint32_t field_0x28; /* 0x28 */
+    uint32_t field_0x2c; /* 0x2c */
+    uint32_t field_0x30; /* 0x30 */
+    uint32_t field_0x34; /* 0x34 */
+    uint32_t field_0x38; /* 0x38 */
+    uint32_t field_0x3c; /* 0x3c */
 
     // Override methods
 
@@ -51,8 +57,14 @@ struct Town;
 struct Meeting
 {
   struct GameThingWithPos super;  /* 0x0 */
+  uint32_t field_0x28; /* 0x28 */
+  uint32_t field_0x2c; /* 0x2c */
+  uint32_t field_0x30; /* 0x30 */
+  uint32_t field_0x34; /* 0x34 */
+  uint32_t field_0x38; /* 0x38 */
+  uint32_t field_0x3c; /* 0x3c */
 };
-static_assert(sizeof(struct Meeting) == 0x28, "Data type is of wrong size");
+static_assert(sizeof(struct Meeting) == 0x40, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

@@ -137,7 +137,7 @@ public:
     // win1.41 005c6ad0 mac 1034f2c0 HelpSystem::SetWideScreen(int, ulong)
     void SetWideScreen(int param_2, uint32_t param_3);
     // win1.41 005c6b60 mac 1001d4b0 HelpSystem::GetWideScreenPercentage(void) const
-    float GetWideScreenPercentage();
+    float GetWideScreenPercentage() const;
     // win1.41 005c8280 mac 10351b90 HelpSystem::TriggerCategory(HELP_SET_CATEGORY)
     void TriggerCategory(HELP_SET_CATEGORY param_1);
     // win1.41 005c8b80 mac 10353090 HelpSystem::RunMessageSet(HELP_SYSTEM_MESSAGE_SET, GameThingWithPos *)

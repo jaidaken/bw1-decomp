@@ -19,7 +19,7 @@ class GInterfaceStatus;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class Object;
 
@@ -30,6 +30,12 @@ class Object;
 class HanoiBlock: public MobileObject
 {
 public:
+    uint32_t field_0x68; /* 0x68 */
+    uint32_t field_0x6c; /* 0x6c */
+    uint32_t field_0x70; /* 0x70 */
+    uint32_t field_0x74; /* 0x74 */
+    uint32_t field_0x78; /* 0x78 */
+    uint32_t field_0x7c; /* 0x7c */
 
     // Override methods
 
@@ -38,15 +44,15 @@ public:
     // win1.41 00561840 mac 1011edc0 HanoiBlock::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 006db960 mac 10123fa0 HanoiBlock::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 006db9f0 mac 10123e90 HanoiBlock::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00561830 mac 1011ed80 HanoiBlock::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 006de440 mac 1011ee00 HanoiBlock::IsCannotBePickedUp( const(void))
-    virtual bool IsCannotBePickedUp();
+    virtual bool IsCannotBePickedUp() const;
     // win1.41 006de3f0 mac 1011eed0 HanoiBlock::InterfaceSetInMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetInMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 00561800 mac 1011eca0 HanoiBlock::CanBecomeAPhysicsObject(void)
     virtual bool CanBecomeAPhysicsObject();
     // win1.41 005617f0 mac 1011ec50 HanoiBlock::SaveObject(LHOSFile &, MapCoords const &)
@@ -71,8 +77,14 @@ struct Object;
 struct HanoiBlock
 {
   struct MobileObject super;  /* 0x0 */
+  uint32_t field_0x68; /* 0x68 */
+  uint32_t field_0x6c; /* 0x6c */
+  uint32_t field_0x70; /* 0x70 */
+  uint32_t field_0x74; /* 0x74 */
+  uint32_t field_0x78; /* 0x78 */
+  uint32_t field_0x7c; /* 0x7c */
 };
-static_assert(sizeof(struct HanoiBlock) == 0x68, "Data type is of wrong size");
+static_assert(sizeof(struct HanoiBlock) == 0x80, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

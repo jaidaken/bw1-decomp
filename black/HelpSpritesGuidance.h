@@ -32,7 +32,7 @@ public:
     // Non-virtual methods
 
     // win1.41 0071d300 mac 1050d290 GHelpSpritesGuidance::GetRandomSample(void) const
-    uint32_t GetRandomSample();
+    uint32_t GetRandomSample() const;
 };
 
 #else // __cplusplus

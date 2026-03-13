@@ -16,7 +16,7 @@
 
 struct InnerRoom;
 struct LH3DCamera;
-struct LH3DMesh;
+class LH3DMesh;
 
 // win1.41 00c275a8 mac inlined InnerCamera::`RTTI Type Descriptor'
 // win1.41 009ba6a0 mac inlined InnerCamera::`RTTI Base Class Descriptor'

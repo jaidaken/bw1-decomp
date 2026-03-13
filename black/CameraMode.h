@@ -58,12 +58,12 @@ public:
     virtual bool IsStillValid();
     virtual void Cleanup();
     virtual bool CanExist();
-    virtual bool MouseIsLocked(); /* 0x20 */
+    virtual bool32_t MouseIsLocked(); /* 0x20 */
     virtual void GetMousePos(LHCoord* pos);
     virtual void ProcessKeyMovement(uint16_t param_2);
     virtual void ProcessMouseMovement();
     virtual void Delete(); /* 0x30 */
-    virtual bool Arrived();
+    virtual bool32_t Arrived();
     virtual uint32_t GetSaveID();
     virtual void Load(GameOSFile& param_2);
     virtual void Save(GameOSFile& param_2); /* 0x40 */

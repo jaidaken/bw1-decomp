@@ -73,7 +73,7 @@ public:
     // win1.41 00745ae0 mac 1005c8d0 TownDesire::Process(void)
     void Process();
     // win1.41 00745f80 mac 1005d280 TownDesire::GetInfo(unsigned long) const
-    GTownDesireInfo* GetInfo(unsigned long param_1);
+    GTownDesireInfo* GetInfo(unsigned long param_1) const;
 };
 
 #else // __cplusplus

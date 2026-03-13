@@ -45,15 +45,15 @@ public:
     // win1.41 0043d1a0 mac 100be380 CitadelBuildingSite::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0043d620 mac 100b8580 CitadelBuildingSite::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0043d5e0 mac 100b8620 CitadelBuildingSite::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0043d190 mac 100be340 CitadelBuildingSite::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0043d660 mac 100b84d0 CitadelBuildingSite::Process(void)
     virtual void Process();
     // win1.41 0043d500 mac 100b8830 CitadelBuildingSite::GetPileWood(MapCoords const &)
-    virtual Pot* GetPileWood(const MapCoords* param_1);
+    virtual Pot* GetPileWood(const MapCoords& param_1);
     // win1.41 0043d180 mac 100b9190 CitadelBuildingSite::SetPileWood(Pot *)
     virtual void SetPileWood(Pot* param_1);
     // win1.41 0043d460 mac 100b8b60 CitadelBuildingSite::CreatePileWood(void)
@@ -63,7 +63,7 @@ public:
     // win1.41 0043d5b0 mac 100b86c0 CitadelBuildingSite::RemovePotFromStructure(PotStructure *)
     virtual void RemovePotFromStructure(PotStructure* param_1);
     // win1.41 0043d580 mac 100b8750 CitadelBuildingSite::IsLinkedToThisBuildingSite(Pot *)
-    virtual bool IsLinkedToThisBuildingSite(Pot* param_1);
+    virtual bool32_t IsLinkedToThisBuildingSite(Pot* param_1);
 };
 
 #else // __cplusplus
@@ -128,7 +128,7 @@ void __fastcall GetResourcePosAndYAngle__19CitadelBuildingSiteFUiUiPf(struct Bui
 // win1.41 0043d5b0 mac 100b86c0 CitadelBuildingSite::RemovePotFromStructure(PotStructure *)
 void __fastcall RemovePotFromStructure__19CitadelBuildingSiteFP12PotStructure(struct BuildingSite* this, const void* edx, struct PotStructure* param_1) asm("?RemovePotFromStructure@CitadelBuildingSite@@UAEXPAVPotStructure@@@Z");
 // win1.41 0043d580 mac 100b8750 CitadelBuildingSite::IsLinkedToThisBuildingSite(Pot *)
-bool __fastcall IsLinkedToThisBuildingSite__19CitadelBuildingSiteFP3Pot(struct BuildingSite* this, const void* edx, struct Pot* param_1) asm("?IsLinkedToThisBuildingSite@CitadelBuildingSite@@UAE_NPAVPot@@@Z");
+bool __fastcall IsLinkedToThisBuildingSite__19CitadelBuildingSiteFP3Pot(struct BuildingSite* this, const void* edx, struct Pot* param_1) asm("?IsLinkedToThisBuildingSite@CitadelBuildingSite@@UAEIPAVPot@@@Z");
 
 #endif // __cplusplus
 

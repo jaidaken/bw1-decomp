@@ -21,6 +21,8 @@ class Base;
 class GMagicHealInfo: public GMagicInfo
 {
 public:
+    uint32_t field_0x58; /* 0x58 */
+    uint32_t field_0x5c; /* 0x5c */
 
     // Override methods
 
@@ -37,8 +39,10 @@ struct Base;
 struct GMagicHealInfo
 {
   struct GMagicInfo super;  /* 0x0 */
+  uint32_t field_0x58;  /* 0x58 */
+  uint32_t field_0x5c;  /* 0x5c */
 };
-static_assert(sizeof(struct GMagicHealInfo) == 0x58, "Data type is of wrong size");
+static_assert(sizeof(struct GMagicHealInfo) == 0x60, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

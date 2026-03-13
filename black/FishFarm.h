@@ -28,7 +28,7 @@ class GPlayer;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCell;
 struct MapCoords;
 class Object;
@@ -68,9 +68,9 @@ public:
     // win1.41 0052c5b0 mac 100dd9a0 FishFarm::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0052d4f0 mac 100daf80 FishFarm::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0052d3b0 mac 100db1a0 FishFarm::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0052c5a0 mac 100dd960 FishFarm::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0052c490 mac inlined FishFarm::GetArrivePos(MapCoords *)
@@ -78,29 +78,29 @@ public:
     // win1.41 0052c4d0 mac 100dd5a0 FishFarm::GetCreatureBeliefType(void)
     virtual uint32_t GetCreatureBeliefType();
     // win1.41 0052c980 mac 100dc470 FishFarm::IsObjectInMap(void)
-    virtual bool IsObjectInMap();
+    virtual bool32_t IsObjectInMap();
     // win1.41 0052c550 mac 100dd800 FishFarm::CanBeEatenByCreature(Creature *)
-    virtual bool CanBeEatenByCreature(Creature* param_1);
+    virtual bool32_t CanBeEatenByCreature(Creature* param_1);
     // win1.41 0052c560 mac 100dd850 FishFarm::CanBeSleptNextToByCreature(Creature *)
-    virtual bool CanBeSleptNextToByCreature(Creature* param_1);
+    virtual bool32_t CanBeSleptNextToByCreature(Creature* param_1);
     // win1.41 0052c4f0 mac 100dd620 FishFarm::CanBePickedUpByCreature(Creature *)
-    virtual bool CanBePickedUpByCreature(Creature* param_1);
+    virtual bool32_t CanBePickedUpByCreature(Creature* param_1);
     // win1.41 0052c500 mac 100dd670 FishFarm::CanBeStompedOnByCreature(Creature *)
-    virtual bool CanBeStompedOnByCreature(Creature* param_1);
+    virtual bool32_t CanBeStompedOnByCreature(Creature* param_1);
     // win1.41 0052c510 mac 100dd6c0 FishFarm::CanBeGivenToVillager(Creature *)
-    virtual bool CanBeGivenToVillager(Creature* param_1);
+    virtual bool32_t CanBeGivenToVillager(Creature* param_1);
     // win1.41 0052c520 mac 100dd710 FishFarm::CanBePutInAStoragePit(Creature *)
-    virtual bool CanBePutInAStoragePit(Creature* param_1);
+    virtual bool32_t CanBePutInAStoragePit(Creature* param_1);
     // win1.41 0052c530 mac 100dd760 FishFarm::CanBeDestroyedByStoning(Creature *)
-    virtual bool CanBeDestroyedByStoning(Creature* param_1);
+    virtual bool32_t CanBeDestroyedByStoning(Creature* param_1);
     // win1.41 0052c540 mac 100dd7b0 FishFarm::CanBeExaminedByCreature(Creature *)
-    virtual bool CanBeExaminedByCreature(Creature* param_1);
+    virtual bool32_t CanBeExaminedByCreature(Creature* param_1);
     // win1.41 0052c570 mac 100dd8a0 FishFarm::IsBeingBuilt(Creature *)
-    virtual bool IsBeingBuilt(Creature* param_1);
+    virtual bool32_t IsBeingBuilt(Creature* param_1);
     // win1.41 0052c580 mac 100dd8e0 FishFarm::NeedsRepair(Creature *)
-    virtual bool NeedsRepair(Creature* param_1);
+    virtual bool32_t NeedsRepair(Creature* param_1);
     // win1.41 0052c4e0 mac 100dd5e0 FishFarm::CanBePoodOn(Creature *)
-    virtual bool CanBePoodOn(Creature* param_1);
+    virtual bool32_t CanBePoodOn(Creature* param_1);
     // win1.41 0052cad0 mac 1009a360 FishFarm::GetMapChild(MapCell const &)
     virtual Object* GetMapChild(const MapCell* param_1);
     // win1.41 0052cb70 mac 100dc1a0 FishFarm::SetMapChild(Object *, MapCell *)
@@ -110,7 +110,7 @@ public:
     // win1.41 0052ca70 mac 100dc310 FishFarm::RemoveMapObject(void)
     virtual void RemoveMapObject();
     // win1.41 0052c480 mac 100dd430 FishFarm::GetMeshRadius( const(void))
-    virtual float GetMeshRadius();
+    virtual float GetMeshRadius() const;
     // win1.41 0052d130 mac 1005f370 FishFarm::Process(void)
     virtual uint32_t Process();
     // win1.41 0052c830 mac 10025a30 FishFarm::Draw(void)
@@ -120,7 +120,7 @@ public:
     // win1.41 0052c840 mac 100dc810 FishFarm::GetHeightForHandAboveInteractObject(void)
     virtual float GetHeightForHandAboveInteractObject();
     // win1.41 0052cc10 mac 100dbd10 FishFarm::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0052d1e0 mac 100626c0 FishFarm::GetFoodValue(FOOD_TYPE)
     virtual float GetFoodValue(FOOD_TYPE param_1);
     // win1.41 0052d760 mac 100dac50 FishFarm::GetResourceType(void)
@@ -132,19 +132,19 @@ public:
     // win1.41 0052d770 mac 100da990 FishFarm::NetworkFriendlyStartLockedSelect(GInterfaceStatus *)
     virtual bool32_t NetworkFriendlyStartLockedSelect(GInterfaceStatus* param_1);
     // win1.41 0052d880 mac 100da930 FishFarm::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
-    virtual bool NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1);
+    virtual bool32_t NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1);
     // win1.41 0052d890 mac 100da8e0 FishFarm::NetworkUnfriendlyEndLockedSelect(void)
-    virtual bool NetworkUnfriendlyEndLockedSelect();
+    virtual bool32_t NetworkUnfriendlyEndLockedSelect();
     // win1.41 0052d8a0 mac 100da7c0 FishFarm::NetworkFriendlyEndLockedSelect(GInterfaceStatus *)
-    virtual bool NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1);
+    virtual bool32_t NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1);
     // win1.41 0052d670 mac 100daed0 FishFarm::ValidForPlaceInHand(GInterfaceStatus *)
-    virtual bool ValidForPlaceInHand(GInterfaceStatus* param_1);
+    virtual bool32_t ValidForPlaceInHand(GInterfaceStatus* param_1);
     // win1.41 0052d6b0 mac 100dadc0 FishFarm::InterfaceSetInMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetInMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 0052c4b0 mac 100dd510 FishFarm::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 0052c460 mac 100dd3e0 FishFarm::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
     // win1.41 0052d950 mac 100da4d0 FishFarm::ProcessInInteract(GInterfaceStatus *)
     virtual uint32_t ProcessInInteract(GInterfaceStatus* param_1);
     // win1.41 0052cf90 mac 100db980 FishFarm::SaveObject(LHOSFile &, MapCoords const &)
@@ -239,7 +239,7 @@ struct MapCoords* __fastcall GetArrivePos__8FishFarmFP9MapCoords(struct GameThin
 // win1.41 0052c4d0 mac 100dd5a0 FishFarm::GetCreatureBeliefType(void)
 uint32_t __fastcall GetCreatureBeliefType__8FishFarmFv(struct GameThingWithPos* this) asm("?GetCreatureBeliefType@FishFarm@@UAEIXZ");
 // win1.41 0052c980 mac 100dc470 FishFarm::IsObjectInMap(void)
-bool __fastcall IsObjectInMap__8FishFarmFv(struct GameThingWithPos* this) asm("?IsObjectInMap@FishFarm@@UAE_NXZ");
+bool32_t __fastcall IsObjectInMap__8FishFarmFv(struct GameThingWithPos* this) asm("?IsObjectInMap@FishFarm@@UAE_NXZ");
 // win1.41 0052c550 mac 100dd800 FishFarm::CanBeEatenByCreature(Creature *)
 uint32_t __fastcall CanBeEatenByCreature__8FishFarmFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1) asm("?CanBeEatenByCreature@FishFarm@@UAEIPAVCreature@@@Z");
 // win1.41 0052c560 mac 100dd850 FishFarm::CanBeSleptNextToByCreature(Creature *)
@@ -289,9 +289,9 @@ enum RESOURCE_TYPE __fastcall GetResourceType__8FishFarmFv(struct Object* this) 
 // win1.41 0052c590 mac 100dd920 FishFarm::IsLockedInInteract(void)
 bool __fastcall IsLockedInInteract__8FishFarmFv(struct Object* this) asm("?IsLockedInInteract@FishFarm@@UAE_NXZ");
 // win1.41 0052d750 mac 100dac90 FishFarm::ValidForLockedSelectProcess(GInterfaceStatus *)
-bool32_t __fastcall ValidForLockedSelectProcess__8FishFarmFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?ValidForLockedSelectProcess@FishFarm@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall ValidForLockedSelectProcess__8FishFarmFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?ValidForLockedSelectProcess@FishFarm@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 0052d770 mac 100da990 FishFarm::NetworkFriendlyStartLockedSelect(GInterfaceStatus *)
-bool32_t __fastcall NetworkFriendlyStartLockedSelect__8FishFarmFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?NetworkFriendlyStartLockedSelect@FishFarm@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall NetworkFriendlyStartLockedSelect__8FishFarmFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?NetworkFriendlyStartLockedSelect@FishFarm@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 0052d880 mac 100da930 FishFarm::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
 uint32_t __fastcall NetworkUnfriendlyLockedSelect__8FishFarmFP21ControlHandUpdateInfo(struct Object* this, const void* edx, struct ControlHandUpdateInfo* param_1) asm("?NetworkUnfriendlyLockedSelect@FishFarm@@UAEIPAUControlHandUpdateInfo@@@Z");
 // win1.41 0052d890 mac 100da8e0 FishFarm::NetworkUnfriendlyEndLockedSelect(void)
@@ -305,7 +305,7 @@ uint32_t __fastcall InterfaceSetInMagicHand__8FishFarmFP16GInterfaceStatus(struc
 // win1.41 0052c4b0 mac 100dd510 FishFarm::InteractsWithPhysicsObjects(void)
 bool __fastcall InteractsWithPhysicsObjects__8FishFarmFv(struct Object* this) asm("?InteractsWithPhysicsObjects@FishFarm@@UAE_NXZ");
 // win1.41 0052c460 mac 100dd3e0 FishFarm::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__8FishFarmFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@FishFarm@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__8FishFarmFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@FishFarm@@UAEIPAVCreature@@@Z");
 // win1.41 0052d950 mac 100da4d0 FishFarm::ProcessInInteract(GInterfaceStatus *)
 uint32_t __fastcall ProcessInInteract__8FishFarmFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?ProcessInInteract@FishFarm@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 0052cf90 mac 100db980 FishFarm::SaveObject(LHOSFile &, MapCoords const &)

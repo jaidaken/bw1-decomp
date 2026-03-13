@@ -23,6 +23,7 @@ class GameThing;
 class WayPoint: public GameThingWithPos
 {
 public:
+    uint32_t field_0x28; /* 0x28 */
 
     // Override methods
 
@@ -56,8 +57,9 @@ struct GameThing;
 struct WayPoint
 {
   struct GameThingWithPos super;  /* 0x0 */
+  uint32_t field_0x28;  /* 0x28 */
 };
-static_assert(sizeof(struct WayPoint) == 0x28, "Data type is of wrong size");
+static_assert(sizeof(struct WayPoint) == 0x2c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

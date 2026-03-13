@@ -35,7 +35,7 @@ public:
     int select_start; /* 0x250 */
     int select_end;
     int field_0x258;
-    bool32_t editable;
+    bool editable;
     bool masked_text; /* 0x260 */
     char16_t text[0x100];
     uint32_t field_0x464;

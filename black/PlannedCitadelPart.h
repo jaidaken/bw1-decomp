@@ -23,6 +23,7 @@ class GameThing;
 class PlannedCitadelPart: public PlannedMultiMapFixed
 {
 public:
+    uint32_t field_0x48; /* 0x48 */
 
     // Override methods
 
@@ -33,9 +34,9 @@ public:
     // win1.41 00465590 mac 101c2130 PlannedCitadelPart::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00469720 mac 101c2e30 PlannedCitadelPart::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 004696f0 mac 101c2ed0 PlannedCitadelPart::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00465580 mac 101c20f0 PlannedCitadelPart::GetSaveType(void)
     virtual uint32_t GetSaveType();
 };
@@ -51,8 +52,9 @@ struct GameThing;
 struct PlannedCitadelPart
 {
   struct PlannedMultiMapFixed super;  /* 0x0 */
+  uint32_t field_0x48;  /* 0x48 */
 };
-static_assert(sizeof(struct PlannedCitadelPart) == 0x48, "Data type is of wrong size");
+static_assert(sizeof(struct PlannedCitadelPart) == 0x4c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

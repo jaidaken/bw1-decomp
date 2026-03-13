@@ -52,23 +52,23 @@ public:
     // win1.41 0076e990 mac 1015ac80 Fragment::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0076f6a0 mac 1015afa0 Fragment::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0076f5d0 mac 1015b130 Fragment::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0076e980 mac 1015ac40 Fragment::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0076f7b0 mac 1015af50 Fragment::ResolveLoad(void)
     virtual void ResolveLoad();
     // win1.41 0076e930 mac 1015aab0 Fragment::CanBePickedUpByCreature(Creature *)
-    virtual bool CanBePickedUpByCreature(Creature* param_1);
+    virtual bool32_t CanBePickedUpByCreature(Creature* param_1);
     // win1.41 0076e960 mac 1015aba0 Fragment::CanBeThrownByPlayer(void)
-    virtual bool CanBeThrownByPlayer();
+    virtual bool32_t CanBeThrownByPlayer();
     // win1.41 0076f7c0 mac 1015aef0 Fragment::GetScriptObjectType(void)
     virtual uint32_t GetScriptObjectType();
     // win1.41 0076ec00 mac 1015be10 Fragment::Draw(void)
     virtual void Draw();
     // win1.41 0076e940 mac 1015ab00 Fragment::ValidForPlaceInHand(GInterfaceStatus *)
-    virtual bool ValidForPlaceInHand(GInterfaceStatus* param_1);
+    virtual bool32_t ValidForPlaceInHand(GInterfaceStatus* param_1);
     // win1.41 0076e950 mac 1015ab50 Fragment::InterfaceValidToTap(GInterfaceStatus *)
     virtual uint32_t InterfaceValidToTap(GInterfaceStatus* param_1);
     // win1.41 0076ec40 mac 1015bdd0 Fragment::GetPhysicsConstantsType(void)
@@ -82,7 +82,7 @@ public:
     // win1.41 0076f3e0 mac 1015b4a0 Fragment::ReactToPhysicsImpact(PhysicsObject *, bool)
     virtual void ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2);
     // win1.41 0076f7f0 mac 1015ae00 Fragment::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
     // win1.41 0076f7d0 mac 1015aeb0 Fragment::GetCollideSoundType(void)
     virtual SOUND_COLLISION_TYPE GetCollideSoundType();
     // win1.41 0076e970 mac 1015abe0 Fragment::GetInHandImmersionTexture(void)
@@ -187,7 +187,7 @@ bool __fastcall InteractsWithPhysicsObjects__8FragmentFv(struct Object* this) as
 // win1.41 0076f3e0 mac 1015b4a0 Fragment::ReactToPhysicsImpact(PhysicsObject *, bool)
 void __fastcall ReactToPhysicsImpact__8FragmentFP13PhysicsObjectb(struct Object* this, const void* edx, struct PhysicsObject* param_1, bool param_2) asm("?ReactToPhysicsImpact@Fragment@@UAEXPAVPhysicsObject@@_N@Z");
 // win1.41 0076f7f0 mac 1015ae00 Fragment::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__8FragmentFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@Fragment@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__8FragmentFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@Fragment@@UAEIPAVCreature@@@Z");
 // win1.41 0076f7d0 mac 1015aeb0 Fragment::GetCollideSoundType(void)
 enum SOUND_COLLISION_TYPE __fastcall GetCollideSoundType__8FragmentFv(struct Object* this) asm("?GetCollideSoundType@Fragment@@UAE?AW4SOUND_COLLISION_TYPE@@XZ");
 // win1.41 0076e970 mac 1015abe0 Fragment::GetInHandImmersionTexture(void)

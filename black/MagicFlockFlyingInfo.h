@@ -21,6 +21,9 @@ class Base;
 class GMagicFlockFlyingInfo: public GMagicInfo
 {
 public:
+    uint32_t field_0x58; /* 0x58 */
+    uint32_t field_0x5c; /* 0x5c */
+    uint32_t field_0x60; /* 0x60 */
 
     // Override methods
 
@@ -37,8 +40,11 @@ struct Base;
 struct GMagicFlockFlyingInfo
 {
   struct GMagicInfo super;  /* 0x0 */
+  uint32_t field_0x58;  /* 0x58 */
+  uint32_t field_0x5c;  /* 0x5c */
+  uint32_t field_0x60;  /* 0x60 */
 };
-static_assert(sizeof(struct GMagicFlockFlyingInfo) == 0x58, "Data type is of wrong size");
+static_assert(sizeof(struct GMagicFlockFlyingInfo) == 0x64, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

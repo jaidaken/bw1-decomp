@@ -38,7 +38,7 @@ struct Particle3DObjAnimTextured
 {
   struct Particle3DObj super;  /* 0x0 */
 };
-static_assert(sizeof(struct Particle3DObjAnimTextured) == 0x18, "Data type is of wrong size");
+static_assert(sizeof(struct Particle3DObjAnimTextured) == 0x28, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

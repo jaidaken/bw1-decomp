@@ -18,7 +18,7 @@ class GShowNeedsInfo;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 
 // win1.41 009d9678 mac inlined ShowNeedsVisuals::`RTTI Type Descriptor'
@@ -58,9 +58,9 @@ public:
     // win1.41 0055ddc0 mac 10144af0 ShowNeedsVisuals::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0071a320 mac 10144bb0 ShowNeedsVisuals::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0071a230 mac 10144d30 ShowNeedsVisuals::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055ddb0 mac 10144ab0 ShowNeedsVisuals::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0071a410 mac 10144b40 ShowNeedsVisuals::ResolveLoad(void)
@@ -74,13 +74,13 @@ public:
     // win1.41 0055dd60 mac 101448f0 ShowNeedsVisuals::GetMesh( const(void))
     virtual int GetMesh() const;
     // win1.41 00719e00 mac 10145510 ShowNeedsVisuals::CallVirtualFunctionsForCreation(const MapCoords &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* coords);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& coords);
     // win1.41 0055dda0 mac 10144a60 ShowNeedsVisuals::SaveObject(LHOSFile &, MapCoords const &)
     virtual uint32_t SaveObject(LHOSFile& file, const MapCoords& coords);
 
     // Constructors
 
-    // win1.41 00719d60 mac 10145700 ShowNeedsVisuals::ShowNeedsVisuals(const MapCoords&, GameThing*, const GShowNeedsInfo *)
+    // win1.41 00719d60 mac 10145700 ShowNeedsVisuals::ShowNeedsVisuals(const MapCoords*, GameThing*, const GShowNeedsInfo *)
     ShowNeedsVisuals(MapCoords* coords, GameThing* game_thing, GShowNeedsInfo* info);
 };
 

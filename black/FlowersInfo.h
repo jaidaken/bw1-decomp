@@ -42,7 +42,7 @@ struct GFlowersInfo
 {
   struct GFeatureInfo super;  /* 0x0 */
 };
-static_assert(sizeof(struct GFlowersInfo) == 0x120, "Data type is of wrong size");
+static_assert(sizeof(struct GFlowersInfo) == 0x124, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

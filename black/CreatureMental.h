@@ -63,27 +63,27 @@ public:
     CreatureInnatePersonality innate_personality; /* 0x1aa14 */
     CreatureVisionState vision_state; /* 0x1aa38 */
     CreatureExplorationMap exploration_map; /* 0x1aa80 */
-    uint8_t field_0x1ca98[0x400];
-    CreaturePreviousActions previous_actions; /* 0x1ce98 */
-    CreatureLookState look_state; /* 0x1d3c0 */
-    uint8_t field_0x1d3f8[0x14];
-    CreatureFaceState face_state; /* 0x1d40c */
-    CreatureObjectsInspected objects_inspected; /* 0x1d418 */
-    uint32_t field_0x1d480;
-    uint32_t field_0x1d484;
-    uint32_t field_0x1d488;
-    MapCoords field_0x1d48c[0x1e][0x28];
-    CreatureMentalDebug debug; /* 0x20ccc */
-    Creature* creature; /* 0x20d18 */
-    int field_0x20d1c;
-    uint32_t field_0x20d20;
-    uint32_t field_0x20d24;
-    uint32_t field_0x20d28;
-    uint32_t field_0x20d2c;
-    uint32_t field_0x20d230; /* 0x20d30 */
-    uint32_t field_0x20d234;
-    uint32_t field_0x20d238;
-    uint32_t field_0x20d23c;
+    uint8_t field_0x1ce98[0x400];
+    CreaturePreviousActions previous_actions; /* 0x1d298 */
+    CreatureLookState look_state; /* 0x1d7c0 */
+    uint8_t field_0x1d7f8[0x14];
+    CreatureFaceState face_state; /* 0x1d80c */
+    CreatureObjectsInspected objects_inspected; /* 0x1d818 */
+    uint32_t field_0x1d880;
+    uint32_t field_0x1d884;
+    uint32_t field_0x1d888;
+    MapCoords field_0x1d88c[0x1e][0x28];
+    CreatureMentalDebug debug; /* 0x210cc */
+    Creature* creature; /* 0x21118 */
+    int field_0x2111c;
+    uint32_t field_0x21120;
+    uint32_t field_0x21124;
+    uint32_t field_0x21128;
+    uint32_t field_0x2112c;
+    uint32_t field_0x21130; /* 0x21130 */
+    uint32_t field_0x21134;
+    uint32_t field_0x21138;
+    uint32_t field_0x2113c;
 
     // Override methods
 
@@ -131,29 +131,29 @@ struct CreatureMental
   struct CreatureInnatePersonality innate_personality;  /* 0x1aa14 */
   struct CreatureVisionState vision_state;  /* 0x1aa38 */
   struct CreatureExplorationMap exploration_map;  /* 0x1aa80 */
-  uint8_t field_0x1ca98[0x400];
-  struct CreaturePreviousActions previous_actions;  /* 0x1ce98 */
-  struct CreatureLookState look_state;  /* 0x1d3c0 */
-  uint8_t field_0x1d3f8[0x14];
-  struct CreatureFaceState face_state;  /* 0x1d40c */
-  struct CreatureObjectsInspected objects_inspected;  /* 0x1d418 */
-  uint32_t field_0x1d480;
-  uint32_t field_0x1d484;
-  uint32_t field_0x1d488;
-  struct MapCoords field_0x1d48c[0x1e][0x28];
-  struct CreatureMentalDebug debug;  /* 0x20ccc */
-  struct Creature* creature;  /* 0x20d18 */
-  int field_0x20d1c;
-  uint32_t field_0x20d20;
-  uint32_t field_0x20d24;
-  uint32_t field_0x20d28;
-  uint32_t field_0x20d2c;
-  uint32_t field_0x20d230;  /* 0x20d30 */
-  uint32_t field_0x20d234;
-  uint32_t field_0x20d238;
-  uint32_t field_0x20d23c;
+  uint8_t field_0x1ce98[0x400];
+  struct CreaturePreviousActions previous_actions;  /* 0x1d298 */
+  struct CreatureLookState look_state;  /* 0x1d7c0 */
+  uint8_t field_0x1d7f8[0x14];
+  struct CreatureFaceState face_state;  /* 0x1d80c */
+  struct CreatureObjectsInspected objects_inspected;  /* 0x1d818 */
+  uint32_t field_0x1d880;
+  uint32_t field_0x1d884;
+  uint32_t field_0x1d888;
+  struct MapCoords field_0x1d88c[0x1e][0x28];
+  struct CreatureMentalDebug debug;  /* 0x210cc */
+  struct Creature* creature;  /* 0x21118 */
+  int field_0x2111c;
+  uint32_t field_0x21120;
+  uint32_t field_0x21124;
+  uint32_t field_0x21128;
+  uint32_t field_0x2112c;
+  uint32_t field_0x21130;  /* 0x21130 */
+  uint32_t field_0x21134;
+  uint32_t field_0x21138;
+  uint32_t field_0x2113c;
 };
-static_assert(sizeof(struct CreatureMental) == 0x20d40, "Data type is of wrong size");
+static_assert(sizeof(struct CreatureMental) == 0x21140, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

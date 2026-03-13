@@ -22,6 +22,9 @@ class GBaseInfo;
 class GScriptHighlightInfo: public GSingleMapFixedInfo
 {
 public:
+    uint32_t field_0x104; /* 0x104 */
+    uint32_t field_0x108; /* 0x108 */
+    uint32_t field_0x10c; /* 0x10c */
 
     // Override methods
 
@@ -41,8 +44,11 @@ struct GBaseInfo;
 struct GScriptHighlightInfo
 {
   struct GSingleMapFixedInfo super;  /* 0x0 */
+  uint32_t field_0x104; /* 0x104 */
+  uint32_t field_0x108; /* 0x108 */
+  uint32_t field_0x10c; /* 0x10c */
 };
-static_assert(sizeof(struct GScriptHighlightInfo) == 0x100, "Data type is of wrong size");
+static_assert(sizeof(struct GScriptHighlightInfo) == 0x110, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

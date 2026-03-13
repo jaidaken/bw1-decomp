@@ -25,7 +25,7 @@ class GameOSFile;
 class GameThing;
 class GameThingWithPos;
 struct GestureSystemPacketData;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class MobileWallHug;
 class Object;
@@ -69,17 +69,17 @@ public:
     // win1.41 0071be10 mac 1050fbb0 Animal::GetGuidanceResourceType(void)
     virtual uint32_t GetGuidanceResourceType();
     // win1.41 0041b710 mac 10165620 Animal::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0041b460 mac 101659a0 Animal::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0041b9a0 mac 101655d0 Animal::ResolveLoad(void)
     virtual void ResolveLoad();
     // win1.41 00417840 mac 1012f3a0 Animal::GetCreatureBeliefType(void)
     virtual uint32_t GetCreatureBeliefType();
     // win1.41 00417870 mac 1012f470 Animal::CanBeGivenToTown(Creature *)
-    virtual bool CanBeGivenToTown(Creature* param_1);
+    virtual bool32_t CanBeGivenToTown(Creature* param_1);
     // win1.41 004e4ae0 mac 105e41a0 Animal::IsAnimalBelongingToOtherPlayer(Creature *)
-    virtual bool IsAnimalBelongingToOtherPlayer(Creature* param_1);
+    virtual bool32_t IsAnimalBelongingToOtherPlayer(Creature* param_1);
     // win1.41 004eabd0 mac 1026e380 Animal::GetCreatureMimicType(void)
     virtual uint32_t GetCreatureMimicType();
     // win1.41 004d1b20 mac 102430c0 Animal::GetHowMuchCreatureWantsToLookAtMe(void)
@@ -87,7 +87,7 @@ public:
     // win1.41 00417890 mac 1012f720 Animal::GetDeathReason(void)
     virtual DEATH_REASON GetDeathReason();
     // win1.41 00417880 mac 1004f080 Animal::IsAnimal(void)
-    virtual bool IsAnimal();
+    virtual bool32_t IsAnimal();
     // win1.41 0041b200 mac 101662b0 Animal::GetScriptObjectType(void)
     virtual uint32_t GetScriptObjectType();
     // win1.41 00419310 mac 101696e0 Animal::GetHoldType(void)
@@ -95,7 +95,7 @@ public:
     // win1.41 00419320 mac 10169690 Animal::GetHoldLoweringMultiplier(void)
     virtual float GetHoldLoweringMultiplier();
     // win1.41 0041b1b0 mac 101666a0 Animal::DestroyedByEffect(GPlayer *, float)
-    virtual bool DestroyedByEffect(GPlayer* param_1, float param_2);
+    virtual bool32_t DestroyedByEffect(GPlayer* param_1, float param_2);
     // win1.41 00417700 mac 1012eed0 Animal::ProcessBySpell(Spell *)
     virtual uint32_t ProcessBySpell(Spell* param_1);
     // win1.41 00417540 mac 1012e540 Animal::GetMesh( const(void))
@@ -107,15 +107,15 @@ public:
     // win1.41 00417ee0 mac 1004c150 Animal::ProcessState(void)
     virtual uint32_t ProcessState();
     // win1.41 0041a040 mac 10168030 Animal::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 00417530 mac 1012e500 Animal::GetResourceType(void)
     virtual RESOURCE_TYPE GetResourceType();
     // win1.41 0041bc80 mac 10164dc0 Animal::GetDefaultResource(void)
     virtual int GetDefaultResource();
     // win1.41 00419b40 mac 10168830 Animal::ValidForPlaceInHand(GInterfaceStatus *)
-    virtual bool ValidForPlaceInHand(GInterfaceStatus* param_1);
+    virtual bool32_t ValidForPlaceInHand(GInterfaceStatus* param_1);
     // win1.41 00419b60 mac 10168730 Animal::InterfaceSetInMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetInMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 0041b320 mac 10166000 Animal::ValidToApplyThisToObject(GInterfaceStatus *, Object *)
     virtual uint32_t ValidToApplyThisToObject(GInterfaceStatus* param_1, Object* param_2);
     // win1.41 0041b360 mac 10165e60 Animal::ApplyThisToObject(GInterfaceStatus *, Object *, GestureSystemPacketData *)
@@ -141,13 +141,13 @@ public:
     // win1.41 00418aa0 mac 100482e0 Animal::MoveTo3D(void)
     virtual void MoveTo3D();
     // win1.41 0041a3f0 mac 1000bfc0 Animal::SetNewWander(MapCoords const &, long, long)
-    virtual void SetNewWander(const MapCoords* param_1, int param_2, int param_3);
+    virtual void SetNewWander(const MapCoords& param_1, int param_2, int param_3);
     // win1.41 0041acc0 mac 10166b90 Animal::DecideWhatToDo(void)
     virtual bool DecideWhatToDo();
     // win1.41 0041a2b0 mac 1007c6d0 Animal::SetStateSpeed(void)
     virtual void SetStateSpeed();
     // win1.41 0041b430 mac inlined Animal::IsFinalState(VILLAGER_STATES)
-    virtual bool IsFinalState(VILLAGER_STATES param_1);
+    virtual bool32_t IsFinalState(VILLAGER_STATES param_1);
     // win1.41 00417fa0 mac 10054d90 Animal::GetAnimId(void)
     virtual ANIM_LIST GetAnimId();
     // win1.41 0041a2c0 mac inlined Animal::CallExitStateFunction(VILLAGER_STATES)
@@ -159,15 +159,15 @@ public:
     // win1.41 0041b170 mac inlined Animal::ExitReaction(VILLAGER_STATES)
     virtual int ExitReaction(VILLAGER_STATES param_1);
     // win1.41 00417570 mac inlined Animal::IsScriptState( const(VILLAGER_STATES))
-    virtual bool IsScriptState(VILLAGER_STATES param_1);
+    virtual bool IsScriptState(VILLAGER_STATES param_1) const;
     // win1.41 00417590 mac inlined Animal::IsScriptInterruptableState( const(VILLAGER_STATES))
-    virtual bool IsScriptInterruptableState(VILLAGER_STATES param_1);
+    virtual bool IsScriptInterruptableState(VILLAGER_STATES param_1) const;
     // win1.41 0041b100 mac inlined Animal::IsStateExitFunctionSameAs( const(VILLAGER_STATES))
-    virtual bool IsStateExitFunctionSameAs(VILLAGER_STATES param_1);
+    virtual bool IsStateExitFunctionSameAs(VILLAGER_STATES param_1) const;
     // win1.41 0041b1c0 mac 101665d0 Animal::DebugShowTime(unsigned long, unsigned char, unsigned char)
-    virtual uint32_t DebugShowTime(uint32_t param_1, uint8_t param_2, uint8_t param_3);
+    virtual uint32_t DebugShowTime(unsigned long param_1, uint8_t param_2, uint8_t param_3);
     // win1.41 00419bc0 mac 10168630 Animal::IsInterestedInFoodObject(Object *)
-    virtual bool IsInterestedInFoodObject(Object* param_1);
+    virtual bool32_t IsInterestedInFoodObject(Object* param_1);
     // win1.41 0041a280 mac 10167c30 Animal::ResetStateAfterReacting(void)
     virtual void ResetStateAfterReacting();
     // win1.41 00420440 mac 10176350 Animal::SetupReactToCreature(GameThingWithPos *, Reaction *)
@@ -225,13 +225,13 @@ public:
     // win1.41 004203b0 mac 10176560 Animal::ReactToFallingTreePriority(Reaction *, Reaction *)
     virtual uint8_t ReactToFallingTreePriority(Reaction* param_1, Reaction* param_2);
     // win1.41 0041bb00 mac 101650c0 Animal::IsChild(void)
-    virtual bool IsChild();
+    virtual bool32_t IsChild();
     // win1.41 00420550 mac 10175d80 Animal::GetFleeingPositionFromMovingObject(MapCoords *, GameThingWithPos *, float)
     virtual void GetFleeingPositionFromMovingObject(MapCoords* param_1, GameThingWithPos* param_2, float param_3);
     // win1.41 0041a240 mac 1007c570 Animal::GetFinalState( const(void))
-    virtual VILLAGER_STATES GetFinalState();
+    virtual VILLAGER_STATES GetFinalState() const;
     // win1.41 0041b210 mac 10055c50 Animal::IsPosValidForTurnAngle(MapCoords const &)
-    virtual bool IsPosValidForTurnAngle(const MapCoords* param_1);
+    virtual bool IsPosValidForTurnAngle(const MapCoords& param_1);
 
     // Non-virtual methods
 
@@ -395,7 +395,7 @@ bool __fastcall DecideWhatToDo__6AnimalFv(struct Living* this) asm("?DecideWhatT
 // win1.41 0041a2b0 mac 1007c6d0 Animal::SetStateSpeed(void)
 void __fastcall SetStateSpeed__6AnimalFv(struct Living* this) asm("?SetStateSpeed@Animal@@UAEXXZ");
 // win1.41 0041b430 mac inlined Animal::IsFinalState(VILLAGER_STATES)
-bool __fastcall IsFinalState__6AnimalF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1) asm("?IsFinalState@Animal@@UAE_NW4VILLAGER_STATES@@@Z");
+bool __fastcall IsFinalState__6AnimalF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1) asm("?IsFinalState@Animal@@UAEIW4VILLAGER_STATES@@@Z");
 // win1.41 00417fa0 mac 10054d90 Animal::GetAnimId(void)
 enum ANIM_LIST __fastcall GetAnimId__6AnimalFv(struct Living* this) asm("?GetAnimId@Animal@@UAE?AW4ANIM_LIST@@XZ");
 // win1.41 0041a2c0 mac inlined Animal::CallExitStateFunction(VILLAGER_STATES)
@@ -415,7 +415,7 @@ bool __fastcall IsStateExitFunctionSameAs__6AnimalCF15VILLAGER_STATES(const stru
 // win1.41 0041b1c0 mac 101665d0 Animal::DebugShowTime(unsigned long, unsigned char, unsigned char)
 uint32_t __fastcall DebugShowTime__6AnimalFUlUcUc(struct Living* this, const void* edx, uint32_t param_1, uint8_t param_2, uint8_t param_3) asm("?DebugShowTime@Animal@@UAEIIEE@Z");
 // win1.41 00419bc0 mac 10168630 Animal::IsInterestedInFoodObject(Object *)
-bool __fastcall IsInterestedInFoodObject__6AnimalFP6Object(struct Living* this, const void* edx, struct Object* param_1) asm("?IsInterestedInFoodObject@Animal@@UAE_NPAVObject@@@Z");
+bool __fastcall IsInterestedInFoodObject__6AnimalFP6Object(struct Living* this, const void* edx, struct Object* param_1) asm("?IsInterestedInFoodObject@Animal@@UAEIPAVObject@@@Z");
 // win1.41 0041a280 mac 10167c30 Animal::ResetStateAfterReacting(void)
 void __fastcall ResetStateAfterReacting__6AnimalFv(struct Living* this) asm("?ResetStateAfterReacting@Animal@@UAEXXZ");
 // win1.41 00420440 mac 10176350 Animal::SetupReactToCreature(GameThingWithPos *, Reaction *)
@@ -473,7 +473,7 @@ uint8_t __fastcall ReactToConfusedPriority__6AnimalFP8ReactionP8Reaction(struct 
 // win1.41 004203b0 mac 10176560 Animal::ReactToFallingTreePriority(Reaction *, Reaction *)
 uint8_t __fastcall ReactToFallingTreePriority__6AnimalFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2) asm("?ReactToFallingTreePriority@Animal@@UAEEPAVReaction@@0@Z");
 // win1.41 0041bb00 mac 101650c0 Animal::IsChild(void)
-bool __fastcall IsChild__6AnimalFv(struct Living* this) asm("?IsChild@Animal@@UAE_NXZ");
+bool32_t __fastcall IsChild__6AnimalFv(struct Living* this) asm("?IsChild@Animal@@UAE_NXZ");
 // win1.41 00420550 mac 10175d80 Animal::GetFleeingPositionFromMovingObject(MapCoords *, GameThingWithPos *, float)
 void __fastcall GetFleeingPositionFromMovingObject__6AnimalFP9MapCoordsP16GameThingWithPosf(struct Living* this, const void* edx, struct MapCoords* param_1, struct GameThingWithPos* param_2, float param_3) asm("?GetFleeingPositionFromMovingObject@Animal@@UAEXPAUMapCoords@@PAVGameThingWithPos@@M@Z");
 // win1.41 0041a240 mac 1007c570 Animal::GetFinalState( const(void))

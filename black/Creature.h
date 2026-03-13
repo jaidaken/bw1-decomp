@@ -49,7 +49,7 @@ class GameThing;
 class GameThingWithPos;
 class LH3DCreature;
 struct LH3DSmoke;
-class LHOSFile;
+struct LHOSFile;
 struct LHPoint;
 class LandscapeVortex;
 class MobileWallHug;
@@ -243,9 +243,9 @@ public:
     // win1.41 00474090 mac 101e32a0 Creature::IsCreature(Creature *)
     virtual bool IsCreature(Creature* param_1);
     // win1.41 00474080 mac inlined Creature::IsCreature_1(void)
-    virtual bool IsCreature_1();
+    virtual bool32_t IsCreature_1();
     // win1.41 004e4080 mac 105e6020 Creature::IsCreatureNotTooNear(Creature *)
-    virtual bool IsCreatureNotTooNear(Creature* param_1);
+    virtual bool32_t IsCreatureNotTooNear(Creature* param_1);
     // win1.41 0047b1f0 mac 101d48a0 Creature::GetMaxAlignmentChangePerGameTurn(void)
     virtual float GetMaxAlignmentChangePerGameTurn();
     // win1.41 004f8350 mac inlined Creature::MaintainSpell(unsigned int, float)
@@ -263,9 +263,9 @@ public:
     // win1.41 0071bd50 mac 1050fcd0 Creature::GetSampleForAttack(void)
     virtual uint32_t GetSampleForAttack();
     // win1.41 004e5ff0 mac 1026b130 Creature::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 004e4ea0 mac 1026c9c0 Creature::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 004740c0 mac 101e33f0 Creature::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 004e6ab0 mac 1026aa90 Creature::ResolveLoad(void)
@@ -293,7 +293,7 @@ public:
     // win1.41 00477ac0 mac 101daa00 Creature::GetMovementDirection(LHPoint *)
     virtual void GetMovementDirection(LHPoint* param_1);
     // win1.41 00479e40 mac 101d6a50 Creature::IsMoving( const(void))
-    virtual bool IsMoving();
+    virtual bool IsMoving() const;
     // win1.41 00477e10 mac 101da2c0 Creature::GetImpressiveType(void)
     virtual IMPRESSIVE_TYPE GetImpressiveType();
     // win1.41 0047b150 mac 101d4b00 Creature::GetImpressiveIntensity(IMPRESSIVE_TYPE)
@@ -301,57 +301,57 @@ public:
     // win1.41 0047b200 mac 101d4730 Creature::GetImpressiveValue(Living *, Reaction *)
     virtual float GetImpressiveValue(Living* param_1, Reaction* param_2);
     // win1.41 004e4310 mac 105e5880 Creature::IsActivityObjectWhichAngerAppliesTo(Creature *)
-    virtual bool IsActivityObjectWhichAngerAppliesTo(Creature* param_1);
+    virtual bool32_t IsActivityObjectWhichAngerAppliesTo(Creature* param_1);
     // win1.41 00474020 mac 101e30a0 Creature::IsActivityObjectWhichCompassionAppliesTo(Creature *)
-    virtual bool IsActivityObjectWhichCompassionAppliesTo(Creature* param_1);
+    virtual bool32_t IsActivityObjectWhichCompassionAppliesTo(Creature* param_1);
     // win1.41 00474030 mac 101e3100 Creature::IsActivityObjectWhichPlayfulnessAppliesTo(Creature *)
-    virtual bool IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1);
+    virtual bool32_t IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1);
     // win1.41 004c5e50 mac 10231ab0 Creature::FalseFunction(void)
-    virtual bool FalseFunction();
+    virtual bool32_t FalseFunction();
     // win1.41 00473fd0 mac 101e2f50 Creature::IsSuitableForCreatureActivity(void)
-    virtual bool IsSuitableForCreatureActivity();
+    virtual bool32_t IsSuitableForCreatureActivity();
     // win1.41 00474050 mac 101e31b0 Creature::CanBeEatenByCreature(Creature *)
-    virtual bool CanBeEatenByCreature(Creature* param_1);
+    virtual bool32_t CanBeEatenByCreature(Creature* param_1);
     // win1.41 004e4280 mac 105e5900 Creature::CanBeAttackedByCreature(Creature *)
-    virtual bool CanBeAttackedByCreature(Creature* param_1);
+    virtual bool32_t CanBeAttackedByCreature(Creature* param_1);
     // win1.41 004740b0 mac 101e33a0 Creature::CanBeFrighteningToCreature(Creature *)
-    virtual bool CanBeFrighteningToCreature(Creature* param_1);
+    virtual bool32_t CanBeFrighteningToCreature(Creature* param_1);
     // win1.41 00474070 mac 101e3250 Creature::CanBePlayedWithByCreature(Creature *)
-    virtual bool CanBePlayedWithByCreature(Creature* param_1);
+    virtual bool32_t CanBePlayedWithByCreature(Creature* param_1);
     // win1.41 00474060 mac 101e3200 Creature::CanBeBefriendedByCreature(Creature *)
-    virtual bool CanBeBefriendedByCreature(Creature* param_1);
+    virtual bool32_t CanBeBefriendedByCreature(Creature* param_1);
     // win1.41 00474040 mac 101e3160 Creature::CanBeSleptNextToByCreature(Creature *)
-    virtual bool CanBeSleptNextToByCreature(Creature* param_1);
+    virtual bool32_t CanBeSleptNextToByCreature(Creature* param_1);
     // win1.41 004e4cd0 mac 105e3b70 Creature::CanBePickedUpByCreature(Creature *)
-    virtual bool CanBePickedUpByCreature(Creature* param_1);
+    virtual bool32_t CanBePickedUpByCreature(Creature* param_1);
     // win1.41 004e3f10 mac 105e6580 Creature::CanBeKissedByCreature(Creature *)
-    virtual bool CanBeKissedByCreature(Creature* param_1);
+    virtual bool32_t CanBeKissedByCreature(Creature* param_1);
     // win1.41 004e3c70 mac 105e6d70 Creature::CanBeStompedOnByCreature(Creature *)
-    virtual bool CanBeStompedOnByCreature(Creature* param_1);
+    virtual bool32_t CanBeStompedOnByCreature(Creature* param_1);
     // win1.41 00473ff0 mac 101e2fe0 Creature::CanBeExaminedByCreature(Creature *)
-    virtual bool CanBeExaminedByCreature(Creature* param_1);
+    virtual bool32_t CanBeExaminedByCreature(Creature* param_1);
     // win1.41 004740a0 mac 101e3320 Creature::CanBeFoughtByCreature(Creature *)
-    virtual bool CanBeFoughtByCreature(Creature* param_1);
+    virtual bool32_t CanBeFoughtByCreature(Creature* param_1);
     // win1.41 004792f0 mac 101d83c0 Creature::IsDominantCreature(Creature *)
-    virtual bool IsDominantCreature(Creature* param_1);
+    virtual bool32_t IsDominantCreature(Creature* param_1);
     // win1.41 004e4430 mac 105e55b0 Creature::IsCreatureAvailableForJointActivity(Creature *)
-    virtual bool IsCreatureAvailableForJointActivity(Creature* param_1);
+    virtual bool32_t IsCreatureAvailableForJointActivity(Creature* param_1);
     // win1.41 004e4450 mac 105e5530 Creature::IsCreatureNotAvailableForJointActivity(Creature *)
-    virtual bool IsCreatureNotAvailableForJointActivity(Creature* param_1);
+    virtual bool32_t IsCreatureNotAvailableForJointActivity(Creature* param_1);
     // win1.41 004e45e0 mac 105e5000 Creature::IsCreatureWhoSeemsFriendly(Creature *)
-    virtual bool IsCreatureWhoSeemsFriendly(Creature* param_1);
+    virtual bool32_t IsCreatureWhoSeemsFriendly(Creature* param_1);
     // win1.41 00473f80 mac 101e2e10 Creature::GetCreatureMimicType(void)
     virtual uint32_t GetCreatureMimicType();
     // win1.41 004d1b30 mac 10243070 Creature::GetHowMuchCreatureWantsToLookAtMe(void)
     virtual float GetHowMuchCreatureWantsToLookAtMe();
     // win1.41 00477e30 mac 101da220 Creature::IsObjectTurningTooFastForCameraToFollowSmoothly(void)
-    virtual bool IsObjectTurningTooFastForCameraToFollowSmoothly();
+    virtual bool32_t IsObjectTurningTooFastForCameraToFollowSmoothly();
     // win1.41 0063bad0 mac 103da330 Creature::CalculateWhereIWillBeAfterNSeconds(float, LHPoint *)
     virtual void CalculateWhereIWillBeAfterNSeconds(float param_1, LHPoint* param_2);
     // win1.41 00477f50 mac 101d9f50 Creature::GetHeight(void)
     virtual float GetHeight();
     // win1.41 004794a0 mac 101d7fc0 Creature::IsReadyForNewScriptAction(void)
-    virtual bool IsReadyForNewScriptAction();
+    virtual bool32_t IsReadyForNewScriptAction();
     // win1.41 0047d2c0 mac 101cfdf0 Creature::SetControlledByScript(int)
     virtual void SetControlledByScript(int param_1);
     // win1.41 0047d8f0 mac 101cef90 Creature::GetQueryFirstEnumText(void)
@@ -375,9 +375,9 @@ public:
     // win1.41 00478c00 mac 101d8e40 Creature::FillInEffectDefenceMultiplier(EffectNumbers &)
     virtual void FillInEffectDefenceMultiplier(EffectNumbers* param_1);
     // win1.41 00478c80 mac 101d89d0 Creature::ApplyEffect(EffectValues &, int)
-    virtual void ApplyEffect(EffectValues* param_1, int param_2);
+    virtual void ApplyEffect(EffectValues& param_1, int param_2);
     // win1.41 00476f70 mac 101dbeb0 Creature::DestroyedByEffect(GPlayer *, float)
-    virtual bool DestroyedByEffect(GPlayer* param_1, float param_2);
+    virtual bool32_t DestroyedByEffect(GPlayer* param_1, float param_2);
     // win1.41 00479020 mac 101d8950 Creature::ApplySingleEffect(EFFECT_TYPE, float, GameThing *, MapCoords const &)
     virtual void ApplySingleEffect(EFFECT_TYPE param_1, float param_2, GameThing* param_3, const MapCoords* param_4);
     // win1.41 00517910 mac 100c9670 Creature::Draw(void)
@@ -391,25 +391,25 @@ public:
     // win1.41 0047cd60 mac 101d06d0 Creature::GetWeight(void)
     virtual float GetWeight();
     // win1.41 004f8a10 mac 1028ac60 Creature::CanBeSuckedIntoVortex(LandscapeVortex *)
-    virtual bool CanBeSuckedIntoVortex(LandscapeVortex* param_1);
+    virtual bool32_t CanBeSuckedIntoVortex(LandscapeVortex* param_1);
     // win1.41 00476e10 mac 101dc300 Creature::ValidForLockedSelectProcess(GInterfaceStatus *)
     virtual bool32_t ValidForLockedSelectProcess(GInterfaceStatus* param_1);
     // win1.41 00476e70 mac 101dc260 Creature::NetworkFriendlyStartLockedSelect(GInterfaceStatus *)
     virtual bool32_t NetworkFriendlyStartLockedSelect(GInterfaceStatus* param_1);
     // win1.41 00476eb0 mac 101dc160 Creature::IsReadyForNetworkUnfriendlyLockedSelect(void)
-    virtual bool IsReadyForNetworkUnfriendlyLockedSelect();
+    virtual bool32_t IsReadyForNetworkUnfriendlyLockedSelect();
     // win1.41 00476ec0 mac 101dc100 Creature::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
-    virtual bool NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1);
+    virtual bool32_t NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1);
     // win1.41 00476ed0 mac 101dc060 Creature::GetReadyForNetworkUnfriendlyEndLockedSelect(void)
-    virtual bool GetReadyForNetworkUnfriendlyEndLockedSelect();
+    virtual bool32_t GetReadyForNetworkUnfriendlyEndLockedSelect();
     // win1.41 00476f00 mac 101dbf90 Creature::IsReadyForNetworkUnfriendlyEndLockedSelect(void)
-    virtual bool IsReadyForNetworkUnfriendlyEndLockedSelect();
+    virtual bool32_t IsReadyForNetworkUnfriendlyEndLockedSelect();
     // win1.41 00476f60 mac 101dbf40 Creature::NetworkUnfriendlyEndLockedSelect(void)
-    virtual bool NetworkUnfriendlyEndLockedSelect();
+    virtual bool32_t NetworkUnfriendlyEndLockedSelect();
     // win1.41 00476e90 mac 101dc1c0 Creature::NetworkFriendlyEndLockedSelect(GInterfaceStatus *)
-    virtual bool NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1);
+    virtual bool32_t NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1);
     // win1.41 00473f60 mac 101e2d80 Creature::ValidForPlaceInHand(GInterfaceStatus *)
-    virtual bool ValidForPlaceInHand(GInterfaceStatus* param_1);
+    virtual bool32_t ValidForPlaceInHand(GInterfaceStatus* param_1);
     // win1.41 0047a330 mac 101d6240 Creature::InterfaceValidToGiveObject(GInterfaceStatus *, Object *)
     virtual uint32_t InterfaceValidToGiveObject(GInterfaceStatus* param_1, Object* param_2);
     // win1.41 0047a320 mac 101d63d0 Creature::InterfaceGiveObject(GInterfaceStatus *, Object *)
@@ -433,7 +433,7 @@ public:
     // win1.41 00479b90 mac 101d6db0 Creature::SetUpPhysOb(PhysOb *)
     virtual void SetUpPhysOb(PhysOb* param_1);
     // win1.41 00479970 mac 101d72a0 Creature::GetBoundingSphere(LHPoint &, float &)
-    virtual void GetBoundingSphere(LHPoint* param_1, float* param_2);
+    virtual void GetBoundingSphere(LHPoint& param_1, float& param_2);
     // win1.41 00479d20 mac 101d6d20 Creature::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 00479990 mac 101d6fd0 Creature::ReactToPhysicsImpact(PhysicsObject *, bool)
@@ -441,7 +441,7 @@ public:
     // win1.41 00479d10 mac 101d6d70 Creature::CanBecomeAPhysicsObject(void)
     virtual bool CanBecomeAPhysicsObject();
     // win1.41 0047d4b0 mac 101cf930 Creature::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
     // win1.41 0047d500 mac 101cf7f0 Creature::AddToRoutePlan(RPHolder *, Creature *, int, void (*)(int, Point2D, float, int))
     virtual void AddToRoutePlan(RPHolder* param_1, Creature* param_2, int param_3, void (__cdecl* param_4)(int, Point2D, float, int));
     // win1.41 00477f00 mac 101da0d0 Creature::IsScary(void)
@@ -469,7 +469,7 @@ public:
     // win1.41 00473f10 mac inlined Creature::CallOutofAnimationFunction(VILLAGER_STATES)
     virtual int CallOutofAnimationFunction(VILLAGER_STATES param_1);
     // win1.41 00473f40 mac inlined Creature::IsFinalState(VILLAGER_STATES)
-    virtual bool IsFinalState(VILLAGER_STATES param_1);
+    virtual bool32_t IsFinalState(VILLAGER_STATES param_1);
     // win1.41 00473f90 mac inlined Creature::SetAnim__i(int)
     virtual void SetAnim__i(int param_1);
     // win1.41 00473ef0 mac 101e2be0 Creature::GetAnimId(void)
@@ -483,7 +483,7 @@ public:
     // win1.41 0047c670 mac 101d2490 Creature::IsDancing(void)
     virtual bool IsDancing();
     // win1.41 004f2820 mac 1027db00 Creature::IsAvailableForReaction(REACTION)
-    virtual bool IsAvailableForReaction(REACTION param_1);
+    virtual bool32_t IsAvailableForReaction(REACTION param_1);
     // win1.41 004f2780 mac 1027dca0 Creature::UpdateHowImpressed(Reaction *, int)
     virtual void UpdateHowImpressed(Reaction* param_1, int param_2);
     // win1.41 004f2680 mac inlined Creature::AddReaction(Reaction *, VILLAGER_STATES)
@@ -568,9 +568,9 @@ public:
     // Static methods
 
     // win1.41 00474a20 mac 101dfc60 Creature::Create(MapCoords const &, CreatureInfo const *, GPlayer *)
-    static Creature* Create(const MapCoords* coords, const GCreatureInfo* info, GPlayer* player);
+    static Creature* Create(const MapCoords& coords, const GCreatureInfo* info, GPlayer* player);
     // win1.41 00474b50 mac 101dfb90 Creature::CreateCreature(MapCoords const &, CreatureInfo const *, GPlayer *)
-    static Creature* CreateCreature(const MapCoords* coords, const GCreatureInfo* info, GPlayer* player);
+    static Creature* CreateCreature(const MapCoords& coords, const GCreatureInfo* info, GPlayer* player);
 
     // Constructors
 
@@ -590,9 +590,9 @@ public:
     // win1.41 004c4450 mac 10230ac0 Creature::ForceActivityAndForceAction(CREATURE_DESIRES, CreatureBelief *, CREATURE_ACTION, CreatureBelief *, CreatureBelief *, int, int)
     void ForceActivityAndForceAction(CREATURE_DESIRES param_1, CreatureBelief* param_2, CREATURE_ACTION param_3, CreatureBelief* param_4, CreatureBelief* param_5, int param_6, int param_7);
     // win1.41 004c44b0 mac 10230950 Creature::ForceActivityAndForceAction(CreaturePlan &, int, int)
-    void ForceActivityAndForceAction(CreaturePlan* param_1, int param_2, int param_3);
+    void ForceActivityAndForceAction(CreaturePlan& param_1, int param_2, int param_3);
     // win1.41 004ea670 mac 10279d20 Creature::DecideOnNewPlan(CreaturePlan &)
-    void DecideOnNewPlan(CreaturePlan* param_1);
+    void DecideOnNewPlan(CreaturePlan& param_1);
     // win1.41 004f8b80 mac 1028a7b0 Creature::ProcessSpells(void)
     void ProcessSpells();
     // win1.41 004ffdd0 mac 102a0fc0 Creature::SubStatePerformPickUpParameter(CreatureBelief *)
@@ -618,15 +618,15 @@ public:
     // win1.41 0050b360 mac 100c0320 Creed::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0050b4e0 mac 100c03b0 Creed::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0050b4c0 mac 100c0410 Creed::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0050b350 mac 100c02f0 Creed::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0050b4a0 mac 100c0470 Creed::SetScale(float)
     virtual void SetScale(float param_1);
     // win1.41 0050b500 mac 100c0360 Creed::CanBePickedUpByCreature(Creature *)
-    virtual bool CanBePickedUpByCreature(Creature* param_1);
+    virtual bool32_t CanBePickedUpByCreature(Creature* param_1);
     // win1.41 0050b420 mac 100c04d0 Creed::Create3DObject(void)
     virtual void Create3DObject();
     // win1.41 005186a0 mac 100c8cf0 Creed::Draw(void)
@@ -634,7 +634,7 @@ public:
     // win1.41 005186d0 mac 100c8c40 Creed::DrawOutOfMap(bool)
     virtual void DrawOutOfMap(bool param_1);
     // win1.41 0050b3a0 mac 100c06a0 Creed::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0050b330 mac 100c0270 Creed::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 0050b340 mac 100c02b0 Creed::CanBecomeAPhysicsObject(void)
@@ -1058,11 +1058,11 @@ bool __fastcall CanBePickedUp__8CreatureFv(struct Object* this) asm("?CanBePicke
 // win1.41 0047cd60 mac 101d06d0 Creature::GetWeight(void)
 float __fastcall GetWeight__8CreatureFv(struct Object* this) asm("?GetWeight@Creature@@UAEMXZ");
 // win1.41 004f8a10 mac 1028ac60 Creature::CanBeSuckedIntoVortex(LandscapeVortex *)
-bool __fastcall CanBeSuckedIntoVortex__8CreatureFP15LandscapeVortex(struct Object* this, const void* edx, struct LandscapeVortex* param_1) asm("?CanBeSuckedIntoVortex@Creature@@UAE_NPAVLandscapeVortex@@@Z");
+bool __fastcall CanBeSuckedIntoVortex__8CreatureFP15LandscapeVortex(struct Object* this, const void* edx, struct LandscapeVortex* param_1) asm("?CanBeSuckedIntoVortex@Creature@@UAEIPAVLandscapeVortex@@@Z");
 // win1.41 00476e10 mac 101dc300 Creature::ValidForLockedSelectProcess(GInterfaceStatus *)
-bool32_t __fastcall ValidForLockedSelectProcess__8CreatureFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?ValidForLockedSelectProcess@Creature@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall ValidForLockedSelectProcess__8CreatureFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?ValidForLockedSelectProcess@Creature@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 00476e70 mac 101dc260 Creature::NetworkFriendlyStartLockedSelect(GInterfaceStatus *)
-bool32_t __fastcall NetworkFriendlyStartLockedSelect__8CreatureFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?NetworkFriendlyStartLockedSelect@Creature@@UAE_NPAVGInterfaceStatus@@@Z");
+bool32_t __fastcall NetworkFriendlyStartLockedSelect__8CreatureFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1) asm("?NetworkFriendlyStartLockedSelect@Creature@@UAEIPAVGInterfaceStatus@@@Z");
 // win1.41 00476eb0 mac 101dc160 Creature::IsReadyForNetworkUnfriendlyLockedSelect(void)
 uint32_t __fastcall IsReadyForNetworkUnfriendlyLockedSelect__8CreatureFv(struct Object* this) asm("?IsReadyForNetworkUnfriendlyLockedSelect@Creature@@UAEIXZ");
 // win1.41 00476ec0 mac 101dc100 Creature::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
@@ -1136,7 +1136,7 @@ int __fastcall CallIntoAnimationFunction__8CreatureF15VILLAGER_STATES(struct Liv
 // win1.41 00473f10 mac inlined Creature::CallOutofAnimationFunction(VILLAGER_STATES)
 int __fastcall CallOutofAnimationFunction__8CreatureF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1) asm("?CallOutofAnimationFunction@Creature@@UAEHW4VILLAGER_STATES@@@Z");
 // win1.41 00473f40 mac inlined Creature::IsFinalState(VILLAGER_STATES)
-bool __fastcall IsFinalState__8CreatureF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1) asm("?IsFinalState@Creature@@UAE_NW4VILLAGER_STATES@@@Z");
+bool __fastcall IsFinalState__8CreatureF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1) asm("?IsFinalState@Creature@@UAEIW4VILLAGER_STATES@@@Z");
 // win1.41 00473f90 mac inlined Creature::SetAnim__i(int)
 void __fastcall SetAnim__i__8CreatureFi(struct Living* this, const void* edx, int param_1) asm("?SetAnim__i@Creature@@UAEXH@Z");
 // win1.41 00473ef0 mac 101e2be0 Creature::GetAnimId(void)
@@ -1150,7 +1150,7 @@ uint32_t __fastcall CallEntryStateFunction__Uc__8CreatureF15VILLAGER_STATES(stru
 // win1.41 0047c670 mac 101d2490 Creature::IsDancing(void)
 bool __fastcall IsDancing__8CreatureFv(struct Living* this) asm("?IsDancing@Creature@@UAE_NXZ");
 // win1.41 004f2820 mac 1027db00 Creature::IsAvailableForReaction(REACTION)
-bool __fastcall IsAvailableForReaction__8CreatureF8REACTION(struct Living* this, const void* edx, enum REACTION param_1) asm("?IsAvailableForReaction@Creature@@UAE_NW4REACTION@@@Z");
+bool __fastcall IsAvailableForReaction__8CreatureF8REACTION(struct Living* this, const void* edx, enum REACTION param_1) asm("?IsAvailableForReaction@Creature@@UAEIW4REACTION@@@Z");
 // win1.41 004f2780 mac 1027dca0 Creature::UpdateHowImpressed(Reaction *, int)
 void __fastcall UpdateHowImpressed__8CreatureFP8Reactioni(struct Living* this, const void* edx, struct Reaction* param_1, int param_2) asm("?UpdateHowImpressed@Creature@@UAEXPAVReaction@@H@Z");
 // win1.41 004f2680 mac inlined Creature::AddReaction(Reaction *, VILLAGER_STATES)

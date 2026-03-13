@@ -24,6 +24,8 @@ class GBaseInfo;
 class GSingleMapFixedInfo: public GObjectInfo
 {
 public:
+    uint32_t field_0x100; /* 0x100 */
+
     // Virtual functions
 
     // win1.41 0052dd50 mac 100e2210 GSingleMapFixedInfo::_dt(void)
@@ -57,8 +59,9 @@ static_assert(sizeof(union GSingleMapFixedInfoBase) == 0x100, "Data type is of w
 struct GSingleMapFixedInfo
 {
   union GSingleMapFixedInfoBase base;  /* 0x0 */
+  uint32_t field_0x100;  /* 0x100 */
 };
-static_assert(sizeof(struct GSingleMapFixedInfo) == 0x100, "Data type is of wrong size");
+static_assert(sizeof(struct GSingleMapFixedInfo) == 0x104, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

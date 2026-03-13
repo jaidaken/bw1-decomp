@@ -21,6 +21,11 @@ class Base;
 class GFootballPositionInfo: public GBaseInfo
 {
 public:
+    uint32_t field_0x10; /* 0x10 */
+    uint32_t field_0x14; /* 0x14 */
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
+    uint32_t field_0x20; /* 0x20 */
 
     // Override methods
 
@@ -55,8 +60,13 @@ struct Base;
 struct GFootballPositionInfo
 {
   struct GBaseInfo super;  /* 0x0 */
+  uint32_t field_0x10; /* 0x10 */
+  uint32_t field_0x14; /* 0x14 */
+  uint32_t field_0x18; /* 0x18 */
+  uint32_t field_0x1c; /* 0x1c */
+  uint32_t field_0x20; /* 0x20 */
 };
-static_assert(sizeof(struct GFootballPositionInfo) == 0x10, "Data type is of wrong size");
+static_assert(sizeof(struct GFootballPositionInfo) == 0x24, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

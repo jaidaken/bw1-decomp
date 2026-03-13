@@ -22,6 +22,9 @@ class GameThing;
 class SpellStormAndTornado: public Spell
 {
 public:
+    uint32_t field_0xec; /* 0xec */
+    uint32_t field_0xf0; /* 0xf0 */
+    uint32_t field_0xf4; /* 0xf4 */
 
     // Override methods
 
@@ -49,8 +52,11 @@ struct GameThing;
 struct SpellStormAndTornado
 {
   struct Spell super;  /* 0x0 */
+  uint32_t field_0xec;  /* 0xec */
+  uint32_t field_0xf0;  /* 0xf0 */
+  uint32_t field_0xf4;  /* 0xf4 */
 };
-static_assert(sizeof(struct SpellStormAndTornado) == 0xec, "Data type is of wrong size");
+static_assert(sizeof(struct SpellStormAndTornado) == 0xf8, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

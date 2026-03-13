@@ -39,9 +39,9 @@ public:
     // win1.41 0043d710 mac 100be260 StandardBuildingSite::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0043d890 mac 100b7ec0 StandardBuildingSite::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0043d850 mac 100b7f60 StandardBuildingSite::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0043d700 mac 100be220 StandardBuildingSite::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0043d8d0 mac 10077e70 StandardBuildingSite::Process(void)
@@ -49,7 +49,7 @@ public:
     // win1.41 0043c5e0 mac inlined StandardBuildingSite::GetWoodForStats(void)
     virtual uint32_t GetWoodForStats();
     // win1.41 0043d6e0 mac 100b8180 StandardBuildingSite::GetPileWood(MapCoords const &)
-    virtual Pot* GetPileWood(const MapCoords* param_1);
+    virtual Pot* GetPileWood(const MapCoords& param_1);
     // win1.41 0043d6f0 mac 100b8130 StandardBuildingSite::SetPileWood(Pot *)
     virtual void SetPileWood(Pot* param_1);
     // win1.41 0043d760 mac 100b81d0 StandardBuildingSite::CreatePileWood(void)
@@ -59,7 +59,7 @@ public:
     // win1.41 0043d800 mac 100b8060 StandardBuildingSite::RemovePotFromStructure(PotStructure *)
     virtual void RemovePotFromStructure(PotStructure* param_1);
     // win1.41 0043d830 mac 100b8000 StandardBuildingSite::IsLinkedToThisBuildingSite(Pot *)
-    virtual bool IsLinkedToThisBuildingSite(Pot* param_1);
+    virtual bool32_t IsLinkedToThisBuildingSite(Pot* param_1);
     // win1.41 0043ce40 mac inlined StandardBuildingSite::GetNearestEdge(float, float, int *)
     virtual float GetNearestEdge(float param_1, float param_2, int* param_3);
     // win1.41 0043cf40 mac inlined StandardBuildingSite::GetNextPosFromIndex(int *)
@@ -129,7 +129,7 @@ void __fastcall GetResourcePosAndYAngle__20StandardBuildingSiteFUiUiPf(struct Bu
 // win1.41 0043d800 mac 100b8060 StandardBuildingSite::RemovePotFromStructure(PotStructure *)
 void __fastcall RemovePotFromStructure__20StandardBuildingSiteFP12PotStructure(struct BuildingSite* this, const void* edx, struct PotStructure* param_1) asm("?RemovePotFromStructure@StandardBuildingSite@@UAEXPAVPotStructure@@@Z");
 // win1.41 0043d830 mac 100b8000 StandardBuildingSite::IsLinkedToThisBuildingSite(Pot *)
-bool __fastcall IsLinkedToThisBuildingSite__20StandardBuildingSiteFP3Pot(struct BuildingSite* this, const void* edx, struct Pot* param_1) asm("?IsLinkedToThisBuildingSite@StandardBuildingSite@@UAE_NPAVPot@@@Z");
+bool __fastcall IsLinkedToThisBuildingSite__20StandardBuildingSiteFP3Pot(struct BuildingSite* this, const void* edx, struct Pot* param_1) asm("?IsLinkedToThisBuildingSite@StandardBuildingSite@@UAEIPAVPot@@@Z");
 // win1.41 0043ce40 mac inlined StandardBuildingSite::GetNearestEdge(float, float, int *)
 float __fastcall GetNearestEdge__20StandardBuildingSiteFffPi(struct BuildingSite* this, const void* edx, float param_1, float param_2, int* param_3) asm("?GetNearestEdge@StandardBuildingSite@@UAEMMMPAH@Z");
 // win1.41 0043cf40 mac inlined StandardBuildingSite::GetNextPosFromIndex(int *)

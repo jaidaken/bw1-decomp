@@ -36,16 +36,16 @@ public:
     // win1.41 005faf30 mac 103acd80 GMagicHand::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 005fb320 mac 103acdc0 GMagicHand::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 005fb2c0 mac 103ace90 GMagicHand::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 005faf20 mac 103acd40 GMagicHand::GetSaveType(void)
     virtual uint32_t GetSaveType();
 
     // Non-virtual methods
 
     // win1.41 005fb040 mac 10075560 GMagicHand::GetObjectFromHand(void) const
-    Object* GetObjectFromHand();
+    Object* GetObjectFromHand() const;
 };
 
 #else // __cplusplus

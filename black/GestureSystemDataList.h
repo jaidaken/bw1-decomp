@@ -35,7 +35,7 @@ public:
     // Non-virtual methods
 
     // win1.41 00579af0 mac 1032b530 GestureSystemDataList::Load(char *)
-    bool Load(char* param_1);
+    bool32_t Load(char* param_1);
 };
 
 #else // __cplusplus
@@ -70,7 +70,7 @@ struct GestureSystemDataList* __fastcall __ct__21GestureSystemDataListFv(struct 
 // Non-virtual methods
 
 // win1.41 00579af0 mac 1032b530 GestureSystemDataList::Load(char *)
-bool __fastcall Load__21GestureSystemDataListFPc(struct GestureSystemDataList* this, const void* edx, char* param_1) asm("?Load@GestureSystemDataList@@QAE_NPAD@Z");
+bool __fastcall Load__21GestureSystemDataListFPc(struct GestureSystemDataList* this, const void* edx, char* param_1) asm("?Load@GestureSystemDataList@@QAEIPAD@Z");
 
 // Override methods
 

@@ -20,7 +20,7 @@ class EffectValues;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct MapCoords;
 class Town;
 
@@ -46,13 +46,13 @@ public:
     // win1.41 0055dad0 mac 1055c0c0 TownDesireFlags::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00747030 mac 1055c440 TownDesireFlags::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00746f10 mac 1055c600 TownDesireFlags::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055dac0 mac 1055c080 TownDesireFlags::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0055daa0 mac 1055bff0 TownDesireFlags::IsTownDesireFlag(void)
-    virtual bool IsTownDesireFlag();
+    virtual bool32_t IsTownDesireFlag();
     // win1.41 00746ec0 mac 1055d420 TownDesireFlags::GetQueryFirstEnumText(void)
     virtual HELP_TEXT GetQueryFirstEnumText();
     // win1.41 00746ed0 mac 1055d3c0 TownDesireFlags::GetQueryLastEnumText(void)
@@ -68,13 +68,13 @@ public:
     // win1.41 00746a30 mac 100364a0 TownDesireFlags::Draw(void)
     virtual void Draw();
     // win1.41 00746dc0 mac 1055d830 TownDesireFlags::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* coords);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& coords);
     // win1.41 0055dab0 mac 1055c030 TownDesireFlags::IsEffectReceiver(EffectValues *)
-    virtual bool IsEffectReceiver(EffectValues* param_1);
+    virtual bool32_t IsEffectReceiver(EffectValues* param_1);
     // win1.41 00746a10 mac 1055dae0 TownDesireFlags::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 00746de0 mac 1055d7e0 TownDesireFlags::CreatureMustAvoid(Creature *)
-    virtual bool CreatureMustAvoid(Creature* param_1);
+    virtual bool32_t CreatureMustAvoid(Creature* param_1);
     // win1.41 0055da90 mac 1055bfa0 TownDesireFlags::SaveObject(LHOSFile &, MapCoords const &)
     virtual uint32_t SaveObject(LHOSFile& file, const MapCoords& coords);
 };
@@ -154,7 +154,7 @@ uint32_t __fastcall IsEffectReceiver__15TownDesireFlagsFP12EffectValues(struct O
 // win1.41 00746a10 mac 1055dae0 TownDesireFlags::InteractsWithPhysicsObjects(void)
 bool __fastcall InteractsWithPhysicsObjects__15TownDesireFlagsFv(struct Object* this) asm("?InteractsWithPhysicsObjects@TownDesireFlags@@UAE_NXZ");
 // win1.41 00746de0 mac 1055d7e0 TownDesireFlags::CreatureMustAvoid(Creature *)
-bool __fastcall CreatureMustAvoid__15TownDesireFlagsFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@TownDesireFlags@@UAE_NPAVCreature@@@Z");
+bool __fastcall CreatureMustAvoid__15TownDesireFlagsFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@TownDesireFlags@@UAEIPAVCreature@@@Z");
 // win1.41 0055da90 mac 1055bfa0 TownDesireFlags::SaveObject(LHOSFile &, MapCoords const &)
 uint32_t __fastcall SaveObject__15TownDesireFlagsFR8LHOSFileRC9MapCoords(struct Object* this, const void* edx, struct LHOSFile* param_1, const struct MapCoords* param_2) asm("?SaveObject@TownDesireFlags@@UAEIAAULHOSFile@@ABUMapCoords@@@Z");
 

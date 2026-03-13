@@ -21,6 +21,8 @@ class Base;
 class GAnimatedStaticInfo: public GFeatureInfo
 {
 public:
+    uint32_t field_0x124; /* 0x124 */
+    uint32_t field_0x128; /* 0x128 */
 
     // Override methods
 
@@ -37,8 +39,10 @@ struct Base;
 struct GAnimatedStaticInfo
 {
   struct GFeatureInfo super;  /* 0x0 */
+  uint32_t field_0x124;  /* 0x124 */
+  uint32_t field_0x128;  /* 0x128 */
 };
-static_assert(sizeof(struct GAnimatedStaticInfo) == 0x120, "Data type is of wrong size");
+static_assert(sizeof(struct GAnimatedStaticInfo) == 0x12c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

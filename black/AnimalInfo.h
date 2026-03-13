@@ -23,6 +23,7 @@ class GObjectInfo;
 class GAnimalInfo: public GLivingInfo
 {
 public:
+    uint8_t field_0x1f4[0xd8]; /* 0x1f4 */
 
     // Override methods
 
@@ -45,8 +46,9 @@ struct GObjectInfo;
 struct GAnimalInfo
 {
   struct GLivingInfo super;  /* 0x0 */
+  uint8_t field_0x1f4[0xd8]; /* 0x1f4 */
 };
-static_assert(sizeof(struct GAnimalInfo) == 0x1f4, "Data type is of wrong size");
+static_assert(sizeof(struct GAnimalInfo) == 0x2cc, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

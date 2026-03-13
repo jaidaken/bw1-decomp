@@ -23,6 +23,14 @@ class GameThing;
 class SpellPointInf: public PSysBase
 {
 public:
+    uint32_t field_0x14; /* 0x14 */
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
+    uint32_t field_0x20; /* 0x20 */
+    uint32_t field_0x24; /* 0x24 */
+    uint32_t field_0x28; /* 0x28 */
+    uint32_t field_0x2c; /* 0x2c */
+    uint32_t field_0x30; /* 0x30 */
 
     // Override methods
 
@@ -31,9 +39,9 @@ public:
     // win1.41 0055f440 mac 1041f940 SpellPointInf::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00698240 mac 104192e0 SpellPointInf::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 006ced60 mac 10480d70 SpellPointInf::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055f430 mac 1041f900 SpellPointInf::GetSaveType(void)
     virtual uint32_t GetSaveType();
 };
@@ -49,8 +57,16 @@ struct GameThing;
 struct SpellPointInf
 {
   struct PSysBase super;  /* 0x0 */
+  uint32_t field_0x14; /* 0x14 */
+  uint32_t field_0x18; /* 0x18 */
+  uint32_t field_0x1c; /* 0x1c */
+  uint32_t field_0x20; /* 0x20 */
+  uint32_t field_0x24; /* 0x24 */
+  uint32_t field_0x28; /* 0x28 */
+  uint32_t field_0x2c; /* 0x2c */
+  uint32_t field_0x30; /* 0x30 */
 };
-static_assert(sizeof(struct SpellPointInf) == 0x14, "Data type is of wrong size");
+static_assert(sizeof(struct SpellPointInf) == 0x34, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

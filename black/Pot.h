@@ -23,7 +23,7 @@ class GameOSFile;
 class GameThing;
 class GameThingWithPos;
 struct GestureSystemPacketData;
-class LHOSFile;
+struct LHOSFile;
 struct LHPoint;
 struct MapCoords;
 class MultiMapFixed;
@@ -68,9 +68,9 @@ public:
     // win1.41 0071bde0 mac 1050fbf0 Pot::GetGuidanceResourceType(void)
     virtual uint32_t GetGuidanceResourceType();
     // win1.41 0066d820 mac 1011b6c0 Pot::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& file);
+    virtual bool32_t Load(GameOSFile& file);
     // win1.41 0066d730 mac 1011b830 Pot::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& file);
+    virtual bool32_t Save(GameOSFile& file);
     // win1.41 0055d5a0 mac 10116350 Pot::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0055d580 mac 101162d0 Pot::GetCreatureBeliefType(void)
@@ -78,11 +78,11 @@ public:
     // win1.41 0066f540 mac 10116750 Pot::GetOverwriteInteractableToolTip(void)
     virtual uint32_t GetOverwriteInteractableToolTip();
     // win1.41 0055d4e0 mac 1000ea20 Pot::IsPoisoned(void)
-    virtual bool IsPoisoned();
+    virtual bool32_t IsPoisoned();
     // win1.41 0055d4f0 mac 101161d0 Pot::IsSpeedUp(void)
-    virtual bool IsSpeedUp();
+    virtual bool32_t IsSpeedUp();
     // win1.41 0055d500 mac 10116210 Pot::IsPot(void)
-    virtual bool IsPot();
+    virtual bool32_t IsPot();
     // win1.41 0066f530 mac 101167d0 Pot::GetScriptObjectType(void)
     virtual uint32_t GetScriptObjectType();
     // win1.41 0051bb70 mac 100c5290 Pot::Draw(void)
@@ -90,13 +90,13 @@ public:
     // win1.41 0051bbc0 mac 100c5150 Pot::DrawOutOfMap(bool)
     virtual void DrawOutOfMap(bool param_1);
     // win1.41 0066d130 mac 1011c840 Pot::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0066f570 mac 10116690 Pot::GetFoodValue(FOOD_TYPE)
     virtual float GetFoodValue(FOOD_TYPE param_1);
     // win1.41 0066f560 mac 10116710 Pot::IsResourceStore(RESOURCE_TYPE)
-    virtual bool IsResourceStore(RESOURCE_TYPE param_1);
+    virtual bool32_t IsResourceStore(RESOURCE_TYPE param_1);
     // win1.41 0066dd30 mac 1011ac10 Pot::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-    virtual bool DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
+    virtual bool32_t DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
     // win1.41 0066f520 mac 10116810 Pot::GetRadiusMultiplierForApplyingPotToPos(void)
     virtual float GetRadiusMultiplierForApplyingPotToPos();
     // win1.41 0055d4c0 mac 100d32d0 Pot::GetResourceType(void)
@@ -112,17 +112,17 @@ public:
     // win1.41 0066d6d0 mac 1011ba60 Pot::EndOnFire(void)
     virtual void EndOnFire();
     // win1.41 0066d710 mac 1011b9b0 Pot::InterfaceSetInMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetInMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 0066dd50 mac 1011aae0 Pot::ValidToApplyThisToObject(GInterfaceStatus *, Object *)
     virtual uint32_t ValidToApplyThisToObject(GInterfaceStatus* param_1, Object* param_2);
     // win1.41 0066ddd0 mac 1011a930 Pot::ApplyThisToObject(GInterfaceStatus *, Object *, GestureSystemPacketData *)
     virtual uint32_t ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2, GestureSystemPacketData* param_3);
     // win1.41 0066de70 mac 1011a7e0 Pot::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3);
+    virtual uint32_t ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3);
     // win1.41 0066d650 mac 1011bcb0 Pot::IsEffectReceiver(EffectValues *)
-    virtual bool IsEffectReceiver(EffectValues* param_1);
+    virtual bool32_t IsEffectReceiver(EffectValues* param_1);
     // win1.41 0066df00 mac 1011a620 Pot::InitialisePhysicsFromHand(LHPoint &, LHPoint &, GInterfaceStatus *, Object *, int)
-    virtual uint32_t InitialisePhysicsFromHand(LHPoint* param_1, LHPoint* param_2, GInterfaceStatus* param_3, Object* param_4, int param_5);
+    virtual uint32_t InitialisePhysicsFromHand(LHPoint& param_1, LHPoint& param_2, GInterfaceStatus* param_3, Object* param_4, int param_5);
     // win1.41 0066cef0 mac 1011cd80 Pot::GetPhysicsConstantsType(void)
     virtual uint32_t GetPhysicsConstantsType();
     // win1.41 0066dbd0 mac 1011ae20 Pot::EndPhysics(PhysicsObject *, bool)
@@ -275,9 +275,9 @@ void __fastcall CallVirtualFunctionsForCreation__3PotFRC9MapCoords(struct Object
 // win1.41 0066f570 mac 10116690 Pot::GetFoodValue(FOOD_TYPE)
 float __fastcall GetFoodValue__3PotF9FOOD_TYPE(struct Object* this, const void* edx, enum FOOD_TYPE param_1) asm("?GetFoodValue@Pot@@UAEMW4FOOD_TYPE@@@Z");
 // win1.41 0066f560 mac 10116710 Pot::IsResourceStore(RESOURCE_TYPE)
-bool __fastcall IsResourceStore__3PotF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@Pot@@UAE_NW4RESOURCE_TYPE@@@Z");
+bool __fastcall IsResourceStore__3PotF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@Pot@@UAEIW4RESOURCE_TYPE@@@Z");
 // win1.41 0066dd30 mac 1011ac10 Pot::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool __fastcall DeleteObjectAndTakeResource__3PotFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@Pot@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z");
+bool __fastcall DeleteObjectAndTakeResource__3PotFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@Pot@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z");
 // win1.41 0066f520 mac 10116810 Pot::GetRadiusMultiplierForApplyingPotToPos(void)
 float __fastcall GetRadiusMultiplierForApplyingPotToPos__3PotFv(struct Object* this) asm("?GetRadiusMultiplierForApplyingPotToPos@Pot@@UAEMXZ");
 // win1.41 0055d4c0 mac 100d32d0 Pot::GetResourceType(void)

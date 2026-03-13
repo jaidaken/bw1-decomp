@@ -23,6 +23,9 @@ class GameThing;
 class DefensiveShield: public PSysBase
 {
 public:
+    uint32_t field_0x14; /* 0x14 */
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
 
     // Override methods
 
@@ -31,9 +34,9 @@ public:
     // win1.41 006d0ac0 mac 1041dc20 DefensiveShield::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00699ca0 mac 10417a80 DefensiveShield::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 006d0680 mac 1047f460 DefensiveShield::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 006d0ab0 mac 1041dbe0 DefensiveShield::GetSaveType(void)
     virtual uint32_t GetSaveType();
 };
@@ -49,8 +52,11 @@ struct GameThing;
 struct DefensiveShield
 {
   struct PSysBase super;  /* 0x0 */
+  uint32_t field_0x14; /* 0x14 */
+  uint32_t field_0x18; /* 0x18 */
+  uint32_t field_0x1c; /* 0x1c */
 };
-static_assert(sizeof(struct DefensiveShield) == 0x14, "Data type is of wrong size");
+static_assert(sizeof(struct DefensiveShield) == 0x20, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

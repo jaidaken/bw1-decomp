@@ -23,7 +23,7 @@ class Base;
 class GTreeInfo: public GSingleMapFixedInfo
 {
 public:
-    uint8_t field_0x100[0x40];
+    uint8_t field_0x104[0x3c];
 
     // Override methods
 
@@ -40,7 +40,7 @@ struct Base;
 struct GTreeInfo
 {
   struct GSingleMapFixedInfo super;  /* 0x0 */
-  uint8_t field_0x100[0x40];
+  uint8_t field_0x104[0x3c];
 };
 static_assert(sizeof(struct GTreeInfo) == 0x140, "Data type is of wrong size");
 

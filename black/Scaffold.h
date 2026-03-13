@@ -21,7 +21,7 @@ class GameOSFile;
 class GameThing;
 class GameThingWithPos;
 struct GestureSystemPacketData;
-class LHOSFile;
+struct LHOSFile;
 struct LHPoint;
 class Living;
 struct MapCoords;
@@ -56,9 +56,9 @@ public:
     // win1.41 0055e140 mac 1013e6d0 Scaffold::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 006ea3d0 mac 10140100 Scaffold::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 006ea240 mac 10140340 Scaffold::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055e130 mac 1013e690 Scaffold::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 006ea560 mac 1013ffc0 Scaffold::ResolveLoad(void)
@@ -72,13 +72,13 @@ public:
     // win1.41 006ea9e0 mac 1013f670 Scaffold::GetUpdateOfBoredomValue(Reaction *, GameThingWithPos *)
     virtual float GetUpdateOfBoredomValue(Reaction* param_1, GameThingWithPos* param_2);
     // win1.41 004e3fc0 mac 105e6330 Scaffold::CanBePickedUpByCreature(Creature *)
-    virtual bool CanBePickedUpByCreature(Creature* param_1);
+    virtual bool32_t CanBePickedUpByCreature(Creature* param_1);
     // win1.41 004e3ff0 mac 105e6220 Scaffold::CanBeStolenByCreature(Creature *)
-    virtual bool CanBeStolenByCreature(Creature* param_1);
+    virtual bool32_t CanBeStolenByCreature(Creature* param_1);
     // win1.41 004e4070 mac 105e6100 Scaffold::IsStealableScaffold(Creature *)
-    virtual bool IsStealableScaffold(Creature* param_1);
+    virtual bool32_t IsStealableScaffold(Creature* param_1);
     // win1.41 0055e100 mac 1013e5d0 Scaffold::IsScaffold(void)
-    virtual bool IsScaffold();
+    virtual bool32_t IsScaffold();
     // win1.41 006eab60 mac 1013f280 Scaffold::GetScriptObjectType(void)
     virtual uint32_t GetScriptObjectType();
     // win1.41 006e9890 mac 10141590 Scaffold::ActualMoveMapObject(MapCoords const &)
@@ -86,21 +86,21 @@ public:
     // win1.41 006ea5c0 mac 1013fd30 Scaffold::Draw(void)
     virtual void Draw();
     // win1.41 006e8540 mac 10143a70 Scaffold::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 006eaea0 mac 1013ec20 Scaffold::IsResourceStore(RESOURCE_TYPE)
-    virtual bool IsResourceStore(RESOURCE_TYPE param_1);
+    virtual bool32_t IsResourceStore(RESOURCE_TYPE param_1);
     // win1.41 006eaec0 mac 1013eb90 Scaffold::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-    virtual bool DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
+    virtual bool32_t DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
     // win1.41 0055e0f0 mac 1013e590 Scaffold::GetResourceType(void)
     virtual RESOURCE_TYPE GetResourceType();
     // win1.41 006e9d30 mac 10140dd0 Scaffold::GetDefaultResource(void)
     virtual int GetDefaultResource();
     // win1.41 006e96a0 mac 10141b10 Scaffold::ValidForPlaceInHand(GInterfaceStatus *)
-    virtual bool ValidForPlaceInHand(GInterfaceStatus* param_1);
+    virtual bool32_t ValidForPlaceInHand(GInterfaceStatus* param_1);
     // win1.41 006e96e0 mac 101419a0 Scaffold::InterfaceSetInMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetInMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 006e9770 mac 10141720 Scaffold::InterfaceSetOutMagicHand(GInterfaceStatus *)
-    virtual bool InterfaceSetOutMagicHand(GInterfaceStatus* param_1);
+    virtual bool32_t InterfaceSetOutMagicHand(GInterfaceStatus* param_1);
     // win1.41 006e9900 mac 101413a0 Scaffold::ValidToApplyThisToObject(GInterfaceStatus *, Object *)
     virtual uint32_t ValidToApplyThisToObject(GInterfaceStatus* param_1, Object* param_2);
     // win1.41 006e99e0 mac 10141130 Scaffold::ApplyThisToObject(GInterfaceStatus *, Object *, GestureSystemPacketData *)
@@ -112,7 +112,7 @@ public:
     // win1.41 006eab70 mac 1013f210 Scaffold::ThrowObjectFromHand(GInterfaceStatus *, int)
     virtual uint32_t ThrowObjectFromHand(GInterfaceStatus* param_1, int param_2);
     // win1.41 006ea8a0 mac 1013f9a0 Scaffold::InitialisePhysicsFromHand(LHPoint &, LHPoint &, GInterfaceStatus *, Object *, int)
-    virtual uint32_t InitialisePhysicsFromHand(LHPoint* param_1, LHPoint* param_2, GInterfaceStatus* param_3, Object* param_4, int param_5);
+    virtual uint32_t InitialisePhysicsFromHand(LHPoint& param_1, LHPoint& param_2, GInterfaceStatus* param_3, Object* param_4, int param_5);
     // win1.41 006ea840 mac 1013faa0 Scaffold::InitialisePhysics(LHPoint const &, LHPoint const &, Object *, bool, GInterfaceStatus *)
     virtual uint32_t InitialisePhysics(const LHPoint* param_1, const LHPoint* param_2, Object* param_3, bool param_4, GInterfaceStatus* param_5);
     // win1.41 006e8770 mac 10143680 Scaffold::GetPhysicsConstantsType(void)
@@ -220,9 +220,9 @@ void __fastcall Draw__8ScaffoldFv(struct Object* this) asm("?Draw@Scaffold@@UAEX
 // win1.41 006e8540 mac 10143a70 Scaffold::CallVirtualFunctionsForCreation(MapCoords const &)
 void __fastcall CallVirtualFunctionsForCreation__8ScaffoldFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* param_1) asm("?CallVirtualFunctionsForCreation@Scaffold@@UAEXABUMapCoords@@@Z");
 // win1.41 006eaea0 mac 1013ec20 Scaffold::IsResourceStore(RESOURCE_TYPE)
-bool __fastcall IsResourceStore__8ScaffoldF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@Scaffold@@UAE_NW4RESOURCE_TYPE@@@Z");
+bool __fastcall IsResourceStore__8ScaffoldF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@Scaffold@@UAEIW4RESOURCE_TYPE@@@Z");
 // win1.41 006eaec0 mac 1013eb90 Scaffold::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool __fastcall DeleteObjectAndTakeResource__8ScaffoldFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@Scaffold@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z");
+bool __fastcall DeleteObjectAndTakeResource__8ScaffoldFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@Scaffold@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z");
 // win1.41 0055e0f0 mac 1013e590 Scaffold::GetResourceType(void)
 enum RESOURCE_TYPE __fastcall GetResourceType__8ScaffoldFv(struct Object* this) asm("?GetResourceType@Scaffold@@UAE?AW4RESOURCE_TYPE@@XZ");
 // win1.41 006e9d30 mac 10140dd0 Scaffold::GetDefaultResource(void)

@@ -169,7 +169,7 @@ public:
     // win1.41 0045a080 mac 101a3db0 CameraModeNew3::UpdateStrafe(LHPoint &, LHPoint &, float &, float &, float, unsigned long)
     bool UpdateStrafe(LHPoint* param_1, LHPoint* param_2, float* param_3, float* param_4, float param_5, uint32_t param_6);
     // win1.41 0045a390 mac 100098e0 CameraModeNew3::WantToQuitFight(LHPoint, LHPoint, float)
-    bool WantToQuitFight(LHPoint param_1, LHPoint param_2, float param_3);
+    bool32_t WantToQuitFight(LHPoint param_1, LHPoint param_2, float param_3);
     // win1.41 0045a4d0 mac 101a3910 CameraModeNew3::StartFight(GArena *)
     void StartFight(GArena* arena);
     // win1.41 0045a830 mac inlined CameraModeNew3::EndFightNow(int)
@@ -347,7 +347,7 @@ void __fastcall DragFocusOntoLand__14CameraModeNew3FR7LHPointR7LHPoint(struct Ca
 // win1.41 0045a080 mac 101a3db0 CameraModeNew3::UpdateStrafe(LHPoint &, LHPoint &, float &, float &, float, unsigned long)
 bool __fastcall UpdateStrafe__14CameraModeNew3FR7LHPointR7LHPointRfRffUl(struct CameraModeNew3* this, const void* edx, struct LHPoint* param_1, struct LHPoint* param_2, float* param_3, float* param_4, float param_5, uint32_t param_6) asm("?UpdateStrafe@CameraModeNew3@@QAE_NAAULHPoint@@0AAM1MK@Z");
 // win1.41 0045a390 mac 100098e0 CameraModeNew3::WantToQuitFight(LHPoint, LHPoint, float)
-bool __fastcall WantToQuitFight__14CameraModeNew3F7LHPoint7LHPointf(struct CameraModeNew3* this, const void* edx, struct LHPoint param_1, struct LHPoint param_2, float param_3) asm("?WantToQuitFight@CameraModeNew3@@QAE_NULHPoint@@0M@Z");
+bool __fastcall WantToQuitFight__14CameraModeNew3F7LHPoint7LHPointf(struct CameraModeNew3* this, const void* edx, struct LHPoint param_1, struct LHPoint param_2, float param_3) asm("?WantToQuitFight@CameraModeNew3@@QAEIULHPoint@@0M@Z");
 // win1.41 0045a4d0 mac 101a3910 CameraModeNew3::StartFight(GArena *)
 void __fastcall StartFight__14CameraModeNew3FP6GArena(struct CameraModeNew3* this, const void* edx, struct GArena* arena) asm("?StartFight@CameraModeNew3@@QAEXPAVGArena@@@Z");
 // win1.41 0045a830 mac inlined CameraModeNew3::EndFightNow(int)

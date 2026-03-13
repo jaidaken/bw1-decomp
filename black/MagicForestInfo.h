@@ -21,6 +21,11 @@ class Base;
 class GMagicForestInfo: public GMagicInfo
 {
 public:
+    uint32_t field_0x58; /* 0x58 */
+    uint32_t field_0x5c; /* 0x5c */
+    uint32_t field_0x60; /* 0x60 */
+    uint32_t field_0x64; /* 0x64 */
+    uint32_t field_0x68; /* 0x68 */
 
     // Override methods
 
@@ -37,8 +42,13 @@ struct Base;
 struct GMagicForestInfo
 {
   struct GMagicInfo super;  /* 0x0 */
+  uint32_t field_0x58;  /* 0x58 */
+  uint32_t field_0x5c;  /* 0x5c */
+  uint32_t field_0x60;  /* 0x60 */
+  uint32_t field_0x64;  /* 0x64 */
+  uint32_t field_0x68;  /* 0x68 */
 };
-static_assert(sizeof(struct GMagicForestInfo) == 0x58, "Data type is of wrong size");
+static_assert(sizeof(struct GMagicForestInfo) == 0x6c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

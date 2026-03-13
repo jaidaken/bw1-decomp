@@ -15,7 +15,7 @@
 class Base;
 class GameOSFile;
 class GameThing;
-struct SpellEventInfo;
+class SpellEventInfo;
 
 // win1.41 00becdc8 mac inlined SpellResource::`RTTI Type Descriptor'
 // win1.41 009ae2f8 mac inlined SpellResource::`RTTI Base Class Descriptor'
@@ -24,6 +24,7 @@ struct SpellEventInfo;
 class SpellResource: public Spell
 {
 public:
+    uint32_t field_0xec; /* 0xec */
 
     // Override methods
 
@@ -32,15 +33,15 @@ public:
     // win1.41 0055cfc0 mac 1051feb0 SpellResource::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 007252f0 mac 1051f230 SpellResource::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00725350 mac 1051f150 SpellResource::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055cfb0 mac 1051fe70 SpellResource::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00724c90 mac 1051fc70 SpellResource::HasEnoughChantsAndLifeForRecast(void)
     virtual void HasEnoughChantsAndLifeForRecast();
     // win1.41 00724d80 mac 1051f9d0 SpellResource::SpellEvent(SpellEventInfo const &)
-    virtual void SpellEvent(const SpellEventInfo* param_1);
+    virtual void SpellEvent(const SpellEventInfo& param_1);
 };
 
 #else // __cplusplus
@@ -55,8 +56,9 @@ struct SpellEventInfo;
 struct SpellResource
 {
   struct Spell super;  /* 0x0 */
+  uint32_t field_0xec;  /* 0xec */
 };
-static_assert(sizeof(struct SpellResource) == 0xec, "Data type is of wrong size");
+static_assert(sizeof(struct SpellResource) == 0xf0, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

@@ -46,7 +46,7 @@ struct NewCollide
         // Non-virtual methods
 
         // win1.41 inlined mac inlined NewCollide::List::Collide(NewCollide::List)
-        bool Collide(const List* other);
+        bool32_t Collide(const List* other);
     };
     struct Obj
     {
@@ -69,7 +69,7 @@ struct NewCollide
         // win1.41 00828f40 mac 100befb0 NewCollide::Obj::CreateList(void)
         void CreateList();
         // win1.41 inlined mac inlined NewCollide::Obj::Collide(NewCollide::List)
-        bool Collide(const List* other);
+        bool32_t Collide(const List* other);
         // win1.41 00829140 mac 1061b32c NewCollide::Obj::Collide(float, NewCollide::Obj*)
         bool32_t Collide(const Obj* other);
         // win1.41 0082ae60 mac 1061b344 NewCollide::Obj::~Obj(void)
@@ -102,7 +102,7 @@ struct Point2DCompare
     Point2DCompare* operator=(Point2DCompare* other);
     // win1.41 006101f0 mac inlined Point2DCompare<0>::operator<(const Point2DCompare<0>*)
     // win1.41 00610180 mac inlined Point2DCompare<1>::operator<(const Point2DCompare<1>*)
-    bool operator<(Point2DCompare* other);
+    bool32_t operator<(Point2DCompare* other);
     // win1.41 00610230 mac inlined Point2DCompare<0>::Resolve()
     // win1.41 006101c0 mac inlined Point2DCompare<1>::Resolve()
     void Resolve();
@@ -157,9 +157,9 @@ struct ObjectCircleIterator
     // win1.41 006159a0 mac 1005f630 ObjectCircleIterator::operator NewCollide::Obj
     operator NewCollide::Obj();
     // win1.41 0060d0a0 mac 100644a0 ObjectCircleIterator::Init(int, MapCoords const &)
-    void Init(ObjectCircleIteratorDirection direction, const MapCoords* coords);
+    void Init(ObjectCircleIteratorDirection direction, const MapCoords& coords);
     // win1.41 0060d280 mac 100649d0 ObjectCircleIterator::Init(Object *, MapCoords const &)
-    void Init(Object* obj, const MapCoords* coords);
+    void Init(Object* obj, const MapCoords& coords);
 };
 
 struct NewCollideDescriptor

@@ -22,6 +22,10 @@ class GameThing;
 class Particle3DObj: public RenderParticle
 {
 public:
+    uint32_t field_0x18; /* 0x18 */
+    uint32_t field_0x1c; /* 0x1c */
+    uint32_t field_0x20; /* 0x20 */
+    uint32_t field_0x24; /* 0x24 */
 
     // Override methods
 
@@ -41,8 +45,12 @@ struct GameThing;
 struct Particle3DObj
 {
   struct RenderParticle super;  /* 0x0 */
+  uint32_t field_0x18; /* 0x18 */
+  uint32_t field_0x1c; /* 0x1c */
+  uint32_t field_0x20; /* 0x20 */
+  uint32_t field_0x24; /* 0x24 */
 };
-static_assert(sizeof(struct Particle3DObj) == 0x18, "Data type is of wrong size");
+static_assert(sizeof(struct Particle3DObj) == 0x28, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

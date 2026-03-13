@@ -23,7 +23,7 @@ class GTribeInfo;
 class GameOSFile;
 class GameThing;
 class GameThingWithPos;
-class LHOSFile;
+struct LHOSFile;
 struct LHPoint;
 struct MapCoords;
 class MultiMapFixed;
@@ -81,11 +81,11 @@ public:
     // win1.41 0055dce0 mac 105b4000 WorshipSite::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 0077cd70 mac 105aef50 WorshipSite::GetShowNeedsPos(unsigned long, MapCoords *)
-    virtual uint32_t GetShowNeedsPos(uint32_t param_1, MapCoords* param_2);
+    virtual uint32_t GetShowNeedsPos(unsigned long param_1, MapCoords* param_2);
     // win1.41 0077d700 mac 105acc40 WorshipSite::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 0077d2f0 mac 105ad890 WorshipSite::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 0055dcd0 mac 105b3fc0 WorshipSite::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0077daf0 mac 105acbf0 WorshipSite::ResolveLoad(void)
@@ -95,13 +95,13 @@ public:
     // win1.41 0055dc30 mac inlined WorshipSite::GetInteractPos(LHPoint *)
     virtual void GetInteractPos(LHPoint* param_1);
     // win1.41 0055dc80 mac 105b3e50 WorshipSite::IsSuitableForCreatureAction(void)
-    virtual bool IsSuitableForCreatureAction();
+    virtual bool32_t IsSuitableForCreatureAction();
     // win1.41 004e4b60 mac 105e3fa0 WorshipSite::CanHaveMagicFoodCastOnMe(Creature *)
-    virtual bool CanHaveMagicFoodCastOnMe(Creature* param_1);
+    virtual bool32_t CanHaveMagicFoodCastOnMe(Creature* param_1);
     // win1.41 0055dca0 mac inlined WorshipSite::IsWorshipSite_1(void)
-    virtual bool IsWorshipSite();
+    virtual bool32_t IsWorshipSite();
     // win1.41 0055dc90 mac inlined WorshipSite::IsWorshipSite_0(Creature *)
-    virtual bool IsWorshipSite(Creature* param_1);
+    virtual bool32_t IsWorshipSite(Creature* param_1);
     // win1.41 0055dcb0 mac 105b3f30 WorshipSite::GetWorshipSite(void)
     virtual WorshipSite* GetWorshipSite();
     // win1.41 0077c310 mac 105b0430 WorshipSite::CalculateDesireForFood(void)
@@ -127,23 +127,23 @@ public:
     // win1.41 0077de70 mac 105ac230 WorshipSite::GetDiscipleStateIfInteractedWith(GInterfaceStatus *, Villager *)
     virtual uint32_t GetDiscipleStateIfInteractedWith(GInterfaceStatus* param_1, Villager* param_2);
     // win1.41 0077b9d0 mac 105b16a0 WorshipSite::CallVirtualFunctionsForCreation(MapCoords const &)
-    virtual void CallVirtualFunctionsForCreation(const MapCoords* param_1);
+    virtual void CallVirtualFunctionsForCreation(const MapCoords& param_1);
     // win1.41 0077dec0 mac 105ac190 WorshipSite::IsResourceStore(RESOURCE_TYPE)
-    virtual bool IsResourceStore(RESOURCE_TYPE param_1);
+    virtual bool32_t IsResourceStore(RESOURCE_TYPE param_1);
     // win1.41 0077e7b0 mac 105ab190 WorshipSite::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-    virtual bool DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
+    virtual bool32_t DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2);
     // win1.41 0077e480 mac 105ab730 WorshipSite::GetRadiusMultiplierForApplyingPotToPos(void)
     virtual float GetRadiusMultiplierForApplyingPotToPos();
     // win1.41 0077def0 mac 105ac090 WorshipSite::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
-    virtual bool DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus* param_2);
+    virtual bool DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus& param_2);
     // win1.41 0077de20 mac 105ac330 WorshipSite::GetDistanceFromObject(Object *)
     virtual float GetDistanceFromObject(Object* param_1);
     // win1.41 0055dc60 mac 105b3dc0 WorshipSite::InteractsWithPhysicsObjects(void)
     virtual bool InteractsWithPhysicsObjects();
     // win1.41 0077ae30 mac 105b2cf0 WorshipSite::GetInspectObjectPos(Villager *, MapCoords *)
-    virtual bool GetInspectObjectPos(Villager* param_1, MapCoords* param_2);
+    virtual bool32_t GetInspectObjectPos(Villager* param_1, MapCoords* param_2);
     // win1.41 0077cc90 mac 105aefc0 WorshipSite::GetSpecialPos(unsigned long, MapCoords *)
-    virtual bool GetSpecialPos(uint32_t param_1, MapCoords* param_2);
+    virtual bool32_t GetSpecialPos(unsigned long param_1, MapCoords* param_2);
     // win1.41 0077d000 mac 105ae860 WorshipSite::GetObjectCollide(void)
     virtual uint32_t GetObjectCollide();
     // win1.41 0077c120 mac 105b0620 WorshipSite::SaveObject(LHOSFile &, MapCoords const &)
@@ -168,7 +168,7 @@ public:
     // Non-virtual methods
 
     // win1.41 0077afc0 mac 105b28e0 WorshipSite::GetSpellIconPosFromSlot(unsigned long, float)
-    MapCoords* GetSpellIconPosFromSlot(MapCoords* coords, uint32_t slot, float angle);
+    MapCoords* GetSpellIconPosFromSlot(MapCoords* coords, unsigned long slot, float angle);
     // win1.41 0077b080 mac 105b26e0 WorshipSite::GetSpellIconPos(short &)
     MapCoords* GetSpellIconPos(MapCoords* coords, int16_t* slot);
     // win1.41 0077c430 mac 105b01e0 WorshipSite::AddSpellIcon(WorshipSpellIcon *)
@@ -337,9 +337,9 @@ uint32_t __fastcall GetDiscipleStateIfInteractedWith__11WorshipSiteFP16GInterfac
 // win1.41 0077b9d0 mac 105b16a0 WorshipSite::CallVirtualFunctionsForCreation(MapCoords const &)
 void __fastcall CallVirtualFunctionsForCreation__11WorshipSiteFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* param_1) asm("?CallVirtualFunctionsForCreation@WorshipSite@@UAEXABUMapCoords@@@Z");
 // win1.41 0077dec0 mac 105ac190 WorshipSite::IsResourceStore(RESOURCE_TYPE)
-bool __fastcall IsResourceStore__11WorshipSiteF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@WorshipSite@@UAE_NW4RESOURCE_TYPE@@@Z");
+bool __fastcall IsResourceStore__11WorshipSiteF13RESOURCE_TYPE(struct Object* this, const void* edx, enum RESOURCE_TYPE param_1) asm("?IsResourceStore@WorshipSite@@UAEIW4RESOURCE_TYPE@@@Z");
 // win1.41 0077e7b0 mac 105ab190 WorshipSite::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool __fastcall DeleteObjectAndTakeResource__11WorshipSiteFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@WorshipSite@@UAE_NPAVObject@@PAVGInterfaceStatus@@@Z");
+bool __fastcall DeleteObjectAndTakeResource__11WorshipSiteFP6ObjectP16GInterfaceStatus(struct Object* this, const void* edx, struct Object* param_1, struct GInterfaceStatus* param_2) asm("?DeleteObjectAndTakeResource@WorshipSite@@UAEIPAVObject@@PAVGInterfaceStatus@@@Z");
 // win1.41 0077e480 mac 105ab730 WorshipSite::GetRadiusMultiplierForApplyingPotToPos(void)
 float __fastcall GetRadiusMultiplierForApplyingPotToPos__11WorshipSiteFv(struct Object* this) asm("?GetRadiusMultiplierForApplyingPotToPos@WorshipSite@@UAEMXZ");
 // win1.41 0077def0 mac 105ac090 WorshipSite::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
@@ -349,7 +349,7 @@ float __fastcall GetDistanceFromObject__11WorshipSiteFP6Object(struct Object* th
 // win1.41 0055dc60 mac 105b3dc0 WorshipSite::InteractsWithPhysicsObjects(void)
 bool __fastcall InteractsWithPhysicsObjects__11WorshipSiteFv(struct Object* this) asm("?InteractsWithPhysicsObjects@WorshipSite@@UAE_NXZ");
 // win1.41 0077ae30 mac 105b2cf0 WorshipSite::GetInspectObjectPos(Villager *, MapCoords *)
-bool __fastcall GetInspectObjectPos__11WorshipSiteFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* param_2) asm("?GetInspectObjectPos@WorshipSite@@UAE_NPAVVillager@@PAUMapCoords@@@Z");
+bool __fastcall GetInspectObjectPos__11WorshipSiteFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* param_2) asm("?GetInspectObjectPos@WorshipSite@@UAEIPAVVillager@@PAUMapCoords@@@Z");
 // win1.41 0077cc90 mac 105aefc0 WorshipSite::GetSpecialPos(unsigned long, MapCoords *)
 uint32_t __fastcall GetSpecialPos__11WorshipSiteFUlP9MapCoords(struct Object* this, const void* edx, uint32_t param_1, struct MapCoords* param_2) asm("?GetSpecialPos@WorshipSite@@UAEIIPAUMapCoords@@@Z");
 // win1.41 0077d000 mac 105ae860 WorshipSite::GetObjectCollide(void)

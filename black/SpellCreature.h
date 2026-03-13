@@ -17,7 +17,7 @@ class GameOSFile;
 class GameThing;
 class Object;
 struct PSysProcessInfo;
-struct SpellCastData;
+class SpellCastData;
 
 // win1.41 00c22590 mac inlined SpellCreature::`RTTI Type Descriptor'
 // win1.41 009b92d8 mac inlined SpellCreature::`RTTI Base Class Descriptor'
@@ -26,6 +26,8 @@ struct SpellCastData;
 class SpellCreature: public Spell
 {
 public:
+    uint32_t field_0xec; /* 0xec */
+    uint32_t field_0xf0; /* 0xf0 */
 
     // Override methods
 
@@ -34,9 +36,9 @@ public:
     // win1.41 00722230 mac 10519fb0 SpellCreature::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00722520 mac 1051a0e0 SpellCreature::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00722590 mac 10519ff0 SpellCreature::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00722220 mac 10519f70 SpellCreature::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00722490 mac 1051a2e0 SpellCreature::ProcessSpellSeed(void)
@@ -48,7 +50,7 @@ public:
     // win1.41 007224f0 mac 1051a290 SpellCreature::CloseDown(void)
     virtual void CloseDown();
     // win1.41 007222d0 mac 1051a5f0 SpellCreature::InitWithObject(GameThing *, Object *, SpellCastData *, PSysProcessInfo const &)
-    virtual int InitWithObject(GameThing* param_1, Object* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4);
+    virtual int InitWithObject(GameThing* param_1, Object* param_2, SpellCastData* param_3, const PSysProcessInfo& param_4);
 };
 
 #else // __cplusplus
@@ -65,8 +67,10 @@ struct SpellCastData;
 struct SpellCreature
 {
   struct Spell super;  /* 0x0 */
+  uint32_t field_0xec;  /* 0xec */
+  uint32_t field_0xf0;  /* 0xf0 */
 };
-static_assert(sizeof(struct SpellCreature) == 0xec, "Data type is of wrong size");
+static_assert(sizeof(struct SpellCreature) == 0xf4, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

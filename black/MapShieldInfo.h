@@ -38,7 +38,7 @@ struct GMapShieldInfo
 {
   struct GSingleMapFixedInfo super;  /* 0x0 */
 };
-static_assert(sizeof(struct GMapShieldInfo) == 0x100, "Data type is of wrong size");
+static_assert(sizeof(struct GMapShieldInfo) == 0x104, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

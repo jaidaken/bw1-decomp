@@ -27,6 +27,7 @@ class MultiMapFixed;
 class PlannedTownCitadelHeart: public PlannedMultiMapFixed
 {
 public:
+    uint32_t field_0x48; /* 0x48 */
 
     // Override methods
 
@@ -37,13 +38,13 @@ public:
     // win1.41 00467e50 mac 101c2000 PlannedTownCitadelHeart::GetDebugText(void)
     virtual char* GetDebugText();
     // win1.41 00467ff0 mac 101bd570 PlannedTownCitadelHeart::Load(GameOSFile &)
-    virtual bool Load(GameOSFile& param_1);
+    virtual bool32_t Load(GameOSFile& param_1);
     // win1.41 00467fc0 mac 101bd610 PlannedTownCitadelHeart::Save(GameOSFile &)
-    virtual bool Save(GameOSFile& param_1);
+    virtual bool32_t Save(GameOSFile& param_1);
     // win1.41 00467e40 mac 101c1fb0 PlannedTownCitadelHeart::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 00467e20 mac 101c1f20 PlannedTownCitadelHeart::IsWonder(void)
-    virtual bool IsWonder();
+    virtual bool32_t IsWonder();
     // win1.41 00467ea0 mac 101bd8c0 PlannedTownCitadelHeart::CreatePlanned(float)
     virtual MultiMapFixed* CreatePlanned(float param_1);
     // win1.41 00467ef0 mac 101bd6b0 PlannedTownCitadelHeart::CreatePlannedNoFixedCheck(float)
@@ -67,8 +68,9 @@ struct MultiMapFixed;
 struct PlannedTownCitadelHeart
 {
   struct PlannedMultiMapFixed super;  /* 0x0 */
+  uint32_t field_0x48;  /* 0x48 */
 };
-static_assert(sizeof(struct PlannedTownCitadelHeart) == 0x48, "Data type is of wrong size");
+static_assert(sizeof(struct PlannedTownCitadelHeart) == 0x4c, "Data type is of wrong size");
 
 // Object Oriented datastructures
 

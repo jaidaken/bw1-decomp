@@ -16,7 +16,7 @@ class Base;
 class GameThing;
 struct MapCoords;
 struct PSysProcessInfo;
-struct SpellCastData;
+class SpellCastData;
 
 // win1.41 00becaa8 mac inlined SpellHeal::`RTTI Type Descriptor'
 // win1.41 009ad860 mac inlined SpellHeal::`RTTI Base Class Descriptor'
@@ -35,7 +35,7 @@ public:
     // win1.41 0055d190 mac 10533dc0 SpellHeal::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 0072d870 mac 1052ed50 SpellHeal::InitWithPos(GameThing *, MapCoords const &, SpellCastData *, PSysProcessInfo const &)
-    virtual int InitWithPos(GameThing* param_1, const MapCoords* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4);
+    virtual int InitWithPos(GameThing* param_1, const MapCoords& param_2, SpellCastData* param_3, const PSysProcessInfo& param_4);
 };
 
 #else // __cplusplus

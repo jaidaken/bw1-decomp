@@ -44,6 +44,12 @@ def configure_objdiff(validating: bool):
         file = Path(entry["file"])
         output = Path(entry["output"])
 
+        # Normalize: compile_commands.json may have relative paths (to build dir)
+        if not file.is_absolute():
+            file = cmake_build_dir / file
+        if not output.is_absolute():
+            output = cmake_build_dir / output
+
         if file.is_relative_to(cpp_staging_dir):
             # Don't want to include staging files
             pass
@@ -54,14 +60,15 @@ def configure_objdiff(validating: bool):
             # These are considered done so compare them with themselves
             file_relative = file.relative_to(current_dir)
             file_dir = file_relative.parent
+            output_relative = output.relative_to(cmake_build_dir).as_posix()
             units.append({
                 "name": (file_dir.relative_to("src/") / file.stem).as_posix(),
-                "target_path": output.as_posix(),
-                "base_path": output.as_posix(),
+                "target_path": output_relative,
+                "base_path": output_relative,
                 "scratch": scratch_details,
                 "metadata": {
                     "complete": True,
-                    "source_path": file.as_posix(),
+                    "source_path": file.relative_to(current_dir).as_posix(),
                 },
             })
         elif file.suffix == ".asm" or file.suffix == ".c":
@@ -81,12 +88,12 @@ def configure_objdiff(validating: bool):
             if base_path.exists():
                 units.append({
                     "name": (file_dir.relative_to("src/") / file.stem).as_posix(),
-                    "target_path": output.as_posix(),
+                    "target_path": output.relative_to(cmake_build_dir).as_posix(),
                     "base_path": base_path.relative_to(cmake_build_dir).as_posix(),
                     "scratch": scratch_details,
                     "metadata": {
                         # "complete": False,
-                        "source_path": (cpp_staging_dir / f"{file.stem}{source_suffix}").as_posix(),
+                        "source_path": (cpp_staging_dir_relative / f"{file.stem}{source_suffix}").as_posix(),
                     },
                 })
         else:

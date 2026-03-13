@@ -46,7 +46,7 @@ class LHLinkedList {
     {
         return head.get();
     }
-    inline bool Add(T* val)
+    inline bool32_t Add(T* val)
     {
         if (!val) return false;
         LHLinkedNode<T>* node = new LHLinkedNode<T>(val);

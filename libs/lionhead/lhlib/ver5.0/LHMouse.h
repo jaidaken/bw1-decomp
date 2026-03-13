@@ -208,7 +208,7 @@ struct LHMouse
     // win1.41 007e49a0 mac 10006f30 LHMouse::UpdateCurrentPos(LHCoord)
     void UpdateCurrentPos(LHCoord coord);
     // win1.41 007e4e40 mac 101459e0 LHMouse::SetPosition(LHCoord *)
-    bool SetPosition(LHCoord* position);
+    bool32_t SetPosition(LHCoord* position);
     // win1.41 007e53b0 mac 10145190 LHMouse::SetCursor(void *, LH_MOUSE_IMAGE_TYPE, int)
     uint32_t SetCursor(void* param_2, LH_MOUSE_IMAGE_TYPE mouse_image_type, int param_4);
     // win1.41 007e57c0 mac 1003fb90 LHMouse::Draw(LH_SCREEN_BUFFER, LH_MOUSE_EVENT_TYPE)
@@ -414,7 +414,7 @@ void __fastcall DeltaPos__7LHMouseFv(struct LHMouse* this) asm("?DeltaPos@LHMous
 // win1.41 007e49a0 mac 10006f30 LHMouse::UpdateCurrentPos(LHCoord)
 void __fastcall UpdateCurrentPos__7LHMouseF7LHCoord(struct LHMouse* this, const void* edx, struct LHCoord coord) asm("?UpdateCurrentPos@LHMouse@@QAEXULHCoord@@@Z");
 // win1.41 007e4e40 mac 101459e0 LHMouse::SetPosition(LHCoord *)
-bool __fastcall SetPosition__7LHMouseFP7LHCoord(struct LHMouse* this, const void* edx, struct LHCoord* position) asm("?SetPosition@LHMouse@@QAE_NPAULHCoord@@@Z");
+bool __fastcall SetPosition__7LHMouseFP7LHCoord(struct LHMouse* this, const void* edx, struct LHCoord* position) asm("?SetPosition@LHMouse@@QAEIPAULHCoord@@@Z");
 // win1.41 007e53b0 mac 10145190 LHMouse::SetCursor(void *, LH_MOUSE_IMAGE_TYPE, int)
 uint32_t __fastcall SetCursor__7LHMouseFPv19LH_MOUSE_IMAGE_TYPEi(struct LHMouse* this, const void* edx, void* param_2, enum LH_MOUSE_IMAGE_TYPE mouse_image_type, int param_4) asm("?SetCursor@LHMouse@@QAEIPAXW4LH_MOUSE_IMAGE_TYPE@@H@Z");
 // win1.41 007e57c0 mac 1003fb90 LHMouse::Draw(LH_SCREEN_BUFFER, LH_MOUSE_EVENT_TYPE)

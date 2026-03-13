@@ -13,6 +13,8 @@ import subprocess
 import sys
 
 from upgrade_coff_debug import upgrade_coff_debug
+from rename_coff_symbols import rename_coff_symbols
+from sdtor_rename_data import HIDE_AUTO, RENAME_MANUAL
 
 
 def winepath(path: pathlib.Path) -> str:
@@ -158,3 +160,31 @@ if __name__ == "__main__":
         sys.stderr.write("Could not determine the out file.")
         exit(1)
     upgrade_coff_debug(out_file, out_file)
+
+    # Fix MSVC 12.0 size_t mangling: I (unsigned int) -> K (unsigned long)
+    # The original binary used unsigned long for operator delete's size param,
+    # but MSVC 12.0 defines size_t as unsigned int. This renames the symbol
+    # in the string table so auto-generated scalar deleting destructors
+    # reference the correct K-mangled operator delete.
+    rename_coff_symbols(out_file, {
+        "??3Base@@SAXPAXI@Z": "??3Base@@SAXPAXK@Z",
+    })
+
+    # Fix return type / class name / parameter type mismatches between
+    # MSVC 12.0 staging and the original binary's mangled names.
+    rename_coff_symbols(out_file, {
+        # GetMesh returns enum MeshId in original, unsigned int in MSVC staging
+        "?GetMesh@GAbodeInfo@@UBEIXZ": "?GetMesh@GAbodeInfo@@UBE?AW4MeshId@@XZ",
+        "?GetMesh@GObjectInfo@@UBEIW4TRIBE_TYPE@@@Z": "?GetMesh@GObjectInfo@@UBE?AW4MeshId@@W4TRIBE_TYPE@@@Z",
+        # GetShowNeedsPos: class name + I->K parameter type
+        "?GetShowNeedsPos@GameThing@@UAEIIPAUMapCoords@@@Z": "?GetShowNeedsPos@MultiMapFixed@@UAEIKPAUMapCoords@@@Z",
+    })
+
+    # Fix MSVC 6.0 vs 12.0 scalar deleting destructor mismatch.
+    # MSVC 6.0 (original) emits vtable write before destructor call;
+    # MSVC 12.0 does not. Manual naked replacements are provided in staging.
+    # Step 1: Hide auto-generated ??_G symbols (rename to defunct names)
+    rename_coff_symbols(out_file, HIDE_AUTO)
+    # Step 2: Rename manual replacements to the correct ??_G symbol names,
+    # and rename extern "C" proxy symbols to the real mangled names.
+    rename_coff_symbols(out_file, RENAME_MANUAL)

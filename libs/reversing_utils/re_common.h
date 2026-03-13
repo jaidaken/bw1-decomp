@@ -10,6 +10,8 @@ struct vec2u16
 
 #ifdef __cplusplus
 
+#include <stdbool.h> /* For bool32_t */
+
 #else // __cplusplus
 
 #include <math.h> /* For fmaxf, fminf */
@@ -19,6 +21,12 @@ struct HINSTANCE__; typedef struct HINSTANCE__ *HINSTANCE;
 typedef struct _RTL_CRITICAL_SECTION RTL_CRITICAL_SECTION;
 
 typedef uint32_t bool32_t;
+
+#if __has_attribute(expand_movzx)
+#define HAS_EXPAND_MOVZX 1
+#else
+#define HAS_EXPAND_MOVZX 0
+#endif
 
 inline float clampf(float a, float minimum, float maximum) {
   return fminf(fmaxf(a, minimum), maximum);

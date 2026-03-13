@@ -36,6 +36,7 @@ find_package(Python3 REQUIRED)
 set(CMAKE_CXX_COMPILER ${Python3_EXECUTABLE})
 set(CMAKE_CXX_COMPILER_ARG1 "${CMAKE_CURRENT_SOURCE_DIR}/scripts/source_code/cl_wrapper.py ${CMAKE_BINARY_DIR}")
 set(CMAKE_CXX_COMPILER_WORKS ON)
+set(CMAKE_C_COMPILER_WORKS ON)
 
 # Set the llvm utils before project so the toolchain selection has the right paths
 if (NOT LLVM_BINARIES_DIR)
@@ -318,7 +319,7 @@ set(SOURCES_001
     src/asm/unprocessed/runblack.reassemble.0512.0056a6d0-0056d220.asm
     src/asm/unprocessed/runblack.reassemble.0516.0056d220-0056d960.asm
     src/asm/unprocessed/runblack.reassemble.0520.0056d960-0056e130.asm
-    src/asm/unprocessed/runblack.reassemble.0525.0056e130-0056ea90.asm
+    src/c/EndGameBox.c
     src/asm/unprocessed/runblack.reassemble.0529.0056ea90-0056eef0.asm
     src/asm/unprocessed/runblack.reassemble.0534.0056eef0-00572d00.asm
     src/asm/unprocessed/runblack.reassemble.0538.00572d00-00573840.asm
@@ -1097,8 +1098,16 @@ add_custom_command(
     COMMENT "Computing the md5sum"
 )
 
+add_custom_target(wine-fix
+    DEPENDS runblack-reassembled
+    COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/source_code/wine_fix_patch.py
+        --input "$<TARGET_FILE:runblack-reassembled>"
+        --output "${CMAKE_CURRENT_BINARY_DIR}/runblack-wine-fix.exe"
+    COMMENT "Applying Wine/Proton crash fixes"
+)
+
 if(OBJDIFF)
-    file(GLOB STAGING_FILES "src/staging/*")
+    file(GLOB STAGING_FILES "src/staging/*.cpp" "src/staging/*.c")
     # Force the msvc compiler even for zlib c files
     set_source_files_properties(${STAGING_FILES} PROPERTIES LANGUAGE CXX)
     add_library(runblack_objdiff_staging OBJECT ${STAGING_FILES})

@@ -2,7 +2,7 @@
 
 #ifdef __cplusplus
 
-typedef bool bool32_t;
+typedef unsigned int bool32_t;
 
 #endif // __cplusplus
 

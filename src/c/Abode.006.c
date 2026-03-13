@@ -446,20 +446,16 @@ struct GPlayer* __fastcall GetPlayer__5AbodeFv(struct GameThing* this)
     __builtin_unreachable();
 }
 
+__attribute__((prefer_inc_dec_byte))
 void __fastcall ArriveHome__5AbodeFv(struct Abode* this)
 {
-    asm volatile (
-        "%{disp32%} inc byte ptr [ecx + 0x000000b6]"
-        :  : "c"(this) : "eax", "edx", "memory"
-    );
+    this->field_0xb6++;
 }
 
+__attribute__((prefer_inc_dec_byte))
 void __fastcall LeaveHome__5AbodeFv(struct Abode* this)
 {
-    asm volatile (
-        "dec byte ptr [ecx + 0x000000b6]"
-        :  : "c"(this) : "eax", "edx", "memory"
-    );
+    this->field_0xb6--;
 }
 
 __attribute__((XOR32rr_REV))

@@ -13,6 +13,8 @@ Black & White
 
 A work-in-progress decompilation of Lionhead's Black & White.
 
+![Decompilation Progress](progress.png)
+
 * [Reverse Engineering Wiki](https://github.com/openblack/bw1-decomp/wiki)
 * [Black & White Patches](https://github.com/openblack/bw1-patches/tree/master/patches)
 

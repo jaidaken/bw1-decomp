@@ -25,30 +25,29 @@ jobs:
         configuration: Release
         build_dir: build
 
-    - name: Upload binary build path if it fails
+    - name: Upload release binary
+      uses: actions/upload-artifact@v4
+      with:
+        name: release-${{ matrix.os }}
+        path: build/runblack-reassembled.exe
+
+    - name: Upload build dir on failure
       if: failure()
       uses: actions/upload-artifact@v4
       with:
         name: failed-build-${{ matrix.os }}
         path: build/
 
-    - name: Upload binary if MD5 sum mismatch
-      if: failure()
-      uses: actions/upload-artifact@v4
-      with:
-        name: failed-binary-${{ matrix.os }}
-        path: build/runblack-reassembled.exe
-
-    - name: Build bw1-decomp project (Debug)
+    - name: Build bw1-decomp project (RelWithDebInfo)
       uses: ./.github/actions/clang_build
       with:
         configuration: RelWithDebInfo
         build_dir: build_debug
 
-    - name: Upload debug version
+    - name: Upload RelWithDebInfo binary (with PDB)
       uses: actions/upload-artifact@v4
       with:
-        name: debug-binary-${{ matrix.os }}
+        name: relwithdebinfo-${{ matrix.os }}
         path: |
           build_debug/runblack-reassembled.exe
           build_debug/runblack-reassembled.exe.pdb

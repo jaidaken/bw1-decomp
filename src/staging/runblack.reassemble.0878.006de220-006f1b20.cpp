@@ -20,7 +20,7 @@ bool32_t HanoiBlock::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 }
 
 // win1.41 006de440 mac 1011ee00 HanoiBlock::IsCannotBePickedUp( const(void))
-bool HanoiBlock::IsCannotBePickedUp() const
+bool32_t HanoiBlock::IsCannotBePickedUp() const
 {
     return 0;
 }

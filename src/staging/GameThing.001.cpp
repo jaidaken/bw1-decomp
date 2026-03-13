@@ -21,7 +21,7 @@ float GameThing::Get2DRadius()
 }
 
 // win1.41 00405160 mac 103c36e0 GameThing::IsFootpathLink(void)
-bool32_t GameThing::IsFootpathLink()
+bool GameThing::IsFootpathLink()
 {
     __asm xor eax, eax
 }

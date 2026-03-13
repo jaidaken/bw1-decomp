@@ -247,7 +247,7 @@ bool32_t Object::IsReadyForNetworkUnfriendlyLockedSelect()
 }
 
 // win1.41 004027f0 mac 10577790 Object::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
-bool32_t Object::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
+bool Object::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
 {
     __asm mov eax, 1
 }
@@ -442,7 +442,7 @@ bool32_t Object::IsEffectReceiver(EffectValues* param_1)
 }
 
 // win1.41 004029f0 mac 100219d0 Object::IsObject( const(void))
-bool32_t Object::IsObject()
+bool Object::IsObject()
 {
     __asm mov eax, 1
 }

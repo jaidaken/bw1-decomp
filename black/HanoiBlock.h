@@ -50,7 +50,7 @@ public:
     // win1.41 00561830 mac 1011ed80 HanoiBlock::GetSaveType(void)
     virtual uint32_t GetSaveType();
     // win1.41 006de440 mac 1011ee00 HanoiBlock::IsCannotBePickedUp( const(void))
-    virtual bool IsCannotBePickedUp() const;
+    virtual bool32_t IsCannotBePickedUp() const;
     // win1.41 006de3f0 mac 1011eed0 HanoiBlock::InterfaceSetInMagicHand(GInterfaceStatus *)
     virtual bool32_t InterfaceSetInMagicHand(GInterfaceStatus* param_1);
     // win1.41 00561800 mac 1011eca0 HanoiBlock::CanBecomeAPhysicsObject(void)

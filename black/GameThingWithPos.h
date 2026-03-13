@@ -159,7 +159,11 @@ public:
     // win1.41 00401a20 mac 100cb270 GameThingWithPos::IsStompable(void)
     virtual bool IsStompable();
     // win1.41 00401a30 mac 100cb210 GameThingWithPos::IsAvailableForStateChange(void)
+#ifdef STAGING_BASE_GTWP
+    virtual bool IsAvailableForStateChange();
+#else
     virtual bool32_t IsAvailableForStateChange();
+#endif
     // win1.41 005701b0 mac 1007b9d0 GameThingWithPos::IsInteractable(void)
     virtual bool IsInteractable(); /* 0x190 */
     // win1.41 005705a0 mac 100b34e0 GameThingWithPos::GetOverwriteInteractableToolTip(void)

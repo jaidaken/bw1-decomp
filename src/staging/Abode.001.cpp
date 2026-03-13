@@ -8,7 +8,7 @@ Abode* Abode::CastAbode()
 }
 
 // win1.41 00401650 mac 10565230 Abode::GetShouldNotBeAddedToPlanned(void)
-bool Abode::GetShouldNotBeAddedToPlanned()
+bool32_t Abode::GetShouldNotBeAddedToPlanned()
 {
     __asm xor eax, eax
 }

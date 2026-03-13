@@ -46,7 +46,7 @@ if (NOT LLVM_BINARIES_DIR)
         FetchContent_Declare(
             llvm_binaries
             URL      https://github.com/jaidaken/llvm-project/releases/download/${LLVM_RELEASE_NAME}/llvm-ubuntu.zip
-            URL_HASH SHA256=1aa3d9f3b5cb2d08a55515050b1e346b6b9a55c45ac2590d854ce5324bcba5fb
+            URL_HASH SHA256=f2afde6e96c39f5111c374db29542379288319f02157abd108762e2084ef7f2c
         )
     elseif (CMAKE_HOST_WIN32)
         FetchContent_Declare(

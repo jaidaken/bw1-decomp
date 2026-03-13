@@ -62,27 +62,28 @@ void __cdecl crt_global_destruction_register_for_AbodeInfos__10GAbodeInfoFv(void
 
 void __cdecl dynamic_atexit_destructor_for_AbodeInfos__10GAbodeInfoFv(void)
 {
-    asm("{disp32} mov       cl, byte ptr [_abode_info_bool_00c3c680]");     // 0x004012e0    8a0d80c6c300
-    asm("mov                al, 0x01");                                     // 0x004012e6    b001
-    asm("test               al, cl");                                       // 0x004012e8    84c8
-    asm("{disp8} jne        LAB__addr_0x00401312");                         // 0x004012ea    7526
-    asm("push               esi");                                          // 0x004012ec    56
-    asm("or.s               cl, al");                                       // 0x004012ed    0ac8
-    asm("push               edi");                                          // 0x004012ef    57
-    asm("{disp32} mov       byte ptr [_abode_info_bool_00c3c680], cl");     // 0x004012f0    880d80c6c300
-    asm("mov                esi, OFFSET _AbodeInfos + 0x93 * 0x1c8;");      // 0x004012f6    be68ccc400
-    asm("mov                edi, 0x93");                                    // 0x004012fb    bf93000000
-    asm("LAB__addr_0x00401300:");
-    asm("sub                esi, 0x1c8");                                   // 0x00401300    81eec8010000
-    asm("mov.s              ecx, esi");                                     // 0x00401306    8bce
-    asm("call               _jmp_addr_0x00436960");                         // 0x00401308    e853560300
-    asm("dec                edi");                                          // 0x0040130d    4f
-    asm("{disp8} jne        LAB__addr_0x00401300");                         // 0x0040130e    75f0
-    asm("pop                edi");                                          // 0x00401310    5f
-    asm("pop                esi");                                          // 0x00401311    5e
-    asm("LAB__addr_0x00401312:");
-    asm("ret");                                                             // 0x00401312    c3
-    __builtin_unreachable();
+    asm volatile (
+        "%{disp32%} mov       cl, byte ptr [_abode_info_bool_00c3c680]\n\t"
+        "mov                al, 0x01\n\t"
+        "test               al, cl\n\t"
+        "%{disp8%} jne        LAB__addr_0x00401312\n\t"
+        "push               esi\n\t"
+        "or.s               cl, al\n\t"
+        "push               edi\n\t"
+        "%{disp32%} mov       byte ptr [_abode_info_bool_00c3c680], cl\n\t"
+        "mov                esi, OFFSET _AbodeInfos + 0x93 * 0x1c8;\n\t"
+        "mov                edi, 0x93\n\t"
+        "LAB__addr_0x00401300:\n\t"
+        "sub                esi, 0x1c8\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               _jmp_addr_0x00436960\n\t"
+        "dec                edi\n\t"
+        "%{disp8%} jne        LAB__addr_0x00401300\n\t"
+        "pop                edi\n\t"
+        "pop                esi\n\t"
+        "LAB__addr_0x00401312:"
+        :  :  : "eax", "ecx", "edx", "memory"
+    );
 }
 
 void __fastcall __dt__10GAbodeInfoFUi(struct Base* this, const void* edx, uint32_t param_1)

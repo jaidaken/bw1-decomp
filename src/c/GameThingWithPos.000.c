@@ -30,41 +30,50 @@ const struct RTTIBaseClassDescriptor __RTTIBaseClassDescriptor__16GameThingWithP
 
 void __fastcall SetPos__16GameThingWithPosFRC9MapCoords(struct GameThingWithPos* this, const void* edx, const struct MapCoords* param_2)
 {
-    asm("{disp8} mov        eax, dword ptr [esp + 0x04]           ");  // 0x00401940    8b442404
-    asm("mov                edx, dword ptr [eax]                  ");  // 0x00401944    8b10
-    asm("add                ecx, 0x14                             ");  // 0x00401946    83c114
-    asm("mov                dword ptr [ecx], edx                  ");  // 0x00401949    8911
-    asm("{disp8} mov        edx, dword ptr [eax + 0x04]           ");  // 0x0040194b    8b5004
-    asm("{disp8} mov        dword ptr [ecx + 0x04], edx           ");  // 0x0040194e    895104
-    asm("{disp8} mov        eax, dword ptr [eax + 0x08]           ");  // 0x00401951    8b4008
-    asm("{disp8} mov        dword ptr [ecx + 0x08], eax           ");  // 0x00401954    894108
-    asm("ret                0x0004                                ");  // 0x00401957    c20400
-    asm("call               dword ptr [__imp__BinkCopyToBuffer@28]");  // 0x0040195a    ff1564998a00
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
+        "mov                edx, dword ptr [eax]\n\t"
+        "add                ecx, 0x14\n\t"
+        "mov                dword ptr [ecx], edx\n\t"
+        "%{disp8%} mov        edx, dword ptr [eax + 0x04]\n\t"
+        "%{disp8%} mov        dword ptr [ecx + 0x04], edx\n\t"
+        "%{disp8%} mov        eax, dword ptr [eax + 0x08]\n\t"
+        "%{disp8%} mov        dword ptr [ecx + 0x08], eax\n\t"
+        "ret                0x0004\n\t"
+        "call               dword ptr [__imp__BinkCopyToBuffer@28]"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 struct MapCoords* __fastcall GetPos__16GameThingWithPosFv(const struct GameThingWithPos* this, const void* edx, struct MapCoords* param_1)
 {
-    asm("{disp8} mov        eax, dword ptr [esp + 0x04]");              // 0x00401960    8b442404
-    asm("add                ecx, 0x14");                                // 0x00401964    83c114
-    asm("push               esi");                                      // 0x00401967    56
-    asm("mov                esi, dword ptr [ecx]");                     // 0x00401968    8b31
-    asm("mov.s              edx, eax");                                 // 0x0040196a    8bd0
-    asm("mov                dword ptr [edx], esi");                     // 0x0040196c    8932
-    asm("{disp8} mov        esi, dword ptr [ecx + 0x04]");              // 0x0040196e    8b7104
-    asm("{disp8} mov        dword ptr [edx + 0x04], esi");              // 0x00401971    897204
-    asm("{disp8} mov        ecx, dword ptr [ecx + 0x08]");              // 0x00401974    8b4908
-    asm("{disp8} mov        dword ptr [edx + 0x08], ecx");              // 0x00401977    894a08
-    asm("pop                esi");                                      // 0x0040197a    5e
-    asm("ret                0x0004");                                   // 0x0040197b    c20400
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
+        "add                ecx, 0x14\n\t"
+        "push               esi\n\t"
+        "mov                esi, dword ptr [ecx]\n\t"
+        "mov.s              edx, eax\n\t"
+        "mov                dword ptr [edx], esi\n\t"
+        "%{disp8%} mov        esi, dword ptr [ecx + 0x04]\n\t"
+        "%{disp8%} mov        dword ptr [edx + 0x04], esi\n\t"
+        "%{disp8%} mov        ecx, dword ptr [ecx + 0x08]\n\t"
+        "%{disp8%} mov        dword ptr [edx + 0x08], ecx\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 void __fastcall PhysicsEditorCreate__16GameThingWithPosFi(struct GameThingWithPos* this, const void* edx, int param_1)
 {
-    asm("{disp8} mov        dword ptr [ecx + 0x1c], 0x00000000");       // 0x00401980    c7411c00000000
-    asm("ret                0x0004");                                   // 0x00401987    c20400
-    asm("call               dword ptr [__imp__GetOpenFileNameA@4]");    // 0x0040198a    ff1570998a00
+    *(uint32_t*)((char*)this + 0x1c) = 0;
+    asm volatile (
+        "ret                0x0004\n\t"
+        "call               dword ptr [__imp__GetOpenFileNameA@4]"
+        ::: "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -91,9 +100,8 @@ void __fastcall SetMaxHeight__16GameThingWithPosFf(struct GameThingWithPos* this
 
 float __fastcall GetMaxHeight__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");              // 0x004019d0    d90598a38a00
-    asm("ret");                                                         // 0x004019d6    c3
-    __builtin_unreachable();
+    extern const float __opaque_rdata_float0p0 asm("_rdata_float0p0");
+    return __opaque_rdata_float0p0;
 }
 
 __attribute__((XOR32rr_REV))
@@ -104,31 +112,44 @@ bool __fastcall IsAnimate__16GameThingWithPosFv(struct GameThingWithPos* this)
 
 void __fastcall GetInteractPos__16GameThingWithPosFv(struct GameThingWithPos* this, const void* edx, struct LHPoint* pos)
 {
-    asm("{disp8} mov        eax, dword ptr [esp + 0x04]");              // 0x004019f0    8b442404
-    asm("add                ecx, 0x14");                                // 0x004019f4    83c114
-    asm("push               esi");                                      // 0x004019f7    56
-    asm("mov                esi, dword ptr [ecx]");                     // 0x004019f8    8b31
-    asm("mov.s              edx, eax");                                 // 0x004019fa    8bd0
-    asm("mov                dword ptr [edx], esi");                     // 0x004019fc    8932
-    asm("{disp8} mov        esi, dword ptr [ecx + 0x04]");              // 0x004019fe    8b7104
-    asm("{disp8} mov        dword ptr [edx + 0x04], esi");              // 0x00401a01    897204
-    asm("{disp8} mov        ecx, dword ptr [ecx + 0x08]");              // 0x00401a04    8b4908
-    asm("{disp8} mov        dword ptr [edx + 0x08], ecx");              // 0x00401a07    894a08
-    asm("pop                esi");                                      // 0x00401a0a    5e
-    asm("ret                0x0004");                                   // 0x00401a0b    c20400
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
+        "add                ecx, 0x14\n\t"
+        "push               esi\n\t"
+        "mov                esi, dword ptr [ecx]\n\t"
+        "mov.s              edx, eax\n\t"
+        "mov                dword ptr [edx], esi\n\t"
+        "%{disp8%} mov        esi, dword ptr [ecx + 0x04]\n\t"
+        "%{disp8%} mov        dword ptr [edx + 0x04], esi\n\t"
+        "%{disp8%} mov        ecx, dword ptr [ecx + 0x08]\n\t"
+        "%{disp8%} mov        dword ptr [edx + 0x08], ecx\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this)
+#if HAS_EXPAND_MOVZX
+__attribute__((expand_movzx))
+bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this)
 {
-    asm("xor.s              eax, eax");                                 // 0x00401a10    33c0
-    asm("{disp8} mov        ax, word ptr [ecx + 0x24]");                // 0x00401a12    668b4124
-    asm("shr                eax, 0xd");                                 // 0x00401a16    c1e80d
-    asm("and                eax, 0x01");                                // 0x00401a19    83e001
-    asm("ret");                                                         // 0x00401a1c    c3
+    return (*(uint16_t*)((char*)this + 0x24) >> 13) & 1;
+}
+#else
+bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this)
+{
+    asm volatile (
+        "xor.s              eax, eax\n\t"
+        "%{disp8%} mov        ax, word ptr [ecx + 0x24]\n\t"
+        "shr                eax, 0xd\n\t"
+        "and                eax, 0x01\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
+#endif
 
 __attribute__((XOR32rr_REV))
 bool __fastcall IsStompable__16GameThingWithPosFv(struct GameThingWithPos* this)
@@ -136,23 +157,22 @@ bool __fastcall IsStompable__16GameThingWithPosFv(struct GameThingWithPos* this)
     return 0;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAvailableForStateChange__16GameThingWithPosFv(struct GameThingWithPos* this)
+bool32_t __fastcall IsAvailableForStateChange__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("xor.s              eax, eax");                                 // 0x00401a30    33c0
-    asm("{disp8} mov        al, byte ptr [ecx + 0x24]");                // 0x00401a32    8a4124
-    asm("not                al");                                       // 0x00401a35    f6d0
-    asm("shr                eax, 2");                                   // 0x00401a37    c1e802
-    asm("and                eax, 0x01");                                // 0x00401a3a    83e001
-    asm("ret");                                                         // 0x00401a3d    c3
-    __builtin_unreachable();
+    uint32_t val;
+    asm volatile (
+        "xor.s              eax, eax\n\t"
+        "%{disp8%} mov        al, byte ptr [ecx + 0x24]\n\t"
+        "not                al"
+        : "=a"(val) : "c"(this) : "edx", "memory"
+    );
+    return (val >> 2) & 1;
 }
 
 float __fastcall GetImpressiveIntensity__16GameThingWithPosF15IMPRESSIVE_TYPE(struct GameThingWithPos* this, const void* edx, enum IMPRESSIVE_TYPE type)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float1p0]");                       // 0x00401a40    d90590a38a00
-    asm("ret                0x0004");                                   // 0x00401a46    c20400
-    __builtin_unreachable();
+    extern const float rdata_float1p0;
+    return rdata_float1p0;
 }
 
 __attribute__((XOR32rr_REV))
@@ -288,17 +308,20 @@ bool32_t __fastcall IsCitadelHeart__16GameThingWithPosFv(struct GameThingWithPos
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall IsDamaged__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("mov                eax, dword ptr [ecx]");                     // 0x00401bb0    8b01
-    asm("call               dword ptr [eax + 0x11c]");                  // 0x00401bb2    ff901c010000
-    asm("{disp32} fcomp     dword ptr [_rdata_float1p0]");                       // 0x00401bb8    d81d90a38a00
-    asm("fnstsw             ax");                                       // 0x00401bbe    dfe0
-    asm("test               ah, 0x01");                                 // 0x00401bc0    f6c401
-    asm("{disp8} je         LAB__addr_0x00401bcb");                     // 0x00401bc3    7406
-    asm("mov                eax, 0x00000001");                          // 0x00401bc5    b801000000
-    asm("ret");                                                         // 0x00401bca    c3
-    asm("LAB__addr_0x00401bcb:");
-    asm("xor.s              eax, eax");                                 // 0x00401bcb    33c0
-    asm("ret");                                                         // 0x00401bcd    c3
+    asm volatile (
+        "mov eax, dword ptr [ecx]\n\t"
+        "call dword ptr [eax + 0x11c]\n\t"
+        "%{disp32%} fcomp dword ptr [_rdata_float1p0]\n\t"
+        "fnstsw ax\n\t"
+        "test ah, 0x01\n\t"
+        "%{disp8%} je 0f\n\t"
+        "mov eax, 0x00000001\n\t"
+        "ret\n"
+        "0:\n\t"
+        "xor.s eax, eax\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -329,30 +352,33 @@ bool32_t __fastcall CanBeGivenToVillager__16GameThingWithPosFP8Creature(struct G
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall CanBeStonedAndEatenByCreature__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm("push               esi");                                      // 0x00401c10    56
-    asm("push               edi");                                      // 0x00401c11    57
-    asm("{disp8} mov        edi, dword ptr [esp + 0x0c]");              // 0x00401c12    8b7c240c
-    asm("mov.s              esi, ecx");                                 // 0x00401c16    8bf1
-    asm("mov                eax, dword ptr [esi]");                     // 0x00401c18    8b06
-    asm("push               edi");                                      // 0x00401c1a    57
-    asm("call               dword ptr [eax + 0x258]");                  // 0x00401c1b    ff9058020000
-    asm("test               eax, eax");                                 // 0x00401c21    85c0
-    asm("{disp8} je         LAB__addr_0x00401c3e");                     // 0x00401c23    7419
-    asm("mov                edx, dword ptr [esi]");                     // 0x00401c25    8b16
-    asm("push               edi");                                      // 0x00401c27    57
-    asm("mov.s              ecx, esi");                                 // 0x00401c28    8bce
-    asm("call               dword ptr [edx + 0x278]");                  // 0x00401c2a    ff9278020000
-    asm("test               eax, eax");                                 // 0x00401c30    85c0
-    asm("{disp8} je         LAB__addr_0x00401c3e");                     // 0x00401c32    740a
-    asm("pop                edi");                                      // 0x00401c34    5f
-    asm("mov                eax, 0x00000001");                          // 0x00401c35    b801000000
-    asm("pop                esi");                                      // 0x00401c3a    5e
-    asm("ret                0x0004");                                   // 0x00401c3b    c20400
-    asm("LAB__addr_0x00401c3e:");
-    asm("pop                edi");                                      // 0x00401c3e    5f
-    asm("xor.s              eax, eax");                                 // 0x00401c3f    33c0
-    asm("pop                esi");                                      // 0x00401c41    5e
-    asm("ret                0x0004");                                   // 0x00401c42    c20400
+    asm volatile (
+        "push               esi\n\t"
+        "push               edi\n\t"
+        "%{disp8%} mov        edi, dword ptr [esp + 0x0c]\n\t"
+        "mov.s              esi, ecx\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "push               edi\n\t"
+        "call               dword ptr [eax + 0x258]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00401c3e\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               edi\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x278]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00401c3e\n\t"
+        "pop                edi\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004\n"
+        "LAB__addr_0x00401c3e:\n\t"
+        "pop                edi\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -376,14 +402,17 @@ bool32_t __fastcall CanActAsAContainer__16GameThingWithPosFP8Creature(struct Gam
 
 bool32_t __fastcall IsNotOnFire__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm("{disp8} mov        edx, dword ptr [esp + 0x04]");              // 0x00401c80    8b542404
-    asm("mov                eax, dword ptr [ecx]");                     // 0x00401c84    8b01
-    asm("push               edx");                                      // 0x00401c86    52
-    asm("call               dword ptr [eax + 0x298]");                  // 0x00401c87    ff9098020000
-    asm("neg                eax");                                      // 0x00401c8d    f7d8
-    asm("sbb.s              eax, eax");                                 // 0x00401c8f    1bc0
-    asm("inc                eax");                                      // 0x00401c91    40
-    asm("ret                0x0004");                                   // 0x00401c92    c20400
+    asm volatile (
+        "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
+        "mov eax, dword ptr [ecx]\n\t"
+        "push edx\n\t"
+        "call dword ptr [eax + 0x298]\n\t"
+        "neg eax\n\t"
+        ".byte 0x1b, 0xc0\n\t"
+        "inc eax\n\t"
+        "ret 0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -624,69 +653,78 @@ bool32_t __fastcall IsDoingSomethingInteresting__16GameThingWithPosFP8Creature(s
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall CanBeUsedForBuildingHomeByCreature__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm("push               esi");                                      // 0x00401f10    56
-    asm("mov.s              esi, ecx");                                 // 0x00401f11    8bf1
-    asm("mov                eax, dword ptr [esi]");                     // 0x00401f13    8b06
-    asm("push               edi");                                      // 0x00401f15    57
-    asm("call               dword ptr [eax + 0x1f0]");                  // 0x00401f16    ff90f0010000
-    asm("test               eax, eax");                                 // 0x00401f1c    85c0
-    asm("{disp8} je         LAB__addr_0x00401f49");                     // 0x00401f1e    7429
-    asm("{disp8} mov        edi, dword ptr [esp + 0x0c]");              // 0x00401f20    8b7c240c
-    asm("mov                edx, dword ptr [esi]");                     // 0x00401f24    8b16
-    asm("push               edi");                                      // 0x00401f26    57
-    asm("mov.s              ecx, esi");                                 // 0x00401f27    8bce
-    asm("call               dword ptr [edx + 0x2a0]");                  // 0x00401f29    ff92a0020000
-    asm("test               eax, eax");                                 // 0x00401f2f    85c0
-    asm("{disp8} je         LAB__addr_0x00401f49");                     // 0x00401f31    7416
-    asm("push               edi");                                      // 0x00401f33    57
-    asm("mov.s              ecx, esi");                                 // 0x00401f34    8bce
-    asm("call               _jmp_addr_0x004e3ee0");                     // 0x00401f36    e8a51f0e00
-    asm("test               eax, eax");                                 // 0x00401f3b    85c0
-    asm("{disp8} jne        LAB__addr_0x00401f49");                     // 0x00401f3d    750a
-    asm("pop                edi");                                      // 0x00401f3f    5f
-    asm("mov                eax, 0x00000001");                          // 0x00401f40    b801000000
-    asm("pop                esi");                                      // 0x00401f45    5e
-    asm("ret                0x0004");                                   // 0x00401f46    c20400
-    asm("LAB__addr_0x00401f49:");
-    asm("pop                edi");                                      // 0x00401f49    5f
-    asm("xor.s              eax, eax");                                 // 0x00401f4a    33c0
-    asm("pop                esi");                                      // 0x00401f4c    5e
-    asm("ret                0x0004");                                   // 0x00401f4d    c20400
+    asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "push               edi\n\t"
+        "call               dword ptr [eax + 0x1f0]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00401f49\n\t"
+        "%{disp8%} mov        edi, dword ptr [esp + 0x0c]\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               edi\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x2a0]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00401f49\n\t"
+        "push               edi\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               _jmp_addr_0x004e3ee0\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} jne        LAB__addr_0x00401f49\n\t"
+        "pop                edi\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004\n"
+        "LAB__addr_0x00401f49:\n\t"
+        "pop                edi\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 bool32_t __fastcall IsRock__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm("mov                eax, dword ptr [ecx]");                     // 0x00401f50    8b01
-    asm("call               dword ptr [eax + 0x1f0]");                  // 0x00401f52    ff90f0010000
-    asm("ret                0x0004");                                   // 0x00401f58    c20400
-    asm("call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9");                     // 0x00401f5b    e819f9ffff
+    asm volatile (
+        "mov eax, dword ptr [ecx]\n\t"
+        "call dword ptr [eax + 0x1f0]\n\t"
+        "ret 0x0004\n\t"
+        "call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall IsPickupableRock__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm("push               esi");                                      // 0x00401f60    56
-    asm("mov.s              esi, ecx");                                 // 0x00401f61    8bf1
-    asm("mov                eax, dword ptr [esi]");                     // 0x00401f63    8b06
-    asm("call               dword ptr [eax + 0x1f0]");                  // 0x00401f65    ff90f0010000
-    asm("test               eax, eax");                                 // 0x00401f6b    85c0
-    asm("{disp8} je         LAB__addr_0x00401f8b");                     // 0x00401f6d    741c
-    asm("{disp8} mov        eax, dword ptr [esp + 0x08]");              // 0x00401f6f    8b442408
-    asm("mov                edx, dword ptr [esi]");                     // 0x00401f73    8b16
-    asm("push               eax");                                      // 0x00401f75    50
-    asm("mov.s              ecx, esi");                                 // 0x00401f76    8bce
-    asm("call               dword ptr [edx + 0x258]");                  // 0x00401f78    ff9258020000
-    asm("test               eax, eax");                                 // 0x00401f7e    85c0
-    asm("{disp8} je         LAB__addr_0x00401f8b");                     // 0x00401f80    7409
-    asm("mov                eax, 0x00000001");                          // 0x00401f82    b801000000
-    asm("pop                esi");                                      // 0x00401f87    5e
-    asm("ret                0x0004");                                   // 0x00401f88    c20400
-    asm("LAB__addr_0x00401f8b:");
-    asm("xor.s              eax, eax");                                 // 0x00401f8b    33c0
-    asm("pop                esi");                                      // 0x00401f8d    5e
-    asm("ret                0x0004");                                   // 0x00401f8e    c20400
+    asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "call               dword ptr [eax + 0x1f0]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00401f8b\n\t"
+        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               eax\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x258]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00401f8b\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004\n"
+        "LAB__addr_0x00401f8b:\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -824,10 +862,13 @@ bool32_t __fastcall IsToyCuddly__16GameThingWithPosFP8Creature(struct GameThingW
 
 bool32_t __fastcall IsLiving__16GameThingWithPosFP8Creature(const struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm("mov                eax, dword ptr [ecx]");                     // 0x00402100    8b01
-    asm("call               dword ptr [eax + 0x3c4]");                  // 0x00402102    ff90c4030000
-    asm("ret                0x0004");                                   // 0x00402108    c20400
-    asm("call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9");                     // 0x0040210b    e869f7ffff
+    asm volatile (
+        "mov eax, dword ptr [ecx]\n\t"
+        "call dword ptr [eax + 0x3c4]\n\t"
+        "ret 0x0004\n\t"
+        "call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -923,23 +964,20 @@ bool32_t __fastcall IsObjectTurningTooFastForCameraToFollowSmoothly__16GameThing
 
 float __fastcall CalculateDesireForFood__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");              // 0x00402200    d90598a38a00
-    asm("ret");                                                         // 0x00402206    c3
-    __builtin_unreachable();
+    extern const float __opaque_rdata_float0p0 asm("_rdata_float0p0");
+    return __opaque_rdata_float0p0;
 }
 
 float __fastcall CalculateDesireForRest__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");              // 0x00402210    d90598a38a00
-    asm("ret");                                                         // 0x00402216    c3
-    __builtin_unreachable();
+    extern const float __opaque_rdata_float0p0 asm("_rdata_float0p0");
+    return __opaque_rdata_float0p0;
 }
 
 float __fastcall CalculatePeopleHidingIndicator__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");              // 0x00402220    d90598a38a00
-    asm("ret");                                                         // 0x00402226    c3
-    __builtin_unreachable();
+    extern const float __opaque_rdata_float0p0 asm("_rdata_float0p0");
+    return __opaque_rdata_float0p0;
 }
 
 __attribute__((XOR32rr_REV))
@@ -951,16 +989,19 @@ bool32_t __fastcall IsReadyForNewScriptAction__16GameThingWithPosFv(struct GameT
 __attribute__((XOR32rr_REV))
 void __fastcall SetControlledByScript__16GameThingWithPosFi(struct GameThingWithPos* this, const void* edx, int32_t param_1)
 {
-    asm("xor.s              eax, eax");                                 // 0x00402240    33c0
-    asm("{disp8} mov        al, byte ptr [esp + 0x04]");                // 0x00402242    8a442404
-    asm("xor.s              edx, edx");                                 // 0x00402246    33d2
-    asm("{disp8} mov        dx, word ptr [ecx + 0x24]");                // 0x00402248    668b5124
-    asm("and                eax, 0x01");                                // 0x0040224c    83e001
-    asm("shl                eax, 0xa");                                 // 0x0040224f    c1e00a
-    asm("and                edx, 0x0000fbff");                          // 0x00402252    81e2fffb0000
-    asm("or.s               eax, edx");                                 // 0x00402258    0bc2
-    asm("{disp8} mov        word ptr [ecx + 0x24], ax");                // 0x0040225a    66894124
-    asm("ret                0x0004");                                   // 0x0040225e    c20400
+    asm volatile (
+        "xor.s              eax, eax\n\t"
+        "%{disp8%} mov        al, byte ptr [esp + 0x04]\n\t"
+        "xor.s              edx, edx\n\t"
+        "%{disp8%} mov        dx, word ptr [ecx + 0x24]\n\t"
+        "and                eax, 0x01\n\t"
+        "shl                eax, 0xa\n\t"
+        "and                edx, 0x0000fbff\n\t"
+        "or.s               eax, edx\n\t"
+        "%{disp8%} mov        word ptr [ecx + 0x24], ax\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -970,16 +1011,26 @@ enum DEATH_REASON __fastcall GetDeathReason__16GameThingWithPosFv(struct GameThi
     return 0;
 }
 
-__attribute__((XOR32rr_REV))
+#if HAS_EXPAND_MOVZX
+__attribute__((expand_movzx))
 bool32_t __fastcall IsInScript__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("xor.s              eax, eax");                                 // 0x00402280    33c0
-    asm("{disp8} mov        ax, word ptr [ecx + 0x24]");                // 0x00402282    668b4124
-    asm("shr                eax, 9");                                   // 0x00402286    c1e809
-    asm("and                eax, 0x01");                                // 0x00402289    83e001
-    asm("ret");                                                         // 0x0040228c    c3
-    __builtin_unreachable();
+    return (*(uint16_t*)((char*)this + 0x24) >> 9) & 1;
 }
+#else
+bool32_t __fastcall IsInScript__16GameThingWithPosFv(struct GameThingWithPos* this)
+{
+    bool32_t result;
+    asm volatile (
+        "xor.s              eax, eax\n\t"
+        "%{disp8%} mov        ax, word ptr [ecx + 0x24]\n\t"
+        "shr                eax, 9\n\t"
+        "and                eax, 0x01"
+        : "=a"(result) : "c"(this) : "edx", "memory"
+    );
+    return result;
+}
+#endif
 
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall IsMaleVillager__16GameThingWithPosFv(struct GameThingWithPos* this)
@@ -1119,20 +1170,16 @@ bool32_t __fastcall IsSkeleton__16GameThingWithPosCFv(const struct GameThingWith
     return 0;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, prefer_xor8))
 bool32_t __fastcall IsPoisoned__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("xor.s              al, al");                                   // 0x00402400    32c0
-    asm("ret");                                                         // 0x00402402    c3
-    __builtin_unreachable();
+    return 0;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, prefer_xor8))
 bool32_t __fastcall IsSpeedUp__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("xor.s              al, al");                                   // 0x00402410    32c0
-    asm("ret");                                                         // 0x00402412    c3
-    __builtin_unreachable();
+    return 0;
 }
 
 __attribute__((XOR32rr_REV))
@@ -1190,9 +1237,8 @@ bool32_t __fastcall IsScriptTimer__16GameThingWithPosFv(struct GameThingWithPos*
 
 float __fastcall GetFacingDirection__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");              // 0x004024b0    d90598a38a00
-    asm("ret");                                                         // 0x004024b6    c3
-    __builtin_unreachable();
+    extern const float __opaque_rdata_float0p0 asm("_rdata_float0p0");
+    return __opaque_rdata_float0p0;
 }
 
 void __fastcall SetAffectedByWind__16GameThingWithPosFi(struct GameThingWithPos* this, const void* edx, int param_1)
@@ -1202,9 +1248,8 @@ void __fastcall SetAffectedByWind__16GameThingWithPosFi(struct GameThingWithPos*
 
 float __fastcall GetReactionPower__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float1p0]");              // 0x004024d0    d90590a38a00
-    asm("ret");                                                         // 0x004024d6    c3
-    __builtin_unreachable();
+    extern const float rdata_float1p0;
+    return rdata_float1p0;
 }
 
 void __fastcall CleanUpBeforeReset__16GameThingWithPosFv(struct GameThingWithPos* this)

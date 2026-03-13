@@ -2,23 +2,20 @@
 
 float __fastcall GetDrawImportance__9GameThingFv(struct GameThing* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");                   // 0x00405130    d90598a38a00
-    asm("ret");                                                              // 0x00405136    c3
-    __builtin_unreachable();
+    extern const float rdata_float0p0;
+    return rdata_float0p0;
 }
 
 float __fastcall GetRadius__9GameThingFv(struct GameThing* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");                   // 0x00405140    d90598a38a00
-    asm("ret");                                                              // 0x00405146    c3
-    __builtin_unreachable();
+    extern const float rdata_float0p0;
+    return rdata_float0p0;
 }
 
 float __fastcall Get2DRadius__9GameThingFv(struct GameThing* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");                   // 0x00405150    d90598a38a00
-    asm("ret");                                                              // 0x00405156    c3
-    __builtin_unreachable();
+    extern const float rdata_float0p0;
+    return rdata_float0p0;
 }
 
 __attribute__((XOR32rr_REV))
@@ -88,17 +85,14 @@ uint16_t __fastcall GetNumberOfInstanceForGlobalList__9GameThingFv(struct GameTh
 
 float __fastcall GetTownArtifactValue__9GameThingFv(struct GameThing* this)
 {
-    asm("{disp32} fld       dword ptr [_rdata_float0p0]");                   // 0x00405210    d90598a38a00
-    asm("ret");                                                              // 0x00405216    c3
-    __builtin_unreachable();
+    extern const float rdata_float0p0;
+    return rdata_float0p0;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, prefer_xor8, no_bool_mask))
 bool __fastcall CanBecomeArtifact__9GameThingFv(struct GameThing* this)
 {
-    asm("xor.s              al, al");                                        // 0x00405220    32c0
-    asm("ret");                                                              // 0x00405222    c3
-    __builtin_unreachable();
+    return false;
 }
 
 void __fastcall DrawInHand__9GameThingFP16GInterfaceStatus(struct GameThing* this, const void* edx, struct GInterfaceStatus* param_1)
@@ -108,8 +102,11 @@ void __fastcall DrawInHand__9GameThingFP16GInterfaceStatus(struct GameThing* thi
 
 bool __fastcall IsFunctional__9GameThingFv(struct GameThing* this)
 {
-    asm("mov                eax, dword ptr [ecx]");                          // 0x00405240    8b01
-    asm("{disp8} jmp        dword ptr [eax + 0x2c]");                        // 0x00405242    ff602c
+    asm volatile (
+        "mov eax, dword ptr [ecx]\n\t"
+        "%{disp8%} jmp dword ptr [eax + 0x2c]"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 

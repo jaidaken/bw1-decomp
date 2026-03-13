@@ -26,9 +26,12 @@ float __fastcall GetScale__20PlannedMultiMapFixedFv(struct GameThingWithPos* thi
 
 void __fastcall SetScale__20PlannedMultiMapFixedFf(struct GameThingWithPos* this, const void* edx, float scale)
 {
-    asm("{disp8} mov        eax, dword ptr [esp + 0x04]");                   // 0x004050d0    8b442404
-    asm("{disp8} mov        dword ptr [ecx + 0x2c], eax");                   // 0x004050d4    89412c
-    asm("ret                0x0004");                                        // 0x004050d7    c20400
-    asm("call               dword ptr [?GetTransportInfo@LHConnection@@QAE?AW4LH_RETURN@@PAVLHTransportInfo@@H@Z]");               // 0x004050da    ff1570948a00
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
+        "%{disp8%} mov        dword ptr [ecx + 0x2c], eax\n\t"
+        "ret                0x0004\n\t"
+        "call               dword ptr [?GetTransportInfo@LHConnection@@QAE?AW4LH_RETURN@@PAVLHTransportInfo@@H@Z]"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }

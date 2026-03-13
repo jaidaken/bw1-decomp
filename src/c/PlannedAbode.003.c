@@ -74,12 +74,16 @@ bool __fastcall IsCivic__12PlannedAbodeFv(struct PlannedMultiMapFixed* this)
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall IsWonder__12PlannedAbodeFv(struct GameThingWithPos* this)
 {
-    asm("call               ?GetInfo@PlannedAbode@@SAPAVGPlannedAbodeInfo@@XZ");                          // 0x004061a0    e82bf5ffff
-    asm("{disp32} mov       edx, dword ptr [eax + 0x00000120]");             // 0x004061a5    8b9020010000
-    asm("xor.s              ecx, ecx");                                      // 0x004061ab    33c9
-    asm("cmp                edx, 0x00000100");                               // 0x004061ad    81fa00010000
-    asm("sete               cl");                                            // 0x004061b3    0f94c1
-    asm("mov.s              eax, ecx");                                      // 0x004061b6    8bc1
-    asm("ret");                                                              // 0x004061b8    c3
-    __builtin_unreachable();
+    void* dummy;
+    bool32_t result;
+    asm volatile (
+        "call               ?GetInfo@PlannedAbode@@SAPAVGPlannedAbodeInfo@@XZ\n\t"
+        "%{disp32%} mov       edx, dword ptr [eax + 0x00000120]\n\t"
+        "xor.s              ecx, ecx\n\t"
+        "cmp                edx, 0x00000100\n\t"
+        "sete               cl\n\t"
+        "mov.s              eax, ecx"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+    );
+    return result;
 }

@@ -29,12 +29,13 @@ void __fastcall Delete__4BaseFv(struct Base* this)
     __builtin_unreachable();
 }
 
-// __attribute__((disable_tail_calls))
 void __fastcall ToBeDeleted__4BaseFi(struct Base* this, const void* edx, int param_1)
 {
-    asm("mov  eax, dword ptr [ecx]");  // 0x004011d0    8b01
-    asm("call dword ptr [eax + 8]");   // 0x004011d2    ff5008
-    // this->vftable->Delete(this, edx, param_1);
+    asm volatile (
+        "mov eax, dword ptr [ecx]\n\t"
+        "%{disp8%} call dword ptr [eax + 8]"
+        :  : "c"(this) : "eax", "edx", "memory"
+    );
 }
 
 __attribute__((XOR32rr_REV))

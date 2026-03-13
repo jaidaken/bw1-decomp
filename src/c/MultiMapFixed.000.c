@@ -50,11 +50,11 @@ float __fastcall GetPercentBuilt__13MultiMapFixedFv(struct MultiMapFixed* this)
 
 float __fastcall GetPercentRepaired__13MultiMapFixedFv(struct MultiMapFixed* this)
 {
-    // clang crashes
-    // return this->base.object_vftable->super.GetLife(this);
-
-    asm("mov eax, dword ptr [ecx]");    // 0x00401500    8b01
-    asm("jmp dword ptr [eax + 0x11c]"); // 0x00401502    ffa01c010000
+    asm volatile (
+        "mov eax, dword ptr [ecx]\n\t"
+        "jmp dword ptr [eax + 0x11c]"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -148,25 +148,33 @@ int __fastcall CalulateAmountOverMaximum__13MultiMapFixedF13RESOURCE_TYPE(struct
 
 bool32_t __fastcall IsBeingBuilt__13MultiMapFixedFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm("mov                eax, dword ptr [ecx]   "); // 0x004015e0    8b01
-    asm("call               dword ptr [eax + 0x890]"); // 0x004015e2    ff9090080000
-    asm("dec                eax                    "); // 0x004015e8    48
-    asm("neg                eax                    "); // 0x004015e9    f7d8
-    asm("sbb.s              eax, eax               "); // 0x004015eb    1bc0
-    asm("neg                eax                    "); // 0x004015ed    f7d8
-    asm("ret                0x0004                 "); // 0x004015ef    c20400
-    __builtin_unreachable();
+    void* dummy;
+    bool32_t result;
+    asm volatile (
+        "mov eax, dword ptr [ecx]\n\t"
+        "call dword ptr [eax + 0x890]\n\t"
+        "dec eax\n\t"
+        "neg eax\n\t"
+        ".byte 0x1b, 0xc0\n\t"
+        "neg eax"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+    );
+    return result;
 }
 
 bool32_t __fastcall NeedsRepair__13MultiMapFixedFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm("mov                eax, dword ptr [ecx]   "); // 0x00401600    8b01
-    asm("call               dword ptr [eax + 0x88c]"); // 0x00401602    ff908c080000
-    asm("neg                eax                    "); // 0x00401608    f7d8
-    asm("sbb.s              eax, eax               "); // 0x0040160a    1bc0
-    asm("inc                eax                    "); // 0x0040160c    40
-    asm("ret                0x0004                 "); // 0x0040160d    c20400
-    __builtin_unreachable();
+    void* dummy;
+    bool32_t result;
+    asm volatile (
+        "mov eax, dword ptr [ecx]\n\t"
+        "call dword ptr [eax + 0x88c]\n\t"
+        "neg eax\n\t"
+        ".byte 0x1b, 0xc0\n\t"
+        "inc eax"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+    );
+    return result;
 }
 
 bool32_t __fastcall IsFootpathLink__13MultiMapFixedFv(struct GameThing* this)

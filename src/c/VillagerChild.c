@@ -11,35 +11,45 @@ float villager_child_seconds_in_year_0x00db9dd4;
 
 void __cdecl globl_ct_0x00757860(void)
 {
-    asm("{disp32} mov       cl, byte ptr [_DAT_00fac934]");                  // 0x00757860    8a0d34c9fa00
-    asm("mov                al, 0x01");                                      // 0x00757866    b001
-    asm("test               al, cl");                                        // 0x00757868    84c8
-    asm("{disp8} jne        LAB__addr_0x00757874");                          // 0x0075786a    7508
-    asm("or.s               cl, al");                                        // 0x0075786c    0ac8
-    asm("{disp32} mov       byte ptr [_DAT_00fac934], cl");                  // 0x0075786e    880d34c9fa00
-    asm("LAB__addr_0x00757874:");
-    asm("{disp32} jmp       _crt_global_destruction_register_0x00757880");   // 0x00757874    e907000000
+    asm volatile (
+        "%{disp32%} mov cl, byte ptr [_DAT_00fac934]\n\t"
+        "mov al, 0x01\n\t"
+        "test al, cl\n\t"
+        "%{disp8%} jne LAB__addr_0x00757874\n\t"
+        "or.s cl, al\n\t"
+        "%{disp32%} mov byte ptr [_DAT_00fac934], cl\n"
+        "LAB__addr_0x00757874:\n\t"
+        "%{disp32%} jmp _crt_global_destruction_register_0x00757880"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 void __cdecl crt_global_destruction_register_0x00757880(void)
 {
-    asm("push               0x00407870");                                    // 0x00757880    6870784000
-    asm("call               _atexit");                                       // 0x00757885    e8e7ea0600
-    asm("pop                ecx");                                           // 0x0075788a    59
+    asm volatile (
+        "push               0x00407870\n\t"
+        "call               _atexit\n\t"
+        "pop                ecx"
+        ::: "eax", "ecx", "edx", "memory"
+    );
 }
+
+extern void __cdecl FUN_007578a0__8VillagerFv(void) __attribute__((noinline));
 
 void __cdecl globl_ct_0x00757890(void)
 {
-    asm("{disp32} jmp       _FUN_007578a0__8VillagerFv");                    // 0x00757890    e90b000000
-    __builtin_unreachable();
+    __attribute__((musttail)) return FUN_007578a0__8VillagerFv();
 }
 
 void __cdecl FUN_007578a0__8VillagerFv(void)
 {
-    asm("{disp32} fld  dword ptr [_villager_child_seconds_in_day_0x0099a93c]");   // 0x007578a0    d9053ca99900
-    asm("{disp32} fmul dword ptr [_villager_child_num_days_in_year_0x0099a938]"); // 0x007578a6    d80d38a99900
-    asm("{disp32} fstp dword ptr [_villager_child_seconds_in_year_0x00db9dd4]");        // 0x007578ac    d91dd49ddb00
+    asm volatile (
+        "%{disp32%} fld  dword ptr [_villager_child_seconds_in_day_0x0099a93c]\n\t"
+        "%{disp32%} fmul dword ptr [_villager_child_num_days_in_year_0x0099a938]\n\t"
+        "%{disp32%} fstp dword ptr [_villager_child_seconds_in_year_0x00db9dd4]"
+        ::: "memory"
+    );
 }
 
 bool32_t __fastcall ChildFollowsMother__8VillagerFv(struct Villager* this)
@@ -137,46 +147,49 @@ bool32_t __fastcall ChildFollowsMother__8VillagerFv(struct Villager* this)
 __attribute__((XOR32rr_REV))
 uint32_t __fastcall ChildGotoCreche__8VillagerFv(struct Villager* this)
 {
-    asm("sub                esp, 0x0c");                                     // 0x007579f0    83ec0c
-    asm("push               esi");                                           // 0x007579f3    56
-    asm("push               edi");                                           // 0x007579f4    57
-    asm("mov.s              edi, ecx");                                      // 0x007579f5    8bf9
-    asm("mov                eax, dword ptr [edi]");                          // 0x007579f7    8b07
-    asm("call               dword ptr [eax + 0x48]");                        // 0x007579f9    ff5048
-    asm("test               eax, eax");                                      // 0x007579fc    85c0
-    asm("{disp8} je         LAB__addr_0x00757a44");                          // 0x007579fe    7444
-    asm("mov                edx, dword ptr [edi]");                          // 0x00757a00    8b17
-    asm("mov.s              ecx, edi");                                      // 0x00757a02    8bcf
-    asm("call               dword ptr [edx + 0x48]");                        // 0x00757a04    ff5248
-    asm("{disp32} mov       esi, dword ptr [eax + 0x00000744]");             // 0x00757a07    8bb044070000
-    asm("test               esi, esi");                                      // 0x00757a0d    85f6
-    asm("{disp8} je         LAB__addr_0x00757a44");                          // 0x00757a0f    7433
-    asm("mov                eax, dword ptr [esi]");                          // 0x00757a11    8b06
-    asm("mov.s              ecx, esi");                                      // 0x00757a13    8bce
-    asm("call               dword ptr [eax + 0xd4]");                        // 0x00757a15    ff90d4000000
-    asm("test               eax, eax");                                      // 0x00757a1b    85c0
-    asm("{disp8} je         LAB__addr_0x00757a44");                          // 0x00757a1d    7425
-    asm("mov                edx, dword ptr [esi]");                          // 0x00757a1f    8b16
-    asm("push               0x71");                                          // 0x00757a21    6a71
-    asm("{disp8} lea        eax, dword ptr [esp + 0x0c]");                   // 0x00757a23    8d44240c
-    asm("push               eax");                                           // 0x00757a27    50
-    asm("mov.s              ecx, esi");                                      // 0x00757a28    8bce
-    asm("call               dword ptr [edx + 0x864]");                       // 0x00757a2a    ff9264080000
-    asm("push               eax");                                           // 0x00757a30    50
-    asm("push               esi");                                           // 0x00757a31    56
-    asm("mov.s              ecx, edi");                                      // 0x00757a32    8bcf
-    asm("call               @SetupMoveToOnFootpath__6LivingFR16GameThingWithPosRC9MapCoordsUc@17");                          // 0x00757a34    e8e762e9ff
-    asm("pop                edi");                                           // 0x00757a39    5f
-    asm("mov                eax, 0x00000001");                               // 0x00757a3a    b801000000
-    asm("pop                esi");                                           // 0x00757a3f    5e
-    asm("add                esp, 0x0c");                                     // 0x00757a40    83c40c
-    asm("ret");                                                              // 0x00757a43    c3
-    asm("LAB__addr_0x00757a44:");
-    asm("pop                edi");                                           // 0x00757a44    5f
-    asm("xor.s              eax, eax");                                      // 0x00757a45    33c0
-    asm("pop                esi");                                           // 0x00757a47    5e
-    asm("add                esp, 0x0c");                                     // 0x00757a48    83c40c
-    asm("ret");                                                              // 0x00757a4b    c3
+    asm volatile (
+        "sub                esp, 0x0c\n\t"
+        "push               esi\n\t"
+        "push               edi\n\t"
+        "mov.s              edi, ecx\n\t"
+        "mov                eax, dword ptr [edi]\n\t"
+        "call               dword ptr [eax + 0x48]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00757a44\n\t"
+        "mov                edx, dword ptr [edi]\n\t"
+        "mov.s              ecx, edi\n\t"
+        "call               dword ptr [edx + 0x48]\n\t"
+        "%{disp32%} mov       esi, dword ptr [eax + 0x00000744]\n\t"
+        "test               esi, esi\n\t"
+        "%{disp8%} je         LAB__addr_0x00757a44\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [eax + 0xd4]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00757a44\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               0x71\n\t"
+        "%{disp8%} lea        eax, dword ptr [esp + 0x0c]\n\t"
+        "push               eax\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x864]\n\t"
+        "push               eax\n\t"
+        "push               esi\n\t"
+        "mov.s              ecx, edi\n\t"
+        "call               @SetupMoveToOnFootpath__6LivingFR16GameThingWithPosRC9MapCoordsUc@17\n\t"
+        "pop                edi\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "add                esp, 0x0c\n\t"
+        "ret\n"
+        "LAB__addr_0x00757a44:\n\t"
+        "pop                edi\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "add                esp, 0x0c\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -467,7 +480,7 @@ bool32_t __fastcall ChildAtCreche__8VillagerFv(struct Villager* this)
     asm("test               byte ptr [eax + 0x000000e0], 0x04");             // 0x00757d33    f680e000000004
     asm("{disp32} je        LAB__addr_0x00757e6d");                          // 0x00757d3a    0f842d010000
     asm("mov.s              ecx, esi");                                      // 0x00757d40    8bce
-    asm("call               ?GoHome@Villager@@QAE_NXZ");                     // 0x00757d42    e829850000
+    asm("call               ?GoHome@Villager@@QAEIXZ");                     // 0x00757d42    e829850000
     asm("pop                edi");                                           // 0x00757d47    5f
     asm("pop                esi");                                           // 0x00757d48    5e
     asm("xor.s              eax, eax");                                      // 0x00757d49    33c0
@@ -587,34 +600,37 @@ bool32_t __fastcall ChildAtCreche__8VillagerFv(struct Villager* this)
 __attribute__((XOR32rr_REV))
 uint32_t __fastcall CheckChild__8VillagerFv(struct Villager* this)
 {
-    asm("push               esi");                                           // 0x00757e80    56
-    asm("mov.s              esi, ecx");                                      // 0x00757e81    8bf1
-    asm("mov                eax, dword ptr [esi]");                          // 0x00757e83    8b06
-    asm("call               dword ptr [eax + 0xaf8]");                       // 0x00757e85    ff90f80a0000
-    asm("test               eax, eax");                                      // 0x00757e8b    85c0
-    asm("mov.s              ecx, esi");                                      // 0x00757e8d    8bce
-    asm("{disp8} jne        LAB__addr_0x00757e98");                          // 0x00757e8f    7507
-    asm("call               ?GoHome@Villager@@QAE_NXZ");                     // 0x00757e91    e8da830000
-    asm("pop                esi");                                           // 0x00757e96    5e
-    asm("ret");                                                              // 0x00757e97    c3
-    asm("LAB__addr_0x00757e98:");
-    asm("call               ?IsMotherAlive@Villager@@QAE_NXZ");              // 0x00757e98    e8a3000000
-    asm("test               eax, eax");                                      // 0x00757e9d    85c0
-    asm("{disp8} jne        LAB__addr_0x00757ea7");                          // 0x00757e9f    7506
-    asm("{disp32} mov       dword ptr [esi + 0x00000100], eax");             // 0x00757ea1    898600010000
-    asm("LAB__addr_0x00757ea7:");
-    asm("mov.s              ecx, esi");                                      // 0x00757ea7    8bce
-    asm("call               ?IsHungry@Villager@@QAE_NXZ");                   // 0x00757ea9    e852a7ffff
-    asm("test               eax, eax");                                      // 0x00757eae    85c0
-    asm("{disp8} je         LAB__addr_0x00757ebb");                          // 0x00757eb0    7409
-    asm("mov.s              ecx, esi");                                      // 0x00757eb2    8bce
-    asm("call               ?GoHome@Villager@@QAE_NXZ");                     // 0x00757eb4    e8b7830000
-    asm("pop                esi");                                           // 0x00757eb9    5e
-    asm("ret");                                                              // 0x00757eba    c3
-    asm("LAB__addr_0x00757ebb:");
-    asm("xor.s              eax, eax");                                      // 0x00757ebb    33c0
-    asm("pop                esi");                                           // 0x00757ebd    5e
-    asm("ret");                                                              // 0x00757ebe    c3
+    asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "call               dword ptr [eax + 0xaf8]\n\t"
+        "test               eax, eax\n\t"
+        "mov.s              ecx, esi\n\t"
+        "%{disp8%} jne        LAB__addr_0x00757e98\n\t"
+        "call               ?GoHome@Villager@@QAEIXZ\n\t"
+        "pop                esi\n\t"
+        "ret\n"
+        "LAB__addr_0x00757e98:\n\t"
+        "call               ?IsMotherAlive@Villager@@QAEIXZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} jne        LAB__addr_0x00757ea7\n\t"
+        "%{disp32%} mov       dword ptr [esi + 0x00000100], eax\n"
+        "LAB__addr_0x00757ea7:\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?IsHungry@Villager@@QAE_NXZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00757ebb\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?GoHome@Villager@@QAEIXZ\n\t"
+        "pop                esi\n\t"
+        "ret\n"
+        "LAB__addr_0x00757ebb:\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
@@ -646,225 +662,240 @@ bool32_t __fastcall ChildDecideWhatToDo__8VillagerFv(struct Villager* this)
 
 bool32_t __fastcall CheckChildActivity__8VillagerFv(struct Villager* this)
 {
-    asm("call               ?ChildDecideWhatToDo@Villager@@QAE_NXZ");        // 0x00757f00    e8bbffffff
-    asm("mov                eax, 0x00000001");                               // 0x00757f05    b801000000
-    asm("ret");                                                              // 0x00757f0a    c3
-    __builtin_unreachable();
+    void* dummy;
+    asm volatile ("call ?ChildDecideWhatToDo@Villager@@QAEIXZ" : "=c"(dummy) : "c"(this) : "eax", "edx", "memory");
+    return 1;
 }
 
 bool32_t __fastcall ChildBecomesAdult__8VillagerFv(struct Villager* this)
 {
-    asm("push               esi");                                           // 0x00757f10    56
-    asm("mov.s              esi, ecx");                                      // 0x00757f11    8bf1
-    asm("{disp32} mov       dword ptr [esi + 0x00000100], 0x00000000");      // 0x00757f13    c7860001000000000000
-    asm("call               ?CheckNeedNewAbode@Villager@@QAEIXZ");           // 0x00757f1d    e86e000000
-    asm("mov                eax, dword ptr [esi]");                          // 0x00757f22    8b06
-    asm("push               0x000000ea");                                    // 0x00757f24    68ea000000
-    asm("mov.s              ecx, esi");                                      // 0x00757f29    8bce
-    asm("call               dword ptr [eax + 0x8e8]");                       // 0x00757f2b    ff90e8080000
-    asm("mov                eax, 0x00000001");                               // 0x00757f31    b801000000
-    asm("pop                esi");                                           // 0x00757f36    5e
-    asm("ret");                                                              // 0x00757f37    c3
-    __builtin_unreachable();
+    void* dummy;
+    bool32_t result;
+    asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "%{disp32%} mov       dword ptr [esi + 0x00000100], 0x00000000\n\t"
+        "call               ?CheckNeedNewAbode@Villager@@QAEIXZ\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "push               0x000000ea\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [eax + 0x8e8]\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+    );
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall IsMotherAlive__8VillagerFv(struct Villager* this)
 {
-    asm("push               esi");                                           // 0x00757f40    56
-    asm("push               edi");                                           // 0x00757f41    57
-    asm("mov.s              edi, ecx");                                      // 0x00757f42    8bf9
-    asm("{disp32} mov       esi, dword ptr [edi + 0x00000100]");             // 0x00757f44    8bb700010000
-    asm("test               esi, esi");                                      // 0x00757f4a    85f6
-    asm("{disp8} je         LAB__addr_0x00757f89");                          // 0x00757f4c    743b
-    asm("mov                eax, dword ptr [esi]");                          // 0x00757f4e    8b06
-    asm("mov.s              ecx, esi");                                      // 0x00757f50    8bce
-    asm("call               dword ptr [eax + 0x2c]");                        // 0x00757f52    ff502c
-    asm("cmp                eax, 0x01");                                     // 0x00757f55    83f801
-    asm("{disp8} jne        LAB__addr_0x00757f89");                          // 0x00757f58    752f
-    asm("{disp8} mov        ecx, dword ptr [esi + 0x28]");                   // 0x00757f5a    8b4e28
-    asm("{disp8} mov        edx, dword ptr [edi + 0x28]");                   // 0x00757f5d    8b5728
-    asm("{disp32} mov       eax, dword ptr [ecx + 0x000001f4]");             // 0x00757f60    8b81f4010000
-    asm("cmp                eax, dword ptr [edx + 0x000001f4]");             // 0x00757f66    3b82f4010000
-    asm("{disp8} jne        LAB__addr_0x00757f89");                          // 0x00757f6c    751b
-    asm("mov.s              ecx, esi");                                      // 0x00757f6e    8bce
-    asm("call               ?IsAMother@Villager@@QAE_NXZ");                  // 0x00757f70    e89b91ffff
-    asm("cmp                eax, 0x01");                                     // 0x00757f75    83f801
-    asm("{disp8} jne        LAB__addr_0x00757f89");                          // 0x00757f78    750f
-    asm("{disp32} mov       cl, byte ptr [esi + 0x000000b4]");               // 0x00757f7a    8a8eb4000000
-    asm("and.s              cl, al");                                        // 0x00757f80    22c8
-    asm("cmp.s              cl, al");                                        // 0x00757f82    3ac8
-    asm("{disp8} je         LAB__addr_0x00757f89");                          // 0x00757f84    7403
-    asm("pop                edi");                                           // 0x00757f86    5f
-    asm("pop                esi");                                           // 0x00757f87    5e
-    asm("ret");                                                              // 0x00757f88    c3
-    asm("LAB__addr_0x00757f89:");
-    asm("pop                edi");                                           // 0x00757f89    5f
-    asm("xor.s              eax, eax");                                      // 0x00757f8a    33c0
-    asm("pop                esi");                                           // 0x00757f8c    5e
-    asm("ret");                                                              // 0x00757f8d    c3
+    asm volatile (
+        "push               esi\n\t"
+        "push               edi\n\t"
+        "mov.s              edi, ecx\n\t"
+        "%{disp32%} mov       esi, dword ptr [edi + 0x00000100]\n\t"
+        "test               esi, esi\n\t"
+        "%{disp8%} je         LAB__addr_0x00757f89\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [eax + 0x2c]\n\t"
+        "cmp                eax, 0x01\n\t"
+        "%{disp8%} jne        LAB__addr_0x00757f89\n\t"
+        "%{disp8%} mov        ecx, dword ptr [esi + 0x28]\n\t"
+        "%{disp8%} mov        edx, dword ptr [edi + 0x28]\n\t"
+        "%{disp32%} mov       eax, dword ptr [ecx + 0x000001f4]\n\t"
+        "cmp                eax, dword ptr [edx + 0x000001f4]\n\t"
+        "%{disp8%} jne        LAB__addr_0x00757f89\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?IsAMother@Villager@@QAE_NXZ\n\t"
+        "cmp                eax, 0x01\n\t"
+        "%{disp8%} jne        LAB__addr_0x00757f89\n\t"
+        "%{disp32%} mov       cl, byte ptr [esi + 0x000000b4]\n\t"
+        "and.s              cl, al\n\t"
+        "cmp.s              cl, al\n\t"
+        "%{disp8%} je         LAB__addr_0x00757f89\n\t"
+        "pop                edi\n\t"
+        "pop                esi\n\t"
+        "ret\n"
+        "LAB__addr_0x00757f89:\n\t"
+        "pop                edi\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall CheckNeedNewAbode__8VillagerFv(struct Villager* this)
 {
-    asm("push               ecx");                                           // 0x00757f90    51
-    asm("push               esi");                                           // 0x00757f91    56
-    asm("mov.s              esi, ecx");                                      // 0x00757f92    8bf1
-    asm("mov                eax, dword ptr [esi]");                          // 0x00757f94    8b06
-    asm("call               dword ptr [eax + 0xaf8]");                       // 0x00757f96    ff90f80a0000
-    asm("test               eax, eax");                                      // 0x00757f9c    85c0
-    asm("{disp32} jne       LAB__addr_0x0075806f");                          // 0x00757f9e    0f85cb000000
-    asm("mov.s              ecx, esi");                                      // 0x00757fa4    8bce
-    asm("call               ?GetAbode@Villager@@QAEPAVAbode@@XZ");           // 0x00757fa6    e8b5a1ffff
-    asm("test               eax, eax");                                      // 0x00757fab    85c0
-    asm("{disp8} je         LAB__addr_0x00757fc5");                          // 0x00757fad    7416
-    asm("mov.s              ecx, esi");                                      // 0x00757faf    8bce
-    asm("call               ?GetAbode@Villager@@QAEPAVAbode@@XZ");           // 0x00757fb1    e8aaa1ffff
-    asm("mov.s              ecx, eax");                                      // 0x00757fb6    8bc8
-    asm("call               ?IsTooCrowded@Abode@@QAE_NXZ");                  // 0x00757fb8    e803c7caff
-    asm("test               eax, eax");                                      // 0x00757fbd    85c0
-    asm("{disp32} je        LAB__addr_0x0075806f");                          // 0x00757fbf    0f84aa000000
-    asm("LAB__addr_0x00757fc5:");
-    asm("mov                edx, dword ptr [esi]");                          // 0x00757fc5    8b16
-    asm("mov.s              ecx, esi");                                      // 0x00757fc7    8bce
-    asm("call               dword ptr [edx + 0x48]");                        // 0x00757fc9    ff5248
-    asm("test               eax, eax");                                      // 0x00757fcc    85c0
-    asm("{disp32} je        LAB__addr_0x00758060");                          // 0x00757fce    0f848c000000
-    asm("mov.s              ecx, esi");                                      // 0x00757fd4    8bce
-    asm("{disp8} mov        dword ptr [esp + 0x04], 0x00000000");            // 0x00757fd6    c744240400000000
-    asm("call               ?GetAbode@Villager@@QAEPAVAbode@@XZ");           // 0x00757fde    e87da1ffff
-    asm("test               eax, eax");                                      // 0x00757fe3    85c0
-    asm("{disp8} je         LAB__addr_0x00757ffa");                          // 0x00757fe5    7413
-    asm("push               esi");                                           // 0x00757fe7    56
-    asm("mov.s              ecx, esi");                                      // 0x00757fe8    8bce
-    asm("call               ?GetAbode@Villager@@QAEPAVAbode@@XZ");           // 0x00757fea    e871a1ffff
-    asm("mov.s              ecx, eax");                                      // 0x00757fef    8bc8
-    asm("call               ?CalculateScoreForAddingVillagerToAbode@Abode@@QAEMPAVVillager@@@Z");  // 0x00757ff1    e84acbcaff
-    asm("{disp8} fstp       dword ptr [esp + 0x04]");                        // 0x00757ff6    d95c2404
-    asm("LAB__addr_0x00757ffa:");
-    asm("{disp8} mov        eax, dword ptr [esp + 0x04]");                   // 0x00757ffa    8b442404
-    asm("mov                edx, dword ptr [esi]");                          // 0x00757ffe    8b16
-    asm("push               eax");                                           // 0x00758000    50
-    asm("push               esi");                                           // 0x00758001    56
-    asm("mov.s              ecx, esi");                                      // 0x00758002    8bce
-    asm("call               dword ptr [edx + 0x48]");                        // 0x00758004    ff5248
-    asm("mov.s              ecx, eax");                                      // 0x00758007    8bc8
-    asm("call               ?FindAbodeWithSpaceInTown@Town@@QAEPAVAbode@@PAVVillager@@M@Z");                          // 0x00758009    e86233feff
-    asm("test               eax, eax");                                      // 0x0075800e    85c0
-    asm("{disp8} je         LAB__addr_0x0075803e");                          // 0x00758010    742c
-    asm("push               eax");                                           // 0x00758012    50
-    asm("mov.s              ecx, esi");                                      // 0x00758013    8bce
-    asm("call               ?MoveVillagerToAbode@Villager@@QAEXPAVAbode@@@Z");  // 0x00758015    e866000000
-    asm("cmp                eax, 0x01");                                     // 0x0075801a    83f801
-    asm("{disp8} jne        LAB__addr_0x0075803e");                          // 0x0075801d    751f
-    asm("mov.s              ecx, esi");                                      // 0x0075801f    8bce
-    asm("call               ?IsVillagerAvailable@Villager@@QAE_NXZ");        // 0x00758021    e86aa2ffff
-    asm("test               eax, eax");                                      // 0x00758026    85c0
-    asm("{disp8} je         LAB__addr_0x00758036");                          // 0x00758028    740c
-    asm("mov                eax, dword ptr [esi]");                          // 0x0075802a    8b06
-    asm("push               0x24");                                          // 0x0075802c    6a24
-    asm("mov.s              ecx, esi");                                      // 0x0075802e    8bce
-    asm("call               dword ptr [eax + 0x8e8]");                       // 0x00758030    ff90e8080000
-    asm("LAB__addr_0x00758036:");
-    asm("mov                eax, 0x00000001");                               // 0x00758036    b801000000
-    asm("pop                esi");                                           // 0x0075803b    5e
-    asm("pop                ecx");                                           // 0x0075803c    59
-    asm("ret");                                                              // 0x0075803d    c3
-    asm("LAB__addr_0x0075803e:");
-    asm("mov                edx, dword ptr [esi]");                          // 0x0075803e    8b16
-    asm("push               esi");                                           // 0x00758040    56
-    asm("mov.s              ecx, esi");                                      // 0x00758041    8bce
-    asm("call               dword ptr [edx + 0x48]");                        // 0x00758043    ff5248
-    asm("mov.s              ecx, eax");                                      // 0x00758046    8bc8
-    asm("call               ?IsVillagerInHomelessList@Town@@QAE_NPAVVillager@@@Z");                          // 0x00758048    e83335feff
-    asm("test               eax, eax");                                      // 0x0075804d    85c0
-    asm("{disp8} jne        LAB__addr_0x00758058");                          // 0x0075804f    7507
-    asm("mov.s              ecx, esi");                                      // 0x00758051    8bce
-    asm("call               ?MakeHomeless@Villager@@QAE_NXZ");               // 0x00758053    e8c8910000
-    asm("LAB__addr_0x00758058:");
-    asm("mov                eax, 0x00000001");                               // 0x00758058    b801000000
-    asm("pop                esi");                                           // 0x0075805d    5e
-    asm("pop                ecx");                                           // 0x0075805e    59
-    asm("ret");                                                              // 0x0075805f    c3
-    asm("LAB__addr_0x00758060:");
-    asm("mov.s              ecx, esi");                                      // 0x00758060    8bce
-    asm("call               ?VagrantStart@Villager@@QAEIXZ");                          // 0x00758062    e869280100
-    asm("mov                eax, 0x00000001");                               // 0x00758067    b801000000
-    asm("pop                esi");                                           // 0x0075806c    5e
-    asm("pop                ecx");                                           // 0x0075806d    59
-    asm("ret");                                                              // 0x0075806e    c3
-    asm("LAB__addr_0x0075806f:");
-    asm("xor.s              eax, eax");                                      // 0x0075806f    33c0
-    asm("pop                esi");                                           // 0x00758071    5e
-    asm("pop                ecx");                                           // 0x00758072    59
-    asm("ret");                                                              // 0x00758073    c3
+    asm volatile (
+        "push               ecx\n\t"
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "call               dword ptr [eax + 0xaf8]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp32%} jne       LAB__addr_0x0075806f\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00757fc5\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
+        "mov.s              ecx, eax\n\t"
+        "call               ?IsTooCrowded@Abode@@QAEIXZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp32%} je        LAB__addr_0x0075806f\n"
+        "LAB__addr_0x00757fc5:\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x48]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp32%} je        LAB__addr_0x00758060\n\t"
+        "mov.s              ecx, esi\n\t"
+        "%{disp8%} mov        dword ptr [esp + 0x04], 0x00000000\n\t"
+        "call               ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00757ffa\n\t"
+        "push               esi\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
+        "mov.s              ecx, eax\n\t"
+        "call               ?CalculateScoreForAddingVillagerToAbode@Abode@@QAEMPAVVillager@@@Z\n\t"
+        "%{disp8%} fstp       dword ptr [esp + 0x04]\n"
+        "LAB__addr_0x00757ffa:\n\t"
+        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               eax\n\t"
+        "push               esi\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x48]\n\t"
+        "mov.s              ecx, eax\n\t"
+        "call               ?FindAbodeWithSpaceInTown@Town@@QAEPAVAbode@@PAVVillager@@M@Z\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x0075803e\n\t"
+        "push               eax\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?MoveVillagerToAbode@Villager@@QAEXPAVAbode@@@Z\n\t"
+        "cmp                eax, 0x01\n\t"
+        "%{disp8%} jne        LAB__addr_0x0075803e\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?IsVillagerAvailable@Villager@@QAE_NXZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00758036\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "push               0x24\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [eax + 0x8e8]\n"
+        "LAB__addr_0x00758036:\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "pop                ecx\n\t"
+        "ret\n"
+        "LAB__addr_0x0075803e:\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               esi\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x48]\n\t"
+        "mov.s              ecx, eax\n\t"
+        "call               ?IsVillagerInHomelessList@Town@@QAEIPAVVillager@@@Z\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} jne        LAB__addr_0x00758058\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?MakeHomeless@Villager@@QAEIXZ\n"
+        "LAB__addr_0x00758058:\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "pop                ecx\n\t"
+        "ret\n"
+        "LAB__addr_0x00758060:\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?VagrantStart@Villager@@QAEIXZ\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "pop                ecx\n\t"
+        "ret\n"
+        "LAB__addr_0x0075806f:\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "pop                ecx\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))
 void __fastcall MoveVillagerToAbode__8VillagerFP5Abode(struct Villager* this, const void* edx, struct Abode* abode)
 {
-    asm("push               esi");                                           // 0x00758080    56
-    asm("push               edi");                                           // 0x00758081    57
-    asm("mov.s              edi, ecx");                                      // 0x00758082    8bf9
-    asm("mov                eax, dword ptr [edi]");                          // 0x00758084    8b07
-    asm("call               dword ptr [eax + 0xaf8]");                       // 0x00758086    ff90f80a0000
-    asm("test               eax, eax");                                      // 0x0075808c    85c0
-    asm("{disp8} mov        esi, dword ptr [esp + 0x0c]");                   // 0x0075808e    8b74240c
-    asm("mov.s              ecx, esi");                                      // 0x00758092    8bce
-    asm("{disp8} je         LAB__addr_0x007580a6");                          // 0x00758094    7410
-    asm("call               ?GetRoomLeftForChildren@Abode@@QAEHXZ");         // 0x00758096    e8e5c5caff
-    asm("test               eax, eax");                                      // 0x0075809b    85c0
-    asm("{disp8} jg         LAB__addr_0x007580b6");                          // 0x0075809d    7f17
-    asm("pop                edi");                                           // 0x0075809f    5f
-    asm("xor.s              eax, eax");                                      // 0x007580a0    33c0
-    asm("pop                esi");                                           // 0x007580a2    5e
-    asm("ret                0x0004");                                        // 0x007580a3    c20400
-    asm("LAB__addr_0x007580a6:");
-    asm("call               ?GetRoomLeftForAdults@Abode@@QAEHXZ");           // 0x007580a6    e8b5c5caff
-    asm("test               eax, eax");                                      // 0x007580ab    85c0
-    asm("{disp8} jg         LAB__addr_0x007580b6");                          // 0x007580ad    7f07
-    asm("pop                edi");                                           // 0x007580af    5f
-    asm("xor.s              eax, eax");                                      // 0x007580b0    33c0
-    asm("pop                esi");                                           // 0x007580b2    5e
-    asm("ret                0x0004");                                        // 0x007580b3    c20400
-    asm("LAB__addr_0x007580b6:");
-    asm("push               esi");                                           // 0x007580b6    56
-    asm("mov.s              ecx, edi");                                      // 0x007580b7    8bcf
-    asm("call               ?ForceMoveVillagerToAbode@Villager@@QAEXPAVAbode@@@Z");  // 0x007580b9    e882e1ffff
-    asm("pop                edi");                                           // 0x007580be    5f
-    asm("mov                eax, 0x00000001");                               // 0x007580bf    b801000000
-    asm("pop                esi");                                           // 0x007580c4    5e
-    asm("ret                0x0004");                                        // 0x007580c5    c20400
+    asm volatile (
+        "push               esi\n\t"
+        "push               edi\n\t"
+        "mov.s              edi, ecx\n\t"
+        "mov                eax, dword ptr [edi]\n\t"
+        "call               dword ptr [eax + 0xaf8]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} mov        esi, dword ptr [esp + 0x0c]\n\t"
+        "mov.s              ecx, esi\n\t"
+        "%{disp8%} je         LAB__addr_0x007580a6\n\t"
+        "call               ?GetRoomLeftForChildren@Abode@@QAEHXZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} jg         LAB__addr_0x007580b6\n\t"
+        "pop                edi\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004\n"
+        "LAB__addr_0x007580a6:\n\t"
+        "call               ?GetRoomLeftForAdults@Abode@@QAEHXZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} jg         LAB__addr_0x007580b6\n\t"
+        "pop                edi\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004\n"
+        "LAB__addr_0x007580b6:\n\t"
+        "push               esi\n\t"
+        "mov.s              ecx, edi\n\t"
+        "call               ?ForceMoveVillagerToAbode@Villager@@QAEXPAVAbode@@@Z\n\t"
+        "pop                edi\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))
 uint32_t __fastcall MakeChildOrphaned__8VillagerFP8Villager(struct Villager* this, const void* edx, struct Villager* param_1)
 {
-    asm("push               esi");                                           // 0x007580d0    56
-    asm("mov.s              esi, ecx");                                      // 0x007580d1    8bf1
-    asm("{disp32} mov       eax, dword ptr [esi + 0x00000100]");             // 0x007580d3    8b8600010000
-    asm("cmp                eax, dword ptr [esp + 0x08]");                   // 0x007580d9    3b442408
-    asm("{disp8} jne        LAB__addr_0x0075810c");                          // 0x007580dd    752d
-    asm("mov.s              ecx, esi");                                      // 0x007580df    8bce
-    asm("call               ?IsVillagerAvailable@Villager@@QAE_NXZ");        // 0x007580e1    e8aaa1ffff
-    asm("test               eax, eax");                                      // 0x007580e6    85c0
-    asm("{disp8} je         LAB__addr_0x007580f9");                          // 0x007580e8    740f
-    asm("mov                edx, dword ptr [esi]");                          // 0x007580ea    8b16
-    asm("push               0x00000083");                                    // 0x007580ec    6883000000
-    asm("mov.s              ecx, esi");                                      // 0x007580f1    8bce
-    asm("call               dword ptr [edx + 0x8e8]");                       // 0x007580f3    ff92e8080000
-    asm("LAB__addr_0x007580f9:");
-    asm("{disp32} mov       dword ptr [esi + 0x00000100], 0x00000000");      // 0x007580f9    c7860001000000000000
-    asm("mov                eax, 0x00000001");                               // 0x00758103    b801000000
-    asm("pop                esi");                                           // 0x00758108    5e
-    asm("ret                0x0004");                                        // 0x00758109    c20400
-    asm("LAB__addr_0x0075810c:");
-    asm("xor.s              eax, eax");                                      // 0x0075810c    33c0
-    asm("pop                esi");                                           // 0x0075810e    5e
-    asm("ret                0x0004");                                        // 0x0075810f    c20400
+    asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "%{disp32%} mov       eax, dword ptr [esi + 0x00000100]\n\t"
+        "cmp                eax, dword ptr [esp + 0x08]\n\t"
+        "%{disp8%} jne        LAB__addr_0x0075810c\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?IsVillagerAvailable@Villager@@QAE_NXZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x007580f9\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               0x00000083\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x8e8]\n"
+        "LAB__addr_0x007580f9:\n\t"
+        "%{disp32%} mov       dword ptr [esi + 0x00000100], 0x00000000\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004\n"
+        "LAB__addr_0x0075810c:\n\t"
+        "xor.s              eax, eax\n\t"
+        "pop                esi\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }

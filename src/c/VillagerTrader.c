@@ -11,35 +11,45 @@ float villager_trader_seconds_in_year_0x00dcb168;
 
 void __cdecl globl_ct_0x0076b920(void)
 {
-    asm("{disp32} mov       cl, byte ptr [_DAT_00fac934]");                  // 0x0076b920    8a0d34c9fa00
-    asm("mov                al, 0x01");                                      // 0x0076b926    b001
-    asm("test               al, cl");                                        // 0x0076b928    84c8
-    asm("{disp8} jne        LAB__addr_0x0076b934");                          // 0x0076b92a    7508
-    asm("or.s               cl, al");                                        // 0x0076b92c    0ac8
-    asm("{disp32} mov       byte ptr [_DAT_00fac934], cl");                  // 0x0076b92e    880d34c9fa00
-    asm("LAB__addr_0x0076b934:");
-    asm("{disp32} jmp       _crt_global_destruction_register_0x0076b940");   // 0x0076b934    e907000000
+    asm volatile (
+        "%{disp32%} mov cl, byte ptr [_DAT_00fac934]\n\t"
+        "mov al, 0x01\n\t"
+        "test al, cl\n\t"
+        "%{disp8%} jne LAB__addr_0x0076b934\n\t"
+        "or.s cl, al\n\t"
+        "%{disp32%} mov byte ptr [_DAT_00fac934], cl\n"
+        "LAB__addr_0x0076b934:\n\t"
+        "%{disp32%} jmp _crt_global_destruction_register_0x0076b940"
+        ::: "eax", "ecx", "edx", "memory"
+    );
     __builtin_unreachable();
 }
 
 void __cdecl crt_global_destruction_register_0x0076b940(void)
 {
-    asm("push               0x00407870");                                    // 0x0076b940    6870784000
-    asm("call               _atexit");                                       // 0x0076b945    e8479e0500
-    asm("pop                ecx");                                           // 0x0076b94a    59
+    asm volatile (
+        "push               0x00407870\n\t"
+        "call               _atexit\n\t"
+        "pop                ecx"
+        ::: "eax", "ecx", "edx", "memory"
+    );
 }
+
+extern void __cdecl FUN_0076b960__8VillagerFv(void) __attribute__((noinline));
 
 void __cdecl globl_ct_0x0076b950(void)
 {
-    asm("{disp32} jmp       _FUN_0076b960__8VillagerFv");                    // 0x0076b950    e90b000000
-    __builtin_unreachable();
+    __attribute__((musttail)) return FUN_0076b960__8VillagerFv();
 }
 
 void __cdecl FUN_0076b960__8VillagerFv(void)
 {
-    asm("{disp32} fld  dword ptr [_villager_trader_seconds_in_day_0x0099aa54]");   // 0x0076b960    d90554aa9900
-    asm("{disp32} fmul dword ptr [_villager_trader_num_days_in_year_0x0099aa50]"); // 0x0076b966    d80d50aa9900
-    asm("{disp32} fstp dword ptr [_villager_trader_seconds_in_year_0x00dcb168]");  // 0x0076b96c    d91d68b1dc00
+    asm volatile (
+        "%{disp32%} fld  dword ptr [_villager_trader_seconds_in_day_0x0099aa54]\n\t"
+        "%{disp32%} fmul dword ptr [_villager_trader_num_days_in_year_0x0099aa50]\n\t"
+        "%{disp32%} fstp dword ptr [_villager_trader_seconds_in_year_0x00dcb168]"
+        ::: "memory"
+    );
 }
 
 bool32_t __fastcall ArrivesInAbodeToPickUpExcess__8VillagerFv(struct Villager* this)

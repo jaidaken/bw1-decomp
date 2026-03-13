@@ -30,6 +30,10 @@
 #include "BWGameSpy.h"
 #include "lhall/released/headers/LHTimer.h"
 
+extern "C" char sdtor_vt_CitadelBuildingSite;
+extern "C" void sdtor_dtor_CitadelBuildingSite();
+extern "C" void sdtor_op_del();
+
 // win1.41 00435520 mac 1018eec0 GMagicInfo::GMagicInfo(void)
 GMagicInfo::GMagicInfo()
 {
@@ -117,21 +121,21 @@ Ball::Ball(const MapCoords* coords, const GBallInfo* info)
 }
 
 // win1.41 00435ab0 mac 100aff50 Ball::CanBePickedUpByCreature(Creature *)
-bool Ball::CanBePickedUpByCreature(Creature* param_1)
+bool32_t Ball::CanBePickedUpByCreature(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00435ac0 mac 100affa0 Ball::GetSaveType(void)
 uint32_t Ball::GetSaveType()
 {
-    return 0;
+    return 68;
 }
 
 // win1.41 00435ad0 mac 100affd0 Ball::GetDebugText(void)
 char* Ball::GetDebugText()
 {
-    return 0;
+    return "Ball";
 }
 
 // win1.41 00435ae0 mac 100b0b20 Ball::_dt(void)
@@ -148,7 +152,7 @@ Ball* Ball::Create(const MapCoords& param_1, const GBallInfo* param_2, unsigned 
 // win1.41 00435c30 mac 100b0970 Ball::Process(void)
 uint32_t Ball::Process()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00435f60 mac 100b0630 Ball::GetPlayer(void)
@@ -166,44 +170,44 @@ bool Ball::IsBallFree()
 // win1.41 004360f0 mac 100b0490 Ball::GetPhysicsConstantsType(void)
 uint32_t Ball::GetPhysicsConstantsType()
 {
-    return 0;
+    return 2;
 }
 
 // win1.41 00436100 mac 100b0450 Ball::GetScriptObjectType(void)
 uint32_t Ball::GetScriptObjectType()
 {
-    return 0;
+    return 28;
 }
 
 // win1.41 00436110 mac 100b0260 Ball::Save(GameOSFile &)
-bool Ball::Save(GameOSFile& param_1)
+bool32_t Ball::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 00436260 mac 100b0080 Ball::Load(GameOSFile &)
-bool Ball::Load(GameOSFile& param_1)
+bool32_t Ball::Load(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 004363b0 mac 100b0040 Ball::IsToy(Creature *)
-bool Ball::IsToy(Creature* param_1)
+bool32_t Ball::IsToy(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 004363c0 mac 100b0000 Ball::IsToyBall(Creature *)
-bool Ball::IsToyBall(Creature* param_1)
+bool32_t Ball::IsToyBall(Creature* param_1)
+{
+    return 1;
+}
+
+// win1.41 004366f0 mac 1009ebc0 Base::operator new(unsigned long)
+void* Base::__nw(unsigned long size, const char* file_name, uint32_t line)
 {
     return 0;
 }
-
-// // win1.41 004366f0 mac 1009ebc0 Base::operator new(unsigned long)
-// void* Base::operator new(size_t size, const char* file_name, uint32_t line)
-// {
-//     return 0;
-// }
 
 // // win1.41 00436970 mac 10425a80 Base::operator delete(void*, unsigned long)
 // void Base::operator delete(void* ptr, size_t size)
@@ -232,7 +236,7 @@ GBaseInfo* GBaseInfo::GetInfoPtr(int index)
 }
 
 // win1.41 00436c60 mac 1055df70 GBaseInfo::GetDebugColor(void) const
-LHColor* GBaseInfo::GetDebugColor(LHColor* color)
+LHColor* GBaseInfo::GetDebugColor(LHColor* color) const
 {
     return 0;
 }
@@ -289,13 +293,13 @@ BigForest::BigForest(const MapCoords* coords, const GBigForestInfo* info, uint32
 // win1.41 00438d70 mac 10368f30 MultiMapFixed::IsRepaired(void)
 bool MultiMapFixed::IsRepaired()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00438d80 mac 10570e90 MultiMapFixed::IsBuilt(void)
 bool MultiMapFixed::IsBuilt()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00438d90 mac 100b25f0 MultiMapFixed::ConvertToPlanned(void)
@@ -311,19 +315,19 @@ LH3DObject::ObjectType BigForest::Get3DType()
 }
 
 // win1.41 00438db0 mac 100b2390 BigForest::ValidForPlaceInHand(GInterfaceStatus *)
-bool BigForest::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t BigForest::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00438dc0 mac 100b23e0 BigForest::IsTuggable(void)
-bool BigForest::IsTuggable()
+bool32_t BigForest::IsTuggable()
 {
     return 0;
 }
 
 // win1.41 00438dd0 mac 100b2420 BigForest::VillagerMustAvoid(Villager *)
-bool BigForest::VillagerMustAvoid(Villager* param_1)
+bool32_t BigForest::VillagerMustAvoid(Villager* param_1)
 {
     return 0;
 }
@@ -343,13 +347,13 @@ int BigForest::GetMesh() const
 // win1.41 00438e00 mac 100b2570 BigForest::GetSaveType(void)
 uint32_t BigForest::GetSaveType()
 {
-    return 0;
+    return 77;
 }
 
 // win1.41 00438e10 mac 100b25b0 BigForest::GetDebugText(void)
 char* BigForest::GetDebugText()
 {
-    return 0;
+    return "BigForest";
 }
 
 // win1.41 00438e20 mac 100b3990 BigForest::_dt(void)
@@ -369,7 +373,7 @@ BigForest* BigForest::Create(MapCoords* coords, GBigForestInfo* info, uint32_t p
 }
 
 // win1.41 00438f50 mac 100b3530 BigForest::CreatureMustAvoid(Creature *)
-bool BigForest::CreatureMustAvoid(Creature* param_1)
+bool32_t BigForest::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -386,7 +390,7 @@ uint32_t BigForest::SaveObject(LHOSFile& param_1, const MapCoords& param_2)
 }
 
 // win1.41 00439050 mac 100b30a0 BigForest::CallVirtualFunctionsForCreation(MapCoords const &)
-void BigForest::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void BigForest::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -409,19 +413,19 @@ uint32_t BigForest::RemoveResource(RESOURCE_TYPE param_1, uint32_t param_2, GInt
 }
 
 // win1.41 004393c0 mac 100b29f0 BigForest::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool BigForest::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t BigForest::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 00439470 mac 100b2840 BigForest::Save(GameOSFile &)
-bool BigForest::Save(GameOSFile& file)
+bool32_t BigForest::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 004394e0 mac 100b2760 BigForest::Load(GameOSFile &)
-bool BigForest::Load(GameOSFile& file)
+bool32_t BigForest::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -445,21 +449,21 @@ float MobileStatic::GetZAngle()
 }
 
 // win1.41 00439630 mac 100b4140 MobileStatic::CanBeStompedOnByCreature(Creature *)
-bool MobileStatic::CanBeStompedOnByCreature(Creature* param_1)
+bool32_t MobileStatic::CanBeStompedOnByCreature(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00439640 mac 100b4190 MobileStatic::CanBePlayedWithByCreature(Creature *)
-bool MobileStatic::CanBePlayedWithByCreature(Creature* param_1)
+bool32_t MobileStatic::CanBePlayedWithByCreature(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00439650 mac 100b41e0 MobileStatic::CanBeThrownInTheSeaPlayfully(Creature *)
-bool MobileStatic::CanBeThrownInTheSeaPlayfully(Creature* param_1)
+bool32_t MobileStatic::CanBeThrownInTheSeaPlayfully(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00439660 mac 100b4240 MobileStatic::GetTastiness(void)
@@ -481,7 +485,7 @@ int MobileStatic::GetMesh() const
 }
 
 // win1.41 00439690 mac 100b4420 MobileStatic::IsSolidToNewAbode(void)
-bool MobileStatic::IsSolidToNewAbode()
+bool32_t MobileStatic::IsSolidToNewAbode()
 {
     return 0;
 }
@@ -495,35 +499,35 @@ bool MobileStatic::IsFunctional()
 // win1.41 004396b0 mac 100b44c0 MobileStatic::ApplyOnlyAfterReleased(void)
 uint32_t MobileStatic::ApplyOnlyAfterReleased()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 004396c0 mac 100b4510 MobileStatic::ValidToApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-uint32_t MobileStatic::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2)
+uint32_t MobileStatic::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2)
 {
     return 0;
 }
 
 // win1.41 004396d0 mac 100b4580 MobileStatic::CanBeUsedForThrowingDamageByCreature(Creature *)
-bool MobileStatic::CanBeUsedForThrowingDamageByCreature(Creature* param_1)
+bool32_t MobileStatic::CanBeUsedForThrowingDamageByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 004396f0 mac 100b4610 MobileStatic::IsMobileStatic(void)
-bool MobileStatic::IsMobileStatic()
+bool32_t MobileStatic::IsMobileStatic()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00439700 mac 100b4650 MobileStatic::IsCastShadowAtNight(void)
-bool MobileStatic::IsCastShadowAtNight()
+bool32_t MobileStatic::IsCastShadowAtNight()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00439710 mac 100b3f00 Rock::IsResourceStore(RESOURCE_TYPE)
-bool Rock::IsResourceStore(RESOURCE_TYPE param_1)
+bool32_t Rock::IsResourceStore(RESOURCE_TYPE param_1)
 {
     return 0;
 }
@@ -534,33 +538,33 @@ void Rock::SetPlayer(GPlayer* param_1)
 }
 
 // win1.41 00439730 mac inlined Rock::IsRock_0(void)
-bool Rock::IsRock()
+bool32_t Rock::IsRock()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00439740 mac 100b3fc0 Rock::IsMovable(void)
 bool Rock::IsMovable()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00439750 mac 100b3ff0 Rock::GetCreatureMimicType(void)
 uint32_t Rock::GetCreatureMimicType()
 {
-    return 0;
+    return 7;
 }
 
 // win1.41 00439760 mac 100b4030 Rock::CanBeAttackedByCreature(Creature *)
-bool Rock::CanBeAttackedByCreature(Creature* param_1)
+bool32_t Rock::CanBeAttackedByCreature(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00439770 mac 100b4080 Rock::ShouldFootpathsGoRound(void)
 bool Rock::ShouldFootpathsGoRound()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00439780 mac 100b3ca0 Bonfire::InterfaceValidToTap(GInterfaceStatus *)
@@ -570,7 +574,7 @@ uint32_t Bonfire::InterfaceValidToTap(GInterfaceStatus* param_1)
 }
 
 // win1.41 00439790 mac 100b3cf0 Bonfire::ValidForPlaceInHand(GInterfaceStatus *)
-bool Bonfire::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Bonfire::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -578,7 +582,7 @@ bool Bonfire::ValidForPlaceInHand(GInterfaceStatus* param_1)
 // win1.41 004397a0 mac 100b3d40 Bonfire::CanBecomeAPhysicsObject(void)
 bool Bonfire::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 004397b0 mac 100b3d80 Bonfire::InteractsWithPhysicsObjects(void)
@@ -601,13 +605,13 @@ IMMERSION_EFFECT_TYPE Bonfire::GetInHandImmersionTexture()
 // win1.41 004397e0 mac 100b3e80 Bonfire::GetSaveType(void)
 uint32_t Bonfire::GetSaveType()
 {
-    return 0;
+    return 114;
 }
 
 // win1.41 004397f0 mac 100b3ec0 Bonfire::GetDebugText(void)
 char* Bonfire::GetDebugText()
 {
-    return 0;
+    return "Bonfire";
 }
 
 // win1.41 00439800 mac 100b3c10 Bonfire::_dt(void)
@@ -616,7 +620,7 @@ Bonfire::~Bonfire()
 }
 
 // win1.41 00439840 mac 100b4c70 Bonfire::CallVirtualFunctionsForCreation(MapCoords const &)
-void Bonfire::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Bonfire::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -627,13 +631,13 @@ uint32_t Bonfire::SaveObject(LHOSFile& param_1, const MapCoords& param_2)
 }
 
 // win1.41 00439990 mac 100b48d0 Bonfire::Save(GameOSFile &)
-bool Bonfire::Save(GameOSFile& file)
+bool32_t Bonfire::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00439a00 mac 100b4800 Bonfire::Load(GameOSFile &)
-bool Bonfire::Load(GameOSFile& file)
+bool32_t Bonfire::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -763,13 +767,13 @@ bool32_t BuildingSite::ShouldIGetWood(Villager* param_1)
 }
 
 // win1.41 0043c830 mac 100ba480 BuildingSite::Save(GameOSFile &)
-bool BuildingSite::Save(GameOSFile& param_1)
+bool32_t BuildingSite::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 0043cad0 mac 100b9cf0 BuildingSite::Load(GameOSFile &)
-bool BuildingSite::Load(GameOSFile& param_1)
+bool32_t BuildingSite::Load(GameOSFile& param_1)
 {
     return 0;
 }
@@ -809,18 +813,37 @@ void CitadelBuildingSite::SetPileWood(Pot* param_1)
 // win1.41 0043d190 mac 100be340 CitadelBuildingSite::GetSaveType(void)
 uint32_t CitadelBuildingSite::GetSaveType()
 {
-    return 0;
+    return 93;
 }
 
 // win1.41 0043d1a0 mac 100be380 CitadelBuildingSite::GetDebugText(void)
 char* CitadelBuildingSite::GetDebugText()
 {
-    return 0;
+    return "CitadelBuildingSite";
 }
 
 // win1.41 0043d1b0 mac 100be2b0 CitadelBuildingSite::_dt(void)
 CitadelBuildingSite::~CitadelBuildingSite()
 {
+}
+
+__declspec(naked) void __cdecl sdtor_CitadelBuildingSite() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_CitadelBuildingSite
+        call sdtor_dtor_CitadelBuildingSite
+        test byte ptr [esp + 8], 1
+        je short skip_CitadelBuildingSite
+        push 065Ch
+        push esi
+        call sdtor_op_del
+        add esp, 8
+    skip_CitadelBuildingSite:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }
 
 // win1.41 0043d220 mac 100b9060 CitadelBuildingSite::ToBeDeleted(int)
@@ -857,13 +880,13 @@ void CitadelBuildingSite::GetResourcePosAndYAngle(uint32_t param_1, uint32_t par
 }
 
 // win1.41 0043d500 mac 100b8830 CitadelBuildingSite::GetPileWood(MapCoords const &)
-Pot* CitadelBuildingSite::GetPileWood(const MapCoords* param_1)
+Pot* CitadelBuildingSite::GetPileWood(const MapCoords& param_1)
 {
     return 0;
 }
 
 // win1.41 0043d580 mac 100b8750 CitadelBuildingSite::IsLinkedToThisBuildingSite(Pot *)
-bool CitadelBuildingSite::IsLinkedToThisBuildingSite(Pot* param_1)
+bool32_t CitadelBuildingSite::IsLinkedToThisBuildingSite(Pot* param_1)
 {
     return 0;
 }
@@ -874,13 +897,13 @@ void CitadelBuildingSite::RemovePotFromStructure(PotStructure* param_1)
 }
 
 // win1.41 0043d5e0 mac 100b8620 CitadelBuildingSite::Save(GameOSFile &)
-bool CitadelBuildingSite::Save(GameOSFile& param_1)
+bool32_t CitadelBuildingSite::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 0043d620 mac 100b8580 CitadelBuildingSite::Load(GameOSFile &)
-bool CitadelBuildingSite::Load(GameOSFile& param_1)
+bool32_t CitadelBuildingSite::Load(GameOSFile& param_1)
 {
     return 0;
 }
@@ -891,7 +914,7 @@ void CitadelBuildingSite::Process()
 }
 
 // win1.41 0043d6e0 mac 100b8180 StandardBuildingSite::GetPileWood(MapCoords const &)
-Pot* StandardBuildingSite::GetPileWood(const MapCoords* param_1)
+Pot* StandardBuildingSite::GetPileWood(const MapCoords& param_1)
 {
     return 0;
 }
@@ -904,13 +927,13 @@ void StandardBuildingSite::SetPileWood(Pot* param_1)
 // win1.41 0043d700 mac 100be220 StandardBuildingSite::GetSaveType(void)
 uint32_t StandardBuildingSite::GetSaveType()
 {
-    return 0;
+    return 92;
 }
 
 // win1.41 0043d710 mac 100be260 StandardBuildingSite::GetDebugText(void)
 char* StandardBuildingSite::GetDebugText()
 {
-    return 0;
+    return "StandardBuildingSite";
 }
 
 // win1.41 0043d720 mac 100b8360 StandardBuildingSite::_dt(void)
@@ -929,19 +952,19 @@ void StandardBuildingSite::RemovePotFromStructure(PotStructure* param_1)
 }
 
 // win1.41 0043d830 mac 100b8000 StandardBuildingSite::IsLinkedToThisBuildingSite(Pot *)
-bool StandardBuildingSite::IsLinkedToThisBuildingSite(Pot* param_1)
+bool32_t StandardBuildingSite::IsLinkedToThisBuildingSite(Pot* param_1)
 {
     return 0;
 }
 
 // win1.41 0043d850 mac 100b7f60 StandardBuildingSite::Save(GameOSFile &)
-bool StandardBuildingSite::Save(GameOSFile& param_1)
+bool32_t StandardBuildingSite::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 0043d890 mac 100b7ec0 StandardBuildingSite::Load(GameOSFile &)
-bool StandardBuildingSite::Load(GameOSFile& param_1)
+bool32_t StandardBuildingSite::Load(GameOSFile& param_1)
 {
     return 0;
 }
@@ -988,4 +1011,413 @@ int LHTimer::MSeconds()
 // win1.41 0043ebc0 mac 100016c0 LHTimer::SetSpeedUpFactor(float)
 void LHTimer::SetSpeedUpFactor(float factor)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_4();
+extern "C" void sdtor_dt_5();
+extern "C" void jmp_addr_0x00608750();
+extern "C" void sdtor_dt_6();
+extern "C" void sdtor_dt_7();
+extern "C" void sdtor_dt_8();
+
+__declspec(naked) void __cdecl sdtor_GMagicInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicInfo
+        push 0x58
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicHealInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicHealInfo
+        push 0x60
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicHealInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicTeleportInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicTeleportInfo
+        push 0x5c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicTeleportInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicForestInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicForestInfo
+        push 0x6c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicForestInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicResourceInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicResourceInfo
+        push 0x70
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicResourceInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicStormAndTornadoInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicStormAndTornadoInfo
+        push 0x6c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicStormAndTornadoInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicShieldInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicShieldInfo
+        push 0x74
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicShieldInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicWaterInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicWaterInfo
+        push 0x58
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicWaterInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicFlockFlyingInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicFlockFlyingInfo
+        push 0x64
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicFlockFlyingInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicFlockGroundInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicFlockGroundInfo
+        push 0x68
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicFlockGroundInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicCreatureSpellInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicCreatureSpellInfo
+        push 0x0000009c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicCreatureSpellInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicObjectInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicObjectInfo
+        push 0x5c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicObjectInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicRadiusSpellInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicRadiusSpellInfo
+        push 0x64
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicRadiusSpellInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GBallInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GBallInfo
+        push 0x00000140
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GBallInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Ball() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_4
+        test byte ptr [esp + 8], 1
+        je short skip_Ball
+        push 0x000000b8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Ball:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GBeliefInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GBeliefInfo
+        push 0x28
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GBeliefInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GBigForestInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GBigForestInfo
+        push 0x00000128
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GBigForestInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_BigForest() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_5
+        test byte ptr [esp + 8], 1
+        je short skip_BigForest
+        push 0x00000088
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_BigForest:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Bonfire() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00608750
+        test byte ptr [esp + 8], 1
+        je short skip_Bonfire
+        push 0x00000098
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Bonfire:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_BuildingSite() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_6
+        test byte ptr [esp + 8], 1
+        je short skip_BuildingSite
+        push 0x00000644
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_BuildingSite:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_StandardBuildingSite() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_7
+        test byte ptr [esp + 8], 1
+        je short skip_StandardBuildingSite
+        push 0x00000648
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_StandardBuildingSite:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_WorkshopBuildingSite() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_8
+        test byte ptr [esp + 8], 1
+        je short skip_WorkshopBuildingSite
+        push 0x00000644
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_WorkshopBuildingSite:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

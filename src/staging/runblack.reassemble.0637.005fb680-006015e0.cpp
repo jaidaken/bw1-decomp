@@ -11,7 +11,7 @@
 #include "Map.h"
 
 // win1.41 005fb680 mac 103adc30 GMagicInfo::GetMagicEffectInfo(void) const
-GMagicEffectInfo* GMagicInfo::GetMagicEffectInfo()
+GMagicEffectInfo* GMagicInfo::GetMagicEffectInfo() const
 {
     return 0;
 }
@@ -34,79 +34,79 @@ GMagicLivingInfo::~GMagicLivingInfo()
 }
 
 // win1.41 005fbeb0 mac 103b1550 SpellTeleport::InitWithPos(GameThing *, MapCoords const &, SpellCastData *, PSysProcessInfo const &)
-int SpellTeleport::InitWithPos(GameThing* param_1, const MapCoords* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4)
+int SpellTeleport::InitWithPos(GameThing* param_1, const MapCoords& param_2, SpellCastData* param_3, const PSysProcessInfo& param_4)
 {
     return 0;
 }
 
 // win1.41 005fbf50 mac 103b1400 MagicTeleport::Load(GameOSFile &)
-bool MagicTeleport::Load(GameOSFile& file)
+bool32_t MagicTeleport::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005fbfa0 mac 103b1350 MagicTeleport::Save(GameOSFile &)
-bool MagicTeleport::Save(GameOSFile& file)
+bool32_t MagicTeleport::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005fc040 mac 103aed40 MagicTeleport::CanBePickedUpByCreature(Creature *)
-bool MagicTeleport::CanBePickedUpByCreature(Creature* param_1)
+bool32_t MagicTeleport::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc050 mac 103aed90 MagicTeleport::CanBeSetOnFire(Creature *)
-bool MagicTeleport::CanBeSetOnFire(Creature* param_1)
+bool32_t MagicTeleport::CanBeSetOnFire(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc060 mac 103aede0 MagicTeleport::CanBeStompedOnByCreature(Creature *)
-bool MagicTeleport::CanBeStompedOnByCreature(Creature* param_1)
+bool32_t MagicTeleport::CanBeStompedOnByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc070 mac 103aee30 MagicTeleport::CanBeThrownByCreature(Creature *)
-bool MagicTeleport::CanBeThrownByCreature(Creature* param_1)
+bool32_t MagicTeleport::CanBeThrownByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc080 mac 103aee80 MagicTeleport::CanBePutInAStoragePit(Creature *)
-bool MagicTeleport::CanBePutInAStoragePit(Creature* param_1)
+bool32_t MagicTeleport::CanBePutInAStoragePit(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc090 mac 103aeed0 MagicTeleport::CanBeDestroyedByStoning(Creature *)
-bool MagicTeleport::CanBeDestroyedByStoning(Creature* param_1)
+bool32_t MagicTeleport::CanBeDestroyedByStoning(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc0a0 mac 103aef20 MagicTeleport::CanBeStonedAndEatenByCreature(Creature *)
-bool MagicTeleport::CanBeStonedAndEatenByCreature(Creature* param_1)
+bool32_t MagicTeleport::CanBeStonedAndEatenByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc0b0 mac 103aef80 MagicTeleport::CanBeExaminedByCreature(Creature *)
-bool MagicTeleport::CanBeExaminedByCreature(Creature* param_1)
+bool32_t MagicTeleport::CanBeExaminedByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc0c0 mac 103aefd0 MagicTeleport::CanBeFoughtByCreature(Creature *)
-bool MagicTeleport::CanBeFoughtByCreature(Creature* param_1)
+bool32_t MagicTeleport::CanBeFoughtByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc0d0 mac 103af020 MagicTeleport::CanActAsAContainer(Creature *)
-bool MagicTeleport::CanActAsAContainer(Creature* param_1)
+bool32_t MagicTeleport::CanActAsAContainer(Creature* param_1)
 {
     return 0;
 }
@@ -114,13 +114,13 @@ bool MagicTeleport::CanActAsAContainer(Creature* param_1)
 // win1.41 005fc0e0 mac 103af070 MagicTeleport::GetSaveType(void)
 uint32_t MagicTeleport::GetSaveType()
 {
-    return 0;
+    return 25;
 }
 
 // win1.41 005fc0f0 mac 103af0b0 MagicTeleport::GetDebugText(void)
 char* MagicTeleport::GetDebugText()
 {
-    return 0;
+    return "MagicTeleport";
 }
 
 // win1.41 005fc100 mac 103b0b60 MagicTeleport::_dt(void)
@@ -129,7 +129,7 @@ MagicTeleport::~MagicTeleport()
 }
 
 // win1.41 005fc260 mac 103b0bf0 MagicTeleport::CallVirtualFunctionsForCreation(MapCoords const &)
-void MagicTeleport::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void MagicTeleport::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -145,21 +145,21 @@ GPlayer* MagicTeleport::GetPlayer()
 }
 
 // win1.41 005fc440 mac 103b05b0 MagicTeleport::ValidForPlaceInHand(GInterfaceStatus *)
-bool MagicTeleport::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t MagicTeleport::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc470 mac 103b0500 MagicTeleport::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool MagicTeleport::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t MagicTeleport::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 005fc4a0 mac 103b04c0 MagicTeleport::IsSolidToNewAbode(void)
-bool MagicTeleport::IsSolidToNewAbode()
+bool32_t MagicTeleport::IsSolidToNewAbode()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 005fc960 mac 103af8d0 MagicTeleport::ActualMoveMapObject(MapCoords const &)
@@ -187,11 +187,11 @@ bool MagicTeleport::InteractsWithPhysicsObjects()
 // win1.41 005fcdf0 mac 103af1e0 MagicTeleport::CanBecomeAPhysicsObject(void)
 bool MagicTeleport::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 005fce00 mac 103af190 MagicTeleport::IsEffectReceiver(EffectValues *)
-bool MagicTeleport::IsEffectReceiver(EffectValues* param_1)
+bool32_t MagicTeleport::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
@@ -205,13 +205,13 @@ IMPRESSIVE_TYPE MagicTree::GetImpressiveType()
 // win1.41 005fcf10 mac 103b2370 MagicTree::GetSaveType(void)
 uint32_t MagicTree::GetSaveType()
 {
-    return 0;
+    return 29;
 }
 
 // win1.41 005fcf20 mac 103b23b0 MagicTree::GetDebugText(void)
 char* MagicTree::GetDebugText()
 {
-    return 0;
+    return "MagicTree";
 }
 
 // win1.41 005fcf30 mac 103b22a0 MagicTree::_dt(void)
@@ -241,13 +241,13 @@ void MagicTree::EndOnFire()
 }
 
 // win1.41 005fd110 mac 103b2510 MagicTree::Save(GameOSFile &)
-bool MagicTree::Save(GameOSFile& file)
+bool32_t MagicTree::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005fd1c0 mac 103b23f0 MagicTree::Load(GameOSFile &)
-bool MagicTree::Load(GameOSFile& file)
+bool32_t MagicTree::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -270,13 +270,13 @@ GMobileStaticInfo* GMobileStaticInfo::GetInfo()
 }
 
 // win1.41 00600ad0 mac 103b3000 VortexObjectInfo::Save(GameOSFile &)
-bool VortexObjectInfo::Save(GameOSFile& file)
+bool32_t VortexObjectInfo::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00600bf0 mac 103b2d00 VortexObjectInfo::Load(GameOSFile &)
-bool VortexObjectInfo::Load(GameOSFile& file)
+bool32_t VortexObjectInfo::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -299,21 +299,21 @@ IMPRESSIVE_TYPE MagicWood::GetImpressiveType()
 }
 
 // win1.41 00600dc0 mac 103b9f50 MagicWood::IsAWoodPileOutsideStoragePit(Creature *)
-bool MagicWood::IsAWoodPileOutsideStoragePit(Creature* param_1)
+bool32_t MagicWood::IsAWoodPileOutsideStoragePit(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00600dd0 mac 103b9fa0 MagicWood::GetSaveType(void)
 uint32_t MagicWood::GetSaveType()
 {
-    return 0;
+    return 31;
 }
 
 // win1.41 00600de0 mac 103b9fe0 MagicWood::GetDebugText(void)
 char* MagicWood::GetDebugText()
 {
-    return 0;
+    return "MagicWood";
 }
 
 // win1.41 00600df0 mac 103ba240 MagicWood::_dt(void)
@@ -322,18 +322,18 @@ MagicWood::~MagicWood()
 }
 
 // win1.41 00600f10 mac 103ba140 MagicWood::CallVirtualFunctionsForCreation(MapCoords const &)
-void MagicWood::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void MagicWood::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
 // win1.41 00600f20 mac 103ba0b0 MagicWood::Save(GameOSFile &)
-bool MagicWood::Save(GameOSFile& file)
+bool32_t MagicWood::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00600f60 mac 103ba020 MagicWood::Load(GameOSFile &)
-bool MagicWood::Load(GameOSFile& file)
+bool32_t MagicWood::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -346,4 +346,123 @@ GMap::GMap()
 // win1.41 006010c0 mac 1055f620 GMap::_dt(void)
 GMap::~GMap()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_32();
+extern "C" void jmp_addr_0x00749ed0();
+extern "C" void sdtor_dt_33();
+extern "C" void jmp_addr_0x006010f0();
+
+__declspec(naked) void __cdecl sdtor_GMagicLivingInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicLivingInfo
+        push 0x00000208
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicLivingInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MagicTeleport() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_32
+        test byte ptr [esp + 8], 1
+        je short skip_MagicTeleport
+        push 0x000000a4
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_MagicTeleport:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MagicTree() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00749ed0
+        test byte ptr [esp + 8], 1
+        je short skip_MagicTree
+        push 0x74
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_MagicTree:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GVortexInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GVortexInfo
+        push 0x40
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GVortexInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MagicWood() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_33
+        test byte ptr [esp + 8], 1
+        je short skip_MagicWood
+        push 0x000000b8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_MagicWood:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMap() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x006010f0
+        test byte ptr [esp + 8], 1
+        je short skip_GMap
+        push 0x00200050
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMap:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

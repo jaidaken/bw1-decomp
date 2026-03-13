@@ -62,3 +62,27 @@ void GameOptionsRoom::PreDraw()
 void GameOptionsRoom::DrawAdditional(bool param_1)
 {
 }
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x007974c0();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_InnerCamera() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x007974c0
+        test byte ptr [esp + 8], 1
+        je short skip_InnerCamera
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_InnerCamera:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}

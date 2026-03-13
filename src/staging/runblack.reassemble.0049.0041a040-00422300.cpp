@@ -7,7 +7,7 @@
 #include "AnimatedStatic.h"
 
 // win1.41 0041a040 mac 10168030 Animal::CallVirtualFunctionsForCreation(MapCoords const &)
-void Animal::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Animal::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -18,7 +18,7 @@ uint32_t Animal::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 0041a240 mac 1007c570 Animal::GetFinalState( const(void))
-VILLAGER_STATES Animal::GetFinalState()
+VILLAGER_STATES Animal::GetFinalState() const
 {
     return (VILLAGER_STATES)0;
 }
@@ -52,7 +52,7 @@ uint32_t Animal::CallEntryStateFunction(VILLAGER_STATES param_1, VILLAGER_STATES
 }
 
 // win1.41 0041a3f0 mac 1000bfc0 Animal::SetNewWander(MapCoords const &, long, long)
-void Animal::SetNewWander(const MapCoords* param_1, int param_2, int param_3)
+void Animal::SetNewWander(const MapCoords& param_1, int param_2, int param_3)
 {
 }
 
@@ -69,7 +69,7 @@ bool Animal::DecideWhatToDo()
 }
 
 // win1.41 0041b100 mac inlined Animal::IsStateExitFunctionSameAs( const(VILLAGER_STATES))
-bool Animal::IsStateExitFunctionSameAs(VILLAGER_STATES param_1)
+bool Animal::IsStateExitFunctionSameAs(VILLAGER_STATES param_1) const
 {
     return 0;
 }
@@ -81,13 +81,13 @@ int Animal::ExitReaction(VILLAGER_STATES param_1)
 }
 
 // win1.41 0041b1b0 mac 101666a0 Animal::DestroyedByEffect(GPlayer *, float)
-bool Animal::DestroyedByEffect(GPlayer* param_1, float param_2)
+bool32_t Animal::DestroyedByEffect(GPlayer* param_1, float param_2)
 {
     return 0;
 }
 
 // win1.41 0041b1c0 mac 101665d0 Animal::DebugShowTime(unsigned long, unsigned char, unsigned char)
-uint32_t Animal::DebugShowTime(uint32_t param_1, uint8_t param_2, uint8_t param_3)
+uint32_t Animal::DebugShowTime(unsigned long param_1, uint8_t param_2, uint8_t param_3)
 {
     return 0;
 }
@@ -95,11 +95,11 @@ uint32_t Animal::DebugShowTime(uint32_t param_1, uint8_t param_2, uint8_t param_
 // win1.41 0041b200 mac 101662b0 Animal::GetScriptObjectType(void)
 uint32_t Animal::GetScriptObjectType()
 {
-    return 0;
+    return 6;
 }
 
 // win1.41 0041b210 mac 10055c50 Animal::IsPosValidForTurnAngle(MapCoords const &)
-bool Animal::IsPosValidForTurnAngle(const MapCoords* param_1)
+bool Animal::IsPosValidForTurnAngle(const MapCoords& param_1)
 {
     return 0;
 }
@@ -117,19 +117,19 @@ uint32_t Animal::ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2, G
 }
 
 // win1.41 0041b430 mac inlined Animal::IsFinalState(VILLAGER_STATES)
-bool Animal::IsFinalState(VILLAGER_STATES param_1)
+bool32_t Animal::IsFinalState(VILLAGER_STATES param_1)
 {
     return 0;
 }
 
 // win1.41 0041b460 mac 101659a0 Animal::Save(GameOSFile &)
-bool Animal::Save(GameOSFile& param_1)
+bool32_t Animal::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 0041b710 mac 10165620 Animal::Load(GameOSFile &)
-bool Animal::Load(GameOSFile& param_1)
+bool32_t Animal::Load(GameOSFile& param_1)
 {
     return 0;
 }
@@ -199,13 +199,13 @@ void Animal::GetFleeingPositionFromMovingObject(MapCoords* param_1, GameThingWit
 }
 
 // win1.41 00421e80 mac inlined GFeatureInfo::GetAbodeType( const(void))
-ABODE_TYPE GFeatureInfo::GetAbodeType()
+ABODE_TYPE GFeatureInfo::GetAbodeType() const
 {
     return (ABODE_TYPE)0;
 }
 
 // win1.41 00421e90 mac inlined GFeatureInfo::GetAbodeNumber( const(void))
-ABODE_NUMBER GFeatureInfo::GetAbodeNumber()
+ABODE_NUMBER GFeatureInfo::GetAbodeNumber() const
 {
     return (ABODE_NUMBER)0;
 }
@@ -259,7 +259,7 @@ void MultiMapFixed::RemoveDamage()
 // win1.41 00422040 mac 100a56a0 MultiMapFixed::IsCivic(void)
 bool MultiMapFixed::IsCivic()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00422050 mac 100a56e0 MultiMapFixed::IsWonder(void)
@@ -300,7 +300,7 @@ Town* MultiMapFixed::GetTown()
 // win1.41 004220b0 mac 100a58c0 MultiMapFixed::GetShouldNotBeAddedToPlanned(void)
 bool MultiMapFixed::GetShouldNotBeAddedToPlanned()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 004220c0 mac 100a5910 MultiMapFixed::SetShouldNotBeAddedToPlanned(int)
@@ -315,9 +315,9 @@ int Feature::GetMesh() const
 }
 
 // win1.41 004220e0 mac 100a5350 Feature::IsFeature(void)
-bool Feature::IsFeature()
+bool32_t Feature::IsFeature()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 004220f0 mac inlined WorshipSiteUpgrade::IsRepaired(void)
@@ -335,11 +335,11 @@ bool WorshipSiteUpgrade::IsBuilt()
 // win1.41 00422140 mac 100a5490 Feature::GetCreatureBeliefType(void)
 uint32_t Feature::GetCreatureBeliefType()
 {
-    return 0;
+    return 15;
 }
 
 // win1.41 00422150 mac 100a54d0 Feature::CanBePickedUpByCreature(Creature *)
-bool Feature::CanBePickedUpByCreature(Creature* param_1)
+bool32_t Feature::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
@@ -347,4 +347,564 @@ bool Feature::CanBePickedUpByCreature(Creature* param_1)
 // win1.41 004221a0 mac 100a5e20 AnimatedStatic::_dt(void)
 AnimatedStatic::~AnimatedStatic()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00417b80();
+extern "C" void sdtor_opd_1();
+extern "C" char sdtor_vt_0;
+extern "C" void jmp_addr_0x0041fdc0();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void jmp_addr_0x00422e30();
+
+__declspec(naked) void __cdecl sdtor_PieceVillager() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_PieceVillager
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PieceVillager:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Cow() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Cow
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Cow:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Sheep() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Sheep
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Sheep:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PieceSheep() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_PieceSheep
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PieceSheep:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Goat() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Goat
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Goat:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Horse() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Horse
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Horse:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PieceHorse() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_PieceHorse
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PieceHorse:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Zebra() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Zebra
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Zebra:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Pig() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Pig
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Pig:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PiecePig() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_PiecePig
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PiecePig:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Tortoise() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Tortoise
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Tortoise:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PieceTortoise() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_PieceTortoise
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PieceTortoise:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Dove() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Dove
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Dove:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpellDove() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_SpellDove
+        push 0x00000178
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SpellDove:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Crow() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Crow
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Crow:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Swallow() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Swallow
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Swallow:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Pigeon() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Pigeon
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Pigeon:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Seagull() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Seagull
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Seagull:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Bat() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Bat
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Bat:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpellBat() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_SpellBat
+        push 0x00000178
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SpellBat:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Vulture() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_0
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Vulture
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Vulture:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Leopard() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0041fdc0
+        test byte ptr [esp + 8], 1
+        je short skip_Leopard
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Leopard:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Lion() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0041fdc0
+        test byte ptr [esp + 8], 1
+        je short skip_Lion
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Lion:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PieceLion() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0041fdc0
+        test byte ptr [esp + 8], 1
+        je short skip_PieceLion
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PieceLion:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpellWolf() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0041fdc0
+        test byte ptr [esp + 8], 1
+        je short skip_SpellWolf
+        push 0x0000019c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SpellWolf:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Tiger() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0041fdc0
+        test byte ptr [esp + 8], 1
+        je short skip_Tiger
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Tiger:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Wolf() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0041fdc0
+        test byte ptr [esp + 8], 1
+        je short skip_Wolf
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Wolf:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PieceWolf() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0041fdc0
+        test byte ptr [esp + 8], 1
+        je short skip_PieceWolf
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PieceWolf:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GAnimatedStaticInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GAnimatedStaticInfo
+        push 0x0000012c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GAnimatedStaticInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AnimatedStatic() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00422e30
+        test byte ptr [esp + 8], 1
+        je short skip_AnimatedStatic
+        push 0x00000098
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AnimatedStatic:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

@@ -26,7 +26,7 @@ bool GMap::InBounds(uint32_t x, uint32_t z)
 }
 
 // win1.41 00613750 mac 10048570 GLandscape::ConvertMapCoordToLandscapePoint(MapCoords const &)
-LHPoint* GLandscape::ConvertMapCoordToLandscapePoint(const MapCoords* param_2, LHPoint* param_1)
+LHPoint* GLandscape::ConvertMapCoordToLandscapePoint(const MapCoords& param_2, LHPoint* param_1)
 {
     return 0;
 }

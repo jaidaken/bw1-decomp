@@ -21,7 +21,7 @@ FOOD_TYPE GObjectInfo::GetFoodType() const
 }
 
 // win1.41 004012c0 mac 10511e08 GObjectInfo::GetDebugText(void)
-const char* GObjectInfo::GetDebugText()
+const char* GObjectInfo::GetDebugText() const
 {
     return debugString;
 }

@@ -66,7 +66,7 @@ uint32_t HelpSpirit::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 005c4af0 mac 1034b5f0 HelpSpirit::ValidForPlaceInHand(GInterfaceStatus *)
-bool HelpSpirit::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t HelpSpirit::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -82,7 +82,7 @@ HelpSpirit::~HelpSpirit()
 }
 
 // win1.41 005c4b90 mac 1034c540 HelpSpirit::CallVirtualFunctionsForCreation(MapCoords const &)
-void HelpSpirit::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void HelpSpirit::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -154,7 +154,7 @@ void HelpSystem::SetWideScreen(int param_2, uint32_t param_3)
 }
 
 // win1.41 005c6b60 mac 1001d4b0 HelpSystem::GetWideScreenPercentage(void) const
-float HelpSystem::GetWideScreenPercentage()
+float HelpSystem::GetWideScreenPercentage() const
 {
     return 0;
 }
@@ -162,4 +162,122 @@ float HelpSystem::GetWideScreenPercentage()
 // win1.41 005c8280 mac 10351b90 HelpSystem::TriggerCategory(HELP_SET_CATEGORY)
 void HelpSystem::TriggerCategory(HELP_SET_CATEGORY param_1)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void jmp_addr_0x005f8810();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00636640();
+extern "C" void sdtor_dt_24();
+
+__declspec(naked) void __cdecl sdtor_LocalBase() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_LocalBase
+        push 0x8
+        push esi
+        call jmp_addr_0x005f8810
+        add esp, 8
+    skip_LocalBase:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_HelpProfile() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_HelpProfile
+        push 0x00003358
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_HelpProfile:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_HelpSpiritInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_HelpSpiritInfo
+        push 0x000001f8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_HelpSpiritInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_HelpSpirit() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00636640
+        test byte ptr [esp + 8], 1
+        je short skip_HelpSpirit
+        push 0x64
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_HelpSpirit:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_HelpSystemInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_HelpSystemInfo
+        push 0x20
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_HelpSystemInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_HelpSystem() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_24
+        test byte ptr [esp + 8], 1
+        je short skip_HelpSystem
+        push 0x00004614
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_HelpSystem:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

@@ -3,7 +3,7 @@
 #include "Animal.h"
 
 // win1.41 004ea670 mac 10279d20 Creature::DecideOnNewPlan(CreaturePlan &)
-void Creature::DecideOnNewPlan(CreaturePlan* param_1)
+void Creature::DecideOnNewPlan(CreaturePlan& param_1)
 {
 }
 

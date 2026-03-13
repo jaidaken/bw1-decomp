@@ -24,7 +24,7 @@ Windmill::~Windmill()
 }
 
 // win1.41 00405950 mac 102aa970 Windmill::CallVirtualFunctionsForCreation(MapCoords const &)
-void Windmill::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Windmill::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -39,6 +39,7 @@ void Windmill::Close()
 }
 
 // win1.41 004059f0 mac 1007d870 Windmill::PreDraw(void)
-void Windmill::PreDraw()
+uint32_t Windmill::PreDraw()
 {
+    return 0;
 }

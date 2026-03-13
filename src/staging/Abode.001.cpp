@@ -1,15 +1,16 @@
+#include "staging_class_fwd.h"
 #include "Abode.h"
 
 // win1.41 00401640 mac 105602b0 Abode::CastAbode(void)
 Abode* Abode::CastAbode()
 {
-    return NULL;
+    return this;
 }
 
 // win1.41 00401650 mac 10565230 Abode::GetShouldNotBeAddedToPlanned(void)
 bool Abode::GetShouldNotBeAddedToPlanned()
 {
-    return false;
+    __asm xor eax, eax
 }
 
 // win1.41 00401660 mac 1031a9a0 Abode::SetShouldNotBeAddedToPlanned(int)
@@ -43,7 +44,7 @@ bool Abode::IsBuilt()
 // win1.41 004016f0 mac 101cbc80 Abode::CausesTownEmergencyIfDamaged(void)
 bool Abode::CausesTownEmergencyIfDamaged()
 {
-    return false;
+    __asm xor eax, eax
 }
 
 // win1.41 00401700 mac 105756c0 Abode::GetDestructionMesh(void)
@@ -109,7 +110,7 @@ uint32_t Abode::GetSaveType()
 // win1.41 004017b0 mac 10434340 Abode::GetDebugText(void)
 char* Abode::GetDebugText()
 {
-    return NULL;
+    return "Abode";
 }
 
 // win1.41 00402b60 mac inlined Abode::_dt(void)

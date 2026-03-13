@@ -76,3 +76,264 @@ CreatureCommandState::~CreatureCommandState()
 CreatureAgenda::~CreatureAgenda()
 {
 }
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x004d8a20();
+extern "C" void sdtor_dt_11();
+
+__declspec(naked) void __cdecl sdtor_CreatureBeliefList() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureBeliefList
+        push 0x14
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureBeliefList:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureBeliefs() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x004d8a20
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureBeliefs
+        push 0x00000270
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureBeliefs:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureMentalDebug() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureMentalDebug
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureMentalDebug:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureMental() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_11
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureMental
+        push 0x00020d40
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureMental:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureCommandState() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureCommandState
+        push 0x2c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureCommandState:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureAgenda() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureAgenda
+        push 0x00001af8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureAgenda:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AttributeCreatureDominantDesire() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_AttributeCreatureDominantDesire
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AttributeCreatureDominantDesire:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AttributeCreatureHeight() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_AttributeCreatureHeight
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AttributeCreatureHeight:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AttributeCreatureSpellKnowledge() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_AttributeCreatureSpellKnowledge
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AttributeCreatureSpellKnowledge:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AttributeCreatureWhatHeIsCarrying() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_AttributeCreatureWhatHeIsCarrying
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AttributeCreatureWhatHeIsCarrying:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AttributeForestSize() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_AttributeForestSize
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AttributeForestSize:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AttributeMobileObjectType() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_AttributeMobileObjectType
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AttributeMobileObjectType:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AttributeAbodeType() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_AttributeAbodeType
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AttributeAbodeType:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_AttributeAbodeBeingBuilt() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_AttributeAbodeBeingBuilt
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_AttributeAbodeBeingBuilt:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}

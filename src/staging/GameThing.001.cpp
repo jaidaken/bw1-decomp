@@ -1,3 +1,5 @@
+#define STAGING_BASE_GT
+#include "staging_class_fwd.h"
 #include "GameThing.h"
 
 // win1.41 00405130 mac 10169a70 GameThing::GetDrawImportance(void)
@@ -19,9 +21,9 @@ float GameThing::Get2DRadius()
 }
 
 // win1.41 00405160 mac 103c36e0 GameThing::IsFootpathLink(void)
-bool32_t GameThing::IsFootpathLink()
+bool GameThing::IsFootpathLink()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00405170 mac 1056c160 GameThing::GetFootpathLink(void)
@@ -55,13 +57,13 @@ uint32_t GameThing::GetResource(RESOURCE_TYPE type)
 }
 
 // win1.41 004051c0 mac 1056c9a0 GameThing::AddResource(RESOURCE_TYPE, unsigned long, GInterfaceStatus *, bool, MapCoords const &, int)
-uint32_t GameThing::AddResource(RESOURCE_TYPE type, uint32_t param_2, GInterfaceStatus* param_3, bool param_4, const MapCoords& coords, int param_6)
+uint32_t GameThing::AddResource(RESOURCE_TYPE type, unsigned long param_2, GInterfaceStatus* param_3, bool param_4, const MapCoords& coords, int param_6)
 {
     return 0;
 }
 
 // win1.41 004051d0 mac 104f8b20 GameThing::RemoveResource(RESOURCE_TYPE, unsigned long, GInterfaceStatus *, bool *)
-uint32_t GameThing::RemoveResource(RESOURCE_TYPE type, uint32_t param_2, GInterfaceStatus* param_3, bool* param_4)
+uint32_t GameThing::RemoveResource(RESOURCE_TYPE type, unsigned long param_2, GInterfaceStatus* param_3, bool* param_4)
 {
     return 0;
 }
@@ -102,9 +104,12 @@ void GameThing::DrawInHand(GInterfaceStatus* param_1)
 }
 
 // win1.41 00405240 mac 10067860 GameThing::IsFunctional(void)
-bool GameThing::IsFunctional()
+__declspec(naked) bool GameThing::IsFunctional()
 {
-    return false;
+    __asm {
+        mov eax, dword ptr [ecx]
+        jmp dword ptr [eax + 0x2c]
+    }
 }
 
 // win1.41 00405250 mac 1057b140 GameThing::ResolveLoad(void)

@@ -89,7 +89,7 @@ void MPFEChannelSelector::Show()
 }
 
 // win1.41 00628450 mac 1039e270 MPFEChannelSelector::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void MPFEChannelSelector::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void MPFEChannelSelector::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -101,4 +101,246 @@ void MPFEChannelSelector::Destroy()
 // win1.41 00628e30 mac 1039df20 MPFEChannelSelector::InitControls(void)
 void MPFEChannelSelector::InitControls()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_34();
+extern "C" char sdtor_vt_7;
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_MPFEPublicChatMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEPublicChatMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEPublicChatMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEPrivateChatMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEPrivateChatMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEPrivateChatMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEAskJoinMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEAskJoinMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEAskJoinMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEReplyToJoinMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEReplyToJoinMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEReplyToJoinMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEInviteToTeamMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEInviteToTeamMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEInviteToTeamMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEReplyToInviteMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEReplyToInviteMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEReplyToInviteMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFECancelStartMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFECancelStartMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFECancelStartMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEKickMessageRequest() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEKickMessageRequest
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEKickMessageRequest:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEKickMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEKickMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEKickMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEDatabaseID() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEDatabaseID
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEDatabaseID:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEReadyMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEReadyMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEReadyMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFETeamsReadyList() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFETeamsReadyList
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFETeamsReadyList:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEHasCreature() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEHasCreature
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEHasCreature:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

@@ -1,3 +1,4 @@
+struct GTribeInfo;
 #include "Abode.h"
 
 // win1.41 00405b70 mac 101cbdc0 Abode::GetAbodeText(char *)
@@ -7,7 +8,7 @@ char* Abode::GetAbodeText(char* buff)
 }
 
 // win1.41 00405bb0 mac 101ca440 Abode::SaveObject(LHOSFile &, MapCoords const &)
-size_t Abode::SaveObject(LHOSFile& param_1, const MapCoords& param_2)
+size_t Abode::SaveObject(LHOSFile& param_1, const MapCoords* param_2)
 {
     return 0;
 }
@@ -29,7 +30,7 @@ void Abode::IncreaseLife(float value)
 }
 
 // win1.41 00405f40 mac 10177200 Abode::GetTribeType(void) const
-TRIBE_TYPE Abode::GetTribeType() const
+TRIBE_TYPE Abode::GetTribeType()
 {
     return TRIBE_TYPE_NONE;
 }
@@ -65,5 +66,5 @@ bool GetNearestWaterPos(MapCoords& coords)
 // win1.41 00405ff0 mac 10199f30 Abode::IsCivic(void)
 bool Abode::IsCivic()
 {
-    return false;
+    __asm xor eax, eax
 }

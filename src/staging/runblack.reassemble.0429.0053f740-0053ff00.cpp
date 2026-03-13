@@ -1,7 +1,7 @@
 #include "MainMenu.h"
 
 // win1.41 0053f910 mac 105c0610 MainMenu::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void MainMenu::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void MainMenu::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

@@ -4,13 +4,13 @@
 // win1.41 00426f80 mac 101791a0 GAudio::GetSaveType(void)
 uint32_t GAudio::GetSaveType()
 {
-    return 0;
+    return 257;
 }
 
 // win1.41 00426f90 mac 101791e0 GAudio::GetDebugText(void)
 char* GAudio::GetDebugText()
 {
-    return 0;
+    return "GAudio";
 }
 
 // win1.41 00426fa0 mac 10179100 GAudio::_dt(void)
@@ -24,13 +24,13 @@ void GAudio::ToBeDeleted(int param_1)
 }
 
 // win1.41 00428310 mac 10179bd0 GAudio::Save(GameOSFile &)
-bool GAudio::Save(GameOSFile& file)
+bool32_t GAudio::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00428480 mac 10179710 GAudio::Load(GameOSFile &)
-bool GAudio::Load(GameOSFile& file)
+bool32_t GAudio::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -48,13 +48,13 @@ void GAudio::ReleaseAtmosSoundBanks()
 // win1.41 00429300 mac 1017c940 ThingMusicInfo::GetSaveType(void)
 uint32_t ThingMusicInfo::GetSaveType()
 {
-    return 0;
+    return 265;
 }
 
 // win1.41 00429310 mac 1017c980 ThingMusicInfo::GetDebugText(void)
 char* ThingMusicInfo::GetDebugText()
 {
-    return 0;
+    return "ThingMusicInfo";
 }
 
 // win1.41 00429320 mac 1017c8b0 ThingMusicInfo::_dt(void)
@@ -63,13 +63,13 @@ ThingMusicInfo::~ThingMusicInfo()
 }
 
 // win1.41 00429950 mac 1017cc10 ThingMusicInfo::Save(GameOSFile &)
-bool ThingMusicInfo::Save(GameOSFile& file)
+bool32_t ThingMusicInfo::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00429ae0 mac 1017c9c0 ThingMusicInfo::Load(GameOSFile &)
-bool ThingMusicInfo::Load(GameOSFile& file)
+bool32_t ThingMusicInfo::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -93,4 +93,29 @@ void GAudio::StopPlayingSoundEffect(uint32_t param_1, uint32_t param_2, AUDIO_SF
 // win1.41 0042a330 mac 1017e410 GAudio::ReleaseLoopOnSoundEffect(Base *, unsigned long, AUDIO_SFX_BANK_TYPE) const
 void GAudio::ReleaseLoopOnSoundEffect(Base* param_1, uint32_t param_2, AUDIO_SFX_BANK_TYPE type)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_ThingMusicInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_ThingMusicInfo
+        push 0x38
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ThingMusicInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

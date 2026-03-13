@@ -35,7 +35,7 @@ void Pot::ToBeDeleted(int param_1)
 }
 
 // win1.41 0066d130 mac 1011c840 Pot::CallVirtualFunctionsForCreation(MapCoords const &)
-void Pot::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Pot::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -93,7 +93,7 @@ uint32_t Pot::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 0066d650 mac 1011bcb0 Pot::IsEffectReceiver(EffectValues *)
-bool Pot::IsEffectReceiver(EffectValues* param_1)
+bool32_t Pot::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
@@ -109,19 +109,19 @@ void Pot::EndOnFire()
 }
 
 // win1.41 0066d710 mac 1011b9b0 Pot::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool Pot::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t Pot::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 0066d730 mac 1011b830 Pot::Save(GameOSFile &)
-bool Pot::Save(GameOSFile& file)
+bool32_t Pot::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0066d820 mac 1011b6c0 Pot::Load(GameOSFile &)
-bool Pot::Load(GameOSFile& file)
+bool32_t Pot::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -149,25 +149,25 @@ bool PotStructure::IsPartOfStructure()
 }
 
 // win1.41 0066da30 mac 1011b250 PotStructure::IsResourceStore(RESOURCE_TYPE)
-bool PotStructure::IsResourceStore(RESOURCE_TYPE param_1)
+bool32_t PotStructure::IsResourceStore(RESOURCE_TYPE param_1)
 {
     return 0;
 }
 
 // win1.41 0066da90 mac 1011b150 PotStructure::Save(GameOSFile &)
-bool PotStructure::Save(GameOSFile& file)
+bool32_t PotStructure::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0066db10 mac 1011b060 PotStructure::Load(GameOSFile &)
-bool PotStructure::Load(GameOSFile& file)
+bool32_t PotStructure::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0066db90 mac 1011afa0 PotStructure::CallVirtualFunctionsForCreation(const MapCoords&)
-void PotStructure::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void PotStructure::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -182,7 +182,7 @@ void Pot::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 }
 
 // win1.41 0066dd30 mac 1011ac10 Pot::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool Pot::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
+bool32_t Pot::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
 {
     return 0;
 }
@@ -200,13 +200,13 @@ uint32_t Pot::ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2, Gest
 }
 
 // win1.41 0066de70 mac 1011a7e0 Pot::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-uint32_t Pot::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3)
+uint32_t Pot::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3)
 {
     return 0;
 }
 
 // win1.41 0066df00 mac 1011a620 Pot::InitialisePhysicsFromHand(LHPoint &, LHPoint &, GInterfaceStatus *, Object *, int)
-uint32_t Pot::InitialisePhysicsFromHand(LHPoint* param_1, LHPoint* param_2, GInterfaceStatus* param_3, Object* param_4, int param_5)
+uint32_t Pot::InitialisePhysicsFromHand(LHPoint& param_1, LHPoint& param_2, GInterfaceStatus* param_3, Object* param_4, int param_5)
 {
     return 0;
 }
@@ -219,13 +219,13 @@ uint32_t Pot::InitialisePhysicsFromHand(LHPoint* param_1, LHPoint* param_2, GInt
 // win1.41 0066e020 mac 1011d5b0 PileFood::GetSaveType(void)
 uint32_t PileFood::GetSaveType()
 {
-    return 0;
+    return 89;
 }
 
 // win1.41 0066e030 mac 1011d5f0 PileFood::GetDebugText(void)
 char* PileFood::GetDebugText()
 {
-    return 0;
+    return "PileFood";
 }
 
 // win1.41 0066e040 mac 1011a220 PileFood::_dt(void)
@@ -244,12 +244,12 @@ void PileFood::ToBeDeleted(int param_1)
 }
 
 // win1.41 0066e1a0 mac 10119ea0 PileFood::CallVirtualFunctionsForCreation(MapCoords const &)
-void PileFood::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void PileFood::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
 // win1.41 0066e1f0 mac 10119d80 PileFood::CreatureMustAvoid(Creature *)
-bool PileFood::CreatureMustAvoid(Creature* param_1)
+bool32_t PileFood::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -267,7 +267,7 @@ HELP_TEXT PileFood::GetQueryLastEnumText()
 }
 
 // win1.41 0066e300 mac 10119a80 PileResource::CallVirtualFunctionsForCreation(MapCoords const &)
-void PileResource::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void PileResource::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -278,19 +278,19 @@ LH3DObject::ObjectType PileFood::Get3DType()
 }
 
 // win1.41 0066e390 mac 101199a0 PileResource::CanBePickedUpByCreature(Creature *)
-bool PileResource::CanBePickedUpByCreature(Creature* param_1)
+bool32_t PileResource::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0066e3b0 mac 10119960 PileResource::IsTuggable(void)
-bool PileResource::IsTuggable()
+bool32_t PileResource::IsTuggable()
 {
     return 0;
 }
 
 // win1.41 0066e3c0 mac inlined PileResource::IsField(Creature *)
-bool PileResource::IsField(Creature* param_1)
+bool32_t PileResource::IsField(Creature* param_1)
 {
     return 0;
 }
@@ -325,19 +325,19 @@ bool32_t PileResource::NetworkFriendlyStartLockedSelect(GInterfaceStatus* param_
 }
 
 // win1.41 0066e830 mac 10118ff0 PileResource::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
-bool PileResource::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
+bool32_t PileResource::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
 {
     return 0;
 }
 
 // win1.41 0066e840 mac 10118fa0 PileResource::NetworkUnfriendlyEndLockedSelect(void)
-bool PileResource::NetworkUnfriendlyEndLockedSelect()
+bool32_t PileResource::NetworkUnfriendlyEndLockedSelect()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0066e850 mac 10118e70 PileResource::NetworkFriendlyEndLockedSelect(GInterfaceStatus *)
-bool PileResource::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
+bool32_t PileResource::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -371,13 +371,13 @@ PileResource::~PileResource()
 }
 
 // win1.41 0066ece0 mac 10117d60 PileResource::ValidForPlaceInHand(GInterfaceStatus *)
-bool PileResource::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t PileResource::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 0066ed60 mac 10117ce0 PileResource::IsPileResource(void)
-bool PileResource::IsPileResource()
+bool32_t PileResource::IsPileResource()
 {
     return 0;
 }
@@ -407,7 +407,7 @@ Town* PotStructure::GetTown()
 }
 
 // win1.41 0066ef80 mac 10117380 PileResource::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool PileResource::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t PileResource::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -433,7 +433,7 @@ float Pot::GetRadiusMultiplierForApplyingPotToPos()
 // win1.41 0066f530 mac 101167d0 Pot::GetScriptObjectType(void)
 uint32_t Pot::GetScriptObjectType()
 {
-    return 0;
+    return 16;
 }
 
 // win1.41 0066f540 mac 10116750 Pot::GetOverwriteInteractableToolTip(void)
@@ -443,7 +443,7 @@ uint32_t Pot::GetOverwriteInteractableToolTip()
 }
 
 // win1.41 0066f560 mac 10116710 Pot::IsResourceStore(RESOURCE_TYPE)
-bool Pot::IsResourceStore(RESOURCE_TYPE param_1)
+bool32_t Pot::IsResourceStore(RESOURCE_TYPE param_1)
 {
     return 0;
 }
@@ -455,25 +455,25 @@ float Pot::GetFoodValue(FOOD_TYPE param_1)
 }
 
 // win1.41 0066f5a0 mac 10116600 PileFood::Save(GameOSFile &)
-bool PileFood::Save(GameOSFile& file)
+bool32_t PileFood::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0066f5e0 mac 10116570 PileFood::Load(GameOSFile &)
-bool PileFood::Load(GameOSFile& file)
+bool32_t PileFood::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0066f620 mac 10116490 PileResource::Save(GameOSFile &)
-bool PileResource::Save(GameOSFile& file)
+bool32_t PileResource::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0066f690 mac 101163b0 PileResource::Load(GameOSFile &)
-bool PileResource::Load(GameOSFile& file)
+bool32_t PileResource::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -525,7 +525,7 @@ void PrayerSite::ToBeDeleted(int param_1)
 // win1.41 006708b0 mac inlined PrayerSite::Process(void)
 uint32_t PrayerSite::Process()
 {
-    return 0;
+    return 3;
 }
 
 // win1.41 006708c0 mac inlined PrayerSite::GetPlayer(void)
@@ -541,7 +541,126 @@ Town* PrayerSite::GetTown()
 }
 
 // win1.41 00670a10 mac inlined PrayerSite::CreatureMustAvoid(Creature *)
-bool PrayerSite::CreatureMustAvoid(Creature* param_1)
+bool32_t PrayerSite::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x0066e0e0();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x0066d100();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void jmp_addr_0x0052e280();
+extern "C" void jmp_addr_0x0052eac0();
+
+__declspec(naked) void __cdecl sdtor_PileFood() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0066e0e0
+        test byte ptr [esp + 8], 1
+        je short skip_PileFood
+        push 0x000000bc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PileFood:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PileResource() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0066d100
+        test byte ptr [esp + 8], 1
+        je short skip_PileResource
+        push 0x000000b4
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PileResource:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GPrayerSiteInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GPrayerSiteInfo
+        push 0x00000128
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GPrayerSiteInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GPrayerIconInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GPrayerIconInfo
+        push 0x00000108
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GPrayerIconInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PrayerSite() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0052e280
+        test byte ptr [esp + 8], 1
+        je short skip_PrayerSite
+        push 0x00000090
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PrayerSite:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PrayerIcon() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0052eac0
+        test byte ptr [esp + 8], 1
+        je short skip_PrayerIcon
+        push 0x64
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PrayerIcon:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

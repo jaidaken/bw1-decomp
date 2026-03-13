@@ -40,7 +40,7 @@ GPlannedAbodeInfo* PlannedAbode::GetInfo(void)
 }
 
 // win1.41 004056f0 mac inlined PlannedAbode::FUN_004056f0(int)
-bool PlannedAbode::FUN_004056f0(int param_1)
+bool32_t PlannedAbode::FUN_004056f0(int param_1)
 {
     return false;
 }
@@ -64,13 +64,13 @@ bool PlannedAbode::IsOkToBuild()
 }
 
 // win1.41 00405830 mac 10350950 PlannedAbode::Save(GameOSFile &)
-bool PlannedAbode::Save(GameOSFile& file)
+bool32_t PlannedAbode::Save(GameOSFile& file)
 {
     return false;
 }
 
 // win1.41 00405860 mac 10260310 PlannedAbode::Load(GameOSFile &)
-bool PlannedAbode::Load(GameOSFile& file)
+bool32_t PlannedAbode::Load(GameOSFile& file)
 {
     return false;
 }

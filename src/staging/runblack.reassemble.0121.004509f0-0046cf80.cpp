@@ -24,13 +24,13 @@
 #include "HandStateInvisible.h"
 
 // win1.41 00455d50 mac 10000050 CameraExclusion::InsideExclusion(LHPoint)
-bool CameraExclusion::InsideExclusion(LHPoint point)
+bool32_t CameraExclusion::InsideExclusion(LHPoint point)
 {
     return 0;
 }
 
 // win1.41 00455e20 mac 1004f140 CameraExclusion::InsideInclusion(LHPoint, LHPoint, LHPoint *, LHPoint *)
-bool CameraExclusion::InsideInclusion(LHPoint param_1, LHPoint param_2, LHPoint* param_3, LHPoint* param_4)
+bool32_t CameraExclusion::InsideInclusion(LHPoint param_1, LHPoint param_2, LHPoint* param_3, LHPoint* param_4)
 {
     return 0;
 }
@@ -82,7 +82,7 @@ bool CameraModeNew3::UpdateStrafe(LHPoint* param_1, LHPoint* param_2, float* par
 }
 
 // win1.41 0045a390 mac 100098e0 CameraModeNew3::WantToQuitFight(LHPoint, LHPoint, float)
-bool CameraModeNew3::WantToQuitFight(LHPoint param_1, LHPoint param_2, float param_3)
+bool32_t CameraModeNew3::WantToQuitFight(LHPoint param_1, LHPoint param_2, float param_3)
 {
     return 0;
 }
@@ -144,7 +144,7 @@ GPlayer* Container::GetPlayer()
 // win1.41 00462a60 mac 101b6e50 Citadel::GetCreatureBeliefType(void)
 uint32_t Citadel::GetCreatureBeliefType()
 {
-    return 0;
+    return 2;
 }
 
 // win1.41 00462a70 mac 101b6e90 Citadel::GetCreatureBeliefListType(void)
@@ -156,37 +156,37 @@ uint32_t Citadel::GetCreatureBeliefListType()
 // win1.41 00462a80 mac 101b6ed0 Citadel::GetOrigin(void)
 uint32_t Citadel::GetOrigin()
 {
-    return 0;
+    return 2;
 }
 
 // win1.41 00462a90 mac 101b6f00 Citadel::IsSuitableForCreatureActivity(void)
-bool Citadel::IsSuitableForCreatureActivity()
+bool32_t Citadel::IsSuitableForCreatureActivity()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00462aa0 mac 101b6f50 Citadel::GetText(void)
 const char* Citadel::GetText()
 {
-    return 0;
+    return "Citadel";
 }
 
 // win1.41 00462ab0 mac 101b6f80 Citadel::IsCitadel(void)
-bool Citadel::IsCitadel()
+bool32_t Citadel::IsCitadel()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00462ac0 mac 101b6fb0 Citadel::GetSaveType(void)
 uint32_t Citadel::GetSaveType()
 {
-    return 0;
+    return 53;
 }
 
 // win1.41 00462ad0 mac 101b6ff0 Citadel::GetDebugText(void)
 char* Citadel::GetDebugText()
 {
-    return 0;
+    return "Citadel";
 }
 
 // win1.41 00462ae0 mac 101b6d30 Citadel::_dt(void)
@@ -218,13 +218,13 @@ Citadel* Citadel::CreateCitadel(MapCoords* coords, GCitadelHeartInfo* info, uint
 }
 
 // win1.41 00463b00 mac 101b7db0 Citadel::Save(GameOSFile &)
-bool Citadel::Save(GameOSFile& file)
+bool32_t Citadel::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00463dc0 mac 101b71d0 Citadel::Load(GameOSFile &)
-bool Citadel::Load(GameOSFile& file)
+bool32_t Citadel::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -282,7 +282,7 @@ int CitadelPart::GetMesh() const
 // win1.41 00464aa0 mac 101c2460 CitadelPart::GetCreatureBeliefType(void)
 uint32_t CitadelPart::GetCreatureBeliefType()
 {
-    return 0;
+    return 4;
 }
 
 // win1.41 00464ab0 mac 101c08e0 CitadelPart::IsRepaired(void)
@@ -298,15 +298,15 @@ bool CitadelPart::IsBuilt()
 }
 
 // win1.41 00464b00 mac inlined CitadelPart::IsCitadelPart_0(void)
-bool CitadelPart::IsCitadelPart()
+bool32_t CitadelPart::IsCitadelPart()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00464b10 mac inlined CitadelPart::IsCitadelPart_1(Creature *)
-bool CitadelPart::IsCitadelPart(Creature* param_1)
+bool32_t CitadelPart::IsCitadelPart(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00464b20 mac inlined CitadelHeart::SetSpecularColor(LH3DColor)
@@ -341,13 +341,13 @@ ABODE_TYPE CitadelHeart::GetAbodeType()
 // win1.41 00464b70 mac 101c2200 CitadelHeart::ShouldFootpathsGoRound(void)
 bool CitadelHeart::ShouldFootpathsGoRound()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00464b80 mac 101c2250 CitadelHeart::IsCitadelHeart(void)
-bool CitadelHeart::IsCitadelHeart()
+bool32_t CitadelHeart::IsCitadelHeart()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00464b90 mac 10011680 CitadelHeart::Draw(void)
@@ -358,13 +358,13 @@ void CitadelHeart::Draw()
 // win1.41 00464ba0 mac 101c2380 CitadelHeart::GetSaveType(void)
 uint32_t CitadelHeart::GetSaveType()
 {
-    return 0;
+    return 58;
 }
 
 // win1.41 00464bb0 mac 101c23c0 CitadelHeart::GetDebugText(void)
 char* CitadelHeart::GetDebugText()
 {
-    return 0;
+    return "CitadelHeart";
 }
 
 // win1.41 00464bc0 mac 101c0df0 CitadelHeart::_dt(void)
@@ -395,7 +395,7 @@ bool CitadelHeart::Built()
 }
 
 // win1.41 00465110 mac 101c03b0 CitadelHeart::CreateBuiltWorshipSite(MapCoords const &, GWorshipSiteInfo const *, Citadel *, GTribeInfo const *)
-WorshipSite* CitadelHeart::CreateBuiltWorshipSite(const MapCoords* coords, const GWorshipSiteInfo* info, const Citadel* citadel, const GTribeInfo* tribe_info)
+WorshipSite* CitadelHeart::CreateBuiltWorshipSite(const MapCoords& coords, const GWorshipSiteInfo* info, const Citadel* citadel, const GTribeInfo* tribe_info)
 {
     return 0;
 }
@@ -419,7 +419,7 @@ bool PlannedMultiMapFixed::IsCivic()
 }
 
 // win1.41 00465560 mac 100d17b0 PlannedMultiMapFixed::IsWonder(void)
-bool PlannedMultiMapFixed::IsWonder()
+bool32_t PlannedMultiMapFixed::IsWonder()
 {
     return 0;
 }
@@ -433,13 +433,13 @@ ABODE_TYPE PlannedMultiMapFixed::GetAbodeType()
 // win1.41 00465580 mac 101c20f0 PlannedCitadelPart::GetSaveType(void)
 uint32_t PlannedCitadelPart::GetSaveType()
 {
-    return 0;
+    return 55;
 }
 
 // win1.41 00465590 mac 101c2130 PlannedCitadelPart::GetDebugText(void)
 char* PlannedCitadelPart::GetDebugText()
 {
-    return 0;
+    return "PlannedCitadelPart";
 }
 
 // win1.41 004655a0 mac 101c2050 PlannedCitadelHeart::_dt(void)
@@ -448,13 +448,13 @@ PlannedCitadelHeart::~PlannedCitadelHeart()
 }
 
 // win1.41 004655c0 mac 101bf9c0 CitadelHeart::Save(GameOSFile &)
-bool CitadelHeart::Save(GameOSFile& file)
+bool32_t CitadelHeart::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 004657f0 mac 101bf6e0 CitadelHeart::Load(GameOSFile &)
-bool CitadelHeart::Load(GameOSFile& file)
+bool32_t CitadelHeart::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -479,7 +479,7 @@ uint32_t FireGraphic::SpritePos::GetSaveType()
 // win1.41 004664f0 mac 10110ed0 PSysBase::GetDebugText(void)
 char* PSysBase::GetDebugText()
 {
-    return 0;
+    return "PSysBase";
 }
 
 // win1.41 00466500 mac 10086ed0 PSysBase::_dt(void)
@@ -500,7 +500,7 @@ uint32_t CitadelHeart::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 004675a0 mac 101be430 CitadelHeart::CallVirtualFunctionsForCreation(MapCoords const &)
-void CitadelHeart::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void CitadelHeart::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -510,9 +510,9 @@ void CitadelHeart::GetWorldMatrix(LHMatrix* param_1)
 }
 
 // win1.41 00467b30 mac 101bdfc0 CitadelHeart::ChecksVerticesVObjects(void)
-bool CitadelHeart::ChecksVerticesVObjects()
+bool32_t CitadelHeart::ChecksVerticesVObjects()
 {
-    return 0;
+    __asm xor al, al
 }
 
 // win1.41 00467b40 mac 101bdf40 CitadelHeart::InteractsWithPhysicsObjects(void)
@@ -546,11 +546,11 @@ MapCoords* CitadelHeart::GetDoorPos(MapCoords* param_1)
 // win1.41 00467e10 mac 101c1ee0 PlannedTownCitadelHeart::IsCivic(void)
 bool PlannedTownCitadelHeart::IsCivic()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00467e20 mac 101c1f20 PlannedTownCitadelHeart::IsWonder(void)
-bool PlannedTownCitadelHeart::IsWonder()
+bool32_t PlannedTownCitadelHeart::IsWonder()
 {
     return 0;
 }
@@ -564,13 +564,13 @@ ABODE_TYPE PlannedTownCitadelHeart::GetAbodeType()
 // win1.41 00467e40 mac 101c1fb0 PlannedTownCitadelHeart::GetSaveType(void)
 uint32_t PlannedTownCitadelHeart::GetSaveType()
 {
-    return 0;
+    return 57;
 }
 
 // win1.41 00467e50 mac 101c2000 PlannedTownCitadelHeart::GetDebugText(void)
 char* PlannedTownCitadelHeart::GetDebugText()
 {
-    return 0;
+    return "PlannedTownCitadelHeart";
 }
 
 // win1.41 00467e60 mac 101c1e40 PlannedTownCitadelHeart::_dt(void)
@@ -596,13 +596,13 @@ MultiMapFixed* PlannedTownCitadelHeart::CreatePlannedNoFixedCheck(float param_1)
 }
 
 // win1.41 00467fc0 mac 101bd610 PlannedTownCitadelHeart::Save(GameOSFile &)
-bool PlannedTownCitadelHeart::Save(GameOSFile& file)
+bool32_t PlannedTownCitadelHeart::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00467ff0 mac 101bd570 PlannedTownCitadelHeart::Load(GameOSFile &)
-bool PlannedTownCitadelHeart::Load(GameOSFile& file)
+bool32_t PlannedTownCitadelHeart::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -616,7 +616,7 @@ GPlayer* CitadelHeart::GetPlayer()
 // win1.41 004680b0 mac 101bd410 CitadelHeart::GetScriptObjectType(void)
 uint32_t CitadelHeart::GetScriptObjectType()
 {
-    return 0;
+    return 18;
 }
 
 // win1.41 004680c0 mac 101bd390 CitadelHeart::GetRoutePlanRadius(Creature *)
@@ -637,19 +637,19 @@ void* CitadelHeart::GetActualObjectToEffect(GPlayer* param_1, bool param_2)
 }
 
 // win1.41 00468da0 mac 101bc010 CitadelHeart::DestroyedByEffect(GPlayer *, float)
-bool CitadelHeart::DestroyedByEffect(GPlayer* param_1, float param_2)
+bool32_t CitadelHeart::DestroyedByEffect(GPlayer* param_1, float param_2)
 {
     return 0;
 }
 
 // win1.41 00468dc0 mac 101bbf10 CitadelHeart::CreateBuildingSite(void)
-bool CitadelHeart::CreateBuildingSite()
+bool32_t CitadelHeart::CreateBuildingSite()
 {
     return 0;
 }
 
 // win1.41 00468df0 mac 101bbe50 PlannedCitadelHeart::CreateBuildingSite(void)
-bool PlannedCitadelHeart::CreateBuildingSite()
+bool32_t PlannedCitadelHeart::CreateBuildingSite()
 {
     return 0;
 }
@@ -663,13 +663,13 @@ uint32_t CitadelEntrance::SaveObject(LHOSFile& file, const MapCoords& coords)
 // win1.41 00468e60 mac 101bb570 CitadelEntrance::GetSaveType(void)
 uint32_t CitadelEntrance::GetSaveType()
 {
-    return 0;
+    return 272;
 }
 
 // win1.41 00468e70 mac 101bb5b0 CitadelEntrance::GetDebugText(void)
 char* CitadelEntrance::GetDebugText()
 {
-    return 0;
+    return "CitadelEntrance";
 }
 
 // win1.41 00468e80 mac 101bb490 CitadelEntrance::_dt(void)
@@ -719,7 +719,7 @@ CitadelPart::CitadelPart(MapCoords* coords, GCitadelPartInfo* info, Citadel* cit
 // win1.41 00469490 mac 101ba510 CitadelPart::Process(void)
 uint32_t CitadelPart::Process()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 004694a0 mac 101b91f0 CitadelPart::ConvertToPlanned(void)
@@ -743,19 +743,19 @@ uint32_t CitadelPart::SaveObject(LHOSFile& file, const MapCoords& coords)
 // win1.41 004694d0 mac 101c37b0 CitadelPart::GetSaveType(void)
 uint32_t CitadelPart::GetSaveType()
 {
-    return 0;
+    return 54;
 }
 
 // win1.41 004694e0 mac 101c37f0 CitadelPart::GetDebugText(void)
 char* CitadelPart::GetDebugText()
 {
-    return 0;
+    return "CitadelPart";
 }
 
 // win1.41 004694f0 mac 101c3830 CitadelPart::ShouldFootpathsGoRound(void)
 bool CitadelPart::ShouldFootpathsGoRound()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00469500 mac 101c3520 CitadelPart::_dt(void)
@@ -769,13 +769,13 @@ void CitadelPart::ToBeDeleted(int param_1)
 }
 
 // win1.41 004695c0 mac 101c32d0 CitadelPart::DestroyedByEffect(GPlayer *, float)
-bool CitadelPart::DestroyedByEffect(GPlayer* param_1, float param_2)
+bool32_t CitadelPart::DestroyedByEffect(GPlayer* param_1, float param_2)
 {
     return 0;
 }
 
 // win1.41 004695d0 mac inlined CitadelPart::CanBeDestroyedBySpell_1(Spell *)
-bool CitadelPart::CanBeDestroyedBySpell(Spell* param_1)
+bool32_t CitadelPart::CanBeDestroyedBySpell(Spell* param_1)
 {
     return 0;
 }
@@ -797,13 +797,13 @@ void PlannedCitadelPart::ToBeDeleted(int param_1)
 }
 
 // win1.41 004696f0 mac 101c2ed0 PlannedCitadelPart::Save(GameOSFile &)
-bool PlannedCitadelPart::Save(GameOSFile& file)
+bool32_t PlannedCitadelPart::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00469720 mac 101c2e30 PlannedCitadelPart::Load(GameOSFile &)
-bool PlannedCitadelPart::Load(GameOSFile& file)
+bool32_t PlannedCitadelPart::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -815,7 +815,7 @@ GPlayer* CitadelPart::GetPlayer()
 }
 
 // win1.41 00469760 mac 101c2b70 CitadelPart::CallVirtualFunctionsForCreation(MapCoords const &)
-void CitadelPart::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void CitadelPart::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -831,13 +831,13 @@ void CitadelPart::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 }
 
 // win1.41 00469830 mac 101c2870 CitadelPart::Save(GameOSFile &)
-bool CitadelPart::Save(GameOSFile& file)
+bool32_t CitadelPart::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 004698b0 mac 101c2780 CitadelPart::Load(GameOSFile &)
-bool CitadelPart::Load(GameOSFile& file)
+bool32_t CitadelPart::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -875,13 +875,13 @@ Container::~Container()
 }
 
 // win1.41 0046b920 mac 100bf9d0 Container::Save(GameOSFile &)
-bool Container::Save(GameOSFile& file)
+bool32_t Container::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0046b960 mac 100bf930 Container::Load(GameOSFile &)
-bool Container::Load(GameOSFile& file)
+bool32_t Container::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -905,4 +905,290 @@ void HandStateInvisible::Exit()
 // win1.41 0046bee0 mac 101c9570 HandStateInvisible::Update(float, LHMatrix *)
 void HandStateInvisible::Update(float param_1, LHMatrix* param_2)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" char sdtor_vt_1;
+extern "C" void sdtor_opd_0();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void jmp_addr_0x00636640();
+extern "C" void sdtor_dt_9();
+extern "C" void jmp_addr_0x006759c0();
+extern "C" void jmp_addr_0x00675940();
+extern "C" char sdtor_vt_2;
+extern "C" void jmp_addr_0x00469530();
+
+__declspec(naked) void __cdecl sdtor_CameraModeTwoObjects() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_1
+        test byte ptr [esp + 8], 1
+        je short skip_CameraModeTwoObjects
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_CameraModeTwoObjects:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GCitadelInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GCitadelInfo
+        push 0x54
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GCitadelInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Citadel() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_Citadel
+        push 0x00000080
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Citadel:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GCitadelHeartInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GCitadelHeartInfo
+        push 0x00000158
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GCitadelHeartInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_LeashObj() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00636640
+        test byte ptr [esp + 8], 1
+        je short skip_LeashObj
+        push 0x78
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_LeashObj:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CitadelHeart() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_9
+        test byte ptr [esp + 8], 1
+        je short skip_CitadelHeart
+        push 0x000000e8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CitadelHeart:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PlannedCitadelHeart() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PlannedCitadelHeart
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PlannedCitadelHeart:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PSysBase() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x006759c0
+        test byte ptr [esp + 8], 1
+        je short skip_PSysBase
+        push 0x14
+        push esi
+        call jmp_addr_0x00675940
+        add esp, 8
+    skip_PSysBase:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_UR_PlasmaInf() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x006759c0
+        test byte ptr [esp + 8], 1
+        je short skip_UR_PlasmaInf
+        push 0x50
+        push esi
+        call jmp_addr_0x00675940
+        add esp, 8
+    skip_UR_PlasmaInf:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PlannedTownCitadelHeart() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PlannedTownCitadelHeart
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PlannedTownCitadelHeart:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CitadelEntrance() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_2
+        call jmp_addr_0x00636640
+        test byte ptr [esp + 8], 1
+        je short skip_CitadelEntrance
+        push 0x68
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CitadelEntrance:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CitadelPart() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00469530
+        test byte ptr [esp + 8], 1
+        je short skip_CitadelPart
+        push 0x0000008c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CitadelPart:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PlannedCitadelPart() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PlannedCitadelPart
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PlannedCitadelPart:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GContainerInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GContainerInfo
+        push 0x14
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GContainerInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Container() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_Container
+        push 0x30
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Container:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

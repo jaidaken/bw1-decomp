@@ -1,7 +1,7 @@
 #include "SpellSetupBox.h"
 
 // win1.41 00547970 mac 105cc310 SpellSetupBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void SpellSetupBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void SpellSetupBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

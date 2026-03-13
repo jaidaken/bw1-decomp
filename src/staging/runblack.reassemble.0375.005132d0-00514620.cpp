@@ -7,7 +7,7 @@ DialogBoxBase::DialogBoxBase()
 }
 
 // win1.41 00513400 mac 102b24c0 DialogBoxBase::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void DialogBoxBase::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void DialogBoxBase::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -38,7 +38,7 @@ bool DialogBoxOptions::CanESCOut()
 }
 
 // win1.41 00513860 mac 102b5130 DialogBoxOptions::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void DialogBoxOptions::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void DialogBoxOptions::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

@@ -1,9 +1,11 @@
+#define STAGING_BASE_PA
+#include "staging_class_fwd.h"
 #include "PlannedAbode.h"
 
 // win1.41 004050e0 mac 10352440 PlannedAbode::GetTown(void)
 Town* PlannedAbode::GetTown()
 {
-    return NULL;
+    return town;
 }
 
 // win1.41 004050f0 mac 10531c20 PlannedAbode::GetSaveType(void)

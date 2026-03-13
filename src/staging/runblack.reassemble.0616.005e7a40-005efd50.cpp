@@ -16,12 +16,12 @@ LHLobby::~LHLobby()
 }
 
 // // win1.41 005ebec0 mac 10383560 Living::Living(MapCoords const &, GLivingInfo const *)
-// Living::Living(const MapCoords& coords, const GLivingInfo& info)
+// Living::Living(const MapCoords* coords, const GLivingInfo& info)
 // {
 // }
 
 // // win1.41 005ec000 mac inlined Mobile::Mobile(MapCoords const &, GMobileInfo const *)
-// Mobile::Mobile(const MapCoords& coords, const GMobileInfo& info)
+// Mobile::Mobile(const MapCoords* coords, const GMobileInfo& info)
 // {
 // }
 
@@ -36,7 +36,7 @@ void Living::ToBeDeleted(int param_1)
 }
 
 // win1.41 005ec1d0 mac 103831d0 Living::InvalidState(void)
-bool Living::InvalidState()
+bool32_t Living::InvalidState()
 {
     return 0;
 }
@@ -66,12 +66,12 @@ uint32_t Living::Flying()
 }
 
 // win1.41 005ec340 mac 10382c10 Living::MoveByTeleport(MapCoords const &)
-void Living::MoveByTeleport(const MapCoords* param_1)
+void Living::MoveByTeleport(const MapCoords& param_1)
 {
 }
 
 // win1.41 005ec390 mac 10382b30 Living::SetDying(void)
-bool Living::SetDying()
+bool32_t Living::SetDying()
 {
     return 0;
 }
@@ -79,7 +79,7 @@ bool Living::SetDying()
 // win1.41 005ec3e0 mac 10382af0 Living::GetNumTurnsToDieOver(void)
 uint32_t Living::GetNumTurnsToDieOver()
 {
-    return 0;
+    return 600;
 }
 
 // win1.41 005ec4b0 mac 10382830 Living::Downed(void)
@@ -106,7 +106,7 @@ void Living::ProcessLiving()
 }
 
 // win1.41 005ec960 mac 1004eb50 Living::IsReadyForNewAnimation(unsigned long)
-bool Living::IsReadyForNewAnimation(uint32_t index)
+bool Living::IsReadyForNewAnimation(unsigned long index)
 {
     return 0;
 }
@@ -118,7 +118,7 @@ uint32_t Living::WaitForAnimation()
 }
 
 // win1.41 005ec9b0 mac 10382060 Living::CallVirtualFunctionsForCreation(MapCoords const &)
-void Living::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Living::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -133,7 +133,7 @@ void Living::SetTopStateToFinal()
 }
 
 // win1.41 005ecaa0 mac inlined Living::IsDeathState( const(VILLAGER_STATES))
-bool Living::IsDeathState(VILLAGER_STATES param_1)
+bool Living::IsDeathState(VILLAGER_STATES param_1) const
 {
     return 0;
 }
@@ -181,7 +181,7 @@ void LivingAction::SetState(LIVING_ACTION_INDEX index, VILLAGER_STATES state)
 }
 
 // win1.41 005eccb0 mac 10381220 Living::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool Living::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t Living::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -235,7 +235,7 @@ MapCoords* Living::CalcRandomPos(MapCoords* param_1, MapCoords* param_2, float p
 }
 
 // win1.41 005ed2b0 mac 10380650 Living::DebugShowTime(unsigned long, unsigned char, unsigned char)
-uint32_t Living::DebugShowTime(uint32_t param_1, uint8_t param_2, uint8_t param_3)
+uint32_t Living::DebugShowTime(unsigned long param_1, uint8_t param_2, uint8_t param_3)
 {
     return 0;
 }
@@ -246,7 +246,7 @@ void Living::SetAge(int age)
 }
 
 // win1.41 005ed2f0 mac 103804c0 Living::GetBoundingSphere(LHPoint &, float &)
-void Living::GetBoundingSphere(LHPoint* param_1, float* param_2)
+void Living::GetBoundingSphere(LHPoint& param_1, float& param_2)
 {
 }
 
@@ -264,7 +264,7 @@ void Living::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 // win1.41 005ed4f0 mac 103801d0 Living::CanBecomeAPhysicsObject(void)
 bool Living::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 005ed500 mac inlined Living::ExitInHand(VILLAGER_STATES)
@@ -282,7 +282,7 @@ int Living::ExitInFlying(VILLAGER_STATES param_1)
 // win1.41 005ed580 mac inlined Living::ExitInLanded(VILLAGER_STATES)
 int Living::ExitInLanded(VILLAGER_STATES param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 005ed590 mac 1037ffb0 Living::ValidToApplyThisToObject(GInterfaceStatus *, Object *)
@@ -334,7 +334,7 @@ int Living::ExitDanceInScript(VILLAGER_STATES param_1)
 }
 
 // win1.41 005edba0 mac 1037f690 Living::CreatureMustAvoid(Creature *)
-bool Living::CreatureMustAvoid(Creature* param_1)
+bool32_t Living::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -353,7 +353,7 @@ void Living::SetupMoveToOnFootpath(GameThingWithPos* destination, MapCoords* arr
 // win1.41 005edd90 mac inlined Living::EnterMoveToPos(VILLAGER_STATES, VILLAGER_STATES)
 uint32_t Living::EnterMoveToPos(VILLAGER_STATES param_1, VILLAGER_STATES param_2)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 005edda0 mac 1001fb70 Living::ExitMoveToPos(unsigned char)
@@ -365,7 +365,7 @@ int Living::ExitMoveToPos(uint8_t param_1)
 // win1.41 005eddc0 mac 1037f2a0 Living::ExitBeingEaten(unsigned char)
 int Living::ExitBeingEaten(uint8_t param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 005eddd0 mac 1037f260 Living::EnterMoveOnPath(unsigned char, unsigned char)
@@ -410,13 +410,13 @@ void Living::SetFlock(Flock* param_1)
 }
 
 // win1.41 005ee630 mac 1037ddd0 Living::Save(GameOSFile &)
-bool Living::Save(GameOSFile& file)
+bool32_t Living::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005ee960 mac 1037d8d0 Living::Load(GameOSFile &)
-bool Living::Load(GameOSFile& file)
+bool32_t Living::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -427,13 +427,13 @@ void Living::ResolveLoad()
 }
 
 // win1.41 005eed30 mac 1037d620 DataPath::Save(GameOSFile &)
-bool DataPath::Save(GameOSFile& file)
+bool32_t DataPath::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005eeec0 mac 1037d3e0 DataPath::Load(GameOSFile &)
-bool DataPath::Load(GameOSFile& file)
+bool32_t DataPath::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -452,13 +452,13 @@ DataPath::DataPath()
 // win1.41 005ef070 mac 10383840 DataPath::GetSaveType(void)
 uint32_t DataPath::GetSaveType()
 {
-    return 0;
+    return 153;
 }
 
 // win1.41 005ef080 mac 10383880 DataPath::GetDebugText(void)
 char* DataPath::GetDebugText()
 {
-    return 0;
+    return "DataPath";
 }
 
 // win1.41 005ef090 mac 1037d2b0 DataPath::_dt(void)
@@ -478,13 +478,76 @@ void Living::RemoveFromDance(int param_1)
 }
 
 // win1.41 005ef9c0 mac 10384160 Living::CalculateDancePosition(MapCoords const &, MapCoords *)
-bool Living::CalculateDancePosition(const MapCoords* param_1, MapCoords* param_2)
+bool Living::CalculateDancePosition(const MapCoords& param_1, MapCoords* param_2)
 {
     return 0;
 }
 
 // win1.41 005ef9f0 mac 10383ce0 Living::PerformDance(MapCoords const &, unsigned char, unsigned long)
-bool32_t Living::PerformDance(const MapCoords* param_1, unsigned char param_2, unsigned long param_3)
+bool32_t Living::PerformDance(const MapCoords& param_1, unsigned char param_2, unsigned long param_3)
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" char sdtor_dt_29;
+extern "C" void sdtor_opd_0();
+extern "C" void sdtor_dt_30();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x0056fa80();
+
+__declspec(naked) void __cdecl sdtor_LHLobby() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call dword ptr [sdtor_dt_29]
+        test byte ptr [esp + 8], 1
+        je short skip_LHLobby
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_LHLobby:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_DataPath() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_30
+        test byte ptr [esp + 8], 1
+        je short skip_DataPath
+        push 0x30
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_DataPath:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_DataForScriptRemind() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_DataForScriptRemind
+        push 0x48
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_DataForScriptRemind:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

@@ -83,7 +83,7 @@ GPlayer* GGame::GetNextPlayerAndNeutral(GPlayer* player)
 }
 
 // win1.41 005509b0 mac 100586e0 GGame::GetPlayer(unsigned long)
-GPlayer* GGame::GetPlayer(uint32_t param_1)
+GPlayer* GGame::GetPlayer(unsigned long param_1)
 {
     return NULL;
 }

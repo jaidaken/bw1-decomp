@@ -34,7 +34,7 @@ int PFootball::GetMesh() const
 // win1.41 00643950 mac inlined PFootball::IsPlaytimeStructure(void)
 bool PFootball::IsPlaytimeStructure()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00643960 mac inlined PFootball::IsPlaytimeStarted(void)
@@ -60,12 +60,12 @@ void PFootball::Draw()
 }
 
 // win1.41 00644030 mac inlined PFootball::CallVirtualFunctionsForCreation(MapCoords const &)
-void PFootball::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void PFootball::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
 // win1.41 00644200 mac inlined PFootball::AddPlaytimeVillager(Villager *)
-bool PFootball::AddPlaytimeVillager(Villager* param_1)
+bool32_t PFootball::AddPlaytimeVillager(Villager* param_1)
 {
     return 0;
 }
@@ -78,4 +78,105 @@ PhysicsObject::PhysicsObject()
 // win1.41 00644d70 mac 10113d90 PhysicsObject::_dt(void)
 PhysicsObject::~PhysicsObject()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_dt_36();
+extern "C" void sdtor_dt_37();
+extern "C" void jmp_addr_0x004369d0();
+
+__declspec(naked) void __cdecl sdtor_GPFootballInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GPFootballInfo
+        push 0x00000124
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GPFootballInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GPFootballPositionInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GPFootballPositionInfo
+        push 0x24
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GPFootballPositionInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PPlannedFootball() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PPlannedFootball
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PPlannedFootball:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PFootball() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_36
+        test byte ptr [esp + 8], 1
+        je short skip_PFootball
+        push 0x000000bc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PFootball:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PhysicsObject() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_37
+        test byte ptr [esp + 8], 1
+        je short skip_PhysicsObject
+        push edi
+        push esi
+        call jmp_addr_0x004369d0
+        add esp, 8
+    skip_PhysicsObject:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

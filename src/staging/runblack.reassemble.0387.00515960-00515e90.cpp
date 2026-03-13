@@ -6,7 +6,7 @@ DialogBoxSaveMessage::DialogBoxSaveMessage()
 }
 
 // win1.41 005159d0 mac 102b5db0 DialogBoxSaveMessage::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void DialogBoxSaveMessage::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void DialogBoxSaveMessage::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

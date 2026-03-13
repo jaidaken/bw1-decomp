@@ -14,13 +14,13 @@ GScriptHighlightInfo::~GScriptHighlightInfo()
 }
 
 // win1.41 00709740 mac 104fa180 ScriptHighlight::IsScriptHighlight(void)
-bool ScriptHighlight::IsScriptHighlight()
+bool32_t ScriptHighlight::IsScriptHighlight()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00709750 mac 104fa1d0 ScriptHighlight::IsActive( const(void))
-bool ScriptHighlight::IsActive()
+bool32_t ScriptHighlight::IsActive() const
 {
     return 0;
 }
@@ -31,7 +31,7 @@ void ScriptHighlight::PhysicsEditorCreate(int param_1)
 }
 
 // win1.41 00709770 mac 104fa250 ScriptHighlight::ValidForPlaceInHand(GInterfaceStatus *)
-bool ScriptHighlight::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t ScriptHighlight::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -43,43 +43,43 @@ uint32_t ScriptHighlight::ApplyOnlyAfterReleased()
 }
 
 // win1.41 00709790 mac 104fa300 ScriptHighlight::ValidToApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-uint32_t ScriptHighlight::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2)
+uint32_t ScriptHighlight::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2)
 {
     return 0;
 }
 
 // win1.41 007097a0 mac 104fa370 ScriptHighlight::CanBeSleptNextToByCreature(Creature *)
-bool ScriptHighlight::CanBeSleptNextToByCreature(Creature* param_1)
+bool32_t ScriptHighlight::CanBeSleptNextToByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 007097b0 mac 104fa3d0 ScriptHighlight::CanBeDestroyedByStoning(Creature *)
-bool ScriptHighlight::CanBeDestroyedByStoning(Creature* param_1)
+bool32_t ScriptHighlight::CanBeDestroyedByStoning(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 007097c0 mac 104fa420 ScriptHighlight::CanBeSetOnFire(Creature *)
-bool ScriptHighlight::CanBeSetOnFire(Creature* param_1)
+bool32_t ScriptHighlight::CanBeSetOnFire(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 007097d0 mac 104fa470 ScriptHighlight::CanBeCrushed(void)
-bool ScriptHighlight::CanBeCrushed()
+bool32_t ScriptHighlight::CanBeCrushed()
 {
     return 0;
 }
 
 // win1.41 007097e0 mac 104fa4b0 ScriptHighlight::IsEffectReceiver(EffectValues *)
-bool ScriptHighlight::IsEffectReceiver(EffectValues* param_1)
+bool32_t ScriptHighlight::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
 
 // win1.41 00709800 mac 104fa550 ScriptHighlight::ValidAsInterfaceTarget(void)
-bool ScriptHighlight::ValidAsInterfaceTarget()
+bool32_t ScriptHighlight::ValidAsInterfaceTarget()
 {
     return 0;
 }
@@ -87,7 +87,7 @@ bool ScriptHighlight::ValidAsInterfaceTarget()
 // win1.41 00709810 mac 104fa5a0 ScriptHighlight::CanBecomeAPhysicsObject(void)
 bool ScriptHighlight::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00709820 mac 104fa5f0 ScriptHighlight::InteractsWithPhysicsObjects(void)
@@ -97,13 +97,13 @@ bool ScriptHighlight::InteractsWithPhysicsObjects()
 }
 
 // win1.41 00709830 mac 104fa640 ScriptHighlight::CanBePickedUpByCreature(Creature *)
-bool ScriptHighlight::CanBePickedUpByCreature(Creature* param_1)
+bool32_t ScriptHighlight::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00709840 mac 104fa690 ScriptHighlight::InterfaceMustBeInInfluenceForInteraction(void)
-bool ScriptHighlight::InterfaceMustBeInInfluenceForInteraction()
+bool32_t ScriptHighlight::InterfaceMustBeInInfluenceForInteraction()
 {
     return 0;
 }
@@ -111,13 +111,13 @@ bool ScriptHighlight::InterfaceMustBeInInfluenceForInteraction()
 // win1.41 00709850 mac 104fa6f0 ScriptHighlight::GetSaveType(void)
 uint32_t ScriptHighlight::GetSaveType()
 {
-    return 0;
+    return 63;
 }
 
 // win1.41 00709860 mac 104fa730 ScriptHighlight::GetDebugText(void)
 char* ScriptHighlight::GetDebugText()
 {
-    return 0;
+    return "ScriptHighlight";
 }
 
 // win1.41 00709870 mac 104fc120 ScriptHighlight::_dt(void)
@@ -131,7 +131,7 @@ void ScriptHighlight::ToBeDeleted(int param_1)
 }
 
 // win1.41 00709aa0 mac 104fbb00 ScriptHighlight::CallVirtualFunctionsForCreation(MapCoords const &)
-void ScriptHighlight::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void ScriptHighlight::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -157,13 +157,13 @@ void ScriptHighlight::SetActivated(int param_1)
 }
 
 // win1.41 0070a760 mac 104fb290 ScriptHighlight::Save(GameOSFile &)
-bool ScriptHighlight::Save(GameOSFile& file)
+bool32_t ScriptHighlight::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0070a8f0 mac 104fb050 ScriptHighlight::Load(GameOSFile &)
-bool ScriptHighlight::Load(GameOSFile& file)
+bool32_t ScriptHighlight::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -206,7 +206,7 @@ uint32_t ScriptHighlight::GetOverwriteTapToolTip()
 // win1.41 0070ae30 mac 100083b0 ScriptHighlight::GetScriptObjectType(void)
 uint32_t ScriptHighlight::GetScriptObjectType()
 {
-    return 0;
+    return 37;
 }
 
 // win1.41 0070ae40 mac 104fa770 ScriptHighlight::AddToRoutePlan(RPHolder *, Creature *, int, void (*)(int, Point2D, float, int))
@@ -217,4 +217,48 @@ void ScriptHighlight::AddToRoutePlan(RPHolder* param_1, Creature* param_2, int p
 // win1.41 0070b220 mac 104fcda0 GScript::SetInterfaceInteraction(SCRIPT_INTERFACE_LEVEL)
 void GScript::SetInterfaceInteraction(SCRIPT_INTERFACE_LEVEL level)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_67();
+
+__declspec(naked) void __cdecl sdtor_GScriptHighlightInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GScriptHighlightInfo
+        push 0x00000110
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GScriptHighlightInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_ScriptHighlight() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_67
+        test byte ptr [esp + 8], 1
+        je short skip_ScriptHighlight
+        push 0x0000008c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ScriptHighlight:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

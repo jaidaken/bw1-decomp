@@ -14,7 +14,7 @@ void Abode::ChildToAdult(Villager* villager)
 // win1.41 00404d30 mac 1006d300 Abode::GetResource(RESOURCE_TYPE)
 uint32_t Abode::GetResource(RESOURCE_TYPE type)
 {
-    return 0;
+    return resources[type];
 }
 
 // win1.41 00404d40 mac 10000f50 Abode::JustAddResource(RESOURCE_TYPE, unsigned long, bool)

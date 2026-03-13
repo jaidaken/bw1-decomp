@@ -35,7 +35,7 @@ MultiplayerDatabase::MultiplayerDatabase()
 }
 
 // win1.41 00633610 mac 10109f20 MultiplayerDatabase::ReceiveReturnData(void)
-bool MultiplayerDatabase::ReceiveReturnData()
+bool32_t MultiplayerDatabase::ReceiveReturnData()
 {
     return 0;
 }
@@ -46,7 +46,7 @@ CreatureDatabase::CreatureDatabase()
 }
 
 // win1.41 006336d0 mac 10109aa0 CreatureDatabase::Send(void)
-bool CreatureDatabase::Send()
+bool32_t CreatureDatabase::Send()
 {
     return 0;
 }
@@ -57,7 +57,7 @@ StatsDatabase::StatsDatabase()
 }
 
 // win1.41 006338f0 mac 10109920 StatsDatabase::Send(void)
-bool StatsDatabase::Send()
+bool32_t StatsDatabase::Send()
 {
     return 0;
 }
@@ -68,7 +68,7 @@ void GNetwork::ResetStateDebug()
 }
 
 // win1.41 006349f0 mac 1010bff0 GNetwork::ProcessOnePacket(void)
-bool GNetwork::ProcessOnePacket()
+bool32_t GNetwork::ProcessOnePacket()
 {
     return 0;
 }
@@ -107,7 +107,7 @@ LH3DObject::ObjectType Object::Get3DType()
 }
 
 // win1.41 00636520 mac 103d90d0 Object::Object(MapCoords const &, GObjectInfo const *)
-Object::Object(const MapCoords& coords, const GObjectInfo* info)
+Object::Object(const MapCoords* coords, const GObjectInfo* info)
 {
 }
 
@@ -159,31 +159,31 @@ void Object::RemoveMapObjectFromCell(MapCell* cell)
 }
 
 // win1.41 00636a40 mac 1004d070 Object::MoveMapObject(MapCoords const &)
-int Object::MoveMapObject(const MapCoords& param_2)
+int Object::MoveMapObject(const MapCoords* param_2)
 {
     return 0;
 }
 
 // win1.41 00636a90 mac 103d8920 Object::IsTuggable(void)
-bool Object::IsTuggable()
+bool32_t Object::IsTuggable()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00636aa0 mac 100933f0 Object::ValidToShakeFromHand(void)
-bool Object::ValidToShakeFromHand()
+bool32_t Object::ValidToShakeFromHand()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00636ab0 mac 103d8820 Object::IsAttackable(Object *)
-bool Object::IsAttackable(Object* param_1)
+bool32_t Object::IsAttackable(Object* param_1)
 {
     return 0;
 }
 
 // win1.41 00636af0 mac 103d8770 Object::IsAllied(Object *)
-bool Object::IsAllied(Object* param_1)
+bool32_t Object::IsAllied(Object* param_1)
 {
     return 0;
 }
@@ -210,7 +210,7 @@ void Object::GetNearestPosOfObject(Object* param_1)
 }
 
 // win1.41 00636da0 mac 103d8190 Object::GetNearestEdgeToPos(MapCoords const &)
-void Object::GetNearestEdgeToPos(const MapCoords& param_1)
+void Object::GetNearestEdgeToPos(const MapCoords* param_1)
 {
 }
 
@@ -228,7 +228,7 @@ uint32_t Object::InitialisePhysicsFromHand(LHPoint* param_1, LHPoint* param_2, G
 // win1.41 00637470 mac 103d7730 Object::HasSunk(void)
 bool Object::HasSunk()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00637480 mac 103d74c0 Object::InitialisePhysics(LHPoint const &, LHPoint const &, Object *, bool, GInterfaceStatus *)
@@ -245,7 +245,7 @@ void Object::EndPhysics(PhysicsObject* param_1, bool param_2)
 // win1.41 00637660 mac 103d7300 Object::InterfaceSetInMagicHand(GInterfaceStatus *)
 bool32_t Object::InterfaceSetInMagicHand(GInterfaceStatus* status)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00637670 mac 103d7280 Object::InterfaceSetOutMagicHand(GInterfaceStatus *)
@@ -295,7 +295,7 @@ void Object::ShouldPhysicsRaiseObjectUntilNotIntersectingThis(Object* param_1)
 // win1.41 006377e0 mac 103d6e10 Object::CanBecomeAPhysicsObject(void)
 bool Object::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 006377f0 mac 103d6d80 Object::CleanupWhenDeleted(int)
@@ -314,13 +314,13 @@ void Object::IncreaseLife(float value)
 }
 
 // win1.41 006378e0 mac 103d6ad0 Object::DestroyedByEffect(GPlayer *, float)
-bool Object::DestroyedByEffect(GPlayer* player, float param_2)
+bool32_t Object::DestroyedByEffect(GPlayer* player, float param_2)
 {
     return 0;
 }
 
 // win1.41 00637900 mac 103d6a00 Object::FillInEffectDefenceMultiplier(EffectNumbers &)
-void Object::FillInEffectDefenceMultiplier(EffectNumbers& param_1)
+void Object::FillInEffectDefenceMultiplier(EffectNumbers* param_1)
 {
 }
 
@@ -347,13 +347,13 @@ void* Object::GetActualObjectToEffect(GPlayer* player, bool param_2)
 }
 
 // win1.41 00637d00 mac 103d6120 Object::GetDamageEffect(EffectValues &)
-float Object::GetDamageEffect(EffectValues& values)
+float Object::GetDamageEffect(EffectValues* values)
 {
     return 0;
 }
 
 // win1.41 00637d80 mac 103d6050 Object::GetHealEffect(EffectValues &)
-float Object::GetHealEffect(EffectValues& values)
+float Object::GetHealEffect(EffectValues* values)
 {
     return 0;
 }
@@ -365,13 +365,13 @@ bool Object::IsTouching(Object* param_1, float param_2)
 }
 
 // win1.41 00637e30 mac 103d5ef0 Object::IsTouching(MapCoords const &)
-bool Object::IsTouching(const MapCoords& param_1)
+bool Object::IsTouching(const MapCoords* param_1)
 {
     return 0;
 }
 
 // win1.41 00637e60 mac 103d5970 Object::IsTouching(MapCoords const &, MapCoords const &)
-bool Object::IsTouching(const MapCoords& param_1, const MapCoords& param_2)
+bool Object::IsTouching(const MapCoords* param_1, const MapCoords* param_2)
 {
     return 0;
 }
@@ -383,12 +383,12 @@ float Object::GetDistanceFromObject(Object* param_1)
 }
 
 // win1.41 00637ff0 mac 103d57e0 Object::ApplySingleEffect(EFFECT_TYPE, float, GameThing *, MapCoords const &)
-void Object::ApplySingleEffect(EFFECT_TYPE param_1, float param_2, GameThing* param_3, const MapCoords& param_4)
+void Object::ApplySingleEffect(EFFECT_TYPE param_1, float param_2, GameThing* param_3, const MapCoords* param_4)
 {
 }
 
 // win1.41 00638040 mac 10055200 Object::ActualMoveMapObject(MapCoords const &)
-void Object::ActualMoveMapObject(const MapCoords& param_2)
+void Object::ActualMoveMapObject(const MapCoords* param_2)
 {
 }
 
@@ -440,7 +440,7 @@ int Object::GetLandingPointCount()
 }
 
 // win1.41 00638450 mac 103d5230 Object::GetLandingPoint(unsigned char, LHPoint *)
-bool Object::GetLandingPoint(uint8_t param_1, LHPoint* param_2)
+bool32_t Object::GetLandingPoint(uint8_t param_1, LHPoint* param_2)
 {
     return 0;
 }
@@ -464,7 +464,7 @@ bool32_t Object::IsBuildingMaterial()
 }
 
 // win1.41 00638560 mac 1005ba80 Object::GetMapChild(MapCoords const &)
-Object* Object::GetMapChild(const MapCoords* coord)
+Object* Object::GetMapChild(const MapCoords& coord)
 {
     return 0;
 }
@@ -514,11 +514,11 @@ uint32_t Object::ThrowObjectFromHand(GInterfaceStatus* status, int param_2)
 // win1.41 00638730 mac 10097740 Object::IsARootedObject(void)
 bool Object::IsARootedObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00638740 mac 103d48a0 Object::CreatureMustAvoid(Creature *)
-bool Object::CreatureMustAvoid(Creature* param_1)
+bool32_t Object::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -553,7 +553,7 @@ float Object::GetHoldLoweringMultiplier()
 }
 
 // win1.41 00638cb0 mac 103d3fe0 Object::GetInspectObjectPos(Villager *, MapCoords *)
-bool Object::GetInspectObjectPos(Villager* param_1, MapCoords* pos)
+bool32_t Object::GetInspectObjectPos(Villager* param_1, MapCoords* pos)
 {
     return 0;
 }
@@ -684,7 +684,7 @@ float Object::GetTribalPower(TRIBE_TYPE param_1)
 // win1.41 00639a00 mac 103d2b20 Object::IsFireMan(void)
 bool Object::IsFireMan()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00639a80 mac 103d2950 Object::GetFireGPHXDrawn(bool *, bool *, bool *, bool *)
@@ -719,7 +719,7 @@ bool Object::ProcessInHand()
 // win1.41 00639b10 mac 103d22d0 Object::ProcessInInteract(GInterfaceStatus *)
 uint32_t Object::ProcessInInteract(GInterfaceStatus* status)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00639b20 mac 103d2290 Object::SetInScript(int)
@@ -734,7 +734,7 @@ uint32_t Object::RemoveFromGame()
 }
 
 // win1.41 00639b60 mac 103d21e0 Object::CanBeSuckedIntoVortex(LandscapeVortex *)
-bool Object::CanBeSuckedIntoVortex(LandscapeVortex* param_1)
+bool32_t Object::CanBeSuckedIntoVortex(LandscapeVortex* param_1)
 {
     return 0;
 }
@@ -752,13 +752,13 @@ uint32_t Object::GetDiscipleStateIfInteractedWith(GInterfaceStatus* status, Vill
 }
 
 // win1.41 00639b90 mac 103d1d50 Object::Save(GameOSFile &)
-bool Object::Save(GameOSFile& file)
+bool32_t Object::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00639eb0 mac 103d1b20 Object::Load(GameOSFile &)
-bool Object::Load(GameOSFile& file)
+bool32_t Object::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -777,4 +777,104 @@ void Object::SetLife(float life)
 IMMERSION_EFFECT_TYPE Object::GetImmersionTexture()
 {
     return (IMMERSION_EFFECT_TYPE)0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_34();
+extern "C" char sdtor_vt_7;
+extern "C" void sdtor_opd_0();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_MPFEChangedMapMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEChangedMapMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEChangedMapMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEMapErrorMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEMapErrorMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEMapErrorMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEChangedTeamRequestMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEChangedTeamRequestMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEChangedTeamRequestMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEUserTeamList() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEUserTeamList
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEUserTeamList:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GObjectInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GObjectInfo
+        push 0x00000100
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GObjectInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

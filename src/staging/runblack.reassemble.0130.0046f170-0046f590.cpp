@@ -6,7 +6,7 @@ BindableAction::BindableAction()
 }
 
 // win1.41 0046f3c0 mac 10090c30 BindableAction::IsKeyDown(LH_KEY)
-bool BindableAction::IsKeyDown(LH_KEY key)
+bool32_t BindableAction::IsKeyDown(LH_KEY key)
 {
     return 0;
 }

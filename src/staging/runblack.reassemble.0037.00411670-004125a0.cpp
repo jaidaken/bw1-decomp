@@ -58,3 +58,27 @@ float SetupThing::unadjustsize(float size)
 void SetupThing::DrawBigButton(int x, int y, bool centered, bool interacted, int size, BBSTYLE style, bool shadowed, int clip_y_start, int clip_y_end)
 {
 }
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_0();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_SetupStaticText() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupStaticText
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupStaticText:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}

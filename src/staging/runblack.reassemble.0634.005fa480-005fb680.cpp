@@ -22,13 +22,13 @@ IMPRESSIVE_TYPE MagicFood::GetImpressiveType()
 // win1.41 005fa9a0 mac 103abe80 MagicFood::GetSaveType(void)
 uint32_t MagicFood::GetSaveType()
 {
-    return 0;
+    return 30;
 }
 
 // win1.41 005fa9b0 mac 103abec0 MagicFood::GetDebugText(void)
 char* MagicFood::GetDebugText()
 {
-    return 0;
+    return "MagicFood";
 }
 
 // win1.41 005fa9c0 mac 103ac0d0 MagicFood::_dt(void)
@@ -37,18 +37,18 @@ MagicFood::~MagicFood()
 }
 
 // win1.41 005faab0 mac 103ac020 MagicFood::CallVirtualFunctionsForCreation(MapCoords const &)
-void MagicFood::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void MagicFood::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
 // win1.41 005fab00 mac 103abf90 MagicFood::Save(GameOSFile &)
-bool MagicFood::Save(GameOSFile& file)
+bool32_t MagicFood::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005fab40 mac 103abf00 MagicFood::Load(GameOSFile &)
-bool MagicFood::Load(GameOSFile& file)
+bool32_t MagicFood::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -56,13 +56,13 @@ bool MagicFood::Load(GameOSFile& file)
 // win1.41 005faf20 mac 103acd40 GMagicHand::GetSaveType(void)
 uint32_t GMagicHand::GetSaveType()
 {
-    return 0;
+    return 253;
 }
 
 // win1.41 005faf30 mac 103acd80 GMagicHand::GetDebugText(void)
 char* GMagicHand::GetDebugText()
 {
-    return 0;
+    return "GMagicHand";
 }
 
 // win1.41 005faf40 mac 103ad580 GMagicHand::_dt(void)
@@ -71,7 +71,7 @@ GMagicHand::~GMagicHand()
 }
 
 // win1.41 005fb040 mac 10075560 GMagicHand::GetObjectFromHand(void) const
-Object* GMagicHand::GetObjectFromHand()
+Object* GMagicHand::GetObjectFromHand() const
 {
     return 0;
 }
@@ -82,13 +82,13 @@ void GMagicHand::CleanUpForSerialisation()
 }
 
 // win1.41 005fb2c0 mac 103ace90 GMagicHand::Save(GameOSFile &)
-bool GMagicHand::Save(GameOSFile& file)
+bool32_t GMagicHand::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005fb320 mac 103acdc0 GMagicHand::Load(GameOSFile &)
-bool GMagicHand::Load(GameOSFile& file)
+bool32_t GMagicHand::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -100,7 +100,51 @@ MAGIC_TYPE GMagicInfo::GetInfoFromText(const char* text)
 }
 
 // win1.41 005fb3f0 mac 103ae2c0 GMagicInfo::GetMagicInfoText(void) const
-const char* GMagicInfo::GetMagicInfoText()
+const char* GMagicInfo::GetMagicInfoText() const
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_31();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x005faf60();
+
+__declspec(naked) void __cdecl sdtor_MagicFood() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_31
+        test byte ptr [esp + 8], 1
+        je short skip_MagicFood
+        push 0x000000c0
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_MagicFood:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicHand() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x005faf60
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicHand
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicHand:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

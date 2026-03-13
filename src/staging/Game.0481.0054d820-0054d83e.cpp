@@ -12,7 +12,7 @@
 #include "HelpSystem.h"
 
 // win1.41 0054d820 mac 10083dd0 GGame::ProcessGameCode(void)
-void GGame::ProcessGameCode()
+uint32_t GGame::ProcessGameCode()
 {
     StartTurn();
     if ((field_0x14 & 4) == 0)
@@ -20,6 +20,7 @@ void GGame::ProcessGameCode()
         ProcessTurn();
     }
     EndTurn();
+    return 0;
 }
 
 void GGame::DisplayPlayerTextMessages()
@@ -28,7 +29,7 @@ void GGame::DisplayPlayerTextMessages()
 }
 
 // win1.41 0054d850 mac 10079980 GGame::ProcessGraphicsEngine(unsigned long, unsigned long)
-void GGame::ProcessGraphicsEngine(uint32_t param_1, uint32_t param_2)
+void GGame::ProcessGraphicsEngine(unsigned long param_1, unsigned long param_2)
 {
     // (*globals.LHSys).mouse.DeltaPos();
 

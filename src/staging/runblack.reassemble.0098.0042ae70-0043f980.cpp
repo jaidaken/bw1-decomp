@@ -176,7 +176,7 @@ Ball::Ball(const MapCoords* coords, const GBallInfo* info)
 }
 
 // win1.41 00435ab0 mac 100aff50 Ball::CanBePickedUpByCreature(Creature *)
-bool Ball::CanBePickedUpByCreature(Creature* param_1)
+bool32_t Ball::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
@@ -235,25 +235,25 @@ uint32_t Ball::GetScriptObjectType()
 }
 
 // win1.41 00436110 mac 100b0260 Ball::Save(GameOSFile &)
-bool Ball::Save(GameOSFile& file)
+bool32_t Ball::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00436260 mac 100b0080 Ball::Load(GameOSFile &)
-bool Ball::Load(GameOSFile& file)
+bool32_t Ball::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 004363b0 mac 100b0040 Ball::IsToy(Creature *)
-bool Ball::IsToy(Creature* param_1)
+bool32_t Ball::IsToy(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 004363c0 mac 100b0000 Ball::IsToyBall(Creature *)
-bool Ball::IsToyBall(Creature* param_1)
+bool32_t Ball::IsToyBall(Creature* param_1)
 {
     return 0;
 }
@@ -291,7 +291,7 @@ GBaseInfo* GBaseInfo::GetInfoPtr(int index)
 }
 
 // win1.41 00436c60 mac 1055df70 GBaseInfo::GetDebugColor(void) const
-LHColor* GBaseInfo::GetDebugColor(LHColor* color)
+LHColor* GBaseInfo::GetDebugColor(LHColor* color) const
 {
     return 0;
 }
@@ -370,19 +370,19 @@ LH3DObject::ObjectType BigForest::Get3DType()
 }
 
 // win1.41 00438db0 mac 100b2390 BigForest::ValidForPlaceInHand(GInterfaceStatus *)
-bool BigForest::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t BigForest::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 00438dc0 mac 100b23e0 BigForest::IsTuggable(void)
-bool BigForest::IsTuggable()
+bool32_t BigForest::IsTuggable()
 {
     return 0;
 }
 
 // win1.41 00438dd0 mac 100b2420 BigForest::VillagerMustAvoid(Villager *)
-bool BigForest::VillagerMustAvoid(Villager* param_1)
+bool32_t BigForest::VillagerMustAvoid(Villager* param_1)
 {
     return 0;
 }
@@ -428,7 +428,7 @@ BigForest* BigForest::Create(MapCoords* coords, GBigForestInfo* info, uint32_t p
 }
 
 // win1.41 00438f50 mac 100b3530 BigForest::CreatureMustAvoid(Creature *)
-bool BigForest::CreatureMustAvoid(Creature* param_1)
+bool32_t BigForest::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -445,7 +445,7 @@ uint32_t BigForest::SaveObject(LHOSFile& param_1, const MapCoords& param_2)
 }
 
 // win1.41 00439050 mac 100b30a0 BigForest::CallVirtualFunctionsForCreation(MapCoords const &)
-void BigForest::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void BigForest::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -468,19 +468,19 @@ uint32_t BigForest::RemoveResource(RESOURCE_TYPE param_1, uint32_t param_2, GInt
 }
 
 // win1.41 004393c0 mac 100b29f0 BigForest::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool BigForest::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t BigForest::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 00439470 mac 100b2840 BigForest::Save(GameOSFile &)
-bool BigForest::Save(GameOSFile& param_1)
+bool32_t BigForest::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 004394e0 mac 100b2760 BigForest::Load(GameOSFile &)
-bool BigForest::Load(GameOSFile& file)
+bool32_t BigForest::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -504,19 +504,19 @@ float MobileStatic::GetZAngle()
 }
 
 // win1.41 00439630 mac 100b4140 MobileStatic::CanBeStompedOnByCreature(Creature *)
-bool MobileStatic::CanBeStompedOnByCreature(Creature* param_1)
+bool32_t MobileStatic::CanBeStompedOnByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00439640 mac 100b4190 MobileStatic::CanBePlayedWithByCreature(Creature *)
-bool MobileStatic::CanBePlayedWithByCreature(Creature* param_1)
+bool32_t MobileStatic::CanBePlayedWithByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00439650 mac 100b41e0 MobileStatic::CanBeThrownInTheSeaPlayfully(Creature *)
-bool MobileStatic::CanBeThrownInTheSeaPlayfully(Creature* param_1)
+bool32_t MobileStatic::CanBeThrownInTheSeaPlayfully(Creature* param_1)
 {
     return 0;
 }
@@ -540,7 +540,7 @@ int MobileStatic::GetMesh() const
 }
 
 // win1.41 00439690 mac 100b4420 MobileStatic::IsSolidToNewAbode(void)
-bool MobileStatic::IsSolidToNewAbode()
+bool32_t MobileStatic::IsSolidToNewAbode()
 {
     return 0;
 }
@@ -558,31 +558,31 @@ uint32_t MobileStatic::ApplyOnlyAfterReleased()
 }
 
 // win1.41 004396c0 mac 100b4510 MobileStatic::ValidToApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-uint32_t MobileStatic::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2)
+uint32_t MobileStatic::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2)
 {
     return 0;
 }
 
 // win1.41 004396d0 mac 100b4580 MobileStatic::CanBeUsedForThrowingDamageByCreature(Creature *)
-bool MobileStatic::CanBeUsedForThrowingDamageByCreature(Creature* param_1)
+bool32_t MobileStatic::CanBeUsedForThrowingDamageByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 004396f0 mac 100b4610 MobileStatic::IsMobileStatic(void)
-bool MobileStatic::IsMobileStatic()
+bool32_t MobileStatic::IsMobileStatic()
 {
     return 0;
 }
 
 // win1.41 00439700 mac 100b4650 MobileStatic::IsCastShadowAtNight(void)
-bool MobileStatic::IsCastShadowAtNight()
+bool32_t MobileStatic::IsCastShadowAtNight()
 {
     return 0;
 }
 
 // win1.41 00439710 mac 100b3f00 Rock::IsResourceStore(RESOURCE_TYPE)
-bool Rock::IsResourceStore(RESOURCE_TYPE param_1)
+bool32_t Rock::IsResourceStore(RESOURCE_TYPE param_1)
 {
     return 0;
 }
@@ -593,7 +593,7 @@ void Rock::SetPlayer(GPlayer* param_1)
 }
 
 // win1.41 00439730 mac inlined Rock::IsRock_0(void)
-bool Rock::IsRock()
+bool32_t Rock::IsRock()
 {
     return 0;
 }
@@ -611,7 +611,7 @@ uint32_t Rock::GetCreatureMimicType()
 }
 
 // win1.41 00439760 mac 100b4030 Rock::CanBeAttackedByCreature(Creature *)
-bool Rock::CanBeAttackedByCreature(Creature* param_1)
+bool32_t Rock::CanBeAttackedByCreature(Creature* param_1)
 {
     return 0;
 }
@@ -629,7 +629,7 @@ uint32_t Bonfire::InterfaceValidToTap(GInterfaceStatus* param_1)
 }
 
 // win1.41 00439790 mac 100b3cf0 Bonfire::ValidForPlaceInHand(GInterfaceStatus *)
-bool Bonfire::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Bonfire::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -637,7 +637,7 @@ bool Bonfire::ValidForPlaceInHand(GInterfaceStatus* param_1)
 // win1.41 004397a0 mac 100b3d40 Bonfire::CanBecomeAPhysicsObject(void)
 bool Bonfire::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 004397b0 mac 100b3d80 Bonfire::InteractsWithPhysicsObjects(void)
@@ -675,7 +675,7 @@ Bonfire::~Bonfire()
 }
 
 // win1.41 00439840 mac 100b4c70 Bonfire::CallVirtualFunctionsForCreation(MapCoords const &)
-void Bonfire::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Bonfire::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -686,13 +686,13 @@ uint32_t Bonfire::SaveObject(LHOSFile& param_1, const MapCoords& param_2)
 }
 
 // win1.41 00439990 mac 100b48d0 Bonfire::Save(GameOSFile &)
-bool Bonfire::Save(GameOSFile& param_1)
+bool32_t Bonfire::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 00439a00 mac 100b4800 Bonfire::Load(GameOSFile &)
-bool Bonfire::Load(GameOSFile& param_1)
+bool32_t Bonfire::Load(GameOSFile& param_1)
 {
     return 0;
 }
@@ -822,13 +822,13 @@ bool32_t BuildingSite::ShouldIGetWood(Villager* param_1)
 }
 
 // win1.41 0043c830 mac 100ba480 BuildingSite::Save(GameOSFile &)
-bool BuildingSite::Save(GameOSFile& param_1)
+bool32_t BuildingSite::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 0043cad0 mac 100b9cf0 BuildingSite::Load(GameOSFile &)
-bool BuildingSite::Load(GameOSFile& param_1)
+bool32_t BuildingSite::Load(GameOSFile& param_1)
 {
     return 0;
 }
@@ -916,13 +916,13 @@ void CitadelBuildingSite::GetResourcePosAndYAngle(uint32_t param_1, uint32_t par
 }
 
 // win1.41 0043d500 mac 100b8830 CitadelBuildingSite::GetPileWood(MapCoords const &)
-Pot* CitadelBuildingSite::GetPileWood(const MapCoords* param_1)
+Pot* CitadelBuildingSite::GetPileWood(const MapCoords& param_1)
 {
     return 0;
 }
 
 // win1.41 0043d580 mac 100b8750 CitadelBuildingSite::IsLinkedToThisBuildingSite(Pot *)
-bool CitadelBuildingSite::IsLinkedToThisBuildingSite(Pot* param_1)
+bool32_t CitadelBuildingSite::IsLinkedToThisBuildingSite(Pot* param_1)
 {
     return 0;
 }
@@ -933,13 +933,13 @@ void CitadelBuildingSite::RemovePotFromStructure(PotStructure* param_1)
 }
 
 // win1.41 0043d5e0 mac 100b8620 CitadelBuildingSite::Save(GameOSFile &)
-bool CitadelBuildingSite::Save(GameOSFile& param_1)
+bool32_t CitadelBuildingSite::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 0043d620 mac 100b8580 CitadelBuildingSite::Load(GameOSFile &)
-bool CitadelBuildingSite::Load(GameOSFile& param_1)
+bool32_t CitadelBuildingSite::Load(GameOSFile& param_1)
 {
     return 0;
 }
@@ -950,7 +950,7 @@ void CitadelBuildingSite::Process()
 }
 
 // win1.41 0043d6e0 mac 100b8180 StandardBuildingSite::GetPileWood(MapCoords const &)
-Pot* StandardBuildingSite::GetPileWood(const MapCoords* param_1)
+Pot* StandardBuildingSite::GetPileWood(const MapCoords& param_1)
 {
     return 0;
 }
@@ -988,19 +988,19 @@ void StandardBuildingSite::RemovePotFromStructure(PotStructure* param_1)
 }
 
 // win1.41 0043d830 mac 100b8000 StandardBuildingSite::IsLinkedToThisBuildingSite(Pot *)
-bool StandardBuildingSite::IsLinkedToThisBuildingSite(Pot* param_1)
+bool32_t StandardBuildingSite::IsLinkedToThisBuildingSite(Pot* param_1)
 {
     return 0;
 }
 
 // win1.41 0043d850 mac 100b7f60 StandardBuildingSite::Save(GameOSFile &)
-bool StandardBuildingSite::Save(GameOSFile& param_1)
+bool32_t StandardBuildingSite::Save(GameOSFile& param_1)
 {
     return 0;
 }
 
 // win1.41 0043d890 mac 100b7ec0 StandardBuildingSite::Load(GameOSFile &)
-bool StandardBuildingSite::Load(GameOSFile& param_1)
+bool32_t StandardBuildingSite::Load(GameOSFile& param_1)
 {
     return 0;
 }
@@ -1047,4 +1047,66 @@ int LHTimer::MSeconds()
 // win1.41 0043ebc0 mac 100016c0 LHTimer::SetSpeedUpFactor(float)
 void LHTimer::SetSpeedUpFactor(float factor)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_3();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_GLeashSelectorInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GLeashSelectorInfo
+        push 0x00000104
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GLeashSelectorInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GBaseInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GBaseInfo
+        push 0x10
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GBaseInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_LHReleasedOSFile() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_3
+        test byte ptr [esp + 8], 1
+        je short skip_LHReleasedOSFile
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_LHReleasedOSFile:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

@@ -6,7 +6,7 @@ MiniDialogBoxOptions::MiniDialogBoxOptions()
 }
 
 // win1.41 00514f50 mac 102b2b00 MiniDialogBoxOptions::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void MiniDialogBoxOptions::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void MiniDialogBoxOptions::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

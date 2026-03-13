@@ -13,9 +13,9 @@ bool Abode::IsFunctional()
 }
 
 // win1.41 00406230 mac 1014cfd0 Abode::ChecksVerticesVObjects(void)
-bool Abode::ChecksVerticesVObjects()
+bool32_t Abode::ChecksVerticesVObjects()
 {
-    return false;
+    __asm xor al, al
 }
 
 // win1.41 00406240 mac 104a8350 Abode::ReactToPhysicsImpact(PhysicsObject *, bool)
@@ -31,7 +31,7 @@ void Abode::ApplyEffectsDueToPhysicalDestruction(Object* object, GPlayer* player
 // win1.41 00406800 mac 1010ab50 Abode::CanBecomeAPhysicsObject(void)
 bool Abode::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00406810 mac 1001b380 Abode::GetScriptObjectType(void)
@@ -65,13 +65,13 @@ Villager* Abode::FindVillager(int (__cdecl* param_1)(GameThingWithPos *, SCRIPT_
 }
 
 // win1.41 00406a10 mac 103bd750 Abode::Save(GameOSFile &)
-bool Abode::Save(GameOSFile& file)
+bool32_t Abode::Save(GameOSFile& file)
 {
     return false;
 }
 
 // win1.41 00406d20 mac 101a2920 Abode::Load(GameOSFile &)
-bool Abode::Load(GameOSFile& file)
+bool32_t Abode::Load(GameOSFile& file)
 {
     return false;
 }
@@ -125,7 +125,7 @@ MapCoords* Abode::FUN_00407230(MapCoords* coords, bool param_2)
 // win1.41 00407280 mac 100dcdb0 Abode::CanBeHiddenIn(void)
 bool Abode::CanBeHiddenIn()
 {
-    return false;
+    __asm xor eax, eax
 }
 
 // win1.41 00407290 mac 10064f30 Abode::GetPercentRepairedForNonFunctional(void)
@@ -174,13 +174,13 @@ float Abode::CalculateDesireToGainVillager()
 }
 
 // win1.41 004075b0 mac 10518900 Abode::TakeVillagerFrom(Abode&, int)
-bool Abode::TakeVillagerFrom(Abode* other, int param_2)
+bool Abode::TakeVillagerFrom(Abode& other)
 {
     return false;
 }
 
 // win1.41 00407620 mac 10516470 Abode::SwapMaleForFemaleFrom(Abode&)
-bool Abode::SwapMaleForFemaleFrom(Abode* other)
+bool Abode::SwapMaleForFemaleFrom(Abode& other)
 {
     return false;
 }

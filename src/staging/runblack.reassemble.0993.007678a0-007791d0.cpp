@@ -86,7 +86,7 @@ bool32_t Villager::UpdateReactiveStateFromAttitudeToCreature()
 }
 
 // win1.41 00768510 mac 10594d70 Villager::SetupMoveToCreatureReaction(MapCoords const &, unsigned char)
-void Villager::SetupMoveToCreatureReaction(const MapCoords* param_1, unsigned char param_2)
+void Villager::SetupMoveToCreatureReaction(const MapCoords& param_1, unsigned char param_2)
 {
 }
 
@@ -121,7 +121,7 @@ uint32_t Living::AttitudeToCreatureEating()
 }
 
 // win1.41 00768630 mac 10597660 Villager::IsReadyForNewScriptAction(void)
-bool Villager::IsReadyForNewScriptAction()
+bool32_t Villager::IsReadyForNewScriptAction()
 {
     return 0;
 }
@@ -133,7 +133,7 @@ bool32_t Living::CannotExitState(unsigned char param_1)
 }
 
 // win1.41 00768680 mac 105974b0 Villager::SetupScriptWanderToPos(MapCoords const &, float, unsigned short, unsigned short)
-bool32_t Villager::SetupScriptWanderToPos(const MapCoords* param_1, float param_2, unsigned short param_3, unsigned short param_4)
+bool32_t Villager::SetupScriptWanderToPos(const MapCoords& param_1, float param_2, unsigned short param_3, unsigned short param_4)
 {
     return 0;
 }
@@ -432,13 +432,13 @@ uint32_t Villager::AtStructureRemoveResource(MultiMapFixed* param_1, RESOURCE_TY
 }
 
 // win1.41 0076a3b0 mac 100094e0 Villager::AtStructureAddResource(MultiMapFixed *, RESOURCE_TYPE, unsigned long &, bool)
-uint32_t Villager::AtStructureAddResource(MultiMapFixed* param_1, RESOURCE_TYPE param_2, unsigned long* param_3, bool param_4)
+uint32_t Villager::AtStructureAddResource(MultiMapFixed* param_1, RESOURCE_TYPE param_2, unsigned long& param_3, bool param_4)
 {
     return 0;
 }
 
 // win1.41 0076a4c0 mac 1059a990 Villager::SetDying(void)
-bool Villager::SetDying()
+bool32_t Villager::SetDying()
 {
     return 0;
 }
@@ -522,7 +522,7 @@ bool32_t Villager::EnterSex(unsigned char param_1, unsigned char param_2)
 }
 
 // win1.41 0076acf0 mac 10599a60 Villager::SetupWander(JustWholeMapXZ &, VILLAGER_STATES)
-bool32_t Villager::SetupWander(JustWholeMapXZ* param_1, VILLAGER_STATES param_2)
+bool32_t Villager::SetupWander(JustWholeMapXZ& param_1, VILLAGER_STATES param_2)
 {
     return 0;
 }
@@ -576,7 +576,7 @@ bool32_t Villager::PauseForASecond()
 }
 
 // win1.41 0076b0d0 mac 105993e0 Villager::SetupPanicReaction(Reaction *, MapCoords &)
-bool32_t Villager::SetupPanicReaction(Reaction* param_1, MapCoords* param_2)
+bool32_t Villager::SetupPanicReaction(Reaction* param_1, MapCoords& param_2)
 {
     return 0;
 }
@@ -630,7 +630,7 @@ bool32_t Villager::GoAndChilloutInTown()
 }
 
 // win1.41 0076b610 mac 100118e0 Villager::GetMeToMyChillOutPos(int (Villager::)(void const *, void* , MapCoords &), MapCoords &, float, MapCoords const &)
-void Villager::GetMeToMyChillOutPos(int (* callback)(MapCoords&), MapCoords& param_5, float param_6, const MapCoords& param_7)
+void Villager::GetMeToMyChillOutPos(int (* callback)(MapCoords&), MapCoords& param_5, float param_6, const MapCoords* param_7)
 {
 }
 
@@ -699,7 +699,7 @@ float Villager::CheckWorshipActivity(int param_1)
 }
 
 // win1.41 0076bc20 mac 1059eaf0 Villager::CanIGetToTheWorshipSite(MagicTeleport * &)
-bool32_t Villager::CanIGetToTheWorshipSite(MagicTeleport** param_1)
+bool32_t Villager::CanIGetToTheWorshipSite(MagicTeleport*& param_1)
 {
     return 0;
 }
@@ -942,13 +942,13 @@ GVirtualInfluence::~GVirtualInfluence()
 // }
 
 // win1.41 0076e930 mac 1015aab0 Fragment::CanBePickedUpByCreature(Creature *)
-bool Fragment::CanBePickedUpByCreature(Creature* param_1)
+bool32_t Fragment::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0076e940 mac 1015ab00 Fragment::ValidForPlaceInHand(GInterfaceStatus *)
-bool Fragment::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Fragment::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -960,7 +960,7 @@ uint32_t Fragment::InterfaceValidToTap(GInterfaceStatus* param_1)
 }
 
 // win1.41 0076e960 mac 1015aba0 Fragment::CanBeThrownByPlayer(void)
-bool Fragment::CanBeThrownByPlayer()
+bool32_t Fragment::CanBeThrownByPlayer()
 {
     return 0;
 }
@@ -974,13 +974,13 @@ IMMERSION_EFFECT_TYPE Fragment::GetInHandImmersionTexture()
 // win1.41 0076e980 mac 1015ac40 Fragment::GetSaveType(void)
 uint32_t Fragment::GetSaveType()
 {
-    return 0;
+    return 247;
 }
 
 // win1.41 0076e990 mac 1015ac80 Fragment::GetDebugText(void)
 char* Fragment::GetDebugText()
 {
-    return 0;
+    return "Fragment";
 }
 
 // win1.41 0076e9a0 mac 1015aa20 Fragment::_dt(void)
@@ -1006,7 +1006,7 @@ void Fragment::Draw()
 // win1.41 0076ec40 mac 1015bdd0 Fragment::GetPhysicsConstantsType(void)
 uint32_t Fragment::GetPhysicsConstantsType()
 {
-    return 0;
+    return 11;
 }
 
 // win1.41 0076ec50 mac 1015b540 Fragment::SetUpPhysOb(PhysOb *)
@@ -1031,13 +1031,13 @@ void Fragment::EndPhysics(PhysicsObject* param_1, bool param_2)
 }
 
 // win1.41 0076f5d0 mac 1015b130 Fragment::Save(GameOSFile &)
-bool Fragment::Save(GameOSFile& file)
+bool32_t Fragment::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0076f6a0 mac 1015afa0 Fragment::Load(GameOSFile &)
-bool Fragment::Load(GameOSFile& file)
+bool32_t Fragment::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1062,11 +1062,11 @@ SOUND_COLLISION_TYPE Fragment::GetCollideSoundType()
 // win1.41 0076f7e0 mac 1015ae70 Fragment::ShouldFootpathsGoRound(void)
 bool Fragment::ShouldFootpathsGoRound()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 0076f7f0 mac 1015ae00 Fragment::CreatureMustAvoid(Creature *)
-bool Fragment::CreatureMustAvoid(Creature* param_1)
+bool32_t Fragment::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -1074,7 +1074,7 @@ bool Fragment::CreatureMustAvoid(Creature* param_1)
 // win1.41 0076f860 mac 1015e730 VortexSave::GetSaveType(void)
 uint32_t VortexSave::GetSaveType()
 {
-    return 0;
+    return 262;
 }
 
 // win1.41 0076f870 mac 1015f3f0 VortexSave::_dt(void)
@@ -1083,13 +1083,13 @@ VortexSave::~VortexSave()
 }
 
 // win1.41 0076fb40 mac 1015ed90 VortexSave::Save(GameOSFile &)
-bool VortexSave::Save(GameOSFile& file)
+bool32_t VortexSave::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0076fdc0 mac 1015e890 VortexSave::Load(GameOSFile &)
-bool VortexSave::Load(GameOSFile& file)
+bool32_t VortexSave::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1102,19 +1102,19 @@ void VortexSave::ResolveLoad()
 // win1.41 00770b20 mac 1015f710 WayPoint::GetSaveType(void)
 uint32_t WayPoint::GetSaveType()
 {
-    return 0;
+    return 161;
 }
 
 // win1.41 00770b30 mac 1015f750 WayPoint::GetDebugText(void)
 char* WayPoint::GetDebugText()
 {
-    return 0;
+    return "WayPoint";
 }
 
 // win1.41 00770b40 mac 1015f790 WayPoint::GetText(void)
 const char* WayPoint::GetText()
 {
-    return 0;
+    return "WayPoint";
 }
 
 // win1.41 00770b50 mac 1015fc80 WayPoint::_dt(void)
@@ -1160,13 +1160,13 @@ void GClimate::ToBeDeleted(int param_1)
 }
 
 // win1.41 00773320 mac 1059f860 GClimate::Save(GameOSFile &)
-bool GClimate::Save(GameOSFile& file)
+bool32_t GClimate::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007736e0 mac 1059ef90 GClimate::Load(GameOSFile &)
-bool GClimate::Load(GameOSFile& file)
+bool32_t GClimate::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1204,13 +1204,13 @@ void WeatherThing::SetSpeedInMetres(float param_1, int param_2)
 }
 
 // win1.41 007745c0 mac 105a4300 WeatherThing::Save(GameOSFile &)
-bool WeatherThing::Save(GameOSFile& file)
+bool32_t WeatherThing::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007747e0 mac 105a3fe0 WeatherThing::Load(GameOSFile &)
-bool WeatherThing::Load(GameOSFile& file)
+bool32_t WeatherThing::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1221,7 +1221,7 @@ void Whale::ToBeDeleted(int param_1)
 }
 
 // win1.41 00774ca0 mac 10160a20 Whale::CallVirtualFunctionsForCreation(MapCoords const &)
-void Whale::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Whale::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -1237,13 +1237,13 @@ uint32_t Whale::Process()
 }
 
 // win1.41 007752a0 mac 101600f0 Whale::Save(GameOSFile &)
-bool Whale::Save(GameOSFile& file)
+bool32_t Whale::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007752c0 mac 10160090 Whale::Load(GameOSFile &)
-bool Whale::Load(GameOSFile& file)
+bool32_t Whale::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1264,7 +1264,7 @@ void Wonder::ToBeDeleted(int param_1)
 }
 
 // win1.41 00778e80 mac 101619e0 Wonder::Create(const MapCoords&, const GAbodeInfo*, Town*, float, float, float, int)
-Wonder* Wonder::Create(const MapCoords* coords, const GAbodeInfo* info, Town* town, float y_angle, float scale, float food, int wood)
+Wonder* Wonder::Create(const MapCoords& coords, const GAbodeInfo* info, Town* town, float y_angle, float scale, float food, int wood)
 {
     return 0;
 }
@@ -1296,19 +1296,19 @@ void Wonder::SetPower(float param_1)
 }
 
 // win1.41 00779080 mac 10161540 Wonder::Save(GameOSFile &)
-bool Wonder::Save(GameOSFile& file)
+bool32_t Wonder::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007790f0 mac 10161470 Wonder::Load(GameOSFile &)
-bool Wonder::Load(GameOSFile& file)
+bool32_t Wonder::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00779160 mac 101613c0 Wonder::CallVirtualFunctionsForCreation(const MapCoords&)
-void Wonder::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void Wonder::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -1316,4 +1316,160 @@ void Wonder::CallVirtualFunctionsForCreation(const MapCoords* coords)
 LH3DObject::ObjectType Wonder::Get3DType()
 {
     return (LH3DObject::ObjectType)0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_76();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00608750();
+extern "C" void sdtor_dt_77();
+extern "C" void sdtor_dt_78();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void jmp_addr_0x0083f630();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_GVirtualInfluence() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_76
+        test byte ptr [esp + 8], 1
+        je short skip_GVirtualInfluence
+        push 0x60
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GVirtualInfluence:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Fragment() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00608750
+        test byte ptr [esp + 8], 1
+        je short skip_Fragment
+        push 0x000000a8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Fragment:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_VortexSave() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_77
+        test byte ptr [esp + 8], 1
+        je short skip_VortexSave
+        push 0x24
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_VortexSave:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_WayPoint() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_78
+        test byte ptr [esp + 8], 1
+        je short skip_WayPoint
+        push 0x2c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_WayPoint:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GWeatherInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GWeatherInfo
+        push 0x64
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GWeatherInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GWeather() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0083f630
+        test byte ptr [esp + 8], 1
+        je short skip_GWeather
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_GWeather:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GClimateInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GClimateInfo
+        push 0x000000a0
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GClimateInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GClimateRainInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GClimateRainInfo
+        push 0x000000a4
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GClimateRainInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

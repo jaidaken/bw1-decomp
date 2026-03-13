@@ -31,19 +31,19 @@ bool32_t PlannedMultiMapFixed::CreateBuildingSite()
 }
 
 // win1.41 00648990 mac 10114ef0 PlannedMultiMapFixed::Save(GameOSFile &)
-bool PlannedMultiMapFixed::Save(GameOSFile& file)
+bool32_t PlannedMultiMapFixed::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00648af0 mac 10114cd0 PlannedMultiMapFixed::Load(GameOSFile &)
-bool PlannedMultiMapFixed::Load(GameOSFile& file)
+bool32_t PlannedMultiMapFixed::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00648c50 mac 10114bf0 PlannedMultiMapFixed::PostCreatePlanned(MultiMapFixed&)
-void PlannedMultiMapFixed::PostCreatePlanned(MultiMapFixed* param_1)
+void PlannedMultiMapFixed::PostCreatePlanned(MultiMapFixed& param_1)
 {
 }
 
@@ -100,7 +100,7 @@ void GPlayer::Dump()
 }
 
 // win1.41 0064a790 mac 1005c3d0 GPlayer::GetPlayerNumber(void) const
-uint8_t GPlayer::GetPlayerNumber()
+uint8_t GPlayer::GetPlayerNumber() const
 {
     return 0;
 }
@@ -169,7 +169,32 @@ GInterface* GPlayer::GetRealInterface(int param_2)
 }
 
 // win1.41 0064d750 mac 10033320 GPlayer::IsMemberOfThisPlayer(GInterfaceStatus *)
-bool GPlayer::IsMemberOfThisPlayer(GInterfaceStatus* param_1)
+bool32_t GPlayer::IsMemberOfThisPlayer(GInterfaceStatus* param_1)
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00648ee0();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_GPlayer() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00648ee0
+        test byte ptr [esp + 8], 1
+        je short skip_GPlayer
+        push 0x00000a60
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GPlayer:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

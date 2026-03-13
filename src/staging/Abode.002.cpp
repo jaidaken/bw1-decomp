@@ -22,13 +22,13 @@ void Abode::DestroyedByBeam()
 }
 
 // win1.41 00402cd0 mac 100c7020 Abode::GetInspectObjectPos(Villager *, MapCoords *)
-bool Abode::GetInspectObjectPos(Villager* param_1, MapCoords* pos)
+bool32_t Abode::GetInspectObjectPos(Villager* param_1, MapCoords* pos)
 {
     return false;
 }
 
 // win1.41 00402cf0 mac 101c66a0 Abode::GetPSysFireLocalRndFlamePos(LHPoint *, long *)
-bool Abode::GetPSysFireLocalRndFlamePos(LHPoint* point, int32_t* param_2)
+bool32_t Abode::GetPSysFireLocalRndFlamePos(LHPoint* point, int32_t* param_2)
 {
     return false;
 }
@@ -45,7 +45,7 @@ void Abode::SetUpPhysOb(PhysOb* param_1)
 }
 
 // win1.41 00402e20 mac 103bf260 Abode::Create(MapCoords const &, GAbodeInfo const *, Town *, float, float, unsigned long, unsigned long, float, int, int)
-Abode* Create(const MapCoords& coords, const GAbodeInfo* info, Town* town, float y_angle, float scale, uint32_t param_6, uint32_t param_7, float food, int wood, int param_10)
+Abode* Create(const MapCoords* coords, const GAbodeInfo* info, Town* town, float y_angle, float scale, uint32_t param_6, uint32_t param_7, float food, int wood, int param_10)
 {
     return NULL;
 }
@@ -56,7 +56,7 @@ void Abode::Init(int param_1, uint32_t food_amount, uint32_t wood_amount)
 }
 
 // win1.41 00403190 mac 10589610 Abode::CreateWithoutSpecial(MapCoords const &, GAbodeInfo const *, Town *, float, float, unsigned long, unsigned long, float, int, int)
-Abode* CreateWithoutSpecial(const MapCoords& coords, const GAbodeInfo* info, Town* town, float y_angle, float scale, float food, int wood)
+Abode* CreateWithoutSpecial(const MapCoords* coords, const GAbodeInfo* info, Town* town, float y_angle, float scale, float food, int wood)
 {
     return NULL;
 }

@@ -17,19 +17,19 @@ float GArena::GetRadius()
 // win1.41 00424790 mac 100ad3a0 GArena::GetText(void)
 const char* GArena::GetText()
 {
-    return 0;
+    return "GArena";
 }
 
 // win1.41 004247a0 mac 100ad3e0 GArena::GetSaveType(void)
 uint32_t GArena::GetSaveType()
 {
-    return 0;
+    return 65;
 }
 
 // win1.41 004247b0 mac 100ad420 GArena::GetDebugText(void)
 char* GArena::GetDebugText()
 {
-    return 0;
+    return "GArena";
 }
 
 // win1.41 004247c0 mac 100ad310 GArena::_dt(void)
@@ -59,13 +59,13 @@ void GArena::ToBeDeleted(int param_1)
 }
 
 // win1.41 004250d0 mac 100aa9e0 GArena::Save(GameOSFile &)
-bool GArena::Save(GameOSFile& file)
+bool32_t GArena::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 004251d0 mac 100aa860 GArena::Load(GameOSFile &)
-bool GArena::Load(GameOSFile& file)
+bool32_t GArena::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -94,9 +94,9 @@ GArrowInfo::~GArrowInfo()
 }
 
 // win1.41 00425b00 mac 100adca0 Mobile::ValidForPlaceInHand(GInterfaceStatus *)
-bool Mobile::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Mobile::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00425b10 mac 100ad890 MobileObject::GetXAngle(void)
@@ -132,49 +132,49 @@ uint32_t MobileObject::GetTastiness()
 // win1.41 00425b60 mac 100ada10 MobileObject::GetCreatureMimicType(void)
 uint32_t MobileObject::GetCreatureMimicType()
 {
-    return 0;
+    return 8;
 }
 
 // win1.41 00425b70 mac 100ada60 MobileObject::CanBeUsedToHoldWater(Creature *)
-bool MobileObject::CanBeUsedToHoldWater(Creature* param_1)
+bool32_t MobileObject::CanBeUsedToHoldWater(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00425b90 mac 100adae0 MobileObject::CanBeStompedOnByCreature(Creature *)
-bool MobileObject::CanBeStompedOnByCreature(Creature* param_1)
+bool32_t MobileObject::CanBeStompedOnByCreature(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00425ba0 mac 100adb30 MobileObject::CanBeThrownInTheSeaPlayfully(Creature *)
-bool MobileObject::CanBeThrownInTheSeaPlayfully(Creature* param_1)
+bool32_t MobileObject::CanBeThrownInTheSeaPlayfully(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00425bb0 mac 100adb90 MobileObject::CanBePlayedWithByCreature(Creature *)
-bool MobileObject::CanBePlayedWithByCreature(Creature* param_1)
+bool32_t MobileObject::CanBePlayedWithByCreature(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00425bc0 mac 100adbe0 MobileObject::IsMobileObject(void)
-bool MobileObject::IsMobileObject()
+bool32_t MobileObject::IsMobileObject()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00425bd0 mac 100adc20 MobileObject::GetSaveType(void)
 uint32_t MobileObject::GetSaveType()
 {
-    return 0;
+    return 83;
 }
 
 // win1.41 00425be0 mac 100adc60 MobileObject::GetDebugText(void)
 char* MobileObject::GetDebugText()
 {
-    return 0;
+    return "MobileObject";
 }
 
 // win1.41 00425bf0 mac inlined Arrow::GetPlayer(void)
@@ -189,13 +189,13 @@ Arrow::~Arrow()
 }
 
 // win1.41 00425c50 mac 100add90 Object::CanBeCrushed(void)
-bool Object::CanBeCrushed()
+bool32_t Object::CanBeCrushed()
 {
     return 0;
 }
 
 // win1.41 00425c60 mac 100ade90 Object::CanBeFrighteningToCreature(Creature *)
-bool Object::CanBeFrighteningToCreature(Creature* creature)
+bool32_t Object::CanBeFrighteningToCreature(Creature* creature)
 {
     return 0;
 }
@@ -204,4 +204,104 @@ bool Object::CanBeFrighteningToCreature(Creature* creature)
 char* GameThing::GetDebugText()
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_2();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void jmp_addr_0x00606ed0();
+
+__declspec(naked) void __cdecl sdtor_GArena() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_GArena
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GArena:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_ArenaSpellIcon() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_2
+        test byte ptr [esp + 8], 1
+        je short skip_ArenaSpellIcon
+        push 0x74
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ArenaSpellIcon:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GArrowInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GArrowInfo
+        push 0x00000130
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GArrowInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Arrow() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00606ed0
+        test byte ptr [esp + 8], 1
+        je short skip_Arrow
+        push 0x6c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Arrow:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_TownArtifact() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_TownArtifact
+        push 0x40
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_TownArtifact:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

@@ -1,7 +1,7 @@
 #include "EndGameBox.h"
 
 // win1.41 0056e160 mac 1031c660 EndGameBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void EndGameBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void EndGameBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

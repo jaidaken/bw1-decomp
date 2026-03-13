@@ -9,8 +9,9 @@ uint32_t GLandscape::PreDraw()
 }
 
 // win1.41 005e42e0 mac 1004d770 GLandscape::Draw(void)
-void GLandscape::Draw()
+uint32_t GLandscape::Draw()
 {
+    return 0;
 }
 
 // win1.41 005e52e0 mac 10379f50 GLandscape::Open(char *)
@@ -29,18 +30,18 @@ GLanguage::~GLanguage()
 }
 
 // win1.41 005e71d0 mac 1037b4b0 GLeashStatus::SaveExtraData(GameOSFile &)
-void GLeashStatus::SaveExtraData(GameOSFile* param_1)
+void GLeashStatus::SaveExtraData(GameOSFile& param_1)
 {
 }
 
 // win1.41 005e7230 mac 1037b1a0 GLeashStatus::Save(GameOSFile &)
-bool GLeashStatus::Save(GameOSFile& file)
+bool32_t GLeashStatus::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005e7430 mac 1037aeb0 GLeashStatus::Load(GameOSFile &)
-bool GLeashStatus::Load(GameOSFile& file)
+bool32_t GLeashStatus::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -54,4 +55,29 @@ GPlayer* GLeashStatus::GetPlayer()
 // win1.41 005e7650 mac 1037ae10 GLeashStatus::ResolveLoad(void)
 void GLeashStatus::ResolveLoad()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x005e6790();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_GLanguage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x005e6790
+        test byte ptr [esp + 8], 1
+        je short skip_GLanguage
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GLanguage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

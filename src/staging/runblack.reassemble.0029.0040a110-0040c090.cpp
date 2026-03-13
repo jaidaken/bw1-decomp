@@ -28,7 +28,7 @@ void SetupList::MouseUp(int x, int y, bool param_3)
 // }
 
 // win1.41 0040a520 mac 104e2bb0 SetupList::IsSelected(int)
-bool SetupList::IsSelected(int index)
+bool32_t SetupList::IsSelected(int index)
 {
     return 0;
 }
@@ -74,7 +74,7 @@ SetupMultiList::~SetupMultiList()
 }
 
 // win1.41 0040b530 mac 1047e020 SetupMultiList::IsSelected(int)
-bool SetupMultiList::IsSelected(int index)
+bool32_t SetupMultiList::IsSelected(int index)
 {
     return 0;
 }
@@ -92,4 +92,28 @@ void SetupEdit::Char(int character)
 // win1.41 0040baf0 mac 103813a0 SetupEdit::KeyDown(int)
 void SetupEdit::KeyDown(LHKey key, LHKeyMod mod)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_1();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_SetupMultiList() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_1
+        test byte ptr [esp + 8], 1
+        je short skip_SetupMultiList
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupMultiList:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

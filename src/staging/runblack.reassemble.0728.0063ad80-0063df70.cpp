@@ -6,7 +6,7 @@
 #include "Game.h"
 
 // win1.41 0063ad80 mac 103d9ee0 Game3DObject::Create(MapCoords const &, LH3DObject::ObjectType, MESH_LIST, float, float)
-Game3DObject* Game3DObject::Create(const MapCoords* coords, LH3DObject::ObjectType type, MESH_LIST mesh, float param_4, float param_5)
+Game3DObject* Game3DObject::Create(const MapCoords& coords, LH3DObject::ObjectType type, MESH_LIST mesh, float param_4, float param_5)
 {
     return 0;
 }
@@ -18,7 +18,7 @@ bool Game3DObject::GetDoorPosition(MapCoords* position)
 }
 
 // win1.41 0063b060 mac 103d9d50 Game3DObject::GetSpecialPos(unsigned long, MapCoords &) const
-bool Game3DObject::GetSpecialPos(uint32_t index, MapCoords* coords)
+bool Game3DObject::GetSpecialPos(unsigned long index, MapCoords* coords)
 {
     return 0;
 }

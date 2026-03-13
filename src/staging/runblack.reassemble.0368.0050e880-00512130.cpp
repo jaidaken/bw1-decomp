@@ -42,15 +42,15 @@ IMMERSION_EFFECT_TYPE DeadTree::GetInHandImmersionTexture()
 }
 
 // win1.41 00510980 mac 100c0e80 DeadTree::IsAnyKindOfTree(void)
-bool DeadTree::IsAnyKindOfTree()
+bool32_t DeadTree::IsAnyKindOfTree()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00510990 mac 100c0ec0 DeadTree::IsDeadTree(void)
-bool DeadTree::IsDeadTree()
+bool32_t DeadTree::IsDeadTree()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 005109a0 mac 100c0f00 DeadTree::InterfaceValidToTap(GInterfaceStatus *)
@@ -62,17 +62,17 @@ uint32_t DeadTree::InterfaceValidToTap(GInterfaceStatus* param_1)
 // win1.41 005109b0 mac 100c0f50 DeadTree::InterfaceTap(GInterfaceStatus *)
 uint32_t DeadTree::InterfaceTap(GInterfaceStatus* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 005109c0 mac 100c0fa0 DeadTree::HandShouldFeelWithMeshIntersect(void)
-bool DeadTree::HandShouldFeelWithMeshIntersect()
+bool32_t DeadTree::HandShouldFeelWithMeshIntersect()
 {
     return 0;
 }
 
 // win1.41 005109d0 mac inlined DeadTree::IsRock_0(void)
-bool DeadTree::IsRock()
+bool32_t DeadTree::IsRock()
 {
     return 0;
 }
@@ -80,13 +80,13 @@ bool DeadTree::IsRock()
 // win1.41 005109e0 mac 100c4120 DeadTree::GetSaveType(void)
 uint32_t DeadTree::GetSaveType()
 {
-    return 0;
+    return 112;
 }
 
 // win1.41 005109f0 mac 100c4160 DeadTree::GetDebugText(void)
 char* DeadTree::GetDebugText()
 {
-    return 0;
+    return "DeadTree";
 }
 
 // win1.41 00510a00 mac 100c19c0 DeadTree::_dt(void)
@@ -95,7 +95,7 @@ DeadTree::~DeadTree()
 }
 
 // win1.41 00510a90 mac 100c3b20 DeadTree::CallVirtualFunctionsForCreation(MapCoords const &)
-void DeadTree::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void DeadTree::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -127,7 +127,7 @@ void DeadTree::StartOnFire()
 }
 
 // win1.41 00510e30 mac 100c2e50 DeadTree::CreatureMustAvoid(Creature *)
-bool DeadTree::CreatureMustAvoid(Creature* param_1)
+bool32_t DeadTree::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -150,7 +150,7 @@ uint32_t DeadTree::ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2,
 }
 
 // win1.41 00511050 mac 100c2910 DeadTree::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-uint32_t DeadTree::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3)
+uint32_t DeadTree::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3)
 {
     return 0;
 }
@@ -199,13 +199,13 @@ void DeadTree::SetUpPhysOb(PhysOb* param_1)
 // win1.41 005111f0 mac 100c2490 DeadTree::InteractsWithPhysicsObjects(void)
 bool DeadTree::InteractsWithPhysicsObjects()
 {
-    return 0;
+    return true;
 }
 
 // win1.41 00511200 mac 100c2450 DeadTree::IsARootedObject(void)
 bool DeadTree::IsARootedObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00511330 mac 100c20e0 DeadTree::GetDefaultResource(void)
@@ -240,17 +240,17 @@ float DeadTree::GetWeight()
 // win1.41 005115b0 mac 100c1c10 DeadTree::GetScriptObjectType(void)
 uint32_t DeadTree::GetScriptObjectType()
 {
-    return 0;
+    return 13;
 }
 
 // win1.41 005115c0 mac 100c1b30 DeadTree::Save(GameOSFile &)
-bool DeadTree::Save(GameOSFile& file)
+bool32_t DeadTree::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00511630 mac 100c1a50 DeadTree::Load(GameOSFile &)
-bool DeadTree::Load(GameOSFile& file)
+bool32_t DeadTree::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -258,13 +258,13 @@ bool DeadTree::Load(GameOSFile& file)
 // win1.41 005118c0 mac 100c0da0 FelledTree::GetSaveType(void)
 uint32_t FelledTree::GetSaveType()
 {
-    return 0;
+    return 113;
 }
 
 // win1.41 005118d0 mac 100c0de0 FelledTree::GetDebugText(void)
 char* FelledTree::GetDebugText()
 {
-    return 0;
+    return "FelledTree";
 }
 
 // win1.41 005118e0 mac 100c0cc0 FelledTree::_dt(void)
@@ -275,7 +275,7 @@ FelledTree::~FelledTree()
 // win1.41 00511a10 mac 100c1250 DeadTree::CanBecomeAPhysicsObject(void)
 bool DeadTree::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00511a20 mac 100c10e0 DeadTree::GetCarriedTreeType(void)
@@ -293,4 +293,85 @@ float DeadTree::GetWoodValue()
 // win1.41 00511da0 mac 1002c710 GDebug::SetMessage(unsigned short, char *,...)
 void GDebug::SetMessage(GDebug* debug, uint16_t param_2, char* fmt, ...)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void jmp_addr_0x00608750();
+
+__declspec(naked) void __cdecl sdtor_DanceKeyFrame() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_DanceKeyFrame
+        push 0x24
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_DanceKeyFrame:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GData() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GData
+        push 0x28
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GData:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_DeadTree() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00608750
+        test byte ptr [esp + 8], 1
+        je short skip_DeadTree
+        push 0x000000a0
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_DeadTree:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_FelledTree() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00608750
+        test byte ptr [esp + 8], 1
+        je short skip_FelledTree
+        push 0x000000a0
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_FelledTree:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

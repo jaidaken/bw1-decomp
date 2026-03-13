@@ -7,8 +7,9 @@ GCamera* GGame::GetCamera()
 }
 
 // win1.41 0054c190 mac 101c8360 GGame::StartGame(void)
-void GGame::StartGame()
+uint32_t GGame::StartGame()
 {
+    return 0;
 }
 
 // win1.41 0054c330 mac 10496be0 GGame::Delete(void)

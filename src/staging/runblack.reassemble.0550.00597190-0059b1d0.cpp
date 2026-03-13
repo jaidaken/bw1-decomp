@@ -12,7 +12,7 @@ void GroupBehaviour::AddAction(float param_1, LHDynamicStack<uint32_t>& stack, D
 }
 
 // win1.41 00597400 mac 100f8550 GroupBehaviour::FindDanceGroup(Living *)
-bool GroupBehaviour::FindDanceGroup(Living* param_1)
+bool32_t GroupBehaviour::FindDanceGroup(Living* param_1)
 {
     return 0;
 }
@@ -23,24 +23,24 @@ void GroupBehaviour::LoadDance(const char* param_1)
 }
 
 // win1.41 00597f20 mac 100f68a0 GroupBehaviour::CalculateDancePosition(MapCoords const &, MapCoords *, DanceGroup *, unsigned long)
-void GroupBehaviour::CalculateDancePosition(const MapCoords* param_1, MapCoords* param_2, DanceGroup* param_3, unsigned long param_4)
+void GroupBehaviour::CalculateDancePosition(const MapCoords& param_1, MapCoords* param_2, DanceGroup* param_3, unsigned long param_4)
 {
 }
 
 // win1.41 00598240 mac 100f5a80 GroupBehaviour::Save(GameOSFile &)
-bool GroupBehaviour::Save(GameOSFile& file)
+bool32_t GroupBehaviour::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005985c0 mac 100f4e70 GroupBehaviour::Load(GameOSFile &)
-bool GroupBehaviour::Load(GameOSFile& file)
+bool32_t GroupBehaviour::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00599740 mac 105d3580 GSLobbyBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void GSLobbyBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void GSLobbyBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

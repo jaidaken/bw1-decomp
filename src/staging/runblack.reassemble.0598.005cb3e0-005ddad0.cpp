@@ -32,11 +32,11 @@ GPlayer* GInterface::GetPlayer()
 // win1.41 005ce2d0 mac 10357dc0 GInterface::GetText(void)
 const char* GInterface::GetText()
 {
-    return 0;
+    return "GInterface";
 }
 
 // win1.41 005ce2e0 mac 10074680 GInterface::IsActive( const(void))
-bool GInterface::IsActive()
+bool32_t GInterface::IsActive() const
 {
     return 0;
 }
@@ -44,13 +44,13 @@ bool GInterface::IsActive()
 // win1.41 005ce2f0 mac 10357e00 GInterface::GetSaveType(void)
 uint32_t GInterface::GetSaveType()
 {
-    return 0;
+    return 100;
 }
 
 // win1.41 005ce300 mac 10357e40 GInterface::GetDebugText(void)
 char* GInterface::GetDebugText()
 {
-    return 0;
+    return "GInterface";
 }
 
 // win1.41 005ce310 mac 1035c380 GInterface::_dt(void)
@@ -125,13 +125,13 @@ void GInterfaceStatus::SetActive(int param_1)
 }
 
 // win1.41 005d0490 mac 103585e0 GInterface::Save(GameOSFile &)
-bool GInterface::Save(GameOSFile& file)
+bool32_t GInterface::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005d04d0 mac 10358550 GInterface::Load(GameOSFile &)
-bool GInterface::Load(GameOSFile& file)
+bool32_t GInterface::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -142,7 +142,7 @@ void GInterface::ResolveLoad()
 }
 
 // win1.41 005d0590 mac 103581e0 GInterface::SaveExtraData(GameOSFile &)
-void GInterface::SaveExtraData(GameOSFile* param_1)
+void GInterface::SaveExtraData(GameOSFile& param_1)
 {
 }
 
@@ -162,7 +162,7 @@ void GInterface::UpdateAllLeashes()
 }
 
 // win1.41 005d9d80 mac 10004300 GInterface::SendMessageA(INTERFACE_MESSAGE_TYPES, LHCoord *)
-bool GInterface::SendMessageA(INTERFACE_MESSAGE_TYPES param_1, LHCoord* param_2)
+bool32_t GInterface::SendMessageA(INTERFACE_MESSAGE_TYPES param_1, LHCoord* param_2)
 {
     return 0;
 }
@@ -173,7 +173,7 @@ void GInterfaceMessageBuffer::Init(unsigned short param_1)
 }
 
 // win1.41 005d9f10 mac 1009c3b0 GInterfaceMessageBuffer::Add(INTERFACE_MESSAGE_TYPES, GInterfaceCollide *, LHCoord *)
-bool GInterfaceMessageBuffer::Add(INTERFACE_MESSAGE_TYPES param_1, GInterfaceCollide* param_2, LHCoord* param_3)
+bool32_t GInterfaceMessageBuffer::Add(INTERFACE_MESSAGE_TYPES param_1, GInterfaceCollide* param_2, LHCoord* param_3)
 {
     return 0;
 }
@@ -186,7 +186,7 @@ bool GInterfaceMessageBuffer::Add(INTERFACE_MESSAGE_TYPES param_1, GInterfaceCol
 // win1.41 005db930 mac 1037ad30 GLeashStatus::GetSaveType(void)
 uint32_t GLeashStatus::GetSaveType()
 {
-    return 0;
+    return 258;
 }
 
 // win1.41 005db940 mac 1037aca0 GLeashStatus::_dt(void)
@@ -197,19 +197,19 @@ GLeashStatus::~GLeashStatus()
 // win1.41 005db960 mac 1036bdc0 GInterfaceStatus::GetText(void)
 const char* GInterfaceStatus::GetText()
 {
-    return 0;
+    return "GInterfaceStatus";
 }
 
 // win1.41 005db970 mac 1036be00 GInterfaceStatus::GetSaveType(void)
 uint32_t GInterfaceStatus::GetSaveType()
 {
-    return 0;
+    return 101;
 }
 
 // win1.41 005db980 mac 1036be40 GInterfaceStatus::GetDebugText(void)
 char* GInterfaceStatus::GetDebugText()
 {
-    return 0;
+    return "GInterfaceStatus";
 }
 
 // win1.41 005db990 mac 1036f480 GInterfaceStatus::_dt(void)
@@ -257,19 +257,19 @@ void GInterfaceStatus::UpdateSpellInfo(Spell* param_1, PSysProcessInfo* param_2)
 }
 
 // win1.41 005dca50 mac 1036c810 GInterfaceStatus::Save(GameOSFile &)
-bool GInterfaceStatus::Save(GameOSFile& file)
+bool32_t GInterfaceStatus::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005dcdc0 mac 1036c160 GInterfaceStatus::Load(GameOSFile &)
-bool GInterfaceStatus::Load(GameOSFile& file)
+bool32_t GInterfaceStatus::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005dd130 mac 1036c080 GInterfaceStatus::SaveExtraData(GameOSFile &)
-void GInterfaceStatus::SaveExtraData(GameOSFile* param_1)
+void GInterfaceStatus::SaveExtraData(GameOSFile& param_1)
 {
 }
 
@@ -281,4 +281,159 @@ void GInterfaceStatus::ResolveLoad()
 // win1.41 005dd1a0 mac 1036bf20 GInterfaceStatus::Init(unsigned char, GInterface *)
 void GInterfaceStatus::Init(uint8_t player_number, GInterface* iface)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_26();
+extern "C" void sdtor_dt_27();
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_dt_28();
+
+__declspec(naked) void __cdecl sdtor_GInfluenceInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GInfluenceInfo
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GInfluenceInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GInterfaceMessageBuffer() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_26
+        test byte ptr [esp + 8], 1
+        je short skip_GInterfaceMessageBuffer
+        push 0x14
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GInterfaceMessageBuffer:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GInterface() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_27
+        test byte ptr [esp + 8], 1
+        je short skip_GInterface
+        push 0x0000047c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GInterface:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GInterfaceFlags() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GInterfaceFlags
+        push 0x14
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GInterfaceFlags:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_InterfaceHandState() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_InterfaceHandState
+        push 0xc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_InterfaceHandState:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GInterfaceCollide() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GInterfaceCollide
+        push 0x30
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GInterfaceCollide:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GLeashStatus() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_GLeashStatus
+        push 0x3c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GLeashStatus:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GInterfaceStatus() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_28
+        test byte ptr [esp + 8], 1
+        je short skip_GInterfaceStatus
+        push 0x00000134
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GInterfaceStatus:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

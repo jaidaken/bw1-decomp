@@ -1,7 +1,7 @@
 #include "MobileWallHug.h"
 
 // win1.41 0060abc0 mac 1001c770 MobileWallHug::SetupMobileMoveToPos(MapCoords const &, MOVE_TO_STATES)
-void MobileWallHug::SetupMobileMoveToPos(const MapCoords* coords, MOVE_TO_STATES move_to_state)
+void MobileWallHug::SetupMobileMoveToPos(const MapCoords& coords, MOVE_TO_STATES move_to_state)
 {
 }
 
@@ -17,7 +17,7 @@ bool MobileWallHug::AreWeThere(float param_1)
 }
 
 // win1.41 0060ad60 mac 1004abe0 MobileWallHug::AreWeThere(MapCoords const &, float)
-bool MobileWallHug::AreWeThere(const MapCoords* param_1, float param_2)
+bool MobileWallHug::AreWeThere(const MapCoords& param_1, float param_2)
 {
     return 0;
 }

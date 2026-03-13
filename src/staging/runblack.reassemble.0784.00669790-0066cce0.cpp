@@ -52,3 +52,65 @@ GBaseInfo* GPotInfo::GetBaseInfo(uint32_t& param_1)
 GPotInfo::~GPotInfo()
 {
 }
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x0056fa80();
+
+__declspec(naked) void __cdecl sdtor_GPlaytimeInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GPlaytimeInfo
+        push 0x24
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GPlaytimeInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PlaytimeElement() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PlaytimeElement
+        push 0x44
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PlaytimeElement:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GPotInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GPotInfo
+        push 0x00000144
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GPotInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}

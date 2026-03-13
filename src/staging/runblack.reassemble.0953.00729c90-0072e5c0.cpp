@@ -19,13 +19,13 @@ uint32_t SpellSeed::GetScriptObjectType()
 }
 
 // win1.41 00729ca0 mac 10528230 SpellSeed::Save(GameOSFile &)
-bool SpellSeed::Save(GameOSFile& file)
+bool32_t SpellSeed::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00729fb0 mac 10527d30 SpellSeed::Load(GameOSFile &)
-bool SpellSeed::Load(GameOSFile& file)
+bool32_t SpellSeed::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -42,18 +42,18 @@ void OneOffSpellSeed::ToBeDeleted(int param_1)
 }
 
 // win1.41 0072a450 mac 105276e0 OneOffSpellSeed::CallVirtualFunctionsForCreation(MapCoords const &)
-void OneOffSpellSeed::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void OneOffSpellSeed::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
 // win1.41 0072a520 mac 10527690 OneOffSpellSeed::IsEffectReceiver(EffectValues *)
-bool OneOffSpellSeed::IsEffectReceiver(EffectValues* param_1)
+bool32_t OneOffSpellSeed::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
 
 // win1.41 0072a530 mac 105275c0 OneOffSpellSeed::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool OneOffSpellSeed::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t OneOffSpellSeed::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -61,7 +61,7 @@ bool OneOffSpellSeed::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 // win1.41 0072a630 mac 10527330 OneOffSpellSeed::InterfaceValidToTap(GInterfaceStatus *)
 uint32_t OneOffSpellSeed::InterfaceValidToTap(GInterfaceStatus* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0072a640 mac 105271d0 OneOffSpellSeed::InterfaceTap(GInterfaceStatus *)
@@ -79,41 +79,41 @@ int OneOffSpellSeed::GetMesh() const
 // win1.41 0072a920 mac 10526d60 OneOffSpellSeed::GetPhysicsConstantsType(void)
 uint32_t OneOffSpellSeed::GetPhysicsConstantsType()
 {
-    return 0;
+    return 9;
 }
 
 // win1.41 0072a930 mac 10526be0 OneOffSpellSeed::Save(GameOSFile &)
-bool OneOffSpellSeed::Save(GameOSFile& file)
+bool32_t OneOffSpellSeed::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0072aa20 mac 10526a70 OneOffSpellSeed::Load(GameOSFile &)
-bool OneOffSpellSeed::Load(GameOSFile& file)
+bool32_t OneOffSpellSeed::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0072ab00 mac 105269e0 OneOffSpellSeed::IsOneOffSpellAggressive(Creature *)
-bool OneOffSpellSeed::IsOneOffSpellAggressive(Creature* param_1)
+bool32_t OneOffSpellSeed::IsOneOffSpellAggressive(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0072ab20 mac 10526950 OneOffSpellSeed::IsOneOffSpellCompassionate(Creature *)
-bool OneOffSpellSeed::IsOneOffSpellCompassionate(Creature* param_1)
+bool32_t OneOffSpellSeed::IsOneOffSpellCompassionate(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0072ab40 mac 105268c0 OneOffSpellSeed::IsOneOffSpellPlayful(Creature *)
-bool OneOffSpellSeed::IsOneOffSpellPlayful(Creature* param_1)
+bool32_t OneOffSpellSeed::IsOneOffSpellPlayful(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0072ab60 mac 10526820 OneOffSpellSeed::IsOneOffSpellToRestoreHealth(Creature *)
-bool OneOffSpellSeed::IsOneOffSpellToRestoreHealth(Creature* param_1)
+bool32_t OneOffSpellSeed::IsOneOffSpellToRestoreHealth(Creature* param_1)
 {
     return 0;
 }
@@ -133,7 +133,7 @@ uint32_t OneOffSpellSeed::GetOverwritePickUpToolTip()
 // win1.41 0072ac80 mac 105265f0 OneOffSpellSeed::GetOverwriteTapToolTip(void)
 uint32_t OneOffSpellSeed::GetOverwriteTapToolTip()
 {
-    return 0;
+    return 3831;
 }
 
 // win1.41 0072ac90 mac 10526550 OneOffSpellSeed::GetQueryFirstEnumText(void)
@@ -207,7 +207,7 @@ SPELL_SEED_TYPE GSpellSeedInfo::GetFirstSpellSeedForMagicType(MAGIC_TYPE magic_t
 }
 
 // win1.41 0072b430 mac 10534300 SpellShield::IsSpellShield(void)
-bool SpellShield::IsSpellShield()
+bool32_t SpellShield::IsSpellShield()
 {
     return 0;
 }
@@ -227,13 +227,13 @@ float SpellShield::GetRadius()
 // win1.41 0072b460 mac 10534340 SpellShield::GetSaveType(void)
 uint32_t SpellShield::GetSaveType()
 {
-    return 0;
+    return 17;
 }
 
 // win1.41 0072b470 mac 10534380 SpellShield::GetDebugText(void)
 char* SpellShield::GetDebugText()
 {
-    return 0;
+    return "SpellShield";
 }
 
 // win1.41 0072b480 mac 10534250 SpellShield::_dt(void)
@@ -247,7 +247,7 @@ void SpellShield::ToBeDeleted(int param_1)
 }
 
 // win1.41 0072b5f0 mac 10533230 SpellShield::InitWithPos(GameThing *, MapCoords const &, SpellCastData *, PSysProcessInfo const &)
-int SpellShield::InitWithPos(GameThing* param_1, const MapCoords* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4)
+int SpellShield::InitWithPos(GameThing* param_1, const MapCoords& param_2, SpellCastData* param_3, const PSysProcessInfo& param_4)
 {
     return 0;
 }
@@ -275,7 +275,7 @@ float SpellShield::CalculateCostToMaintain()
 }
 
 // win1.41 0072b820 mac 10532f60 SpellShield::GetMagicInfo(void) const
-GMagicInfo* SpellShield::GetMagicInfo()
+GMagicInfo* SpellShield::GetMagicInfo() const
 {
     return 0;
 }
@@ -286,13 +286,13 @@ void SpellShield::CloseDown()
 }
 
 // win1.41 0072b850 mac 10532df0 MagicShield::IsPointDefinietlyWithinShieldVolume(MapCoords const &)
-bool MagicShield::IsPointDefinietlyWithinShieldVolume(const MapCoords* param_1)
+bool32_t MagicShield::IsPointDefinietlyWithinShieldVolume(const MapCoords* param_1)
 {
     return 0;
 }
 
 // win1.41 0072b8e0 mac 10532c50 PhysicalShield::IsPointDefinietlyWithinShieldVolume(MapCoords const &)
-bool PhysicalShield::IsPointDefinietlyWithinShieldVolume(const MapCoords* param_1)
+bool32_t PhysicalShield::IsPointDefinietlyWithinShieldVolume(const MapCoords* param_1)
 {
     return 0;
 }
@@ -304,13 +304,13 @@ float SpellShield::GetImpressiveValue(Living* param_1, Reaction* param_2)
 }
 
 // win1.41 0072bb40 mac 105324f0 SpellShield::Load(GameOSFile &)
-bool SpellShield::Load(GameOSFile& file)
+bool32_t SpellShield::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0072bc40 mac 10532270 SpellShield::Save(GameOSFile &)
-bool SpellShield::Save(GameOSFile& file)
+bool32_t SpellShield::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -321,13 +321,13 @@ GMapShieldInfo::~GMapShieldInfo()
 }
 
 // win1.41 0072c000 mac 10533fc0 MapShield::ValidForPlaceInHand(GInterfaceStatus *)
-bool MapShield::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t MapShield::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 0072c010 mac 10534010 MapShield::HandShouldFeelWithMeshIntersect(void)
-bool MapShield::HandShouldFeelWithMeshIntersect()
+bool32_t MapShield::HandShouldFeelWithMeshIntersect()
 {
     return 0;
 }
@@ -347,7 +347,7 @@ uint32_t MapShield::GetSaveType()
 // win1.41 0072c040 mac 10534210 MapShield::GetDebugText(void)
 char* MapShield::GetDebugText()
 {
-    return 0;
+    return "MapShield";
 }
 
 // win1.41 0072c050 mac 105304c0 MapShield::_dt(void)
@@ -372,7 +372,7 @@ GPlayer* MapShield::GetPlayer()
 }
 
 // win1.41 0072c170 mac 10531740 MapShield::CreatureMustAvoid(Creature *)
-bool MapShield::CreatureMustAvoid(Creature* param_1)
+bool32_t MapShield::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -380,7 +380,7 @@ bool MapShield::CreatureMustAvoid(Creature* param_1)
 // win1.41 0072c1b0 mac 10531700 MapShield::GetMesh( const(void))
 int MapShield::GetMesh() const
 {
-    return 0;
+    return 554;
 }
 
 // win1.41 0072c1c0 mac 105316c0 MapShield::GetTopPos(void)
@@ -392,7 +392,7 @@ float MapShield::GetTopPos()
 // win1.41 0072c1d0 mac 10531680 MapShield::CanBecomeAPhysicsObject(void)
 bool MapShield::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 0072c1e0 mac 10531620 MapShield::ShouldPhysicsRaiseObjectUntilNotIntersectingThis(Object *)
@@ -403,13 +403,13 @@ void MapShield::ShouldPhysicsRaiseObjectUntilNotIntersectingThis(Object* param_1
 // win1.41 0072c210 mac 10534150 MagicShield::GetSaveType(void)
 uint32_t MagicShield::GetSaveType()
 {
-    return 0;
+    return 24;
 }
 
 // win1.41 0072c220 mac 10534190 MagicShield::GetDebugText(void)
 char* MagicShield::GetDebugText()
 {
-    return 0;
+    return "MagicShield";
 }
 
 // win1.41 0072c230 mac 105340b0 MagicShield::_dt(void)
@@ -418,7 +418,7 @@ MagicShield::~MagicShield()
 }
 
 // win1.41 0072c2a0 mac 10531420 MagicShield::CallVirtualFunctionsForCreation(MapCoords const &)
-void MagicShield::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void MagicShield::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -438,13 +438,13 @@ void MagicShield::Draw()
 }
 
 // win1.41 0072c310 mac 10531320 MagicShield::IsEffectReceiver(EffectValues *)
-bool MagicShield::IsEffectReceiver(EffectValues* param_1)
+bool32_t MagicShield::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
 
 // win1.41 0072c320 mac 105312c0 MagicShield::SetDying(void)
-bool MagicShield::SetDying()
+bool32_t MagicShield::SetDying()
 {
     return 0;
 }
@@ -462,37 +462,37 @@ LH3DObject::ObjectType MagicShield::Get3DType()
 }
 
 // win1.41 0072c350 mac 10531180 MapShield::Load(GameOSFile &)
-bool MapShield::Load(GameOSFile& file)
+bool32_t MapShield::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0072c390 mac 105310e0 MapShield::Save(GameOSFile &)
-bool MapShield::Save(GameOSFile& file)
+bool32_t MapShield::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0072c3d0 mac 10531080 MagicShield::Load(GameOSFile &)
-bool MagicShield::Load(GameOSFile& file)
+bool32_t MagicShield::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0072c3f0 mac 10531020 MagicShield::Save(GameOSFile &)
-bool MagicShield::Save(GameOSFile& file)
+bool32_t MagicShield::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0072c410 mac 10530bd0 PhysicalShield::Load(GameOSFile &)
-bool PhysicalShield::Load(GameOSFile& file)
+bool32_t PhysicalShield::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0072c700 mac 10530750 PhysicalShield::Save(GameOSFile &)
-bool PhysicalShield::Save(GameOSFile& file)
+bool32_t PhysicalShield::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -500,19 +500,19 @@ bool PhysicalShield::Save(GameOSFile& file)
 // win1.41 0072caf0 mac 10533ee0 PhysicalShield::GetAlwaysRemainsInPhysicsInternalSystem(void)
 bool PhysicalShield::GetAlwaysRemainsInPhysicsInternalSystem()
 {
-    return 0;
+    return true;
 }
 
 // win1.41 0072cb00 mac 10533f40 PhysicalShield::GetSaveType(void)
 uint32_t PhysicalShield::GetSaveType()
 {
-    return 0;
+    return 23;
 }
 
 // win1.41 0072cb10 mac 10533f80 PhysicalShield::GetDebugText(void)
 char* PhysicalShield::GetDebugText()
 {
-    return 0;
+    return "PhysicalShield";
 }
 
 // win1.41 0072cb20 mac 10533e40 PhysicalShield::_dt(void)
@@ -526,13 +526,13 @@ void PhysicalShield::ToBeDeleted(int param_1)
 }
 
 // win1.41 0072cc80 mac 10530260 PhysicalShield::IsEffectReceiver(EffectValues *)
-bool PhysicalShield::IsEffectReceiver(EffectValues* param_1)
+bool32_t PhysicalShield::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
 
 // win1.41 0072ccb0 mac 10530110 PhysicalShield::CallVirtualFunctionsForCreation(MapCoords const &)
-void PhysicalShield::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void PhysicalShield::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -543,12 +543,12 @@ LH3DObject::ObjectType PhysicalShield::Get3DType()
 }
 
 // win1.41 0072ce60 mac 1052fe10 PhysicalShield::ApplyEffect(EffectValues &, int)
-void PhysicalShield::ApplyEffect(EffectValues* param_1, int param_2)
+void PhysicalShield::ApplyEffect(EffectValues& param_1, int param_2)
 {
 }
 
 // win1.41 0072ce80 mac 1052fda0 PhysicalShield::DestroyedByEffect(GPlayer *, float)
-bool PhysicalShield::DestroyedByEffect(GPlayer* param_1, float param_2)
+bool32_t PhysicalShield::DestroyedByEffect(GPlayer* param_1, float param_2)
 {
     return 0;
 }
@@ -569,7 +569,7 @@ void PhysicalShield::DrawShield()
 }
 
 // win1.41 0072d170 mac 1052f8a0 PhysicalShield::SetDying(void)
-bool PhysicalShield::SetDying()
+bool32_t PhysicalShield::SetDying()
 {
     return 0;
 }
@@ -582,7 +582,7 @@ void PhysicalShield::ProcessShield()
 // win1.41 0072d600 mac 1052f2c0 PhysicalShield::InteractsWithPhysicsObjects(void)
 bool PhysicalShield::InteractsWithPhysicsObjects()
 {
-    return 0;
+    return true;
 }
 
 // win1.41 0072d610 mac 1052efa0 PhysicalShield::ReactToPhysicsImpact(PhysicsObject *, bool)
@@ -593,7 +593,7 @@ void PhysicalShield::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 // win1.41 0072d7e0 mac 1052ef50 PhysicalShield::GetPhysicsConstantsType(void)
 uint32_t PhysicalShield::GetPhysicsConstantsType()
 {
-    return 0;
+    return 10;
 }
 
 // win1.41 0072d7f0 mac 1052ee20 PhysicalShield::GetImpressiveValue(Living *, Reaction *)
@@ -603,7 +603,7 @@ float PhysicalShield::GetImpressiveValue(Living* param_1, Reaction* param_2)
 }
 
 // win1.41 0072d870 mac 1052ed50 SpellHeal::InitWithPos(GameThing *, MapCoords const &, SpellCastData *, PSysProcessInfo const &)
-int SpellHeal::InitWithPos(GameThing* param_1, const MapCoords* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4)
+int SpellHeal::InitWithPos(GameThing* param_1, const MapCoords& param_2, SpellCastData* param_3, const PSysProcessInfo& param_4)
 {
     return 0;
 }
@@ -623,13 +623,13 @@ float SpellStormAndTornado::GetRadius()
 // win1.41 0072d970 mac 1052e1b0 SpellStormAndTornado::GetSaveType(void)
 uint32_t SpellStormAndTornado::GetSaveType()
 {
-    return 0;
+    return 16;
 }
 
 // win1.41 0072d980 mac 1052e1f0 SpellStormAndTornado::GetDebugText(void)
 char* SpellStormAndTornado::GetDebugText()
 {
-    return 0;
+    return "SpellStormAndTornado";
 }
 
 // win1.41 0072d990 mac 1052dff0 SpellStormAndTornado::_dt(void)
@@ -656,4 +656,194 @@ GSpookyVoiceInfo::~GSpookyVoiceInfo()
 // win1.41 0072e250 mac 10148e30 GSpookyVoices::_dt(void)
 GSpookyVoices::~GSpookyVoices()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void jmp_addr_0x0052eac0();
+extern "C" void sdtor_dt_73();
+
+__declspec(naked) void __cdecl sdtor_GSpellSystemInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSpellSystemInfo
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSpellSystemInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSpellSeedInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSpellSeedInfo
+        push 0x00000190
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSpellSeedInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpellShield() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_SpellShield
+        push 0x0000010c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SpellShield:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMapShieldInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMapShieldInfo
+        push 0x00000108
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMapShieldInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MapShield() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0052eac0
+        test byte ptr [esp + 8], 1
+        je short skip_MapShield
+        push 0x68
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_MapShield:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MagicShield() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0052eac0
+        test byte ptr [esp + 8], 1
+        je short skip_MagicShield
+        push 0x68
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_MagicShield:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PhysicalShield() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0052eac0
+        test byte ptr [esp + 8], 1
+        je short skip_PhysicalShield
+        push 0x00000100
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PhysicalShield:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpellStormAndTornado() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_SpellStormAndTornado
+        push 0x000000f8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SpellStormAndTornado:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSpookyVoiceInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSpookyVoiceInfo
+        push 0x34
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSpookyVoiceInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSpookyVoices() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_73
+        test byte ptr [esp + 8], 1
+        je short skip_GSpookyVoices
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSpookyVoices:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

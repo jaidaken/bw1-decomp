@@ -37,7 +37,7 @@ GAnimalStateTableInfo::~GAnimalStateTableInfo()
 }
 
 // win1.41 00416f50 mac 100adcf0 Mobile::ValidToApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-uint32_t Mobile::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2)
+uint32_t Mobile::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2)
 {
     return 0;
 }
@@ -45,7 +45,7 @@ uint32_t Mobile::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const Map
 // win1.41 00416f60 mac 100add50 Mobile::ApplyOnlyAfterReleased(void)
 uint32_t Mobile::ApplyOnlyAfterReleased()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00416f70 mac 100482a0 MobileWallHug::GetDestPos(void)
@@ -55,13 +55,13 @@ MapCoords* MobileWallHug::GetDestPos()
 }
 
 // win1.41 00416f80 mac 1002c440 MobileWallHug::IsMobileWallHug( const(void))
-bool MobileWallHug::IsMobileWallHug() const
+bool32_t MobileWallHug::IsMobileWallHug() const
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00416f90 mac 10057470 Living::IsPoisoned(void)
-bool Living::IsPoisoned()
+bool32_t Living::IsPoisoned()
 {
     return 0;
 }
@@ -72,7 +72,7 @@ void Living::SetPoisoned(int param_1)
 }
 
 // win1.41 00416ff0 mac 1012f810 Living::IsSkeleton( const(void))
-bool Living::IsSkeleton() const
+bool32_t Living::IsSkeleton() const
 {
     return 0;
 }
@@ -90,23 +90,23 @@ void Living::StorePreviousState()
 // win1.41 00417060 mac inlined Living::EnterInHand(VILLAGER_STATES, VILLAGER_STATES)
 uint32_t Living::EnterInHand(VILLAGER_STATES param_1, VILLAGER_STATES param_2)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00417070 mac inlined Living::IsStateForInterface( const(VILLAGER_STATES))
-bool Living::IsStateForInterface(VILLAGER_STATES param_1)
+bool Living::IsStateForInterface(VILLAGER_STATES param_1) const
 {
     return 0;
 }
 
 // win1.41 00417080 mac 1012fa20 Living::IsInterestedInWoodObject(Object *)
-bool Living::IsInterestedInWoodObject(Object* param_1)
+bool32_t Living::IsInterestedInWoodObject(Object* param_1)
 {
     return 0;
 }
 
 // win1.41 00417090 mac 1012fa70 Living::IsAvailableForBeliefButNotReaction(REACTION)
-bool Living::IsAvailableForBeliefButNotReaction(REACTION param_1)
+bool32_t Living::IsAvailableForBeliefButNotReaction(REACTION param_1)
 {
     return 0;
 }
@@ -260,7 +260,7 @@ uint8_t Living::ReactToScaffoldPriority(Reaction* param_1, Reaction* param_2)
 }
 
 // win1.41 00417260 mac 100026a0 Living::IsPosValidForMapCellExistance(MapCoords const &)
-uint32_t Living::IsPosValidForMapCellExistance(const MapCoords* param_1)
+uint32_t Living::IsPosValidForMapCellExistance(const MapCoords& param_1)
 {
     return 0;
 }
@@ -278,9 +278,9 @@ bool Living::CanBePickedUp()
 }
 
 // win1.41 004172b0 mac 10130680 Living::CanBeCrushed(void)
-bool Living::CanBeCrushed()
+bool32_t Living::CanBeCrushed()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 004172c0 mac 101306c0 Living::IsStompable(void)
@@ -313,25 +313,25 @@ uint32_t Living::DanceType()
 }
 
 // win1.41 00417330 mac 10130890 Living::IsSuitableForCreatureAction(void)
-bool Living::IsSuitableForCreatureAction()
+bool32_t Living::IsSuitableForCreatureAction()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00417340 mac 101308e0 Living::CanBeThrownByCreature(Creature *)
-bool Living::CanBeThrownByCreature(Creature* param_1)
+bool32_t Living::CanBeThrownByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00417350 mac 10130930 Living::CanBeAttackedByCreature(Creature *)
-bool Living::CanBeAttackedByCreature(Creature* param_1)
+bool32_t Living::CanBeAttackedByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00417390 mac 10130a10 Living::CanBePlayedWithByCreature(Creature *)
-bool Living::CanBePlayedWithByCreature(Creature* param_1)
+bool32_t Living::CanBePlayedWithByCreature(Creature* param_1)
 {
     return 0;
 }
@@ -339,59 +339,59 @@ bool Living::CanBePlayedWithByCreature(Creature* param_1)
 // win1.41 004173c0 mac 10130ac0 Living::IsAnimate(void)
 bool Living::IsAnimate()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 004173d0 mac 10130af0 Living::CanBeFrighteningToCreature(Creature *)
-bool Living::CanBeFrighteningToCreature(Creature* param_1)
+bool32_t Living::CanBeFrighteningToCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 004173e0 mac 10130b40 Living::CanBeInspectedByCreature(Creature *)
-bool Living::CanBeInspectedByCreature(Creature* param_1)
+bool32_t Living::CanBeInspectedByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00417410 mac 10130c00 Living::CanBePoodUponByCreature(Creature *)
-bool Living::CanBePoodUponByCreature(Creature* param_1)
+bool32_t Living::CanBePoodUponByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00417420 mac 10130c50 Living::CanBeDestroyedByStoning(Creature *)
-bool Living::CanBeDestroyedByStoning(Creature* param_1)
+bool32_t Living::CanBeDestroyedByStoning(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00417430 mac 10130cd0 Living::CanBeStompedOnByCreature(Creature *)
-bool Living::CanBeStompedOnByCreature(Creature* param_1)
+bool32_t Living::CanBeStompedOnByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00417440 mac 10130d50 Living::CanBeDancedWith(Creature *)
-bool Living::CanBeDancedWith(Creature* param_1)
+bool32_t Living::CanBeDancedWith(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00417450 mac 10130dc0 Living::IsAggressive(Creature *)
-bool Living::IsAggressive(Creature* param_1)
+bool32_t Living::IsAggressive(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00417460 mac inlined Living::IsLiving_1( const(void))
-bool Living::IsLiving() const
+bool32_t Living::IsLiving() const
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00417470 mac 10130e00 Living::IsNotLiving(void)
-bool Living::IsNotLiving()
+bool32_t Living::IsNotLiving()
 {
     return 0;
 }
@@ -471,13 +471,13 @@ int Animal::GetDetailMesh(int param_1)
 }
 
 // win1.41 00417570 mac inlined Animal::IsScriptState( const(VILLAGER_STATES))
-bool Animal::IsScriptState(VILLAGER_STATES param_1)
+bool Animal::IsScriptState(VILLAGER_STATES param_1) const
 {
     return 0;
 }
 
 // win1.41 00417590 mac inlined Animal::IsScriptInterruptableState( const(VILLAGER_STATES))
-bool Animal::IsScriptInterruptableState(VILLAGER_STATES param_1)
+bool Animal::IsScriptInterruptableState(VILLAGER_STATES param_1) const
 {
     return 0;
 }
@@ -623,19 +623,19 @@ uint32_t Animal::GetCreatureBeliefType()
 // win1.41 00417860 mac 1012f430 Animal::GetTastiness(void)
 uint32_t Animal::GetTastiness()
 {
-    return 0;
+    return 2;
 }
 
 // win1.41 00417870 mac 1012f470 Animal::CanBeGivenToTown(Creature *)
-bool Animal::CanBeGivenToTown(Creature* param_1)
+bool32_t Animal::CanBeGivenToTown(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00417880 mac 1004f080 Animal::IsAnimal(void)
-bool Animal::IsAnimal()
+bool32_t Animal::IsAnimal()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00417890 mac 1012f720 Animal::GetDeathReason(void)
@@ -650,13 +650,13 @@ Animal::~Animal()
 }
 
 // win1.41 004178d0 mac 10380910 GameThingWithPos::IsWonder(void)
-bool GameThingWithPos::IsWonder()
+bool32_t GameThingWithPos::IsWonder()
 {
     return 0;
 }
 
 // win1.41 004178e0 mac 102ff000 GameThingWithPos::CreateBuildingSite(void)
-bool GameThingWithPos::CreateBuildingSite()
+bool32_t GameThingWithPos::CreateBuildingSite()
 {
     return 0;
 }
@@ -723,7 +723,7 @@ MultiMapFixed* Object::AsMultiMapFixed()
 }
 
 // win1.41 004192d0 mac 100a9e00 Object::IsResourceStore(RESOURCE_TYPE)
-bool Object::IsResourceStore(RESOURCE_TYPE type)
+bool32_t Object::IsResourceStore(RESOURCE_TYPE type)
 {
     return 0;
 }
@@ -770,9 +770,9 @@ uint32_t Object::InterfaceTap(GInterfaceStatus* status)
 }
 
 // win1.41 00419890 mac 100a9e80 Object::ChecksVerticesVObjects(void)
-bool Object::ChecksVerticesVObjects()
+bool32_t Object::ChecksVerticesVObjects()
 {
-    return 0;
+    __asm mov al, 1
 }
 
 // win1.41 004198a0 mac 101bd530 Object::IsSolidToNewAbode(void)
@@ -802,7 +802,7 @@ bool32_t Object::IsTownArtifact()
 // win1.41 00419a50 mac 100a5a00 Object::ShouldFootpathsGoRound(void)
 bool Object::ShouldFootpathsGoRound()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00419b30 mac 1009cd00 Object::GetCollideData(void)
@@ -812,19 +812,81 @@ NewCollide* Object::GetCollideData()
 }
 
 // win1.41 00419b40 mac 10168830 Animal::ValidForPlaceInHand(GInterfaceStatus *)
-bool Animal::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Animal::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 00419b60 mac 10168730 Animal::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool Animal::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t Animal::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 00419bc0 mac 10168630 Animal::IsInterestedInFoodObject(Object *)
-bool Animal::IsInterestedInFoodObject(Object* param_1)
+bool32_t Animal::IsInterestedInFoodObject(Object* param_1)
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00417b80();
+
+__declspec(naked) void __cdecl sdtor_GAnimalInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GAnimalInfo
+        push 0x000002cc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GAnimalInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GAnimalStateTableInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GAnimalStateTableInfo
+        push 0x000000b8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GAnimalStateTableInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Animal() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00417b80
+        test byte ptr [esp + 8], 1
+        je short skip_Animal
+        push 0x00000148
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Animal:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

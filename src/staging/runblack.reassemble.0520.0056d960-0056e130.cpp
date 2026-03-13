@@ -15,3 +15,27 @@ void StatsBox::Destroy()
 void StatsBox::InitControls()
 {
 }
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_0();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_SetupHSBarGraph() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupHSBarGraph
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupHSBarGraph:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}

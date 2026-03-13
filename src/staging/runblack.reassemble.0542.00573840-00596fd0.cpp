@@ -13,7 +13,7 @@ GestureSystemData::~GestureSystemData()
 }
 
 // win1.41 00579af0 mac 1032b530 GestureSystemDataList::Load(char *)
-bool GestureSystemDataList::Load(char* param_1)
+bool32_t GestureSystemDataList::Load(char* param_1)
 {
     return 0;
 }
@@ -70,7 +70,7 @@ void Graveyard::DeleteDependancys()
 }
 
 // win1.41 00595dd0 mac 100f4a40 Graveyard::CallVirtualFunctionsForCreation(MapCoords const &)
-void Graveyard::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Graveyard::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -80,13 +80,13 @@ void Graveyard::MakeFunctional()
 }
 
 // win1.41 00595ee0 mac 100f4670 Graveyard::Save(GameOSFile &)
-bool Graveyard::Save(GameOSFile& file)
+bool32_t Graveyard::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00595f50 mac 100f4590 Graveyard::Load(GameOSFile &)
-bool Graveyard::Load(GameOSFile& file)
+bool32_t Graveyard::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -119,4 +119,70 @@ void GroupBehaviour::Process()
 // win1.41 00596700 mac 100f90b0 GroupBehaviour::UpdateGroupBasedOnAction(DanceGroup *, DANCE_GROUP_ACTION_TYPE, DanceGroupActionArgument const &, unsigned long)
 void GroupBehaviour::UpdateGroupBasedOnAction(DanceGroup* dance_group, DANCE_GROUP_ACTION_TYPE action_type, const DanceGroupActionArgument* argument, uint32_t param_4)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" char sdtor_vt_6;
+extern "C" void jmp_addr_0x004369d0();
+extern "C" void jmp_addr_0x00580a90();
+extern "C" void sdtor_opd_0();
+extern "C" void jmp_addr_0x00596230();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_GestureSystemData() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_6
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GestureSystemData
+        push ebp
+        push esi
+        call jmp_addr_0x004369d0
+        add esp, 8
+    skip_GestureSystemData:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Persistent() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00580a90
+        test byte ptr [esp + 8], 1
+        je short skip_Persistent
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_Persistent:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GroupBehaviour() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00596230
+        test byte ptr [esp + 8], 1
+        je short skip_GroupBehaviour
+        push 0x000000e8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GroupBehaviour:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

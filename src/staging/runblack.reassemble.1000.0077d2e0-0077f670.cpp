@@ -4,6 +4,10 @@
 #include "PlannedWorshipSiteUpgrade.h"
 #include "WorshipSpellIcon.h"
 
+extern "C" char sdtor_vt_WorshipSiteUpgrade;
+extern "C" void sdtor_dtor_WorshipSiteUpgrade();
+extern "C" void sdtor_op_del();
+
 // win1.41 0077d2e0 mac 105ae4e0 WorshipSite::GetScriptObjectType(void)
 uint32_t WorshipSite::GetScriptObjectType()
 {
@@ -11,13 +15,13 @@ uint32_t WorshipSite::GetScriptObjectType()
 }
 
 // win1.41 0077d2f0 mac 105ad890 WorshipSite::Save(GameOSFile &)
-bool WorshipSite::Save(GameOSFile& file)
+bool32_t WorshipSite::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0077d700 mac 105acc40 WorshipSite::Load(GameOSFile &)
-bool WorshipSite::Load(GameOSFile& file)
+bool32_t WorshipSite::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -57,13 +61,13 @@ uint32_t WorshipSite::GetDiscipleStateIfInteractedWith(GInterfaceStatus* param_1
 }
 
 // win1.41 0077dec0 mac 105ac190 WorshipSite::IsResourceStore(RESOURCE_TYPE)
-bool WorshipSite::IsResourceStore(RESOURCE_TYPE param_1)
+bool32_t WorshipSite::IsResourceStore(RESOURCE_TYPE param_1)
 {
     return 0;
 }
 
 // win1.41 0077def0 mac 105ac090 WorshipSite::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
-bool WorshipSite::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus* param_2)
+bool WorshipSite::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus& param_2)
 {
     return 0;
 }
@@ -91,7 +95,7 @@ float WorshipSite::GetRadiusMultiplierForApplyingPotToPos()
 }
 
 // win1.41 0077e7b0 mac 105ab190 WorshipSite::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool WorshipSite::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
+bool32_t WorshipSite::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
 {
     return 0;
 }
@@ -116,6 +120,25 @@ WorshipSite* WorshipSiteUpgrade::GetWorshipSite()
 // win1.41 0077ec70 mac inlined WorshipSiteUpgrade::_dt(void)
 WorshipSiteUpgrade::~WorshipSiteUpgrade()
 {
+}
+
+__declspec(naked) void __cdecl sdtor_WorshipSiteUpgrade() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_WorshipSiteUpgrade
+        call sdtor_dtor_WorshipSiteUpgrade
+        test byte ptr [esp + 8], 1
+        je short skip_WorshipSiteUpgrade
+        push 084h
+        push esi
+        call sdtor_op_del
+        add esp, 8
+    skip_WorshipSiteUpgrade:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }
 
 // win1.41 0077eca0 mac inlined WorshipSiteUpgrade::ToBeDeleted(int)
@@ -159,7 +182,7 @@ WorshipSite* WorshipSpellIcon::GetWorshipSite()
 }
 
 // win1.41 0077f0b0 mac 105b42c0 WorshipSpellIcon::IsEffectReceiver(EffectValues *)
-bool WorshipSpellIcon::IsEffectReceiver(EffectValues* param_1)
+bool32_t WorshipSpellIcon::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
@@ -171,20 +194,20 @@ uint32_t WorshipSpellIcon::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 0077f0e0 mac 105b43b0 WorshipSpellIcon::ApplyEffect(EffectValues &, int)
-void WorshipSpellIcon::ApplyEffect(EffectValues* param_1, int param_2)
+void WorshipSpellIcon::ApplyEffect(EffectValues& param_1, int param_2)
 {
 }
 
 // win1.41 0077f0f0 mac 105b4400 WorshipSpellIcon::GetSaveType(void)
 uint32_t WorshipSpellIcon::GetSaveType()
 {
-    return 0;
+    return 120;
 }
 
 // win1.41 0077f100 mac 105b4440 WorshipSpellIcon::GetDebugText(void)
 char* WorshipSpellIcon::GetDebugText()
 {
-    return 0;
+    return "WorshipSpellIcon";
 }
 
 // win1.41 0077f110 mac 105b6fb0 WorshipSpellIcon::_dt(void)
@@ -208,7 +231,7 @@ void WorshipSpellIcon::ToBeDeleted(int param_1)
 }
 
 // win1.41 0077f290 mac 105b6e40 WorshipSpellIcon::CallVirtualFunctionsForCreation(const MapCoords &)
-void WorshipSpellIcon::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void WorshipSpellIcon::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -227,4 +250,67 @@ void WorshipSpellIcon::UpdateGraphicsWithPULevels()
 uint32_t WorshipSpellIcon::Process()
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_dt_80();
+
+__declspec(naked) void __cdecl sdtor_GWorshipSiteUpgradeInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GWorshipSiteUpgradeInfo
+        push 0x00000128
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GWorshipSiteUpgradeInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PlannedWorshipSiteUpgrade() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PlannedWorshipSiteUpgrade
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PlannedWorshipSiteUpgrade:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_WorshipSpellIcon() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_80
+        test byte ptr [esp + 8], 1
+        je short skip_WorshipSpellIcon
+        push 0x00000140
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_WorshipSpellIcon:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

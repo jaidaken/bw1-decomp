@@ -45,3 +45,154 @@ CreaturePreviousLesson::~CreaturePreviousLesson()
 CreatureLearning::~CreatureLearning()
 {
 }
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_CreatureDesireSourceTable() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureDesireSourceTable
+        push 0x000000a4
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureDesireSourceTable:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureInitialSourceInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureInitialSourceInfo
+        push 0x54
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureInitialSourceInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureSourceBoundsInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureSourceBoundsInfo
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureSourceBoundsInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureExplorationRegionEntry() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureExplorationRegionEntry
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureExplorationRegionEntry:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureGlobalExplorationMap() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureGlobalExplorationMap
+        push ebx
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureGlobalExplorationMap:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureExplorationMap() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureExplorationMap
+        push 0x00002418
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureExplorationMap:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreaturePreviousLesson() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreaturePreviousLesson
+        push 0x0000120c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreaturePreviousLesson:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureLearning() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureLearning
+        push 0x00016168
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureLearning:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}

@@ -14,13 +14,13 @@
 #include "Script.h"
 
 // win1.41 006de3f0 mac 1011eed0 HanoiBlock::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool HanoiBlock::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t HanoiBlock::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 006de440 mac 1011ee00 HanoiBlock::IsCannotBePickedUp( const(void))
-bool HanoiBlock::IsCannotBePickedUp()
+bool HanoiBlock::IsCannotBePickedUp() const
 {
     return 0;
 }
@@ -103,7 +103,7 @@ void Living::StartReacting(REACTION param_1, GameThingWithPos* param_2, Reaction
 }
 
 // win1.41 006e4700 mac 1008c230 Reaction::GetInfo(void) const
-ReactionInfo* Reaction::GetInfo()
+ReactionInfo* Reaction::GetInfo() const
 {
     return 0;
 }
@@ -115,13 +115,13 @@ float Reaction::GetDefaultReactionMultiplier(Living* param_1)
 }
 
 // win1.41 006e4990 mac 10134810 Reaction::Save(GameOSFile &)
-bool Reaction::Save(GameOSFile& file)
+bool32_t Reaction::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 006e4ba0 mac 10134400 Reaction::Load(GameOSFile &)
-bool Reaction::Load(GameOSFile& file)
+bool32_t Reaction::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -138,13 +138,13 @@ GRewardInfo::~GRewardInfo()
 }
 
 // win1.41 006e5650 mac 10138ed0 Reward::IsReward( const(void))
-bool Reward::IsReward() const
+bool32_t Reward::IsReward() const
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 006e5660 mac 10138f00 Reward::IsActive( const(void))
-bool Reward::IsActive() const
+bool32_t Reward::IsActive() const
 {
     return 0;
 }
@@ -152,13 +152,13 @@ bool Reward::IsActive() const
 // win1.41 006e5670 mac 10138f30 Reward::GetSaveType(void)
 uint32_t Reward::GetSaveType()
 {
-    return 0;
+    return 70;
 }
 
 // win1.41 006e5680 mac 10138f70 Reward::GetDebugText(void)
 char* Reward::GetDebugText()
 {
-    return 0;
+    return "Reward";
 }
 
 // win1.41 006e5690 mac 1013bef0 Reward::_dt(void)
@@ -179,7 +179,7 @@ void Reward::ToBeDeleted(int param_1)
 // win1.41 006e5ca0 mac 1013b370 Reward::GetScriptObjectType(void)
 uint32_t Reward::GetScriptObjectType()
 {
-    return 0;
+    return 7;
 }
 
 // win1.41 006e5cb0 mac 1013b340 Reward::GetPlayer(void)
@@ -229,7 +229,7 @@ void Reward::PhysicsEditorCreate(int param_1)
 }
 
 // win1.41 006e69a0 mac 10139770 Reward::ValidForPlaceInHand(GInterfaceStatus *)
-bool Reward::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Reward::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -237,17 +237,17 @@ bool Reward::ValidForPlaceInHand(GInterfaceStatus* param_1)
 // win1.41 006e69b0 mac 10139730 Reward::GetOverwriteTapToolTip(void)
 uint32_t Reward::GetOverwriteTapToolTip()
 {
-    return 0;
+    return 3832;
 }
 
 // win1.41 006e69c0 mac 10139380 Reward::Save(GameOSFile &)
-bool Reward::Save(GameOSFile& file)
+bool32_t Reward::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 006e6c70 mac 10139000 Reward::Load(GameOSFile &)
-bool Reward::Load(GameOSFile& file)
+bool32_t Reward::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -258,14 +258,14 @@ void Reward::ResolveLoad()
 }
 
 // win1.41 006e6f70 mac 1013dda0 Rock::Rock(MapCoords const &, GMobileStaticInfo const *, Object *, GPlayer *, float, float)
-// Rock::Rock(const MapCoords& coords, const GMobileStaticInfo* info, Object* param_3, GPlayer* param_4, float param_5, float param_6)
+// Rock::Rock(const MapCoords* coords, const GMobileStaticInfo* info, Object* param_3, GPlayer* param_4, float param_5, float param_6)
 // {
 // }
 
 // win1.41 006e6ff0 mac 1013dd60 Rock::GetPhysicsConstantsType(void)
 uint32_t Rock::GetPhysicsConstantsType()
 {
-    return 0;
+    return 3;
 }
 
 // win1.41 006e7000 mac 1013dd00 Rock::EndPhysics(PhysicsObject *, bool)
@@ -274,13 +274,13 @@ void Rock::EndPhysics(PhysicsObject* param_1, bool param_2)
 }
 
 // win1.41 006e7030 mac 1013dc40 Rock::ValidForPlaceInHand(GInterfaceStatus *)
-bool Rock::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Rock::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 006e7070 mac 1013dbc0 Rock::CanBeThrownByPlayer(void)
-bool Rock::CanBeThrownByPlayer()
+bool32_t Rock::CanBeThrownByPlayer()
 {
     return 0;
 }
@@ -333,13 +333,13 @@ GPlayer* Rock::GetPlayer()
 }
 
 // win1.41 006e77b0 mac 1013d0c0 Rock::Save(GameOSFile &)
-bool Rock::Save(GameOSFile& file)
+bool32_t Rock::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 006e7870 mac 1013cfa0 Rock::Load(GameOSFile &)
-bool Rock::Load(GameOSFile& file)
+bool32_t Rock::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -352,7 +352,7 @@ void Rock::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 // win1.41 006e79e0 mac 1000ef30 Rock::GetScriptObjectType(void)
 uint32_t Rock::GetScriptObjectType()
 {
-    return 0;
+    return 33;
 }
 
 // win1.41 006e79f0 mac 1013c460 Rock::PhysicsEditorCreate(int)
@@ -363,11 +363,11 @@ void Rock::PhysicsEditorCreate(int param_1)
 // win1.41 006e7a60 mac 1013c420 Rock::GetOverwriteTapToolTip(void)
 uint32_t Rock::GetOverwriteTapToolTip()
 {
-    return 0;
+    return 3831;
 }
 
 // win1.41 006e7a70 mac 1013c3c0 Rock::CanBePickedUpByCreature(Creature *)
-bool Rock::CanBePickedUpByCreature(Creature* param_1)
+bool32_t Rock::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
@@ -383,7 +383,7 @@ void Scaffold::ToBeDeleted(int param_1)
 }
 
 // win1.41 006e8540 mac 10143a70 Scaffold::CallVirtualFunctionsForCreation(MapCoords const &)
-void Scaffold::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Scaffold::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -396,7 +396,7 @@ bool Scaffold::ProcessInHand()
 // win1.41 006e8770 mac 10143680 Scaffold::GetPhysicsConstantsType(void)
 uint32_t Scaffold::GetPhysicsConstantsType()
 {
-    return 0;
+    return 17;
 }
 
 // win1.41 006e8780 mac 101434e0 Scaffold::EndPhysics(PhysicsObject *, bool)
@@ -405,19 +405,19 @@ void Scaffold::EndPhysics(PhysicsObject* param_1, bool param_2)
 }
 
 // win1.41 006e96a0 mac 10141b10 Scaffold::ValidForPlaceInHand(GInterfaceStatus *)
-bool Scaffold::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Scaffold::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 006e96e0 mac 101419a0 Scaffold::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool Scaffold::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t Scaffold::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 006e9770 mac 10141720 Scaffold::InterfaceSetOutMagicHand(GInterfaceStatus *)
-bool Scaffold::InterfaceSetOutMagicHand(GInterfaceStatus* param_1)
+bool32_t Scaffold::InterfaceSetOutMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -464,13 +464,13 @@ uint32_t Scaffold::InterfaceTap(GInterfaceStatus* param_1)
 }
 
 // win1.41 006ea240 mac 10140340 Scaffold::Save(GameOSFile &)
-bool Scaffold::Save(GameOSFile& file)
+bool32_t Scaffold::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 006ea3d0 mac 10140100 Scaffold::Load(GameOSFile &)
-bool Scaffold::Load(GameOSFile& file)
+bool32_t Scaffold::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -498,7 +498,7 @@ uint32_t Scaffold::InitialisePhysics(const LHPoint* param_1, const LHPoint* para
 }
 
 // win1.41 006ea8a0 mac 1013f9a0 Scaffold::InitialisePhysicsFromHand(LHPoint &, LHPoint &, GInterfaceStatus *, Object *, int)
-uint32_t Scaffold::InitialisePhysicsFromHand(LHPoint* param_1, LHPoint* param_2, GInterfaceStatus* param_3, Object* param_4, int param_5)
+uint32_t Scaffold::InitialisePhysicsFromHand(LHPoint& param_1, LHPoint& param_2, GInterfaceStatus* param_3, Object* param_4, int param_5)
 {
     return 0;
 }
@@ -517,7 +517,7 @@ void Scaffold::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 // win1.41 006ea9d0 mac 1013f6d0 Scaffold::GetOverwritePickUpToolTip(void)
 uint32_t Scaffold::GetOverwritePickUpToolTip()
 {
-    return 0;
+    return 3815;
 }
 
 // win1.41 006ea9e0 mac 1013f670 Scaffold::GetUpdateOfBoredomValue(Reaction *, GameThingWithPos *)
@@ -529,7 +529,7 @@ float Scaffold::GetUpdateOfBoredomValue(Reaction* param_1, GameThingWithPos* par
 // win1.41 006eab60 mac 1013f280 Scaffold::GetScriptObjectType(void)
 uint32_t Scaffold::GetScriptObjectType()
 {
-    return 0;
+    return 39;
 }
 
 // win1.41 006eab70 mac 1013f210 Scaffold::ThrowObjectFromHand(GInterfaceStatus *, int)
@@ -539,13 +539,13 @@ uint32_t Scaffold::ThrowObjectFromHand(GInterfaceStatus* param_1, int param_2)
 }
 
 // win1.41 006eaea0 mac 1013ec20 Scaffold::IsResourceStore(RESOURCE_TYPE)
-bool Scaffold::IsResourceStore(RESOURCE_TYPE param_1)
+bool32_t Scaffold::IsResourceStore(RESOURCE_TYPE param_1)
 {
     return 0;
 }
 
 // win1.41 006eaec0 mac 1013eb90 Scaffold::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool Scaffold::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
+bool32_t Scaffold::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
 {
     return 0;
 }
@@ -617,4 +617,286 @@ void GScript::PUSH(void* param_1, VMType param_2)
 // win1.41 006f0cc0 mac 104def10 GScript::StopScriptsOfType(VMScriptType)
 void GScript::StopScriptsOfType(VMScriptType param_1)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00422e30();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00436960();
+extern "C" char sdtor_vt_9;
+extern "C" void sdtor_dt_65();
+extern "C" void sdtor_dt_66();
+
+__declspec(naked) void __cdecl sdtor_ChessPion() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00422e30
+        test byte ptr [esp + 8], 1
+        je short skip_ChessPion
+        push 0x0000009c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ChessPion:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_ChessTower() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00422e30
+        test byte ptr [esp + 8], 1
+        je short skip_ChessTower
+        push 0x0000009c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ChessTower:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_ChessKnight() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00422e30
+        test byte ptr [esp + 8], 1
+        je short skip_ChessKnight
+        push 0x0000009c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ChessKnight:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_ChessMad() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00422e30
+        test byte ptr [esp + 8], 1
+        je short skip_ChessMad
+        push 0x0000009c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ChessMad:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_ChessQueen() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00422e30
+        test byte ptr [esp + 8], 1
+        je short skip_ChessQueen
+        push 0x0000009c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ChessQueen:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_ChessKing() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00422e30
+        test byte ptr [esp + 8], 1
+        je short skip_ChessKing
+        push 0x0000009c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ChessKing:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSquadInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSquadInfo
+        push 0x28
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSquadInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GRankInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GRankInfo
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GRankInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Rank() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_9
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_Rank
+        push 0x20
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Rank:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_ReactionInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_ReactionInfo
+        push 0x64
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_ReactionInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GRewardInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GRewardInfo
+        push 0x00000130
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GRewardInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GRewardProgress() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GRewardProgress
+        push 0x2c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GRewardProgress:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Reward() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_65
+        test byte ptr [esp + 8], 1
+        je short skip_Reward
+        push 0x000000a8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Reward:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GScaffoldInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GScaffoldInfo
+        push 0x00000128
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GScaffoldInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GScript() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_66
+        test byte ptr [esp + 8], 1
+        je short skip_GScript
+        push 0x000000bc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GScript:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

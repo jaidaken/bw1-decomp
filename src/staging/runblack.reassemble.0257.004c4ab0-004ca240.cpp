@@ -2,7 +2,7 @@
 #include "CreatureAttitudeToPlayer.h"
 
 // win1.41 004c5e50 mac 10231ab0 Creature::FalseFunction(void)
-bool Creature::FalseFunction()
+bool32_t Creature::FalseFunction()
 {
     return 0;
 }
@@ -28,4 +28,47 @@ uint32_t Creature::ApplyFightThisToMapCoord(GInterfaceStatus* param_1, const Map
 // win1.41 004c81a0 mac 10235cc0 CreatureAttitudeToPlayer::_dt(void)
 CreatureAttitudeToPlayer::~CreatureAttitudeToPlayer()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_CreatureCommand() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureCommand
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureCommand:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureAttitudeToPlayer() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureAttitudeToPlayer
+        push 0x00001db4
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureAttitudeToPlayer:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

@@ -2,7 +2,7 @@
 #include "SkipBox.h"
 
 // win1.41 00543d80 mac 105bb960 CDBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void CDBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void CDBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -17,6 +17,6 @@ void CDBox::InitControls()
 }
 
 // win1.41 005441c0 mac 105bb390 SkipBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void SkipBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void SkipBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }

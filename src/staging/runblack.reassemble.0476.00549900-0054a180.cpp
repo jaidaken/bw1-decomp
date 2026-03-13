@@ -7,7 +7,7 @@ void SetupOnlineLandscapes::Show()
 }
 
 // win1.41 00549b60 mac 105ce270 SetupMultiplayerMain::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void SetupMultiplayerMain::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void SetupMultiplayerMain::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

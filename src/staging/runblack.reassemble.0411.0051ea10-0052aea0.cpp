@@ -14,6 +14,10 @@
 #include "Field.h"
 #include "FireFly.h"
 
+extern "C" char sdtor_vt_Flowers;
+extern "C" void sdtor_dtor_Flowers();
+extern "C" void sdtor_op_del();
+
 // win1.41 0051f180 mac inlined EditorHug::ProcessTurn(void)
 int EditorHug::ProcessTurn()
 {
@@ -128,13 +132,13 @@ GFeatureInfo::~GFeatureInfo()
 // win1.41 00527480 mac 100d16a0 PlannedFeature::GetSaveType(void)
 uint32_t PlannedFeature::GetSaveType()
 {
-    return 0;
+    return 115;
 }
 
 // win1.41 00527490 mac 100d16e0 PlannedFeature::GetDebugText(void)
 char* PlannedFeature::GetDebugText()
 {
-    return 0;
+    return "PlannedFeature";
 }
 
 // win1.41 005274a0 mac 100d1600 PlannedFeature::_dt(void)
@@ -149,13 +153,13 @@ MultiMapFixed* PlannedFeature::CreatePlanned(float param_1)
 }
 
 // win1.41 00527550 mac 100d0ff0 PlannedFeature::Save(GameOSFile &)
-bool PlannedFeature::Save(GameOSFile& file)
+bool32_t PlannedFeature::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00527580 mac 100d0f60 PlannedFeature::Load(GameOSFile &)
-bool PlannedFeature::Load(GameOSFile& file)
+bool32_t PlannedFeature::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -169,11 +173,11 @@ uint32_t Feature::SaveObject(LHOSFile& file, const MapCoords& coords)
 // win1.41 005276c0 mac 10008370 Feature::GetScriptObjectType(void)
 uint32_t Feature::GetScriptObjectType()
 {
-    return 0;
+    return 3;
 }
 
 // win1.41 005276d0 mac 100d0c30 Feature::IsMushroom(Creature *)
-bool Feature::IsMushroom(Creature* param_1)
+bool32_t Feature::IsMushroom(Creature* param_1)
 {
     return 0;
 }
@@ -216,13 +220,13 @@ LH3DObject::ObjectType Flowers::Get3DType()
 // win1.41 00527990 mac 100d00f0 Flowers::GetSaveType(void)
 uint32_t Flowers::GetSaveType()
 {
-    return 0;
+    return 266;
 }
 
 // win1.41 005279a0 mac 100d0130 Flowers::GetDebugText(void)
 char* Flowers::GetDebugText()
 {
-    return 0;
+    return "Flowers";
 }
 
 // win1.41 005279b0 mac 100d0030 Flowers::_dt(void)
@@ -230,8 +234,27 @@ Flowers::~Flowers()
 {
 }
 
+__declspec(naked) void __cdecl sdtor_Flowers() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_Flowers
+        call sdtor_dtor_Flowers
+        test byte ptr [esp + 8], 1
+        je short skip_Flowers
+        push 07Ch
+        push esi
+        call sdtor_op_del
+        add esp, 8
+    skip_Flowers:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
 // win1.41 00527a30 mac 100d0310 Flowers::CallVirtualFunctionsForCreation(MapCoords const &)
-void Flowers::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Flowers::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -265,89 +288,89 @@ GFieldTypeInfo::~GFieldTypeInfo()
 // win1.41 00527f20 mac 100d5fa0 Field::GetCreatureBeliefType(void)
 uint32_t Field::GetCreatureBeliefType()
 {
-    return 0;
+    return 11;
 }
 
 // win1.41 00527f30 mac inlined Field::IsField(Creature *)
-bool Field::IsField(Creature* param_1)
+bool32_t Field::IsField(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00527f40 mac inlined Field::IsField(void)
-bool Field::IsField()
+bool32_t Field::IsField()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00527f50 mac 100d6050 Field::BenefitsFromHavingWaterSprinkledOnIt(Creature *)
-bool Field::BenefitsFromHavingWaterSprinkledOnIt(Creature* param_1)
+bool32_t Field::BenefitsFromHavingWaterSprinkledOnIt(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527f60 mac 100d60d0 Field::CanBePoodOn(Creature *)
-bool Field::CanBePoodOn(Creature* param_1)
+bool32_t Field::CanBePoodOn(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527f70 mac 100d6110 Field::CanBePickedUpByCreature(Creature *)
-bool Field::CanBePickedUpByCreature(Creature* param_1)
+bool32_t Field::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527f80 mac 100d6160 Field::CanBeStompedOnByCreature(Creature *)
-bool Field::CanBeStompedOnByCreature(Creature* param_1)
+bool32_t Field::CanBeStompedOnByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527f90 mac 100d61b0 Field::CanBeGivenToVillager(Creature *)
-bool Field::CanBeGivenToVillager(Creature* param_1)
+bool32_t Field::CanBeGivenToVillager(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527fa0 mac 100d6200 Field::CanBePutInAStoragePit(Creature *)
-bool Field::CanBePutInAStoragePit(Creature* param_1)
+bool32_t Field::CanBePutInAStoragePit(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527fb0 mac 100d6250 Field::CanBeDestroyedByStoning(Creature *)
-bool Field::CanBeDestroyedByStoning(Creature* param_1)
+bool32_t Field::CanBeDestroyedByStoning(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527fc0 mac 100d62a0 Field::CanBeExaminedByCreature(Creature *)
-bool Field::CanBeExaminedByCreature(Creature* param_1)
+bool32_t Field::CanBeExaminedByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527fd0 mac 100d62f0 Field::CanBeEatenByCreature(Creature *)
-bool Field::CanBeEatenByCreature(Creature* param_1)
+bool32_t Field::CanBeEatenByCreature(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00527fe0 mac 100d6340 Field::CanBeSleptNextToByCreature(Creature *)
-bool Field::CanBeSleptNextToByCreature(Creature* param_1)
+bool32_t Field::CanBeSleptNextToByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00527ff0 mac 100d6390 Field::IsBeingBuilt(Creature *)
-bool Field::IsBeingBuilt(Creature* param_1)
+bool32_t Field::IsBeingBuilt(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00528000 mac 100d63d0 Field::NeedsRepair(Creature *)
-bool Field::NeedsRepair(Creature* param_1)
+bool32_t Field::NeedsRepair(Creature* param_1)
 {
     return 0;
 }
@@ -367,11 +390,11 @@ bool Field::InteractsWithPhysicsObjects()
 // win1.41 00528030 mac 100d6450 Field::CanBecomeAPhysicsObject(void)
 bool Field::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00528040 mac 100d6490 Field::IsTuggable(void)
-bool Field::IsTuggable()
+bool32_t Field::IsTuggable()
 {
     return 0;
 }
@@ -385,13 +408,13 @@ bool Field::IsLockedInInteract()
 // win1.41 00528070 mac 100d6540 Field::GetSaveType(void)
 uint32_t Field::GetSaveType()
 {
-    return 0;
+    return 50;
 }
 
 // win1.41 00528080 mac 100d6570 Field::GetDebugText(void)
 char* Field::GetDebugText()
 {
-    return 0;
+    return "Field";
 }
 
 // win1.41 00528090 mac 100d5ed0 Field::_dt(void)
@@ -400,7 +423,7 @@ Field::~Field()
 }
 
 // win1.41 005280c0 mac 100d5880 Field::CreatureMustAvoid(Creature *)
-bool Field::CreatureMustAvoid(Creature* param_1)
+bool32_t Field::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -427,7 +450,7 @@ void Field::GetFireGPHXDrawn(bool* param_1, bool* param_2, bool* param_3, bool* 
 }
 
 // win1.41 00528900 mac 100d4c80 Field::IsEffectReceiver(EffectValues *)
-bool Field::IsEffectReceiver(EffectValues* param_1)
+bool32_t Field::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
@@ -445,13 +468,13 @@ Town* Field::GetTown()
 }
 
 // win1.41 00528a30 mac 100d4a10 Field::GetMeshRadius( const(void))
-float Field::GetMeshRadius()
+float Field::GetMeshRadius() const
 {
     return 0;
 }
 
 // win1.41 00528a40 mac 100d47b0 Field::CallVirtualFunctionsForCreation(MapCoords const &)
-void Field::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Field::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -468,7 +491,7 @@ uint32_t Field::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 00528e50 mac 100d4190 GFieldTypeInfo::IsOkToCreateAtPos( const(MapCoords const &, float, float))
-bool GFieldTypeInfo::IsOkToCreateAtPos(const MapCoords* param_1, float param_2, float param_3)
+bool GFieldTypeInfo::IsOkToCreateAtPos(const MapCoords& param_1, float param_2, float param_3) const
 {
     return 0;
 }
@@ -480,7 +503,7 @@ float Field::Get2DRadius()
 }
 
 // win1.41 00528ef0 mac 100d40d0 Field::ValidForPlaceInHand(GInterfaceStatus *)
-bool Field::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Field::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -498,7 +521,7 @@ uint32_t Field::Process()
 }
 
 // win1.41 005291a0 mac 100d3e50 Field::PlantCrop(MapCoords const &)
-bool32_t Field::PlantCrop(const MapCoords* param_1)
+bool32_t Field::PlantCrop(const MapCoords& param_1)
 {
     return 0;
 }
@@ -510,7 +533,7 @@ bool32_t Field::GetPlantCropPos()
 }
 
 // win1.41 00529290 mac inlined Field::IsTouching_2( const(MapCoords *))
-bool Field::IsTouching_2(MapCoords* param_1)
+bool32_t Field::IsTouching_2(MapCoords* param_1)
 {
     return 0;
 }
@@ -534,7 +557,7 @@ float Field::GetPercentFull()
 }
 
 // win1.41 00529520 mac 100d3560 Field::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool Field::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t Field::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -570,31 +593,31 @@ bool32_t Field::ValidForLockedSelectProcess(GInterfaceStatus* param_1)
 }
 
 // win1.41 00529a20 mac 100d29b0 Field::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
-bool Field::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
+bool32_t Field::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
 {
     return 0;
 }
 
 // win1.41 00529a60 mac 100d28b0 Field::NetworkUnfriendlyEndLockedSelect(void)
-bool Field::NetworkUnfriendlyEndLockedSelect()
+bool32_t Field::NetworkUnfriendlyEndLockedSelect()
 {
     return 0;
 }
 
 // win1.41 00529af0 mac 100d2830 Field::NetworkFriendlyEndLockedSelect(GInterfaceStatus *)
-bool Field::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
+bool32_t Field::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 00529b10 mac 100d23a0 Field::Save(GameOSFile &)
-bool Field::Save(GameOSFile& file)
+bool32_t Field::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00529d60 mac 100d1eb0 Field::Load(GameOSFile &)
-bool Field::Load(GameOSFile& file)
+bool32_t Field::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -606,7 +629,7 @@ uint32_t Field::GetDiscipleStateIfInteractedWith(GInterfaceStatus* param_1, Vill
 }
 
 // win1.41 00529ff0 mac inlined Field::CanBeDestroyedBySpell_1(Spell *)
-bool Field::CanBeDestroyedBySpell(Spell* param_1)
+bool32_t Field::CanBeDestroyedBySpell(Spell* param_1)
 {
     return 0;
 }
@@ -614,11 +637,11 @@ bool Field::CanBeDestroyedBySpell(Spell* param_1)
 // win1.41 0052a000 mac 100d1d20 Field::GetOverwriteInteractableToolTip(void)
 uint32_t Field::GetOverwriteInteractableToolTip()
 {
-    return 0;
+    return 3699;
 }
 
 // win1.41 0052a010 mac 100d1c70 Field::DestroyedByEffect(GPlayer *, float)
-bool Field::DestroyedByEffect(GPlayer* param_1, float param_2)
+bool32_t Field::DestroyedByEffect(GPlayer* param_1, float param_2)
 {
     return 0;
 }
@@ -647,13 +670,13 @@ void FireFly::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 // win1.41 0052a1c0 mac 100da1b0 FireFly::CanBecomeAPhysicsObject(void)
 bool FireFly::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 0052a1d0 mac 100da180 FireFly::IsMoving( const(void))
-bool FireFly::IsMoving()
+bool FireFly::IsMoving() const
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 0052a200 mac 100d9f20 FireFly::Create(MapCoords const &)
@@ -662,7 +685,7 @@ FireFly* FireFly::Create(MapCoords* coord)
     return 0;
 }
 
-// win1.41 0052a280 mac 100d9e20 FireFly::FireFly(const MapCoords&)
+// win1.41 0052a280 mac 100d9e20 FireFly::FireFly(const MapCoords*)
 FireFly::FireFly(MapCoords* coords)
 {
 }
@@ -670,13 +693,13 @@ FireFly::FireFly(MapCoords* coords)
 // win1.41 0052a2f0 mac 100d6690 FireFly::GetSaveType(void)
 uint32_t FireFly::GetSaveType()
 {
-    return 0;
+    return 42;
 }
 
 // win1.41 0052a300 mac 100d66d0 FireFly::GetDebugText(void)
 char* FireFly::GetDebugText()
 {
-    return 0;
+    return "FireFly";
 }
 
 // win1.41 0052a310 mac 100d9be0 FireFly::_dt(void)
@@ -695,11 +718,201 @@ void FireFly::ToBeDeleted(int param_1)
 }
 
 // win1.41 0052a510 mac 100d9950 FireFly::CallVirtualFunctionsForCreation(MapCoords const &)
-void FireFly::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void FireFly::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
 // win1.41 0052aa90 mac 100d9130 FireFly::Draw(void)
 void FireFly::Draw()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_dt_15();
+extern "C" void sdtor_dt_18();
+
+__declspec(naked) void __cdecl sdtor_GEffectInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GEffectInfo
+        push 0x34
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GEffectInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMagicEffectInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMagicEffectInfo
+        push 0x0000011c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMagicEffectInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_EffectValues() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_EffectValues
+        push 0x40
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_EffectValues:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFeatureInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GFeatureInfo
+        push 0x00000124
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFeatureInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PlannedFeature() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PlannedFeature
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PlannedFeature:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFlowersInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GFlowersInfo
+        push 0x00000128
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFlowersInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFieldInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GFieldInfo
+        push 0x0000014c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFieldInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFieldTypeInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GFieldTypeInfo
+        push 0x00000154
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFieldTypeInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Field() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_15
+        test byte ptr [esp + 8], 1
+        je short skip_Field
+        push 0x00000124
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Field:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_FireFly() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_18
+        test byte ptr [esp + 8], 1
+        je short skip_FireFly
+        push 0x000000c4
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_FireFly:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

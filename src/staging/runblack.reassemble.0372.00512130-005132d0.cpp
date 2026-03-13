@@ -36,7 +36,7 @@ bool DialogBoxBase::CanESCOut()
 }
 
 // win1.41 005129d0 mac 102b18f0 DialogBoxKeyBinding::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void DialogBoxKeyBinding::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void DialogBoxKeyBinding::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

@@ -41,10 +41,35 @@ void GameStats::SetPlayer(GPlayer* param_1)
 // win1.41 00564af0 mac 10310a90 GameStats::GetDebugText(void)
 char* GameStats::GetDebugText()
 {
-    return 0;
+    return "GameStats";
 }
 
 // win1.41 00564b00 mac 1031b740 GameStats::_dt(void)
 GameStats::~GameStats()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_23();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_GameStats() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_23
+        test byte ptr [esp + 8], 1
+        je short skip_GameStats
+        push 0x00001128
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GameStats:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

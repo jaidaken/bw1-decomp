@@ -29,7 +29,7 @@ void Living::StopReactingAndSetState()
 }
 
 // win1.41 005f11f0 mac 10019a90 Living::IsAvailableForReaction(REACTION)
-bool Living::IsAvailableForReaction(REACTION param_1)
+bool32_t Living::IsAvailableForReaction(REACTION param_1)
 {
     return 0;
 }
@@ -325,25 +325,25 @@ uint32_t Living::StandardNumGameTurnsBeforeReactingToWoodAgainFunction(GameThing
 }
 
 // win1.41 005f27f0 mac 10056110 Living::GetTopState(void)
-VILLAGER_STATES Living::GetTopState()
+VILLAGER_STATES Living::GetTopState() const
 {
     return (VILLAGER_STATES)0;
 }
 
 // win1.41 005f2800 mac 1038a340 Living::SetupMoveToObject(Object *, unsigned char)
-bool Living::SetupMoveToObject(Object* param_1, unsigned char param_2)
+bool32_t Living::SetupMoveToObject(Object* param_1, unsigned char param_2)
 {
     return 0;
 }
 
 // win1.41 005f2830 mac 10029240 Living::SetupMoveToPos(MapCoords const &, unsigned char)
-uint32_t Living::SetupMoveToPos(const MapCoords* param_2, uint8_t param_3)
+uint32_t Living::SetupMoveToPos(const MapCoords& param_2, uint8_t param_3)
 {
     return 0;
 }
 
 // win1.41 005f2890 mac 10010f60 Living::SetupMoveToWithHug(MapCoords const &, unsigned char)
-uint32_t Living::SetupMoveToWithHug(const MapCoords* coords, uint8_t state)
+uint32_t Living::SetupMoveToWithHug(const MapCoords& coords, uint8_t state)
 {
     return 0;
 }
@@ -366,7 +366,7 @@ void Living::SetState(LIVING_ACTION_INDEX index, VILLAGER_STATES state)
 }
 
 // win1.41 005f5250 mac 105d7ac0 LobbyBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void LobbyBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void LobbyBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

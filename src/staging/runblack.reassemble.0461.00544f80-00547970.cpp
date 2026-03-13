@@ -12,7 +12,7 @@ void FrontEnd::JustDoABox(DialogBoxBase* box)
 }
 
 // win1.41 00545230 mac 105b9ac0 HistoryBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void HistoryBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void HistoryBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

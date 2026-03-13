@@ -6,7 +6,7 @@
 #include "SetupMP3Button.h"
 
 // win1.41 0056eef0 mac inlined MultiplayerConditionBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void MultiplayerConditionBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void MultiplayerConditionBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -46,13 +46,13 @@ void GameThing::ToBeDeleted(int param_1)
 }
 
 // win1.41 0056fbe0 mac 101724b0 GameThing::Save(GameOSFile &)
-bool GameThing::Save(GameOSFile& file)
+bool32_t GameThing::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0056fcf0 mac 103807f0 GameThing::Load(GameOSFile &)
-bool GameThing::Load(GameOSFile& file)
+bool32_t GameThing::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -64,7 +64,7 @@ uint32_t GameThing::GetSaveType()
 }
 
 // win1.41 0056fda0 mac 100bc180 GameThing::SaveExtraData(GameOSFile &)
-void GameThing::SaveExtraData(GameOSFile* file)
+void GameThing::SaveExtraData(GameOSFile& file)
 {
 }
 
@@ -239,12 +239,12 @@ void GameThingWithPos::GetPSysBeamTargetPos(LHPoint* pos)
 }
 
 // win1.41 00570330 mac 100e4740 GameThing::UseFootpathIfNecessary(Living *, MapCoords const &, unsigned char)
-void GameThing::UseFootpathIfNecessary(Living* param_1, const MapCoords* param_2, unsigned char param_3)
+void GameThing::UseFootpathIfNecessary(Living* param_1, const MapCoords& param_2, unsigned char param_3)
 {
 }
 
 // win1.41 00570350 mac 10005560 GameThingWithPos::UseFootpathIfNecessary(Living *, MapCoords const &, unsigned char)
-void GameThingWithPos::UseFootpathIfNecessary(Living* param_1, const MapCoords* param_2, unsigned char param_3)
+void GameThingWithPos::UseFootpathIfNecessary(Living* param_1, const MapCoords& param_2, unsigned char param_3)
 {
 }
 
@@ -266,13 +266,13 @@ uint32_t GameThingWithPos::GetFOVHelpCondition()
 }
 
 // win1.41 005703f0 mac 10512f10 GameThingWithPos::Save(GameOSFile &)
-bool GameThingWithPos::Save(GameOSFile& file)
+bool32_t GameThingWithPos::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005704a0 mac 1016a2c0 GameThingWithPos::Load(GameOSFile &)
-bool GameThingWithPos::Load(GameOSFile& file)
+bool32_t GameThingWithPos::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -336,12 +336,12 @@ uint32_t GameThing::JustGetResource(RESOURCE_TYPE param_1, uint32_t param_2, boo
 }
 
 // win1.41 00570e90 mac 10326ea0 GatheringBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void GatheringBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void GatheringBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
 // win1.41 00571f00 mac 10328c60 SetupStaticTextNoHit::HitTest(int, int)
-bool SetupStaticTextNoHit::HitTest(int x, int y)
+bool32_t SetupStaticTextNoHit::HitTest(int x, int y)
 {
     return 0;
 }
@@ -359,4 +359,45 @@ SetupMP3Button::~SetupMP3Button()
 // win1.41 00572530 mac 103266d0 GatheringBox::Destroy(void)
 void GatheringBox::Destroy()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_0();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_SetupStaticTextNoHit() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupStaticTextNoHit
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupStaticTextNoHit:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SetupMP3Button() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupMP3Button
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupMP3Button:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

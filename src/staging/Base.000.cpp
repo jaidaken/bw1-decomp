@@ -1,6 +1,6 @@
 #include "Base.h"
 
-void Base::Serialise(Archive* param_1)
+void Base::Serialise(Archive& param_1)
 {
 }
 

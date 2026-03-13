@@ -73,13 +73,13 @@ MapCellIterator MapCoords::GetFirstIterator() const
 }
 
 // win1.41 006035b0 mac 10018e70 MapCoords::IsWater(void) const
-bool MapCoords::IsWater() const
+bool32_t MapCoords::IsWater() const
 {
     return 0;
 }
 
 // win1.41 00603b30 mac 1055e480 MapCoords::IsSuitableForFixed 9MESH_LISTff
-void MapCoords::IsSuitableForFixed(MESH_LIST mesh, float param_2, float param_3)
+void MapCoords::IsSuitableForFixed(MESH_LIST mesh, float param_2, float param_3) const
 {
 }
 
@@ -89,7 +89,7 @@ void MapCoords::IsSuitableForFixed(Game3DObject* object) const
 }
 
 // win1.41 006042c0 mac 100499f0 MapCoords::InBounds(void) const
-bool MapCoords::InBounds() const
+bool32_t MapCoords::InBounds() const
 {
     return 0;
 }
@@ -106,14 +106,14 @@ int MapCoords::CollideCollideWithFixe() const
     return 0;
 }
 
-// win1.41 006053c0 mac 100028d0 MapCoords::IsCloseToEqual(const MapCoords&, float) const
-bool MapCoords::IsCloseToEqual(const MapCoords& other, float epsilon) const
+// win1.41 006053c0 mac 100028d0 MapCoords::IsCloseToEqual(const MapCoords*, float) const
+bool32_t MapCoords::IsCloseToEqual(const MapCoords* other, float epsilon) const
 {
     return 0;
 }
 
 // win1.41 00605410 mac 1001fb00 MapCoords::operator+=(MapCoords const &)
-MapCoords& MapCoords::operator+=(const MapCoords& other)
+MapCoords& MapCoords::operator+=(const MapCoords* other)
 {
     return *this;
 }
@@ -125,19 +125,19 @@ MapCoords& MapCoords::operator+=(const JustMapXZ& other)
 }
 
 // win1.41 00605520 mac 100503e0 MapCoords::operator+(MapCoords const &) const
-MapCoords MapCoords::operator+(const MapCoords& other) const
+MapCoords MapCoords::operator+(const MapCoords* other) const
 {
     return MapCoords();
 }
 
 // win1.41 00605660 mac 10087b50 MapCoords::operator==(MapCoords const &) const
-bool MapCoords::operator==(const MapCoords& param_2) const
+bool32_t MapCoords::operator==(const MapCoords* param_2) const
 {
     return 0;
 }
 
 // win1.41 006056b0 mac 10557130 MapCoords::operator!=(MapCoords const &) const
-bool MapCoords::operator!=(const MapCoords& param_1) const
+bool32_t MapCoords::operator!=(const MapCoords* param_1) const
 {
     return 0;
 }
@@ -155,7 +155,7 @@ float GUtils::GetDistanceInMetres_2(const MapCoords& first, const MapCoords& oth
 }
 
 // win1.41 00605fb0 mac 10032290 MapCoords::GetMetresDistanceSq(MapCoords const &) const
-float MapCoords::GetMetresDistanceSq(const MapCoords& param_2) const
+float MapCoords::GetMetresDistanceSq(const MapCoords* param_2) const
 {
     return 0;
 }
@@ -206,17 +206,17 @@ float Mist::GetDistanceFromObject(const MapCoords* param_1)
 // win1.41 00606910 mac 10104af0 Mist::GetScriptObjectType(void)
 uint32_t Mist::GetScriptObjectType()
 {
-    return 0;
+    return 29;
 }
 
 // win1.41 00606920 mac 10104980 Mist::Save(GameOSFile &)
-bool Mist::Save(GameOSFile& file)
+bool32_t Mist::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00606a10 mac 10104820 Mist::Load(GameOSFile &)
-bool Mist::Load(GameOSFile& file)
+bool32_t Mist::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -227,19 +227,19 @@ void Mist::ResolveLoad()
 }
 
 // win1.41 00606bf0 mac 103ba690 Mobile::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-uint32_t Mobile::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3)
+uint32_t Mobile::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3)
 {
     return 0;
 }
 
 // win1.41 00606c10 mac 103ba5b0 Mobile::Save(GameOSFile &)
-bool Mobile::Save(GameOSFile& file)
+bool32_t Mobile::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00606c70 mac 103ba4e0 Mobile::Load(GameOSFile &)
-bool Mobile::Load(GameOSFile& file)
+bool32_t Mobile::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -247,7 +247,7 @@ bool Mobile::Load(GameOSFile& file)
 // win1.41 00606cd0 mac 103ba4a0 Mobile::BlocksTownClearArea( const(void))
 bool Mobile::BlocksTownClearArea() const
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00606da0 mac 100ad7d0 GMobileObjectInfo::GetBaseInfo(unsigned long &)
@@ -289,7 +289,7 @@ float MobileObject::GetHoldLoweringMultiplier()
 }
 
 // win1.41 00607150 mac 103bd200 MobileObject::CallVirtualFunctionsForCreation(MapCoords const &)
-void MobileObject::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void MobileObject::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -355,7 +355,7 @@ uint32_t MobileObject::MoveAlongPath()
 // win1.41 006079c0 mac 103bc180 Poo::GetPhysicsConstantsType(void)
 uint32_t Poo::GetPhysicsConstantsType()
 {
-    return 0;
+    return 12;
 }
 
 // win1.41 006079d0 mac 103bc130 Poo::InsertMapObject(void)
@@ -364,7 +364,7 @@ void Poo::InsertMapObject()
 }
 
 // win1.41 006079e0 mac 103bc0b0 MobileObject::IsPoisoned(void)
-bool MobileObject::IsPoisoned()
+bool32_t MobileObject::IsPoisoned()
 {
     return 0;
 }
@@ -383,7 +383,7 @@ void MobileObject::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 // win1.41 00607aa0 mac 103bbe00 MobileObject::CanBecomeAPhysicsObject(void)
 bool MobileObject::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00607ab0 mac 103bbc80 MobileObject::PhysicsEditorCreate(int)
@@ -394,7 +394,7 @@ void MobileObject::PhysicsEditorCreate(int param_1)
 // win1.41 00607b60 mac 103bbc40 MobileObject::GetScriptObjectType(void)
 uint32_t MobileObject::GetScriptObjectType()
 {
-    return 0;
+    return 20;
 }
 
 // win1.41 00607b70 mac 103bbb30 MobileObject::ValidToApplyThisToObject(GInterfaceStatus *, Object *)
@@ -422,13 +422,13 @@ RESOURCE_TYPE MobileObject::GetResourceType()
 }
 
 // win1.41 00607c40 mac 103bb7a0 MobileObject::Save(GameOSFile &)
-bool MobileObject::Save(GameOSFile& file)
+bool32_t MobileObject::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00607d00 mac 103bb660 MobileObject::Load(GameOSFile &)
-bool MobileObject::Load(GameOSFile& file)
+bool32_t MobileObject::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -466,7 +466,7 @@ bool FieldCrop::IsFunctional()
 }
 
 // win1.41 006082b0 mac 103bb140 FieldCrop::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-uint32_t FieldCrop::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3)
+uint32_t FieldCrop::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3)
 {
     return 0;
 }
@@ -474,13 +474,13 @@ uint32_t FieldCrop::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoor
 // win1.41 006082d0 mac 103bb100 FieldCrop::CanBecomeAPhysicsObject(void)
 bool FieldCrop::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 006082e0 mac 103bb0c0 FieldCrop::GetPhysicsConstantsType(void)
 uint32_t FieldCrop::GetPhysicsConstantsType()
 {
-    return 0;
+    return 6;
 }
 
 // win1.41 006082f0 mac 103bafd0 FieldCrop::SetUpPhysOb(PhysOb *)
@@ -497,7 +497,7 @@ bool FieldCrop::InteractsWithPhysicsObjects()
 // win1.41 00608350 mac 103baf40 FieldCrop::IsARootedObject(void)
 bool FieldCrop::IsARootedObject()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00608360 mac 103bae90 FieldCrop::ValidToApplyThisToObject(GInterfaceStatus *, Object *)
@@ -515,7 +515,7 @@ uint32_t FieldCrop::ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2
 // win1.41 006083c0 mac 103bad80 Poo::GetScriptObjectType(void)
 uint32_t Poo::GetScriptObjectType()
 {
-    return 0;
+    return 25;
 }
 
 // win1.41 006083d0 mac 103bad50 Poo::GetHoldType(void)
@@ -525,13 +525,13 @@ HOLD_TYPE Poo::GetHoldType()
 }
 
 // win1.41 006083e0 mac 103bac40 FieldCrop::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool FieldCrop::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t FieldCrop::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 00608440 mac 103baba0 FieldCrop::CreatureMustAvoid(Creature *)
-bool FieldCrop::CreatureMustAvoid(Creature* param_1)
+bool32_t FieldCrop::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -554,13 +554,13 @@ GMobileStaticInfo::~GMobileStaticInfo()
 }
 
 // win1.41 00608590 mac 103c1060 MobileStatic::Load(GameOSFile &)
-bool MobileStatic::Load(GameOSFile& file)
+bool32_t MobileStatic::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00608650 mac 103c0f20 MobileStatic::Save(GameOSFile &)
-bool MobileStatic::Save(GameOSFile& file)
+bool32_t MobileStatic::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -599,7 +599,7 @@ uint32_t MobileStatic::GetCreatureBeliefType()
 }
 
 // win1.41 00608b30 mac 103c0270 MobileStatic::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-uint32_t MobileStatic::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3)
+uint32_t MobileStatic::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3)
 {
     return 0;
 }
@@ -632,7 +632,7 @@ void MobileStatic::GetWorldMatrix(LHMatrix* param_1)
 }
 
 // win1.41 00608f40 mac 103bf9c0 MobileStatic::GetBoundingSphere(LHPoint &, float &)
-void MobileStatic::GetBoundingSphere(LHPoint* param_1, float* param_2)
+void MobileStatic::GetBoundingSphere(LHPoint& param_1, float& param_2)
 {
 }
 
@@ -642,31 +642,31 @@ void MobileStatic::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 }
 
 // win1.41 00609010 mac 103bf860 MobileStatic::CreatureMustAvoid(Creature *)
-bool MobileStatic::CreatureMustAvoid(Creature* param_1)
+bool32_t MobileStatic::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00609020 mac 103bf7d0 MobileStatic::IsToy(Creature *)
-bool MobileStatic::IsToy(Creature* param_1)
+bool32_t MobileStatic::IsToy(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00609050 mac 103bf750 MobileStatic::IsToyBall(Creature *)
-bool MobileStatic::IsToyBall(Creature* param_1)
+bool32_t MobileStatic::IsToyBall(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00609070 mac 103bf6d0 MobileStatic::IsToyDie(Creature *)
-bool MobileStatic::IsToyDie(Creature* param_1)
+bool32_t MobileStatic::IsToyDie(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00609090 mac 103bf650 MobileStatic::IsToyCuddly(Creature *)
-bool MobileStatic::IsToyCuddly(Creature* param_1)
+bool32_t MobileStatic::IsToyCuddly(Creature* param_1)
 {
     return 0;
 }
@@ -678,7 +678,7 @@ bool MobileStatic::InteractsWithPhysicsObjects()
 }
 
 // win1.41 00609110 mac 1004d490 MobileStatic::IsFence(void)
-bool MobileStatic::IsFence()
+bool32_t MobileStatic::IsFence()
 {
     return 0;
 }
@@ -690,7 +690,7 @@ HOLD_TYPE MobileStatic::GetHoldType()
 }
 
 // win1.41 00609210 mac 103bf080 MobileStatic::PhysicallyDestroysAbodes(void)
-bool MobileStatic::PhysicallyDestroysAbodes()
+bool32_t MobileStatic::PhysicallyDestroysAbodes()
 {
     return 0;
 }
@@ -702,13 +702,93 @@ float MobileStatic::GetHoldLoweringMultiplier()
 }
 
 // win1.41 00609260 mac 103beff0 MobileStatic::ChecksVerticesVObjects(void)
-bool MobileStatic::ChecksVerticesVObjects()
+bool32_t MobileStatic::ChecksVerticesVObjects()
 {
-    return 0;
+    __asm mov al, 1
 }
 
 // win1.41 00609270 mac 103bee80 MobileStatic::GetPhysicsConstantsType(void)
 uint32_t MobileStatic::GetPhysicsConstantsType()
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00436960();
+
+__declspec(naked) void __cdecl sdtor_Meeting() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_Meeting
+        push 0x40
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Meeting:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSpeedThreshold() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSpeedThreshold
+        push 0x18
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSpeedThreshold:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMobileObjectInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMobileObjectInfo
+        push 0x00000114
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMobileObjectInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GMobileStaticInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GMobileStaticInfo
+        push 0x0000012c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GMobileStaticInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

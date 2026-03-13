@@ -14,7 +14,7 @@ void GSetup::LoadMapFeatures(char* map_path)
 // win1.41 00718250 mac 10508f20 GSetup::GetScriptPos(char *)
 MapCoords GSetup::GetScriptPos(char* str)
 {
-    return 0;
+    return MapCoords();
 }
 
 // win1.41 00718330 mac 10508550 GSetup::SaveAllMap(char *)
@@ -80,24 +80,24 @@ GPlayer* ShowNeeds::GetPlayer()
 }
 
 // win1.41 00719cb0 mac 10145970 ShowNeeds::Save(GameOSFile &)
-bool ShowNeeds::Save(GameOSFile& file)
+bool32_t ShowNeeds::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00719cf0 mac 101458d0 ShowNeeds::Load(GameOSFile &)
-bool ShowNeeds::Load(GameOSFile& file)
+bool32_t ShowNeeds::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00719d30 mac 10145850 ShowNeeds::GetShowNeedsPos(unsigned long, MapCoords *)
-uint32_t ShowNeeds::GetShowNeedsPos(uint32_t param_1, MapCoords* param_2)
+uint32_t ShowNeeds::GetShowNeedsPos(unsigned long param_1, MapCoords* param_2)
 {
     return 0;
 }
 
-// win1.41 00719d60 mac 10145700 ShowNeedsVisuals::ShowNeedsVisuals(const MapCoords&, GameThing*, const GShowNeedsInfo *)
+// win1.41 00719d60 mac 10145700 ShowNeedsVisuals::ShowNeedsVisuals(const MapCoords*, GameThing*, const GShowNeedsInfo *)
 ShowNeedsVisuals::ShowNeedsVisuals(MapCoords* coords, GameThing* game_thing, GShowNeedsInfo* info)
 {
 }
@@ -108,7 +108,7 @@ void ShowNeedsVisuals::ToBeDeleted(int param_1)
 }
 
 // win1.41 00719e00 mac 10145510 ShowNeedsVisuals::CallVirtualFunctionsForCreation(const MapCoords &)
-void ShowNeedsVisuals::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void ShowNeedsVisuals::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -119,13 +119,13 @@ GPlayer* ShowNeedsVisuals::GetPlayer()
 }
 
 // win1.41 0071a230 mac 10144d30 ShowNeedsVisuals::Save(GameOSFile &)
-bool ShowNeedsVisuals::Save(GameOSFile& file)
+bool32_t ShowNeedsVisuals::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0071a320 mac 10144bb0 ShowNeedsVisuals::Load(GameOSFile &)
-bool ShowNeedsVisuals::Load(GameOSFile& file)
+bool32_t ShowNeedsVisuals::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -156,4 +156,85 @@ uint32_t GameThing::GetSampleForAttack()
 uint32_t Spell::GetSampleForAttack()
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_69();
+extern "C" void sdtor_dt_70();
+
+__declspec(naked) void __cdecl sdtor_GShowNeedsInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GShowNeedsInfo
+        push 0x00000114
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GShowNeedsInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GConfirmation() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_69
+        test byte ptr [esp + 8], 1
+        je short skip_GConfirmation
+        push 0x24
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GConfirmation:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GHelpSpritesGuidance() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GHelpSpritesGuidance
+        push 0x00000098
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GHelpSpritesGuidance:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GGuidance() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_70
+        test byte ptr [esp + 8], 1
+        je short skip_GGuidance
+        push 0x000000ec
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GGuidance:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

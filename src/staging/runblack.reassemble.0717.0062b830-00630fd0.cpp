@@ -76,7 +76,7 @@ MPFEFileTransferMessage::~MPFEFileTransferMessage()
 }
 
 // win1.41 0062f650 mac 103a5d40 MPFEFindGame::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void MPFEFindGame::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void MPFEFindGame::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -121,11 +121,181 @@ void MPFELogin::InitControls()
 }
 
 // win1.41 006307f0 mac 103a7750 MPFELogin::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void MPFELogin::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void MPFELogin::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
 // win1.41 00630d60 mac 103a7720 MPFELogin::Destroy(void)
 void MPFELogin::Destroy()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_34();
+extern "C" char sdtor_vt_7;
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_MPFEClanList() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEClanList
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEClanList:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEChangeClanRequest() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEChangeClanRequest
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEChangeClanRequest:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFECondtionUpdateMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFECondtionUpdateMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFECondtionUpdateMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEFileTransferMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEFileTransferMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEFileTransferMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEStartGameOkayToStartMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEStartGameOkayToStartMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEStartGameOkayToStartMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEStartGameReadyMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEStartGameReadyMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEStartGameReadyMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEStartGameTransferFilesMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEStartGameTransferFilesMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEStartGameTransferFilesMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEStartGameNowMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEStartGameNowMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEStartGameNowMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MPFEDisconnectNowMessage() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_7
+        call sdtor_dt_34
+        test byte ptr [esp + 8], 1
+        je short skip_MPFEDisconnectNowMessage
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_MPFEDisconnectNowMessage:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

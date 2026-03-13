@@ -1,7 +1,7 @@
 #include "TattooEditor.h"
 
 // win1.41 00542510 mac 105bdae0 TattooEditor::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void TattooEditor::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void TattooEditor::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

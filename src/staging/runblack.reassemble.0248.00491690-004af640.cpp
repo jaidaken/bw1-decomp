@@ -25,7 +25,86 @@ CreatureInitialDesireInfo::~CreatureInitialDesireInfo()
 }
 
 // win1.41 004aca70 mac 10217d60 CreatureAgenda::ConstructSubActionsForAttackerThrowBallAtGoal(unsigned long)
-bool CreatureAgenda::ConstructSubActionsForAttackerThrowBallAtGoal(unsigned long param_1)
+bool32_t CreatureAgenda::ConstructSubActionsForAttackerThrowBallAtGoal(unsigned long param_1)
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_CreatureActionInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureActionInfo
+        push 0x00000110
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureActionInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureInitialDesireInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureInitialDesireInfo
+        push 0x000001c0
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureInitialDesireInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureDesireActionEntry() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureDesireActionEntry
+        push 0x00000088
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureDesireActionEntry:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureDesireAttributeEntry() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureDesireAttributeEntry
+        push 0x38
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureDesireAttributeEntry:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

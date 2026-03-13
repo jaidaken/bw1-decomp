@@ -49,7 +49,7 @@ Abode* Town::FindAbodeWithSpaceInTown(Villager* villager, float min_score)
 }
 
 // win1.41 0073b3d0 mac 10554c70 Town::FindClosesFieldToWithFood(MapCoords const &)
-Field* Town::FindClosesFieldToWithFood(const MapCoords* param_1)
+Field* Town::FindClosesFieldToWithFood(const MapCoords& param_1)
 {
     return 0;
 }
@@ -116,7 +116,7 @@ void Town::AdjustWorshipersWorshipping(long param_1, int param_2, int param_3)
 }
 
 // win1.41 0073c840 mac 1005d020 Town::GetTribe(void) const
-GTribeInfo* Town::GetTribe()
+GTribeInfo* Town::GetTribe() const
 {
     return 0;
 }
@@ -140,7 +140,7 @@ bool32_t Town::IsBuildingSiteValid(BuildingSite* param_1)
 }
 
 // win1.41 0073cf60 mac 10097910 Town::GetBestBuildingSite(MapCoords const &, int)
-bool32_t Town::GetBestBuildingSite(const MapCoords* param_1, int param_2)
+bool32_t Town::GetBestBuildingSite(const MapCoords& param_1, int param_2)
 {
     return 0;
 }
@@ -167,13 +167,13 @@ TownSpellIcon* Town::GetNextSpellIcon(TownSpellIcon* icon)
 }
 
 // win1.41 0073d380 mac 10550e80 Town::AddMagicTypesHeld(MAGIC_TYPE)
-bool Town::AddMagicTypesHeld(MAGIC_TYPE type)
+bool32_t Town::AddMagicTypesHeld(MAGIC_TYPE type)
 {
     return 0;
 }
 
 // win1.41 0073d630 mac 10550b00 Town::IsMagicTypeHeld(MAGIC_TYPE)
-bool Town::IsMagicTypeHeld(MAGIC_TYPE type)
+bool32_t Town::IsMagicTypeHeld(MAGIC_TYPE type)
 {
     return 0;
 }
@@ -185,7 +185,7 @@ float Town::GetRadius()
 }
 
 // win1.41 0073de30 mac 1054fb60 Town::GetFlock(LIVING_TYPE, int)
-bool Town::GetFlock(LIVING_TYPE param_1, int param_2)
+bool32_t Town::GetFlock(LIVING_TYPE param_1, int param_2)
 {
     return 0;
 }
@@ -199,7 +199,7 @@ TotemStatue* Town::GetTotemStatue()
 // win1.41 0073e200 mac 1054f630 Town::GetScriptObjectType(void)
 uint32_t Town::GetScriptObjectType()
 {
-    return 0;
+    return 9;
 }
 
 // win1.41 0073e210 mac 1054f460 Town::RemoveVillager(Villager *)
@@ -225,7 +225,7 @@ float Town::GetRawDesire(TOWN_DESIRE_INFO param_1)
 }
 
 // win1.41 0073e900 mac 1054e460 Town::GetTemporaryResourceStorePotOrPos(MapCoords const &, MapCoords &, RESOURCE_TYPE)
-void* Town::GetTemporaryResourceStorePotOrPos(const MapCoords* param_1, MapCoords* param_2, RESOURCE_TYPE param_3)
+void* Town::GetTemporaryResourceStorePotOrPos(const MapCoords& param_1, MapCoords* param_2, RESOURCE_TYPE param_3)
 {
     return 0;
 }
@@ -241,19 +241,19 @@ void Town::AssignForestsToTown()
 }
 
 // win1.41 0073ed30 mac 1054c770 Town::Save(GameOSFile &)
-bool Town::Save(GameOSFile& file)
+bool32_t Town::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0073f450 mac 1054aa80 Town::Load(GameOSFile &)
-bool Town::Load(GameOSFile& file)
+bool32_t Town::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0073fd80 mac inlined GTownInfo::GetDebugColor( const(LHColor *))
-LHColor* GTownInfo::GetDebugColor(LHColor* param_1)
+LHColor* GTownInfo::GetDebugColor(LHColor* param_1) const
 {
     return 0;
 }
@@ -321,7 +321,7 @@ void Town::UpdateAttitudeToCreature()
 }
 
 // // win1.41 00743a60 mac 1055bb20 TownCentre::TownCentre(MapCoords const &, GAbodeInfo const *, Town *, float, float, float, int)
-// TownCentre::TownCentre(const MapCoords& coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7)
+// TownCentre::TownCentre(const MapCoords* coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7)
 // {
 // }
 
@@ -333,7 +333,7 @@ void TownCentre::ToBeDeleted(int param_1)
 // win1.41 00743bc0 mac 1055b860 TownCentre::InteractsWithPhysicsObjects(void)
 bool TownCentre::InteractsWithPhysicsObjects()
 {
-    return 0;
+    return true;
 }
 
 // win1.41 00743be0 mac 1055b650 TownCentre::DeleteDependancys(void)
@@ -342,13 +342,13 @@ void TownCentre::DeleteDependancys()
 }
 
 // win1.41 00743c90 mac 1055b520 TownCentre::Create(MapCoords const &, GAbodeInfo const *, Town *, float, float, float, int)
-TownCentre* TownCentre::Create(const MapCoords* coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7)
+TownCentre* TownCentre::Create(const MapCoords& coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7)
 {
     return 0;
 }
 
 // win1.41 00743cf0 mac 1055b3c0 TownCentre::CallVirtualFunctionsForCreation(MapCoords const &)
-void TownCentre::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void TownCentre::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -387,7 +387,7 @@ void TownCentre::AddPowerUp(SPELL_SEED_TYPE seed_type, POWER_UP_TYPE power_up_ty
 }
 
 // win1.41 00744050 mac 1055aac0 TownCentre::AddSpell(SPELL_SEED_TYPE)
-bool TownCentre::AddSpell(SPELL_SEED_TYPE seed_type)
+bool32_t TownCentre::AddSpell(SPELL_SEED_TYPE seed_type)
 {
     return 0;
 }
@@ -425,7 +425,7 @@ PlannedMultiMapFixed* TownCentre::ConvertToPlanned()
 // }
 
 // win1.41 007444d0 mac 1055a160 PlannedTownCentre::Create(MapCoords const &, GAbodeInfo const *, Town *, float, float)
-PlannedTownCentre* PlannedTownCentre::Create(const MapCoords* coords, const GAbodeInfo* info, Town* town, float param_4, float param_5)
+PlannedTownCentre* PlannedTownCentre::Create(const MapCoords& coords, const GAbodeInfo* info, Town* town, float param_4, float param_5)
 {
     return 0;
 }
@@ -441,13 +441,13 @@ void TownCentre::DrawAll()
 }
 
 // win1.41 00744830 mac 10559e60 TownCentre::Save(GameOSFile &)
-bool TownCentre::Save(GameOSFile& file)
+bool32_t TownCentre::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00744880 mac 10559dc0 TownCentre::Load(GameOSFile &)
-bool TownCentre::Load(GameOSFile& file)
+bool32_t TownCentre::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -507,13 +507,13 @@ void TownDesire::Process()
 }
 
 // win1.41 00745f80 mac 1005d280 TownDesire::GetInfo(unsigned long) const
-GTownDesireInfo* TownDesire::GetInfo(unsigned long param_1)
+GTownDesireInfo* TownDesire::GetInfo(unsigned long param_1) const
 {
     return 0;
 }
 
 // win1.41 00746580 mac 1005ebc0 GTownDesireInfo::GetDesireFunctions(void) const
-GTownDesireFunction* GTownDesireInfo::GetDesireFunctions()
+GTownDesireFunction* GTownDesireInfo::GetDesireFunctions() const
 {
     return 0;
 }
@@ -541,12 +541,12 @@ void TownDesireFlags::Draw()
 }
 
 // win1.41 00746dc0 mac 1055d830 TownDesireFlags::CallVirtualFunctionsForCreation(MapCoords const &)
-void TownDesireFlags::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void TownDesireFlags::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
 // win1.41 00746de0 mac 1055d7e0 TownDesireFlags::CreatureMustAvoid(Creature *)
-bool TownDesireFlags::CreatureMustAvoid(Creature* param_1)
+bool32_t TownDesireFlags::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -576,13 +576,75 @@ uint32_t TownDesireFlags::GetFOVHelpCondition()
 }
 
 // win1.41 00746f10 mac 1055c600 TownDesireFlags::Save(GameOSFile &)
-bool TownDesireFlags::Save(GameOSFile& file)
+bool32_t TownDesireFlags::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00747030 mac 1055c440 TownDesireFlags::Load(GameOSFile &)
-bool TownDesireFlags::Load(GameOSFile& file)
+bool32_t TownDesireFlags::Load(GameOSFile& file)
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00745760();
+
+__declspec(naked) void __cdecl sdtor_TownCreatureInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_TownCreatureInfo
+        push 0x20
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_TownCreatureInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GTownDesireInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GTownDesireInfo
+        push 0x00000090
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GTownDesireInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_TownDesire() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00745760
+        test byte ptr [esp + 8], 1
+        je short skip_TownDesire
+        push 0x00000564
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_TownDesire:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

@@ -29,7 +29,7 @@ bool PathCreator::CheckAndRecreateSaveGamePaths()
 // }
 
 // win1.41 007923a0 mac 104ce930 SaveGameRoom::CreateSaveGameFiles(char*)
-bool SaveGameRoom::CreateSaveGameFiles()
+bool32_t SaveGameRoom::CreateSaveGameFiles()
 {
     return 0;
 }

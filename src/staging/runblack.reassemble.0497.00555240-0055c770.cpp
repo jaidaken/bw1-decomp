@@ -95,7 +95,7 @@ void PhysicsSaveInfo::ReadInfo(GameOSFile& file)
 }
 
 // win1.41 005587b0 mac 1030ef00 GameOSFile::LoadAllGame(char *)
-bool GameOSFile::LoadAllGame(char* filename)
+bool32_t GameOSFile::LoadAllGame(char* filename)
 {
     return 0;
 }
@@ -103,4 +103,67 @@ bool GameOSFile::LoadAllGame(char* filename)
 // win1.41 00558dc0 mac 10304ef0 GameOSFile::LoadInstance(GameThing **)
 void GameOSFile::LoadInstance(GameThing** out_thing)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_22();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void jmp_addr_0x00558050();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_GameArea() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_22
+        test byte ptr [esp + 8], 1
+        je short skip_GameArea
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GameArea:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GGameInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GGameInfo
+        push 0x58
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GGameInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GameOSFile() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00558050
+        test byte ptr [esp + 8], 1
+        je short skip_GameOSFile
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_GameOSFile:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

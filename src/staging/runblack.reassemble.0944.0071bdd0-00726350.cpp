@@ -38,23 +38,23 @@ uint32_t Pot::GetGuidanceResourceType()
 // win1.41 0071be10 mac 1050fbb0 Animal::GetGuidanceResourceType(void)
 uint32_t Animal::GetGuidanceResourceType()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0071be20 mac 1050fb70 Tree::GetGuidanceResourceType(void)
 uint32_t Tree::GetGuidanceResourceType()
 {
-    return 0;
+    return 2;
 }
 
 // win1.41 0071be30 mac 1050fb30 DeadTree::GetGuidanceResourceType(void)
 uint32_t DeadTree::GetGuidanceResourceType()
 {
-    return 0;
+    return 2;
 }
 
 // win1.41 0071d300 mac 1050d290 GHelpSpritesGuidance::GetRandomSample(void) const
-uint32_t GHelpSpritesGuidance::GetRandomSample()
+uint32_t GHelpSpritesGuidance::GetRandomSample() const
 {
     return 0;
 }
@@ -119,7 +119,7 @@ void SpecialVillager::ToBeDeleted(int param_1)
 }
 
 // win1.41 0071f1a0 mac 10147420 SpecialVillager::Create(MapCoords const &, GVillagerInfo const *, unsigned long, int, GSpecialVillagerInfo *)
-SpecialVillager* SpecialVillager::Create(const MapCoords* coords, const GVillagerInfo* villager_info, uint32_t age, bool skeleton, GSpecialVillagerInfo* info)
+SpecialVillager* SpecialVillager::Create(const MapCoords& coords, const GVillagerInfo* villager_info, uint32_t age, bool skeleton, GSpecialVillagerInfo* info)
 {
     return 0;
 }
@@ -148,13 +148,13 @@ const char* SpecialVillager::GetVillagerName()
 }
 
 // win1.41 0071f560 mac 10146e00 SpecialVillager::Save(GameOSFile &)
-bool SpecialVillager::Save(GameOSFile& file)
+bool32_t SpecialVillager::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0071f5d0 mac 10146d20 SpecialVillager::Load(GameOSFile &)
-bool SpecialVillager::Load(GameOSFile& file)
+bool32_t SpecialVillager::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -172,13 +172,13 @@ Spell::Spell()
 // win1.41 0071faf0 mac 10514e40 Spell::GetSaveType(void)
 uint32_t Spell::GetSaveType()
 {
-    return 0;
+    return 9;
 }
 
 // win1.41 0071fb00 mac 10514e70 Spell::GetDebugText(void)
 char* Spell::GetDebugText()
 {
-    return 0;
+    return "Spell";
 }
 
 // win1.41 0071fb10 mac 1030e5c0 Spell::_dt(void)
@@ -258,13 +258,13 @@ void SpellWithObjects::ToBeDeleted(int param_1)
 }
 
 // win1.41 007210f0 mac 10516ed0 SpellWithObjects::Load(GameOSFile &)
-bool SpellWithObjects::Load(GameOSFile& file)
+bool32_t SpellWithObjects::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007211d0 mac 10516d00 SpellWithObjects::Save(GameOSFile &)
-bool SpellWithObjects::Save(GameOSFile& file)
+bool32_t SpellWithObjects::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -301,7 +301,7 @@ void Spell::ProcessSpellSeed()
 }
 
 // win1.41 007214c0 mac 105166c0 Spell::NeedsContinualPackets(GInterfaceStatus *)
-bool Spell::NeedsContinualPackets(GInterfaceStatus* param_1)
+bool32_t Spell::NeedsContinualPackets(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -343,13 +343,13 @@ uint32_t Spell::GetFOVHelpCondition()
 }
 
 // win1.41 00721930 mac 105155b0 Spell::Save(GameOSFile &)
-bool Spell::Save(GameOSFile& file)
+bool32_t Spell::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00721cd0 mac 10514eb0 Spell::Load(GameOSFile &)
-bool Spell::Load(GameOSFile& file)
+bool32_t Spell::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -357,13 +357,13 @@ bool Spell::Load(GameOSFile& file)
 // win1.41 00722220 mac 10519f70 SpellCreature::GetSaveType(void)
 uint32_t SpellCreature::GetSaveType()
 {
-    return 0;
+    return 19;
 }
 
 // win1.41 00722230 mac 10519fb0 SpellCreature::GetDebugText(void)
 char* SpellCreature::GetDebugText()
 {
-    return 0;
+    return "SpellCreature";
 }
 
 // win1.41 00722240 mac 10519e90 SpellCreature::_dt(void)
@@ -378,7 +378,7 @@ uint32_t SpellCreature::GetCreatureCastOn()
 }
 
 // win1.41 007222d0 mac 1051a5f0 SpellCreature::InitWithObject(GameThing *, Object *, SpellCastData *, PSysProcessInfo const &)
-int SpellCreature::InitWithObject(GameThing* param_1, Object* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4)
+int SpellCreature::InitWithObject(GameThing* param_1, Object* param_2, SpellCastData* param_3, const PSysProcessInfo& param_4)
 {
     return 0;
 }
@@ -400,39 +400,39 @@ void SpellCreature::CloseDown()
 }
 
 // win1.41 00722520 mac 1051a0e0 SpellCreature::Load(GameOSFile &)
-bool SpellCreature::Load(GameOSFile& file)
+bool32_t SpellCreature::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00722590 mac 10519ff0 SpellCreature::Save(GameOSFile &)
-bool SpellCreature::Save(GameOSFile& file)
+bool32_t SpellCreature::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007226c0 mac 1051a970 SpellDispenser::IsActive( const(void))
-bool SpellDispenser::IsActive() const
+bool32_t SpellDispenser::IsActive() const
 {
     return 0;
 }
 
 // win1.41 007226d0 mac 1051a9b0 SpellDispenser::IsSpellDispenser(void)
-bool SpellDispenser::IsSpellDispenser()
+bool32_t SpellDispenser::IsSpellDispenser()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 007226e0 mac 1051a9f0 SpellDispenser::IsSpellSeedReturnPoint( const(void))
-bool SpellDispenser::IsSpellSeedReturnPoint()
+bool SpellDispenser::IsSpellSeedReturnPoint() const
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 007226f0 mac 1051aa40 SpellDispenser::GetSaveType(void)
 uint32_t SpellDispenser::GetSaveType()
 {
-    return 0;
+    return 267;
 }
 
 // win1.41 00722700 mac 1051a8e0 SpellDispenser::_dt(void)
@@ -441,7 +441,7 @@ SpellDispenser::~SpellDispenser()
 }
 
 // win1.41 007227d0 mac 1051ba80 SpellDispenser::CallVirtualFunctionsForCreation(MapCoords const &)
-void SpellDispenser::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void SpellDispenser::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -462,13 +462,13 @@ uint32_t SpellDispenser::Process()
 }
 
 // win1.41 00722d50 mac 1051aeb0 SpellDispenser::Save(GameOSFile &)
-bool SpellDispenser::Save(GameOSFile& file)
+bool32_t SpellDispenser::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00722e80 mac 1051acf0 SpellDispenser::Load(GameOSFile &)
-bool SpellDispenser::Load(GameOSFile& file)
+bool32_t SpellDispenser::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -497,13 +497,13 @@ void SpellFlock::CloseDown()
 }
 
 // win1.41 00723280 mac 1051e660 SpellFlock::NeedsContinualPackets(GInterfaceStatus *)
-bool SpellFlock::NeedsContinualPackets(GInterfaceStatus* param_1)
+bool32_t SpellFlock::NeedsContinualPackets(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 007232d0 mac 1051e4a0 SpellFlock::InitWithPos(GameThing *, MapCoords const &, SpellCastData *, PSysProcessInfo const &)
-int SpellFlock::InitWithPos(GameThing* param_1, const MapCoords* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4)
+int SpellFlock::InitWithPos(GameThing* param_1, const MapCoords& param_2, SpellCastData* param_3, const PSysProcessInfo& param_4)
 {
     return 0;
 }
@@ -542,37 +542,37 @@ uint32_t SpellFlockGround::Process()
 }
 
 // win1.41 00724780 mac 1051c560 SpellFlock::Load(GameOSFile &)
-bool SpellFlock::Load(GameOSFile& file)
+bool32_t SpellFlock::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007248a0 mac 1051c390 SpellFlock::Save(GameOSFile &)
-bool SpellFlock::Save(GameOSFile& file)
+bool32_t SpellFlock::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007249d0 mac 1051c220 SpellFlockFlying::Load(GameOSFile &)
-bool SpellFlockFlying::Load(GameOSFile& file)
+bool32_t SpellFlockFlying::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00724ac0 mac 1051c0a0 SpellFlockFlying::Save(GameOSFile &)
-bool SpellFlockFlying::Save(GameOSFile& file)
+bool32_t SpellFlockFlying::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00724bb0 mac 1051c030 SpellFlockGround::Load(GameOSFile &)
-bool SpellFlockGround::Load(GameOSFile& file)
+bool32_t SpellFlockGround::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00724bd0 mac 1051bfc0 SpellFlockGround::Save(GameOSFile &)
-bool SpellFlockGround::Save(GameOSFile& file)
+bool32_t SpellFlockGround::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -583,7 +583,7 @@ void SpellResource::HasEnoughChantsAndLifeForRecast()
 }
 
 // win1.41 00724d80 mac 1051f9d0 SpellResource::SpellEvent(SpellEventInfo const &)
-void SpellResource::SpellEvent(const SpellEventInfo* param_1)
+void SpellResource::SpellEvent(const SpellEventInfo& param_1)
 {
 }
 
@@ -594,25 +594,25 @@ uint32_t SpellWater::Process()
 }
 
 // win1.41 007252f0 mac 1051f230 SpellResource::Load(GameOSFile &)
-bool SpellResource::Load(GameOSFile& file)
+bool32_t SpellResource::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00725350 mac 1051f150 SpellResource::Save(GameOSFile &)
-bool SpellResource::Save(GameOSFile& file)
+bool32_t SpellResource::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007253b0 mac 1051f070 SpellWater::Load(GameOSFile &)
-bool SpellWater::Load(GameOSFile& file)
+bool32_t SpellWater::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00725420 mac 1051ef90 SpellWater::Save(GameOSFile &)
-bool SpellWater::Save(GameOSFile& file)
+bool32_t SpellWater::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -623,7 +623,7 @@ void SpellForest::ToBeDeleted(int param_1)
 }
 
 // win1.41 00725540 mac 10521300 SpellForest::InitWithPos(GameThing *, MapCoords const &, SpellCastData *, PSysProcessInfo const &)
-int SpellForest::InitWithPos(GameThing* param_1, const MapCoords* param_2, SpellCastData* param_3, const PSysProcessInfo* param_4)
+int SpellForest::InitWithPos(GameThing* param_1, const MapCoords& param_2, SpellCastData* param_3, const PSysProcessInfo& param_4)
 {
     return 0;
 }
@@ -650,7 +650,7 @@ void SpellForest::AdjustSpellSeedPos(MapCoords* param_1)
 }
 
 // win1.41 00725830 mac 10520880 SpellForest::SpellEvent(SpellEventInfo const &)
-void SpellForest::SpellEvent(const SpellEventInfo* param_1)
+void SpellForest::SpellEvent(const SpellEventInfo& param_1)
 {
 }
 
@@ -667,13 +667,13 @@ float SpellForest::CalculateCostToMaintain()
 }
 
 // win1.41 00725c90 mac 10520200 SpellForest::Save(GameOSFile &)
-bool SpellForest::Save(GameOSFile& file)
+bool32_t SpellForest::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00725d50 mac 105200d0 SpellForest::Load(GameOSFile &)
-bool SpellForest::Load(GameOSFile& file)
+bool32_t SpellForest::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -723,7 +723,7 @@ void SpellIcon::SetToZero()
 }
 
 // win1.41 00726160 mac 105253c0 SpellIcon::CallVirtualFunctionsForCreation(const MapCoords &)
-void SpellIcon::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void SpellIcon::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -736,4 +736,143 @@ void SpellIcon::Create3DObject()
 bool32_t SpellIcon::IsSpellSeed(SPELL_SEED_TYPE type)
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_71();
+extern "C" void jmp_addr_0x005f8810();
+extern "C" void sdtor_dt_72();
+extern "C" void jmp_addr_0x004369d0();
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_dt_15();
+
+__declspec(naked) void __cdecl sdtor_GSoundInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSoundInfo
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSoundInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SoundTag() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_71
+        test byte ptr [esp + 8], 1
+        je short skip_SoundTag
+        push 0x54
+        push esi
+        call jmp_addr_0x005f8810
+        add esp, 8
+    skip_SoundTag:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSpecialVillagerInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_72
+        test byte ptr [esp + 8], 1
+        je short skip_GSpecialVillagerInfo
+        push ebp
+        push esi
+        call jmp_addr_0x004369d0
+        add esp, 8
+    skip_GSpecialVillagerInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Spell() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_Spell
+        push 0x000000ec
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Spell:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpellCreature() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_SpellCreature
+        push 0x000000f4
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SpellCreature:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpellDispenser() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_15
+        test byte ptr [esp + 8], 1
+        je short skip_SpellDispenser
+        push 0x000000dc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SpellDispenser:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSpellIconInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSpellIconInfo
+        push 0x0000012c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSpellIconInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

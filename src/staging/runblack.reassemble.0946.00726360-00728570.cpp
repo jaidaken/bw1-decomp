@@ -40,7 +40,7 @@ void SpellIcon::SetPlayer(GPlayer* param_1)
 // win1.41 007265c0 mac 10524740 SpellIcon::Process(void)
 uint32_t SpellIcon::Process()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 007265d0 mac 10524600 SpellIcon::MoveMapObject(MapCoords const &)
@@ -57,19 +57,19 @@ SpellIcon::TChargingData::TChargingData()
 // win1.41 00726e20 mac 10521520 SpellSeedGraphic::GetText(void)
 const char* SpellSeedGraphic::GetText()
 {
-    return 0;
+    return "SpellSeedGraphic";
 }
 
 // win1.41 00726e30 mac 10521560 SpellSeedGraphic::GetSaveType(void)
 uint32_t SpellSeedGraphic::GetSaveType()
 {
-    return 0;
+    return 35;
 }
 
 // win1.41 00726e40 mac 105215a0 SpellSeedGraphic::GetDebugText(void)
 char* SpellSeedGraphic::GetDebugText()
 {
-    return 0;
+    return "SpellSeedGraphic";
 }
 
 // win1.41 00726e50 mac 10521480 SpellSeedGraphic::_dt(void)
@@ -127,25 +127,25 @@ void SpellSeedGraphic::ForDrawFXGetVertexPos(int param_1, LHPoint* param_2)
 }
 
 // win1.41 00727940 mac 10521ce0 SpellIcon::Save(GameOSFile &)
-bool SpellIcon::Save(GameOSFile& file)
+bool32_t SpellIcon::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00727a00 mac 10521bb0 SpellIcon::Load(GameOSFile &)
-bool SpellIcon::Load(GameOSFile& file)
+bool32_t SpellIcon::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00727ac0 mac 10521910 SpellSeedGraphic::Load(GameOSFile &)
-bool SpellSeedGraphic::Load(GameOSFile& file)
+bool32_t SpellSeedGraphic::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00727c70 mac 10521650 SpellSeedGraphic::Save(GameOSFile &)
-bool SpellSeedGraphic::Save(GameOSFile& file)
+bool32_t SpellSeedGraphic::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -156,13 +156,13 @@ void SpellSeedGraphic::ResolveLoad()
 }
 
 // win1.41 00727f50 mac 1052cc60 SpellSeed::IsSpellSeed(void)
-bool SpellSeed::IsSpellSeed()
+bool32_t SpellSeed::IsSpellSeed()
 {
     return 0;
 }
 
 // win1.41 00727f60 mac 1052cc90 SpellSeed::HandShouldFeelWithMeshIntersect(void)
-bool SpellSeed::HandShouldFeelWithMeshIntersect()
+bool32_t SpellSeed::HandShouldFeelWithMeshIntersect()
 {
     return 0;
 }
@@ -170,13 +170,13 @@ bool SpellSeed::HandShouldFeelWithMeshIntersect()
 // win1.41 00727f70 mac 1052cce0 SpellSeed::GetCreatureBeliefType(void)
 uint32_t SpellSeed::GetCreatureBeliefType()
 {
-    return 0;
+    return 18;
 }
 
 // win1.41 00727f80 mac 1052cd20 SpellSeed::GetOrigin(void)
 uint32_t SpellSeed::GetOrigin()
 {
-    return 0;
+    return 2;
 }
 
 // win1.41 00727f90 mac 1052cd60 SpellSeed::SaveObject(LHOSFile &, MapCoords const &)
@@ -188,13 +188,13 @@ uint32_t SpellSeed::SaveObject(LHOSFile& file, const MapCoords& coords)
 // win1.41 00727fa0 mac 1052cdb0 SpellSeed::GetSaveType(void)
 uint32_t SpellSeed::GetSaveType()
 {
-    return 0;
+    return 36;
 }
 
 // win1.41 00727fb0 mac 1052cdf0 SpellSeed::GetDebugText(void)
 char* SpellSeed::GetDebugText()
 {
-    return 0;
+    return "SpellSeed";
 }
 
 // win1.41 00727fc0 mac 1052cbd0 SpellSeed::_dt(void)
@@ -208,6 +208,51 @@ void SpellSeed::ToBeDeleted(int param_1)
 }
 
 // win1.41 00728360 mac 1052bef0 SpellSeed::CallVirtualFunctionsForCreation(MapCoords const &)
-void SpellSeed::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void SpellSeed::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void jmp_addr_0x005f8870();
+extern "C" void jmp_addr_0x00636640();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_SpellSeedGraphic() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_SpellSeedGraphic
+        push 0x74
+        push esi
+        call jmp_addr_0x005f8870
+        add esp, 8
+    skip_SpellSeedGraphic:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpellSeed() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00636640
+        test byte ptr [esp + 8], 1
+        je short skip_SpellSeed
+        push 0x000000a0
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SpellSeed:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

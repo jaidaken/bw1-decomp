@@ -6,7 +6,7 @@ DialogBoxImmersion::DialogBoxImmersion()
 }
 
 // win1.41 00514a80 mac 102b39f0 DialogBoxImmersion::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void DialogBoxImmersion::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void DialogBoxImmersion::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 

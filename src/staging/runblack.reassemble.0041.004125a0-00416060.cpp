@@ -41,7 +41,7 @@ void SetupThing::DrawBevBox(int x_min, int y_min, int x_max, int y_max, uint32_t
 }
 
 // win1.41 004140b0 mac 10578110 GBaseInfo::GetDebugText(void) const
-const char* GBaseInfo::GetDebugText()
+const char* GBaseInfo::GetDebugText() const
 {
     return 0;
 }
@@ -88,7 +88,32 @@ LH3DColor* EditorIconBase::GetHiliteColor()
 }
 
 // win1.41 00414c00 mac 100a4f90 EditorIconBase::IsScrollable(void)
-bool EditorIconBase::IsScrollable()
+bool32_t EditorIconBase::IsScrollable()
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_GAlignmentInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GAlignmentInfo
+        push 0x48
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GAlignmentInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

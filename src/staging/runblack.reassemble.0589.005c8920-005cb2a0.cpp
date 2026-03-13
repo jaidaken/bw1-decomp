@@ -56,3 +56,47 @@ GToolTipsInfo::~GToolTipsInfo()
 HelpText::~HelpText()
 {
 }
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_25();
+
+__declspec(naked) void __cdecl sdtor_GToolTipsInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GToolTipsInfo
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GToolTipsInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_HelpText() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_25
+        test byte ptr [esp + 8], 1
+        je short skip_HelpText
+        push 0x000000bc
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_HelpText:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}

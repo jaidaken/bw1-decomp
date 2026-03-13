@@ -72,7 +72,7 @@ void SetupBigButton::KeyDown(LHKey key, LHKeyMod mod)
 }
 
 // win1.41 0040d310 mac 101670b0 SetupBigButton::HitTest(int, int)
-bool SetupBigButton::HitTest(int x, int y)
+bool32_t SetupBigButton::HitTest(int x, int y)
 {
     return 0;
 }
@@ -303,7 +303,7 @@ void SetupCheckBox::Draw(bool hovered, bool selected)
 // }
 
 // win1.41 00410f90 mac 10112370 SetupCheckBox::HitTest(int, int)
-bool SetupCheckBox::HitTest(int x, int y)
+bool32_t SetupCheckBox::HitTest(int x, int y)
 {
     return 0;
 }
@@ -336,4 +336,147 @@ void SetupBox::SetFocusPrev()
 // win1.41 00411190 mac 100c3160 SetupBox::MessageBoxA(wchar_t*, MSGBOXSTYLE, ulong)
 void SetupBox::MessageBoxA(const char16_t* param_2, uint32_t param_3, uint32_t param_4)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_0();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_SetupEdit() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupEdit
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupEdit:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SetupBigButton() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupBigButton
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupBigButton:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SetupHLineGraph() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupHLineGraph
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupHLineGraph:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SetupVBarGraph() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupVBarGraph
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupVBarGraph:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SetupTabButton() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupTabButton
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupTabButton:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SetupPicture() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupPicture
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupPicture:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SetupColourPicker() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupColourPicker
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupColourPicker:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SetupCheckBox() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupCheckBox
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupCheckBox:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

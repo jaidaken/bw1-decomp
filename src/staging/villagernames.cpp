@@ -1,3 +1,4 @@
+struct VillagerName;
 #include "VillagerNames.h"
 
 struct VillagerNameBlock* CurrentVillagerNameBlock;
@@ -15,7 +16,7 @@ void VillagerNameBlock::Delete(VillagerName* name)
 }
 
 // win1.41 007627e0 mac 10012bf0 VillagerNameBlock::DeleteAll(void)
-bool VillagerNameBlock::DeleteAll()
+bool32_t VillagerNameBlock::DeleteAll()
 {
     return false;
 }

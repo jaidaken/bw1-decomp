@@ -28,13 +28,13 @@
 #include "RegisterBox.h"
 
 // win1.41 0052b870 mac 100d7020 FireFly::Save(GameOSFile &)
-bool FireFly::Save(GameOSFile& file)
+bool32_t FireFly::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0052bbc0 mac 100d6850 FireFly::Load(GameOSFile &)
-bool FireFly::Load(GameOSFile& file)
+bool32_t FireFly::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -68,7 +68,7 @@ Town* FishFarm::GetTown()
 }
 
 // win1.41 0052c460 mac 100dd3e0 FishFarm::CreatureMustAvoid(Creature *)
-bool FishFarm::CreatureMustAvoid(Creature* param_1)
+bool32_t FishFarm::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -80,7 +80,7 @@ float FishFarm::Get2DRadius()
 }
 
 // win1.41 0052c480 mac 100dd430 FishFarm::GetMeshRadius( const(void))
-float FishFarm::GetMeshRadius()
+float FishFarm::GetMeshRadius() const
 {
     return 0;
 }
@@ -106,71 +106,71 @@ PlannedMultiMapFixed* FishFarm::ConvertToPlanned()
 // win1.41 0052c4d0 mac 100dd5a0 FishFarm::GetCreatureBeliefType(void)
 uint32_t FishFarm::GetCreatureBeliefType()
 {
-    return 0;
+    return 11;
 }
 
 // win1.41 0052c4e0 mac 100dd5e0 FishFarm::CanBePoodOn(Creature *)
-bool FishFarm::CanBePoodOn(Creature* param_1)
+bool32_t FishFarm::CanBePoodOn(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c4f0 mac 100dd620 FishFarm::CanBePickedUpByCreature(Creature *)
-bool FishFarm::CanBePickedUpByCreature(Creature* param_1)
+bool32_t FishFarm::CanBePickedUpByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c500 mac 100dd670 FishFarm::CanBeStompedOnByCreature(Creature *)
-bool FishFarm::CanBeStompedOnByCreature(Creature* param_1)
+bool32_t FishFarm::CanBeStompedOnByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c510 mac 100dd6c0 FishFarm::CanBeGivenToVillager(Creature *)
-bool FishFarm::CanBeGivenToVillager(Creature* param_1)
+bool32_t FishFarm::CanBeGivenToVillager(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c520 mac 100dd710 FishFarm::CanBePutInAStoragePit(Creature *)
-bool FishFarm::CanBePutInAStoragePit(Creature* param_1)
+bool32_t FishFarm::CanBePutInAStoragePit(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c530 mac 100dd760 FishFarm::CanBeDestroyedByStoning(Creature *)
-bool FishFarm::CanBeDestroyedByStoning(Creature* param_1)
+bool32_t FishFarm::CanBeDestroyedByStoning(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c540 mac 100dd7b0 FishFarm::CanBeExaminedByCreature(Creature *)
-bool FishFarm::CanBeExaminedByCreature(Creature* param_1)
+bool32_t FishFarm::CanBeExaminedByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c550 mac 100dd800 FishFarm::CanBeEatenByCreature(Creature *)
-bool FishFarm::CanBeEatenByCreature(Creature* param_1)
+bool32_t FishFarm::CanBeEatenByCreature(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0052c560 mac 100dd850 FishFarm::CanBeSleptNextToByCreature(Creature *)
-bool FishFarm::CanBeSleptNextToByCreature(Creature* param_1)
+bool32_t FishFarm::CanBeSleptNextToByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c570 mac 100dd8a0 FishFarm::IsBeingBuilt(Creature *)
-bool FishFarm::IsBeingBuilt(Creature* param_1)
+bool32_t FishFarm::IsBeingBuilt(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052c580 mac 100dd8e0 FishFarm::NeedsRepair(Creature *)
-bool FishFarm::NeedsRepair(Creature* param_1)
+bool32_t FishFarm::NeedsRepair(Creature* param_1)
 {
     return 0;
 }
@@ -178,19 +178,19 @@ bool FishFarm::NeedsRepair(Creature* param_1)
 // win1.41 0052c590 mac 100dd920 FishFarm::IsLockedInInteract(void)
 bool FishFarm::IsLockedInInteract()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 0052c5a0 mac 100dd960 FishFarm::GetSaveType(void)
 uint32_t FishFarm::GetSaveType()
 {
-    return 0;
+    return 91;
 }
 
 // win1.41 0052c5b0 mac 100dd9a0 FishFarm::GetDebugText(void)
 char* FishFarm::GetDebugText()
 {
-    return 0;
+    return "FishFarm";
 }
 
 // win1.41 0052c5c0 mac 100dcf40 FishFarm::_dt(void)
@@ -248,7 +248,7 @@ void FishFarm::SetMapChild(Object* param_1, MapCell* param_2)
 }
 
 // win1.41 0052cc10 mac 100dbd10 FishFarm::CallVirtualFunctionsForCreation(MapCoords const &)
-void FishFarm::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void FishFarm::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -271,7 +271,7 @@ uint32_t FishFarm::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 0052d100 mac 100db8c0 GFishFarmInfo::IsOkToCreateAtPos( const(MapCoords const &, float, float))
-bool GFishFarmInfo::IsOkToCreateAtPos(const MapCoords* param_1, float param_2, float param_3)
+bool GFishFarmInfo::IsOkToCreateAtPos(const MapCoords& param_1, float param_2, float param_3) const
 {
     return 0;
 }
@@ -289,25 +289,25 @@ float FishFarm::GetFoodValue(FOOD_TYPE param_1)
 }
 
 // win1.41 0052d3b0 mac 100db1a0 FishFarm::Save(GameOSFile &)
-bool FishFarm::Save(GameOSFile& file)
+bool32_t FishFarm::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0052d4f0 mac 100daf80 FishFarm::Load(GameOSFile &)
-bool FishFarm::Load(GameOSFile& file)
+bool32_t FishFarm::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0052d670 mac 100daed0 FishFarm::ValidForPlaceInHand(GInterfaceStatus *)
-bool FishFarm::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t FishFarm::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 0052d6b0 mac 100dadc0 FishFarm::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool FishFarm::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t FishFarm::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -321,7 +321,7 @@ uint32_t FishFarm::GetDiscipleStateIfInteractedWith(GInterfaceStatus* param_1, V
 // win1.41 0052d750 mac 100dac90 FishFarm::ValidForLockedSelectProcess(GInterfaceStatus *)
 bool32_t FishFarm::ValidForLockedSelectProcess(GInterfaceStatus* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0052d760 mac 100dac50 FishFarm::GetResourceType(void)
@@ -337,19 +337,19 @@ bool32_t FishFarm::NetworkFriendlyStartLockedSelect(GInterfaceStatus* param_1)
 }
 
 // win1.41 0052d880 mac 100da930 FishFarm::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
-bool FishFarm::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
+bool32_t FishFarm::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
 {
     return 0;
 }
 
 // win1.41 0052d890 mac 100da8e0 FishFarm::NetworkUnfriendlyEndLockedSelect(void)
-bool FishFarm::NetworkUnfriendlyEndLockedSelect()
+bool32_t FishFarm::NetworkUnfriendlyEndLockedSelect()
 {
     return 0;
 }
 
 // win1.41 0052d8a0 mac 100da7c0 FishFarm::NetworkFriendlyEndLockedSelect(GInterfaceStatus *)
-bool FishFarm::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
+bool32_t FishFarm::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -465,7 +465,7 @@ void MultiMapFixed::CheckMapObject()
 }
 
 // win1.41 0052e890 mac 100e0240 MultiMapFixed::CallVirtualFunctionsForCreation(const MapCoords&)
-void MultiMapFixed::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void MultiMapFixed::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -475,7 +475,7 @@ void MultiMapFixed::AllocateMultiChild()
 }
 
 // win1.41 0052eb60 mac 100dffe0 GMultiMapFixedInfo::IsOkToCreateAtPos(const MapCoords&, float, float) const
-bool GMultiMapFixedInfo::IsOkToCreateAtPos(const MapCoords& pos, float param_2, float param_3)
+bool GMultiMapFixedInfo::IsOkToCreateAtPos(const MapCoords& pos, float param_2, float param_3) const
 {
     return 0;
 }
@@ -538,7 +538,7 @@ void MultiMapFixed::UseFootpathIfNecessary(Living* param_1, const MapCoords* par
 }
 
 // win1.41 0052ef10 mac 100dee90 MultiMapFixed::SaveObject(LHOSFile &, MapCoords const &)
-size_t MultiMapFixed::SaveObject(LHOSFile& file, const MapCoords& coords)
+size_t MultiMapFixed::SaveObject(LHOSFile& file, const MapCoords* coords)
 {
     return 0;
 }
@@ -597,7 +597,7 @@ uint32_t MultiMapFixed::RemoveResource(RESOURCE_TYPE type, uint32_t param_2, GIn
 }
 
 // win1.41 0052f1f0 mac 100de6f0 MultiMapFixed::IsResourceStore(RESOURCE_TYPE)
-bool MultiMapFixed::IsResourceStore(RESOURCE_TYPE type)
+bool32_t MultiMapFixed::IsResourceStore(RESOURCE_TYPE type)
 {
     return 0;
 }
@@ -609,13 +609,13 @@ bool MultiMapFixed::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE type, GInte
 }
 
 // win1.41 0052f250 mac 100de470 MultiMapFixed::Save(GameOSFile &)
-bool MultiMapFixed::Save(GameOSFile& file)
+bool32_t MultiMapFixed::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0052f310 mac 100de310 MultiMapFixed::Load(GameOSFile &)
-bool MultiMapFixed::Load(GameOSFile& file)
+bool32_t MultiMapFixed::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -627,13 +627,13 @@ bool MultiMapFixed::InteractsWithPhysicsObjects()
 }
 
 // win1.41 0052f460 mac 100de000 MultiMapFixed::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool MultiMapFixed::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
+bool32_t MultiMapFixed::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
 {
     return 0;
 }
 
 // win1.41 0052f490 mac 100dded0 MultiMapFixed::CreatureMustAvoid(Creature *)
-bool MultiMapFixed::CreatureMustAvoid(Creature* param_1)
+bool32_t MultiMapFixed::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -671,9 +671,9 @@ Flock::Flock(MapCoords* coords, GFlockInfo* info, GPlayer* player, uint32_t para
 }
 
 // win1.41 0052f860 mac 100e34b0 Flock::IsFlock( const(void))
-bool Flock::IsFlock()
+bool32_t Flock::IsFlock() const
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0052f870 mac 100e34e0 Flock::GetTown(void)
@@ -683,21 +683,21 @@ Town* Flock::GetTown()
 }
 
 // win1.41 0052f880 mac 100e3510 Flock::IsScriptContainer( const(void))
-bool Flock::IsScriptContainer()
+bool32_t Flock::IsScriptContainer() const
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0052f890 mac 100e3550 Flock::GetText(void)
 const char* Flock::GetText()
 {
-    return 0;
+    return "Flock";
 }
 
 // win1.41 0052f8a0 mac 100e3580 Flock::GetCreatureBeliefType(void)
 uint32_t Flock::GetCreatureBeliefType()
 {
-    return 0;
+    return 22;
 }
 
 // win1.41 0052f8b0 mac 100e35c0 Flock::GetCreatureBeliefListType(void)
@@ -707,39 +707,39 @@ uint32_t Flock::GetCreatureBeliefListType()
 }
 
 // win1.41 0052f8c0 mac 100e3600 Flock::IsSuitableForCreatureActivity(void)
-bool Flock::IsSuitableForCreatureActivity()
+bool32_t Flock::IsSuitableForCreatureActivity()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0052f8d0 mac 100e3650 Flock::IsActivityObjectWhichAngerAppliesTo(Creature *)
-bool Flock::IsActivityObjectWhichAngerAppliesTo(Creature* param_1)
+bool32_t Flock::IsActivityObjectWhichAngerAppliesTo(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0052f8e0 mac 100e36b0 Flock::IsActivityObjectWhichCompassionAppliesTo(Creature *)
-bool Flock::IsActivityObjectWhichCompassionAppliesTo(Creature* param_1)
+bool32_t Flock::IsActivityObjectWhichCompassionAppliesTo(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0052f8f0 mac 100e3710 Flock::IsActivityObjectWhichPlayfulnessAppliesTo(Creature *)
-bool Flock::IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1)
+bool32_t Flock::IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 0052f900 mac 100e3770 Flock::GetSaveType(void)
 uint32_t Flock::GetSaveType()
 {
-    return 0;
+    return 126;
 }
 
 // win1.41 0052f910 mac 100e37a0 Flock::GetDebugText(void)
 char* Flock::GetDebugText()
 {
-    return 0;
+    return "Flock";
 }
 
 // win1.41 0052f920 mac 100e3420 Flock::_dt(void)
@@ -748,7 +748,7 @@ Flock::~Flock()
 }
 
 // win1.41 0052fc20 mac 100e6220 Flock::SetDomainCentrePos(MapCoords const &)
-void Flock::SetDomainCentrePos(const MapCoords* param_1)
+void Flock::SetDomainCentrePos(const MapCoords& param_1)
 {
 }
 
@@ -760,7 +760,7 @@ void Flock::ToBeDeleted(int param_1)
 // win1.41 00530490 mac 100e4a70 Flock::GetScriptObjectType(void)
 uint32_t Flock::GetScriptObjectType()
 {
-    return 0;
+    return 11;
 }
 
 // win1.41 00530570 mac 100684b0 Flock::GetFlockPos(void)
@@ -770,13 +770,13 @@ MapCoords* Flock::GetFlockPos()
 }
 
 // win1.41 005305a0 mac 100e40b0 Flock::Save(GameOSFile &)
-bool Flock::Save(GameOSFile& file)
+bool32_t Flock::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00530930 mac 100e3880 Flock::Load(GameOSFile &)
-bool Flock::Load(GameOSFile& file)
+bool32_t Flock::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -793,7 +793,7 @@ GFootballPositionInfo::~GFootballPositionInfo()
 }
 
 // win1.41 00530f80 mac 102bd510 Football::CallVirtualFunctionsForCreation(MapCoords const &)
-void Football::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Football::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -804,9 +804,9 @@ uint32_t Football::GetCreatureBeliefType()
 }
 
 // win1.41 00531280 mac 102b8610 Football::IsFootball(void)
-bool Football::IsFootball()
+bool32_t Football::IsFootball()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00531290 mac 102b8650 Football::IsRepaired(void)
@@ -828,7 +828,7 @@ LH3DObject::ObjectType Football::Get3DType()
 }
 
 // win1.41 005312f0 mac 102b87a0 Football::CreatureMustAvoid(Creature *)
-bool Football::CreatureMustAvoid(Creature* param_1)
+bool32_t Football::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -836,13 +836,13 @@ bool Football::CreatureMustAvoid(Creature* param_1)
 // win1.41 00531310 mac 102b8830 Football::GetSaveType(void)
 uint32_t Football::GetSaveType()
 {
-    return 0;
+    return 69;
 }
 
 // win1.41 00531320 mac 102b8870 Football::GetDebugText(void)
 char* Football::GetDebugText()
 {
-    return 0;
+    return "Football";
 }
 
 // win1.41 00531330 mac 102b8570 Football::_dt(void)
@@ -890,7 +890,7 @@ float Football::GetVillagerActivityDesire(Villager* param_1)
 }
 
 // win1.41 00532960 mac 102baa80 Football::IsPlayerOnHomeTeam(Villager *)
-bool Football::IsPlayerOnHomeTeam(Villager* param_1)
+bool32_t Football::IsPlayerOnHomeTeam(Villager* param_1)
 {
     return 0;
 }
@@ -901,31 +901,31 @@ void Football::GetGoalPosition(unsigned long param_1)
 }
 
 // win1.41 00532db0 mac 102ba4d0 Villager::IsPlayingFootball(Creature *)
-bool Villager::IsPlayingFootball(Creature* param_1)
+bool32_t Villager::IsPlayingFootball(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00532e00 mac 102ba3f0 Villager::IsPlayingFootballAndMySideHasJustScored(Creature *)
-bool Villager::IsPlayingFootballAndMySideHasJustScored(Creature* param_1)
+bool32_t Villager::IsPlayingFootballAndMySideHasJustScored(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00532e50 mac 102ba300 Villager::IsPlayingFootballAndOtherSideHasJustScored(Creature *)
-bool Villager::IsPlayingFootballAndOtherSideHasJustScored(Creature* param_1)
+bool32_t Villager::IsPlayingFootballAndOtherSideHasJustScored(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 005332a0 mac 102b9230 Football::Save(GameOSFile &)
-bool Football::Save(GameOSFile& file)
+bool32_t Football::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005336e0 mac 102b89e0 Football::Load(GameOSFile &)
-bool Football::Load(GameOSFile& file)
+bool32_t Football::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -950,13 +950,13 @@ GFootpathNode::GFootpathNode(MapCoords* coords, int param_2, int param_3)
 // win1.41 00534d50 mac 100eeff0 GFootpathNode::GetSaveType(void)
 uint32_t GFootpathNode::GetSaveType()
 {
-    return 0;
+    return 3;
 }
 
 // win1.41 00534d60 mac 100ef030 GFootpathNode::GetDebugText(void)
 char* GFootpathNode::GetDebugText()
 {
-    return 0;
+    return "GFootpathNode";
 }
 
 // win1.41 00534d70 mac 100eef60 GFootpathNode::_dt(void)
@@ -972,13 +972,13 @@ GFootpath::GFootpath()
 // win1.41 00534de0 mac 100ef210 GFootpath::GetSaveType(void)
 uint32_t GFootpath::GetSaveType()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00534df0 mac 100ef250 GFootpath::GetDebugText(void)
 char* GFootpath::GetDebugText()
 {
-    return 0;
+    return "GFootpath";
 }
 
 // win1.41 00534e00 mac 100eeb80 GFootpath::_dt(void)
@@ -1020,7 +1020,7 @@ uint32_t GFootpath::GetNextPos(GFootpathNode** next_node, MapCoords* next_pos, i
 }
 
 // win1.41 005352c0 mac 100edfa0 GFootpath::GetNearestPos(MapCoords const &, int)
-GFootpathNode* GFootpath::GetNearestPos(const MapCoords* coords, int param_3)
+GFootpathNode* GFootpath::GetNearestPos(const MapCoords& coords, int param_3)
 {
     return 0;
 }
@@ -1031,13 +1031,13 @@ void GFootpath::FUN_00535a80(Point2D* param_1, MultiMapFixed* param_2, float poi
 }
 
 // win1.41 00535e00 mac 100ece10 GFootpath::Save(GameOSFile &)
-bool GFootpath::Save(GameOSFile& file)
+bool32_t GFootpath::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00535f10 mac 100ecb10 GFootpath::Load(GameOSFile &)
-bool GFootpath::Load(GameOSFile& file)
+bool32_t GFootpath::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1060,31 +1060,31 @@ uint32_t GFootpathLink::RemoveFootpath(GFootpath* param_1)
 }
 
 // win1.41 00536110 mac 100ec590 GFootpathLink::GetNearestPathTo(MapCoords const &, MapCoords const &, float, int &, GFootpathNode **)
-GFootpath* GFootpathLink::GetNearestPathTo(const MapCoords* param_1, const MapCoords* param_2, float param_3, int* param_4, GFootpathNode** param_5)
+GFootpath* GFootpathLink::GetNearestPathTo(const MapCoords& param_1, const MapCoords& param_2, float param_3, int* param_4, GFootpathNode** param_5)
 {
     return 0;
 }
 
 // win1.41 005361f0 mac 100ec3e0 GFootpathLink::GetNearestPathToQuick(MapCoords const &, MapCoords const &, float, int &, GFootpathNode **)
-GFootpath* GFootpathLink::GetNearestPathToQuick(const MapCoords* param_1, const MapCoords* param_2, float param_3, int* param_4, GFootpathNode** param_5)
+GFootpath* GFootpathLink::GetNearestPathToQuick(const MapCoords& param_1, const MapCoords& param_2, float param_3, int* param_4, GFootpathNode** param_5)
 {
     return 0;
 }
 
 // win1.41 005362e0 mac 100ebe90 GFootpathLink::UseFootpathIfNecessary(Living *, MapCoords const &, unsigned char, GameThingWithPos *)
-uint32_t GFootpathLink::UseFootpathIfNecessary(Living* living, const MapCoords* coord, uint32_t param_4, GameThingWithPos* game_thing_with_pos)
+uint32_t GFootpathLink::UseFootpathIfNecessary(Living* living, const MapCoords& coord, uint32_t param_4, GameThingWithPos* game_thing_with_pos)
 {
     return 0;
 }
 
 // win1.41 005364f0 mac 100ebc00 GFootpathLink::Save(GameOSFile &)
-bool GFootpathLink::Save(GameOSFile& file)
+bool32_t GFootpathLink::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 005365a0 mac 100eb8e0 GFootpathLink::Load(GameOSFile &)
-bool GFootpathLink::Load(GameOSFile& file)
+bool32_t GFootpathLink::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1095,7 +1095,7 @@ void GFootpathLinkSave::FUN_00536fa0()
 }
 
 // win1.41 005370a0 mac 100eb5c0 GFootpathLinkSave::Load(GameOSFile &)
-bool GFootpathLinkSave::Load(GameOSFile& file)
+bool32_t GFootpathLinkSave::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1103,7 +1103,7 @@ bool GFootpathLinkSave::Load(GameOSFile& file)
 // win1.41 005371e0 mac 100ef0b0 GFootpathLinkSave::GetDebugText(void)
 char* GFootpathLinkSave::GetDebugText()
 {
-    return 0;
+    return "GFootpathLinkSave";
 }
 
 // win1.41 005371f0 mac 100eb6b0 GFootpathLinkSave::_dt(void)
@@ -1143,13 +1143,13 @@ void GFootpathNode::ClearFromPreviousNode()
 }
 
 // win1.41 00538c10 mac 100e86f0 GFootpathNode::Load(GameOSFile &)
-bool GFootpathNode::Load(GameOSFile& file)
+bool32_t GFootpathNode::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00538d70 mac 100e83f0 GFootpathNode::Save(GameOSFile &)
-bool GFootpathNode::Save(GameOSFile& file)
+bool32_t GFootpathNode::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -1162,13 +1162,13 @@ void GFootpathNode::ResolveLoad()
 // win1.41 00538fd0 mac 100e70d0 GFootpathFinder::GetSaveType(void)
 uint32_t GFootpathFinder::GetSaveType()
 {
-    return 0;
+    return 5;
 }
 
 // win1.41 00538fe0 mac 100e7110 GFootpathFinder::GetDebugText(void)
 char* GFootpathFinder::GetDebugText()
 {
-    return 0;
+    return "GFootpathFinder";
 }
 
 // win1.41 00538ff0 mac 100e7f30 GFootpathFinder::_dt(void)
@@ -1182,13 +1182,13 @@ void GFootpathFinder::GameTurnProcess()
 }
 
 // win1.41 005390e0 mac 100e7ce0 GFootpathFinder::Load(GameOSFile &)
-bool GFootpathFinder::Load(GameOSFile& file)
+bool32_t GFootpathFinder::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00539150 mac 100e7c00 GFootpathFinder::Save(GameOSFile &)
-bool GFootpathFinder::Save(GameOSFile& file)
+bool32_t GFootpathFinder::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -1222,7 +1222,7 @@ bool Forest::IsFunctional()
 // win1.41 00539a80 mac 100ef580 Forest::GetCreatureBeliefType(void)
 uint32_t Forest::GetCreatureBeliefType()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00539a90 mac 100ef5c0 Forest::GetCreatureBeliefListType(void)
@@ -1232,33 +1232,33 @@ uint32_t Forest::GetCreatureBeliefListType()
 }
 
 // win1.41 00539aa0 mac 100ef600 Forest::IsSuitableForCreatureActivity(void)
-bool Forest::IsSuitableForCreatureActivity()
+bool32_t Forest::IsSuitableForCreatureActivity()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00539ab0 mac 100ef650 Forest::IsActivityObjectWhichAngerAppliesTo(Creature *)
-bool Forest::IsActivityObjectWhichAngerAppliesTo(Creature* param_1)
+bool32_t Forest::IsActivityObjectWhichAngerAppliesTo(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00539ac0 mac 100ef6b0 Forest::GetText(void)
 const char* Forest::GetText()
 {
-    return 0;
+    return "Forest";
 }
 
 // win1.41 00539ad0 mac 100ef6e0 Forest::IsForest(void)
-bool Forest::IsForest()
+bool32_t Forest::IsForest()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00539ae0 mac 100ef710 Forest::IsFootpathLink(void)
-bool Forest::IsFootpathLink()
+bool32_t Forest::IsFootpathLink()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00539af0 mac 100ef750 Forest::GetFootpathLink(void)
@@ -1270,13 +1270,13 @@ GFootpathLink* Forest::GetFootpathLink()
 // win1.41 00539b00 mac 100ef790 Forest::GetSaveType(void)
 uint32_t Forest::GetSaveType()
 {
-    return 0;
+    return 78;
 }
 
 // win1.41 00539b10 mac 100ef7d0 Forest::GetDebugText(void)
 char* Forest::GetDebugText()
 {
-    return 0;
+    return "Forest";
 }
 
 // win1.41 00539b20 mac 100ef2f0 Forest::_dt(void)
@@ -1329,13 +1329,13 @@ void Forest::UseFootpathIfNecessary(Living* param_1, const MapCoords& param_2, u
 }
 
 // win1.41 0053ae40 mac 100efda0 Forest::Save(GameOSFile &)
-bool Forest::Save(GameOSFile& file)
+bool32_t Forest::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0053b070 mac 100ef950 Forest::Load(GameOSFile &)
-bool Forest::Load(GameOSFile& file)
+bool32_t Forest::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -1402,7 +1402,7 @@ void FrontEnd::JustDoNewProfileBox(FrontEnd* box)
 }
 
 // win1.41 0053ce80 mac 105c3a30 NewProfileBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void NewProfileBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void NewProfileBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -1417,7 +1417,7 @@ void NewProfileBox::InitControls()
 }
 
 // win1.41 0053d4c0 mac 105c34f0 LoadingBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void LoadingBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void LoadingBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -1432,7 +1432,7 @@ void LoadingBox::InitControls()
 }
 
 // win1.41 0053d520 mac 105c3250 EditingDebugBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void EditingDebugBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void EditingDebugBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -1447,7 +1447,7 @@ void EditingDebugBox::InitControls()
 }
 
 // win1.41 0053d7d0 mac 105c2d30 RegisterBox::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void RegisterBox::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void RegisterBox::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -1462,7 +1462,7 @@ void RegisterBox::InitControls()
 }
 
 // win1.41 0053dd30 mac 105c2560 ProfileEditor::Init(unsigned long, unsigned long, void (*)(int, SetupBox *, SetupControl *, int, int))
-void ProfileEditor::Init(uint32_t param_1, uint32_t param_2, DialogBoxInitCallback param_3)
+void ProfileEditor::Init(unsigned long param_1, unsigned long param_2, DialogBoxInitCallback param_3)
 {
 }
 
@@ -1474,4 +1474,233 @@ void ProfileEditor::Destroy()
 // win1.41 0053e380 mac 105c2140 ProfileEditor::InitControls(void)
 void ProfileEditor::InitControls()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_19();
+extern "C" void jmp_addr_0x0052eac0();
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_dt_15();
+extern "C" void sdtor_dt_20();
+extern "C" void sdtor_dt_21();
+
+__declspec(naked) void __cdecl sdtor_GFishFarmInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GFishFarmInfo
+        push 0x00000128
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFishFarmInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_FishFarm() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_19
+        test byte ptr [esp + 8], 1
+        je short skip_FishFarm
+        push 0x00000098
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_FishFarm:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSingleMapFixedInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSingleMapFixedInfo
+        push 0x00000104
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSingleMapFixedInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SingleMapFixed() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0052eac0
+        test byte ptr [esp + 8], 1
+        je short skip_SingleMapFixed
+        push 0x5c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_SingleMapFixed:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Flock() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_Flock
+        push 0x00000090
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Flock:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFootballPositionInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GFootballPositionInfo
+        push 0x24
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFootballPositionInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Football() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_15
+        test byte ptr [esp + 8], 1
+        je short skip_Football
+        push 0x00000318
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Football:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFootpathNode() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_GFootpathNode
+        push 0x30
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFootpathNode:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFootpath() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_20
+        test byte ptr [esp + 8], 1
+        je short skip_GFootpath
+        push 0x24
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFootpath:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFootpathLinkSave() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_GFootpathLinkSave
+        push 0x24
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFootpathLinkSave:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GFootpathFinder() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_21
+        test byte ptr [esp + 8], 1
+        je short skip_GFootpathFinder
+        push 0x000640c8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GFootpathFinder:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GForestInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GForestInfo
+        push 0x18
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GForestInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

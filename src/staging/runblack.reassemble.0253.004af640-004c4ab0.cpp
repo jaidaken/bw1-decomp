@@ -6,6 +6,6 @@ void Creature::ForceActivityAndForceAction(CREATURE_DESIRES param_1, CreatureBel
 }
 
 // win1.41 004c44b0 mac 10230950 Creature::ForceActivityAndForceAction(CreaturePlan &, int, int)
-void Creature::ForceActivityAndForceAction(CreaturePlan* param_1, int param_2, int param_3)
+void Creature::ForceActivityAndForceAction(CreaturePlan& param_1, int param_2, int param_3)
 {
 }

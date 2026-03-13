@@ -10,13 +10,13 @@ bool MobileStatic::CanBecomeAPhysicsObject()
 // win1.41 00609330 mac 10008460 MobileStatic::GetScriptObjectType(void)
 uint32_t MobileStatic::GetScriptObjectType()
 {
-    return 0;
+    return 8;
 }
 
 // win1.41 006096a0 mac 103be560 MobileStatic::BlocksTownClearArea( const(void))
-bool MobileStatic::BlocksTownClearArea()
+bool MobileStatic::BlocksTownClearArea() const
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 006096b0 mac 103be4f0 MobileStatic::GetResourceType(void)
@@ -32,7 +32,7 @@ int MobileStatic::GetDefaultResource()
 }
 
 // win1.41 00609700 mac 103be330 MobileStatic::CallVirtualFunctionsForCreation(MapCoords const &)
-void MobileStatic::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void MobileStatic::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 

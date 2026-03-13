@@ -48,13 +48,13 @@ float Object::ApplyWaterSpell(SpellWater* spell)
 }
 
 // win1.41 0063a920 mac 103d03c0 Object::BlocksTownClearArea( const(void))
-bool Object::BlocksTownClearArea()
+bool Object::BlocksTownClearArea() const
 {
     return 0;
 }
 
 // win1.41 0063a930 mac 103d0360 Object::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool Object::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
+bool32_t Object::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
 {
     return 0;
 }
@@ -94,7 +94,7 @@ Game3DObject* Game3DObject::Create(LH3DObject::ObjectType type)
 }
 
 // win1.41 0063abc0 mac 103da030 Game3DObject::GetAltitudeFondation(void) const
-float Game3DObject::GetAltitudeFondation()
+float Game3DObject::GetAltitudeFondation() const
 {
     return 0;
 }

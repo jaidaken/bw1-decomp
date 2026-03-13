@@ -10,25 +10,25 @@ LH3DObject::ObjectType Workshop::Get3DType()
 }
 
 // win1.41 007792c0 mac inlined Workshop::IsWorkshop_0(void)
-bool Workshop::IsWorkshop()
+bool32_t Workshop::IsWorkshop()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 007792d0 mac inlined Workshop::IsWorkshop_1(Creature *)
-bool Workshop::IsWorkshop(Creature* param_1)
+bool32_t Workshop::IsWorkshop(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 007792e0 mac 10164890 Workshop::CanActAsAContainer(Creature *)
-bool Workshop::CanActAsAContainer(Creature* param_1)
+bool32_t Workshop::CanActAsAContainer(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 007792f0 mac 101648e0 Workshop::IsStoragePit(Creature *)
-bool Workshop::IsStoragePit(Creature* param_1)
+bool32_t Workshop::IsStoragePit(Creature* param_1)
 {
     return 0;
 }
@@ -36,13 +36,13 @@ bool Workshop::IsStoragePit(Creature* param_1)
 // win1.41 00779300 mac 10164920 Workshop::GetSaveType(void)
 uint32_t Workshop::GetSaveType()
 {
-    return 0;
+    return 82;
 }
 
 // win1.41 00779310 mac 10164960 Workshop::GetDebugText(void)
 char* Workshop::GetDebugText()
 {
-    return 0;
+    return "Workshop";
 }
 
 // win1.41 00779320 mac 101644f0 Workshop::_dt(void)
@@ -51,7 +51,7 @@ Workshop::~Workshop()
 }
 
 // win1.41 007793e0 mac 101643c0 Workshop::CallVirtualFunctionsForCreation(MapCoords const &)
-void Workshop::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Workshop::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -97,19 +97,19 @@ uint32_t Workshop::RemoveResource(RESOURCE_TYPE param_1, uint32_t param_2, GInte
 }
 
 // win1.41 00779f20 mac 10162d40 Workshop::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool Workshop::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
+bool32_t Workshop::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
 {
     return 0;
 }
 
 // win1.41 00779f40 mac 101629d0 Workshop::Save(GameOSFile &)
-bool Workshop::Save(GameOSFile& file)
+bool32_t Workshop::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0077a130 mac 101625f0 Workshop::Load(GameOSFile &)
-bool Workshop::Load(GameOSFile& file)
+bool32_t Workshop::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -131,25 +131,25 @@ void Workshop::ScaffoldMoved(Scaffold* param_1)
 }
 
 // win1.41 0077a630 mac 10161f20 Workshop::GetShowNeedsPos(unsigned long, MapCoords *)
-uint32_t Workshop::GetShowNeedsPos(uint32_t param_1, MapCoords* param_2)
+uint32_t Workshop::GetShowNeedsPos(unsigned long param_1, MapCoords* param_2)
 {
     return 0;
 }
 
 // win1.41 0077a650 mac 10161e90 Workshop::IsResourceStore(RESOURCE_TYPE)
-bool Workshop::IsResourceStore(RESOURCE_TYPE param_1)
+bool32_t Workshop::IsResourceStore(RESOURCE_TYPE param_1)
 {
     return 0;
 }
 
 // win1.41 0077a680 mac 10161d90 Workshop::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
-bool Workshop::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus* param_2)
+bool Workshop::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus& param_2)
 {
     return 0;
 }
 
 // win1.41 0077a6d0 mac 10161cd0 Workshop::CreateBuildingSite(void)
-bool Workshop::CreateBuildingSite()
+bool32_t Workshop::CreateBuildingSite()
 {
     return 0;
 }
@@ -182,13 +182,13 @@ void WorshipSite::RemovePotFromStructure(PotStructure* param_1)
 }
 
 // win1.41 0077ae30 mac 105b2cf0 WorshipSite::GetInspectObjectPos(Villager *, MapCoords *)
-bool WorshipSite::GetInspectObjectPos(Villager* param_1, MapCoords* param_2)
+bool32_t WorshipSite::GetInspectObjectPos(Villager* param_1, MapCoords* param_2)
 {
     return 0;
 }
 
 // win1.41 0077afc0 mac 105b28e0 WorshipSite::GetSpellIconPosFromSlot(unsigned long, float)
-MapCoords* WorshipSite::GetSpellIconPosFromSlot(MapCoords* coords, uint32_t slot, float angle)
+MapCoords* WorshipSite::GetSpellIconPosFromSlot(MapCoords* coords, unsigned long slot, float angle)
 {
     return 0;
 }
@@ -206,7 +206,7 @@ uint32_t WorshipSite::Process()
 }
 
 // win1.41 0077b9d0 mac 105b16a0 WorshipSite::CallVirtualFunctionsForCreation(MapCoords const &)
-void WorshipSite::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void WorshipSite::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -225,13 +225,13 @@ bool WorshipSite::IsBuilt()
 // win1.41 0077bef0 mac 105ab110 PlannedWorshipSite::GetSaveType(void)
 uint32_t PlannedWorshipSite::GetSaveType()
 {
-    return 0;
+    return 59;
 }
 
 // win1.41 0077bf00 mac 105ab150 PlannedWorshipSite::GetDebugText(void)
 char* PlannedWorshipSite::GetDebugText()
 {
-    return 0;
+    return "PlannedWorshipSite";
 }
 
 // win1.41 0077bf10 mac 105ab030 PlannedWorshipSite::_dt(void)
@@ -240,13 +240,13 @@ PlannedWorshipSite::~PlannedWorshipSite()
 }
 
 // win1.41 0077bf30 mac 105b0ea0 PlannedWorshipSite::Save(GameOSFile &)
-bool PlannedWorshipSite::Save(GameOSFile& file)
+bool32_t PlannedWorshipSite::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0077bf90 mac 105b0dc0 PlannedWorshipSite::Load(GameOSFile &)
-bool PlannedWorshipSite::Load(GameOSFile& file)
+bool32_t PlannedWorshipSite::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -315,13 +315,13 @@ void WorshipSite::AddSpellIconIfNecessary(SPELL_SEED_TYPE seed_type)
 }
 
 // win1.41 0077cc90 mac 105aefc0 WorshipSite::GetSpecialPos(unsigned long, MapCoords *)
-bool WorshipSite::GetSpecialPos(uint32_t param_1, MapCoords* param_2)
+bool32_t WorshipSite::GetSpecialPos(unsigned long param_1, MapCoords* param_2)
 {
     return 0;
 }
 
 // win1.41 0077cd70 mac 105aef50 WorshipSite::GetShowNeedsPos(unsigned long, MapCoords *)
-uint32_t WorshipSite::GetShowNeedsPos(uint32_t param_1, MapCoords* param_2)
+uint32_t WorshipSite::GetShowNeedsPos(unsigned long param_1, MapCoords* param_2)
 {
     return 0;
 }
@@ -352,4 +352,67 @@ void WorshipSite::UpdateFrom3DPosition()
 // win1.41 0077d0a0 mac 105ae5c0 WorshipSite::RemoveVillagerFromWorshipCount(Villager *)
 void WorshipSite::RemoveVillagerFromWorshipCount(Villager* param_1)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_79();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00436960();
+extern "C" void jmp_addr_0x0056fa80();
+
+__declspec(naked) void __cdecl sdtor_Workshop() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_79
+        test byte ptr [esp + 8], 1
+        je short skip_Workshop
+        push 0x000000e8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Workshop:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GWorshipSiteInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GWorshipSiteInfo
+        push 0x00000160
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GWorshipSiteInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PlannedWorshipSite() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PlannedWorshipSite
+        push 0x50
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PlannedWorshipSite:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

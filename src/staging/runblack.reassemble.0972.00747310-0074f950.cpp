@@ -65,13 +65,13 @@ WorshipSite* TownSpellIcon::GetWorshipSite()
 }
 
 // win1.41 00748f70 mac 10561030 TownSpellIcon::Save(GameOSFile &)
-bool TownSpellIcon::Save(GameOSFile& file)
+bool32_t TownSpellIcon::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00748fb0 mac 10560fa0 TownSpellIcon::Load(GameOSFile &)
-bool TownSpellIcon::Load(GameOSFile& file)
+bool32_t TownSpellIcon::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -202,13 +202,13 @@ float Tree::GetHoldLoweringMultiplier()
 // win1.41 0074b630 mac 10157ad0 Tree::CanBecomeAPhysicsObject(void)
 bool Tree::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 0074b640 mac 10157a90 Tree::GetPhysicsConstantsType(void)
 uint32_t Tree::GetPhysicsConstantsType()
 {
-    return 0;
+    return 6;
 }
 
 // win1.41 0074b650 mac 101579a0 Tree::SetUpPhysOb(PhysOb *)
@@ -230,11 +230,11 @@ void Tree::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 // win1.41 0074b720 mac 10157800 Tree::IsARootedObject(void)
 bool Tree::IsARootedObject()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 0074b730 mac 10157710 Tree::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool Tree::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t Tree::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -242,7 +242,7 @@ bool Tree::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 // win1.41 0074b790 mac 101576d0 Tree::GetOverwriteDropToolTip(void)
 uint32_t Tree::GetOverwriteDropToolTip()
 {
-    return 0;
+    return 3823;
 }
 
 // win1.41 0074b7a0 mac 10157670 Tree::GetDefaultResource(void)
@@ -293,7 +293,7 @@ uint32_t Tree::ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2, Ges
 }
 
 // win1.41 0074bfd0 mac 101567f0 Tree::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-uint32_t Tree::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3)
+uint32_t Tree::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3)
 {
     return 0;
 }
@@ -305,13 +305,13 @@ MapCoords* Tree::GetWorkingPos(MapCoords* param_1, Object* param_2)
 }
 
 // win1.41 0074c0a0 mac 10156670 Tree::IsTreeBigEnoughForCreature(Creature *)
-bool Tree::IsTreeBigEnoughForCreature(Creature* param_1)
+bool32_t Tree::IsTreeBigEnoughForCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 0074c0e0 mac 10156590 Tree::CreatureMustAvoid(Creature *)
-bool Tree::CreatureMustAvoid(Creature* param_1)
+bool32_t Tree::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -319,7 +319,7 @@ bool Tree::CreatureMustAvoid(Creature* param_1)
 // win1.41 0074c130 mac 100036d0 Tree::GetScriptObjectType(void)
 uint32_t Tree::GetScriptObjectType()
 {
-    return 0;
+    return 22;
 }
 
 // win1.41 0074c140 mac 10156370 Tree::SetOnFire(float)
@@ -334,13 +334,13 @@ uint32_t Tree::GetDiscipleStateIfInteractedWith(GInterfaceStatus* param_1, Villa
 }
 
 // win1.41 0074c1b0 mac 10156080 Tree::Save(GameOSFile &)
-bool Tree::Save(GameOSFile& file)
+bool32_t Tree::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 0074c2a0 mac 10155f10 Tree::Load(GameOSFile &)
-bool Tree::Load(GameOSFile& file)
+bool32_t Tree::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -359,7 +359,7 @@ void Tree::CreateCollideData()
 // win1.41 0074c7f0 mac 10155720 Tree::BlocksTownClearArea( const(void))
 bool Tree::BlocksTownClearArea() const
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 0074c8c0 mac 10159ef0 GTribeInfo::GetBaseInfo(unsigned long &)
@@ -455,7 +455,7 @@ float GUtils::ConvertWholeDistanceToMeters(int param_1)
 }
 
 // win1.41 0074e3a0 mac 104fa7f0 GUtils::FindNearestDrinkingWater(MapCoords &, MapCoords &, float)
-bool GUtils::FindNearestDrinkingWater(MapCoords& param_1, MapCoords& param_2, float max_dist)
+bool32_t GUtils::FindNearestDrinkingWater(MapCoords& param_1, MapCoords& param_2, float max_dist)
 {
     return 0;
 }
@@ -504,4 +504,47 @@ GBaseInfo* GVillagerInfo::GetBaseInfo(uint32_t& param_1)
 // win1.41 0074f900 mac 1056bfe0 GVillagerInfo::_dt(void)
 GVillagerInfo::~GVillagerInfo()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_GTreeInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GTreeInfo
+        push 0x00000140
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GTreeInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GTribeInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GTribeInfo
+        push 0x1c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GTribeInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

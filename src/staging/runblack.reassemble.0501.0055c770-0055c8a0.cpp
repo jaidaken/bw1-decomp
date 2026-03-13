@@ -4,7 +4,7 @@
 #include "Living.h"
 
 // win1.41 0055c770 mac 10043c50 BaseInfo::IsClear(void) const
-bool BaseInfo::IsClear()
+bool BaseInfo::IsClear() const
 {
     return 0;
 }
@@ -34,13 +34,13 @@ float Reaction::GetRadius()
 // win1.41 0055c7e0 mac 10134280 Reaction::GetSaveType(void)
 uint32_t Reaction::GetSaveType()
 {
-    return 0;
+    return 38;
 }
 
 // win1.41 0055c7f0 mac 101342c0 Reaction::GetDebugText(void)
 char* Reaction::GetDebugText()
 {
-    return 0;
+    return "Reaction";
 }
 
 // win1.41 0055c800 mac 10136550 Reaction::_dt(void)
@@ -52,3 +52,28 @@ Reaction::~Reaction()
 // Living::Living()
 // {
 // }
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x006e3a60();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_Reaction() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x006e3a60
+        test byte ptr [esp + 8], 1
+        je short skip_Reaction
+        push 0x44
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Reaction:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}

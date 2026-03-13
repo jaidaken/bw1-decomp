@@ -30,7 +30,7 @@ PlannedMultiMapFixed* CreaturePen::ConvertToPlanned()
 // win1.41 004ef040 mac 10274940 PlannedCreaturePen::GetText(void)
 const char* PlannedCreaturePen::GetText()
 {
-    return 0;
+    return "PlannedCreaturePen";
 }
 
 // win1.41 004ef050 mac 102748a0 PlannedCreaturePen::_dt(void)
@@ -81,7 +81,7 @@ void Creature::UpdateHowImpressed(Reaction* param_1, int param_2)
 }
 
 // win1.41 004f2820 mac 1027db00 Creature::IsAvailableForReaction(REACTION)
-bool Creature::IsAvailableForReaction(REACTION param_1)
+bool32_t Creature::IsAvailableForReaction(REACTION param_1)
 {
     return 0;
 }
@@ -282,4 +282,121 @@ void Creature::SetupReactToFainting(GameThingWithPos* param_1, Reaction* param_2
 // win1.41 004f3bd0 mac 1027ad40 Creature::SetupReactToConfused(GameThingWithPos *, Reaction *)
 void Creature::SetupReactToConfused(GameThingWithPos* param_1, Reaction* param_2)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_14();
+extern "C" void jmp_addr_0x0056fa80();
+
+__declspec(naked) void __cdecl sdtor_GCreaturePenInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GCreaturePenInfo
+        push 0x00000144
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GCreaturePenInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreaturePen() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_14
+        test byte ptr [esp + 8], 1
+        je short skip_CreaturePen
+        push 0x00000098
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreaturePen:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_PlannedCreaturePen() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_PlannedCreaturePen
+        push 0x4c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_PlannedCreaturePen:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureDamageMap() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureDamageMap
+        push 0x10
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureDamageMap:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreaturePhysical() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreaturePhysical
+        push 0x74
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreaturePhysical:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreaturePreviousActions() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreaturePreviousActions
+        push 0x00000528
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreaturePreviousActions:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

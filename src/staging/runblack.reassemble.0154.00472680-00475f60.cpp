@@ -9,6 +9,10 @@
 #include "Alignment.h"
 #include "Mobile.h"
 
+extern "C" char sdtor_vt_Mobile;
+extern "C" void sdtor_dtor_Mobile();
+extern "C" void sdtor_op_del();
+
 // win1.41 00472c10 mac 101e2980 CreatureInfo::GetBaseInfo(unsigned long &)
 GBaseInfo* CreatureInfo::GetBaseInfo(uint32_t& param_1)
 {
@@ -63,25 +67,25 @@ void Living::SetStateSpeed()
 }
 
 // win1.41 00473e60 mac inlined Living::IsScriptState( const(VILLAGER_STATES))
-bool Living::IsScriptState(VILLAGER_STATES param_1)
+bool Living::IsScriptState(VILLAGER_STATES param_1) const
 {
     return 0;
 }
 
 // win1.41 00473e70 mac inlined Living::IsScriptInterruptableState( const(VILLAGER_STATES))
-bool Living::IsScriptInterruptableState(VILLAGER_STATES param_1)
+bool Living::IsScriptInterruptableState(VILLAGER_STATES param_1) const
 {
     return 0;
 }
 
 // win1.41 00473e80 mac inlined Living::IsStateExitFunctionSameAs( const(VILLAGER_STATES))
-bool Living::IsStateExitFunctionSameAs(VILLAGER_STATES param_1)
+bool Living::IsStateExitFunctionSameAs(VILLAGER_STATES param_1) const
 {
     return 0;
 }
 
 // win1.41 00473e90 mac 101e3580 Living::IsInterestedInFoodObject(Object *)
-bool Living::IsInterestedInFoodObject(Object* param_1)
+bool32_t Living::IsInterestedInFoodObject(Object* param_1)
 {
     return 0;
 }
@@ -106,11 +110,11 @@ uint8_t Living::ReactToFallingTreePriority(Reaction* param_1, Reaction* param_2)
 // win1.41 00473ed0 mac 101e36f0 Living::IsChild(void)
 bool Living::IsChild()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00473ee0 mac inlined Villager::IsPosValidForTurnAngle(MapCoords const &)
-bool Villager::IsPosValidForTurnAngle(const MapCoords* param_1)
+bool Villager::IsPosValidForTurnAngle(const MapCoords& param_1)
 {
     return 0;
 }
@@ -124,13 +128,13 @@ ANIM_LIST Creature::GetAnimId()
 // win1.41 00473f00 mac inlined Creature::CallIntoAnimationFunction(VILLAGER_STATES)
 int Creature::CallIntoAnimationFunction(VILLAGER_STATES param_1)
 {
-    return 0;
+    return -1;
 }
 
 // win1.41 00473f10 mac inlined Creature::CallOutofAnimationFunction(VILLAGER_STATES)
 int Creature::CallOutofAnimationFunction(VILLAGER_STATES param_1)
 {
-    return 0;
+    return -1;
 }
 
 // win1.41 00473f20 mac 100a0db0 Creature::GetPlayer(void)
@@ -145,7 +149,7 @@ void Creature::RemoveDance()
 }
 
 // win1.41 00473f40 mac inlined Creature::IsFinalState(VILLAGER_STATES)
-bool Creature::IsFinalState(VILLAGER_STATES param_1)
+bool32_t Creature::IsFinalState(VILLAGER_STATES param_1)
 {
     return 0;
 }
@@ -153,11 +157,11 @@ bool Creature::IsFinalState(VILLAGER_STATES param_1)
 // win1.41 00473f50 mac 101e2d40 Creature::IsReachable(void)
 bool Creature::IsReachable()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00473f60 mac 101e2d80 Creature::ValidForPlaceInHand(GInterfaceStatus *)
-bool Creature::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t Creature::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -165,13 +169,13 @@ bool Creature::ValidForPlaceInHand(GInterfaceStatus* param_1)
 // win1.41 00473f70 mac 101e2dd0 Creature::GetCreatureBeliefType(void)
 uint32_t Creature::GetCreatureBeliefType()
 {
-    return 0;
+    return 8;
 }
 
 // win1.41 00473f80 mac 101e2e10 Creature::GetCreatureMimicType(void)
 uint32_t Creature::GetCreatureMimicType()
 {
-    return 0;
+    return 9;
 }
 
 // win1.41 00473f90 mac inlined Creature::SetAnim__i(int)
@@ -182,7 +186,7 @@ void Creature::SetAnim__i(int param_1)
 // win1.41 00473fa0 mac inlined Creature::CallExitStateFunction(VILLAGER_STATES)
 uint32_t Creature::CallExitStateFunction(VILLAGER_STATES param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00473fb0 mac inlined Creature::CallEntryStateFunctionUc(VILLAGER_STATES)
@@ -198,19 +202,19 @@ uint32_t Creature::CallEntryStateFunction(VILLAGER_STATES param_1, VILLAGER_STAT
 }
 
 // win1.41 00473fd0 mac 101e2f50 Creature::IsSuitableForCreatureActivity(void)
-bool Creature::IsSuitableForCreatureActivity()
+bool32_t Creature::IsSuitableForCreatureActivity()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00473fe0 mac 101e2fa0 Creature::CanBePickedUp(void)
 bool Creature::CanBePickedUp()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00473ff0 mac 101e2fe0 Creature::CanBeExaminedByCreature(Creature *)
-bool Creature::CanBeExaminedByCreature(Creature* param_1)
+bool32_t Creature::CanBeExaminedByCreature(Creature* param_1)
 {
     return 0;
 }
@@ -222,43 +226,43 @@ Creature* Creature::CastCreature()
 }
 
 // win1.41 00474020 mac 101e30a0 Creature::IsActivityObjectWhichCompassionAppliesTo(Creature *)
-bool Creature::IsActivityObjectWhichCompassionAppliesTo(Creature* param_1)
+bool32_t Creature::IsActivityObjectWhichCompassionAppliesTo(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00474030 mac 101e3100 Creature::IsActivityObjectWhichPlayfulnessAppliesTo(Creature *)
-bool Creature::IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1)
+bool32_t Creature::IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00474040 mac 101e3160 Creature::CanBeSleptNextToByCreature(Creature *)
-bool Creature::CanBeSleptNextToByCreature(Creature* param_1)
+bool32_t Creature::CanBeSleptNextToByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00474050 mac 101e31b0 Creature::CanBeEatenByCreature(Creature *)
-bool Creature::CanBeEatenByCreature(Creature* param_1)
+bool32_t Creature::CanBeEatenByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00474060 mac 101e3200 Creature::CanBeBefriendedByCreature(Creature *)
-bool Creature::CanBeBefriendedByCreature(Creature* param_1)
+bool32_t Creature::CanBeBefriendedByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00474070 mac 101e3250 Creature::CanBePlayedWithByCreature(Creature *)
-bool Creature::CanBePlayedWithByCreature(Creature* param_1)
+bool32_t Creature::CanBePlayedWithByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 00474080 mac inlined Creature::IsCreature_1(void)
-bool Creature::IsCreature_1()
+bool32_t Creature::IsCreature_1()
 {
     return 0;
 }
@@ -270,13 +274,13 @@ bool Creature::IsCreature(Creature* param_1)
 }
 
 // win1.41 004740a0 mac 101e3320 Creature::CanBeFoughtByCreature(Creature *)
-bool Creature::CanBeFoughtByCreature(Creature* param_1)
+bool32_t Creature::CanBeFoughtByCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 004740b0 mac 101e33a0 Creature::CanBeFrighteningToCreature(Creature *)
-bool Creature::CanBeFrighteningToCreature(Creature* param_1)
+bool32_t Creature::CanBeFrighteningToCreature(Creature* param_1)
 {
     return 0;
 }
@@ -284,13 +288,13 @@ bool Creature::CanBeFrighteningToCreature(Creature* param_1)
 // win1.41 004740c0 mac 101e33f0 Creature::GetSaveType(void)
 uint32_t Creature::GetSaveType()
 {
-    return 0;
+    return 105;
 }
 
 // win1.41 004740d0 mac 101e3430 Creature::GetDebugText(void)
 char* Creature::GetDebugText()
 {
-    return 0;
+    return "Creature";
 }
 
 // win1.41 004740e0 mac 101debf0 GAlignment::_dt(void)
@@ -318,6 +322,25 @@ Mobile::~Mobile()
 {
 }
 
+__declspec(naked) void __cdecl sdtor_Mobile() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_Mobile
+        call sdtor_dtor_Mobile
+        test byte ptr [esp + 8], 1
+        je short skip_Mobile
+        push 058h
+        push esi
+        call sdtor_op_del
+        add esp, 8
+    skip_Mobile:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
 // win1.41 00474910 mac 103c19a0 MobileWallHug::_dt(void)
 MobileWallHug::~MobileWallHug()
 {
@@ -326,7 +349,7 @@ MobileWallHug::~MobileWallHug()
 // win1.41 00474940 mac 103838c0 Living::DecideWhatToDo(void)
 bool Living::DecideWhatToDo()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00474950 mac 10383900 Living::SetupReactToFire(GameThingWithPos *, Reaction *)
@@ -383,9 +406,9 @@ uint8_t Living::ReactToDeathPriority(Reaction* param_1, Reaction* param_2)
 }
 
 // win1.41 004749e0 mac 1012f950 Living::GetFinalState( const(void))
-VILLAGER_STATES Living::GetFinalState()
+VILLAGER_STATES Living::GetFinalState() const
 {
-    return (VILLAGER_STATES)0;
+    __asm xor al, al
 }
 
 // win1.41 004749f0 mac 1016c750 Living::_dt(void)
@@ -394,13 +417,13 @@ Living::~Living()
 }
 
 // win1.41 00474a20 mac 101dfc60 Creature::Create(MapCoords const &, CreatureInfo const *, GPlayer *)
-Creature* Creature::Create(const MapCoords* coords, const GCreatureInfo* info, GPlayer* player)
+Creature* Creature::Create(const MapCoords& coords, const GCreatureInfo* info, GPlayer* player)
 {
     return 0;
 }
 
 // win1.41 00474b50 mac 101dfb90 Creature::CreateCreature(MapCoords const &, CreatureInfo const *, GPlayer *)
-Creature* Creature::CreateCreature(const MapCoords* coords, const GCreatureInfo* info, GPlayer* player)
+Creature* Creature::CreateCreature(const MapCoords& coords, const GCreatureInfo* info, GPlayer* player)
 {
     return 0;
 }
@@ -425,4 +448,176 @@ MapCoords* Creature::GetFinalDestPos(MapCoords* param_1)
 // win1.41 00475730 mac 101ddff0 Creature::FinishActionUnsuccessfully(char *, int, int)
 void Creature::FinishActionUnsuccessfully(char* param_1, int param_2, int param_3)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x004f12d0();
+extern "C" void sdtor_dt_10();
+extern "C" void jmp_addr_0x0060db00();
+
+__declspec(naked) void __cdecl sdtor_CreatureInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureInfo
+        push 0x00000394
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_DifferentCreatureInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_DifferentCreatureInfo
+        push 0x6c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_DifferentCreatureInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreaturePlan() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x004f12d0
+        test byte ptr [esp + 8], 1
+        je short skip_CreaturePlan
+        push 0x30
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreaturePlan:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureSubAction() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureSubAction
+        push 0x60
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureSubAction:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_CreatureSubActionAgenda() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_CreatureSubActionAgenda
+        push ebx
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_CreatureSubActionAgenda:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GAlignment() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GAlignment
+        push 0x10
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GAlignment:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Creature() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_10
+        test byte ptr [esp + 8], 1
+        je short skip_Creature
+        push 0x000012c8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Creature:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_MobileWallHug() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0060db00
+        test byte ptr [esp + 8], 1
+        je short skip_MobileWallHug
+        push 0x0000008c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_MobileWallHug:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_Living() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0060db00
+        test byte ptr [esp + 8], 1
+        je short skip_Living
+        push 0x000000e0
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_Living:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

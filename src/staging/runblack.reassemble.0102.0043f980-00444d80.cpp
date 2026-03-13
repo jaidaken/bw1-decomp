@@ -73,11 +73,11 @@ void Zoomer::SetPosition(float position)
 // win1.41 00441af0 mac 101980f0 GCamera::GetText(void)
 const char* GCamera::GetText()
 {
-    return 0;
+    return "GCamera";
 }
 
 // win1.41 00441b00 mac 10086270 GCamera::IsMoving( const(void))
-bool GCamera::IsMoving()
+bool GCamera::IsMoving() const
 {
     return 0;
 }
@@ -91,7 +91,7 @@ float GCamera::GetHeight()
 // win1.41 00441b20 mac 101982e0 GCamera::GetSaveType(void)
 uint32_t GCamera::GetSaveType()
 {
-    return 0;
+    return 119;
 }
 
 // win1.41 00441b30 mac 10378450 GCamera::_dt(void)
@@ -100,7 +100,7 @@ GCamera::~GCamera()
 }
 
 // win1.41 00441b60 mac 1006e040 MapCoords::MapCoords(void)
-MapCoords::MapCoords(const MapCoords& coords)
+MapCoords::MapCoords(const MapCoords* coords)
 {
 }
 
@@ -167,13 +167,13 @@ void GCamera::UpdateGameThingWithPosData()
 }
 
 // win1.41 004430e0 mac 10198d40 GCamera::Save(GameOSFile &)
-bool GCamera::Save(GameOSFile& file)
+bool32_t GCamera::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 004433a0 mac 10198870 GCamera::Load(GameOSFile &)
-bool GCamera::Load(GameOSFile& file)
+bool32_t GCamera::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -187,4 +187,29 @@ void GCamera::SetCameraFov(float fov, float time)
 char* GCamera::GetDebugText()
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x0056fa80();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_GCamera() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x0056fa80
+        test byte ptr [esp + 8], 1
+        je short skip_GCamera
+        push 0x000001d8
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GCamera:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

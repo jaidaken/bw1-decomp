@@ -6,6 +6,10 @@
 #include "Town.h"
 #include "Belief.h"
 
+extern "C" char sdtor_vt_TownStats;
+extern "C" void sdtor_dtor_TownStats();
+extern "C" void sdtor_op_del();
+
 // // win1.41 00737390 mac 105435b0 Totem::Totem(MapCoords const &, GAbodeInfo const *, Town *, float, float, float, int)
 // Totem::Totem(const MapCoords* coords, const GAbodeInfo* info, Town* town, float param_4, float param_5, float param_6, int param_7)
 // {
@@ -22,7 +26,7 @@ void Totem::ToBeDeleted(int param_1)
 }
 
 // win1.41 00737490 mac 10543360 Totem::CallVirtualFunctionsForCreation(MapCoords const &)
-void Totem::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void Totem::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -39,37 +43,37 @@ bool32_t Totem::NetworkFriendlyStartLockedSelect(GInterfaceStatus* param_1)
 }
 
 // win1.41 007375c0 mac 10542ff0 Totem::NetworkUnfriendlyStartLockedSelect(void)
-bool Totem::NetworkUnfriendlyStartLockedSelect()
+bool32_t Totem::NetworkUnfriendlyStartLockedSelect()
 {
     return 0;
 }
 
 // win1.41 007375e0 mac 10542f60 Totem::NetworkUnfriendlyEndLockedSelect(void)
-bool Totem::NetworkUnfriendlyEndLockedSelect()
+bool32_t Totem::NetworkUnfriendlyEndLockedSelect()
 {
     return 0;
 }
 
 // win1.41 00737600 mac 10542f00 Totem::NetworkFriendlyEndLockedSelect(GInterfaceStatus *)
-bool Totem::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
+bool32_t Totem::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00737610 mac 10542df0 Totem::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
-bool Totem::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
+bool32_t Totem::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
 {
     return 0;
 }
 
 // win1.41 00737800 mac 10542950 Totem::Load(GameOSFile &)
-bool Totem::Load(GameOSFile& file)
+bool32_t Totem::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007378b0 mac 10542820 Totem::Save(GameOSFile &)
-bool Totem::Save(GameOSFile& file)
+bool32_t Totem::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -129,7 +133,7 @@ void TotemStatue::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 }
 
 // win1.41 00737d60 mac 10544f40 TotemStatue::CallVirtualFunctionsForCreation(MapCoords const &)
-void TotemStatue::CallVirtualFunctionsForCreation(const MapCoords* coords)
+void TotemStatue::CallVirtualFunctionsForCreation(const MapCoords& coords)
 {
 }
 
@@ -186,37 +190,37 @@ bool32_t TotemStatue::NetworkFriendlyStartLockedSelect(GInterfaceStatus* param_1
 }
 
 // win1.41 007385e0 mac 10544640 TotemStatue::NetworkUnfriendlyStartLockedSelect(void)
-bool TotemStatue::NetworkUnfriendlyStartLockedSelect()
+bool32_t TotemStatue::NetworkUnfriendlyStartLockedSelect()
 {
     return 0;
 }
 
 // win1.41 00738630 mac 10544580 TotemStatue::NetworkUnfriendlyEndLockedSelect(void)
-bool TotemStatue::NetworkUnfriendlyEndLockedSelect()
+bool32_t TotemStatue::NetworkUnfriendlyEndLockedSelect()
 {
     return 0;
 }
 
 // win1.41 00738690 mac 10544520 TotemStatue::NetworkFriendlyEndLockedSelect(GInterfaceStatus *)
-bool TotemStatue::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
+bool32_t TotemStatue::NetworkFriendlyEndLockedSelect(GInterfaceStatus* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 007386a0 mac 10544470 TotemStatue::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo *)
-bool TotemStatue::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
+bool32_t TotemStatue::NetworkUnfriendlyLockedSelect(ControlHandUpdateInfo* param_1)
 {
     return 0;
 }
 
 // win1.41 00738700 mac 105442e0 TotemStatue::Save(GameOSFile &)
-bool TotemStatue::Save(GameOSFile& file)
+bool32_t TotemStatue::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00738800 mac 10544120 TotemStatue::Load(GameOSFile &)
-bool TotemStatue::Load(GameOSFile& file)
+bool32_t TotemStatue::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -234,7 +238,7 @@ void TotemStatue::Draw()
 // win1.41 00738eb0 mac 10543f70 TotemStatue::GetScriptObjectType(void)
 uint32_t TotemStatue::GetScriptObjectType()
 {
-    return 0;
+    return 40;
 }
 
 // win1.41 00738f70 mac 10545ba0 GTownInfo::GetBaseInfo(unsigned long &)
@@ -253,10 +257,29 @@ TownStats::~TownStats()
 {
 }
 
+__declspec(naked) void __cdecl sdtor_TownStats() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_TownStats
+        call sdtor_dtor_TownStats
+        test byte ptr [esp + 8], 1
+        je short skip_TownStats
+        push 0118h
+        push esi
+        call sdtor_op_del
+        add esp, 8
+    skip_TownStats:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
 // win1.41 007391d0 mac 10559100 Town::GetOrigin(void)
 uint32_t Town::GetOrigin()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 007391e0 mac 1054a050 Town::GetTown(void)
@@ -278,43 +301,43 @@ uint32_t Town::GetCreatureBeliefListType()
 }
 
 // win1.41 00739210 mac 105591b0 Town::IsScriptContainer( const(void))
-bool Town::IsScriptContainer()
+bool32_t Town::IsScriptContainer() const
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00739220 mac inlined Town::IsTown_1(Creature *)
 bool Town::IsTown(Creature* param_1)
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00739230 mac 105592e0 Town::IsActivityObjectWhichCompassionAppliesTo(Creature *)
-bool Town::IsActivityObjectWhichCompassionAppliesTo(Creature* param_1)
+bool32_t Town::IsActivityObjectWhichCompassionAppliesTo(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00739240 mac 10559340 Town::IsActivityObjectWhichPlayfulnessAppliesTo(Creature *)
-bool Town::IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1)
+bool32_t Town::IsActivityObjectWhichPlayfulnessAppliesTo(Creature* param_1)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00739250 mac inlined Town::IsTown_0(void)
 bool Town::IsTown()
 {
-    return 0;
+    __asm mov eax, 1
 }
 
 // win1.41 00739260 mac 105593a0 Town::IsSuitableForCreatureActivity(void)
-bool Town::IsSuitableForCreatureActivity()
+bool32_t Town::IsSuitableForCreatureActivity()
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00739270 mac 105593f0 Town::CanBePlayedWithByCreature(Creature *)
-bool Town::CanBePlayedWithByCreature(Creature* param_1)
+bool32_t Town::CanBePlayedWithByCreature(Creature* param_1)
 {
     return 0;
 }
@@ -322,19 +345,19 @@ bool Town::CanBePlayedWithByCreature(Creature* param_1)
 // win1.41 00739280 mac 10559440 Town::GetText(void)
 const char* Town::GetText()
 {
-    return 0;
+    return "Town";
 }
 
 // win1.41 00739290 mac 10559470 Town::GetSaveType(void)
 uint32_t Town::GetSaveType()
 {
-    return 0;
+    return 40;
 }
 
 // win1.41 007392a0 mac 105594a0 Town::GetDebugText(void)
 char* Town::GetDebugText()
 {
-    return 0;
+    return "Town";
 }
 
 // win1.41 007392b0 mac 10558ef0 Town::_dt(void)
@@ -368,7 +391,7 @@ void Town::AddAbodeToTownStats(Abode* abode)
 }
 
 // win1.41 0073a090 mac 10556400 Town::AddVillagerToTown(Villager *)
-bool Town::AddVillagerToTown(Villager* villager)
+bool32_t Town::AddVillagerToTown(Villager* villager)
 {
     return 0;
 }
@@ -383,4 +406,65 @@ PlannedMultiMapFixed* Town::GetBestPlanned(float* param_1, ABODE_TYPE param_2)
 float Town::GetDesireToBeBuilt(const GMultiMapFixedInfo* param_1, unsigned long param_2)
 {
     return 0;
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x00436960();
+extern "C" void sdtor_opd_1();
+
+__declspec(naked) void __cdecl sdtor_GTotemStatueInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GTotemStatueInfo
+        push 0x00000124
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GTotemStatueInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GTownInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GTownInfo
+        push 0x0000018c
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GTownInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GBelief() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GBelief
+        push 0x000001d0
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GBelief:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

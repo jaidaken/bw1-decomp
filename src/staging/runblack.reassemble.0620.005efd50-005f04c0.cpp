@@ -2,7 +2,7 @@
 #include "Villager.h"
 
 // win1.41 005efd80 mac 10385a30 Living::InitialisePhysicsFromHand(LHPoint &, LHPoint &, GInterfaceStatus *, Object *, int)
-uint32_t Living::InitialisePhysicsFromHand(LHPoint* param_1, LHPoint* param_2, GInterfaceStatus* param_3, Object* param_4, int param_5)
+uint32_t Living::InitialisePhysicsFromHand(LHPoint& param_1, LHPoint& param_2, GInterfaceStatus* param_3, Object* param_4, int param_5)
 {
     return 0;
 }
@@ -14,7 +14,7 @@ uint32_t Living::InitialisePhysics(const LHPoint* param_1, const LHPoint* param_
 }
 
 // win1.41 005efe90 mac 10385750 Villager::InitialisePhysicsFromHand(LHPoint &, LHPoint &, GInterfaceStatus *, Object *, int)
-uint32_t Villager::InitialisePhysicsFromHand(LHPoint* param_1, LHPoint* param_2, GInterfaceStatus* param_3, Object* param_4, int param_5)
+uint32_t Villager::InitialisePhysicsFromHand(LHPoint& param_1, LHPoint& param_2, GInterfaceStatus* param_3, Object* param_4, int param_5)
 {
     return 0;
 }
@@ -28,7 +28,7 @@ uint32_t Villager::InitialisePhysics(const LHPoint* param_1, const LHPoint* para
 // win1.41 005eff30 mac 10385630 Villager::GetPhysicsConstantsType(void)
 uint32_t Villager::GetPhysicsConstantsType()
 {
-    return 0;
+    return 7;
 }
 
 // win1.41 005eff40 mac 103850b0 Villager::SetUpPhysOb(PhysOb *)

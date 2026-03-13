@@ -37,7 +37,7 @@ bool Abode::IsFunctional()
 }
 
 // win1.41 00406230 mac 1014cfd0 Abode::ChecksVerticesVObjects(void)
-bool Abode::ChecksVerticesVObjects()
+bool32_t Abode::ChecksVerticesVObjects()
 {
     return 0;
 }
@@ -55,7 +55,7 @@ void Abode::ApplyEffectsDueToPhysicalDestruction(Object* object, GPlayer* player
 // win1.41 00406800 mac 1010ab50 Abode::CanBecomeAPhysicsObject(void)
 bool Abode::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00406810 mac 1001b380 Abode::GetScriptObjectType(void)
@@ -89,13 +89,13 @@ Villager* Abode::FindVillager(int (__cdecl* param_1)(GameThingWithPos*, SCRIPT_O
 }
 
 // win1.41 00406a10 mac 103bd750 Abode::Save(GameOSFile &)
-bool Abode::Save(GameOSFile& file)
+bool32_t Abode::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00406d20 mac 101a2920 Abode::Load(GameOSFile &)
-bool Abode::Load(GameOSFile& file)
+bool32_t Abode::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -198,13 +198,13 @@ float Abode::CalculateDesireToGainVillager()
 }
 
 // win1.41 004075b0 mac 10518900 Abode::TakeVillagerFrom(Abode&, int)
-bool Abode::TakeVillagerFrom(Abode* other, int param_2)
+bool Abode::TakeVillagerFrom(Abode& other)
 {
     return 0;
 }
 
 // win1.41 00407620 mac 10516470 Abode::SwapMaleForFemaleFrom(Abode&)
-bool Abode::SwapMaleForFemaleFrom(Abode* other)
+bool Abode::SwapMaleForFemaleFrom(Abode& other)
 {
     return 0;
 }
@@ -258,7 +258,7 @@ void SetupControl::SetFocus(bool focus)
 }
 
 // win1.41 00409210 mac 1057a320 SetupControl::SetToolTip(unsigned long)
-void SetupControl::SetToolTip(uint32_t tooltip_id)
+void SetupControl::SetToolTip(unsigned long tooltip_id)
 {
 }
 
@@ -278,7 +278,7 @@ void SetupControl::Hide(bool hidden)
 }
 
 // win1.41 00409310 mac 10310540 SetupControl::HitTest(int, int)
-bool SetupControl::HitTest(int x, int y)
+bool32_t SetupControl::HitTest(int x, int y)
 {
     return 0;
 }
@@ -322,4 +322,28 @@ SetupControl::~SetupControl()
 // win1.41 00409430 mac 105436e0 SetupStaticText::Draw(bool, bool)
 void SetupStaticText::Draw(bool hovered, bool selected)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_0();
+extern "C" void sdtor_opd_0();
+
+__declspec(naked) void __cdecl sdtor_SetupControl() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_0
+        test byte ptr [esp + 8], 1
+        je short skip_SetupControl
+        push esi
+        call sdtor_opd_0
+        add esp, 4
+    skip_SetupControl:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

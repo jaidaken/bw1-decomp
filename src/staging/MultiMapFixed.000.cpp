@@ -1,3 +1,5 @@
+#define STAGING_BASE_MMF
+#include "staging_class_fwd.h"
 #include "MultiMapFixed.h"
 
 // win1.41 00401490 mac 1056ea60 MultiMapFixed::AsMultiMapFixed(void)
@@ -9,17 +11,17 @@ MultiMapFixed* MultiMapFixed::AsMultiMapFixed()
 // win1.41 004014a0 mac 103dc840 MultiMapFixed::IsPlaytimeStructure(void)
 bool MultiMapFixed::IsPlaytimeStructure()
 {
-    return false;
+    __asm xor eax, eax
 }
 
 // win1.41 004014b0 mac 103e2190 MultiMapFixed::IsPlaytimeStarted(void)
 bool MultiMapFixed::IsPlaytimeStarted()
 {
-    return false;
+    __asm xor eax, eax
 }
 
 // win1.41 004014c0 mac 1037fbf0 MultiMapFixed::AddPlaytimeVillager(Villager *)
-bool MultiMapFixed::AddPlaytimeVillager(Villager* villager)
+bool32_t MultiMapFixed::AddPlaytimeVillager(Villager* villager)
 {
     return false;
 }
@@ -54,7 +56,7 @@ void* MultiMapFixed::GetBuildingObject()
 }
 
 // win1.41 00401530 mac 100a0e40 MultiMapFixed::IsSolidToNewAbode(void)
-bool MultiMapFixed::IsSolidToNewAbode()
+bool32_t MultiMapFixed::IsSolidToNewAbode()
 {
     return true;
 }
@@ -105,19 +107,19 @@ int MultiMapFixed::CalulateAmountOverMaximum(RESOURCE_TYPE type)
 }
 
 // win1.41 004015e0 mac 10570a50 MultiMapFixed::IsBeingBuilt(Creature *)
-bool MultiMapFixed::IsBeingBuilt(Creature* creature)
+bool32_t MultiMapFixed::IsBeingBuilt(Creature* creature)
 {
     return false;
 }
 
 // win1.41 00401600 mac 100dc2a0 MultiMapFixed::NeedsRepair(Creature *)
-bool MultiMapFixed::NeedsRepair(Creature* creature)
+bool32_t MultiMapFixed::NeedsRepair(Creature* creature)
 {
     return false;
 }
 
 // win1.41 00401610 mac 101481c0 MultiMapFixed::IsFootpathLink(void)
-bool MultiMapFixed::IsFootpathLink()
+bool32_t MultiMapFixed::IsFootpathLink()
 {
     return true;
 }
@@ -129,7 +131,7 @@ GFootpathLink* MultiMapFixed::GetFootpathLink()
 }
 
 // win1.41 00401630 mac inlined MultiMapFixed::GetCollideData(void)
-NewCollide* MultiMapFixed::GetCollideData() const
+NewCollide* MultiMapFixed::GetCollideData()
 {
     return collide_data;
 }

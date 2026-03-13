@@ -1,7 +1,9 @@
+#define STAGING_BASE_PMF
+#include "staging_class_fwd.h"
 #include "PlannedMultiMapFixed.h"
 
 // win1.41 004050c0 mac 1017d1b0 PlannedMultiMapFixed::GetScale(void)
-float PlannedMultiMapFixed::GetScale()
+float PlannedMultiMapFixed::GetScale() const
 {
     return scale;
 }

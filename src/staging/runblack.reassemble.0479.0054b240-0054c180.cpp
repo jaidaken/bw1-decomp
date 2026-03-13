@@ -13,6 +13,10 @@
 #include "TerrainMapTypeInfo.h"
 #include "TerrainMap.h"
 
+extern "C" char sdtor_vt_GestureSystem;
+extern "C" void sdtor_dtor_GestureSystem();
+extern "C" void sdtor_op_del();
+
 // win1.41 0054b240 mac 104fda10 GGame::GGame(void)
 GGame::GGame()
 {
@@ -58,13 +62,13 @@ bool GGame::IsAvailable()
 // win1.41 0054b9b0 mac 10512c00 GGame::GetSaveType(void)
 uint32_t GGame::GetSaveType()
 {
-    return 0;
+    return 106;
 }
 
 // win1.41 0054b9c0 mac 10496160 GGame::GetDebugText(void)
 char* GGame::GetDebugText()
 {
-    return 0;
+    return "GGame";
 }
 
 // win1.41 0054b9d0 mac inlined GSoundMap::GSoundMap(void)
@@ -100,6 +104,25 @@ GestureSystem::GestureSystem()
 // win1.41 0054bb60 mac 1042dc00 GestureSystem::_dt(void)
 GestureSystem::~GestureSystem()
 {
+}
+
+__declspec(naked) void __cdecl sdtor_GestureSystem() {
+    __asm {
+        push esi
+        mov esi, ecx
+        mov dword ptr [esi], offset sdtor_vt_GestureSystem
+        call sdtor_dtor_GestureSystem
+        test byte ptr [esp + 8], 1
+        je short skip_GestureSystem
+        push 0C98h
+        push esi
+        call sdtor_op_del
+        add esp, 8
+    skip_GestureSystem:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }
 
 // win1.41 0054bb90 mac inlined GestureSystemResult::GestureSystemResult(void)
@@ -152,4 +175,120 @@ void GGame::ClearVariables()
 // win1.41 0054bfd0 mac 103dcca0 GGame::ToBeDeleted(int)
 void GGame::ToBeDeleted(int param_1)
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void jmp_addr_0x005e1a90();
+extern "C" void sdtor_opd_1();
+extern "C" void jmp_addr_0x00436960();
+
+__declspec(naked) void __cdecl sdtor_GKeyBuffer() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x005e1a90
+        test byte ptr [esp + 8], 1
+        je short skip_GKeyBuffer
+        push 0x10
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GKeyBuffer:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GSoundMap() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GSoundMap
+        push 0x00000110
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GSoundMap:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GTerrainMap() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GTerrainMap
+        push ebp
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GTerrainMap:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GPlayerInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GPlayerInfo
+        push 0x00000090
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GPlayerInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_TerrainMapInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_TerrainMapInfo
+        push ebx
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_TerrainMapInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_TerrainMapTypeInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_TerrainMapTypeInfo
+        push 0x14
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_TerrainMapTypeInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

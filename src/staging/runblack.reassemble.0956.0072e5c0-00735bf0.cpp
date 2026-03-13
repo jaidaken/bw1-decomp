@@ -22,13 +22,13 @@ GPlayer* FireEffect::GetPlayer()
 // win1.41 0072eac0 mac 101508d0 FireEffect::GetSaveType(void)
 uint32_t FireEffect::GetSaveType()
 {
-    return 0;
+    return 41;
 }
 
 // win1.41 0072ead0 mac 10150910 FireEffect::GetDebugText(void)
 char* FireEffect::GetDebugText()
 {
-    return 0;
+    return "FireEffect";
 }
 
 // win1.41 0072eae0 mac 10150470 FireEffect::_dt(void)
@@ -54,13 +54,13 @@ FireGraphic* FireEffect::CreateSprites()
 }
 
 // win1.41 00730b00 mac 1014c110 FireEffect::Save(GameOSFile &)
-bool FireEffect::Save(GameOSFile& file)
+bool32_t FireEffect::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00730df0 mac 1014bcc0 FireEffect::Load(GameOSFile &)
-bool FireEffect::Load(GameOSFile& file)
+bool32_t FireEffect::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -81,7 +81,7 @@ FireGraphic::SpritePos::~SpritePos()
 }
 
 // win1.41 00732630 mac 101499d0 Object::GetPSysFireFlameMatrix(LHMatrix *)
-bool Object::GetPSysFireFlameMatrix(LHMatrix* matrix)
+bool32_t Object::GetPSysFireFlameMatrix(LHMatrix* matrix)
 {
     return 0;
 }
@@ -93,7 +93,7 @@ bool Object::GetPSysFireWorldFlamePos(const LHPoint& param_1, int param_2, LHPoi
 }
 
 // win1.41 00732770 mac 10149520 Object::GetPSysFireLocalRndFlamePos(LHPoint *, long *)
-bool Object::GetPSysFireLocalRndFlamePos(LHPoint* point, int* param_2)
+bool32_t Object::GetPSysFireLocalRndFlamePos(LHPoint* point, int* param_2)
 {
     return 0;
 }
@@ -132,7 +132,7 @@ void StoragePit::DeleteDependancys()
 }
 
 // win1.41 00732e80 mac 10152d50 StoragePit::CallVirtualFunctionsForCreation(MapCoords const &)
-void StoragePit::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void StoragePit::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -187,7 +187,7 @@ void StoragePit::SetPoisonedResource(RESOURCE_TYPE param_1, int param_2)
 }
 
 // win1.41 007336b0 mac 10151ed0 StoragePit::IsPoisoned(void)
-bool StoragePit::IsPoisoned()
+bool32_t StoragePit::IsPoisoned()
 {
     return 0;
 }
@@ -198,25 +198,25 @@ void StoragePit::ReactToPhysicsImpact(PhysicsObject* param_1, bool param_2)
 }
 
 // win1.41 00733750 mac 10151c60 StoragePit::DeleteObjectAndTakeResource(Object *, GInterfaceStatus *)
-bool StoragePit::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
+bool32_t StoragePit::DeleteObjectAndTakeResource(Object* param_1, GInterfaceStatus* param_2)
 {
     return 0;
 }
 
 // win1.41 00733810 mac 101519d0 StoragePit::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE, GInterfaceStatus &)
-bool StoragePit::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus* param_2)
+bool StoragePit::DoCreatureMimicAfterAddingResource(RESOURCE_TYPE param_1, GInterfaceStatus& param_2)
 {
     return 0;
 }
 
 // win1.41 007338d0 mac 10151930 StoragePit::Save(GameOSFile &)
-bool StoragePit::Save(GameOSFile& file)
+bool32_t StoragePit::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00733920 mac 10151890 StoragePit::Load(GameOSFile &)
-bool StoragePit::Load(GameOSFile& file)
+bool32_t StoragePit::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -253,7 +253,7 @@ void GWaterfall::ToBeDeleted(int param_1)
 }
 
 // win1.41 007341b0 mac 10154110 GWaterfall::CallVirtualFunctionsForCreation(MapCoords const &)
-void GWaterfall::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void GWaterfall::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -264,13 +264,13 @@ uint32_t GWaterfall::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 00734380 mac 10153ac0 GStream::Save(GameOSFile &)
-bool GStream::Save(GameOSFile& file)
+bool32_t GStream::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 007344e0 mac 10153560 GStream::Load(GameOSFile &)
-bool GStream::Load(GameOSFile& file)
+bool32_t GStream::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -281,19 +281,19 @@ void GStream::ResolveLoad()
 }
 
 // win1.41 00734650 mac 101534b0 GWaterfall::Save(GameOSFile &)
-bool GWaterfall::Save(GameOSFile& file)
+bool32_t GWaterfall::Save(GameOSFile& file)
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 00734660 mac 10153470 GWaterfall::Load(GameOSFile &)
-bool GWaterfall::Load(GameOSFile& file)
+bool32_t GWaterfall::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00734810 mac 105350a0 GStreetLantern::CallVirtualFunctionsForCreation(MapCoords const &)
-void GStreetLantern::CallVirtualFunctionsForCreation(const MapCoords* param_1)
+void GStreetLantern::CallVirtualFunctionsForCreation(const MapCoords& param_1)
 {
 }
 
@@ -320,13 +320,13 @@ uint32_t GStreetLantern::SaveObject(LHOSFile& file, const MapCoords& coords)
 }
 
 // win1.41 00734be0 mac 10534ab0 GStreetLantern::Load(GameOSFile &)
-bool GStreetLantern::Load(GameOSFile& file)
+bool32_t GStreetLantern::Load(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00734c90 mac 10534980 GStreetLantern::Save(GameOSFile &)
-bool GStreetLantern::Save(GameOSFile& file)
+bool32_t GStreetLantern::Save(GameOSFile& file)
 {
     return 0;
 }
@@ -334,11 +334,11 @@ bool GStreetLantern::Save(GameOSFile& file)
 // win1.41 00734d40 mac 10003680 GStreetLantern::GetScriptObjectType(void)
 uint32_t GStreetLantern::GetScriptObjectType()
 {
-    return 0;
+    return 8;
 }
 
 // win1.41 00734d50 mac 10534800 GStreetLantern::CreatureMustAvoid(Creature *)
-bool GStreetLantern::CreatureMustAvoid(Creature* param_1)
+bool32_t GStreetLantern::CreatureMustAvoid(Creature* param_1)
 {
     return 0;
 }
@@ -355,13 +355,13 @@ float GStreetLight::GetDistanceFromObject(const MapCoords* param_1)
 }
 
 // win1.41 00735140 mac 10535910 GStreetLight::Save(GameOSFile &)
-bool GStreetLight::Save(GameOSFile& file)
+bool32_t GStreetLight::Save(GameOSFile& file)
 {
     return 0;
 }
 
 // win1.41 00735160 mac 105358a0 GStreetLight::Load(GameOSFile &)
-bool GStreetLight::Load(GameOSFile& file)
+bool32_t GStreetLight::Load(GameOSFile& file)
 {
     return 0;
 }
@@ -380,4 +380,87 @@ GBaseInfo* GTerrainMaterialInfo::GetBaseInfo(uint32_t& param_1)
 // win1.41 00735290 mac 105420c0 GTerrainMaterialInfo::_dt(void)
 GTerrainMaterialInfo::~GTerrainMaterialInfo()
 {
+}
+
+// ============================================================
+// Scalar deleting destructor replacements (auto-generated)
+// ============================================================
+
+extern "C" void sdtor_dt_74();
+extern "C" void sdtor_opd_1();
+extern "C" void sdtor_dt_75();
+extern "C" void jmp_addr_0x00675940();
+extern "C" void jmp_addr_0x006759c0();
+extern "C" void jmp_addr_0x00436960();
+
+__declspec(naked) void __cdecl sdtor_FireEffect() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_74
+        test byte ptr [esp + 8], 1
+        je short skip_FireEffect
+        push 0x50
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_FireEffect:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_FireGraphic() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call sdtor_dt_75
+        test byte ptr [esp + 8], 1
+        je short skip_FireGraphic
+        push 0x000000d0
+        push esi
+        call jmp_addr_0x00675940
+        add esp, 8
+    skip_FireGraphic:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_SpritePos_AT_FireGraphic() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x006759c0
+        test byte ptr [esp + 8], 1
+        je short skip_SpritePos_AT_FireGraphic
+        push 0x48
+        push esi
+        call jmp_addr_0x00675940
+        add esp, 8
+    skip_SpritePos_AT_FireGraphic:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
+}
+
+__declspec(naked) void __cdecl sdtor_GTerrainMaterialInfo() {
+    __asm {
+        push esi
+        mov esi, ecx
+        call jmp_addr_0x00436960
+        test byte ptr [esp + 8], 1
+        je short skip_GTerrainMaterialInfo
+        push 0x70
+        push esi
+        call sdtor_opd_1
+        add esp, 8
+    skip_GTerrainMaterialInfo:
+        mov eax, esi
+        pop esi
+        ret 4
+    }
 }

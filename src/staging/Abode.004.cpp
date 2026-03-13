@@ -19,7 +19,7 @@ void Abode::InsertMapObject()
 // win1.41 00403ef0 mac 10589380 Abode::ShouldFootpathsGoRound(void)
 bool Abode::ShouldFootpathsGoRound()
 {
-    return false;
+    __asm xor eax, eax
 }
 
 // win1.41 00403f00 mac 100e33a0 Abode::DeleteDependancys(void)
@@ -39,7 +39,7 @@ void Abode::RemoveDamage()
 }
 
 // win1.41 00403f80 mac 10573770 Abode::DestroyedByEffect(GPlayer *, float)
-bool Abode::DestroyedByEffect(GPlayer* player, float param_2)
+bool32_t Abode::DestroyedByEffect(GPlayer* player, float param_2)
 {
     return false;
 }
@@ -123,7 +123,7 @@ int Abode::FUN_004046b0()
 }
 
 // win1.41 004046c0 mac 105b93c0 Abode::IsTooCrowded(void)
-bool Abode::IsTooCrowded()
+bool32_t Abode::IsTooCrowded()
 {
     return false;
 }

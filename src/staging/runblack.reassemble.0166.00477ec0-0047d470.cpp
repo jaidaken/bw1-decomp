@@ -53,7 +53,7 @@ void Creature::FillInEffectDefenceMultiplier(EffectNumbers* param_1)
 }
 
 // win1.41 00478c80 mac 101d89d0 Creature::ApplyEffect(EffectValues &, int)
-void Creature::ApplyEffect(EffectValues* param_1, int param_2)
+void Creature::ApplyEffect(EffectValues& param_1, int param_2)
 {
 }
 
@@ -75,19 +75,19 @@ Citadel* Creature::GetCitadel()
 }
 
 // win1.41 004792f0 mac 101d83c0 Creature::IsDominantCreature(Creature *)
-bool Creature::IsDominantCreature(Creature* param_1)
+bool32_t Creature::IsDominantCreature(Creature* param_1)
 {
     return 0;
 }
 
 // win1.41 004794a0 mac 101d7fc0 Creature::IsReadyForNewScriptAction(void)
-bool Creature::IsReadyForNewScriptAction()
+bool32_t Creature::IsReadyForNewScriptAction()
 {
     return 0;
 }
 
 // win1.41 00479970 mac 101d72a0 Creature::GetBoundingSphere(LHPoint &, float &)
-void Creature::GetBoundingSphere(LHPoint* param_1, float* param_2)
+void Creature::GetBoundingSphere(LHPoint& param_1, float& param_2)
 {
 }
 
@@ -110,7 +110,7 @@ void Creature::SetUpPhysOb(PhysOb* param_1)
 // win1.41 00479d10 mac 101d6d70 Creature::CanBecomeAPhysicsObject(void)
 bool Creature::CanBecomeAPhysicsObject()
 {
-    return 0;
+    __asm xor eax, eax
 }
 
 // win1.41 00479d20 mac 101d6d20 Creature::InteractsWithPhysicsObjects(void)
@@ -120,7 +120,7 @@ bool Creature::InteractsWithPhysicsObjects()
 }
 
 // win1.41 00479e40 mac 101d6a50 Creature::IsMoving( const(void))
-bool Creature::IsMoving()
+bool Creature::IsMoving() const
 {
     return 0;
 }
@@ -134,7 +134,7 @@ int Creature::MoveMapObject(const MapCoords* param_1)
 // win1.41 0047a320 mac 101d63d0 Creature::InterfaceGiveObject(GInterfaceStatus *, Object *)
 uint32_t Creature::InterfaceGiveObject(GInterfaceStatus* param_1, Object* param_2)
 {
-    return 0;
+    return 22;
 }
 
 // win1.41 0047a330 mac 101d6240 Creature::InterfaceValidToGiveObject(GInterfaceStatus *, Object *)

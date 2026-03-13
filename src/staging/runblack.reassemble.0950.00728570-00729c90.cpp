@@ -7,7 +7,7 @@ bool SpellSeed::InteractsWithPhysicsObjects()
 }
 
 // win1.41 00728580 mac 1052bba0 SpellSeed::ValidForPlaceInHand(GInterfaceStatus *)
-bool SpellSeed::ValidForPlaceInHand(GInterfaceStatus* param_1)
+bool32_t SpellSeed::ValidForPlaceInHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -43,9 +43,9 @@ HOLD_TYPE SpellSeed::GetHoldType()
 }
 
 // win1.41 007286a0 mac 1052b830 SpellSeed::IsInterfacePowerUpWhenInHand( const(void))
-bool SpellSeed::IsInterfacePowerUpWhenInHand() const
+bool32_t SpellSeed::IsInterfacePowerUpWhenInHand() const
 {
-    return 0;
+    return 1;
 }
 
 // win1.41 007286b0 mac 1052b7c0 SpellSeed::ApplyOnlyAfterRecSystem(void)
@@ -61,7 +61,7 @@ uint32_t SpellSeed::ValidToApplyThisToObject(GInterfaceStatus* param_1, Object* 
 }
 
 // win1.41 00728720 mac 1052b600 SpellSeed::ValidToApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &)
-uint32_t SpellSeed::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2)
+uint32_t SpellSeed::ValidToApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2)
 {
     return 0;
 }
@@ -79,13 +79,13 @@ bool SpellSeed::ValidToRemoveFromHand(GInterfaceStatus* param_1, const MapCoords
 }
 
 // win1.41 00728810 mac 1052b1f0 SpellSeed::InterfaceSetInMagicHand(GInterfaceStatus *)
-bool SpellSeed::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
+bool32_t SpellSeed::InterfaceSetInMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
 
 // win1.41 00728940 mac 1052b0d0 SpellSeed::InterfaceSetOutMagicHand(GInterfaceStatus *)
-bool SpellSeed::InterfaceSetOutMagicHand(GInterfaceStatus* param_1)
+bool32_t SpellSeed::InterfaceSetOutMagicHand(GInterfaceStatus* param_1)
 {
     return 0;
 }
@@ -103,7 +103,7 @@ uint32_t SpellSeed::ApplyThisToObject(GInterfaceStatus* param_1, Object* param_2
 }
 
 // win1.41 00728e20 mac 1052a5d0 SpellSeed::ApplyThisToMapCoord(GInterfaceStatus *, MapCoords const &, GestureSystemPacketData *)
-uint32_t SpellSeed::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords* param_2, GestureSystemPacketData* param_3)
+uint32_t SpellSeed::ApplyThisToMapCoord(GInterfaceStatus* param_1, const MapCoords& param_2, GestureSystemPacketData* param_3)
 {
     return 0;
 }
@@ -131,7 +131,7 @@ void SpellSeed::RemoveMapObject()
 }
 
 // win1.41 00728f50 mac 1052a390 SpellSeed::IsEffectReceiver(EffectValues *)
-bool SpellSeed::IsEffectReceiver(EffectValues* param_1)
+bool32_t SpellSeed::IsEffectReceiver(EffectValues* param_1)
 {
     return 0;
 }
@@ -143,13 +143,13 @@ int SpellSeed::GetMesh() const
 }
 
 // win1.41 007298b0 mac 10529040 SpellSeed::GetPower( const(void))
-float SpellSeed::GetPower()
+float SpellSeed::GetPower() const
 {
     return 0;
 }
 
 // win1.41 007298f0 mac 10529000 SpellSeed::GetPSysPower( const(void))
-float SpellSeed::GetPSysPower()
+float SpellSeed::GetPSysPower() const
 {
     return 0;
 }

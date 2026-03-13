@@ -36,7 +36,7 @@ bool GameThingWithPos::IsMoving() const
 }
 
 // win1.41 004052c0 mac 103f07b0 GameThingWithPos::IsObjectInMap(void)
-bool GameThingWithPos::IsObjectInMap()
+bool32_t GameThingWithPos::IsObjectInMap()
 {
     __asm {
         xor eax, eax

@@ -28,6 +28,18 @@ typedef uint32_t bool32_t;
 #define HAS_EXPAND_MOVZX 0
 #endif
 
+#if __has_attribute(prefer_or_minus_one)
+#define HAS_PREFER_OR_MINUS_ONE 1
+#else
+#define HAS_PREFER_OR_MINUS_ONE 0
+#endif
+
+#if __has_attribute(prefer_inc_dec_byte)
+#define HAS_PREFER_INC_DEC_BYTE 1
+#else
+#define HAS_PREFER_INC_DEC_BYTE 0
+#endif
+
 inline float clampf(float a, float minimum, float maximum) {
   return fminf(fmaxf(a, minimum), maximum);
 }

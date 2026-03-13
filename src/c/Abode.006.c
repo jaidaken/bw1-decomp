@@ -446,6 +446,7 @@ struct GPlayer* __fastcall GetPlayer__5AbodeFv(struct GameThing* this)
     __builtin_unreachable();
 }
 
+#if HAS_PREFER_INC_DEC_BYTE
 __attribute__((prefer_inc_dec_byte))
 void __fastcall ArriveHome__5AbodeFv(struct Abode* this)
 {
@@ -457,6 +458,23 @@ void __fastcall LeaveHome__5AbodeFv(struct Abode* this)
 {
     this->field_0xb6--;
 }
+#else
+void __fastcall ArriveHome__5AbodeFv(struct Abode* this)
+{
+    asm volatile (
+        "%{disp32%} inc byte ptr [ecx + 0x000000b6]"
+        :  : "c"(this) : "eax", "edx", "memory"
+    );
+}
+
+void __fastcall LeaveHome__5AbodeFv(struct Abode* this)
+{
+    asm volatile (
+        "dec byte ptr [ecx + 0x000000b6]"
+        :  : "c"(this) : "eax", "edx", "memory"
+    );
+}
+#endif
 
 __attribute__((XOR32rr_REV))
 bool GetNearestWaterPos__5AbodeFR9MapCoords(struct Abode* this, const void* edx, struct MapCoords* coords)

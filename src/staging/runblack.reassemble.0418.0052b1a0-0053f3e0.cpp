@@ -221,7 +221,7 @@ GPlayer* FishFarm::GetPlayer()
 }
 
 // win1.41 0052c980 mac 100dc470 FishFarm::IsObjectInMap(void)
-bool FishFarm::IsObjectInMap()
+bool32_t FishFarm::IsObjectInMap()
 {
     return 0;
 }
@@ -432,7 +432,7 @@ void MultiMapFixed::SetMapChild(Object* child, MapCell* cell)
 }
 
 // win1.41 0052e480 mac 100e0e80 MultiMapFixed::IsObjectInMap(void)
-bool MultiMapFixed::IsObjectInMap()
+bool32_t MultiMapFixed::IsObjectInMap()
 {
     return 0;
 }

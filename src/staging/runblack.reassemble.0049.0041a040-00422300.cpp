@@ -140,7 +140,7 @@ void Animal::ResolveLoad()
 }
 
 // win1.41 0041bb00 mac 101650c0 Animal::IsChild(void)
-bool Animal::IsChild()
+bool32_t Animal::IsChild()
 {
     return 0;
 }
@@ -298,7 +298,7 @@ Town* MultiMapFixed::GetTown()
 }
 
 // win1.41 004220b0 mac 100a58c0 MultiMapFixed::GetShouldNotBeAddedToPlanned(void)
-bool MultiMapFixed::GetShouldNotBeAddedToPlanned()
+bool32_t MultiMapFixed::GetShouldNotBeAddedToPlanned()
 {
     __asm xor eax, eax
 }

@@ -171,7 +171,7 @@ bool32_t GameThingWithPos::IsTownDesireFlag()
 }
 
 // win1.41 00401b20 mac 10135ee0 GameThingWithPos::IsRock(void)
-bool GameThingWithPos::IsRock()
+bool32_t GameThingWithPos::IsRock()
 {
     __asm xor eax, eax
 }
@@ -207,7 +207,7 @@ bool32_t GameThingWithPos::IsStreetLantern()
 }
 
 // win1.41 00401b80 mac 105e8170 GameThingWithPos::IsField(void)
-bool GameThingWithPos::IsField()
+bool32_t GameThingWithPos::IsField()
 {
     __asm xor eax, eax
 }
@@ -417,7 +417,7 @@ bool32_t GameThingWithPos::IsWorshipSite(Creature* creature)
 }
 
 // win1.41 00401df0 mac 103d4fd0 GameThingWithPos::IsWorshipSite(void)
-bool GameThingWithPos::IsWorshipSite()
+bool32_t GameThingWithPos::IsWorshipSite()
 {
     __asm xor eax, eax
 }
@@ -663,7 +663,7 @@ bool32_t GameThingWithPos::IsToyDie(Creature* creature)
 }
 
 // win1.41 004020f0 mac 1055e0d0 GameThingWithPos::IsToyCuddly(Creature *)
-bool GameThingWithPos::IsToyCuddly(Creature* creature) const
+bool32_t GameThingWithPos::IsToyCuddly(Creature* creature) const
 {
     __asm xor eax, eax
 }
@@ -675,31 +675,31 @@ bool32_t GameThingWithPos::IsLiving(Creature* creature) const
 }
 
 // win1.41 00402110 mac 1007f100 GameThingWithPos::IsFence(void)
-bool GameThingWithPos::IsFence() const
+bool32_t GameThingWithPos::IsFence() const
 {
     __asm xor eax, eax
 }
 
 // win1.41 00402120 mac 1055f270 GameThingWithPos::IsSpellIcon(void)
-bool GameThingWithPos::IsSpellIcon() const
+bool32_t GameThingWithPos::IsSpellIcon() const
 {
     __asm xor eax, eax
 }
 
 // win1.41 00402130 mac 1054f090 GameThingWithPos::CanBeUsedForThrowingDamageByCreature(Creature *)
-bool GameThingWithPos::CanBeUsedForThrowingDamageByCreature(Creature* creature) const
+bool32_t GameThingWithPos::CanBeUsedForThrowingDamageByCreature(Creature* creature) const
 {
     __asm xor eax, eax
 }
 
 // win1.41 00402140 mac 1055f2b0 GameThingWithPos::IsCreatureWhoSeemsFriendly(Creature *)
-bool GameThingWithPos::IsCreatureWhoSeemsFriendly(Creature* creature) const
+bool32_t GameThingWithPos::IsCreatureWhoSeemsFriendly(Creature* creature) const
 {
     __asm xor eax, eax
 }
 
 // win1.41 00402150 mac 1019d0f0 GameThingWithPos::CanBeThrownInTheSeaPlayfully(Creature *)
-bool GameThingWithPos::CanBeThrownInTheSeaPlayfully(Creature* creature) const
+bool32_t GameThingWithPos::CanBeThrownInTheSeaPlayfully(Creature* creature) const
 {
     __asm xor eax, eax
 }
@@ -759,7 +759,7 @@ bool32_t GameThingWithPos::IsActive() const
 }
 
 // win1.41 004021f0 mac 1012f070 GameThingWithPos::IsObjectTurningTooFastForCameraToFollowSmoothly(void)
-bool GameThingWithPos::IsObjectTurningTooFastForCameraToFollowSmoothly() const
+bool32_t GameThingWithPos::IsObjectTurningTooFastForCameraToFollowSmoothly() const
 {
     __asm xor eax, eax
 }
@@ -783,7 +783,7 @@ float GameThingWithPos::CalculatePeopleHidingIndicator()
 }
 
 // win1.41 00402230 mac 10495720 GameThingWithPos::IsReadyForNewScriptAction(void)
-bool GameThingWithPos::IsReadyForNewScriptAction() const
+bool32_t GameThingWithPos::IsReadyForNewScriptAction() const
 {
     __asm xor eax, eax
 }
@@ -835,7 +835,7 @@ bool32_t GameThingWithPos::IsAChild()
 }
 
 // win1.41 004022d0 mac 100b6810 GameThingWithPos::IsFootball(void)
-bool GameThingWithPos::IsFootball() const
+bool32_t GameThingWithPos::IsFootball() const
 {
     __asm xor eax, eax
 }
@@ -865,7 +865,7 @@ bool32_t GameThingWithPos::IsMobileStatic()
 }
 
 // win1.41 00401eb0 mac 1055e440 GameThingWithPos::IsTree(void)
-bool GameThingWithPos::IsTree()
+bool32_t GameThingWithPos::IsTree()
 {
     __asm xor eax, eax
 }
@@ -883,13 +883,13 @@ bool32_t GameThingWithPos::IsDeadTree()
 }
 
 // win1.41 00402350 mac 103d8a70 GameThingWithPos::IsLiving(void)
-bool GameThingWithPos::IsLiving() const
+bool32_t GameThingWithPos::IsLiving() const
 {
     __asm xor eax, eax
 }
 
 // win1.41 00402360 mac 1055e860 GameThingWithPos::IsCitadelPart(void)
-bool GameThingWithPos::IsCitadelPart()
+bool32_t GameThingWithPos::IsCitadelPart()
 {
     __asm xor eax, eax
 }
@@ -919,7 +919,7 @@ bool32_t GameThingWithPos::IsScriptHighlight()
 }
 
 // win1.41 004023b0 mac 1002c6a0 GameThingWithPos::IsWorkshop(void)
-bool GameThingWithPos::IsWorkshop()
+bool32_t GameThingWithPos::IsWorkshop()
 {
     __asm xor eax, eax
 }
@@ -949,7 +949,7 @@ bool32_t GameThingWithPos::IsSkeleton() const
 }
 
 // win1.41 00402400 mac 100dcd70 GameThingWithPos::IsPoisoned(void)
-bool GameThingWithPos::IsPoisoned() const
+bool32_t GameThingWithPos::IsPoisoned() const
 {
     __asm xor al, al
 }
@@ -990,25 +990,25 @@ void GameThingWithPos::SetSkeleton(int index)
 }
 
 // win1.41 00402470 mac 1007b170 GameThingWithPos::IsSpellSeed(void)
-bool GameThingWithPos::IsSpellSeed() const
+bool32_t GameThingWithPos::IsSpellSeed() const
 {
     __asm xor eax, eax
 }
 
 // win1.41 00402480 mac 10571e10 GameThingWithPos::IsSpellShield(void)
-bool GameThingWithPos::IsSpellShield() const
+bool32_t GameThingWithPos::IsSpellShield() const
 {
     __asm xor eax, eax
 }
 
 // win1.41 00402490 mac 1054ecb0 GameThingWithPos::IsPileResource(void)
-bool GameThingWithPos::IsPileResource() const
+bool32_t GameThingWithPos::IsPileResource() const
 {
     __asm xor eax, eax
 }
 
 // win1.41 004024a0 mac 100bb900 GameThingWithPos::IsScriptTimer(void)
-bool GameThingWithPos::IsScriptTimer() const
+bool32_t GameThingWithPos::IsScriptTimer() const
 {
     __asm xor eax, eax
 }

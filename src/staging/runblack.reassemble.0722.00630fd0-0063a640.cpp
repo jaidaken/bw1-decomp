@@ -591,7 +591,7 @@ void Object::SetYAngle(float angle)
 }
 
 // win1.41 006392b0 mac 10037930 Object::IsObjectInMap(void)
-bool Object::IsObjectInMap()
+bool32_t Object::IsObjectInMap()
 {
     return 0;
 }

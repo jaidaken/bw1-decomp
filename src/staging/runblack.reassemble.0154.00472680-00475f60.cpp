@@ -108,7 +108,7 @@ uint8_t Living::ReactToFallingTreePriority(Reaction* param_1, Reaction* param_2)
 }
 
 // win1.41 00473ed0 mac 101e36f0 Living::IsChild(void)
-bool Living::IsChild()
+bool32_t Living::IsChild()
 {
     __asm xor eax, eax
 }

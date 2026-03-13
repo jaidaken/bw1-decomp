@@ -8,7 +8,7 @@ Villager::Villager()
 }
 
 // win1.41 0055c970 mac 10064ef0 Villager::IsChild(void)
-bool Villager::IsChild()
+bool32_t Villager::IsChild()
 {
     return 0;
 }

@@ -281,11 +281,23 @@ bool32_t __fastcall IsABeliever__6ObjectFv(struct Object* this)
     return 0;
 }
 
+#if HAS_PREFER_OR_MINUS_ONE
 __attribute__((prefer_or_minus_one))
 enum RESOURCE_TYPE __fastcall GetResourceType__6ObjectFv(struct Object* this)
 {
     return (enum RESOURCE_TYPE)-1;
 }
+#else
+enum RESOURCE_TYPE __fastcall GetResourceType__6ObjectFv(struct Object* this)
+{
+    enum RESOURCE_TYPE result;
+    asm volatile (
+        "or                 eax, -0x1"
+        : "=a"(result) : "c"(this) : "edx", "memory"
+    );
+    return result;
+}
+#endif
 
 __attribute__((XOR32rr_REV))
 int __fastcall GetDefaultResource__6ObjectFv(struct Object* this)
@@ -671,8 +683,18 @@ const char* __fastcall GetText__6ObjectFv(struct GameThingWithPos* this)
     return ((struct Object*)this)->info->debugString;
 }
 
+#if HAS_PREFER_OR_MINUS_ONE
 __attribute__((prefer_or_minus_one))
 uint32_t __fastcall StandAnimation__6ObjectFv(struct Object* this)
 {
     return 0xFFFFFFFF;
 }
+#else
+__attribute__((XOR32rr_REV))
+uint32_t __fastcall StandAnimation__6ObjectFv(struct Object* this)
+{
+    asm("or                 eax, -0x1");
+    asm("ret");
+    __builtin_unreachable();
+}
+#endif

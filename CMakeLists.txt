@@ -603,7 +603,7 @@ add_library(runblack-reassembled-rc OBJECT
 )
 
 function(add_patched_static_lib_object library_name src_obj)
-    cmake_parse_arguments(ARG "NO_PAD;REMOVE_ASSOCIATIVE_FLAGS" "" "WEAKEN_SYMBOLS;DELETE_SECTIONS" ${ARGN})
+    cmake_parse_arguments(ARG "REMOVE_ASSOCIATIVE_FLAGS" "" "WEAKEN_SYMBOLS;DELETE_SECTIONS" ${ARGN})
 
     string(REPLACE "\\" "/" src_obj_fixed "${src_obj}")
     get_filename_component(obj ${src_obj_fixed} NAME)
@@ -615,7 +615,6 @@ function(add_patched_static_lib_object library_name src_obj)
         set(src_obj "${src_obj}")
     endif()
     set(output_file "${CMAKE_CURRENT_BINARY_DIR}/${library_name}-patched/${obj}.patched${OBJ_SUFFIX}")
-    set(tmp_output "${output_file}.tmp")
 
     set(WEAKEN_ARGS "")
     if (ARG_WEAKEN_SYMBOLS)
@@ -632,20 +631,27 @@ function(add_patched_static_lib_object library_name src_obj)
     endif()
 
     set(PATCH_FLAGS "")
-    if (ARG_NO_PAD)
-        list(APPEND PATCH_FLAGS "--no-pad")
-    endif()
     if (ARG_REMOVE_ASSOCIATIVE_FLAGS)
         list(APPEND PATCH_FLAGS "--remove-associative-flags")
     endif()
 
-    add_custom_command(
-        VERBATIM
-        OUTPUT ${output_file}
-        COMMAND ${LLVM_AR_EXECUTABLE} --format=coff --output "${CMAKE_CURRENT_BINARY_DIR}/${library_name}" x ${CMAKE_CURRENT_SOURCE_DIR}/src/lib/${library_name}.LIB ${src_obj}
-        COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/source_code/patch_coff_object_file.py ${input_file} ${tmp_output} ${PATCH_FLAGS}
-        COMMAND ${LLVM_OBJCOPY_EXECUTABLE} ${WEAKEN_ARGS} ${DELETE_ARGS} ${tmp_output} ${output_file}
-    )
+    if (PATCH_FLAGS)
+        set(tmp_output "${output_file}.tmp")
+        add_custom_command(
+            VERBATIM
+            OUTPUT ${output_file}
+            COMMAND ${LLVM_AR_EXECUTABLE} --format=coff --output "${CMAKE_CURRENT_BINARY_DIR}/${library_name}" x ${CMAKE_CURRENT_SOURCE_DIR}/src/lib/${library_name}.LIB ${src_obj}
+            COMMAND ${Python3_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/scripts/source_code/patch_coff_object_file.py ${input_file} ${tmp_output} ${PATCH_FLAGS}
+            COMMAND ${LLVM_OBJCOPY_EXECUTABLE} ${WEAKEN_ARGS} ${DELETE_ARGS} ${tmp_output} ${output_file}
+        )
+    else()
+        add_custom_command(
+            VERBATIM
+            OUTPUT ${output_file}
+            COMMAND ${LLVM_AR_EXECUTABLE} --format=coff --output "${CMAKE_CURRENT_BINARY_DIR}/${library_name}" x ${CMAKE_CURRENT_SOURCE_DIR}/src/lib/${library_name}.LIB ${src_obj}
+            COMMAND ${LLVM_OBJCOPY_EXECUTABLE} ${WEAKEN_ARGS} ${DELETE_ARGS} ${input_file} ${output_file}
+        )
+    endif()
 
     set(STATIC_LIB_PATCHED_OBJECTS "${STATIC_LIB_PATCHED_OBJECTS};${output_file}" PARENT_SCOPE)
 endfunction()

@@ -927,6 +927,12 @@ target_compile_options(common_compile_options INTERFACE
     -masm=intel
     -march=i386
 )
+# Enable custom LLVM attribute guards in decompiled C code
+target_compile_definitions(common_compile_options INTERFACE
+    HAS_EXPAND_MOVZX=1
+    HAS_PREFER_OR_MINUS_ONE=1
+    HAS_PREFER_INC_DEC_BYTE=1
+)
 target_include_directories(common_compile_options
     INTERFACE
         $<IF:$<COMPILE_LANGUAGE:C>,${LLVM_BINARIES_DIR}/../include,>

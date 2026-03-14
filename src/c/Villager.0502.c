@@ -64,15 +64,15 @@ bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)
 #else
 bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "xor.s              eax, eax\n\t"
         "%{disp32%} mov       al, byte ptr [ecx + 0x000000e0]\n\t"
         "shr                eax, 3\n\t"
-        "and                eax, 0x01\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "and                eax, 0x01"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 #endif
 

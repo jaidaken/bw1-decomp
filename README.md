@@ -11,16 +11,24 @@ Black & White
 [Discord Badge]: https://img.shields.io/discord/608729286513262622?logo=discord&logoColor=white
 [discord]: https://discord.gg/5QTexBU
 
-A work-in-progress decompilation of Lionhead's Black & White.
+A byte-exact decompilation of Lionhead's Black & White (2001), targeting `runblack.exe` v1.20.
+
+The goal is to rewrite every function in C so that the compiled output is identical to the original MSVC 6.0 binary, byte for byte. The build produces an executable with the same MD5 hash as the original.
 
 ![Decompilation Progress](progress.png)
 
 * [Reverse Engineering Wiki](https://github.com/openblack/bw1-decomp/wiki)
 * [Black & White Patches](https://github.com/openblack/bw1-patches/tree/master/patches)
 
-## Dependencies
+## Custom LLVM toolchain
 
-CMake downloads and uses a patched LLVM for assembly, linking, and a few other compilation steps. This is handled automatically at configure time.
+The original game was compiled with MSVC 6.0, which generates different instruction encodings than modern compilers. We maintain a [custom LLVM fork](https://github.com/jaidaken/llvm-project/tree/bw1-decomp) with per-function attributes that make Clang's output match MSVC 6.0's byte patterns.
+
+The fork adds 14 encoding passes (e.g. `expand_movzx`, `prefer_xor8`, `trailing_bytes`) and 2 frame lowering attributes (`no_callee_saves`, `forced_callee_saves`) that control prologue/epilogue generation. See the [LLVM fork README](https://github.com/jaidaken/llvm-project/tree/bw1-decomp#readme) for the full attribute reference.
+
+CMake downloads the pre-built LLVM automatically at configure time. To use a local build instead, set `-DLLVM_BINARIES_DIR=/path/to/bin`.
+
+## Dependencies
 
 ### Linux
 

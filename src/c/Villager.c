@@ -2,8 +2,11 @@
 
 #include "Villager.h"
 #include "VillagerInfo.h"
+#include "VillagerStateTableInfo.h"
 #include "TribeInfo.h"
 #include <stdint.h>
+
+extern struct GVillagerStateTableInfo GVillagerStateTableInfos[];
 
 __attribute__((section(".bss"))) uint32_t villager_uint_0x00da6bc0;
 __attribute__((section(".bss"))) uint8_t villager_byte_0x00da6bc4;
@@ -181,16 +184,11 @@ uint32_t __fastcall GetMesh__13GVillagerInfoCFv(const struct GObjectInfo* this)
     return ((const struct GVillagerInfo*)this)->stdDetail;
 }
 
+__attribute__((no_callee_saves))
 struct GBaseInfo* __fastcall GetBaseInfo__13GVillagerInfoFRUl(struct GBaseInfo* this, const void* edx, uint32_t* param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "mov                dword ptr [eax], 0x00000054\n\t"
-        "mov                eax, OFFSET _VillagerInfos\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    *param_1 = VILLAGER_INFO_LAST;
+    return (struct GBaseInfo*)VillagerInfos;
 }
 
 void __cdecl crt_global_destruction_register_VillagerInfo_ARRAY(void)
@@ -2968,33 +2966,16 @@ void __fastcall PickupResource__8VillagerF13RESOURCE_TYPEsUc(struct Villager* th
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall PickupFood__8VillagerFs(struct Villager* this, const void* edx, short param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               0x0\n\t"
-        "push               eax\n\t"
-        "push               0x0\n\t"
-        "call               ?PickupResource@Villager@@QAEXW4RESOURCE_TYPE@@FE@Z\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    PickupResource__8VillagerF13RESOURCE_TYPEsUc(this, edx, (enum RESOURCE_TYPE)0, param_1, 0);
 }
 
+__attribute__((no_callee_saves))
 void __fastcall PickupWood__8VillagerFsUc(struct Villager* this, const void* edx, short param_1, unsigned char param_2)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "push               edx\n\t"
-        "push               0x1\n\t"
-        "call               ?PickupResource@Villager@@QAEXW4RESOURCE_TYPE@@FE@Z\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    PickupResource__8VillagerF13RESOURCE_TYPEsUc(this, edx, (enum RESOURCE_TYPE)1, param_1, param_2);
 }
 
 int __fastcall GetFoodCapacity__8VillagerFv(struct Villager* this)
@@ -3023,16 +3004,10 @@ int __fastcall GetWoodCapacity__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall RemoveFromDance__8VillagerFi(struct Living* this, const void* edx, int param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "call               ?RemoveFromDance@Living@@UAEXH@Z\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    RemoveFromDance__6LivingFi(this, edx, param_1);
 }
 
 __attribute__((XOR32rr_REV))
@@ -4291,31 +4266,16 @@ int __fastcall SetCurrentAndDestinationState__8VillagerFUcUc(struct Living* this
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 uint32_t __fastcall CanPauseForASecond__8VillagerFUc(struct Villager* this, const void* edx, enum VILLAGER_STATES state)
 {
-    asm volatile (
-        "cmp                byte ptr [ecx + 0x0000008c], -0x11\n\t"
-        "%{disp8%} je         LAB__addr_0x00752156\n\t"
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "and                eax, 0x000000ff\n\t"
-        "lea                edx, dword ptr [eax + eax * 0x2]\n\t"
-        "shl                edx, 3\n\t"
-        "sub.s              edx, eax\n\t"
-        "lea                eax, dword ptr [edx + edx * 0x2]\n\t"
-        "%{disp32%} mov       edx, dword ptr [eax * 0x4 + 0x00db9f3c]\n\t"
-        "test               edx, edx\n\t"
-        "%{disp8%} je         LAB__addr_0x00752156\n\t"
-        "test               byte ptr [ecx + 0x25], 0x04\n\t"
-        "%{disp8%} jne        LAB__addr_0x00752156\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret                0x0004\n"
-        "LAB__addr_0x00752156:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    if (((struct Living*)this)->action.states[0] == VILLAGER_STATE_PAUSE_FOR_A_SECOND)
+        return 0;
+    if (!GVillagerStateTableInfos[(uint8_t)state].field_0xd4)
+        return 0;
+    if (((struct GameThingWithPos*)this)->field_0x24 & 0x0400)
+        return 0;
+    return 1;
 }
 
 __attribute__((XOR32rr_REV))
@@ -6239,20 +6199,17 @@ uint32_t __fastcall GetResourceFrom__8VillagerFP6Object13RESOURCE_TYPEs(struct V
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetFoodSpeedup__8VillagerFb(struct Living* this, const void* edx, bool param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        al, byte ptr [esp + 0x04]\n\t"
-        "test               al, al\n\t"
-        "%{disp8%} je         LAB__addr_0x00753422\n\t"
-        "%{disp32%} mov       byte ptr [ecx + 0x000000f0], -0x01\n\t"
-        "ret                0x0004\n"
-        "LAB__addr_0x00753422:\n\t"
-        "%{disp32%} mov       byte ptr [ecx + 0x000000f0], 0x00\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    if (param_1)
+    {
+        *(uint8_t*)&((struct Villager*)this)->food_speed_up = 0xFF;
+    }
+    else
+    {
+        *(uint8_t*)&((struct Villager*)this)->food_speed_up = 0x00;
+    }
 }
 
 __attribute__((XOR32rr_REV))
@@ -6280,16 +6237,10 @@ void __fastcall ProcessFoodSpeedup__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((no_callee_saves))
 void __fastcall IncreaseLife__8VillagerFf(struct Object* this, const void* edx, float param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "call               ?IncreaseLife@Object@@UAEXM@Z\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    IncreaseLife__6ObjectFf(this, edx, param_1);
 }
 
 void __fastcall FindPosOutsideAbode__8VillagerFP5Abode(struct Villager* this, const void* edx, struct Abode* param_1)
@@ -7237,20 +7188,10 @@ struct GameThingWithPos* __fastcall GetResourceDropoffPos__8VillagerF13RESOURCE_
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 bool __fastcall IsFinalState__8VillagerF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
-    asm volatile (
-        "%{disp8%} mov       eax, dword ptr [esp + 0x04]\n\t"
-        "and               eax, 0x000000ff\n\t"
-        "lea               ecx, dword ptr [eax + eax * 0x2]\n\t"
-        "shl               ecx, 3\n\t"
-        "sub.s             ecx, eax\n\t"
-        "lea               eax, dword ptr [ecx + ecx * 0x2]\n\t"
-        "%{disp32%} mov      eax, dword ptr [eax * 0x4 + 0x00db9e84]\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return GVillagerStateTableInfos[(uint8_t)param_1].isFinalState;
 }
 
 __attribute__((XOR32rr_REV))

@@ -122,6 +122,8 @@ uint32_t __fastcall CheckNeededForTownDesire__8VillagerFv(struct Villager* this)
 
 float __fastcall GetOwnDesiresTrigger__8VillagerFv(struct Villager* this)
 {
+    void* dummy;
+    float result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -131,7 +133,7 @@ float __fastcall GetOwnDesiresTrigger__8VillagerFv(struct Villager* this)
         "%{disp32%} fld       dword ptr [_rdata_float0p0]\n\t"
         "pop                esi\n\t"
         "add                esp, 0x08\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __GetOwnDesiresTrigger_exit__\n"
         "LAB__addr_0x007581fa:\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?IsHungry@Villager@@QAE_NXZ\n\t"
@@ -201,7 +203,7 @@ float __fastcall GetOwnDesiresTrigger__8VillagerFv(struct Villager* this)
         "%{disp8%} fld        dword ptr [esp + 0x08]\n\t"
         "pop                esi\n\t"
         "add                esp, 0x08\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __GetOwnDesiresTrigger_exit__\n"
         "LAB__addr_0x007582c7:\n\t"
         "%{disp8%} fld        dword ptr [esp + 0x08]\n\t"
         "%{disp32%} fcomp     dword ptr [_rdata_float1p0]\n\t"
@@ -211,15 +213,15 @@ float __fastcall GetOwnDesiresTrigger__8VillagerFv(struct Villager* this)
         "%{disp8%} fld        dword ptr [esp + 0x08]\n\t"
         "pop                esi\n\t"
         "add                esp, 0x08\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __GetOwnDesiresTrigger_exit__\n"
         "LAB__addr_0x007582e1:\n\t"
         "%{disp32%} fld       dword ptr [_rdata_float1p0]\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08\n"
+        "__GetOwnDesiresTrigger_exit__:"
+        : "=t"(result), "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))

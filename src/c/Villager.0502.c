@@ -1,8 +1,5 @@
 #include "Villager.h"
 #include "VillagerInfo.h"
-#include "VillagerStateTableInfo.h"
-
-extern struct GVillagerStateTableInfo GVillagerStateTableInfos[];
 
 extern const char debug_text_Villager[10];
 
@@ -67,15 +64,15 @@ bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)
 #else
 bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)
 {
-    bool32_t result;
     asm volatile (
         "xor.s              eax, eax\n\t"
         "%{disp32%} mov       al, byte ptr [ecx + 0x000000e0]\n\t"
         "shr                eax, 3\n\t"
-        "and                eax, 0x01"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "and                eax, 0x01\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    __builtin_unreachable();
 }
 #endif
 
@@ -98,10 +95,18 @@ bool32_t __fastcall IsABeliever__8VillagerFv(struct Object* this)
     return true;
 }
 
-__attribute__((no_callee_saves))
 bool __fastcall IsTouching_3__8VillagerCFP6Objectf(const struct Object* this, const void* edx, struct Object* param_1, float param_2)
 {
-    return IsTouching__6ObjectFP6Objectf(this, edx, param_1, param_2);
+    asm volatile (
+        "%{disp8%} mov eax, dword ptr [esp + 0x08]\n\t"
+        "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
+        "push eax\n\t"
+        "push edx\n\t"
+        "call ?IsTouching@Object@@UAE_NPAV1@M@Z\n\t"
+        "ret 0x0008"
+        :: "c"(this) : "eax", "edx", "memory"
+    );
+    __builtin_unreachable();
 }
 
 int __fastcall GetMesh__8VillagerCFv(const struct Object* this)
@@ -115,22 +120,46 @@ int __fastcall GetMesh__8VillagerCFv(const struct Object* this)
     __builtin_unreachable();
 }
 
-__attribute__((no_callee_saves))
 int __fastcall GetDetailMesh__8VillagerFi(struct Object* this, const void* edx, int param_1)
 {
-    return (&((const struct GVillagerInfo*)this->info)->highDetail)[param_1];
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
+        "%{disp8%} mov        ecx, dword ptr [esp + 0x04]\n\t"
+        "%{disp32%} mov       eax, dword ptr [eax + ecx * 0x4 + 0x00000210]\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
+    __builtin_unreachable();
 }
 
-__attribute__((no_callee_saves))
 bool __fastcall IsScriptState__8VillagerCF15VILLAGER_STATES(const struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
-    return GVillagerStateTableInfos[(uint8_t)param_1].isScriptState;
+    asm volatile (
+        "%{disp8%} mov        ecx, dword ptr [esp + 0x04]\n\t"
+        "lea                eax, dword ptr [ecx + ecx * 0x2]\n\t"
+        "shl                eax, 3\n\t"
+        "sub.s              eax, ecx\n\t"
+        "lea                eax, dword ptr [eax + eax * 0x2]\n\t"
+        "%{disp32%} mov       eax, dword ptr [eax * 0x4 + 0x00db9e90]\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
+    __builtin_unreachable();
 }
 
-__attribute__((no_callee_saves))
 bool __fastcall IsScriptInterruptableState__8VillagerCF15VILLAGER_STATES(const struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
-    return GVillagerStateTableInfos[(uint8_t)param_1].isScriptInterruptableState;
+    asm volatile (
+        "%{disp8%} mov        ecx, dword ptr [esp + 0x04]\n\t"
+        "lea                eax, dword ptr [ecx + ecx * 0x2]\n\t"
+        "shl                eax, 3\n\t"
+        "sub.s              eax, ecx\n\t"
+        "lea                eax, dword ptr [eax + eax * 0x2]\n\t"
+        "%{disp32%} mov       eax, dword ptr [eax * 0x4 + 0x00db9e94]\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
+    __builtin_unreachable();
 }
 
 uint32_t __fastcall GetTastiness__8VillagerFv(struct Object* this)

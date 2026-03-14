@@ -175,10 +175,16 @@ uint32_t __fastcall GetResource__5AbodeF13RESOURCE_TYPE(struct GameThing* this, 
     return ((struct Abode*)this)->resources[type];
 }
 
-__attribute__((no_callee_saves))
 uint32_t __fastcall JustAddResource__5AbodeF13RESOURCE_TYPEUlb(struct GameThing* this, const void* edx, enum RESOURCE_TYPE param_1, uint32_t param_2, bool param_3)
 {
-    ((struct Abode*)this)->resources[param_1] += param_2;
+    asm volatile (
+        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
+        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
+        "add                dword ptr [ecx + edx * 0x4 + 0x000000bc], eax\n\t"
+        "ret                0x000c"
+        ::: "eax", "ecx", "edx", "memory"
+    );
+    __builtin_unreachable();
 }
 
 uint32_t __fastcall JustRemoveResource__5AbodeF13RESOURCE_TYPEUlPb(struct GameThing* this, const void* edx, enum RESOURCE_TYPE param_1, uint32_t param_2, bool* param_3)

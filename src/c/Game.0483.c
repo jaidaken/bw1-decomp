@@ -1062,8 +1062,6 @@ struct GInterface* __fastcall GetPlayerInterfaceFromReal__5GGameFUl(struct GGame
 __attribute__((XOR32rr_REV))
 struct GPlayer* __fastcall GetNextPlayerWithNoCreature__5GGameFP7GPlayer(struct GGame* this, const void* edx, struct GPlayer* param_1)
 {
-    void* dummy;
-    struct GPlayer* result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1083,10 +1081,11 @@ struct GPlayer* __fastcall GetNextPlayerWithNoCreature__5GGameFP7GPlayer(struct 
         "LAB__addr_0x00550a54:\n\t"
         "xor.s              eax, eax\n"
         "LAB__addr_0x00550a56:\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+        "pop                esi\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))

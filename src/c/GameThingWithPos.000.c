@@ -139,15 +139,15 @@ bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameT
 #else
 bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this)
 {
-    bool32_t result;
     asm volatile (
         "xor.s              eax, eax\n\t"
         "%{disp8%} mov        ax, word ptr [ecx + 0x24]\n\t"
         "shr                eax, 0xd\n\t"
-        "and                eax, 0x01"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "and                eax, 0x01\n\t"
+        "ret"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    __builtin_unreachable();
 }
 #endif
 
@@ -986,10 +986,23 @@ bool32_t __fastcall IsReadyForNewScriptAction__16GameThingWithPosFv(struct GameT
     return 0;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves))
+__attribute__((XOR32rr_REV))
 void __fastcall SetControlledByScript__16GameThingWithPosFi(struct GameThingWithPos* this, const void* edx, int32_t param_1)
 {
-    this->field_0x24 = (this->field_0x24 & 0xFBFF) | ((param_1 & 1) << 10);
+    asm volatile (
+        "xor.s              eax, eax\n\t"
+        "%{disp8%} mov        al, byte ptr [esp + 0x04]\n\t"
+        "xor.s              edx, edx\n\t"
+        "%{disp8%} mov        dx, word ptr [ecx + 0x24]\n\t"
+        "and                eax, 0x01\n\t"
+        "shl                eax, 0xa\n\t"
+        "and                edx, 0x0000fbff\n\t"
+        "or.s               eax, edx\n\t"
+        "%{disp8%} mov        word ptr [ecx + 0x24], ax\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
+    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))

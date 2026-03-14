@@ -927,12 +927,6 @@ target_compile_options(common_compile_options INTERFACE
     -masm=intel
     -march=i386
 )
-# Enable custom LLVM attribute guards in decompiled C code
-target_compile_definitions(common_compile_options INTERFACE
-    HAS_EXPAND_MOVZX=1
-    HAS_PREFER_OR_MINUS_ONE=1
-    HAS_PREFER_INC_DEC_BYTE=1
-)
 target_include_directories(common_compile_options
     INTERFACE
         $<IF:$<COMPILE_LANGUAGE:C>,${LLVM_BINARIES_DIR}/../include,>
@@ -1076,14 +1070,6 @@ target_link_options(runblack-reassembled
         "/alternatename:??_Ebad_cast@@UAEPAXI@Z=??_Gbad_cast@@UAEPAXI@Z"
         "/alternatename:??_Ebad_typeid@@UAEPAXI@Z=??_Gbad_typeid@@UAEPAXI@Z"
         "/alternatename:??_Eexception@@UAEPAXI@Z=??_Gexception@@UAEPAXI@Z"
-        # Phase 2: Replace rename_coff_symbols.py calls with linker aliases.
-        # MSVC 12.0 mangles size_t as I (unsigned int); original binary uses K (unsigned long).
-        "/alternatename:??3Base@@SAXPAXK@Z=??3Base@@SAXPAXI@Z"
-        # MSVC 12.0 returns unsigned int; original binary returns enum MeshId.
-        "/alternatename:?GetMesh@GAbodeInfo@@UBE?AW4MeshId@@XZ=?GetMesh@GAbodeInfo@@UBEIXZ"
-        "/alternatename:?GetMesh@GObjectInfo@@UBE?AW4MeshId@@W4TRIBE_TYPE@@@Z=?GetMesh@GObjectInfo@@UBEIW4TRIBE_TYPE@@@Z"
-        # MSVC 12.0 uses GameThing + I; original uses MultiMapFixed + K.
-        "/alternatename:?GetShowNeedsPos@MultiMapFixed@@UAEIKPAUMapCoords@@@Z=?GetShowNeedsPos@GameThing@@UAEIIPAUMapCoords@@@Z"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

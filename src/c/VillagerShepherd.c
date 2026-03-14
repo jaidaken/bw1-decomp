@@ -688,6 +688,8 @@ bool32_t __fastcall ShepherdTakeAnimalForSlaughter__8VillagerFv(struct Villager*
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall ShepherdCheckAnimalForSlaughter__8VillagerFv(struct Villager* this)
 {
+    void* dummy;
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x24\n\t"
         "push               ebx\n\t"
@@ -712,7 +714,7 @@ bool32_t __fastcall ShepherdCheckAnimalForSlaughter__8VillagerFv(struct Villager
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
         "add                esp, 0x24\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __ShepherdCheckAnimalForSlaughter_exit__\n"
         "LAB__addr_0x007691ef:\n\t"
         "push               esi\n\t"
         "push               0x40c00000\n\t"
@@ -816,7 +818,7 @@ bool32_t __fastcall ShepherdCheckAnimalForSlaughter__8VillagerFv(struct Villager
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
         "add                esp, 0x24\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __ShepherdCheckAnimalForSlaughter_exit__\n"
         "LAB__addr_0x00769332:\n\t"
         "%{disp8%} mov        edi, dword ptr [edi + 0x3c]\n\t"
         "test               edi, edi\n\t"
@@ -841,7 +843,7 @@ bool32_t __fastcall ShepherdCheckAnimalForSlaughter__8VillagerFv(struct Villager
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
         "add                esp, 0x24\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __ShepherdCheckAnimalForSlaughter_exit__\n"
         "LAB__addr_0x0076936a:\n\t"
         "mov                edx, dword ptr [esi]\n\t"
         "push               0x5f\n\t"
@@ -853,11 +855,11 @@ bool32_t __fastcall ShepherdCheckAnimalForSlaughter__8VillagerFv(struct Villager
         "pop                esi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x24\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x24\n"
+        "__ShepherdCheckAnimalForSlaughter_exit__:"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall ShepherdSlaughterAnimal__8VillagerFv(struct Villager* this)

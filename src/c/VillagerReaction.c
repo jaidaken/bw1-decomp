@@ -1783,6 +1783,8 @@ bool32_t __fastcall PerformInspectionReaction__8VillagerFv(struct Villager* this
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
 {
+    void* dummy;
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               esi\n\t"
@@ -1798,7 +1800,7 @@ bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
         "add                esp, 0x14\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __ApproachObjectReaction_exit__\n"
         "LAB__addr_0x007644b9:\n\t"
         "%{disp32%} mov       eax, dword ptr [esi + 0x000000bc]\n\t"
         "push               ebx\n\t"
@@ -1863,7 +1865,7 @@ bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
         "add                esp, 0x14\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __ApproachObjectReaction_exit__\n"
         "LAB__addr_0x0076457a:\n\t"
         "%{disp32%} mov       edi, dword ptr [data_bytes + 0x33ba38]\n\t"
         "xor.s              edx, edx\n\t"
@@ -1903,11 +1905,11 @@ bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
         "pop                ebx\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14\n"
+        "__ApproachObjectReaction_exit__:"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall InitialiseTellOthersAboutObject__8VillagerFv(struct Villager* this)
@@ -2941,6 +2943,8 @@ bool __fastcall IsInterestedInWoodObject__8VillagerFP6Object(struct Living* this
 
 bool32_t __fastcall ApproachHandReaction__8VillagerFv(struct Villager* this)
 {
+    void* dummy;
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2954,7 +2958,7 @@ bool32_t __fastcall ApproachHandReaction__8VillagerFv(struct Villager* this)
         "call               dword ptr [edx + 0x99c]\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __ApproachHandReaction_exit__\n"
         "LAB__addr_0x00765163:\n\t"
         "%{disp32%} mov       eax, dword ptr [esi + 0x000000bc]\n\t"
         "add                eax, 0x14\n\t"
@@ -2970,11 +2974,11 @@ bool32_t __fastcall ApproachHandReaction__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               ?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi\n"
+        "__ApproachHandReaction_exit__:"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -5358,6 +5362,8 @@ void __fastcall SetupReactToCrowd__8VillagerFP16GameThingWithPosP8Reaction(struc
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall CrowdReaction__8VillagerFv(struct Villager* this)
 {
+    void* dummy;
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x28\n\t"
         "push               edi\n\t"
@@ -5368,7 +5374,7 @@ bool32_t __fastcall CrowdReaction__8VillagerFv(struct Villager* this)
         "xor.s              eax, eax\n\t"
         "pop                edi\n\t"
         "add                esp, 0x28\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __CrowdReaction_exit__\n"
         "LAB__addr_0x00766aa7:\n\t"
         "%{disp8%} mov        eax, dword ptr [edi + 0x1c]\n\t"
         "push               esi\n\t"
@@ -5482,7 +5488,7 @@ bool32_t __fastcall CrowdReaction__8VillagerFv(struct Villager* this)
         "mov                eax, 0x00000001\n\t"
         "pop                edi\n\t"
         "add                esp, 0x28\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __CrowdReaction_exit__\n"
         "LAB__addr_0x00766c39:\n\t"
         "%{disp32%} mov       ecx, dword ptr [edi + 0x000000bc]\n\t"
         "fstp               st(0)\n\t"
@@ -5492,11 +5498,11 @@ bool32_t __fastcall CrowdReaction__8VillagerFv(struct Villager* this)
         "call               ?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                edi\n\t"
-        "add                esp, 0x28\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x28\n"
+        "__CrowdReaction_exit__:"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))

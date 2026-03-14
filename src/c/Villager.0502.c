@@ -1,5 +1,8 @@
 #include "Villager.h"
 #include "VillagerInfo.h"
+#include "VillagerStateTableInfo.h"
+
+extern struct GVillagerStateTableInfo GVillagerStateTableInfos[];
 
 extern const char debug_text_Villager[10];
 
@@ -120,46 +123,22 @@ int __fastcall GetMesh__8VillagerCFv(const struct Object* this)
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 int __fastcall GetDetailMesh__8VillagerFi(struct Object* this, const void* edx, int param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp8%} mov        ecx, dword ptr [esp + 0x04]\n\t"
-        "%{disp32%} mov       eax, dword ptr [eax + ecx * 0x4 + 0x00000210]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return (&((const struct GVillagerInfo*)this->info)->highDetail)[param_1];
 }
 
+__attribute__((no_callee_saves))
 bool __fastcall IsScriptState__8VillagerCF15VILLAGER_STATES(const struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        ecx, dword ptr [esp + 0x04]\n\t"
-        "lea                eax, dword ptr [ecx + ecx * 0x2]\n\t"
-        "shl                eax, 3\n\t"
-        "sub.s              eax, ecx\n\t"
-        "lea                eax, dword ptr [eax + eax * 0x2]\n\t"
-        "%{disp32%} mov       eax, dword ptr [eax * 0x4 + 0x00db9e90]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return GVillagerStateTableInfos[(uint8_t)param_1].isScriptState;
 }
 
+__attribute__((no_callee_saves))
 bool __fastcall IsScriptInterruptableState__8VillagerCF15VILLAGER_STATES(const struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        ecx, dword ptr [esp + 0x04]\n\t"
-        "lea                eax, dword ptr [ecx + ecx * 0x2]\n\t"
-        "shl                eax, 3\n\t"
-        "sub.s              eax, ecx\n\t"
-        "lea                eax, dword ptr [eax + eax * 0x2]\n\t"
-        "%{disp32%} mov       eax, dword ptr [eax * 0x4 + 0x00db9e94]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return GVillagerStateTableInfos[(uint8_t)param_1].isScriptInterruptableState;
 }
 
 uint32_t __fastcall GetTastiness__8VillagerFv(struct Object* this)

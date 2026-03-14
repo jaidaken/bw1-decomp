@@ -402,6 +402,7 @@ void __fastcall FreeAll__17VillagerNameBlockFv(struct VillagerNameBlock* this)
 __attribute__((XOR32rr_REV))
 struct VillagerName* __cdecl Add__12VillagerNameFf7LHPointPwR9LH3DColor(float text_size, struct LHPoint point, const char16_t* text, const struct LH3DColor* p_color)
 {
+    struct VillagerName* result;
     asm volatile (
         "%{disp32%} mov       eax, dword ptr [_game]\n\t"
         "%{disp32%} mov       eax, dword ptr [eax + 0x0025005c]\n\t"
@@ -417,7 +418,7 @@ struct VillagerName* __cdecl Add__12VillagerNameFf7LHPointPwR9LH3DColor(float te
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
         "add                esp, 0x10\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __Add_exit__\n"
         "LAB__addr_0x00762a06:\n\t"
         "%{disp8%} fld        dword ptr [esp + 0x1c]\n\t"
         "%{disp32%} fcomp     dword ptr [rdata_bytes + 0x1c840]\n\t"
@@ -428,7 +429,7 @@ struct VillagerName* __cdecl Add__12VillagerNameFf7LHPointPwR9LH3DColor(float te
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
         "add                esp, 0x10\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __Add_exit__\n"
         "LAB__addr_0x00762a1f:\n\t"
         "%{disp8%} fld        dword ptr [esp + 0x1c]\n\t"
         "%{disp32%} fcomp     dword ptr [_rdata_float1p0]\n\t"
@@ -707,7 +708,7 @@ struct VillagerName* __cdecl Add__12VillagerNameFf7LHPointPwR9LH3DColor(float te
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
         "add                esp, 0x10\n\t"
-        "ret\n"
+        "%{disp8%} jmp        __Add_exit__\n"
         "LAB__addr_0x00762d7f:\n\t"
         "%{disp32%} mov       ecx, dword ptr [_PTR_00db9e28]\n\t"
         "test               ecx, ecx\n\t"
@@ -731,11 +732,11 @@ struct VillagerName* __cdecl Add__12VillagerNameFf7LHPointPwR9LH3DColor(float te
         "mov.s              eax, esi\n\t"
         "pop                esi\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10\n"
+        "__Add_exit__:"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))

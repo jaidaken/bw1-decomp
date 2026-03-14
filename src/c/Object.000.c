@@ -569,24 +569,14 @@ bool32_t __fastcall CanBePoodOn__6ObjectFP8Creature(struct GameThingWithPos* thi
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 bool32_t __fastcall CanBeAttackedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} mov       edx, dword ptr [eax + 0x000000c4]\n\t"
-        "test               edx, edx\n\t"
-        "%{disp8%} je         LAB__addr_0x00402a5b\n\t"
-        "cmp                dword ptr [esp + 0x04], ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x00402a5b\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret                0x0004\n"
-        "LAB__addr_0x00402a5b:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    if (((struct Object*)this)->info->canCreatureAttackMe && (struct GameThingWithPos*)creature != this)
+    {
+        return 1;
+    }
+    return 0;
 }
 
 bool32_t __fastcall CanBePlayedWithByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)

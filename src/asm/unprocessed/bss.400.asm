@@ -1,4 +1,5 @@
 .intel_syntax noprefix
+.no_pad
 .section .bss
 
 .globl _DAT_00fac934

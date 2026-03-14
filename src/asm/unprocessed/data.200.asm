@@ -1,5 +1,6 @@
 .intel_syntax noprefix
 .align 16
+.no_pad
 .section .data
 
 .macro ASCIZ_ALIGNED string alignment

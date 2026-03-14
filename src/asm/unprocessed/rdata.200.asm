@@ -1,4 +1,5 @@
 .intel_syntax noprefix
+.no_pad
 .section .rdata
 
 .macro VftableAndRTTI name

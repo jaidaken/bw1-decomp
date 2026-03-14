@@ -1,4 +1,5 @@
 .intel_syntax noprefix
+.no_pad
 
 .extern rdata_bytes
 .extern data_bytes

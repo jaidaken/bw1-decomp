@@ -1,5 +1,6 @@
 .intel_syntax noprefix
 .align 16
+.no_pad
 .section .xdata$x,"dr"
 
 // string.obj

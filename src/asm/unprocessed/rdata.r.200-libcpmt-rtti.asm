@@ -1,5 +1,6 @@
 .intel_syntax noprefix
 .align 16
+.no_pad
 .section .rdata$r,"dr"
 
 .macro _RTTIBaseClassDescriptor name num_base_classes type

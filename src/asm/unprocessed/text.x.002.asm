@@ -1,5 +1,6 @@
 .intel_syntax noprefix
 .align 16
+.no_pad
 .section .text$x,"xr"
 
 // string.obj

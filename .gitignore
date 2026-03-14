@@ -14,3 +14,4 @@ extracted_reversing_data_bw_141.json
 .cache
 Black_&_White/
 objdiff-cli
+scripts/decompilation/sdtor_generated/

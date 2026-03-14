@@ -1070,6 +1070,14 @@ target_link_options(runblack-reassembled
         "/alternatename:??_Ebad_cast@@UAEPAXI@Z=??_Gbad_cast@@UAEPAXI@Z"
         "/alternatename:??_Ebad_typeid@@UAEPAXI@Z=??_Gbad_typeid@@UAEPAXI@Z"
         "/alternatename:??_Eexception@@UAEPAXI@Z=??_Gexception@@UAEPAXI@Z"
+        # Phase 2: Replace rename_coff_symbols.py calls with linker aliases.
+        # MSVC 12.0 mangles size_t as I (unsigned int); original binary uses K (unsigned long).
+        "/alternatename:??3Base@@SAXPAXK@Z=??3Base@@SAXPAXI@Z"
+        # MSVC 12.0 returns unsigned int; original binary returns enum MeshId.
+        "/alternatename:?GetMesh@GAbodeInfo@@UBE?AW4MeshId@@XZ=?GetMesh@GAbodeInfo@@UBEIXZ"
+        "/alternatename:?GetMesh@GObjectInfo@@UBE?AW4MeshId@@W4TRIBE_TYPE@@@Z=?GetMesh@GObjectInfo@@UBEIW4TRIBE_TYPE@@@Z"
+        # MSVC 12.0 uses GameThing + I; original uses MultiMapFixed + K.
+        "/alternatename:?GetShowNeedsPos@MultiMapFixed@@UAEIKPAUMapCoords@@@Z=?GetShowNeedsPos@GameThing@@UAEIIPAUMapCoords@@@Z"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

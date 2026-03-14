@@ -237,19 +237,10 @@ int __fastcall ExitNoChangeState__6LivingF15VILLAGER_STATES(struct Living* this,
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall EnterScriptWander__6LivingF15VILLAGER_STATES15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1, enum VILLAGER_STATES param_2)
 {
-    asm volatile (
-        "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               edx\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
-        "push               edx\n\t"
-        "call               dword ptr [eax + 0x940]\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return this->base.living_vftable->EnterInScript(this, edx, param_1, param_2);
 }
 
 __attribute__((XOR32rr_REV))
@@ -282,17 +273,10 @@ bool32_t __fastcall ScriptWanderAroundPos__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves))
 int __fastcall ExitScriptWander__6LivingF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               edx\n\t"
-        "call               dword ptr [eax + 0x914]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return this->base.living_vftable->ExitInScript(this, edx, param_1);
 }
 
 __attribute__((XOR32rr_REV))
@@ -440,17 +424,10 @@ bool32_t __fastcall ScriptPlayAnim__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves))
 int __fastcall ExitPlayAnim__6LivingF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               edx\n\t"
-        "call               dword ptr [eax + 0x914]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return this->base.living_vftable->ExitInScript(this, edx, param_1);
 }
 
 __attribute__((XOR32rr_REV))

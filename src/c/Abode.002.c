@@ -1,4 +1,5 @@
 #include "Abode.h"
+#include "Object.h"
 
 __attribute__((aligned(8)))
 struct RTTITypeDescriptor __RTTITypeDescriptor__5Abode = {
@@ -202,18 +203,10 @@ void __fastcall DestroyedByBeam__5AbodeFv(struct Object* this)
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 bool __fastcall GetInspectObjectPos__5AbodeFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos)
 {
-    asm volatile (
-        "%{disp8%} mov eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
-        "push eax\n\t"
-        "push edx\n\t"
-        "call ?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z\n\t"
-        "ret 0x0008"
-        :: "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return GetInspectObjectPos__6ObjectFP8VillagerP9MapCoords(this, edx, param_1, pos);
 }
 
 bool __fastcall GetPSysFireLocalRndFlamePos__5AbodeFP7LHPointPl(struct Object* this, const void* edx, struct LHPoint* point, int32_t* param_2)

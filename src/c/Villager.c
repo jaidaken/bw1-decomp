@@ -2966,33 +2966,16 @@ void __fastcall PickupResource__8VillagerF13RESOURCE_TYPEsUc(struct Villager* th
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall PickupFood__8VillagerFs(struct Villager* this, const void* edx, short param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               0x0\n\t"
-        "push               eax\n\t"
-        "push               0x0\n\t"
-        "call               ?PickupResource@Villager@@QAEXW4RESOURCE_TYPE@@FE@Z\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    PickupResource__8VillagerF13RESOURCE_TYPEsUc(this, edx, (enum RESOURCE_TYPE)0, param_1, 0);
 }
 
+__attribute__((no_callee_saves))
 void __fastcall PickupWood__8VillagerFsUc(struct Villager* this, const void* edx, short param_1, unsigned char param_2)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "push               edx\n\t"
-        "push               0x1\n\t"
-        "call               ?PickupResource@Villager@@QAEXW4RESOURCE_TYPE@@FE@Z\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    PickupResource__8VillagerF13RESOURCE_TYPEsUc(this, edx, (enum RESOURCE_TYPE)1, param_1, param_2);
 }
 
 int __fastcall GetFoodCapacity__8VillagerFv(struct Villager* this)
@@ -3021,16 +3004,10 @@ int __fastcall GetWoodCapacity__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall RemoveFromDance__8VillagerFi(struct Living* this, const void* edx, int param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "call               ?RemoveFromDance@Living@@UAEXH@Z\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    RemoveFromDance__6LivingFi(this, edx, param_1);
 }
 
 __attribute__((XOR32rr_REV))
@@ -6260,16 +6237,10 @@ void __fastcall ProcessFoodSpeedup__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((no_callee_saves))
 void __fastcall IncreaseLife__8VillagerFf(struct Object* this, const void* edx, float param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "call               ?IncreaseLife@Object@@UAEXM@Z\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-    __builtin_unreachable();
+    IncreaseLife__6ObjectFf(this, edx, param_1);
 }
 
 void __fastcall FindPosOutsideAbode__8VillagerFP5Abode(struct Villager* this, const void* edx, struct Abode* param_1)

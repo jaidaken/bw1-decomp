@@ -98,18 +98,10 @@ bool32_t __fastcall IsABeliever__8VillagerFv(struct Object* this)
     return true;
 }
 
+__attribute__((no_callee_saves))
 bool __fastcall IsTouching_3__8VillagerCFP6Objectf(const struct Object* this, const void* edx, struct Object* param_1, float param_2)
 {
-    asm volatile (
-        "%{disp8%} mov eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
-        "push eax\n\t"
-        "push edx\n\t"
-        "call ?IsTouching@Object@@UAE_NPAV1@M@Z\n\t"
-        "ret 0x0008"
-        :: "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    return IsTouching__6ObjectFP6Objectf(this, edx, param_1, param_2);
 }
 
 int __fastcall GetMesh__8VillagerCFv(const struct Object* this)

@@ -53,14 +53,14 @@ bool32_t __fastcall IsObjectInMap__16GameThingWithPosFv(struct GameThingWithPos*
 #else
 bool32_t __fastcall IsObjectInMap__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
+    bool32_t result;
     asm volatile (
         "xor.s              eax, eax\n\t"
         "%{disp8%} mov        al, byte ptr [ecx + 0x24]\n\t"
-        "and                eax, 0x01\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "and                eax, 0x01"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 #endif
 

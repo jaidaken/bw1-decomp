@@ -12,32 +12,37 @@ import matplotlib.patches as mpatches
 import squarify
 
 
+# ── Color scheme: clear gradient from gray → navy → blue → teal → green → gold ──
+
+COLOR_TIERS = [
+    # (min_pct, color,     label)
+    (100,      "#FFD700",  "100% matched"),   # gold
+    (95,       "#2ecc40",  "95-100%"),         # bright green
+    (90,       "#1a8f1a",  "90-95%"),          # medium green
+    (75,       "#0e6b2c",  "75-90%"),          # dark green
+    (50,       "#1a6b6b",  "50-75%"),          # teal
+    (25,       "#0c3795",  "25-50%"),          # dark blue
+    (0.01,     "#0d1b3e",  "1-25%"),           # deep navy
+    (0,        "#353535",  "Not started"),     # gray
+]
+
+
 def get_color(unit):
-    """Color based on match percentage, similar to decomp.dev."""
+    """Color based on match percentage using tiered gradient."""
     meta = unit.get("metadata", {})
     measures = unit.get("measures", {})
 
-    if meta.get("complete"):
-        return "#00c600"  # bright green - complete
-    if meta.get("auto_generated"):
-        return "#00c600"
+    if meta.get("complete") or meta.get("auto_generated"):
+        return "#FFD700"  # gold - complete
 
-    matched_pct = measures.get("matched_code_percent", 0)
-    if matched_pct is None:
-        matched_pct = 0
+    pct = measures.get("matched_code_percent", 0)
+    if pct is None:
+        pct = 0
 
-    if matched_pct >= 100:
-        return "#00c600"  # bright green
-    elif matched_pct >= 75:
-        return "#1a8f1a"  # dark green
-    elif matched_pct >= 50:
-        return "#0c3795"  # bright blue
-    elif matched_pct >= 25:
-        return "#193776"  # medium blue
-    elif matched_pct > 0:
-        return "#1a2a5c"  # dark blue
-    else:
-        return "#353535"  # gray - unprocessed
+    for min_pct, color, _ in COLOR_TIERS:
+        if pct >= min_pct:
+            return color
+    return "#353535"
 
 
 def main():
@@ -90,14 +95,16 @@ def main():
         # Only label large enough rectangles
         if dx > 2 and dy > 1.5:
             fontsize = min(8, max(4, min(dx, dy) * 0.8))
+            # Use dark text on gold, white on everything else
+            text_color = "#1a1a2e" if color == "#FFD700" else "white"
             ax.text(
                 x + dx / 2, y + dy / 2,
                 label,
                 ha="center", va="center",
-                color="white",
+                color=text_color,
                 fontsize=fontsize,
                 fontweight="bold",
-                alpha=0.8,
+                alpha=0.85,
             )
 
     ax.set_xlim(0, 100)
@@ -120,16 +127,15 @@ def main():
     )
     ax.set_title(title, color="white", fontsize=16, fontweight="bold", pad=20)
 
-    # Legend
-    legend_items = [
-        mpatches.Patch(facecolor="#00c600", edgecolor="white", label="100% matched"),
-        mpatches.Patch(facecolor="#1a8f1a", edgecolor="white", label="75-99%"),
-        mpatches.Patch(facecolor="#0c3795", edgecolor="white", label="50-74%"),
-        mpatches.Patch(facecolor="#193776", edgecolor="white", label="25-49%"),
-        mpatches.Patch(facecolor="#1a2a5c", edgecolor="white", label="1-24%"),
-        mpatches.Patch(facecolor="#353535", edgecolor="white", label="Not started"),
-    ]
-    legend = ax.legend(
+    # Legend — only include tiers that appear in the data
+    used_colors = set(colors)
+    legend_items = []
+    for _, color, label in COLOR_TIERS:
+        if color in used_colors:
+            ec = "#1a1a2e" if color == "#FFD700" else "white"
+            legend_items.append(mpatches.Patch(facecolor=color, edgecolor=ec, label=label))
+
+    ax.legend(
         handles=legend_items,
         loc="lower right",
         fontsize=9,
@@ -142,7 +148,6 @@ def main():
     plt.tight_layout()
     plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor=fig.get_facecolor())
     plt.close()
-    print(f"Progress image saved to {output_path}")
     print(f"  Code: {matched_code_pct:.2f}% matched ({matched_code:,} / {total_code:,} bytes)")
     print(f"  Functions: {matched_funcs} / {total_funcs} ({matched_funcs/total_funcs*100:.2f}%)")
 

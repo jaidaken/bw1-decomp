@@ -1,20 +1,35 @@
 #!/usr/bin/env python3
-"""Generate a progress report for the bw1-decomp project.
+"""Generate a unified progress report for the bw1-decomp project.
 
-Shows two metrics side-by-side:
-  1. Source state: How many functions are written in C vs inline asm
-  2. Byte match: How many compiled functions produce identical bytes (from objdiff)
+Reports THREE distinct metrics that measure different things:
+
+  1. SOURCE STATE - What language is each function written in?
+     Counts whether the function body is pure C, inline asm, or a mix.
+     This tells you how much WORK has been done, but NOT whether it's correct.
+     A function can be "written as C" but compile to completely wrong bytes.
+
+  2. BYTE-EXACT MATCH (src/c/ only) - Of our decompiled functions, how many
+     compile to identical machine code as the original MSVC binary?
+     This is the TRUE progress metric. Only byte-matched functions count as
+     "done". The gap between "written as C" and "byte-matched" represents
+     functions that need LLVM encoding attributes (expand_movzx, no_bool_mask,
+     trailing_bytes, etc.) to fix compiler output mismatches.
+
+  3. OVERALL BYTE MATCH (all units) - The global objdiff percentage including
+     libraries (LIBCMT, zlib), staging stubs, and our src/c/ code. This is
+     what decomp.dev displays. It's lower than src/c/-only because libraries
+     are large and mostly unmatched.
 
 Usage:
-  python progress_report.py                    # source-only (no objdiff data)
-  python progress_report.py --report report.json  # merged with objdiff data
+  python progress_report.py                        # source-only (no objdiff)
+  python progress_report.py --report report.json   # full report with objdiff
 """
 
 import argparse
 import json
 import re
 from pathlib import Path
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 
 
 @dataclass
@@ -24,8 +39,8 @@ class FileStats:
     decompiled: int = 0
     asm_volatile: int = 0
     individual_asm: int = 0
-    mixed: int = 0  # functions with both C code and asm
-    # objdiff metrics (populated when report.json is available)
+    mixed: int = 0
+    # objdiff metrics (from report.json when available)
     matched_code: int = 0
     total_code: int = 0
     matched_code_percent: float = 0.0
@@ -38,7 +53,6 @@ def count_functions(filepath: Path) -> FileStats:
     text = filepath.read_text()
     stats = FileStats(filename=str(filepath.name))
 
-    # Match function definitions (__fastcall or __cdecl)
     func_pattern = re.compile(
         r'^(?:__attribute__\(\([^)]*\)\)\s*\n)?'
         r'(\S.*?)\s+(?:__fastcall|__cdecl)\s+(\w+)\s*\(([^)]*)\)\s*\n\{',
@@ -46,7 +60,6 @@ def count_functions(filepath: Path) -> FileStats:
     )
 
     for match in func_pattern.finditer(text):
-        # Find the closing brace
         brace_depth = 0
         body_start = text.index('{', match.end() - 1)
         pos = body_start
@@ -66,7 +79,6 @@ def count_functions(filepath: Path) -> FileStats:
         has_individual = bool(re.search(r'asm\s*\("', body))
         has_c_code = False
 
-        # Check for meaningful C code (not just asm, builtin_unreachable, or declarations)
         for line in body.split('\n'):
             stripped = line.strip()
             if not stripped or stripped in ('{', '}', ';'):
@@ -78,7 +90,6 @@ def count_functions(filepath: Path) -> FileStats:
             if stripped.startswith('__builtin_unreachable'):
                 continue
             if re.match(r'(void|int|uint|float|double|struct|enum|bool|char|const|return)\s', stripped):
-                # C code (declarations, returns, etc.)
                 has_c_code = True
                 break
             if '=' in stripped or 'if ' in stripped or 'for ' in stripped or 'while ' in stripped:
@@ -105,7 +116,6 @@ def load_objdiff_report(report_path: Path) -> dict:
     units_by_name = {}
     for unit in report.get("units", []):
         name = unit.get("name", "")
-        # Extract filename from unit name (e.g., "c/Abode.000" -> "Abode.000.c")
         if "/" in name:
             short = name.split("/")[-1] + ".c"
         else:
@@ -128,8 +138,7 @@ def merge_stats(file_stats: FileStats, objdiff_unit: dict) -> None:
     file_stats.total_objdiff_functions = int(measures.get("total_functions", 0) or 0)
 
 
-def format_bar(pct: float, width: int = 30) -> str:
-    """Create a progress bar string."""
+def format_bar(pct: float, width: int = 40) -> str:
     filled = int(width * pct / 100)
     return '#' * filled + '-' * (width - filled)
 
@@ -148,7 +157,6 @@ def main():
         if default_report.exists():
             args.report = default_report
 
-    # Load objdiff data if available
     objdiff = None
     if args.report and args.report.exists():
         objdiff = load_objdiff_report(args.report)
@@ -157,63 +165,93 @@ def main():
     for cfile in sorted(src_dir.glob("*.c")):
         stats = count_functions(cfile)
         if stats.total_functions > 0:
-            # Merge objdiff data if available
             if objdiff:
                 unit = objdiff["units"].get(stats.filename)
                 if unit:
                     merge_stats(stats, unit)
             all_stats.append(stats)
 
-    # Aggregate source stats
+    # Aggregate
     total = sum(s.total_functions for s in all_stats)
     decompiled = sum(s.decompiled for s in all_stats)
     volatile = sum(s.asm_volatile for s in all_stats)
     individual = sum(s.individual_asm for s in all_stats)
     mixed = sum(s.mixed for s in all_stats)
-
     src_pct = 100 * decompiled / total if total else 0
 
     print("=" * 80)
     print("DECOMPILATION PROGRESS REPORT")
     print("=" * 80)
 
-    # ── Source State ──
-    print(f"\n  SOURCE STATE (functions written in C vs asm)")
-    print(f"  {'─' * 50}")
-    print(f"  Total functions:   {total:>5}")
-    print(f"  Decompiled (C):    {decompiled:>5}  ({src_pct:.1f}%)")
-    print(f"  asm volatile:      {volatile:>5}  ({100*volatile/total:.1f}%)")
-    print(f"  Individual asm:    {individual:>5}  ({100*individual/total:.1f}%)")
-    print(f"  Mixed (C+asm):     {mixed:>5}  ({100*mixed/total:.1f}%)")
-    print(f"\n  Written as C: [{format_bar(src_pct)}] {src_pct:.1f}%")
+    # ── 1. Source State ──
+    print(f"""
+  1. SOURCE STATE
+     What language is each function written in?
+     NOTE: "Written as C" does NOT mean the output matches the original.
+  {'─' * 55}
+  Total functions:   {total:>5}
+  Written as C:      {decompiled:>5}  ({src_pct:.1f}%)
+  asm volatile:      {volatile:>5}  ({100*volatile/total:.1f}%)
+  Individual asm:    {individual:>5}  ({100*individual/total:.1f}%)
+  Mixed (C+asm):     {mixed:>5}  ({100*mixed/total:.1f}%)
 
-    # ── Byte Match (objdiff) ──
+  C code:     [{format_bar(src_pct)}] {src_pct:.1f}%""")
+
+    # ── 2. Byte-Exact Match ──
     if objdiff:
+        src_matched = sum(s.matched_functions for s in all_stats)
+        src_total_od = sum(s.total_objdiff_functions for s in all_stats)
+        src_matched_bytes = sum(s.matched_code for s in all_stats)
+        src_total_bytes = sum(s.total_code for s in all_stats)
+        src_byte_pct = 100 * src_matched_bytes / src_total_bytes if src_total_bytes else 0
+        src_func_pct = 100 * src_matched / src_total_od if src_total_od else 0
+
         m = objdiff["measures"]
-        match_pct = float(m.get("matched_code_percent", 0) or 0)
-        match_funcs = int(m.get("matched_functions", 0) or 0)
-        total_funcs = int(m.get("total_functions", 0) or 0)
-        match_bytes = int(m.get("matched_code", 0) or 0)
-        total_bytes = int(m.get("total_code", 0) or 0)
-        func_pct = 100 * match_funcs / total_funcs if total_funcs else 0
+        global_pct = float(m.get("matched_code_percent", 0) or 0)
+        global_matched = int(m.get("matched_code", 0) or 0)
+        global_total = int(m.get("total_code", 0) or 0)
+        global_funcs_matched = int(m.get("matched_functions", 0) or 0)
+        global_funcs_total = int(m.get("total_functions", 0) or 0)
 
-        print(f"\n  BYTE-EXACT MATCH (compiled output vs original binary)")
-        print(f"  {'─' * 50}")
-        print(f"  Matched functions: {match_funcs:>5} / {total_funcs}  ({func_pct:.1f}%)")
-        print(f"  Matched bytes:     {match_bytes:>5} / {total_bytes}  ({match_pct:.1f}%)")
-        print(f"\n  Byte match:   [{format_bar(match_pct)}] {match_pct:.1f}%")
+        gap = decompiled - src_matched
 
-        # ── Gap Analysis ──
-        gap = decompiled - match_funcs
-        print(f"\n  GAP ANALYSIS")
-        print(f"  {'─' * 50}")
-        print(f"  Functions in C but NOT byte-matching: {gap}")
-        print(f"  These need LLVM attributes to fix encoding mismatches.")
+        print(f"""
+  2. BYTE-EXACT MATCH (src/c/ only)
+     Of our decompiled functions, how many compile to identical bytes?
+     This is the TRUE progress metric for decompilation correctness.
+  {'─' * 55}
+  Matched functions: {src_matched:>5} / {src_total_od}  ({src_func_pct:.1f}%)
+  Matched bytes:     {src_matched_bytes:>5} / {src_total_bytes:,}  ({src_byte_pct:.1f}%)
+
+  Byte match: [{format_bar(src_func_pct)}] {src_func_pct:.1f}%
+
+  3. OVERALL BYTE MATCH (all units incl. libraries)
+     Global objdiff percentage shown on decomp.dev. Includes LIBCMT,
+     zlib, staging stubs, and our src/c/ code.
+  {'─' * 55}
+  Matched functions: {global_funcs_matched:>5} / {global_funcs_total}
+  Matched bytes:     {global_matched:>5} / {global_total:,}  ({global_pct:.1f}%)
+
+  Overall:    [{format_bar(global_pct)}] {global_pct:.1f}%
+
+  4. GAP ANALYSIS
+     Why "written as C" != "byte-matched":
+     Functions written in C may compile to different bytes than the
+     original MSVC 6.0 output due to encoding mismatches (MOVZX vs
+     XOR+MOV, and al 1 masking, fldz vs fld [const], etc.).
+     These need custom LLVM attributes to fix.
+  {'─' * 55}
+  Written as C:          {decompiled:>5}   (source says it's C)
+  Byte-exact matches:    {src_matched:>5}   (compiler output matches original)
+  C but NOT matching:    {gap:>5}   (need LLVM attributes to fix encoding)
+  Still in asm:          {total - decompiled:>5}   (not yet converted to C)""")
     else:
-        print(f"\n  BYTE-EXACT MATCH: no objdiff report found")
-        print(f"  Run: python configure_objdiff.py && objdiff-cli report generate -o report.json")
+        print(f"""
+  2. BYTE-EXACT MATCH: no objdiff report found
+     Generate with: python configure_objdiff.py
+     Or download from CI: gh run download <id> --name WIN32_1.20_EN_report""")
 
-    # Per-file breakdown (only files with asm remaining)
+    # ── Per-file table ──
     asm_files = [s for s in all_stats if s.asm_volatile > 0 or s.individual_asm > 0]
     asm_files.sort(key=lambda s: s.asm_volatile + s.individual_asm, reverse=True)
 
@@ -221,12 +259,14 @@ def main():
     print(f"  Files with remaining asm ({len(asm_files)} files)")
     print(f"{'─' * 80}")
     if objdiff:
-        print(f"  {'File':<40} {'Total':>5} {'C':>5} {'Vol':>5} {'Ind':>5} {'Mix':>5} {'Match%':>7}")
-        print(f"  {'─'*40} {'─'*5} {'─'*5} {'─'*5} {'─'*5} {'─'*5} {'─'*7}")
+        print(f"  {'File':<38} {'Total':>5} {'C':>4} {'Vol':>4} {'Ind':>4} {'Mix':>4} {'Match':>6} {'Bytes':>7}")
+        print(f"  {'─'*38} {'─'*5} {'─'*4} {'─'*4} {'─'*4} {'─'*4} {'─'*6} {'─'*7}")
         for s in asm_files:
-            match_str = f"{s.matched_code_percent:.1f}%" if s.total_code > 0 else "   -"
-            print(f"  {s.filename:<40} {s.total_functions:>5} {s.decompiled:>5} "
-                  f"{s.asm_volatile:>5} {s.individual_asm:>5} {s.mixed:>5} {match_str:>7}")
+            mf = f"{s.matched_functions}" if s.total_objdiff_functions > 0 else "-"
+            mb = f"{s.matched_code_percent:.1f}%" if s.total_code > 0 else "  -"
+            print(f"  {s.filename:<38} {s.total_functions:>5} {s.decompiled:>4} "
+                  f"{s.asm_volatile:>4} {s.individual_asm:>4} {s.mixed:>4} "
+                  f"{mf:>6} {mb:>7}")
     else:
         print(f"  {'File':<45} {'Total':>5} {'C':>5} {'Vol':>5} {'Ind':>5} {'Mix':>5}")
         print(f"  {'─'*45} {'─'*5} {'─'*5} {'─'*5} {'─'*5} {'─'*5}")
@@ -236,9 +276,16 @@ def main():
 
     # Fully decompiled files
     done_files = [s for s in all_stats if s.asm_volatile == 0 and s.individual_asm == 0 and s.mixed == 0]
-    print(f"\n{'─' * 80}")
-    print(f"  Fully decompiled files: {len(done_files)} / {len(all_stats)}")
-    print(f"{'─' * 80}")
+    if objdiff:
+        perfect_files = [s for s in done_files if s.matched_code_percent >= 99.9 and s.total_code > 0]
+        print(f"\n{'─' * 80}")
+        print(f"  Fully C files:            {len(done_files):>3} / {len(all_stats)}")
+        print(f"  Fully C + byte-matched:   {len(perfect_files):>3} / {len(all_stats)}")
+        print(f"{'─' * 80}")
+    else:
+        print(f"\n{'─' * 80}")
+        print(f"  Fully decompiled files: {len(done_files)} / {len(all_stats)}")
+        print(f"{'─' * 80}")
 
 
 if __name__ == "__main__":

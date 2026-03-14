@@ -278,10 +278,23 @@ float __fastcall GetHeight__16GameThingWithPosFv(struct GameThingWithPos* this)
     return rdata_float0p0;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves))
+__attribute__((XOR32rr_REV))
 void __fastcall SetInScript__16GameThingWithPosFi(struct GameThingWithPos* this, const void* edx, int32_t param_1)
 {
-    this->field_0x24 = (this->field_0x24 & 0xFDFF) | ((param_1 & 1) << 9);
+    asm volatile (
+        "xor.s              eax, eax\n\t"
+        "%{disp8%} mov        al, byte ptr [esp + 0x04]\n\t"
+        "xor.s              edx, edx\n\t"
+        "%{disp8%} mov        dx, word ptr [ecx + 0x24]\n\t"
+        "and                eax, 0x01\n\t"
+        "shl                eax, 9\n\t"
+        "and                edx, 0x0000fdff\n\t"
+        "or.s               eax, edx\n\t"
+        "%{disp8%} mov        word ptr [ecx + 0x24], ax\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
+    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))

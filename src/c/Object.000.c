@@ -281,13 +281,6 @@ bool32_t __fastcall IsABeliever__6ObjectFv(struct Object* this)
     return 0;
 }
 
-#if HAS_PREFER_OR_MINUS_ONE
-__attribute__((prefer_or_minus_one))
-enum RESOURCE_TYPE __fastcall GetResourceType__6ObjectFv(struct Object* this)
-{
-    return (enum RESOURCE_TYPE)-1;
-}
-#else
 enum RESOURCE_TYPE __fastcall GetResourceType__6ObjectFv(struct Object* this)
 {
     enum RESOURCE_TYPE result;
@@ -297,7 +290,6 @@ enum RESOURCE_TYPE __fastcall GetResourceType__6ObjectFv(struct Object* this)
     );
     return result;
 }
-#endif
 
 __attribute__((XOR32rr_REV))
 int __fastcall GetDefaultResource__6ObjectFv(struct Object* this)
@@ -569,14 +561,24 @@ bool32_t __fastcall CanBePoodOn__6ObjectFP8Creature(struct GameThingWithPos* thi
     return 1;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves))
+__attribute__((XOR32rr_REV))
 bool32_t __fastcall CanBeAttackedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    if (((struct Object*)this)->info->canCreatureAttackMe && (struct GameThingWithPos*)creature != this)
-    {
-        return 1;
-    }
-    return 0;
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
+        "%{disp32%} mov       edx, dword ptr [eax + 0x000000c4]\n\t"
+        "test               edx, edx\n\t"
+        "%{disp8%} je         LAB__addr_0x00402a5b\n\t"
+        "cmp                dword ptr [esp + 0x04], ecx\n\t"
+        "%{disp8%} je         LAB__addr_0x00402a5b\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "ret                0x0004\n"
+        "LAB__addr_0x00402a5b:\n\t"
+        "xor.s              eax, eax\n\t"
+        "ret                0x0004"
+        ::: "eax", "ecx", "edx", "memory"
+    );
+    __builtin_unreachable();
 }
 
 bool32_t __fastcall CanBePlayedWithByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
@@ -673,18 +675,11 @@ const char* __fastcall GetText__6ObjectFv(struct GameThingWithPos* this)
     return ((struct Object*)this)->info->debugString;
 }
 
-#if HAS_PREFER_OR_MINUS_ONE
-__attribute__((prefer_or_minus_one))
-uint32_t __fastcall StandAnimation__6ObjectFv(struct Object* this)
-{
-    return 0xFFFFFFFF;
-}
-#else
 __attribute__((XOR32rr_REV))
 uint32_t __fastcall StandAnimation__6ObjectFv(struct Object* this)
 {
-    asm("or                 eax, -0x1");
-    asm("ret");
+    // return 0xFFFFFFFF;
+    asm("or                 eax, -0x1");                                // 0x00402b50    83c8ff
+    asm("ret");                                                         // 0x00402b53    c3
     __builtin_unreachable();
 }
-#endif

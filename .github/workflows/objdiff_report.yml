@@ -1,6 +1,10 @@
 name: Objdiff Report
 
-on: [push, pull_request]
+on:
+  # Disabled: re-enable when ready for CI validation
+  # push:
+  # pull_request:
+  workflow_dispatch:
 
 permissions:
   contents: write

@@ -203,29 +203,22 @@ def patch_black(input_path: Path, output_path: Path, turn_off_fullscreen: bool, 
     if not debug:
         patch_directory(pe, 'IMAGE_DIRECTORY_ENTRY_DEBUG', 0x008a99c0, 0x1c)
 
-    # Setting the time
+    # LinkerVersion, SizeOfCode, DllCharacteristics, BaseOfData, and CheckSum
+    # are now set by lld flags in CMakeLists.txt.
+
+    # TimeDateStamp must still be set here because lld writes the COFF header
+    # timestamp but llvm-strip may modify it, and we need the exact value.
     pe.NT_HEADERS.FILE_HEADER.TimeDateStamp = int(timestamp.timestamp())
+
+    # SizeOfInitializedData must still be set here because llvm-strip removes
+    # sections after linking, changing the computed value.
+    pe.OPTIONAL_HEADER.SizeOfInitializedData = size_of_data
+
     pe.NT_HEADERS.FILE_HEADER.Characteristics |= pefile.IMAGE_CHARACTERISTICS['IMAGE_FILE_LINE_NUMS_STRIPPED']
     pe.NT_HEADERS.FILE_HEADER.Characteristics |= pefile.IMAGE_CHARACTERISTICS['IMAGE_FILE_LOCAL_SYMS_STRIPPED']
 
     if not debug:
         pe.FILE_HEADER.Characteristics &= ~header_characteristics_bits_to_clear
-
-    # Set to msvc 6.0
-    pe.OPTIONAL_HEADER.MajorLinkerVersion = msvc_linker_version[0]
-    pe.OPTIONAL_HEADER.MinorLinkerVersion = msvc_linker_version[1]
-
-    # No clue why it takes this value (0xd000) more than size of .text
-    pe.OPTIONAL_HEADER.SizeOfCode = size_of_code
-    pe.OPTIONAL_HEADER.SizeOfInitializedData = size_of_data
-
-    # Missing checksum
-    pe.OPTIONAL_HEADER.CheckSum = 0
-
-    pe.OPTIONAL_HEADER.DllCharacteristics = 0
-
-    # Point to .rdata rather than .data
-    pe.OPTIONAL_HEADER.BaseOfData = find_section_header(pe, '.rdata').get_PointerToRawData_adj()
 
     # rsrc should not be writable
     find_section_header(pe, ".rsrc").Characteristics &= ~pefile.SECTION_CHARACTERISTICS['IMAGE_SCN_MEM_WRITE']

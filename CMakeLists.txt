@@ -999,6 +999,11 @@ target_link_options(runblack-reassembled
         "/NODEFAULTLIB"
         "/OPT:NOREF"
         "/OPT:NOICF"
+        # PE header overrides (replace post_assemble_patch.py field patching)
+        "/linkerversion:6.0"
+        "/sizeofcode:0x4ae000"
+        "/dllcharacteristicsvalue:0"
+        "/baseofdata:0x004a9000"
         "/alternatename:??_Etype_info@@UAEPAXI@Z=??_Gtype_info@@UAEPAXI@Z"
         "/alternatename:??_E__non_rtti_object@@UAEPAXI@Z=??_G__non_rtti_object@@UAEPAXI@Z"
         "/alternatename:??_Ebad_cast@@UAEPAXI@Z=??_Gbad_cast@@UAEPAXI@Z"

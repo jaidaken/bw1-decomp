@@ -981,34 +981,20 @@ struct Villager* __fastcall GetSpouse__5AbodeFP8Villager(struct Abode* this, con
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, expand_movzx, msvc6_regalloc))
 int __fastcall GetRoomLeftForAdults__5AbodeFv(struct Abode* this)
 {
-    int result;
-    asm volatile (
-        "%{disp8%} mov eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} mov eax, dword ptr [eax + 0x00000174]\n\t"
-        "xor.s edx, edx\n\t"
-        "%{disp32%} mov dl, byte ptr [ecx + 0x000000b4]\n\t"
-        "sub.s eax, edx"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    int max_adults = *(int*)((char*)*(void**)((char*)this + 0x28) + 0x174);
+    int num_adults = *((uint8_t*)this + 0xb4);
+    return max_adults - num_adults;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, expand_movzx, msvc6_regalloc))
 int __fastcall GetRoomLeftForChildren__5AbodeFv(struct Abode* this)
 {
-    int result;
-    asm volatile (
-        "%{disp8%} mov eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} mov eax, dword ptr [eax + 0x00000178]\n\t"
-        "xor.s edx, edx\n\t"
-        "%{disp32%} mov dl, byte ptr [ecx + 0x000000b7]\n\t"
-        "sub.s eax, edx"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    int max_children = *(int*)((char*)*(void**)((char*)this + 0x28) + 0x178);
+    int num_children = *((uint8_t*)this + 0xb7);
+    return max_children - num_children;
 }
 
 void __fastcall FUN_004046a0__5AbodeFi(struct Abode* this, const void* edx, int param_1)

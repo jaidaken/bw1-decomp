@@ -143,3 +143,17 @@ python scripts/source_code/asm_to_c/cleanup_imports_exports.py src/asm/unprocess
 ```
 
 This script takes an arbitrary amount of paths to asm files and will scan the file for `.globl` and `.extern` directives for labels that are not present in each file. It then removes thse unused imports and exports.
+
+## objdiff — Byte-level Function Diff
+
+```bash
+# Single function: show byte differences and attribute suggestions
+python scripts/decompilation/objdiff.py src/c/Object.000.c "?StandAnimation@Object@@UAEIXZ"
+
+# Batch: diff all functions in a C file
+python scripts/decompilation/objdiff.py src/c/Object.000.c
+```
+
+When an MD5 mismatch occurs after writing a C replacement, this tool shows exactly which instruction bytes differ and suggests which `__attribute__` to add. Covers all custom LLVM attributes (encoding, frame lowering, code emission). Uses Needleman-Wunsch alignment so extra/missing instructions appear as gaps instead of offsetting the entire diff.
+
+See [docs/objdiff.md](../docs/objdiff.md) for full documentation.

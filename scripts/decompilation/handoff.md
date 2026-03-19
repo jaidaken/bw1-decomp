@@ -38,6 +38,8 @@ Byte-exact decompilation of Black & White (2001) `runblack.exe` v1.20
 | `find_all_decompilable.py` | Find decompilable by hex byte patterns | `python scripts/decompilation/find_all_decompilable.py` |
 | `progress_report.py` | Progress report with per-file breakdown | `python scripts/decompilation/progress_report.py` |
 | `compare_function.py` | Compare a single function's output | `python scripts/decompilation/compare_function.py` |
+| `objdiff.py` | Byte-level diff with attribute suggestions | `python scripts/decompilation/objdiff.py src/c/File.c "?Symbol@@..."` |
+| `objdiff.py` (batch) | Diff all functions in a C file | `python scripts/decompilation/objdiff.py src/c/File.c` |
 
 ## Memory Files
 
@@ -108,8 +110,9 @@ md5sum build/runblack.exe
 2. Read the asm and identify the pattern (see `patterns.md`)
 3. Write the C equivalent following the confirmed pattern
 4. Build and verify MD5 matches
-5. If MD5 doesn't match, use `compare_function.py` to find the difference
-6. If pattern is new, add to `patterns.md`
+5. If MD5 doesn't match, run `objdiff.py` to see exact byte differences and suggested attributes
+6. Apply suggested `__attribute__`s, rebuild, repeat until MD5 matches
+7. If pattern is new, add to `patterns.md`
 
 ## What NOT to Do
 

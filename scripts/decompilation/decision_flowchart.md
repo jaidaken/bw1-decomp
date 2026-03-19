@@ -154,11 +154,15 @@ md5sum build/runblack.exe
 ```
 
 If MD5 doesn't match:
-1. Run `compare_function.py` to find the specific byte difference
-2. Check `%{disp%}` escaping in asm volatile
-3. Check return type (bool vs bool32_t vs uint32_t)
-4. Check attribute requirements (XOR32rr_REV, MOV32rr_REV, etc.)
-5. Revert and try a different approach
+1. Run `objdiff.py` to see exact byte differences and suggested attributes:
+   ```bash
+   python scripts/decompilation/objdiff.py src/c/File.c "?Symbol@Class@@..."
+   ```
+2. Apply suggested `__attribute__`s (shown in the "Suggested attributes:" summary)
+3. Check `%{disp%}` escaping in asm volatile
+4. Check return type (bool vs bool32_t vs uint32_t)
+5. Rebuild and repeat until MD5 matches
+6. If still stuck, revert and try a different approach
 
 ## Step 4: Update Documentation
 

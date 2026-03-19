@@ -444,24 +444,20 @@ struct GPlayer* __fastcall GetPlayer__5AbodeFv(struct GameThing* this)
     return result;
 }
 
+__attribute__((prefer_inc_dec_byte))
 void __fastcall ArriveHome__5AbodeFv(struct Abode* this)
 {
-    asm volatile (
-        "%{disp32%} inc byte ptr [ecx + 0x000000b6]"
-        :  : "c"(this) : "eax", "edx", "memory"
-    );
+    (*((uint8_t*)this + 0xb6))++;
 }
 
+__attribute__((prefer_inc_dec_byte))
 void __fastcall LeaveHome__5AbodeFv(struct Abode* this)
 {
-    asm volatile (
-        "dec byte ptr [ecx + 0x000000b6]"
-        :  : "c"(this) : "eax", "edx", "memory"
-    );
+    (*((uint8_t*)this + 0xb6))--;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))
-bool32_t GetNearestWaterPos__5AbodeFR9MapCoords(struct Abode* this, const void* edx, struct MapCoords* coords)
+bool32_t __fastcall GetNearestWaterPos__5AbodeFR9MapCoords(struct Abode* this, const void* edx, struct MapCoords* coords)
 {
     bool32_t result;
     asm volatile (

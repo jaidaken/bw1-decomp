@@ -502,7 +502,7 @@ void __fastcall ArriveHome__5AbodeFv(struct Abode* this) asm("?ArriveHome@Abode@
 // win1.41 00405fb0 mac 1009fda0 Abode::LeaveHome(void)
 void __fastcall LeaveHome__5AbodeFv(struct Abode* this) asm("?LeaveHome@Abode@@QAEXXZ");
 // win1.41 00405fc0 mac 100cd2d0 Abode::GetNearestWaterPos(MapCoords &)
-bool __fastcall GetNearestWaterPos__5AbodeFR9MapCoords(struct Abode* this, const void* edx, struct MapCoords* coords) asm("?GetNearestWaterPos@Abode@@QAE_NAAUMapCoords@@@Z");
+bool32_t __fastcall GetNearestWaterPos__5AbodeFR9MapCoords(struct Abode* this, const void* edx, struct MapCoords* coords) asm("?GetNearestWaterPos@Abode@@QAE_NAAUMapCoords@@@Z");
 // win1.41 00406640 mac 10172a50 Abode::ApplyEffectsDueToPhysicalDestruction(Object *, GPlayer *)
 void __fastcall ApplyEffectsDueToPhysicalDestruction__5AbodeFP6ObjectP7GPlayer(struct Abode* this, const void* edx, struct Object* object, struct GPlayer* player) asm("?ApplyEffectsDueToPhysicalDestruction@Abode@@QAEXPAVObject@@PAVGPlayer@@@Z");
 // win1.41 004069c0 mac 1036ee00 Abode::FindVillager( int (*)(GameThingWithPos *, SCRIPT_OBJECT_TYPE, ulong), SCRIPT_OBJECT_TYPE, ulong)

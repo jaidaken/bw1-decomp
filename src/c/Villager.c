@@ -1324,14 +1324,11 @@ enum HOLD_TYPE __fastcall GetHoldType__8VillagerFv(struct Object* this)
     return 7;
 }
 
+__attribute__((suppress_fp_imm))
 float __fastcall GetHoldLoweringMultiplier__8VillagerFv(struct Object* this)
 {
-    float result;
-    asm volatile (
-        "%{disp32%} fld       dword ptr [rdata_bytes + 0x3420]"
-        : "=t"(result) : "c"(this) : "eax", "edx", "memory"
-    );
-    return result;
+    extern const float __opaque_rdata_0x3420 asm("_rdata_const_0x3420");
+    return __opaque_rdata_0x3420;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

@@ -282,14 +282,10 @@ bool32_t __fastcall IsABeliever__6ObjectFv(struct Object* this)
     return 0;
 }
 
+__attribute__((prefer_or_minus_one))
 enum RESOURCE_TYPE __fastcall GetResourceType__6ObjectFv(struct Object* this)
 {
-    enum RESOURCE_TYPE result;
-    asm volatile (
-        "or                 eax, -0x1"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    return (enum RESOURCE_TYPE)-1;
 }
 
 __attribute__((XOR32rr_REV))

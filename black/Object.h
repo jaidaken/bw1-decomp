@@ -1083,7 +1083,7 @@ float __fastcall GetDistanceFromObject__6ObjectFRC9MapCoords(struct GameThingWit
 // win1.41 006394e0 mac 103d35f0 Object::GetPhysicsMovementDirection(LHPoint *)
 void __fastcall GetPhysicsMovementDirection__6ObjectFP7LHPoint(struct GameThingWithPos* this, const void* edx, struct LHPoint* pos) asm("?GetPhysicsMovementDirection@Object@@UAEXPAULHPoint@@@Z");
 // win1.41 00402710 mac 10032610 Object::IsMoving( const(void))
-bool __fastcall IsMoving__6ObjectCFv(const struct GameThingWithPos* this) asm("?IsMoving@Object@@UAE_NXZ");
+bool32_t __fastcall IsMoving__6ObjectCFv(const struct GameThingWithPos* this) asm("?IsMoving@Object@@UAE_NXZ");
 // win1.41 006392b0 mac 10037930 Object::IsObjectInMap(void)
 bool32_t __fastcall IsObjectInMap__6ObjectFv(struct GameThingWithPos* this) asm("?IsObjectInMap@Object@@UAE_NXZ");
 // win1.41 0063a780 mac 103d07e0 Object::IsDrowning(void)
@@ -1247,7 +1247,7 @@ struct LH3DSprite* __fastcall GetBeliefSprite__6ObjectFv(struct Object* this) as
 // win1.41 0063a140 mac 100515d0 Object::SetLife(float)
 void __fastcall SetLife__6ObjectFf(struct Object* this, const void* edx, float life) asm("?SetLife@Object@@UAEXM@Z");
 // win1.41 00402610 mac 1005f530 Object::IsAlive(void)
-bool __fastcall IsAlive__6ObjectFv(struct Object* this) asm("?IsAlive@Object@@UAE_NXZ");
+bool32_t __fastcall IsAlive__6ObjectFv(struct Object* this) asm("?IsAlive@Object@@UAE_NXZ");
 // win1.41 00637810 mac 1004b140 Object::ReduceLife(float, GPlayer *)
 void __fastcall ReduceLife__6ObjectFfP7GPlayer(struct Object* this, const void* edx, float value, struct GPlayer* player) asm("?ReduceLife@Object@@UAEMMPAVGPlayer@@@Z");
 // win1.41 00637870 mac 103d6b50 Object::IncreaseLife(float)

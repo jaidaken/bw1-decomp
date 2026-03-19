@@ -670,11 +670,8 @@ const char* __fastcall GetText__6ObjectFv(struct GameThingWithPos* this)
     return ((struct Object*)this)->info->debugString;
 }
 
-__attribute__((XOR32rr_REV, no_ret))
+__attribute__((prefer_or_minus_one))
 uint32_t __fastcall StandAnimation__6ObjectFv(struct Object* this)
 {
-    // return 0xFFFFFFFF;
-    asm("or                 eax, -0x1");                                // 0x00402b50    83c8ff
-    asm("ret");                                                         // 0x00402b53    c3
-    __builtin_unreachable();
+    return 0xFFFFFFFF;
 }

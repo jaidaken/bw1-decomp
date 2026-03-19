@@ -1344,7 +1344,7 @@ bool __fastcall IsInterestedInWoodObject__6LivingFP6Object(struct Living* this, 
 // win1.41 005f11f0 mac 10019a90 Living::IsAvailableForReaction(REACTION)
 bool __fastcall IsAvailableForReaction__6LivingF8REACTION(struct Living* this, const void* edx, enum REACTION param_1) asm("?IsAvailableForReaction@Living@@UAEIW4REACTION@@@Z");
 // win1.41 00417090 mac 1012fa70 Living::IsAvailableForBeliefButNotReaction(REACTION)
-bool __fastcall IsAvailableForBeliefButNotReaction__6LivingF8REACTION(struct Living* this, const void* edx, enum REACTION param_1) asm("?IsAvailableForBeliefButNotReaction@Living@@UAEIW4REACTION@@@Z");
+bool32_t __fastcall IsAvailableForBeliefButNotReaction__6LivingF8REACTION(struct Living* this, const void* edx, enum REACTION param_1) asm("?IsAvailableForBeliefButNotReaction@Living@@UAEIW4REACTION@@@Z");
 // win1.41 004170a0 mac 1012fac0 Living::UpdateHowImpressed(Reaction *, int)
 void __fastcall UpdateHowImpressed__6LivingFP8Reactioni(struct Living* this, const void* edx, struct Reaction* param_1, int param_2) asm("?UpdateHowImpressed@Living@@UAEXPAVReaction@@H@Z");
 // win1.41 005f0f30 mac inlined Living::AddReaction(Reaction *, VILLAGER_STATES)

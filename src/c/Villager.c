@@ -148,6 +148,7 @@ void __cdecl FUN_0074f810__8VillagerFv(void)
     );
 }
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x0074f830(void)
 {
     asm("call               ??__EGVillagerInfo_ARRAY_00da6be8@@YAXXZ");                    // 0x0074f830    e80b000000
@@ -181,16 +182,17 @@ uint32_t __fastcall GetMesh__13GVillagerInfoCFv(const struct GObjectInfo* this)
     return ((const struct GVillagerInfo*)this)->stdDetail;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 struct GBaseInfo* __fastcall GetBaseInfo__13GVillagerInfoFRUl(struct GBaseInfo* this, const void* edx, uint32_t* param_1)
 {
+    struct GBaseInfo* result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "mov                dword ptr [eax], 0x00000054\n\t"
-        "mov                eax, OFFSET _VillagerInfos\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, OFFSET _VillagerInfos"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void __cdecl crt_global_destruction_register_VillagerInfo_ARRAY(void)
@@ -230,6 +232,7 @@ void __cdecl atexit_destroy_GVillagerInfo_array(void)
     );
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall __dt__13GVillagerInfoFv(struct Base* this, const void* edx, uint32_t param_1)
 {
     asm volatile (
@@ -244,11 +247,9 @@ void __fastcall __dt__13GVillagerInfoFv(struct Base* this, const void* edx, uint
         "add                esp, 0x08\n"
         "LAB__addr_0x0074f91d:\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 __attribute__((section(".rdata$r"), aligned(8)))
@@ -345,9 +346,10 @@ void __cdecl FUN_0074f940__8VillagerFv(void)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0010)))
 struct Villager* __fastcall __ct__8VillagerFRC9MapCoordsPC13GVillagerInfoUli(struct Villager* this, const void* edx, struct MapCoords* coords, struct GVillagerInfo* info, uint32_t age, bool skeleton)
 {
+    struct Villager* result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "push               ebx\n\t"
@@ -471,11 +473,10 @@ struct Villager* __fastcall __ct__8VillagerFRC9MapCoordsPC13GVillagerInfoUli(str
         "pop                edi\n\t"
         "mov.s              eax, esi\n\t"
         "pop                esi\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0010"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -500,6 +501,7 @@ void __fastcall SetToZero__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall InitialiseScale__8VillagerFUl(struct Villager* this, const void* edx, unsigned long param_1)
 {
     asm volatile (
@@ -518,13 +520,12 @@ void __fastcall InitialiseScale__8VillagerFUl(struct Villager* this, const void*
         "mov                edx, dword ptr [ecx]\n\t"
         "push               0x3f666666\n\t"
         "call               dword ptr [edx + 0x124]\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_ret))
 void __fastcall __dt__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -535,14 +536,15 @@ void __fastcall __dt__8VillagerFv(struct Villager* this)
         "dec                dword ptr [eax + 0x00205a54]\n"
         "LAB__addr_0x0074fbda:\n\t"
         "%{disp32%} jmp       _jmp_addr_0x0060db00"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 struct Villager* __cdecl Create__8VillagerFRC9MapCoordsPC13GVillagerInfoUli(struct MapCoords* coords, struct GVillagerInfo* info, uint32_t age, bool skeleton)
 {
+    struct Villager* result;
     asm volatile (
         "push               ebx\n\t"
         "push               ebp\n\t"
@@ -604,14 +606,13 @@ struct Villager* __cdecl Create__8VillagerFRC9MapCoordsPC13GVillagerInfoUli(stru
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                ebx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall CallVirtualFunctionsForCreation__8VillagerFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* param_1)
 {
     asm volatile (
@@ -705,14 +706,12 @@ void __fastcall CallVirtualFunctionsForCreation__8VillagerFRC9MapCoords(struct O
         "call               dword ptr [eax + 0xc4]\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
+        "pop                ebx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 void __fastcall DeleteDependancys__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -875,16 +874,15 @@ void __fastcall DeleteDependancys__8VillagerFv(struct Villager* this)
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
+        "add                esp, 0x08"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall UnemployedJobs__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall UnemployedJobs__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -939,11 +937,10 @@ bool __fastcall UnemployedJobs__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -952,9 +949,10 @@ bool __fastcall SetupJobLocation__8VillagerFv(struct Villager* this)
     return 0;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 uint32_t __fastcall ProcessState__8VillagerFv(struct Object* this)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               esi\n\t"
@@ -1036,14 +1034,13 @@ uint32_t __fastcall ProcessState__8VillagerFv(struct Object* this)
         "call               ?CallState@Villager@@QAEIXZ\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 void __fastcall FinishedIntoOutOfAnimation__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -1096,16 +1093,15 @@ void __fastcall FinishedIntoOutOfAnimation__8VillagerFv(struct Villager* this)
         "and                word ptr [esi + 0x000000e0], -0x0801\n\t"
         "%{disp32%} mov       word ptr [esi + 0x00000090], 0x0000\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
+        "add                esp, 0x14"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 enum ANIM_LIST __fastcall GetAnimId__8VillagerFv(struct Living* this)
 {
+    enum ANIM_LIST result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               esi\n\t"
@@ -1162,11 +1158,10 @@ enum ANIM_LIST __fastcall GetAnimId__8VillagerFv(struct Living* this)
         "%{disp32%} mov       eax, dword ptr [ecx * 0x4 + 0x00db9e78]\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -1251,9 +1246,10 @@ void __fastcall SetStateCarriedObject__8VillagerFv(struct Villager* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 uint32_t __fastcall GetWoodCarriedObject__8VillagerFv(struct Villager* this)
 {
+    uint32_t result;
     asm volatile (
         "xor.s              eax, eax\n\t"
         "%{disp32%} mov       ax, word ptr [ecx + 0x000000e0]\n\t"
@@ -1273,15 +1269,16 @@ uint32_t __fastcall GetWoodCarriedObject__8VillagerFv(struct Villager* this)
         "mov                eax, 0x0000000e\n\t"
         "ret\n"
         "LAB__addr_0x007502c7:\n\t"
-        "mov                eax, 0x0000000d\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x0000000d"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 uint32_t __fastcall DestroyedByEffect__8VillagerFP7GPlayerf(struct Object* this, const void* edx, struct GPlayer* param_1, float param_2)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
@@ -1290,16 +1287,16 @@ uint32_t __fastcall DestroyedByEffect__8VillagerFP7GPlayerf(struct Object* this,
         "push               edx\n\t"
         "push               0x2\n\t"
         "call               ?VillagerDead@Villager@@QAEXW4DEATH_REASON@@PAVGPlayer@@MH@Z\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 struct GPlayer* __fastcall GetPlayer__8VillagerFv(struct GameThing* this)
 {
+    struct GPlayer* result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1316,11 +1313,10 @@ struct GPlayer* __fastcall GetPlayer__8VillagerFv(struct GameThing* this)
         "ret\n"
         "LAB__addr_0x0075030a:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 enum HOLD_TYPE __fastcall GetHoldType__8VillagerFv(struct Object* this)
@@ -1338,9 +1334,10 @@ float __fastcall GetHoldLoweringMultiplier__8VillagerFv(struct Object* this)
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 struct Villager* __fastcall GetSpouse__8VillagerFv(struct Villager* this)
 {
+    struct Villager* result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1365,16 +1362,16 @@ struct Villager* __fastcall GetSpouse__8VillagerFv(struct Villager* this)
         "ret\n"
         "LAB__addr_0x00750361:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 struct Villager* __fastcall LookAroundForVillagerInState__8VillagerF15VILLAGER_STATESUl(struct Villager* this, const void* edx, enum VILLAGER_STATES param_1, unsigned long param_2)
 {
+    struct Villager* result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               ebx\n\t"
@@ -1433,16 +1430,16 @@ struct Villager* __fastcall LookAroundForVillagerInState__8VillagerF15VILLAGER_S
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x10\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 int __fastcall CheckEveryTime__8VillagerFv(struct Villager* this)
 {
+    int result;
     asm volatile (
         "push               ebx\n\t"
         "push               esi\n\t"
@@ -1644,11 +1641,10 @@ int __fastcall CheckEveryTime__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ebx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint32_t __fastcall GetGameTurnsSinceLastChecked__8VillagerFv(struct Villager* this)
@@ -1678,7 +1674,7 @@ void __fastcall SetGameTurnLastChecked__8VillagerFv(struct Villager* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0010)))
 void __fastcall VillagerDead__8VillagerF12DEATH_REASONP7GPlayerfi(struct Villager* this, const void* edx, enum DEATH_REASON param_1, struct GPlayer* param_2, float param_3, int param_4)
 {
     asm volatile (
@@ -1902,14 +1898,12 @@ void __fastcall VillagerDead__8VillagerF12DEATH_REASONP7GPlayerfi(struct Village
         "%{disp32%} mov       byte ptr [esi + 0x00000118], bl\n\t"
         "pop                ebx\n"
         "LAB__addr_0x00750930:\n\t"
-        "pop                esi\n\t"
-        "ret                0x0010"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x000c)))
 void __fastcall CreateDroppedResource__8VillagerFP7LHPointP7LHPointP7LHPoint(struct Villager* this, const void* edx, struct LHPoint* param_1, struct LHPoint* param_2, struct LHPoint* param_3)
 {
     asm volatile (
@@ -2025,15 +2019,15 @@ void __fastcall CreateDroppedResource__8VillagerFP7LHPointP7LHPointP7LHPoint(str
         "LAB__addr_0x00750a9a:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x24\n\t"
-        "ret                0x000c"
+        "add                esp, 0x24"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-bool __fastcall HasSunk__8VillagerFv(struct Object* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall HasSunk__8VillagerFv(struct Object* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2089,11 +2083,10 @@ bool __fastcall HasSunk__8VillagerFv(struct Object* this)
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [eax + 0x8e8]\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void __fastcall TownDeleted__8VillagerFv(struct Villager* this)
@@ -2137,7 +2130,7 @@ void __fastcall TownDeleted__8VillagerFv(struct Villager* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall DebugText__8VillagerFi(struct Villager* this, const void* edx, int param_1)
 {
     asm volatile (
@@ -2282,13 +2275,12 @@ void __fastcall DebugText__8VillagerFi(struct Villager* this, const void* edx, i
         "pop                edi\n"
         "LAB__addr_0x00750dcf:\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x000003d4\n\t"
-        "ret                0x0004"
+        "add                esp, 0x000003d4"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall SetAbode__8VillagerFP5Abode(struct Villager* this, const void* edx, struct Town* town)
 {
     asm volatile (
@@ -2309,15 +2301,15 @@ void __fastcall SetAbode__8VillagerFP5Abode(struct Villager* this, const void* e
         "call               ?SetTown@Villager@@QAEXPAVTown@@@Z\n"
         "LAB__addr_0x00750e08:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-bool __fastcall GetRandomLookAhead__8VillagerFP9MapCoordsf(struct Villager* this, const void* edx, struct MapCoords* param_1, float param_2)
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
+bool32_t __fastcall GetRandomLookAhead__8VillagerFP9MapCoordsf(struct Villager* this, const void* edx, struct MapCoords* param_1, float param_2)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} fld        dword ptr [esp + 0x08]\n\t"
         "push               ebx\n\t"
@@ -2376,13 +2368,13 @@ bool __fastcall GetRandomLookAhead__8VillagerFP9MapCoordsf(struct Villager* this
         "sbb.s              eax, eax\n\t"
         "pop                esi\n\t"
         "neg                eax\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 void __fastcall SetSpeed__8VillagerFli(struct Villager* this, const void* edx, int base_speed, int scale_speed)
 {
     asm volatile (
@@ -2483,11 +2475,9 @@ void __fastcall SetSpeed__8VillagerFli(struct Villager* this, const void* edx, i
         "call               ?SetSpeed@MobileWallHug@@UAEXH@Z\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret                0x0008"
+        "add                esp, 0x08"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 void __fastcall Birthday__8VillagerFv(struct Living* this)
@@ -2495,9 +2485,10 @@ void __fastcall Birthday__8VillagerFv(struct Living* this)
     return;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 int __fastcall CheckChildGrownUp__8VillagerFv(struct Villager* this)
 {
+    int result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2567,16 +2558,16 @@ int __fastcall CheckChildGrownUp__8VillagerFv(struct Villager* this)
         "call               ?SetScaleForAge@Villager@@QAEXK@Z\n"
         "LAB__addr_0x00751105:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAMother__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsAMother__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "%{disp32%} mov       edx, dword ptr [eax + 0x000001f8]\n\t"
@@ -2628,31 +2619,32 @@ bool __fastcall IsAMother__8VillagerFv(struct Villager* this)
         "dec                esi\n\t"
         "%{disp8%} jne        LAB__addr_0x0075117a\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall StartMoveToObject__8VillagerFP6Object15VILLAGER_STATES(struct Villager* this, const void* edx, struct Object* param_1, enum VILLAGER_STATES param_2)
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
+bool32_t __fastcall StartMoveToObject__8VillagerFP6Object15VILLAGER_STATES(struct Villager* this, const void* edx, struct Object* param_1, enum VILLAGER_STATES param_2)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "push               eax\n\t"
         "push               edx\n\t"
         "call               ?SetupMoveToObject@Living@@QAEIPAVObject@@E@Z\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 uint16_t __fastcall DropResource__8VillagerF13RESOURCE_TYPEUs(struct Villager* this, const void* edx, enum RESOURCE_TYPE param_1, unsigned short param_2)
 {
+    uint16_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "cmp                eax, 0x01\n\t"
@@ -2669,16 +2661,16 @@ uint16_t __fastcall DropResource__8VillagerF13RESOURCE_TYPEUs(struct Villager* t
         "call               ?DropFood@Villager@@QAEGG@Z\n\t"
         "ret                0x0008\n"
         "LAB__addr_0x007511d7:\n\t"
-        "xor.s              ax, ax\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              ax, ax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint16_t __fastcall DropFood__8VillagerFUs(struct Villager* this, const void* edx, unsigned short param_1)
 {
+    uint16_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -2714,16 +2706,16 @@ uint16_t __fastcall DropFood__8VillagerFUs(struct Villager* this, const void* ed
         "LAB__addr_0x00751238:\n\t"
         "mov.s              ax, di\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint16_t __fastcall DropWood__8VillagerFUs(struct Villager* this, const void* edx, unsigned short param_1)
 {
+    uint16_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -2759,16 +2751,16 @@ uint16_t __fastcall DropWood__8VillagerFUs(struct Villager* this, const void* ed
         "LAB__addr_0x00751298:\n\t"
         "mov.s              ax, di\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsEnoughFoodInStoragePitForDinner__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsEnoughFoodInStoragePitForDinner__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2793,15 +2785,16 @@ bool __fastcall IsEnoughFoodInStoragePitForDinner__8VillagerFv(struct Villager* 
         "ret\n"
         "LAB__addr_0x007512d5:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x000c)))
 struct Pot* __fastcall FindPotAroundToGoto__8VillagerF13RESOURCE_TYPERUli(struct Villager* this, const void* edx, enum RESOURCE_TYPE param_1, unsigned long* param_2, int param_3)
 {
+    struct Pot* result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               ebx\n\t"
@@ -2895,14 +2888,13 @@ struct Pot* __fastcall FindPotAroundToGoto__8VillagerF13RESOURCE_TYPERUli(struct
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x000c)))
 void __fastcall PickupResource__8VillagerF13RESOURCE_TYPEsUc(struct Villager* this, const void* edx, enum RESOURCE_TYPE param_1, short param_2, unsigned char param_3)
 {
     asm volatile (
@@ -2961,13 +2953,12 @@ void __fastcall PickupResource__8VillagerF13RESOURCE_TYPEsUc(struct Villager* th
         "LAB__addr_0x00751487:\n\t"
         "mov.s              ax, di\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x000c"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall PickupFood__8VillagerFs(struct Villager* this, const void* edx, short param_1)
 {
     asm volatile (
@@ -2975,13 +2966,12 @@ void __fastcall PickupFood__8VillagerFs(struct Villager* this, const void* edx, 
         "push               0x0\n\t"
         "push               eax\n\t"
         "push               0x0\n\t"
-        "call               ?PickupResource@Villager@@QAEXW4RESOURCE_TYPE@@FE@Z\n\t"
-        "ret                0x0004"
+        "call               ?PickupResource@Villager@@QAEXW4RESOURCE_TYPE@@FE@Z"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 void __fastcall PickupWood__8VillagerFsUc(struct Villager* this, const void* edx, short param_1, unsigned char param_2)
 {
     asm volatile (
@@ -2990,11 +2980,9 @@ void __fastcall PickupWood__8VillagerFsUc(struct Villager* this, const void* edx
         "push               eax\n\t"
         "push               edx\n\t"
         "push               0x1\n\t"
-        "call               ?PickupResource@Villager@@QAEXW4RESOURCE_TYPE@@FE@Z\n\t"
-        "ret                0x0008"
+        "call               ?PickupResource@Villager@@QAEXW4RESOURCE_TYPE@@FE@Z"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 int __fastcall GetFoodCapacity__8VillagerFv(struct Villager* this)
@@ -3023,21 +3011,21 @@ int __fastcall GetWoodCapacity__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall RemoveFromDance__8VillagerFi(struct Living* this, const void* edx, int param_1)
 {
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "push               eax\n\t"
-        "call               ?RemoveFromDance@Living@@UAEXH@Z\n\t"
-        "ret                0x0004"
+        "call               ?RemoveFromDance@Living@@UAEXH@Z"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsRandomlyLazy__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsRandomlyLazy__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -3062,16 +3050,16 @@ bool __fastcall IsRandomlyLazy__8VillagerFv(struct Villager* this)
         "ret\n"
         "LAB__addr_0x0075156a:\n\t"
         "xor.s              eax, eax\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall GetResourceHeld__8VillagerFR13RESOURCE_TYPE(struct Villager* this, const void* edx, enum RESOURCE_TYPE* param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall GetResourceHeld__8VillagerFR13RESOURCE_TYPE(struct Villager* this, const void* edx, enum RESOURCE_TYPE* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "mov                dword ptr [edx], 0xffffffff\n\t"
@@ -3090,16 +3078,16 @@ bool __fastcall GetResourceHeld__8VillagerFR13RESOURCE_TYPE(struct Villager* thi
         "%{disp32%} mov       ax, word ptr [ecx + 0x000000f6]\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x007515b3:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall DecideWhatToDo__8VillagerFv(struct Living* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall DecideWhatToDo__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -3200,16 +3188,16 @@ bool __fastcall DecideWhatToDo__8VillagerFv(struct Living* this)
         "call               dword ptr [edx + 0x8e8]\n"
         "LAB__addr_0x007516d9:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall CheckTakeResourcesToStoragePit__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall CheckTakeResourcesToStoragePit__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "movsx              edx, word ptr [ecx + 0x000000f6]\n\t"
@@ -3224,14 +3212,13 @@ bool __fastcall CheckTakeResourcesToStoragePit__8VillagerFv(struct Villager* thi
         "mov                eax, dword ptr [ecx]\n\t"
         "push               0x1f\n\t"
         "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_ret))
 bool __fastcall DiscipleDecideWhatToDo__8VillagerFv(struct Villager* this)
 {
     asm("push               ecx");                                            // 0x00751720    51
@@ -3465,9 +3452,10 @@ bool __fastcall GetPrayerSite__8VillagerFv(struct Villager* this)
     return 0;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall RestartDance__8VillagerF15VILLAGER_STATES(struct Villager* this, const void* edx, enum VILLAGER_STATES param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall RestartDance__8VillagerF15VILLAGER_STATES(struct Villager* this, const void* edx, enum VILLAGER_STATES param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "xor.s              eax, eax\n\t"
@@ -3501,16 +3489,16 @@ bool __fastcall RestartDance__8VillagerF15VILLAGER_STATES(struct Villager* this,
         "LAB__addr_0x007519d6:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 int __cdecl GetInfoFromText__13GVillagerInfoFPc(char* text)
 {
+    int result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               ebx\n\t"
@@ -3582,11 +3570,10 @@ int __cdecl GetInfoFromText__13GVillagerInfoFPc(char* text)
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 char* __fastcall GetTribeTextArray__10GTribeInfoFv(struct GTribeInfo* this)
@@ -3594,8 +3581,10 @@ char* __fastcall GetTribeTextArray__10GTribeInfoFv(struct GTribeInfo* this)
     return (char*)VillagerBasicInfoStrs[((struct GVillagerInfo*)this)->villagerNumber];
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 char* __fastcall GetVillagerText__8VillagerFPc(struct Villager* this, const void* edx, char* param_1)
 {
+    char* result;
     asm volatile (
         "push               esi\n\t"
         "%{disp8%} mov        esi, dword ptr [ecx + 0x28]\n\t"
@@ -3614,16 +3603,16 @@ char* __fastcall GetVillagerText__8VillagerFPc(struct Villager* this, const void
         "add                esp, 0x10\n\t"
         "pop                edi\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 uint32_t __fastcall SaveObject__8VillagerFR8LHOSFileRC9MapCoords(struct Object* this, const void* edx, struct LHOSFile* param_1, const struct MapCoords* param_2)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x0000020c\n\t"
         "push               ebx\n\t"
@@ -3808,16 +3797,16 @@ uint32_t __fastcall SaveObject__8VillagerFR8LHOSFileRC9MapCoords(struct Object* 
         "pop                ebp\n\t"
         "mov.s              eax, ebx\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0000020c\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0000020c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsFunctional__8VillagerFv(struct GameThing* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsFunctional__8VillagerFv(struct GameThing* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -3836,25 +3825,25 @@ bool __fastcall IsFunctional__8VillagerFv(struct GameThing* this)
         "ret\n"
         "LAB__addr_0x00751d12:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 struct GJobInfo* __fastcall GetJobInfo__8VillagerCFUc(const struct Villager* this, const void* edx, unsigned char param_1)
 {
+    struct GJobInfo* result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "and                eax, 0x000000ff\n\t"
         "lea                ecx, dword ptr [eax + eax * 0x4]\n\t"
         "lea                edx, dword ptr [eax + ecx * 0x2]\n\t"
-        "%{disp32%} lea       eax, dword ptr [edx * 0x8 + 0x00d19cc8]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp32%} lea       eax, dword ptr [edx * 0x8 + 0x00d19cc8]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -3863,9 +3852,10 @@ bool __fastcall FUN00751d40__8VillagerFv(struct Villager* this)
     return 0;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAvailable__8VillagerFv(struct GameThing* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsAvailable__8VillagerFv(struct GameThing* this)
 {
+    bool32_t result;
     asm volatile (
         "test               byte ptr [ecx + 0x0a], 0x01\n\t"
         "%{disp8%} jne        LAB__addr_0x00751d68\n\t"
@@ -3876,15 +3866,16 @@ bool __fastcall IsAvailable__8VillagerFv(struct GameThing* this)
         "mov                eax, 0x00000001\n\t"
         "ret\n"
         "LAB__addr_0x00751d68:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall IsEffectReceiver__8VillagerFP12EffectValues(struct Object* this, const void* edx, struct EffectValues* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "test               eax, eax\n\t"
@@ -3902,16 +3893,16 @@ uint32_t __fastcall IsEffectReceiver__8VillagerFP12EffectValues(struct Object* t
         "ret                0x0004\n"
         "LAB__addr_0x00751d98:\n\t"
         "mov                edx, dword ptr [ecx]\n\t"
-        "call               dword ptr [edx + 0x530]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "call               dword ptr [edx + 0x530]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 struct Citadel* __fastcall GetCitadel__8VillagerFv(struct GameThingWithPos* this)
 {
+    struct Citadel* result;
     asm volatile (
         "mov                eax, dword ptr [ecx]\n\t"
         "call               dword ptr [eax + 0x48]\n\t"
@@ -3923,15 +3914,16 @@ struct Citadel* __fastcall GetCitadel__8VillagerFv(struct GameThingWithPos* this
         "%{disp32%} mov       eax, dword ptr [eax + 0x00000a48]\n\t"
         "ret\n"
         "LAB__addr_0x00751dc7:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 enum VILLAGER_STATES __fastcall GetFinalState__8VillagerCFv(const struct Living* this)
 {
+    enum VILLAGER_STATES result;
     asm volatile (
         "push               ecx\n\t"
         "%{disp32%} mov       al, byte ptr [ecx + 0x0000008c]\n\t"
@@ -3949,11 +3941,10 @@ enum VILLAGER_STATES __fastcall GetFinalState__8VillagerCFv(const struct Living*
         "%{disp8%} jne        LAB__addr_0x00751e03\n\t"
         "%{disp32%} mov       al, byte ptr [ecx + 0x0000008d]\n"
         "LAB__addr_0x00751e03:\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void __fastcall ResetStateAfterReacting__8VillagerFv(struct Living* this)
@@ -4019,6 +4010,7 @@ void __fastcall PopFromPrevious__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((no_ret))
 struct Football* __fastcall GetFootball__8VillagerFv(struct Villager* this)
 {
     struct Football* result = this->football;
@@ -4185,8 +4177,10 @@ void __fastcall LeaveHome__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 int __fastcall SetTopState__8VillagerFUc(struct Living* this, const void* edx, enum VILLAGER_STATES state)
 {
+    int result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -4255,15 +4249,16 @@ int __fastcall SetTopState__8VillagerFUc(struct Living* this, const void* edx, e
         "LAB__addr_0x007520d3:\n\t"
         "mov.s              eax, edi\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 int __fastcall SetCurrentAndDestinationState__8VillagerFUcUc(struct Living* this, const void* edx, enum VILLAGER_STATES current, enum VILLAGER_STATES destination)
 {
+    int result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
         "push               esi\n\t"
@@ -4284,16 +4279,16 @@ int __fastcall SetCurrentAndDestinationState__8VillagerFUcUc(struct Living* this
         "LAB__addr_0x0075210b:\n\t"
         "mov.s              eax, edi\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall CanPauseForASecond__8VillagerFUc(struct Villager* this, const void* edx, enum VILLAGER_STATES state)
 {
+    uint32_t result;
     asm volatile (
         "cmp                byte ptr [ecx + 0x0000008c], -0x11\n\t"
         "%{disp8%} je         LAB__addr_0x00752156\n\t"
@@ -4311,14 +4306,13 @@ uint32_t __fastcall CanPauseForASecond__8VillagerFUc(struct Villager* this, cons
         "mov                eax, 0x00000001\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x00752156:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_ret))
 struct Abode* __fastcall GetAbode__8VillagerFv(const struct Villager* this)
 {
     struct Abode* result = this->home;
@@ -4359,6 +4353,7 @@ struct Abode* __fastcall GetAbode__8VillagerFv(const struct Villager* this)
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall ToBeDeleted__8VillagerFi(struct Base* this, const void* edx, int param_1)
 {
     asm volatile (
@@ -4369,16 +4364,15 @@ void __fastcall ToBeDeleted__8VillagerFi(struct Base* this, const void* edx, int
         "push               eax\n\t"
         "mov.s              ecx, esi\n\t"
         "call               @ToBeDeleted__6LivingFi@12\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 uint32_t __fastcall CallState__8VillagerFv(struct Villager* this)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "xor.s              eax, eax\n\t"
@@ -4399,16 +4393,16 @@ uint32_t __fastcall CallState__8VillagerFv(struct Villager* this)
         "call               eax\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsPregnant__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsPregnant__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [ecx + 0x28]\n\t"
         "push               esi\n\t"
@@ -4421,16 +4415,16 @@ bool __fastcall IsPregnant__8VillagerFv(struct Villager* this)
         "%{disp8%} jne        LAB__addr_0x00752230\n"
         "LAB__addr_0x0075222e:\n\t"
         "xor.s              eax, eax\n"
-        "LAB__addr_0x00752230:\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "LAB__addr_0x00752230:"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 uint32_t __fastcall WomanSpecial__8VillagerFv(struct Villager* this)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -4454,16 +4448,16 @@ uint32_t __fastcall WomanSpecial__8VillagerFv(struct Villager* this)
         "ret\n"
         "LAB__addr_0x0075227d:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsVillagerAvailable__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsVillagerAvailable__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -4480,16 +4474,16 @@ bool __fastcall IsVillagerAvailable__8VillagerFv(struct Villager* this)
         "ret\n"
         "LAB__addr_0x007522b1:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAvailableToBeSummonedByCreature__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsAvailableToBeSummonedByCreature__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -4521,16 +4515,16 @@ bool __fastcall IsAvailableToBeSummonedByCreature__8VillagerFv(struct Villager* 
         "ret\n"
         "LAB__addr_0x0075230e:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall CallExitStateFunction__8VillagerF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               ebx\n\t"
@@ -4592,16 +4586,16 @@ uint32_t __fastcall CallExitStateFunction__8VillagerF15VILLAGER_STATES(struct Li
         "pop                ebp\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x08\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall CallEntryStateFunction__Uc__8VillagerFUc(struct Living* this, const void* edx, enum VILLAGER_STATES state)
 {
+    uint32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -4644,16 +4638,16 @@ uint32_t __fastcall CallEntryStateFunction__Uc__8VillagerFUc(struct Living* this
         "pop                edi\n\t"
         "pop                esi\n\t"
         "mov.s              eax, ecx\n\t"
-        "pop                ecx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 uint32_t __fastcall CallEntryStateFunction__UcUc__8VillagerFUcUc(struct Living* this, const void* edx, enum VILLAGER_STATES current, enum VILLAGER_STATES destination)
 {
+    uint32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -4708,16 +4702,16 @@ uint32_t __fastcall CallEntryStateFunction__UcUc__8VillagerFUcUc(struct Living* 
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsStateEntryFunctionSameAs__8VillagerCFUlUl(const struct Villager* this, const void* edx, unsigned long param_1, unsigned long param_2)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
+bool32_t __fastcall IsStateEntryFunctionSameAs__8VillagerCFUlUl(const struct Villager* this, const void* edx, unsigned long param_1, unsigned long param_2)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "%{disp8%} mov        ecx, dword ptr [esp + 0x08]\n\t"
@@ -4743,16 +4737,16 @@ bool __fastcall IsStateEntryFunctionSameAs__8VillagerCFUlUl(const struct Village
         "mov                eax, 0x00000001\n\t"
         "ret                0x0008\n"
         "LAB__addr_0x00752528:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsStateExitFunctionSameAs__8VillagerCF15VILLAGER_STATES(const struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall IsStateExitFunctionSameAs__8VillagerCF15VILLAGER_STATES(const struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
+    bool32_t result;
     asm volatile (
         "mov                eax, dword ptr [ecx]\n\t"
         "push               ebx\n\t"
@@ -4797,14 +4791,13 @@ bool __fastcall IsStateExitFunctionSameAs__8VillagerCF15VILLAGER_STATES(const st
         "pop                edi\n\t"
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_ret))
 bool __fastcall IsReactiveState__8VillagerFUl(struct Villager* this, const void* edx, unsigned long param_1)
 {
     asm volatile (
@@ -4834,9 +4827,10 @@ bool __fastcall IsReactiveState__8VillagerFUl(struct Villager* this, const void*
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsHungry__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsHungry__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "%{disp32%} fld       dword ptr [ecx + 0x000000e8]\n\t"
@@ -4847,16 +4841,16 @@ bool __fastcall IsHungry__8VillagerFv(struct Villager* this)
         "mov                eax, 0x00000001\n\t"
         "ret\n"
         "LAB__addr_0x0075261c:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsWoman__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsWoman__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "cmp                dword ptr [eax + 0x000001f8], 0x01\n\t"
@@ -4868,16 +4862,16 @@ bool __fastcall IsWoman__8VillagerFv(struct Villager* this)
         "mov                eax, 0x00000001\n\t"
         "ret\n"
         "LAB__addr_0x0075263e:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 struct GVillagerInfo* __cdecl Find__13GVillagerInfoF10TRIBE_TYPE15VILLAGER_NUMBER(enum TRIBE_TYPE type, int villager_number)
 {
+    struct GVillagerInfo* result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
         "push               esi\n\t"
@@ -4896,16 +4890,16 @@ struct GVillagerInfo* __cdecl Find__13GVillagerInfoF10TRIBE_TYPE15VILLAGER_NUMBE
         ".byte              0x72, 0xe4\n\t"
         "xor.s              eax, eax\n"
         "LAB__addr_0x00752681:\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall MakeVillagesMeet__8VillagerFP8Villager15VILLAGER_STATESf(struct Villager* this, const void* edx, struct Villager* param_1, enum VILLAGER_STATES param_2, float param_3)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x000c)))
+bool32_t __fastcall MakeVillagesMeet__8VillagerFP8Villager15VILLAGER_STATESf(struct Villager* this, const void* edx, struct Villager* param_1, enum VILLAGER_STATES param_2, float param_3)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               esi\n\t"
@@ -4982,15 +4976,16 @@ bool __fastcall MakeVillagesMeet__8VillagerFP8Villager15VILLAGER_STATESf(struct 
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall MakeVillagerFaceObject__8VillagerFP6Object(struct Villager* this, const void* edx, struct Object* param_1)
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall MakeVillagerFaceObject__8VillagerFP6Object(struct Villager* this, const void* edx, struct Object* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "push               esi\n\t"
@@ -5009,15 +5004,16 @@ bool __fastcall MakeVillagerFaceObject__8VillagerFP6Object(struct Villager* this
         "mov.s              ecx, esi\n\t"
         "call               @SetGameAngle__13MobileWallHugFUs@10\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 int __fastcall ExitReaction__8VillagerF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
+    int result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -5038,15 +5034,16 @@ int __fastcall ExitReaction__8VillagerF15VILLAGER_STATES(struct Living* this, co
         "call               dword ptr [edx + 0x998]\n"
         "LAB__addr_0x007527d5:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall ExitDance__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall ExitDance__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               ebx\n\t"
         "%{disp8%} mov        ebx, dword ptr [esp + 0x08]\n\t"
@@ -5069,16 +5066,16 @@ bool __fastcall ExitDance__8VillagerFUc(struct Villager* this, const void* edx, 
         "LAB__addr_0x00752810:\n\t"
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAvailableForWorshipSite__8VillagerFi(struct Villager* this, const void* edx, int param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall IsAvailableForWorshipSite__8VillagerFi(struct Villager* this, const void* edx, int param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -5103,16 +5100,16 @@ bool __fastcall IsAvailableForWorshipSite__8VillagerFi(struct Villager* this, co
         "ret                0x0004\n"
         "LAB__addr_0x00752858:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAtOrOnTheWayToWorshipSite__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsAtOrOnTheWayToWorshipSite__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -5139,11 +5136,10 @@ bool __fastcall IsAtOrOnTheWayToWorshipSite__8VillagerFv(struct Villager* this)
         "xor.s              eax, eax\n\t"
         "ret\n"
         "LAB__addr_0x007528a4:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint32_t __fastcall DebugShowTime__8VillagerFUlUcUc(struct Living* this, const void* edx, uint32_t param_1, uint8_t param_2, uint8_t param_3)
@@ -5157,7 +5153,7 @@ uint32_t __fastcall DebugShowTime__8VillagerFUlUcUc(struct Living* this, const v
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall SetAge__8VillagerFUl(struct Living* this, const void* edx, uint32_t age)
 {
     asm volatile (
@@ -5324,13 +5320,12 @@ void __fastcall SetAge__8VillagerFUl(struct Living* this, const void* edx, uint3
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebp\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
+        "pop                ebx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall SetScaleForAge__8VillagerFUl(struct Villager* this, const void* edx, unsigned long param_1)
 {
     asm volatile (
@@ -5403,16 +5398,15 @@ void __fastcall SetScaleForAge__8VillagerFUl(struct Villager* this, const void* 
         "call               dword ptr [eax + 0x124]\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
+        "pop                ebx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall SetStateWhenTappedOnAbode__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall SetStateWhenTappedOnAbode__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -5440,16 +5434,16 @@ bool __fastcall SetStateWhenTappedOnAbode__8VillagerFv(struct Villager* this)
         "LAB__addr_0x00752bc1:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 uint32_t __fastcall ValidToApplyThisToObject__8VillagerFP16GInterfaceStatusP6Object(struct Object* this, const void* edx, struct GInterfaceStatus* param_1, struct Object* param_2)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "%{disp8%} mov        esi, dword ptr [esp + 0x0c]\n\t"
@@ -5491,16 +5485,16 @@ uint32_t __fastcall ValidToApplyThisToObject__8VillagerFP16GInterfaceStatusP6Obj
         "LAB__addr_0x00752c2f:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x000c)))
 uint32_t __fastcall ApplyThisToObject__8VillagerFP16GInterfaceStatusP6ObjectP23GestureSystemPacketData(struct Object* this, const void* edx, struct GInterfaceStatus* param_1, struct Object* param_2, struct GestureSystemPacketData* param_3)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x00000198\n\t"
         "push               ebx\n\t"
@@ -5802,11 +5796,10 @@ uint32_t __fastcall ApplyThisToObject__8VillagerFP16GInterfaceStatusP6ObjectP23G
         "pop                ebp\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x00000198\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x00000198"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint32_t __fastcall GetScriptObjectType__8VillagerFv(struct GameThingWithPos* this)
@@ -5824,9 +5817,10 @@ uint32_t __fastcall GetScriptObjectType__8VillagerFv(struct GameThingWithPos* th
     return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsTouching_2__8VillagerCFP9MapCoords(const struct Object* this, const void* edx, struct MapCoords* param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall IsTouching_2__8VillagerCFP9MapCoords(const struct Object* this, const void* edx, struct MapCoords* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -5847,15 +5841,16 @@ bool __fastcall IsTouching_2__8VillagerCFP9MapCoords(const struct Object* this, 
         "mov                eax, 0x00000001\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x00753074:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall InterfaceSetInMagicHand__8VillagerFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -5902,13 +5897,13 @@ uint32_t __fastcall InterfaceSetInMagicHand__8VillagerFP16GInterfaceStatus(struc
         "mov.s              ecx, esi\n\t"
         "call               ?InterfaceSetInMagicHand@Living@@UAEIPAVGInterfaceStatus@@@Z\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 void __fastcall SetSpeedInMetres__8VillagerFfi(struct GameThingWithPos* this, const void* edx, float param_1, int param_2)
 {
     asm volatile (
@@ -5923,16 +5918,15 @@ void __fastcall SetSpeedInMetres__8VillagerFfi(struct GameThingWithPos* this, co
         "push               eax\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?SetSpeed@Villager@@QAEXJH@Z\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 uint32_t __fastcall FUN_00753140__8VillagerFv(struct Villager* this)
 {
+    uint32_t result;
     asm volatile (
         "push               ecx\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
@@ -5962,16 +5956,16 @@ uint32_t __fastcall FUN_00753140__8VillagerFv(struct Villager* this)
         "ret\n"
         "LAB__addr_0x00753190:\n\t"
         "xor.s              al, al\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsVagrant__8VillagerFv(struct Villager* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsVagrant__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov       eax, dword ptr [_game]\n\t"
         "%{disp32%} mov       eax, dword ptr [eax + 0x00205bfc]\n\t"
@@ -5987,14 +5981,13 @@ bool __fastcall IsVagrant__8VillagerFv(struct Villager* this)
         "xor.s              ecx, ecx\n\t"
         "test               eax, eax\n\t"
         "setne              cl\n\t"
-        "mov.s              eax, ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov.s              eax, ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 void __fastcall ReleaseFromScript__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -6140,13 +6133,12 @@ void __fastcall ReleaseFromScript__8VillagerFv(struct Villager* this)
         "%{disp8%} mov        dword ptr [ecx + 0x04], eax\n"
         "LAB__addr_0x00753335:\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
+        "pop                ecx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall TestSpecial__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -6172,15 +6164,15 @@ void __fastcall TestSpecial__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               ?ReleaseFromScript@Villager@@QAEXXZ\n\t"
         "and                word ptr [esi + 0x000000b4], -0x0401\n\t"
-        "pop                esi\n\t"
-        "ret"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x000c)))
 uint32_t __fastcall GetResourceFrom__8VillagerFP6Object13RESOURCE_TYPEs(struct Villager* this, const void* edx, struct Object* param_1, enum RESOURCE_TYPE param_2, short param_3)
 {
+    uint32_t result;
     asm volatile (
         "push               ebx\n\t"
         "push               ebp\n\t"
@@ -6232,13 +6224,13 @@ uint32_t __fastcall GetResourceFrom__8VillagerFP6Object13RESOURCE_TYPEs(struct V
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "mov.s              ax, bx\n\t"
-        "pop                ebx\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall SetFoodSpeedup__8VillagerFb(struct Living* this, const void* edx, bool param_1)
 {
     asm volatile (
@@ -6248,11 +6240,9 @@ void __fastcall SetFoodSpeedup__8VillagerFb(struct Living* this, const void* edx
         "%{disp32%} mov       byte ptr [ecx + 0x000000f0], -0x01\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x00753422:\n\t"
-        "%{disp32%} mov       byte ptr [ecx + 0x000000f0], 0x00\n\t"
-        "ret                0x0004"
+        "%{disp32%} mov       byte ptr [ecx + 0x000000f0], 0x00"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))
@@ -6280,18 +6270,18 @@ void __fastcall ProcessFoodSpeedup__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall IncreaseLife__8VillagerFf(struct Object* this, const void* edx, float param_1)
 {
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "push               eax\n\t"
-        "call               ?IncreaseLife@Object@@UAEXM@Z\n\t"
-        "ret                0x0004"
+        "call               ?IncreaseLife@Object@@UAEXM@Z"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 void __fastcall FindPosOutsideAbode__8VillagerFP5Abode(struct Villager* this, const void* edx, struct Abode* param_1)
 {
     asm volatile (
@@ -6353,11 +6343,9 @@ void __fastcall FindPosOutsideAbode__8VillagerFP5Abode(struct Villager* this, co
         "%{disp8%} mov        edx, dword ptr [esp + 0x10]\n\t"
         "%{disp8%} mov        dword ptr [ecx + 0x08], edx\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x28\n\t"
-        "ret                0x0008"
+        "add                esp, 0x28"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 struct Abode* __fastcall FUN_00753540__8VillagerFv(const struct Villager* this)
@@ -6381,6 +6369,7 @@ struct Abode* __fastcall FUN_00753540__8VillagerFv(const struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 void __fastcall AdjustTownModifier__8VillagerF15VILLAGER_STATESi(struct Villager* this, const void* edx, enum VILLAGER_STATES state, int param_2)
 {
     asm volatile (
@@ -6464,14 +6453,12 @@ void __fastcall AdjustTownModifier__8VillagerF15VILLAGER_STATESi(struct Villager
         "LAB__addr_0x0075367c:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x00000408\n\t"
-        "ret                0x0008"
+        "add                esp, 0x00000408"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 void __fastcall SetState__8VillagerFUlUc(struct Living* this, const void* edx, enum LIVING_ACTION_INDEX index, enum VILLAGER_STATES state)
 {
     asm volatile (
@@ -6542,11 +6529,9 @@ void __fastcall SetState__8VillagerFUlUc(struct Living* this, const void* edx, e
         "LAB__addr_0x00753734:\n\t"
         "pop                edi\n\t"
         "pop                ebp\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0008"
+        "pop                ebx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 void __fastcall SetStateSpeed__8VillagerFv(struct Living* this)
@@ -6565,7 +6550,7 @@ void __fastcall SetStateSpeed__8VillagerFv(struct Living* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall SetStateSpeed__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
     asm volatile (
@@ -6870,14 +6855,12 @@ void __fastcall SetStateSpeed__8VillagerFUc(struct Villager* this, const void* e
         "pop                ebx\n"
         "LAB__addr_0x00753b48:\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret                0x0004"
+        "add                esp, 0x10"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_ret))
 uint32_t __fastcall SetupNothingToDo__8VillagerFv(struct Villager* this)
 {
     asm("sub                esp, 0x0c");                                     // 0x00753b50    83ec0c
@@ -6987,9 +6970,10 @@ uint32_t __fastcall SetupNothingToDo__8VillagerFv(struct Villager* this)
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall GetChillOutPos__8VillagerFR9MapCoords(struct Villager* this, const void* edx, struct MapCoords* coords)
 {
+    uint32_t result;
     asm volatile (
         "sub               esp, 0x2c\n\t"
         "push              esi\n\t"
@@ -7101,11 +7085,10 @@ uint32_t __fastcall GetChillOutPos__8VillagerFR9MapCoords(struct Villager* this,
         "LAB__addr_0x00753dbb:\n\t"
         "xor.s             eax, eax\n\t"
         "pop               esi\n\t"
-        "add               esp, 0x10\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add               esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -7146,8 +7129,10 @@ uint32_t __fastcall RemoveFromGame__8VillagerFv(struct Object* this)
     return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 struct GameThingWithPos* __fastcall GetResourceDropoffPos__8VillagerF13RESOURCE_TYPE(struct Villager* this, const void* edx, enum RESOURCE_TYPE param_1)
 {
+    struct GameThingWithPos* result;
     asm volatile (
         "sub               esp, 0x0c\n\t"
         "push              ebx\n\t"
@@ -7230,15 +7215,16 @@ struct GameThingWithPos* __fastcall GetResourceDropoffPos__8VillagerF13RESOURCE_
         "pop               esi\n\t"
         "%{disp8%} mov       dword ptr [ecx + 0x08], edx\n\t"
         "pop               ebx\n\t"
-        "add               esp, 0x0c\n\t"
-        "ret               0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add               esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall IsFinalState__8VillagerF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall IsFinalState__8VillagerF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov       eax, dword ptr [esp + 0x04]\n\t"
         "and               eax, 0x000000ff\n\t"
@@ -7246,16 +7232,16 @@ bool __fastcall IsFinalState__8VillagerF15VILLAGER_STATES(struct Living* this, c
         "shl               ecx, 3\n\t"
         "sub.s             ecx, eax\n\t"
         "lea               eax, dword ptr [ecx + ecx * 0x2]\n\t"
-        "%{disp32%} mov      eax, dword ptr [eax * 0x4 + 0x00db9e84]\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp32%} mov      eax, dword ptr [eax * 0x4 + 0x00db9e84]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 enum HELP_TEXT __fastcall GetQueryFirstEnumText__8VillagerFv(struct GameThingWithPos* this)
 {
+    enum HELP_TEXT result;
     asm volatile (
         "push              esi\n\t"
         "mov.s             esi, ecx\n\t"
@@ -7299,16 +7285,16 @@ enum HELP_TEXT __fastcall GetQueryFirstEnumText__8VillagerFv(struct GameThingWit
         "mov.s             ecx, esi\n\t"
         "call              ?GetQueryFirstEnumText@Object@@UAE?AW4HELP_TEXT@@XZ\n"
         "LAB__addr_0x00753f8e:\n\t"
-        "pop               esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 enum HELP_TEXT __fastcall GetQueryLastEnumText__8VillagerFv(struct GameThingWithPos* this)
 {
+    enum HELP_TEXT result;
     asm volatile (
         "push              esi\n\t"
         "mov.s             esi, ecx\n\t"
@@ -7384,11 +7370,10 @@ enum HELP_TEXT __fastcall GetQueryLastEnumText__8VillagerFv(struct GameThingWith
         "LAB__addr_0x00754049:\n\t"
         "mov.s             eax, edi\n\t"
         "pop               edi\n\t"
-        "pop               esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 extern uint32_t __fastcall GetFOVHelpMessageSet_Object(struct GameThingWithPos* this) asm("?GetFOVHelpMessageSet@Object@@UAEIXZ");
@@ -7405,9 +7390,10 @@ uint32_t __fastcall GetFOVHelpCondition__8VillagerFv(struct GameThingWithPos* th
     __attribute__((musttail)) return GetFOVHelpCondition_Object(this);
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 bool32_t __fastcall SetDiscipleNothingToDo__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub               esp, 0x0c\n\t"
         "push              esi\n\t"
@@ -7433,15 +7419,16 @@ bool32_t __fastcall SetDiscipleNothingToDo__8VillagerFv(struct Villager* this)
         "LAB__addr_0x007540bd:\n\t"
         "xor.s             eax, eax\n\t"
         "pop               esi\n\t"
-        "add               esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add               esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall DiscipleNothingToDo__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push              esi\n\t"
         "mov.s             esi, ecx\n\t"
@@ -7478,11 +7465,10 @@ bool32_t __fastcall DiscipleNothingToDo__8VillagerFv(struct Villager* this)
         "%{disp8%} mov       word ptr [esi + 0x58], 0x0001\n"
         "LAB__addr_0x00754132:\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall EnterDiscipleNothingToDo__8VillagerFUcUc(struct Villager* this, const void* edx, unsigned char param_1, unsigned char param_2)
@@ -7518,9 +7504,10 @@ bool32_t __fastcall EnterDiscipleNothingToDo__8VillagerFUcUc(struct Villager* th
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall FindDisciplePrayerPos__8VillagerFP9MapCoords(struct Villager* this, const void* edx, struct MapCoords* param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub               esp, 0x20\n\t"
         "push              ebx\n\t"
@@ -7602,16 +7589,16 @@ bool32_t __fastcall FindDisciplePrayerPos__8VillagerFP9MapCoords(struct Villager
         "pop               esi\n\t"
         "xor.s             eax, eax\n\t"
         "pop               ebx\n\t"
-        "add               esp, 0x20\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add               esp, 0x20"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall Save__8VillagerFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "push              esi\n\t"
         "%{disp8%} mov       esi, dword ptr [esp + 0x08]\n\t"
@@ -7850,16 +7837,16 @@ uint32_t __fastcall Save__8VillagerFR10GameOSFile(struct GameThing* this, const 
         "LAB__addr_0x0075456d:\n\t"
         "pop               edi\n\t"
         "xor.s             eax, eax\n\t"
-        "pop               esi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall Load__8VillagerFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "push              ebx\n\t"
         "push              esi\n\t"
@@ -8110,11 +8097,10 @@ uint32_t __fastcall Load__8VillagerFR10GameOSFile(struct GameThing* this, const 
         "LAB__addr_0x00754861:\n\t"
         "pop               esi\n\t"
         "xor.s             eax, eax\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -8140,9 +8126,10 @@ void __fastcall ResolveLoad__8VillagerFv(struct GameThing* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 bool32_t __fastcall CallSaveStateFunction__8VillagerFR10GameOSFile10STATE_TYPE(struct Villager* this, const void* edx, struct GameOSFile* param_1, enum STATE_TYPE param_2)
 {
+    bool32_t result;
     asm volatile (
         "sub               esp, 0x10\n\t"
         "%{disp8%} mov       edx, dword ptr [esp + 0x18]\n\t"
@@ -8181,16 +8168,16 @@ bool32_t __fastcall CallSaveStateFunction__8VillagerFR10GameOSFile10STATE_TYPE(s
         "pop               edi\n\t"
         "xor.s             eax, eax\n\t"
         "pop               esi\n\t"
-        "add               esp, 0x10\n\t"
-        "ret               0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add               esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 bool32_t __fastcall CallLoadStateFunction__8VillagerFR10GameOSFile10STATE_TYPE(struct Villager* this, const void* edx, struct GameOSFile* param_1, enum STATE_TYPE param_2)
 {
+    bool32_t result;
     asm volatile (
         "sub               esp, 0x10\n\t"
         "%{disp8%} mov       edx, dword ptr [esp + 0x18]\n\t"
@@ -8229,15 +8216,16 @@ bool32_t __fastcall CallLoadStateFunction__8VillagerFR10GameOSFile10STATE_TYPE(s
         "pop               edi\n\t"
         "xor.s             eax, eax\n\t"
         "pop               esi\n\t"
-        "add               esp, 0x10\n\t"
-        "ret               0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add               esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveStateFunction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push              ebx\n\t"
         "push              esi\n\t"
@@ -8258,16 +8246,16 @@ bool32_t __fastcall SaveStateFunction__8VillagerFR10GameOSFile(struct Villager* 
         "sbb.s             eax, eax\n\t"
         "pop               esi\n\t"
         "neg               eax\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadStateFunction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push              ebx\n\t"
         "push              esi\n\t"
@@ -8300,16 +8288,16 @@ bool32_t __fastcall LoadStateFunction__8VillagerFR10GameOSFile(struct Villager* 
         "%{disp8%} mov       word ptr [esi + 0x58], ax\n\t"
         "pop               esi\n\t"
         "xor.s             eax, eax\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveBuilding__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push              esi\n\t"
         "%{disp8%} mov       esi, dword ptr [esp + 0x08]\n\t"
@@ -8341,16 +8329,16 @@ bool32_t __fastcall SaveBuilding__8VillagerFR10GameOSFile(struct Villager* this,
         "LAB__addr_0x00754a55:\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               esi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadBuilding__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push              esi\n\t"
         "%{disp8%} mov       esi, dword ptr [esp + 0x08]\n\t"
@@ -8382,16 +8370,16 @@ bool32_t __fastcall LoadBuilding__8VillagerFR10GameOSFile(struct Villager* this,
         "LAB__addr_0x00754ab5:\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               esi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveDance__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -8440,16 +8428,16 @@ bool32_t __fastcall SaveDance__8VillagerFR10GameOSFile(struct Villager* this, co
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadDance__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -8499,16 +8487,16 @@ bool32_t __fastcall LoadDance__8VillagerFR10GameOSFile(struct Villager* this, co
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveWorship__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -8537,16 +8525,16 @@ bool32_t __fastcall SaveWorship__8VillagerFR10GameOSFile(struct Villager* this, 
         "pop               esi\n\t"
         "ret               0x0004\n"
         "LAB__addr_0x00754c4f:\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadWorship__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -8576,16 +8564,16 @@ bool32_t __fastcall LoadWorship__8VillagerFR10GameOSFile(struct Villager* this, 
         "ret               0x0004\n"
         "LAB__addr_0x00754caf:\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               edi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               edi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveDead__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -8614,16 +8602,16 @@ bool32_t __fastcall SaveDead__8VillagerFR10GameOSFile(struct Villager* this, con
         "pop               esi\n\t"
         "ret               0x0004\n"
         "LAB__addr_0x00754d0d:\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadDead__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -8653,16 +8641,16 @@ bool32_t __fastcall LoadDead__8VillagerFR10GameOSFile(struct Villager* this, con
         "ret               0x0004\n"
         "LAB__addr_0x00754d6d:\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               edi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               edi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveInHand__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -8691,16 +8679,16 @@ bool32_t __fastcall SaveInHand__8VillagerFR10GameOSFile(struct Villager* this, c
         "pop               esi\n\t"
         "ret               0x0004\n"
         "LAB__addr_0x00754dcf:\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadInHand__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -8730,44 +8718,46 @@ bool32_t __fastcall LoadInHand__8VillagerFR10GameOSFile(struct Villager* this, c
         "ret               0x0004\n"
         "LAB__addr_0x00754e2f:\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               edi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               edi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveFishing__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [ecx + 0x00000118]\n\t"
         "%{disp8%} mov       ecx, dword ptr [esp + 0x04]\n\t"
         "push              eax\n\t"
         "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadFishing__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "add               ecx, 0x00000118\n\t"
         "push              ecx\n\t"
         "%{disp8%} mov       ecx, dword ptr [esp + 0x08]\n\t"
         "call              @ReadPtr__10GameOSFileFPP9GameThing@12\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveFarming__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -8801,16 +8791,16 @@ bool32_t __fastcall SaveFarming__8VillagerFR10GameOSFile(struct Villager* this, 
         "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadFarming__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -8844,16 +8834,16 @@ bool32_t __fastcall LoadFarming__8VillagerFR10GameOSFile(struct Villager* this, 
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveFootball__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -8925,16 +8915,16 @@ bool32_t __fastcall SaveFootball__8VillagerFR10GameOSFile(struct Villager* this,
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadFootball__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -9008,16 +8998,16 @@ bool32_t __fastcall LoadFootball__8VillagerFR10GameOSFile(struct Villager* this,
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveShepherd__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -9066,16 +9056,16 @@ bool32_t __fastcall SaveShepherd__8VillagerFR10GameOSFile(struct Villager* this,
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadShepherd__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -9125,16 +9115,16 @@ bool32_t __fastcall LoadShepherd__8VillagerFR10GameOSFile(struct Villager* this,
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveInScript__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "push              ebx\n\t"
@@ -9221,16 +9211,16 @@ bool32_t __fastcall SaveInScript__8VillagerFR10GameOSFile(struct Villager* this,
         "pop               esi\n\t"
         "pop               ebp\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadInScript__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "push              ebx\n\t"
@@ -9320,16 +9310,16 @@ bool32_t __fastcall LoadInScript__8VillagerFR10GameOSFile(struct Villager* this,
         "pop               esi\n\t"
         "pop               ebp\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveScriptPos__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "push              ebx\n\t"
@@ -9416,16 +9406,16 @@ bool32_t __fastcall SaveScriptPos__8VillagerFR10GameOSFile(struct Villager* this
         "pop               esi\n\t"
         "pop               ebp\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadScriptPos__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "push              ebx\n\t"
@@ -9515,16 +9505,16 @@ bool32_t __fastcall LoadScriptPos__8VillagerFR10GameOSFile(struct Villager* this
         "pop               esi\n\t"
         "pop               ebp\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveFire__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -9558,16 +9548,16 @@ bool32_t __fastcall SaveFire__8VillagerFR10GameOSFile(struct Villager* this, con
         "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadFire__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -9601,15 +9591,16 @@ bool32_t __fastcall LoadFire__8VillagerFR10GameOSFile(struct Villager* this, con
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveDiscipleNothingToDo__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "cmp               byte ptr [ecx + 0x000000f2], 0x09\n\t"
         "%{disp8%} jne       LAB__addr_0x00755773\n\t"
@@ -9617,15 +9608,16 @@ bool32_t __fastcall SaveDiscipleNothingToDo__8VillagerFR10GameOSFile(struct Vill
         "push              eax\n\t"
         "call              ?SaveTrader@Villager@@QAEIAAVGameOSFile@@@Z\n"
         "LAB__addr_0x00755773:\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadDiscipleNothingToDo__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "cmp               byte ptr [ecx + 0x000000f2], 0x09\n\t"
         "%{disp8%} jne       LAB__addr_0x00755793\n\t"
@@ -9633,16 +9625,16 @@ bool32_t __fastcall LoadDiscipleNothingToDo__8VillagerFR10GameOSFile(struct Vill
         "push              eax\n\t"
         "call              ?LoadTrader@Villager@@QAEIAAVGameOSFile@@@Z\n"
         "LAB__addr_0x00755793:\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveTrader__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -9676,16 +9668,16 @@ bool32_t __fastcall SaveTrader__8VillagerFR10GameOSFile(struct Villager* this, c
         "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadTrader__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -9719,39 +9711,40 @@ bool32_t __fastcall LoadTrader__8VillagerFR10GameOSFile(struct Villager* this, c
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveInspectObject__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [ecx + 0x00000118]\n\t"
         "%{disp8%} mov       ecx, dword ptr [esp + 0x04]\n\t"
         "push              eax\n\t"
         "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadInspectObject__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "add               ecx, 0x00000118\n\t"
         "push              ecx\n\t"
         "%{disp8%} mov       ecx, dword ptr [esp + 0x08]\n\t"
         "call              @ReadPtr__10GameOSFileFPP9GameThing@12\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall SaveReaction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
@@ -9764,9 +9757,10 @@ bool32_t __fastcall LoadReaction__8VillagerFR10GameOSFile(struct Villager* this,
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveClearArea__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -9815,16 +9809,16 @@ bool32_t __fastcall SaveClearArea__8VillagerFR10GameOSFile(struct Villager* this
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadClearArea__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -9874,16 +9868,16 @@ bool32_t __fastcall LoadClearArea__8VillagerFR10GameOSFile(struct Villager* this
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveBreeder__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push              esi\n\t"
         "%{disp8%} mov       esi, dword ptr [esp + 0x08]\n\t"
@@ -9915,16 +9909,16 @@ bool32_t __fastcall SaveBreeder__8VillagerFR10GameOSFile(struct Villager* this, 
         "LAB__addr_0x00755a75:\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               esi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadBreeder__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push              esi\n\t"
         "%{disp8%} mov       esi, dword ptr [esp + 0x08]\n\t"
@@ -9956,43 +9950,46 @@ bool32_t __fastcall LoadBreeder__8VillagerFR10GameOSFile(struct Villager* this, 
         "LAB__addr_0x00755ad5:\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               esi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveForesting__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [ecx + 0x00000118]\n\t"
         "%{disp8%} mov       ecx, dword ptr [esp + 0x04]\n\t"
         "push              eax\n\t"
         "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadForesting__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "add               ecx, 0x00000118\n\t"
         "push              ecx\n\t"
         "%{disp8%} mov       ecx, dword ptr [esp + 0x08]\n\t"
         "call              @ReadPtr__10GameOSFileFPP9GameThing@12\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveFootPath__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push              esi\n\t"
         "mov.s             esi, ecx\n\t"
@@ -10008,15 +10005,16 @@ bool32_t __fastcall SaveFootPath__8VillagerFR10GameOSFile(struct Villager* this,
         "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               esi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadFootPath__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push              esi\n\t"
         "mov.s             esi, ecx\n\t"
@@ -10032,16 +10030,16 @@ bool32_t __fastcall LoadFootPath__8VillagerFR10GameOSFile(struct Villager* this,
         "call              @ReadPtr__10GameOSFileFPP9GameThing@12\n\t"
         "pop               edi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               esi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveInspectionReaction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -10090,16 +10088,16 @@ bool32_t __fastcall SaveInspectionReaction__8VillagerFR10GameOSFile(struct Villa
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadInspectionReaction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -10149,16 +10147,16 @@ bool32_t __fastcall LoadInspectionReaction__8VillagerFR10GameOSFile(struct Villa
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveMagicTreeReaction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -10207,16 +10205,16 @@ bool32_t __fastcall SaveMagicTreeReaction__8VillagerFR10GameOSFile(struct Villag
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall LoadMagicTreeReaction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -10266,16 +10264,16 @@ uint32_t __fastcall LoadMagicTreeReaction__8VillagerFR10GameOSFile(struct Villag
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall SaveHideInBuilding__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -10324,16 +10322,16 @@ uint32_t __fastcall SaveHideInBuilding__8VillagerFR10GameOSFile(struct Villager*
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall LoadHideInBuilding__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -10383,16 +10381,16 @@ uint32_t __fastcall LoadHideInBuilding__8VillagerFR10GameOSFile(struct Villager*
         "pop               edi\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall SaveShieldReaction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec990]\n\t"
         "test              eax, eax\n\t"
@@ -10421,16 +10419,16 @@ uint32_t __fastcall SaveShieldReaction__8VillagerFR10GameOSFile(struct Villager*
         "pop               esi\n\t"
         "ret               0x0004\n"
         "LAB__addr_0x00755f8f:\n\t"
-        "mov               eax, 0x00000001\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov               eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall LoadShieldReaction__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp32%} mov      eax, dword ptr [_DAT_00bec994]\n\t"
         "test              eax, eax\n\t"
@@ -10460,16 +10458,16 @@ uint32_t __fastcall LoadShieldReaction__8VillagerFR10GameOSFile(struct Villager*
         "ret               0x0004\n"
         "LAB__addr_0x00755fef:\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               edi\n\t"
-        "ret               0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               edi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x000c)))
 uint32_t __fastcall SetVillagerDisciple__8VillagerFP9GameThing17VILLAGER_DISCIPLEi(struct Villager* this, const void* edx, struct GameThing* param_1, enum VILLAGER_DISCIPLE param_2, int param_3)
 {
+    uint32_t result;
     asm volatile (
         "push              ebx\n\t"
         "%{disp8%} mov       ebx, dword ptr [esp + 0x0c]\n\t"
@@ -10539,16 +10537,16 @@ uint32_t __fastcall SetVillagerDisciple__8VillagerFP9GameThing17VILLAGER_DISCIPL
         "%{disp32%} mov      byte ptr [esi + 0x000000f2], bl\n\t"
         "pop               esi\n\t"
         "mov               eax, 0x00000001\n\t"
-        "pop               ebx\n\t"
-        "ret               0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 uint32_t __fastcall GetDiscipleStateIfInteractedWith__8VillagerFP16GInterfaceStatusP8Villager(struct Object* this, const void* edx, struct GInterfaceStatus* param_1, struct Villager* param_2)
 {
+    uint32_t result;
     asm volatile (
         "push              ebx\n\t"
         "push              esi\n\t"
@@ -10609,13 +10607,13 @@ uint32_t __fastcall GetDiscipleStateIfInteractedWith__8VillagerFP16GInterfaceSta
         "pop               edi\n\t"
         "pop               esi\n\t"
         "xor.s             eax, eax\n\t"
-        "pop               ebx\n\t"
-        "ret               0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop               ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_ret))
 uint32_t __fastcall ShowDiscipleIcon__8VillagerF17VILLAGER_DISCIPLE(struct Villager* this, const void* edx, enum VILLAGER_DISCIPLE param_1)
 {
     asm("{disp8} mov       eax, dword ptr [ecx + 0x40]");                   // 0x00756170    8b4140
@@ -10663,6 +10661,7 @@ void __fastcall DebugValidateState__8VillagerFv(struct Villager* this)
     return;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall ForceMoveVillagerToAbode__8VillagerFP5Abode(struct Villager* this, const void* edx, struct Abode* abode)
 {
     asm volatile (
@@ -10720,14 +10719,12 @@ void __fastcall ForceMoveVillagerToAbode__8VillagerFP5Abode(struct Villager* thi
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebp\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
+        "pop                ebx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall SetSkeleton__8VillagerFi(struct GameThingWithPos* this, const void* edx, int index)
 {
     asm volatile (
@@ -10878,11 +10875,9 @@ void __fastcall SetSkeleton__8VillagerFi(struct GameThingWithPos* this, const vo
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebp\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
+        "pop                ebx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 extern void __fastcall InsertMapObject__6ObjectFv(struct Object* this) __attribute__((noinline));
@@ -10892,9 +10887,10 @@ void __fastcall InsertMapObject__8VillagerFv(struct Object* this)
     __attribute__((musttail)) return InsertMapObject__6ObjectFv(this);
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsReachable__8VillagerFv(struct Object* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsReachable__8VillagerFv(struct Object* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -10925,11 +10921,10 @@ bool __fastcall IsReachable__8VillagerFv(struct Object* this)
         "xor.s              eax, eax\n\t"
         "cmp                cl, -0x14\n\t"
         "setne              al\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint32_t __fastcall ValidForPlaceInHand__8VillagerFP16GInterfaceStatus(struct Object* this, const void* edx, struct GInterfaceStatus* param_1)
@@ -10947,19 +10942,21 @@ uint32_t __fastcall ValidForPlaceInHand__8VillagerFP16GInterfaceStatus(struct Ob
     return result;
 }
 
+__attribute__((no_ret))
 bool __fastcall CanBecomeAPhysicsObject__8VillagerFv(struct Object* this)
 {
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "jmp dword ptr [eax + 0x530]"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0018)))
 uint32_t __fastcall AddResource__8VillagerF13RESOURCE_TYPEUlP16GInterfaceStatusbRC9MapCoordsi(struct GameThing* this, const void* edx, enum RESOURCE_TYPE param_1, uint32_t param_2, struct GInterfaceStatus* param_3, bool param_4, const struct MapCoords* param_5, int param_6)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "test               eax, eax\n\t"
@@ -10989,11 +10986,10 @@ uint32_t __fastcall AddResource__8VillagerF13RESOURCE_TYPEUlP16GInterfaceStatusb
         "call               ?PickupWood@Villager@@QAEXFE@Z\n"
         "LAB__addr_0x00756512:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0018"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 #if HAS_EXPAND_MOVZX
@@ -11053,9 +11049,10 @@ bool32_t __fastcall LoadLanded__8VillagerFR10GameOSFile(struct Villager* this, c
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 int __fastcall CallIntoAnimationFunction__8VillagerF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
+    int result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "xor.s              eax, eax\n\t"
@@ -11103,16 +11100,16 @@ int __fastcall CallIntoAnimationFunction__8VillagerF15VILLAGER_STATES(struct Liv
         "LAB__addr_0x00756612:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 int __fastcall CallOutofAnimationFunction__8VillagerF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
+    int result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               ebx\n\t"
@@ -11168,11 +11165,10 @@ int __fastcall CallOutofAnimationFunction__8VillagerF15VILLAGER_STATES(struct Li
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x10\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -11203,9 +11199,10 @@ struct MissionaryControl* __fastcall __ct__17MissionaryControlFv(struct Missiona
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 struct GPlayer* __fastcall GetPlayer__17MissionaryControlFv(struct GameThing* this)
 {
+    struct GPlayer* result;
     asm volatile (
         "%{disp8%} mov        ecx, dword ptr [ecx + 0x2c]\n\t"
         "test               ecx, ecx\n\t"
@@ -11213,11 +11210,10 @@ struct GPlayer* __fastcall GetPlayer__17MissionaryControlFv(struct GameThing* th
         "mov                eax, dword ptr [ecx]\n\t"
         "%{disp8%} jmp        dword ptr [eax + 0x1c]\n"
         "LAB__addr_0x0075670c:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 const char* __fastcall GetText__17MissionaryControlFv(struct GameThingWithPos* this)
@@ -11235,6 +11231,7 @@ char* __fastcall GetDebugText__17MissionaryControlFv(struct GameThing* this)
     return (char*)0xc236cc;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall __dt__17MissionaryControlFUi(struct Base* this, const void* edx, uint32_t param_1)
 {
     asm volatile (
@@ -11249,16 +11246,15 @@ void __fastcall __dt__17MissionaryControlFUi(struct Base* this, const void* edx,
         "add                esp, 0x08\n"
         "LAB__addr_0x0075675a:\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 struct MissionaryControl* __fastcall __ct__17MissionaryControlFP8VillagerP7GPlayer(struct MissionaryControl* this, const void* edx, struct Villager* param_1, struct GPlayer* param_2)
 {
+    struct MissionaryControl* result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -11286,25 +11282,27 @@ struct MissionaryControl* __fastcall __ct__17MissionaryControlFP8VillagerP7GPlay
         "%{disp8%} mov        dword ptr [esi + 0x2c], eax\n\t"
         "pop                edi\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_ret))
 void __fastcall __dt__17MissionaryControlFv(struct MissionaryControl* this)
 {
     asm volatile (
         "mov                dword ptr [ecx], 0x0099a424\n\t"
         "%{disp32%} jmp       _jmp_addr_0x0056fa80"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 float __fastcall GetImpressiveValue__17MissionaryControlFv(struct MissionaryControl* this)
 {
+    float result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "test               eax, eax\n\t"
@@ -11314,14 +11312,13 @@ float __fastcall GetImpressiveValue__17MissionaryControlFv(struct MissionaryCont
         "%{disp32%} fmul      dword ptr [eax + 0x000003a0]\n\t"
         "ret\n"
         "LAB__addr_0x007567d7:\n\t"
-        "%{disp32%} fld       dword ptr [_rdata_float0p0]\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp32%} fld       dword ptr [_rdata_float0p0]"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 void __fastcall Process__17MissionaryControlFv(struct MissionaryControl* this)
 {
     asm volatile (
@@ -11392,13 +11389,12 @@ void __fastcall Process__17MissionaryControlFv(struct MissionaryControl* this)
         "LAB__addr_0x00756865:\n\t"
         "%{disp8%} mov        dword ptr [esi + 0x2c], edi\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall ToBeDeleted__17MissionaryControlFi(struct Base* this, const void* edx, int param_1)
 {
     asm volatile (
@@ -11418,16 +11414,15 @@ void __fastcall ToBeDeleted__17MissionaryControlFi(struct Base* this, const void
         "push               eax\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?ToBeDeleted@GameThingWithPos@@UAEXH@Z\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall Load__17MissionaryControlFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -11452,16 +11447,16 @@ uint32_t __fastcall Load__17MissionaryControlFR10GameOSFile(struct GameThing* th
         "LAB__addr_0x007568d2:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 uint32_t __fastcall Save__17MissionaryControlFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* param_1)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -11486,15 +11481,16 @@ uint32_t __fastcall Save__17MissionaryControlFR10GameOSFile(struct GameThing* th
         "LAB__addr_0x00756912:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 float __fastcall GetImpressiveValue__17MissionaryControlFP6LivingP8Reaction(struct GameThingWithPos* this, const void* edx, struct Living* param_1, struct Reaction* param_2)
 {
+    float result;
     asm volatile (
         "push               ebx\n\t"
         "%{disp8%} mov        ebx, dword ptr [esp + 0x0c]\n\t"
@@ -11533,11 +11529,10 @@ float __fastcall GetImpressiveValue__17MissionaryControlFP6LivingP8Reaction(stru
         "pop                edi\n\t"
         "pop                esi\n\t"
         "%{disp8%} fmul       dword ptr [esp + 0x0c]\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void __fastcall FUN_00756990__8VillagerFv(struct MissionaryControl* this)
@@ -12048,20 +12043,23 @@ void __fastcall ClosestObjectValidate__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 struct MapCoords* __fastcall GetFinalDestPos__8VillagerFP9MapCoords(struct Living* this, const void* edx, struct MapCoords* param_1)
 {
+    struct MapCoords* result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "push               eax\n\t"
-        "call               @GetFinalDestPos__6LivingFP9MapCoords@12\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "call               @GetFinalDestPos__6LivingFP9MapCoords@12"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
 uint32_t __fastcall ThrowObjectFromHand__8VillagerFP16GInterfaceStatusi(struct Object* this, const void* edx, struct GInterfaceStatus* param_1, int param_2)
 {
+    uint32_t result;
     asm volatile (
         "push               ebx\n\t"
         "push               esi\n\t"
@@ -12099,27 +12097,27 @@ uint32_t __fastcall ThrowObjectFromHand__8VillagerFP16GInterfaceStatusi(struct O
         "call               ?ThrowObjectFromHand@Object@@UAEIPAVGInterfaceStatus@@H@Z\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsDrowning__8VillagerFv(struct GameThingWithPos* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsDrowning__8VillagerFv(struct GameThingWithPos* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov       dl, byte ptr [ecx + 0x0000008c]\n\t"
         "xor.s              eax, eax\n\t"
         "cmp                dl, 0x10\n\t"
-        "sete               al\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "sete               al"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetLife__8VillagerFf(struct Object* this, const void* edx, float param_1)
 {
     asm("push               esi");                                           // 0x00756b40    56
@@ -12164,10 +12162,9 @@ void __fastcall SetLife__8VillagerFf(struct Object* this, const void* edx, float
     asm("mov.s              ecx, esi");                                      // 0x00756bb4    8bce
     asm("call               @SetLife__6ObjectFf@12");                        // 0x00756bb6    e88535eeff
     asm("pop                esi");                                           // 0x00756bbb    5e
-    asm("ret                0x0004");                                        // 0x00756bbc    c20400
-    __builtin_unreachable();
 }
 
+__attribute__((no_ret))
 void __fastcall FUN_00756bc0__8VillagerFf(struct Villager* this, const void* edx, float param_1)
 {
     asm("mov                eax, dword ptr [ecx]");                          // 0x00756bc0    8b01
@@ -12246,9 +12243,10 @@ void __fastcall FindChildrenAndOrphanThem__8VillagerFv(struct Villager* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsMovingForAnimation__8VillagerFv(struct Living* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsMovingForAnimation__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "xor.s              eax, eax\n\t"
         "%{disp32%} mov       al, byte ptr [ecx + 0x0000008c]\n\t"
@@ -12257,9 +12255,9 @@ bool __fastcall IsMovingForAnimation__8VillagerFv(struct Living* this)
         "shl                eax, 3\n\t"
         "sub.s              eax, ecx\n\t"
         "lea                ecx, dword ptr [eax + eax * 0x2]\n\t"
-        "%{disp32%} mov       eax, dword ptr [ecx * 0x4 + 0x00db9e8c]\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp32%} mov       eax, dword ptr [ecx * 0x4 + 0x00db9e8c]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
+

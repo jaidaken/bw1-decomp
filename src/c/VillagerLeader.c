@@ -6,6 +6,7 @@ const float villager_leader_seconds_in_day_0x0099a9b4 = 86400.0f;
 
 float villager_leader_seconds_in_year_0x00db9e20;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x00762680(void)
 {
     asm volatile (

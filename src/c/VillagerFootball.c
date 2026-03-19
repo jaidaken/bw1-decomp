@@ -36,6 +36,7 @@ __attribute__((aligned(4))) char s_VillagerFootball_cpp[] = "C:\\dev\\MP\\Black\
 uint32_t villager_football_uint_0x00db9e0c;
 float villager_football_seconds_in_year_0x00db9e10;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x0075c100(void)
 {
     asm volatile (
@@ -959,6 +960,7 @@ void __cdecl FUN_0075cc80__8VillagerFv(void)
     );
 }
 
+__attribute__((no_callee_saves))
 void __fastcall AssignFootballSubState__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -986,14 +988,12 @@ void __fastcall AssignFootballSubState__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               ?AssignFootballAttackerSubState@Villager@@QAEXXZ\n"
         "LAB__addr_0x0075d164:\n\t"
-        "pop                esi\n\t"
-        "ret"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall AssignFootballAttackerSubState__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -1061,16 +1061,15 @@ void __fastcall AssignFootballAttackerSubState__8VillagerFv(struct Villager* thi
         "pop                ebx\n"
         "LAB__addr_0x0075d21f:\n\t"
         "pop                edi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FootballAttacker__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -1130,13 +1129,13 @@ bool32_t __fastcall FootballAttacker__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0x8c8]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballAttackerShootProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -1210,14 +1209,12 @@ void __fastcall FootballAttackerShootProcess__8VillagerFP8Football(struct Villag
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall FootballAttackerPassProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -1347,13 +1344,12 @@ void __fastcall FootballAttackerPassProcess__8VillagerFP8Football(struct Village
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballAttackerLobNearGoalProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -1461,13 +1457,12 @@ void __fastcall FootballAttackerLobNearGoalProcess__8VillagerFP8Football(struct 
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballAttackerDribbleProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -1620,13 +1615,12 @@ void __fastcall FootballAttackerDribbleProcess__8VillagerFP8Football(struct Vill
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x50\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x50"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballAttackerMoveToBePassedProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -1791,13 +1785,12 @@ void __fastcall FootballAttackerMoveToBePassedProcess__8VillagerFP8Football(stru
         "%{disp32%} mov       byte ptr [esi + 0x00000118], 0x01\n\t"
         "pop                esi\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x3c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x3c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballAttackerGoToBallProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -1882,13 +1875,12 @@ void __fastcall FootballAttackerGoToBallProcess__8VillagerFP8Football(struct Vil
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballAttackerGoHomeProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -1917,13 +1909,12 @@ void __fastcall FootballAttackerGoHomeProcess__8VillagerFP8Football(struct Villa
         "pop                edi\n\t"
         "%{disp32%} mov       byte ptr [esi + 0x00000118], 0x01\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballAttackerIdleProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -1951,16 +1942,15 @@ void __fastcall FootballAttackerIdleProcess__8VillagerFP8Football(struct Village
         "%{disp32%} mov       byte ptr [esi + 0x00000118], 0x01\n"
         "LAB__addr_0x0075dc0d:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 float __fastcall FootballAttackerShootPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    float result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               ebx\n\t"
@@ -2078,15 +2068,16 @@ float __fastcall FootballAttackerShootPriority__8VillagerFP8Football(struct Vill
         "LAB__addr_0x0075dd71:\n\t"
         "%{disp8%} fld        dword ptr [esp + 0x00]\n\t"
         "%{disp8%} fmul       dword ptr [esp + 0x1c]\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 float __fastcall FootballAttackerPassPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    float result;
     asm volatile (
         "push               ecx\n\t"
         "%{disp8%} mov        ecx, dword ptr [esp + 0x08]\n\t"
@@ -2101,11 +2092,10 @@ float __fastcall FootballAttackerPassPriority__8VillagerFP8Football(struct Villa
         "add                esp, 0x0c\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x0075ddad:\n\t"
-        "%{disp32%} fld       dword ptr [_rdata_float0p0]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp32%} fld       dword ptr [_rdata_float0p0]"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 float __fastcall FootballAttackerLobNearGoalPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -2114,8 +2104,10 @@ float __fastcall FootballAttackerLobNearGoalPriority__8VillagerFP8Football(struc
     return rdata_float0p0;
 }
 
+__attribute__((no_callee_saves))
 float __fastcall FootballAttackerDribblePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    float result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -2170,15 +2162,16 @@ float __fastcall FootballAttackerDribblePriority__8VillagerFP8Football(struct Vi
         "fstp               st(0)\n\t"
         "%{disp32%} fld       dword ptr [_rdata_float1p0]\n"
         "LAB__addr_0x0075de65:\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 float __fastcall FootballAttackerMoveToBePassedPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    float result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2221,11 +2214,10 @@ float __fastcall FootballAttackerMoveToBePassedPriority__8VillagerFP8Football(st
         "%{disp8%} jne        LAB__addr_0x0075deec\n\t"
         "fstp               st(0)\n\t"
         "%{disp32%} fld       dword ptr [__real@3e4ccccd]\n"
-        "LAB__addr_0x0075deec:\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "LAB__addr_0x0075deec:"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 float __fastcall FootballAttackerGoToBallPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -2234,8 +2226,10 @@ float __fastcall FootballAttackerGoToBallPriority__8VillagerFP8Football(struct V
     return rdata_float0p0;
 }
 
+__attribute__((no_callee_saves))
 float __fastcall FootballAttackerGoHomePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    float result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -2294,15 +2288,16 @@ float __fastcall FootballAttackerGoHomePriority__8VillagerFP8Football(struct Vil
         "fstp               st(0)\n\t"
         "%{disp32%} fld       dword ptr [_rdata_float1p0]\n"
         "LAB__addr_0x0075df9b:\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 float __fastcall FootballAttackerIdlePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    float result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               ebx\n\t"
@@ -2390,14 +2385,13 @@ float __fastcall FootballAttackerIdlePriority__8VillagerFP8Football(struct Villa
         "fstp               st(0)\n\t"
         "%{disp32%} fld       dword ptr [_rdata_float1p0]\n"
         "LAB__addr_0x0075e0a7:\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall AssignFootballDefenderSubState__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -2465,16 +2459,15 @@ void __fastcall AssignFootballDefenderSubState__8VillagerFv(struct Villager* thi
         "pop                ebx\n"
         "LAB__addr_0x0075e15f:\n\t"
         "pop                edi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FootballDefender__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -2534,13 +2527,13 @@ bool32_t __fastcall FootballDefender__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0x8c8]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballDefenderSaveProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -2643,11 +2636,9 @@ void __fastcall FootballDefenderSaveProcess__8VillagerFP8Football(struct Village
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 void __fastcall FootballDefenderClearProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -2660,6 +2651,7 @@ void __fastcall FootballDefenderClearProcess__8VillagerFP8Football(struct Villag
     );
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballDefenderDribbleProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -2812,13 +2804,12 @@ void __fastcall FootballDefenderDribbleProcess__8VillagerFP8Football(struct Vill
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x50\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x50"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballDefenderMarkProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -2839,13 +2830,12 @@ void __fastcall FootballDefenderMarkProcess__8VillagerFP8Football(struct Village
         "LAB__addr_0x0075e585:\n\t"
         "pop                edi\n\t"
         "%{disp32%} mov       byte ptr [esi + 0x00000118], 0x01\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballDefenderGoToBallProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -2930,13 +2920,12 @@ void __fastcall FootballDefenderGoToBallProcess__8VillagerFP8Football(struct Vil
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballDefenderGoHomeProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -2965,13 +2954,12 @@ void __fastcall FootballDefenderGoHomeProcess__8VillagerFP8Football(struct Villa
         "pop                edi\n\t"
         "%{disp32%} mov       byte ptr [esi + 0x00000118], 0x01\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballDefenderIdleProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -2999,14 +2987,12 @@ void __fastcall FootballDefenderIdleProcess__8VillagerFP8Football(struct Village
         "%{disp32%} mov       byte ptr [esi + 0x00000118], 0x01\n"
         "LAB__addr_0x0075e71d:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall FootballDefenderPassProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -3136,11 +3122,9 @@ void __fastcall FootballDefenderPassProcess__8VillagerFP8Football(struct Village
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 float __fastcall FootballDefenderSavePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -3173,8 +3157,10 @@ float __fastcall FootballDefenderClearPriority__8VillagerFP8Football(struct Vill
     return result;
 }
 
+__attribute__((no_callee_saves))
 float __fastcall FootballDefenderDribblePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    float result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -3229,11 +3215,10 @@ float __fastcall FootballDefenderDribblePriority__8VillagerFP8Football(struct Vi
         "fstp               st(0)\n\t"
         "%{disp32%} fld       dword ptr [_rdata_float1p0]\n"
         "LAB__addr_0x0075e965:\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 float __fastcall FootballDefenderMarkPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -3281,8 +3266,10 @@ float __fastcall FootballDefenderIdlePriority__8VillagerFP8Football(struct Villa
     return result;
 }
 
+__attribute__((no_callee_saves))
 float __fastcall FootballDefenderPassPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    float result;
     asm volatile (
         "push               ecx\n\t"
         "%{disp8%} mov        ecx, dword ptr [esp + 0x08]\n\t"
@@ -3297,16 +3284,16 @@ float __fastcall FootballDefenderPassPriority__8VillagerFP8Football(struct Villa
         "add                esp, 0x0c\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x0075e9fd:\n\t"
-        "%{disp32%} fld       dword ptr [_rdata_float0p0]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp32%} fld       dword ptr [_rdata_float0p0]"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FootballGoalie__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -3366,14 +3353,13 @@ bool32_t __fastcall FootballGoalie__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0x8c8]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall AssignFootballGoalieSubState__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -3441,13 +3427,12 @@ void __fastcall AssignFootballGoalieSubState__8VillagerFv(struct Villager* this)
         "pop                ebx\n"
         "LAB__addr_0x0075eb5f:\n\t"
         "pop                edi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballGoalieSaveProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -3524,11 +3509,9 @@ void __fastcall FootballGoalieSaveProcess__8VillagerFP8Football(struct Villager*
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 void __fastcall FootballGoalieClearProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -3541,6 +3524,7 @@ void __fastcall FootballGoalieClearProcess__8VillagerFP8Football(struct Villager
     );
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballGoalieLookProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -3577,13 +3561,12 @@ void __fastcall FootballGoalieLookProcess__8VillagerFP8Football(struct Villager*
         "%{disp32%} mov       byte ptr [esi + 0x00000118], 0x01\n"
         "LAB__addr_0x0075ecbf:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballGoalieGoToBallProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -3666,13 +3649,12 @@ void __fastcall FootballGoalieGoToBallProcess__8VillagerFP8Football(struct Villa
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FootballGoalieGoHomeProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -3700,11 +3682,9 @@ void __fastcall FootballGoalieGoHomeProcess__8VillagerFP8Football(struct Village
         "pop                edi\n\t"
         "%{disp32%} mov       byte ptr [esi + 0x00000118], 0x01\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 void __fastcall FootballGoalieIdleProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -3717,7 +3697,7 @@ void __fastcall FootballGoalieIdleProcess__8VillagerFP8Football(struct Villager*
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall FootballGoaliePassProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
     asm volatile (
@@ -3877,11 +3857,9 @@ void __fastcall FootballGoaliePassProcess__8VillagerFP8Football(struct Villager*
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 float __fastcall FootballGoalieSavePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -3969,8 +3947,10 @@ float __fastcall FootballGoaliePassPriority__8VillagerFP8Football(struct Village
     return result;
 }
 
-bool __fastcall FootballerIsTouchingBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall FootballerIsTouchingBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -3985,15 +3965,16 @@ bool __fastcall FootballerIsTouchingBallPrecondition__8VillagerFP8Football(struc
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edi + 0x6b8]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall FootballerIsNotTouchingBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall FootballerIsNotTouchingBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -4011,15 +3992,16 @@ bool __fastcall FootballerIsNotTouchingBallPrecondition__8VillagerFP8Football(st
         "sbb.s              eax, eax\n\t"
         "pop                edi\n\t"
         "inc                eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall FootballerIsNearestBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall FootballerIsNearestBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -4035,16 +4017,16 @@ bool __fastcall FootballerIsNearestBallPrecondition__8VillagerFP8Football(struct
         "sbb.s              eax, eax\n\t"
         "pop                edi\n\t"
         "inc                eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall FootballerIsNotNearestBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall FootballerIsNotNearestBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -4061,16 +4043,16 @@ bool __fastcall FootballerIsNotNearestBallPrecondition__8VillagerFP8Football(str
         "sbb.s              eax, eax\n\t"
         "pop                edi\n\t"
         "neg                eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FootballerIsAtHomePrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -4106,16 +4088,16 @@ bool32_t __fastcall FootballerIsAtHomePrecondition__8VillagerFP8Football(struct 
         "ret                0x0004\n"
         "LAB__addr_0x0075f181:\n\t"
         "xor.s              eax, eax\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FootballerIsNotAtHomePrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -4151,16 +4133,16 @@ bool32_t __fastcall FootballerIsNotAtHomePrecondition__8VillagerFP8Football(stru
         "ret                0x0004\n"
         "LAB__addr_0x0075f1e1:\n\t"
         "xor.s              eax, eax\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FootballerIsQuiteNearBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -4180,16 +4162,16 @@ bool32_t __fastcall FootballerIsQuiteNearBallPrecondition__8VillagerFP8Football(
         "mov                eax, 0x00000001\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x0075f222:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FootballerIsNotQuiteNearBallPrecondition__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -4209,16 +4191,16 @@ bool32_t __fastcall FootballerIsNotQuiteNearBallPrecondition__8VillagerFP8Footba
         "mov                eax, 0x00000001\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x0075f262:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall StartMoveToPickUpBallForDeadBall__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -4245,11 +4227,10 @@ bool32_t __fastcall StartMoveToPickUpBallForDeadBall__8VillagerFv(struct Village
         "mov.s              ecx, esi\n\t"
         "call               ?StartMoveToObject@Villager@@QAEIPAVObject@@W4VILLAGER_STATES@@@Z\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall ArrivedAtPickUpBallForDeadBall__8VillagerFv(struct Villager* this)
@@ -4287,8 +4268,10 @@ bool32_t __fastcall ArrivedAtPutDownBallForDeadBallStart__8VillagerFv(struct Vil
     return 1;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ArrivedAtPutDownBallForDeadBallEnd__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               ebx\n\t"
@@ -4339,15 +4322,16 @@ bool32_t __fastcall ArrivedAtPutDownBallForDeadBallEnd__8VillagerFv(struct Villa
         "pop                ebp\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FootballMoveToBall__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -4412,9 +4396,9 @@ bool32_t __fastcall FootballMoveToBall__8VillagerFv(struct Villager* this)
         "mov                eax, dword ptr [esi]\n\t"
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [eax + 0x8c8]\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
+

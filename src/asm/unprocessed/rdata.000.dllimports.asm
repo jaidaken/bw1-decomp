@@ -605,6 +605,125 @@
 rdata_bytes:
 _rdata_bytes:
 
+// Named labels for unnamed rdata constants referenced as rdata_bytes + 0xNNNN in C source.
+// These are zero-width symbol aliases — no bytes emitted, no binary change.
+.set _rdata_const_0x17c, rdata_bytes + 0x17c
+.globl _rdata_const_0x17c
+.set _rdata_const_0x1c4, rdata_bytes + 0x1c4
+.globl _rdata_const_0x1c4
+.set _rdata_const_0x354, rdata_bytes + 0x354
+.globl _rdata_const_0x354
+.set _rdata_const_0x3dc, rdata_bytes + 0x3dc
+.globl _rdata_const_0x3dc
+.set _rdata_const_0x46c, rdata_bytes + 0x46c
+.globl _rdata_const_0x46c
+.set _rdata_const_0x758, rdata_bytes + 0x758
+.globl _rdata_const_0x758
+.set _rdata_const_0x75c, rdata_bytes + 0x75c
+.globl _rdata_const_0x75c
+.set _rdata_const_0x1f3c, rdata_bytes + 0x1f3c
+.globl _rdata_const_0x1f3c
+.set _rdata_const_0x235c, rdata_bytes + 0x235c
+.globl _rdata_const_0x235c
+.set _rdata_const_0x23d4, rdata_bytes + 0x23d4
+.globl _rdata_const_0x23d4
+.set _rdata_const_0x2414, rdata_bytes + 0x2414
+.globl _rdata_const_0x2414
+.set _rdata_const_0x2418, rdata_bytes + 0x2418
+.globl _rdata_const_0x2418
+.set _rdata_const_0x241c, rdata_bytes + 0x241c
+.globl _rdata_const_0x241c
+.set _rdata_const_0x2478, rdata_bytes + 0x2478
+.globl _rdata_const_0x2478
+.set _rdata_const_0x2678, rdata_bytes + 0x2678
+.globl _rdata_const_0x2678
+.set _rdata_const_0x26e4, rdata_bytes + 0x26e4
+.globl _rdata_const_0x26e4
+.set _rdata_const_0x26e8, rdata_bytes + 0x26e8
+.globl _rdata_const_0x26e8
+.set _rdata_const_0x33f4, rdata_bytes + 0x33f4
+.globl _rdata_const_0x33f4
+.set _rdata_const_0x3400, rdata_bytes + 0x3400
+.globl _rdata_const_0x3400
+.set _rdata_const_0x3404, rdata_bytes + 0x3404
+.globl _rdata_const_0x3404
+.set _rdata_const_0x3408, rdata_bytes + 0x3408
+.globl _rdata_const_0x3408
+.set _rdata_const_0x3418, rdata_bytes + 0x3418
+.globl _rdata_const_0x3418
+.set _rdata_const_0x341c, rdata_bytes + 0x341c
+.globl _rdata_const_0x341c
+.set _rdata_const_0x3420, rdata_bytes + 0x3420
+.globl _rdata_const_0x3420
+.set _rdata_const_0x16518, rdata_bytes + 0x16518
+.globl _rdata_const_0x16518
+.set _rdata_const_0x1651c, rdata_bytes + 0x1651c
+.globl _rdata_const_0x1651c
+.set _rdata_const_0x19c50, rdata_bytes + 0x19c50
+.globl _rdata_const_0x19c50
+.set _rdata_const_0x19c70, rdata_bytes + 0x19c70
+.globl _rdata_const_0x19c70
+.set _rdata_const_0x1ba04, rdata_bytes + 0x1ba04
+.globl _rdata_const_0x1ba04
+.set _rdata_const_0x1bb10, rdata_bytes + 0x1bb10
+.globl _rdata_const_0x1bb10
+.set _rdata_const_0x1c840, rdata_bytes + 0x1c840
+.globl _rdata_const_0x1c840
+.set _rdata_const_0x1c844, rdata_bytes + 0x1c844
+.globl _rdata_const_0x1c844
+.set _rdata_const_0x1dc98, rdata_bytes + 0x1dc98
+.globl _rdata_const_0x1dc98
+.set _rdata_const_0x1dc9c, rdata_bytes + 0x1dc9c
+.globl _rdata_const_0x1dc9c
+.set _rdata_const_0x1dca0, rdata_bytes + 0x1dca0
+.globl _rdata_const_0x1dca0
+.set _rdata_const_0x1dca4, rdata_bytes + 0x1dca4
+.globl _rdata_const_0x1dca4
+.set _rdata_const_0x1e658, rdata_bytes + 0x1e658
+.globl _rdata_const_0x1e658
+.set _rdata_const_0x1e728, rdata_bytes + 0x1e728
+.globl _rdata_const_0x1e728
+.set _rdata_const_0x1ea44, rdata_bytes + 0x1ea44
+.globl _rdata_const_0x1ea44
+.set _rdata_const_0x1ebd4, rdata_bytes + 0x1ebd4
+.globl _rdata_const_0x1ebd4
+.set _rdata_const_0x1ebdc, rdata_bytes + 0x1ebdc
+.globl _rdata_const_0x1ebdc
+.set _rdata_const_0x1ece0, rdata_bytes + 0x1ece0
+.globl _rdata_const_0x1ece0
+.set _rdata_const_0x1ee18, rdata_bytes + 0x1ee18
+.globl _rdata_const_0x1ee18
+.set _rdata_const_0x21280, rdata_bytes + 0x21280
+.globl _rdata_const_0x21280
+.set _rdata_const_0x23750, rdata_bytes + 0x23750
+.globl _rdata_const_0x23750
+.set _rdata_const_0x26000, rdata_bytes + 0x26000
+.globl _rdata_const_0x26000
+.set _rdata_const_0x261c0, rdata_bytes + 0x261c0
+.globl _rdata_const_0x261c0
+.set _rdata_const_0x26300, rdata_bytes + 0x26300
+.globl _rdata_const_0x26300
+.set _rdata_const_0x26338, rdata_bytes + 0x26338
+.globl _rdata_const_0x26338
+.set _rdata_const_0x267d8, rdata_bytes + 0x267d8
+.globl _rdata_const_0x267d8
+.set _rdata_const_0x2850c, rdata_bytes + 0x2850c
+.globl _rdata_const_0x2850c
+.set _rdata_const_0x36608, rdata_bytes + 0x36608
+.globl _rdata_const_0x36608
+.set _rdata_const_0x3660c, rdata_bytes + 0x3660c
+.globl _rdata_const_0x3660c
+.set _rdata_const_0x36610, rdata_bytes + 0x36610
+.globl _rdata_const_0x36610
+.set _rdata_const_0x56ec8, rdata_bytes + 0x56ec8
+.globl _rdata_const_0x56ec8
+.set _rdata_const_0x56f3c, rdata_bytes + 0x56f3c
+.globl _rdata_const_0x56f3c
+.set _rdata_const_0xd7188, rdata_bytes + 0xd7188
+.globl _rdata_const_0xd7188
+.set _rdata_const_0xf1100, rdata_bytes + 0xf1100
+.globl _rdata_const_0xf1100
+
 __imp__RegQueryValueExA@4:                                                                                                     .long 0x005c4f26 // 0x008a9000 ADVAPI32.DLL::RegQueryValueExA
 __imp__RegCloseKey@4:                                                                                                          .long 0x005c4ef4 // 0x008a9004 ADVAPI32.DLL::RegCloseKey
 __imp__RegCreateKeyExA@4:                                                                                                      .long 0x005c4f14 // 0x008a9008 ADVAPI32.DLL::RegCreateKeyExA

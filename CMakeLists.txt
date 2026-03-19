@@ -1017,6 +1017,10 @@ target_link_options(runblack-reassembled
         "/alternatename:?GetMesh@GObjectInfo@@UBE?AW4MeshId@@W4TRIBE_TYPE@@@Z=?GetMesh@GObjectInfo@@UBEIW4TRIBE_TYPE@@@Z"
         # MSVC 12.0 uses GameThing + I; original uses MultiMapFixed + K.
         "/alternatename:?GetShowNeedsPos@MultiMapFixed@@UAEIKPAUMapCoords@@@Z=?GetShowNeedsPos@GameThing@@UAEIIPAUMapCoords@@@Z"
+        # jmp_thunk aliases: opaque C names → real MSVC symbols (avoids Clang function reordering)
+        "/alternatename:__thunk_target_DeleteDependancys=?RemoveAllVillagersFromAbode@Abode@@QAEXXZ"
+        "/alternatename:__thunk_target_TakeWoodFromTreeForBuilding=?TakeWoodFromTree@Villager@@QAEIXZ"
+        "/alternatename:__thunk_target_UpdateAttitudeToCreature=?UpdateReactiveStateFromAttitudeToCreature@Villager@@QAEIXZ"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

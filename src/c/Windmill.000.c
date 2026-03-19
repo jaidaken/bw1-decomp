@@ -56,9 +56,10 @@ const struct RTTICompleteObjectLocator __RTTICompleteObjectLocator__8Windmill = 
   .pClassDescriptor = &__RTTIClassHierarchyDescriptor__8Windmill,
 };
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct Windmill* __cdecl Create__8WindmillFRC9MapCoordsPC10GAbodeInfoP4Townfffi(const struct MapCoords* coords, const struct GAbodeInfo* info, struct Town* town, float y_angle, float scale, float food, int wood)
 {
+    struct Windmill* result;
     asm volatile (
         "push               esi\n\t"
         "push               0x000005c4\n\t"
@@ -96,11 +97,10 @@ struct Windmill* __cdecl Create__8WindmillFRC9MapCoordsPC10GAbodeInfoP4Townfffi(
         "ret\n"
         "LAB__addr_0x004058ed:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint32_t __fastcall GetSaveType__8WindmillFv(struct GameThing* this)
@@ -113,6 +113,7 @@ char* __fastcall GetDebugText__8WindmillFv(struct GameThing* this)
     return (char*)0x009c8048;  // ??_C@_09ABCDEFGH@Windmill?$AA@
 }
 
+__attribute__((no_callee_saves))
 void __fastcall __dt__8WindmillFv(struct Base* this, const void* edx, uint32_t param_1)
 {
     asm volatile (
@@ -127,14 +128,12 @@ void __fastcall __dt__8WindmillFv(struct Base* this, const void* edx, uint32_t p
         "add                esp, 0x08\n"
         "LAB__addr_0x0040593d:\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall CallVirtualFunctionsForCreation__8WindmillFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* param_1)
 {
     asm volatile (
@@ -157,11 +156,9 @@ void __fastcall CallVirtualFunctionsForCreation__8WindmillFRC9MapCoords(struct O
         "call               ?Create@SoundTag@@SAPAV1@PAVGameThingWithPos@@K_NKKHHW4AUDIO_SFX_BANK_TYPE@@H@Z\n\t"
         "add                esp, 0x24\n"
         "LAB__addr_0x0040597c:\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 const struct RTTICompleteObjectLocator* const p__RTTICompleteObjectLocator__8Windmill = &__RTTICompleteObjectLocator__8Windmill;
@@ -766,7 +763,7 @@ __attribute__((section(".bss"))) float windmill_float_00c4cc74;
 __attribute__((section(".bss"))) float windmill_float_00c4cc78;
 __attribute__((section(".bss"))) int windmill_int_00c4cc7c;
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_ret))
 void __fastcall Open__8WindmillFv(struct Windmill* this)
 {
     asm volatile (
@@ -797,6 +794,7 @@ void __fastcall Open__8WindmillFv(struct Windmill* this)
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__RegSetValueExA@4]")))
 void __fastcall Close__8WindmillFv(struct Windmill* this)
 {
     asm volatile (
@@ -806,14 +804,12 @@ void __fastcall Close__8WindmillFv(struct Windmill* this)
         "mov                eax, dword ptr [ecx]\n\t"
         "call               dword ptr [eax + 4]\n\t"
         "%{disp32%} mov       dword ptr [_windmill_lh3d_object_00c4cc70], 0x00000000\n"
-        "LAB__addr_0x004059e9:\n\t"
-        "ret\n\t"
-        "call               dword ptr [__imp__RegSetValueExA@4]"
+        "LAB__addr_0x004059e9:"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall PreDraw__8WindmillFv(struct Windmill* this)
 {
     asm volatile (
@@ -843,9 +839,7 @@ void __fastcall PreDraw__8WindmillFv(struct Windmill* this)
         "%{disp32%} fstp      dword ptr [_windmill_float_00c4cc78]\n\t"
         "ret\n"
         "LAB__addr_0x00405a55:\n\t"
-        "fstp               st(0)\n\t"
-        "ret"
+        "fstp               st(0)"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }

@@ -1,6 +1,6 @@
 #include "PlannedAbode.h"
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_ret))
 bool __fastcall IsCivic__12PlannedAbodeFv(struct PlannedMultiMapFixed* this)
 {
     asm("call             ?GetInfo@PlannedAbode@@SAPAVGPlannedAbodeInfo@@XZ");              // 0x004060c0    e80bf6ffff

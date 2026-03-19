@@ -1,5 +1,6 @@
 #include "Game.h"
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x00)))
 void __stdcall KeyHandler__5GGameFUs6LH_KEYUsUsPv(struct GGame* this, unsigned short param_1, enum LH_KEY param_2, unsigned short param_3, unsigned short param_4, void* param_5)
 {
     asm volatile (
@@ -34,16 +35,15 @@ void __stdcall KeyHandler__5GGameFUs6LH_KEYUsUsPv(struct GGame* this, unsigned s
         "%{disp32%} lea       ecx, dword ptr [edx + 0x002502a8]\n\t"
         "call               _jmp_addr_0x005e1bf0\n"
         "LAB__addr_0x0054ffd5:\n\t"
-        "pop                esi\n\t"
-        "ret"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
-bool __stdcall MouseHandler__5GGameFPv19LH_MOUSE_EVENT_TYPEUlUl(struct GGame* this, void* param_1, enum LH_MOUSE_EVENT_TYPE param_2, unsigned long param_3, unsigned long param_4)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x00)))
+bool32_t __stdcall MouseHandler__5GGameFPv19LH_MOUSE_EVENT_TYPEUlUl(struct GGame* this, void* param_1, enum LH_MOUSE_EVENT_TYPE param_2, unsigned long param_3, unsigned long param_4)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
         "cmp                eax, 0x04\n\t"
@@ -90,11 +90,10 @@ bool __stdcall MouseHandler__5GGameFPv19LH_MOUSE_EVENT_TYPEUlUl(struct GGame* th
         "%{disp32%} mov       dword ptr [data_bytes + 0x33b9cc], 0x00000000\n\t"
         "call               ?ProcessPosition@CMouse@@QAEXXZ\n"
         "LAB__addr_0x0055007b:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -193,7 +192,7 @@ void __fastcall CreateMeshPack__5GGameFv(struct GGame* this)
     CreatePack_LH3DMesh();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, trailing_asm("call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
 void __cdecl LoadAllAnimations__Fv(void)
 {
     asm volatile (
@@ -396,17 +395,15 @@ void __cdecl LoadAllAnimations__Fv(void)
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebp\n\t"
-        "add                esp, 0x000000a0\n\t"
-        "ret\n\t"
-        "call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"
+        "add                esp, 0x000000a0"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall LoadFiles__5GGameFv(struct GGame* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall LoadFiles__5GGameFv(struct GGame* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               0x00bec8c8\n\t"
@@ -444,14 +441,13 @@ bool __fastcall LoadFiles__5GGameFv(struct GGame* this)
         "%{disp32%} lea       ecx, dword ptr [esi + 0x00205a30]\n\t"
         "call               _jmp_addr_0x0050f960\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall SetupPlayers__5GGameFv(struct GGame* this)
 {
     asm volatile (
@@ -714,14 +710,12 @@ void __fastcall SetupPlayers__5GGameFv(struct GGame* this)
         "LAB__addr_0x0055076b:\n\t"
         "pop                esi\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x000000f0\n\t"
-        "ret"
+        "add                esp, 0x000000f0"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall Dump__5GGameFv(struct Base* this)
 {
     asm volatile (
@@ -751,11 +745,9 @@ void __fastcall Dump__5GGameFv(struct Base* this)
         "nop\n\t"
         "nop\n\t"
         "nop\n\t"
-        "nop\n\t"
-        "ret"
+        "nop"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 void __fastcall LoopThroughPlayers__5GGameFv(struct GGame* this)
@@ -808,9 +800,10 @@ void __fastcall Birthday__5GGameFv(struct GGame* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 int __fastcall MyPlayerID__5GGameFUl(struct GGame* this, const void* edx, unsigned long param_1)
 {
+    int result;
     asm volatile (
         "push               ebx\n\t"
         "%{disp8%} mov        ebx, dword ptr [esp + 0x08]\n\t"
@@ -863,16 +856,16 @@ int __fastcall MyPlayerID__5GGameFUl(struct GGame* this, const void* edx, unsign
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebp\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct GPlayer* __fastcall GetNextPlayer__5GGameFP7GPlayer(struct GGame* this, const void* edx, struct GPlayer* param_1)
 {
+    struct GPlayer* result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "test               edx, edx\n\t"
@@ -889,16 +882,16 @@ struct GPlayer* __fastcall GetNextPlayer__5GGameFP7GPlayer(struct GGame* this, c
         "add                edx, 0x00000a60\n\t"
         "cmp                eax, 0x03\n\t"
         "%{disp8%} jne        LAB__addr_0x005508ab\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct GPlayer* __fastcall GetNextActivePlayer__5GGameFP7GPlayer(struct GGame* this, const void* edx, struct GPlayer* param_1)
 {
+    struct GPlayer* result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "test               edx, edx\n\t"
@@ -929,15 +922,16 @@ struct GPlayer* __fastcall GetNextActivePlayer__5GGameFP7GPlayer(struct GGame* t
         "add                edx, 0x00000a60\n\t"
         "cmp                eax, 0x03\n\t"
         "%{disp8%} jne        LAB__addr_0x005508db\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 struct GPlayer* __fastcall GetNextActivePlayerAndNeutral__5GGameFP7GPlayer(struct GGame* this, const void* edx, struct GPlayer* player)
 {
+    struct GPlayer* result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "test               edx, edx\n\t"
@@ -964,15 +958,16 @@ struct GPlayer* __fastcall GetNextActivePlayerAndNeutral__5GGameFP7GPlayer(struc
         "cmp.s              edx, ecx\n\t"
         "sbb.s              eax, eax\n\t"
         "and.s              eax, edx\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 struct GPlayer* __fastcall GetNextPlayerAndNeutral__5GGameFP7GPlayer(struct GGame* this, const void* edx, struct GPlayer* player)
 {
+    struct GPlayer* result;
     asm volatile (
         "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
         "test edx, edx\n\t"
@@ -988,16 +983,16 @@ struct GPlayer* __fastcall GetNextPlayerAndNeutral__5GGameFP7GPlayer(struct GGam
         "add ecx, 0x00005318\n\t"
         "cmp.s edx, ecx\n\t"
         ".byte 0x1b, 0xc0\n\t"
-        "and.s eax, edx\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "and.s eax, edx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct GPlayer* __fastcall GetPlayer__5GGameFUl(struct GGame* this, const void* edx, uint32_t param_1)
 {
+    struct GPlayer* result;
     asm volatile (
         "%{disp8%} mov eax, dword ptr [esp + 0x04]\n\t"
         "cmp eax, 0x08\n\t"
@@ -1008,16 +1003,16 @@ struct GPlayer* __fastcall GetPlayer__5GGameFUl(struct GGame* this, const void* 
         "lea edx, dword ptr [eax + edx * 0x8]\n\t"
         "lea eax, dword ptr [eax + edx * 0x2]\n\t"
         "shl eax, 5\n\t"
-        "%{disp8%} lea eax, dword ptr [eax + ecx * 0x1 + 0x18]\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp8%} lea eax, dword ptr [eax + ecx * 0x1 + 0x18]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
 struct GPlayer* __fastcall GetPlayerFromReal__5GGameFUl(struct GGame* this, const void* edx, unsigned long param_1)
 {
+    struct GPlayer* result;
     asm volatile (
         "%{disp8%} mov eax, dword ptr [esp + 0x04]\n\t"
         "cmp eax, 0x08\n\t"
@@ -1031,17 +1026,16 @@ struct GPlayer* __fastcall GetPlayerFromReal__5GGameFUl(struct GGame* this, cons
         "lea edx, dword ptr [eax + edx * 0x8]\n\t"
         "lea eax, dword ptr [eax + edx * 0x2]\n\t"
         "shl eax, 5\n\t"
-        "%{disp8%} lea eax, dword ptr [eax + ecx * 0x1 + 0x18]\n\t"
-        "ret 0x0004\n\t"
-        "call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp8%} lea eax, dword ptr [eax + ecx * 0x1 + 0x18]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct GInterface* __fastcall GetPlayerInterfaceFromReal__5GGameFUl(struct GGame* this, const void* edx, unsigned long param_1)
 {
+    struct GInterface* result;
     asm volatile (
         "%{disp8%} mov eax, dword ptr [esp + 0x04]\n\t"
         "cmp eax, 0x08\n\t"
@@ -1052,16 +1046,16 @@ struct GInterface* __fastcall GetPlayerInterfaceFromReal__5GGameFUl(struct GGame
         "push eax\n\t"
         "call ?GetPlayerFromReal@GGame@@QAEPAVGPlayer@@K@Z\n\t"
         "mov.s ecx, eax\n\t"
-        "call @GetRealInterface__7GPlayerFUl@12\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "call @GetRealInterface__7GPlayerFUl@12"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, ret_cleanup_override(0x00)))
 struct GPlayer* __fastcall GetNextPlayerWithNoCreature__5GGameFP7GPlayer(struct GGame* this, const void* edx, struct GPlayer* param_1)
 {
+    struct GPlayer* result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1081,25 +1075,24 @@ struct GPlayer* __fastcall GetNextPlayerWithNoCreature__5GGameFP7GPlayer(struct 
         "LAB__addr_0x00550a54:\n\t"
         "xor.s              eax, eax\n"
         "LAB__addr_0x00550a56:\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct GPlayer* __fastcall GetPlayer__5GGameF11PLAYER_NAME(struct GGame* this, const void* edx, enum PLAYER_NAME param_1)
 {
+    struct GPlayer* result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "lea                edx, dword ptr [eax + eax * 0x4]\n\t"
         "lea                edx, dword ptr [eax + edx * 0x8]\n\t"
         "lea                eax, dword ptr [eax + edx * 0x2]\n\t"
         "shl                eax, 5\n\t"
-        "%{disp8%} lea        eax, dword ptr [eax + ecx * 0x1 + 0x18]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp8%} lea        eax, dword ptr [eax + ecx * 0x1 + 0x18]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }

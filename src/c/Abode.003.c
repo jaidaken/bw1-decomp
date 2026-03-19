@@ -1,7 +1,7 @@
 #include "Abode.h"
 
-__attribute__((XOR32rr_REV))
-bool __fastcall GetNewEp__5AbodeF8ABODE_EPP7LHPoint(struct Abode* this, const void* edx, enum ABODE_EPP index, struct LHPoint* point)
+__attribute__((no_callee_saves, XOR32rr_REV))
+bool32_t __fastcall GetNewEp__5AbodeF8ABODE_EPP7LHPoint(struct Abode* this, const void* edx, enum ABODE_EPP index, struct LHPoint* point)
 {
     asm("sub                esp, 0x3c");                                     // 0x00403590    83ec3c
     asm("mov                eax, dword ptr [ecx]");                          // 0x00403593    8b01
@@ -164,6 +164,4 @@ bool __fastcall GetNewEp__5AbodeF8ABODE_EPP7LHPoint(struct Abode* this, const vo
     asm("fstp               st(0)");                                         // 0x00403726    ddd8
     asm("fstp               st(0)");                                         // 0x00403728    ddd8
     asm("add                esp, 0x3c");                                     // 0x0040372a    83c43c
-    asm("ret                0x0008");                                        // 0x0040372d    c20800
-    __builtin_unreachable();
 }

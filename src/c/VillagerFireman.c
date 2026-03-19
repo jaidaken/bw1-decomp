@@ -9,6 +9,7 @@ char s_VillagerFireman_cpp[] = "C:\\dev\\MP\\Black\\VillagerFireman.cpp";
 
 float villager_fireman_seconds_in_year_0x00db9e00;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x0075a370(void)
 {
     asm volatile (
@@ -52,9 +53,10 @@ void __cdecl FUN_0075a3b0__8VillagerFv(void)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall DecideHowToPutOutFire__8VillagerFP10FireEffect(struct Villager* this, const void* edx, struct FireEffect* param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -88,15 +90,16 @@ bool32_t __fastcall DecideHowToPutOutFire__8VillagerFP10FireEffect(struct Villag
         "LAB__addr_0x0075a433:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x00)))
 float __stdcall GetViaPoint__FRC9MapCoordsRC9MapCoordsRC9MapCoordsfR9MapCoordsfPbPbf(const struct MapCoords* param_1, const struct MapCoords* param_2, const struct MapCoords* param_3, float param_4, struct MapCoords* param_5, float param_6, bool* param_7, bool* param_8, float param_9)
 {
+    float result;
     asm volatile (
         "%{disp8%} fld        dword ptr [esp + 0x10]\n\t"
         "%{disp8%} mov        eax, dword ptr [esp + 0x20]\n\t"
@@ -366,20 +369,20 @@ float __stdcall GetViaPoint__FRC9MapCoordsRC9MapCoordsRC9MapCoordsfR9MapCoordsfP
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void FUN_0075a760__8VillagerFv(void)
 {
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall SetupMoveAroundFire__8VillagerFRC9MapCoords15VILLAGER_STATES(struct Villager* this, const void* edx, const struct MapCoords* param_1, enum VILLAGER_STATES param_2)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -420,16 +423,16 @@ bool32_t __fastcall SetupMoveAroundFire__8VillagerFRC9MapCoords15VILLAGER_STATES
         "ret                0x0008\n"
         "LAB__addr_0x0075a7d7:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall MoveAroundFire__8VillagerFv(struct Villager* this)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x28\n\t"
         "push               ebx\n\t"
@@ -663,14 +666,13 @@ uint32_t __fastcall MoveAroundFire__8VillagerFv(struct Villager* this)
         "pop                ebp\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x28\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x28"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall GetFireFightingPos__8VillagerFP10FireEffectP9MapCoords(struct Villager* this, const void* edx, struct FireEffect* param_1, struct MapCoords* param_2)
 {
     asm("sub                esp, 0x28");                                     // 0x0075aa90    83ec28
@@ -835,10 +837,9 @@ bool32_t __fastcall GetFireFightingPos__8VillagerFP10FireEffectP9MapCoords(struc
     asm("xor.s              eax, eax");                                      // 0x0075ac3b    33c0
     asm("pop                ebx");                                           // 0x0075ac3d    5b
     asm("pop                ecx");                                           // 0x0075ac3e    59
-    asm("ret                0x0008");                                        // 0x0075ac3f    c20800
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall PutOutFireByBeating__8VillagerFv(struct Villager* this)
 {
     asm("sub                esp, 0x4c");                                     // 0x0075ac50    83ec4c
@@ -933,13 +934,12 @@ bool32_t __fastcall PutOutFireByBeating__8VillagerFv(struct Villager* this)
     asm("mov                eax, 0x00000001");                               // 0x0075ad7f    b801000000
     asm("pop                esi");                                           // 0x0075ad84    5e
     asm("add                esp, 0x4c");                                     // 0x0075ad85    83c44c
-    asm("ret");                                                              // 0x0075ad88    c3
-    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall IsValidFire__8VillagerFP10FireEffect(struct Villager* this, const void* edx, struct FireEffect* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov       eax, dword ptr [_game]\n\t"
         "%{disp32%} mov       eax, dword ptr [eax + 0x00205c14]\n\t"
@@ -956,16 +956,16 @@ bool32_t __fastcall IsValidFire__8VillagerFP10FireEffect(struct Villager* this, 
         "xor.s              eax, eax\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x0075adb3:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall EnterPutOutFire__8VillagerFUcUc(struct Villager* this, const void* edx, unsigned char param_1, unsigned char param_2)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
         "push               esi\n\t"
@@ -1034,15 +1034,16 @@ bool32_t __fastcall EnterPutOutFire__8VillagerFUcUc(struct Villager* this, const
         "LAB__addr_0x0075ae75:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ExitPutOutFire__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               ebx\n\t"
         "%{disp8%} mov        ebx, dword ptr [esp + 0x08]\n\t"
@@ -1107,16 +1108,16 @@ bool32_t __fastcall ExitPutOutFire__8VillagerFUc(struct Villager* this, const vo
         "call               dword ptr [eax + 0x910]\n\t"
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall EnterOnFire__8VillagerFUcUc(struct Villager* this, const void* edx, unsigned char param_1, unsigned char param_2)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1148,15 +1149,16 @@ bool32_t __fastcall EnterOnFire__8VillagerFUcUc(struct Villager* this, const voi
         "ret                0x0008\n"
         "LAB__addr_0x0075af78:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ExitOnFire__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1185,11 +1187,10 @@ bool32_t __fastcall ExitOnFire__8VillagerFUc(struct Villager* this, const void* 
         "%{disp32%} mov       dword ptr [esi + 0x00000114], 0x00000000\n"
         "LAB__addr_0x0075afc9:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall PutOutFireWithWater__8VillagerFv(struct Villager* this)
@@ -1216,9 +1217,10 @@ bool32_t __fastcall GetWaterToPutOutFire__8VillagerFv(struct Villager* this)
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall StopFireFighting__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1331,15 +1333,16 @@ bool32_t __fastcall StopFireFighting__8VillagerFv(struct Villager* this)
         "call               dword ptr [eax + 0x8e8]\n"
         "LAB__addr_0x0075b168:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall SetupOnFire__8VillagerFP10FireEffect(struct Villager* this, const void* edx, struct FireEffect* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1373,15 +1376,16 @@ bool32_t __fastcall SetupOnFire__8VillagerFP10FireEffect(struct Villager* this, 
         "%{disp32%} mov       dword ptr [esi + 0x00000114], eax\n\t"
         "call               dword ptr [edx + 0x8e8]\n"
         "LAB__addr_0x0075b1d8:\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall OnFire__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x2c\n\t"
         "push               esi\n\t"
@@ -1536,11 +1540,10 @@ bool32_t __fastcall OnFire__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x2c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x2c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall FinishBeingOnFire__8VillagerFv(struct Villager* this)
@@ -1563,9 +1566,10 @@ bool32_t __fastcall FinishBeingOnFire__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsFireMan__8VillagerFv(struct Object* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsFireMan__8VillagerFv(struct Object* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ecx\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
@@ -1597,9 +1601,9 @@ bool __fastcall IsFireMan__8VillagerFv(struct Object* this)
         "ret\n"
         "LAB__addr_0x0075b455:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
+

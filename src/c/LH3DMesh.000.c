@@ -1,8 +1,9 @@
 #include "libs/lionhead/lh3dlib/development/LH3DMesh.h"
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeFootprintData__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov eax, dword ptr [ecx + 0x04]\n\t"
         "test ah, -0x80\n\t"
@@ -10,16 +11,16 @@ uint32_t __fastcall GetSizeFootprintData__8LH3DMeshFv(struct LH3DMesh* param_1)
         "%{disp8%} mov eax, dword ptr [ecx + 0x48]\n\t"
         "ret\n"
         "0:\n\t"
-        "xor.s eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeUV2Data__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov eax, dword ptr [ecx + 0x04]\n\t"
         "test eax, 0x00040000\n\t"
@@ -36,16 +37,16 @@ uint32_t __fastcall GetSizeUV2Data__8LH3DMeshFv(struct LH3DMesh* param_1)
         "1:\n\t"
         "%{disp8%} mov eax, dword ptr [ecx + 0x48]\n\t"
         "xor.s edx, edx\n\t"
-        "add.s eax, edx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add.s eax, edx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeNameData__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [ecx + 0x04]\n\t"
         "test               edx, 0x00080000\n\t"
@@ -95,16 +96,16 @@ uint32_t __fastcall GetSizeNameData__8LH3DMeshFv(struct LH3DMesh* param_1)
         "add.s              eax, edx\n\t"
         "add.s              eax, edi\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeEMetricsData__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -229,16 +230,16 @@ uint32_t __fastcall GetSizeEMetricsData__8LH3DMeshFv(struct LH3DMesh* param_1)
         "pop                ebx\n\t"
         "add.s              eax, ecx\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeEBone__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -383,16 +384,16 @@ uint32_t __fastcall GetSizeEBone__8LH3DMeshFv(struct LH3DMesh* param_1)
         "pop                ebx\n\t"
         "add.s              eax, ecx\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeTnLData__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -534,16 +535,16 @@ uint32_t __fastcall GetSizeTnLData__8LH3DMeshFv(struct LH3DMesh* param_1)
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeFootprintData_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov eax, dword ptr [ecx + 0x04]\n\t"
         "test ah, -0x80\n\t"
@@ -552,16 +553,16 @@ uint32_t __fastcall GetSizeFootprintData_dup1__8LH3DMeshFv(struct LH3DMesh* para
         "%{disp8%} mov eax, dword ptr [eax + 0x08]\n\t"
         "ret\n"
         "0:\n\t"
-        "xor.s eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeUV2Data_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x04]\n\t"
         "test               eax, 0x00040000\n\t"
@@ -580,16 +581,16 @@ uint32_t __fastcall GetSizeUV2Data_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
         "mov                eax, dword ptr [eax]\n\t"
         "ret\n"
         "LAB__addr_0x00403bd4:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeNameData_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [ecx + 0x04]\n\t"
         "test               edx, 0x00080000\n\t"
@@ -642,16 +643,16 @@ uint32_t __fastcall GetSizeNameData_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
         "pop                esi\n\t"
         "ret\n"
         "LAB__addr_0x00403c46:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall GetSizeEMetricsData_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -748,9 +749,8 @@ uint32_t __fastcall GetSizeEMetricsData_dup1__8LH3DMeshFv(struct LH3DMesh* param
         "LAB__addr_0x00403d19:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }

@@ -504,7 +504,7 @@ void __cdecl DoYesNoSkipTutorialRequestersIfNecessary__5GGameFv(void) asm("?DoYe
 // win1.41 0054ff80 mac 100a0cb0 GGame::KeyHandler(unsigned short, LH_KEY, unsigned short, unsigned short, void *)
 void __stdcall KeyHandler__5GGameFUs6LH_KEYUsUsPv(struct GGame* this, unsigned short param_1, enum LH_KEY param_2, unsigned short param_3, unsigned short param_4, void* param_5) asm("?KeyHandler@GGame@@QAEXGW4LH_KEY@@GGPAX@Z");
 // win1.41 0054ffe0 mac 100982b0 GGame::MouseHandler(void *, LH_MOUSE_EVENT_TYPE, unsigned long, unsigned long)
-bool __stdcall MouseHandler__5GGameFPv19LH_MOUSE_EVENT_TYPEUlUl(struct GGame* this, void* param_1, enum LH_MOUSE_EVENT_TYPE param_2, unsigned long param_3, unsigned long param_4) asm("?MouseHandler@GGame@@QAE_NPAXW4LH_MOUSE_EVENT_TYPE@@KK@Z");
+bool32_t __stdcall MouseHandler__5GGameFPv19LH_MOUSE_EVENT_TYPEUlUl(struct GGame* this, void* param_1, enum LH_MOUSE_EVENT_TYPE param_2, unsigned long param_3, unsigned long param_4) asm("?MouseHandler@GGame@@QAE_NPAXW4LH_MOUSE_EVENT_TYPE@@KK@Z");
 
 // Constructors
 
@@ -562,7 +562,7 @@ void __fastcall FinishInitialisation__5GGameFv(struct GGame* this) asm("?FinishI
 // win1.41 00550170 mac inlined GGame::CreateMeshPack(void)
 void __fastcall CreateMeshPack__5GGameFv(struct GGame* this) asm("?CreateMeshPack@GGame@@QAEXXZ");
 // win1.41 00550390 mac 10427340 GGame::LoadFiles(void)
-bool __fastcall LoadFiles__5GGameFv(struct GGame* this) asm("?LoadFiles@GGame@@QAE_NXZ");
+bool32_t __fastcall LoadFiles__5GGameFv(struct GGame* this) asm("?LoadFiles@GGame@@QAE_NXZ");
 // win1.41 00550410 mac 1054a080 GGame::SetupPlayers(void)
 void __fastcall SetupPlayers__5GGameFv(struct GGame* this) asm("?SetupPlayers@GGame@@QAEXXZ");
 // win1.41 005507d0 mac inlined GGame::LoopThroughPlayers(void)

@@ -48,16 +48,14 @@ const struct RTTICompleteObjectLocator __RTTICompleteObjectLocator__10GAbodeInfo
   .pClassDescriptor = &__RTTIClassHierarchyDescriptor__10GAbodeInfo,
 };
 
+__attribute__((no_callee_saves, trailing_asm(".byte 0x90, 0x25, 0xa2, 0x03")))
 void __cdecl crt_global_destruction_register_for_AbodeInfos__10GAbodeInfoFv(void)
 {
     asm("push 0x004012e0");
     asm("call _atexit");
     // atexit(dynamic_atexit_destructor_for_AbodeInfos__10GAbodeInfoFv);
     __asm__("pop ecx");                      // 0x004012da    59
-    __asm__("ret");                          // 0x004012db    c3
     // SEH?
-    __asm__(".byte 0x90, 0x25, 0xa2, 0x03"); // 0x004012dc
-    __builtin_unreachable();
 }
 
 void __cdecl dynamic_atexit_destructor_for_AbodeInfos__10GAbodeInfoFv(void)

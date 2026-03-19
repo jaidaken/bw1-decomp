@@ -5,6 +5,7 @@ const float villager_forester_seconds_in_day_0x0099a990 = 86400.0f;
 
 float villager_forester_seconds_in_year_0x00db9e14;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x0075f440(void)
 {
     asm volatile (
@@ -48,9 +49,10 @@ void __cdecl FUN_0075f480__8VillagerFv(void)
     );
 }
 
-__attribute__((XOR32rr_REV, noinline))
+__attribute__((no_callee_saves, XOR32rr_REV, noinline))
 bool32_t __fastcall CheckSatisfyWoodDesire__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               esi\n\t"
@@ -101,16 +103,16 @@ bool32_t __fastcall CheckSatisfyWoodDesire__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               ?GotoStoragePitForDropOff@Villager@@QAEIXZ\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall DecideHowToGetWood__8VillagerFiPP9BigForestPP6Forest(struct Villager* this, const void* edx, int param_1, struct BigForest** param_2, struct Forest** param_3)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x1c\n\t"
         "push               esi\n\t"
@@ -286,11 +288,10 @@ uint32_t __fastcall DecideHowToGetWood__8VillagerFiPP9BigForestPP6Forest(struct 
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x1c\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x1c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall ForesterGotoForest__8VillagerFv(struct Villager* this)
@@ -298,9 +299,10 @@ bool32_t __fastcall ForesterGotoForest__8VillagerFv(struct Villager* this)
     __attribute__((musttail)) return CheckSatisfyWoodDesire__8VillagerFv(this);
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall VillagerGotoForest__8VillagerFP6Forest15VILLAGER_STATES(struct Villager* this, const void* edx, struct Forest* param_1, enum VILLAGER_STATES param_2)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               esi\n\t"
@@ -356,16 +358,16 @@ bool32_t __fastcall VillagerGotoForest__8VillagerFP6Forest15VILLAGER_STATES(stru
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ForesterMoveToForest__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x44\n\t"
         "push               edi\n\t"
@@ -482,15 +484,16 @@ bool32_t __fastcall ForesterMoveToForest__8VillagerFv(struct Villager* this)
         "LAB__addr_0x0075f918:\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                edi\n\t"
-        "add                esp, 0x44\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x44"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ForesterArrivesAtForest__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               esi\n\t"
@@ -557,15 +560,16 @@ bool32_t __fastcall ForesterArrivesAtForest__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               ?ForesterFinishedForestering@Villager@@QAEIXZ\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ArrivesAtBigForest__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               ebx\n\t"
@@ -646,11 +650,10 @@ bool32_t __fastcall ArrivesAtBigForest__8VillagerFv(struct Villager* this)
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall ArrivesAtBigForestForBuilding__8VillagerFv(struct Villager* this)
@@ -658,8 +661,10 @@ bool32_t __fastcall ArrivesAtBigForestForBuilding__8VillagerFv(struct Villager* 
     return 1;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ForesterChopsTree__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -705,11 +710,10 @@ bool32_t __fastcall ForesterChopsTree__8VillagerFv(struct Villager* this)
         "LAB__addr_0x0075fb33:\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall ForesterChopsTreeForBuilding__8VillagerFv(struct Villager* this)
@@ -741,11 +745,12 @@ bool32_t __fastcall ForesterFinishedForestering__8VillagerFv(struct Villager* th
     return result;
 }
 
+__attribute__((no_ret))
 bool32_t __fastcall TakeWoodFromTreeForBuilding__8VillagerFv(struct Villager* this)
 {
     asm volatile (
         "%{disp32%} jmp       ?TakeWoodFromTree@Villager@@QAEIXZ"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
@@ -762,8 +767,10 @@ bool32_t __fastcall TakeWoodFromPot__8VillagerFv(struct Villager* this)
     return 1;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall TakeWoodFromTree__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -803,16 +810,16 @@ bool32_t __fastcall TakeWoodFromTree__8VillagerFv(struct Villager* this)
         "call               dword ptr [edx + 0x8e8]\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall GotWoodDecideWhatToDo__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -876,16 +883,16 @@ bool32_t __fastcall GotWoodDecideWhatToDo__8VillagerFv(struct Villager* this)
         "call               dword ptr [edx + 0x8e8]\n"
         "LAB__addr_0x0075fceb:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FindTreeNearVillager__8VillagerFPP4Tree(struct Villager* this, const void* edx, struct Tree* * param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x28\n\t"
         "push               ebx\n\t"
@@ -987,11 +994,10 @@ bool32_t __fastcall FindTreeNearVillager__8VillagerFPP4Tree(struct Villager* thi
         "pop                ebp\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x28\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x28"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall ExitForesting__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)

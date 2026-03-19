@@ -30,14 +30,13 @@ enum ABODE_NUMBER __fastcall GetAbodeNumber__10GAbodeInfoCFv(const struct GMulti
     return ((const struct GAbodeInfo*)this)->abodeNumber;
 }
 
+__attribute__((no_callee_saves))
 struct GBaseInfo* __fastcall GetBaseInfo__10GAbodeInfoFRUl(struct GBaseInfo* this, const void* edx, uint32_t* param_1)
 {
   __asm__("{disp8} mov      eax, dword ptr [esp + 0x04]");         // 0x00401270    8b442404
   __asm__("mov              dword ptr [eax], 0x00000093");         // 0x00401274    c70093000000
   __asm__("mov              eax, OFFSET _AbodeInfos");             // 0x0040127a    b890c6c300
-  __asm__("ret 0x0004");                                           // 0x0040127f    c20400
 
-  __builtin_unreachable();
 }
 
 const struct RTTICompleteObjectLocator* const p__RTTICompleteObjectLocator__10GAbodeInfo = &__RTTICompleteObjectLocator__10GAbodeInfo;

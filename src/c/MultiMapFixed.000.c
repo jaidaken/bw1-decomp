@@ -24,6 +24,7 @@ bool __fastcall AddPlaytimeVillager__13MultiMapFixedFP8Villager(struct MultiMapF
     return false;
 }
 
+__attribute__((no_ret))
 void __fastcall GetResourceDropPosForComputerPlayer__13MultiMapFixedF13RESOURCE_TYPE(struct MultiMapFixed* this, const void* edx, struct MapCoords* drop_pos)
 {
     asm(
@@ -48,12 +49,13 @@ float __fastcall GetPercentBuilt__13MultiMapFixedFv(struct MultiMapFixed* this)
     return this->percent_built;
 }
 
+__attribute__((no_ret))
 float __fastcall GetPercentRepaired__13MultiMapFixedFv(struct MultiMapFixed* this)
 {
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "jmp dword ptr [eax + 0x11c]"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
@@ -85,6 +87,7 @@ void __fastcall SetPower__13MultiMapFixedFf(struct MultiMapFixed* this, const vo
 {
 }
 
+__attribute__((no_ret))
 struct MapCoords * __fastcall GetResourcePos__13MultiMapFixedF13RESOURCE_TYPEl(struct MultiMapFixed* this, const void* edx, enum RESOURCE_TYPE type, int32_t param_2)
 {
     asm(
@@ -104,6 +107,7 @@ struct MapCoords * __fastcall GetResourcePos__13MultiMapFixedF13RESOURCE_TYPEl(s
     __builtin_unreachable();
 }
 
+__attribute__((no_ret))
 bool __fastcall IsPoisonedResource__13MultiMapFixedF13RESOURCE_TYPE(struct MultiMapFixed* this)
 {
     // clang does the 32 bit xor
@@ -113,6 +117,7 @@ bool __fastcall IsPoisonedResource__13MultiMapFixedF13RESOURCE_TYPE(struct Multi
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, trailing_asm("call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
 struct MapCoords* __fastcall GetResourceNearestEdge__13MultiMapFixedF13RESOURCE_TYPEP6Objecti(struct MultiMapFixed* this, const void* edx, struct MapCoords* coords, enum RESOURCE_TYPE type, struct Object* param_3, int param_4)
 {
     // clang crashes
@@ -127,9 +132,6 @@ struct MapCoords* __fastcall GetResourceNearestEdge__13MultiMapFixedF13RESOURCE_
     asm("call               dword ptr [eax + 0x8cc]    "); // 0x0040159f    ff90cc080000
     asm("mov.s              eax, esi                   "); // 0x004015a5    8bc6
     asm("pop                esi                        "); // 0x004015a7    5e
-    asm("ret                0x0010                     "); // 0x004015a8    c21000
-    asm("call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"); // 0x004015ab    e8c9020000
-    __builtin_unreachable();
 }
 
 void __fastcall AddToPlayer__13MultiMapFixedFv(struct MultiMapFixed* this)

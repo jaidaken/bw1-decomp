@@ -6,6 +6,7 @@ const float villager_playtime_seconds_in_day_0x0099a9c8 = 86400.0f;
 
 float villager_playtime_seconds_in_year_0x00db9e2c;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x00763080(void)
 {
     asm volatile (
@@ -49,18 +50,19 @@ void __cdecl FUN_007630c0__8VillagerFv(void)
     );
 }
 
-bool __fastcall IsPlaytime__8VillagerFv(struct Villager* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall IsPlaytime__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "call dword ptr [eax + 0x48]\n\t"
         "neg eax\n\t"
         ".byte 0x1b, 0xc0\n\t"
-        "neg eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "neg eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall CheckPlaytimeAvailableToPlayPFootball__8VillagerFv(struct Villager* this)
@@ -149,8 +151,10 @@ bool32_t __fastcall FootballMatchPaused__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FootballMexicanWave__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -175,15 +179,16 @@ bool32_t __fastcall FootballMexicanWave__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               ?PlayAnimThenSetState@Living@@QAEXEK@Z\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FootballWatchMatch__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -247,15 +252,16 @@ bool32_t __fastcall FootballWatchMatch__8VillagerFv(struct Villager* this)
         "LAB__addr_0x00763277:\n\t"
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ExitFootball__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               ebx\n\t"
         "push               esi\n\t"
@@ -302,9 +308,9 @@ bool32_t __fastcall ExitFootball__8VillagerFUc(struct Villager* this, const void
         "LAB__addr_0x007632f7:\n\t"
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
+

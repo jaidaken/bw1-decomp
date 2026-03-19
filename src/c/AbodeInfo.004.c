@@ -1,7 +1,9 @@
 #include "AbodeInfo.h"
 
-bool __fastcall IsOkToCreateAtPos__10GAbodeInfoCFRC9MapCoordsffP4Town(const struct GAbodeInfo* this, const void* edx, const struct MapCoords* coords, float param_2, float param_3, struct Town* town)
+__attribute__((no_callee_saves))
+bool32_t __fastcall IsOkToCreateAtPos__10GAbodeInfoCFRC9MapCoordsffP4Town(const struct GAbodeInfo* this, const void* edx, const struct MapCoords* coords, float param_2, float param_3, struct Town* town)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x0c]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
@@ -16,9 +18,8 @@ bool __fastcall IsOkToCreateAtPos__10GAbodeInfoCFRC9MapCoordsffP4Town(const stru
         "call               _jmp_addr_0x00603860\n\t"
         "neg                eax\n\t"
         "sbb.s              eax, eax\n\t"
-        "neg                eax\n\t"
-        "ret                0x0010"
-        ::: "eax", "ecx", "edx", "memory"
+        "neg                eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }

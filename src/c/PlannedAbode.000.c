@@ -333,6 +333,7 @@ const struct PlannedMultiMapFixedVftable __vt__12PlannedAbode = {
     Draw__20PlannedMultiMapFixedFv,
 };
 
+__attribute__((no_callee_saves))
 struct PlannedAbode* __fastcall __ct__12PlannedAbodeFRC9MapCoordsPC10GAbodeInfoP4Townff(struct PlannedAbode* this, const void* edx, const struct MapCoords* coords, const struct GMultiMapFixedInfo* info, struct Town* town, float param_4, float param_5) 
 {
     asm("{disp8} mov        eax, dword ptr [esp + 0x14]");                   // 0x00405080    8b442414
@@ -351,6 +352,4 @@ struct PlannedAbode* __fastcall __ct__12PlannedAbodeFRC9MapCoordsPC10GAbodeInfoP
     asm("mov                dword ptr [esi], 0x008aa3bc");                   // 0x004050a5    c706bca38a00
     asm("mov.s              eax, esi");                                      // 0x004050ab    8bc6
     asm("pop                esi");                                           // 0x004050ad    5e
-    asm("ret                0x0014");                                        // 0x004050ae    c21400
-    __builtin_unreachable();
 }

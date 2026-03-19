@@ -7,6 +7,7 @@ char s_VillagerFisherman_cpp[] = "C:\\dev\\MP\\Black\\VillagerFisherman.cpp";
 
 float villager_fisherman_seconds_in_year_0x00db9e04;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x0075b460(void)
 {
     asm volatile (
@@ -50,9 +51,10 @@ void __cdecl FUN_0075b4a0__8VillagerFv(void)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FishermanLookForWater__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -82,16 +84,16 @@ bool32_t __fastcall FishermanLookForWater__8VillagerFv(struct Villager* this)
         "LAB__addr_0x0075b4fd:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall VillagerBecomesFisherman__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -119,16 +121,16 @@ bool32_t __fastcall VillagerBecomesFisherman__8VillagerFv(struct Villager* this)
         "LAB__addr_0x0075b550:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall VillagerBecomesFisherman__8VillagerFP8FishFarm(struct Villager* this, const void* edx, struct FishFarm* param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               esi\n\t"
@@ -161,15 +163,16 @@ bool32_t __fastcall VillagerBecomesFisherman__8VillagerFP8FishFarm(struct Villag
         "call               @SetupMoveToOnFootpath__6LivingFR16GameThingWithPosRC9MapCoordsUc@17\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FishermanArrivesAtFishing__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -227,16 +230,16 @@ bool32_t __fastcall FishermanArrivesAtFishing__8VillagerFv(struct Villager* this
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall IsAtValidFishingPos__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov       eax, dword ptr [ecx + 0x00000118]\n\t"
         "%{disp8%} mov        dx, word ptr [ecx + 0x16]\n\t"
@@ -248,16 +251,16 @@ bool32_t __fastcall IsAtValidFishingPos__8VillagerFv(struct Villager* this)
         "mov                eax, 0x00000001\n\t"
         "ret\n"
         "LAB__addr_0x0075b690:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall Fishing__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x1c\n\t"
         "push               esi\n\t"
@@ -365,15 +368,16 @@ bool32_t __fastcall Fishing__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x1c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x1c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall EnterFishing__8VillagerFUcUc(struct Villager* this, const void* edx, unsigned char param_1, unsigned char param_2)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
         "push               esi\n\t"
@@ -407,15 +411,16 @@ bool32_t __fastcall EnterFishing__8VillagerFUcUc(struct Villager* this, const vo
         "call               _jmp_addr_0x0052d250\n"
         "LAB__addr_0x0075b86f:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ExitFishing__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -444,9 +449,8 @@ bool32_t __fastcall ExitFishing__8VillagerFUc(struct Villager* this, const void*
         "%{disp32%} mov       dword ptr [esi + 0x00000118], 0x00000000\n"
         "LAB__addr_0x0075b8cc:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }

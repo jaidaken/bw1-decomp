@@ -5,9 +5,10 @@ const char* __fastcall GetDescription__10GAbodeInfoFv(struct GAbodeInfo* this)
     return this->description.string;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 int __cdecl GetInfoFromText__10GAbodeInfoFPc(const char* text)
 {
+    int result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               ebx\n\t"
@@ -78,16 +79,16 @@ int __cdecl GetInfoFromText__10GAbodeInfoFPc(const char* text)
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct GAbodeInfo* __cdecl Find__10GAbodeInfoF10TRIBE_TYPE12ABODE_NUMBER(enum TRIBE_TYPE tribe_type, enum ABODE_NUMBER abode_number)
 {
+    struct GAbodeInfo* result;
     asm volatile (
         "push               esi\n\t"
         "%{disp8%} mov        esi, dword ptr [esp + 0x08]\n\t"
@@ -112,9 +113,8 @@ struct GAbodeInfo* __cdecl Find__10GAbodeInfoF10TRIBE_TYPE12ABODE_NUMBER(enum TR
         "xor.s              eax, eax\n"
         "LAB__addr_0x00405b69:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }

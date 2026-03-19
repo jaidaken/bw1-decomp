@@ -7,6 +7,7 @@ uint32_t villager_shepherd_uint_0x00db9e50;
 float villager_shepherd_seconds_in_year_0x00db9e4c;
 
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x00768b80(void)
 {
     asm volatile (
@@ -50,9 +51,10 @@ void __cdecl FUN_00768bc0__8VillagerFv(void)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall VillagerBecomesShepherd__8VillagerFP5Flock(struct Villager* this, const void* edx, struct Flock* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "test               eax, eax\n\t"
@@ -87,16 +89,16 @@ bool32_t __fastcall VillagerBecomesShepherd__8VillagerFP5Flock(struct Villager* 
         "ret                0x0004\n"
         "LAB__addr_0x00768c2a:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdLookForFlock__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -134,11 +136,10 @@ bool32_t __fastcall ShepherdLookForFlock__8VillagerFv(struct Villager* this)
         "LAB__addr_0x00768c80:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -174,9 +175,10 @@ bool32_t __fastcall FindClosestFlockAnimal__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdMoveFlockToWater__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               ebx\n\t"
@@ -264,16 +266,16 @@ bool32_t __fastcall ShepherdMoveFlockToWater__8VillagerFv(struct Villager* this)
         "pop                esi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdWaitForFlock__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -300,16 +302,16 @@ bool32_t __fastcall ShepherdWaitForFlock__8VillagerFv(struct Villager* this)
         "call               dword ptr [eax + 0x8e8]\n"
         "LAB__addr_0x00768e22:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdGotoFlock__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -359,16 +361,16 @@ bool32_t __fastcall ShepherdGotoFlock__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdTakesControlOfFlock__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -409,16 +411,16 @@ bool32_t __fastcall ShepherdTakesControlOfFlock__8VillagerFv(struct Villager* th
         "LAB__addr_0x00768f1a:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdReleasesControlOfFlock__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov       eax, dword ptr [ecx + 0x000000b8]\n\t"
         "test               eax, eax\n\t"
@@ -431,15 +433,16 @@ bool32_t __fastcall ShepherdReleasesControlOfFlock__8VillagerFv(struct Villager*
         "mov                eax, 0x00000001\n\t"
         "ret\n"
         "LAB__addr_0x00768f4c:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ExitShepherding__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               edi\n\t"
         "mov.s              edi, ecx\n\t"
@@ -472,16 +475,16 @@ bool32_t __fastcall ExitShepherding__8VillagerFUc(struct Villager* this, const v
         "ret                0x0004\n"
         "LAB__addr_0x00768fa7:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                edi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                edi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdDecideWhatToDoWithFlock__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -550,16 +553,16 @@ bool32_t __fastcall ShepherdDecideWhatToDoWithFlock__8VillagerFv(struct Villager
         "LAB__addr_0x00769064:\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdMoveFlockBack__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ebx\n\t"
         "mov.s              ebx, ecx\n\t"
@@ -600,11 +603,10 @@ bool32_t __fastcall ShepherdMoveFlockBack__8VillagerFv(struct Villager* this)
         "LAB__addr_0x007690c5:\n\t"
         "pop                esi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                ebx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall ShepherdMoveFlockToFood__8VillagerFv(struct Villager* this)
@@ -612,9 +614,10 @@ bool32_t __fastcall ShepherdMoveFlockToFood__8VillagerFv(struct Villager* this)
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdTakeAnimalForSlaughter__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ebx\n\t"
         "push               esi\n\t"
@@ -678,16 +681,16 @@ bool32_t __fastcall ShepherdTakeAnimalForSlaughter__8VillagerFv(struct Villager*
         "pop                edi\n\t"
         "pop                esi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                ebx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ShepherdCheckAnimalForSlaughter__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x24\n\t"
         "push               ebx\n\t"
@@ -853,15 +856,16 @@ bool32_t __fastcall ShepherdCheckAnimalForSlaughter__8VillagerFv(struct Villager
         "pop                esi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x24\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x24"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ShepherdSlaughterAnimal__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ebx\n\t"
         "push               esi\n\t"
@@ -913,16 +917,17 @@ bool32_t __fastcall ShepherdSlaughterAnimal__8VillagerFv(struct Villager* this)
         "LAB__addr_0x00769420:\n\t"
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ebx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves))
 bool32_t __fastcall SlaughterAnimalIsClose__8VillagerFfP6Living(struct Villager* this, const void* edx, float param_1, struct Living* param_2)
 {
+    bool32_t result;
     asm volatile (
         "mov.s              eax, ecx\n\t"
         "%{disp32%} mov       ecx, dword ptr [eax + 0x000000b8]\n\t"
@@ -937,11 +942,10 @@ bool32_t __fastcall SlaughterAnimalIsClose__8VillagerFfP6Living(struct Villager*
         "call               _jmp_addr_0x00530050\n\t"
         "ret                0x0008\n"
         "LAB__addr_0x00769452:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall ShepherdFetchStray__8VillagerFv(struct Villager* this)

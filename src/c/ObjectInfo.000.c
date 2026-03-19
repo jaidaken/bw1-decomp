@@ -27,34 +27,16 @@ uint32_t __fastcall GetMesh__11GObjectInfoCF10TRIBE_TYPE(const struct GObjectInf
     return 0;
 }
 
+__attribute__((no_callee_saves, trailing_asm("mov eax, 0xfffff9cc\npop ecx\nadd.s eax, ecx\nmov eax, dword ptr [eax]\njmp eax")))
 enum ALIGNMENT_TYPE __fastcall GetAlignmentType__11GObjectInfoCFv(const struct GObjectInfo* this)
 {
-    enum ALIGNMENT_TYPE result = this->alignmentType;
-    asm volatile (
-        "ret\n\t"
-        "mov                eax, 0xfffff9cc\n\t"
-        "pop                ecx\n\t"
-        "add.s              eax, ecx\n\t"
-        "mov                eax, dword ptr [eax]\n\t"
-        "jmp                eax"
-        :: "a"(result) : "memory"
-    );
-    __builtin_unreachable();
+    return this->alignmentType;
 }
 
+__attribute__((no_callee_saves, trailing_asm("mov eax, 0xfffffa5c\npop ecx\nadd.s eax, ecx\nmov eax, dword ptr [eax]\njmp eax")))
 enum FOOD_TYPE __fastcall GetFoodType__11GObjectInfoCFv(const struct GObjectInfo* this)
 {
-    enum FOOD_TYPE result = this->food_type;
-    asm volatile (
-        "ret\n\t"
-        "mov                eax, 0xfffffa5c\n\t"
-        "pop                ecx\n\t"
-        "add.s              eax, ecx\n\t"
-        "mov                eax, dword ptr [eax]\n\t"
-        "jmp                eax"
-        :: "a"(result) : "memory"
-    );
-    __builtin_unreachable();
+    return this->food_type;
 }
 
 const char* __fastcall GetDebugText__11GObjectInfoCFv(const struct GBaseInfo* this)

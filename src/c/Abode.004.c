@@ -1,5 +1,6 @@
 #include "Abode.h"
 
+__attribute__((no_callee_saves))
 void __fastcall DeleteAbodeSurroundingObjects__5AbodeFv(struct Abode* this)
 {
     asm volatile (
@@ -87,13 +88,12 @@ void __fastcall DeleteAbodeSurroundingObjects__5AbodeFv(struct Abode* this)
         "LAB__addr_0x00403dec:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret"
+        "add                esp, 0x18"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall CreateAbodeSurroundingObjects__5AbodeFv(struct Abode* this)
 {
     asm volatile (
@@ -171,11 +171,9 @@ void __fastcall CreateAbodeSurroundingObjects__5AbodeFv(struct Abode* this)
         "LAB__addr_0x00403ed9:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret"
+        "add                esp, 0x18"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 void __fastcall InsertMapObject__5AbodeFv(struct Object* this)
@@ -183,33 +181,36 @@ void __fastcall InsertMapObject__5AbodeFv(struct Object* this)
     InsertMapObject__13MultiMapFixedFv(this);
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall ShouldFootpathsGoRound__5AbodeFv(struct Object* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall ShouldFootpathsGoRound__5AbodeFv(struct Object* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov al, byte ptr [ecx + 0x58]\n\t"
         "and al, 0x02\n\t"
         "xor.s ecx, ecx\n\t"
         "cmp al, 0x02\n\t"
         "setne cl\n\t"
-        "mov.s eax, ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov.s eax, ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_ret))
 void __fastcall DeleteDependancys__5AbodeFv(struct Abode* this)
 {
     asm volatile (
         "%{disp32%} jmp       ?RemoveAllVillagersFromAbode@Abode@@QAEXXZ"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 uint16_t __fastcall GetNumberOfInstanceForGlobalList__5AbodeFv(struct GameThing* this)
 {
+    uint16_t result;
     asm volatile (
         "mov                ax, 0x0001\n\t"
         "ret\n\t"
@@ -231,13 +232,13 @@ uint16_t __fastcall GetNumberOfInstanceForGlobalList__5AbodeFv(struct GameThing*
         "%{disp32%} fld       dword ptr [_rdata_float1p0]\n\t"
         "ret\n"
         "LAB__addr_0x00403f31:\n\t"
-        "%{disp8%} fld        dword ptr [eax + 0x18]\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp8%} fld        dword ptr [eax + 0x18]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__DirectXSetupGetVersion]")))
 void __fastcall RemoveDamage__5AbodeFv(struct MultiMapFixed* this)
 {
     asm("push               ecx");                                           // 0x00403f40    51
@@ -260,14 +261,12 @@ void __fastcall RemoveDamage__5AbodeFv(struct MultiMapFixed* this)
     asm("pop                edi");                                           // 0x00403f76    5f
     asm("pop                esi");                                           // 0x00403f77    5e
     asm("pop                ecx");                                           // 0x00403f78    59
-    asm("ret");                                                              // 0x00403f79    c3
-    asm("call               dword ptr [__imp__DirectXSetupGetVersion]");     // 0x00403f7a    ff153c908a00
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 uint32_t __fastcall DestroyedByEffect__5AbodeFP7GPlayerf(struct Object* this, const void* edx, struct GPlayer* player, float param_2)
 {
+    uint32_t result;
     asm volatile (
         "push               ebx\n\t"
         "push               esi\n\t"
@@ -363,14 +362,13 @@ uint32_t __fastcall DestroyedByEffect__5AbodeFP7GPlayerf(struct Object* this, co
         "pop                edi\n\t"
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall AddVillagerToAbode__5AbodeFP8Villager(struct Abode* this, const void* edx, struct Villager* villager)
 {
     asm volatile (
@@ -535,14 +533,12 @@ void __fastcall AddVillagerToAbode__5AbodeFP8Villager(struct Abode* this, const 
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebp\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
+        "pop                ebx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall RemoveDeletedVillagerFromAbode__5AbodeFP8Villager(struct Abode* this, const void* edx, struct Villager* villager)
 {
     asm volatile (
@@ -640,13 +636,12 @@ void __fastcall RemoveDeletedVillagerFromAbode__5AbodeFP8Villager(struct Abode* 
         "LAB__addr_0x0040432b:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
+        "pop                ebx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall RemoveAliveVillagerFromAbode__5AbodeFP8Villager(struct Abode* this, const void* edx, struct Villager* villager)
 {
     asm volatile (
@@ -732,11 +727,9 @@ void __fastcall RemoveAliveVillagerFromAbode__5AbodeFP8Villager(struct Abode* th
         "call               ?VillagerMoveOutOfAbode@TownStats@@QAEXPAVVillager@@@Z\n"
         "LAB__addr_0x0040442f:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 uint32_t __fastcall Process__5AbodeFv(struct Object* this)
@@ -817,7 +810,7 @@ uint32_t __fastcall Process__5AbodeFv(struct Object* this)
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 void __fastcall MoveAbodeToPlannedAbodes__5AbodeFv(struct Abode* this)
 {
     asm volatile (
@@ -850,11 +843,9 @@ void __fastcall MoveAbodeToPlannedAbodes__5AbodeFv(struct Abode* this)
         "LAB__addr_0x0040455a:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 __attribute__((noinline))
@@ -878,9 +869,10 @@ void __fastcall RemoveAllVillagersFromAbode__5AbodeFv(struct Abode* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 int __fastcall NumVillagersOfSex__5AbodeFv(struct Abode* this)
 {
+    int result;
     asm volatile (
         "push               esi\n\t"
         "%{disp32%} mov       esi, dword ptr [ecx + 0x000000a0]\n\t"
@@ -911,11 +903,10 @@ int __fastcall NumVillagersOfSex__5AbodeFv(struct Abode* this)
         "LAB__addr_0x004045bc:\n\t"
         "mov.s              eax, edi\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -943,8 +934,10 @@ int __fastcall CalculateFoodNeededForDinner__5AbodeFv(struct Abode* this)
     return result;
 }
 
-bool __fastcall IsEnoughFoodForDinner__5AbodeFv(struct Abode* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall IsEnoughFoodForDinner__5AbodeFv(struct Abode* this)
 {
+    bool32_t result;
     asm volatile (
         "push esi\n\t"
         "push edi\n\t"
@@ -960,16 +953,16 @@ bool __fastcall IsEnoughFoodForDinner__5AbodeFv(struct Abode* this)
         ".byte 0x1b, 0xc0\n\t"
         "pop edi\n\t"
         "inc eax\n\t"
-        "pop esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 struct Villager* __fastcall GetSpouse__5AbodeFP8Villager(struct Abode* this, const void* edx, struct Villager* villager)
 {
+    struct Villager* result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "%{disp8%} mov        eax, dword ptr [edx + 0x28]\n\t"
@@ -982,11 +975,10 @@ struct Villager* __fastcall GetSpouse__5AbodeFP8Villager(struct Abode* this, con
         "%{disp32%} mov       eax, dword ptr [ecx + edx * 0x4 + 0x000000a8]\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x00404657:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -1024,20 +1016,17 @@ void __fastcall FUN_004046a0__5AbodeFi(struct Abode* this, const void* edx, int 
     return;
 }
 
+__attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__SetWindowTextA@4]")))
 int __fastcall FUN_004046b0__5AbodeFv(struct Abode* this)
 {
     int result = *(int*)((char*)*(void**)((char*)this + 0x28) + 0x110);
-    asm volatile (
-        "ret\n\t"
-        "call               dword ptr [__imp__SetWindowTextA@4]"
-        :: "a"(result) : "memory"
-    );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 bool32_t __fastcall IsTooCrowded__5AbodeFv(struct Abode* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "sub                esp, 0x08\n\t"
@@ -1068,15 +1057,16 @@ bool32_t __fastcall IsTooCrowded__5AbodeFv(struct Abode* this)
         "LAB__addr_0x00404712:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall Built__5AbodeFv(struct MultiMapFixed* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall Built__5AbodeFv(struct MultiMapFixed* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1133,15 +1123,16 @@ bool __fastcall Built__5AbodeFv(struct MultiMapFixed* this)
         "call               dword ptr [eax + 0x914]\n"
         "LAB__addr_0x0040479f:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall Repaired__5AbodeFv(struct MultiMapFixed* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall Repaired__5AbodeFv(struct MultiMapFixed* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1156,14 +1147,13 @@ bool __fastcall Repaired__5AbodeFv(struct MultiMapFixed* this)
         "call               dword ptr [edx + 0x914]\n"
         "LAB__addr_0x004047cd:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 void __fastcall MakeFunctional__5AbodeFv(struct Abode* this)
 {
     asm volatile (
@@ -1437,16 +1427,15 @@ void __fastcall MakeFunctional__5AbodeFv(struct Abode* this)
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
+        "add                esp, 0x08"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 int __fastcall GetMesh__5AbodeCFv(const struct Object* this)
 {
+    int result;
     asm volatile (
         "%{disp8%} mov        ecx, dword ptr [ecx + 0x28]\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
@@ -1490,9 +1479,9 @@ int __fastcall GetMesh__5AbodeCFv(const struct Object* this)
         "dec                esi\n\t"
         "%{disp8%} jne        LAB__addr_0x00404afa\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
+

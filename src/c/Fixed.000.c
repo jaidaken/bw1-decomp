@@ -49,16 +49,16 @@ struct GameThing* __fastcall GetTownArtifact__11FixedObjectFv(struct Object* thi
     return ((struct Fixed*)this)->town_artifact;
 }
 
+__attribute__((no_callee_saves, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
 bool32_t __fastcall IsTownArtifact__11FixedObjectFv(struct Object* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov edx, dword ptr [ecx + 0x54]\n\t" // 0x00401480    8b5154
         "xor.s       eax, eax\n\t"                       // 0x00401483    33c0
         "test        edx, edx\n\t"                       // 0x00401485    85d2
-        "setne       al\n\t"                             // 0x00401487    0f95c0
-        "ret\n\t"                                        // 0x0040148a    c3
-        "call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9" // 0x0040148b    e8e9030000
-        : : "c"(this) : "eax", "edx", "memory"
+        "setne       al"                                 // 0x00401487    0f95c0
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }

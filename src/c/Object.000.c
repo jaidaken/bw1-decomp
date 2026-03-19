@@ -42,16 +42,14 @@ float __fastcall GetScale__6ObjectFv(struct GameThingWithPos* this)
     return ((struct Object*)this)->scale;
 }
 
+__attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__DirectDrawCreate@4]"), ret_cleanup_override(0x0004)))
 void __fastcall SetJustScale__6ObjectFf(struct Object* this, const void* edx, float scale)
 {
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "%{disp8%} mov        dword ptr [ecx + 0x50], eax\n\t"
-        "ret                0x0004\n\t"
-        "call               dword ptr [__imp__DirectDrawCreate@4]"
+        "%{disp8%} mov        dword ptr [ecx + 0x50], eax"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 void __fastcall UpdateFrom3DPosition__6ObjectFv(struct Object* this)
@@ -64,12 +62,13 @@ uint32_t __fastcall MoveAlongPath__6ObjectFv(struct Object* this)
     return 1;
 }
 
+__attribute__((no_ret))
 bool __fastcall IsReachable__6ObjectFv(struct Object* this)
 {
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "%{disp8%} jmp dword ptr [eax + 0x2c]"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
@@ -130,9 +129,10 @@ float __fastcall GetLife__6ObjectFv(struct GameThingWithPos* this)
     return ((struct Object*)this)->life;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAlive__6ObjectFv(struct Object* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsAlive__6ObjectFv(struct Object* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -152,11 +152,10 @@ bool __fastcall IsAlive__6ObjectFv(struct Object* this)
         "ret\n"
         "LAB__addr_0x0040263a:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void __fastcall ScaffoldMoved__6ObjectFP8Scaffold(struct Object* this, const void* edx, struct Scaffold* scaffold)
@@ -169,16 +168,16 @@ uint32_t __fastcall ProcessBySpell__6ObjectFP5Spell(struct Object* this, const v
     return 1;
 }
 
+__attribute__((no_callee_saves, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
 int __fastcall GetDetailMesh__6ObjectCF12DETAIL_LEVEL(struct Object* this, const void* edx, int detail)
 {
+    int result;
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x608]\n\t"
-        "ret 0x0004\n\t"
-        "call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"
-        ::: "eax", "ecx", "edx", "memory"
+        "call dword ptr [eax + 0x608]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool __fastcall IsG3DObjectDrawnInHand__6ObjectFv(struct Object* this)
@@ -216,8 +215,10 @@ float __fastcall GetVillagerHugRadius__6ObjectFv(struct Object* this)
     return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 float __fastcall GetFoodValue__6ObjectF9FOOD_TYPE(struct Object* this, const void* edx, enum FOOD_TYPE type)
 {
+    float result;
     asm volatile (
         "push esi\n\t"
         "mov.s esi, ecx\n\t"
@@ -231,27 +232,28 @@ float __fastcall GetFoodValue__6ObjectF9FOOD_TYPE(struct Object* this, const voi
         "ret 0x0004\n"
         "0:\n\t"
         "%{disp32%} fld dword ptr [_rdata_float0p0]\n\t"
-        "pop esi\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop esi"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_ret))
 enum FOOD_TYPE __fastcall GetFoodType__6ObjectFv(struct Object* this)
 {
     asm volatile (
         "%{disp8%} mov ecx, dword ptr [ecx + 0x28]\n\t"
         "mov eax, dword ptr [ecx]\n\t"
         "%{disp8%} jmp dword ptr [eax + 0x38]"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsMoving__6ObjectCFv(const struct GameThingWithPos* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall IsMoving__6ObjectCFv(const struct GameThingWithPos* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x14]\n\t"
         "cmp                eax, dword ptr [ecx + 0x2c]\n\t"
@@ -262,11 +264,10 @@ bool __fastcall IsMoving__6ObjectCFv(const struct GameThingWithPos* this)
         "xor.s              eax, eax\n\t"
         "ret\n"
         "LAB__addr_0x00402723:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -545,15 +546,11 @@ bool __fastcall GetAlwaysRemainsInPhysicsInternalSystem__6ObjectFv(struct Object
     return false;
 }
 
+__attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__DirectInputCreateA@4]")))
 bool32_t __fastcall IsSuitableForCreatureAction__6ObjectFv(struct GameThingWithPos* this)
 {
     bool32_t result = *(bool32_t*)((char*)*(void**)((char*)this + 0x28) + 0xc0);
-    asm volatile (
-        "ret\n\t"
-        "call               dword ptr [__imp__DirectInputCreateA@4]"
-        :: "a"(result) : "memory"
-    );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall CanBePoodOn__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
@@ -561,9 +558,10 @@ bool32_t __fastcall CanBePoodOn__6ObjectFP8Creature(struct GameThingWithPos* thi
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall CanBeAttackedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "%{disp32%} mov       edx, dword ptr [eax + 0x000000c4]\n\t"
@@ -574,11 +572,10 @@ bool32_t __fastcall CanBeAttackedByCreature__6ObjectFP8Creature(struct GameThing
         "mov                eax, 0x00000001\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x00402a5b:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall CanBePlayedWithByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
@@ -646,6 +643,7 @@ float __fastcall GetFacingPitch__6ObjectFv(struct Object* this)
     return rdata_float0p0;
 }
 
+__attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp___ChangeParameters_CImmPeriodic__QAEHKKKJJJKPAUFEELIT_ENVELOPE___Z@4]"), ret_cleanup_override(0x0004)))
 void __fastcall SetHeadPos__6ObjectFP9MapCoords(struct Object* this, const void* edx, struct MapCoords* param_1)
 {
     asm volatile (
@@ -656,12 +654,9 @@ void __fastcall SetHeadPos__6ObjectFP9MapCoords(struct Object* this, const void*
         "%{disp8%} mov        edx, dword ptr [ecx + 0x04]\n\t"
         "%{disp8%} mov        dword ptr [eax + 0x04], edx\n\t"
         "%{disp8%} mov        ecx, dword ptr [ecx + 0x08]\n\t"
-        "%{disp8%} mov        dword ptr [eax + 0x08], ecx\n\t"
-        "ret                0x0004\n\t"
-        "call               dword ptr [__imp___ChangeParameters_CImmPeriodic__QAEHKKKJJJKPAUFEELIT_ENVELOPE___Z@4]"
+        "%{disp8%} mov        dword ptr [eax + 0x08], ecx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))
@@ -675,7 +670,7 @@ const char* __fastcall GetText__6ObjectFv(struct GameThingWithPos* this)
     return ((struct Object*)this)->info->debugString;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_ret))
 uint32_t __fastcall StandAnimation__6ObjectFv(struct Object* this)
 {
     // return 0xFFFFFFFF;

@@ -1,8 +1,10 @@
 #include "GameThingWithPos.h"
 
 
+__attribute__((no_callee_saves))
 struct MapCoords* __fastcall GetArrivePos__16GameThingWithPosFv(struct GameThingWithPos* this, const void* edx, struct MapCoords* param_1)
 {
+    struct MapCoords* result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "add                ecx, 0x14\n\t"
@@ -14,11 +16,10 @@ struct MapCoords* __fastcall GetArrivePos__16GameThingWithPosFv(struct GameThing
         "%{disp8%} mov        dword ptr [edx + 0x04], esi\n\t"
         "%{disp8%} mov        ecx, dword ptr [ecx + 0x08]\n\t"
         "%{disp8%} mov        dword ptr [edx + 0x08], ecx\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint32_t __fastcall GetCreatureBeliefType__16GameThingWithPosFv(struct GameThingWithPos* this)
@@ -278,7 +279,7 @@ float __fastcall GetHeight__16GameThingWithPosFv(struct GameThingWithPos* this)
     return rdata_float0p0;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall SetInScript__16GameThingWithPosFi(struct GameThingWithPos* this, const void* edx, int32_t param_1)
 {
     asm volatile (
@@ -290,11 +291,9 @@ void __fastcall SetInScript__16GameThingWithPosFi(struct GameThingWithPos* this,
         "shl                eax, 9\n\t"
         "and                edx, 0x0000fdff\n\t"
         "or.s               eax, edx\n\t"
-        "%{disp8%} mov        word ptr [ecx + 0x24], ax\n\t"
-        "ret                0x0004"
+        "%{disp8%} mov        word ptr [ecx + 0x24], ax"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))

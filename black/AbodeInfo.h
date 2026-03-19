@@ -90,7 +90,7 @@ public:
     // Non-virtual methods
 
     // win1.41 00404b10 mac 1015a260 GAbodeInfo::IsOkToCreateAtPos(MapCoords const &, float, float, Town *) const
-    bool IsOkToCreateAtPos(const MapCoords* coords, float param_2, float param_3, Town* town) const;
+    bool32_t IsOkToCreateAtPos(const MapCoords* coords, float param_2, float param_3, Town* town) const;
     // win1.41 00405a60 mac inlined GAbodeInfo::GetDescription(void)
     const char* GetDescription();
     // win1.41 0042e520 mac inlined GAbodeInfo::LoadBinary(LHFile *)
@@ -185,7 +185,7 @@ void __cdecl dynamic_atexit_destructor_for_AbodeInfos__10GAbodeInfoFv(void) asm(
 // Non-virtual methods
 
 // win1.41 00404b10 mac 1015a260 GAbodeInfo::IsOkToCreateAtPos(MapCoords const &, float, float, Town *) const
-bool __fastcall IsOkToCreateAtPos__10GAbodeInfoCFRC9MapCoordsffP4Town(const struct GAbodeInfo* this, const void* edx, const struct MapCoords* coords, float param_2, float param_3, struct Town* town) asm("?IsOkToCreateAtPos@GAbodeInfo@@QBE_NPBUMapCoords@@MMPAVTown@@@Z");
+bool32_t __fastcall IsOkToCreateAtPos__10GAbodeInfoCFRC9MapCoordsffP4Town(const struct GAbodeInfo* this, const void* edx, const struct MapCoords* coords, float param_2, float param_3, struct Town* town) asm("?IsOkToCreateAtPos@GAbodeInfo@@QBE_NPBUMapCoords@@MMPAVTown@@@Z");
 // win1.41 00405a60 mac inlined GAbodeInfo::GetDescription(void)
 const char* __fastcall GetDescription__10GAbodeInfoFv(struct GAbodeInfo* this) asm("?GetDescription@GAbodeInfo@@QAEPBDXZ");
 // win1.41 0042e520 mac inlined GAbodeInfo::LoadBinary(LHFile *)

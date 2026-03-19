@@ -1,5 +1,6 @@
 void __cdecl __destroy_arr(void* arr, unsigned long size, unsigned long count, void (__fastcall *destructor)(void*)) asm("??_V@YAXPAXKKP6EXXZ@Z");
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x10)))
 void __cdecl __destroy_arr(void* arr, unsigned long size, unsigned long count, void (__fastcall *destructor)(void*))
 {
 
@@ -25,8 +26,7 @@ void __cdecl __destroy_arr(void* arr, unsigned long size, unsigned long count, v
           "pop               edi\n"                                           // 0x0040102a    5f
           "pop               ebp\n"                                           // 0x0040102b    5d
           "LAB__addr_0x0040102c:    pop               esi\n"                                           // 0x0040102c    5e
-          "pop               ebx\n"                                           // 0x0040102d    5b
-          "ret               0x0010\n"                                        // 0x0040102e    c21000
+          "pop               ebx"                                             // 0x0040102d    5b
+          ::: "eax", "ecx", "edx", "memory"
   );
-  __builtin_unreachable();
 }

@@ -51,8 +51,10 @@ void __fastcall SetTown__5AbodeFP4Town(struct MultiMapFixed* this, const void* e
     ((struct Abode*)this)->town = town;
 }
 
-bool __fastcall IsRepaired__5AbodeFv(struct MultiMapFixed* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall IsRepaired__5AbodeFv(struct MultiMapFixed* this)
 {
+    bool32_t result;
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "call dword ptr [eax + 0x884]\n\t"
@@ -63,15 +65,16 @@ bool __fastcall IsRepaired__5AbodeFv(struct MultiMapFixed* this)
         "mov eax, 0x00000001\n\t"
         "ret\n"
         "0:\n\t"
-        "xor.s eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall IsBuilt__5AbodeFv(struct MultiMapFixed* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall IsBuilt__5AbodeFv(struct MultiMapFixed* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov al, byte ptr [ecx + 0x58]\n\t"
         "and al, 0x02\n\t"
@@ -86,11 +89,10 @@ bool __fastcall IsBuilt__5AbodeFv(struct MultiMapFixed* this)
         "mov eax, 0x00000001\n\t"
         "ret\n"
         "0:\n\t"
-        "xor.s eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -134,8 +136,10 @@ uint32_t __fastcall GetOrigin__5AbodeFv(struct GameThingWithPos* this)
     return 1;
 }
 
+__attribute__((no_callee_saves))
 struct MapCoords* __fastcall GetArrivePos__5AbodeFv(struct GameThingWithPos* this, const void* edx, struct MapCoords* coords)
 {
+    struct MapCoords* result;
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "push esi\n\t"
@@ -143,11 +147,10 @@ struct MapCoords* __fastcall GetArrivePos__5AbodeFv(struct GameThingWithPos* thi
         "push esi\n\t"
         "call dword ptr [eax + 0x864]\n\t"
         "mov.s eax, esi\n\t"
-        "pop esi\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall IsHouse__5AbodeFv(struct GameThingWithPos* this)
@@ -165,6 +168,7 @@ char* __fastcall GetDebugText__5AbodeFv(struct GameThing* this)
     return (char*)0x009c7fb4;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall __dt__5AbodeFUi(struct Base* this, const void* edx, uint32_t param_1)
 {
     asm volatile (
@@ -179,9 +183,7 @@ void __fastcall __dt__5AbodeFUi(struct Base* this, const void* edx, uint32_t par
         "add esp, 0x08\n"
         "0:\n\t"
         "mov.s eax, esi\n\t"
-        "pop esi\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }

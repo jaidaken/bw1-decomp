@@ -2,6 +2,7 @@
 
 // win1.41 0056e130 SetSelectedTab helper - loops 7 tabs, sets selected flag
 void __fastcall SetSelectedTab_EndGameBox(struct DialogBoxBase* this, const void* edx, int selected_tab) asm("_jmp_addr_0x0056e130");
+__attribute__((no_callee_saves, trailing_asm(".byte 0x90")))
 void __fastcall SetSelectedTab_EndGameBox(struct DialogBoxBase* this, const void* edx, int selected_tab)
 {
     asm("push              ebx");                                           // 0x0056e130
@@ -25,11 +26,9 @@ void __fastcall SetSelectedTab_EndGameBox(struct DialogBoxBase* this, const void
     asm("pop               edi");                                           // 0x0056e159
     asm("pop               esi");                                           // 0x0056e15a
     asm("pop               ebx");                                           // 0x0056e15b
-    asm("ret               0x0004");                                        // 0x0056e15c
-    asm(".byte 0x90");                                                      // 0x0056e15f nop padding
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x00), trailing_asm("LAB__addr_0x0056e6d0:\npush              esi\ncall              _jmp_addr_0x005559b0\n{disp32} mov      ecx, dword ptr [_game]\nmov.s             esi, eax\ncall              _jmp_addr_0x00555a10\ncmp.s             eax, esi\npop               esi\n{disp8} jne       LAB__addr_0x0056e710\n{disp32} mov      ecx, dword ptr [_game]\ncall              ?MyInterface@GGame@@QAEPAVGInterface@@XZ\n{disp32} mov      eax, dword ptr [eax + 0x000001bc]\n{disp32} mov      ecx, dword ptr [eax + 0x000001fc]\ntest              ecx, ecx\n{disp8} je        LAB__addr_0x0056e710\n{disp32} mov      ecx, dword ptr [data_bytes + 0x30ab0c]\n{disp8} mov       dword ptr [ecx + 0x64], 0x00000000\nLAB__addr_0x0056e710:\n{disp32} mov      ecx, dword ptr [_game]\n{disp32} jmp      _jmp_addr_0x00555400\n.byte 0x90, 0x90, 0x90, 0x90, 0x90\n{disp32} jmp      _jmp_addr_0x00513640\n.byte 0x90, 0x90, 0x90, 0x90\n.byte 0x90, 0x90, 0x90, 0x90\n.byte 0x90, 0x90, 0x90")))
 // win1.41 0056e160 EndGameBox::Init - creates tab buttons, labels, big buttons, bar graph
 void __fastcall Init__10EndGameBoxFUlUlPFiP8SetupBoxP12SetupControlii_v(struct DialogBoxBase* this, const void* edx, uint32_t param_1, uint32_t param_2, void (__stdcall* param_3)(int param_1, struct SetupBox * param_2, struct SetupControl * param_3, int param_4, int param_5))
 {
@@ -469,35 +468,8 @@ void __fastcall Init__10EndGameBoxFUlUlPFiP8SetupBoxP12SetupControlii_v(struct D
     asm("test              eax, eax");                                      // 0x0056e6c1
     asm("{disp8} je        LAB__addr_0x0056e6d0");                          // 0x0056e6c3
     asm("{disp32} mov      dword ptr [ecx + 0x00250180], 0x00000005");      // 0x0056e6c5
-    asm("ret");                                                             // 0x0056e6cf
-    asm("LAB__addr_0x0056e6d0:");
-    asm("push              esi");                                           // 0x0056e6d0
-    asm("call              _jmp_addr_0x005559b0");                          // 0x0056e6d1
-    asm("{disp32} mov      ecx, dword ptr [_game]");                        // 0x0056e6d6
-    asm("mov.s             esi, eax");                                      // 0x0056e6dc
-    asm("call              _jmp_addr_0x00555a10");                          // 0x0056e6de
-    asm("cmp.s             eax, esi");                                      // 0x0056e6e3
-    asm("pop               esi");                                           // 0x0056e6e5
-    asm("{disp8} jne       LAB__addr_0x0056e710");                          // 0x0056e6e6
-    asm("{disp32} mov      ecx, dword ptr [_game]");                        // 0x0056e6e8
-    asm("call              ?MyInterface@GGame@@QAEPAVGInterface@@XZ");       // 0x0056e6ee
-    asm("{disp32} mov      eax, dword ptr [eax + 0x000001bc]");             // 0x0056e6f3
-    asm("{disp32} mov      ecx, dword ptr [eax + 0x000001fc]");             // 0x0056e6f9
-    asm("test              ecx, ecx");                                      // 0x0056e6ff
-    asm("{disp8} je        LAB__addr_0x0056e710");                          // 0x0056e701
-    asm("{disp32} mov      ecx, dword ptr [data_bytes + 0x30ab0c]");        // 0x0056e703
-    asm("{disp8} mov       dword ptr [ecx + 0x64], 0x00000000");            // 0x0056e709
-    asm("LAB__addr_0x0056e710:");
-    asm("{disp32} mov      ecx, dword ptr [_game]");                        // 0x0056e710
-    asm("{disp32} jmp      _jmp_addr_0x00555400");                          // 0x0056e716
     // Padding nops
-    asm(".byte 0x90, 0x90, 0x90, 0x90, 0x90");                              // 0x0056e71b
     // Callback thunk 3 at 0x0056e720: button_1 click -> DialogBoxBase function
-    asm("{disp32} jmp      _jmp_addr_0x00513640");                          // 0x0056e720
-    asm(".byte 0x90, 0x90, 0x90, 0x90");                                    // 0x0056e725
-    asm(".byte 0x90, 0x90, 0x90, 0x90");                                    // 0x0056e729
-    asm(".byte 0x90, 0x90, 0x90");                                          // 0x0056e72d
-    __builtin_unreachable();
 }
 
 // win1.41 0056e730 EndGameBox::Destroy - calls parent destroy and zeroes global
@@ -510,6 +482,7 @@ void __fastcall Destroy__10EndGameBoxFv(struct DialogBoxBase* this)
     );
 }
 
+__attribute__((no_callee_saves, trailing_asm(".byte 0x90\n.byte 0x6a, 0xe7, 0x56, 0x00\n.byte 0xf4, 0xe7, 0x56, 0x00\n.byte 0xc9, 0xe7, 0x56, 0x00\n.byte 0xf4, 0xe7, 0x56, 0x00\n.byte 0x90, 0x90, 0x90, 0x90")))
 // win1.41 0056e740 EndGameBox::InitControls - populates UI text, graph data, visibility
 void __fastcall InitControls__10EndGameBoxFv(struct DialogBoxBase* this)
 {
@@ -807,15 +780,7 @@ void __fastcall InitControls__10EndGameBoxFv(struct DialogBoxBase* this)
     asm("pop               esi");                                           // 0x0056ea72
     asm("pop               ebp");                                           // 0x0056ea73
     asm("add               esp, 0x0000080c");                               // 0x0056ea74
-    asm("ret");                                                             // 0x0056ea7a
     // Trailing nop
-    asm(".byte 0x90");                                                      // 0x0056ea7b
     // Jump table for switch at 0x0056e763 (4 entries: cases 0-3)
-    asm(".byte 0x6a, 0xe7, 0x56, 0x00");                                   // 0x0056ea7c  case 0 -> 0x0056e76a
-    asm(".byte 0xf4, 0xe7, 0x56, 0x00");                                   // 0x0056ea80  case 1 -> 0x0056e7f4
-    asm(".byte 0xc9, 0xe7, 0x56, 0x00");                                   // 0x0056ea84  case 2 -> 0x0056e7c9
-    asm(".byte 0xf4, 0xe7, 0x56, 0x00");                                   // 0x0056ea88  case 3 -> 0x0056e7f4
     // Trailing padding
-    asm(".byte 0x90, 0x90, 0x90, 0x90");                                   // 0x0056ea8c
-    __builtin_unreachable();
 }

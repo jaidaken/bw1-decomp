@@ -9,6 +9,7 @@ uint32_t villager_trader_uint_0x00dcb164;
 float villager_trader_seconds_in_year_0x00dcb168;
 
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x0076b920(void)
 {
     asm volatile (

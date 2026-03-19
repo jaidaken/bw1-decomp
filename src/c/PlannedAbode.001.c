@@ -66,6 +66,7 @@ char* __fastcall GetDebugText__12PlannedAbodeFv(struct GameThing* this)
     return debug_text_PlannedAbode;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall __dt__12PlannedAbodeFUi(struct Base* this, const void* edx, uint32_t param_1)
 {
     asm volatile (
@@ -80,9 +81,7 @@ void __fastcall __dt__12PlannedAbodeFUi(struct Base* this, const void* edx, uint
         "add esp, 0x08\n"
         "0:\n\t"
         "mov.s eax, esi\n\t"
-        "pop esi\n\t"
-        "ret 0x0004"
+        "pop esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }

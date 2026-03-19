@@ -5,6 +5,7 @@ char s_Villagernames_cpp[] = "C:\\dev\\MP\\Black\\villagernames.cpp";
 struct VillagerNameBlock* CurrentVillagerNameBlock;
 void* PTR_00db9e28;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x007626f0(void)
 {
     asm volatile (
@@ -78,6 +79,7 @@ struct VillagerName* __cdecl Alloc__17VillagerNameBlockFv(void)
     return result;
 }
 
+__attribute__((no_callee_saves))
 void __cdecl Delete__17VillagerNameBlockFP12VillagerName(struct VillagerName* name)
 {
     asm volatile (
@@ -122,11 +124,9 @@ void __cdecl Delete__17VillagerNameBlockFP12VillagerName(struct VillagerName* na
         "add                esp, 0x04\n"
         "LAB__addr_0x007627da:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 bool32_t __fastcall DeleteAll__17VillagerNameBlockFv(struct VillagerNameBlock* this)
@@ -155,9 +155,10 @@ bool32_t __fastcall DeleteAll__17VillagerNameBlockFv(struct VillagerNameBlock* t
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct VillagerNameBlock* __fastcall __ct__17VillagerNameBlockFv(struct VillagerNameBlock* this)
 {
+    struct VillagerNameBlock* result;
     asm volatile (
         "push               esi\n\t"
         "push               0x35\n\t"
@@ -194,13 +195,13 @@ struct VillagerNameBlock* __fastcall __ct__17VillagerNameBlockFv(struct Villager
         "%{disp8%} mov        dword ptr [esi + 0x10], eax\n\t"
         "%{disp32%} mov       dword ptr [data_bytes + 0x3f3e24], esi\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall AddDrawing__12VillagerNameFv(struct VillagerName* this)
 {
     asm volatile (
@@ -231,11 +232,9 @@ void __fastcall AddDrawing__12VillagerNameFv(struct VillagerName* this)
         "fstp               st(0)\n\t"
         "fstp               st(0)\n\t"
         "call               _jmp_addr_0x0083f310\n"
-        "LAB__addr_0x007628fb:\n\t"
-        "ret"
+        "LAB__addr_0x007628fb:"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 __attribute__((section(".rdata$r"), aligned(8)))
@@ -288,6 +287,7 @@ struct RTTITypeDescriptor __RTTITypeDescriptor__12VillagerName = {
     .name = ".?AUVillagerName@@",
 };
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x04)))
 void __fastcall __dt__17VillagerNameBlockFv(struct VillagerNameBlock* this)
 {
     asm volatile (
@@ -332,13 +332,12 @@ void __fastcall __dt__17VillagerNameBlockFv(struct VillagerNameBlock* this)
         "add                esp, 0x04\n"
         "LAB__addr_0x00762961:\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall FreeAll__17VillagerNameBlockFv(struct VillagerNameBlock* this)
 {
     asm volatile (
@@ -392,16 +391,15 @@ void __fastcall FreeAll__17VillagerNameBlockFv(struct VillagerNameBlock* this)
         "%{disp8%} mov        ecx, dword ptr [edi + 0x10]\n\t"
         "%{disp8%} mov        dword ptr [eax + 0x10], ecx\n"
         "LAB__addr_0x007629dc:\n\t"
-        "pop                edi\n\t"
-        "ret"
+        "pop                edi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct VillagerName* __cdecl Add__12VillagerNameFf7LHPointPwR9LH3DColor(float text_size, struct LHPoint point, const char16_t* text, const struct LH3DColor* p_color)
 {
+    struct VillagerName* result;
     asm volatile (
         "%{disp32%} mov       eax, dword ptr [_game]\n\t"
         "%{disp32%} mov       eax, dword ptr [eax + 0x0025005c]\n\t"
@@ -731,14 +729,13 @@ struct VillagerName* __cdecl Add__12VillagerNameFf7LHPointPwR9LH3DColor(float te
         "mov.s              eax, esi\n\t"
         "pop                esi\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall Draw__12VillagerNameFv(struct VillagerName* this)
 {
     asm volatile (
@@ -971,9 +968,7 @@ void __fastcall Draw__12VillagerNameFv(struct VillagerName* this)
         "call               ?Delete@VillagerNameBlock@@SAXPAUVillagerName@@@Z\n\t"
         "add                esp, 0x04\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
+        "add                esp, 0x10"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }

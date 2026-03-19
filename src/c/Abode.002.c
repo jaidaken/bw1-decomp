@@ -141,6 +141,7 @@ void __fastcall Delete__5AbodeFv(struct Base* this)
     );
 }
 
+__attribute__((no_callee_saves))
 void __fastcall ToBeDeleted__5AbodeFi(struct Base* this, const void* edx, int param_1)
 {
     asm volatile (
@@ -173,13 +174,12 @@ void __fastcall ToBeDeleted__5AbodeFi(struct Base* this, const void* edx, int pa
         "mov.s              ecx, esi\n\t"
         "call               ?ToBeDeleted@MultiMapFixed@@UAEXH@Z\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall DestroyedByBeam__5AbodeFv(struct Object* this)
 {
     asm volatile (
@@ -195,29 +195,30 @@ void __fastcall DestroyedByBeam__5AbodeFv(struct Object* this)
         "call dword ptr [edi + 0x5b8]\n\t"
         "fstp st(0)\n\t"
         "pop edi\n\t"
-        "pop esi\n\t"
-        "ret"
+        "pop esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-bool __fastcall GetInspectObjectPos__5AbodeFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos)
+__attribute__((no_callee_saves))
+bool32_t __fastcall GetInspectObjectPos__5AbodeFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov eax, dword ptr [esp + 0x08]\n\t"
         "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
         "push eax\n\t"
         "push edx\n\t"
-        "call ?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z\n\t"
-        "ret 0x0008"
-        :: "c"(this) : "eax", "edx", "memory"
+        "call ?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall GetPSysFireLocalRndFlamePos__5AbodeFP7LHPointPl(struct Object* this, const void* edx, struct LHPoint* point, int32_t* param_2)
+__attribute__((no_callee_saves))
+bool32_t __fastcall GetPSysFireLocalRndFlamePos__5AbodeFP7LHPointPl(struct Object* this, const void* edx, struct LHPoint* point, int32_t* param_2)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x30\n\t"
         "push               esi\n\t"
@@ -287,11 +288,10 @@ bool __fastcall GetPSysFireLocalRndFlamePos__5AbodeFP7LHPointPl(struct Object* t
         "call               ?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x30\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x30"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -300,6 +300,7 @@ uint32_t __fastcall GetPhysicsConstantsType__5AbodeFv(struct Object* this)
     return 0;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetUpPhysOb__5AbodeFP6PhysOb(struct Object* this, const void* edx, struct PhysOb* param_1)
 {
     asm volatile (
@@ -321,14 +322,12 @@ void __fastcall SetUpPhysOb__5AbodeFP6PhysOb(struct Object* this, const void* ed
         "call               _jmp_addr_0x007fb810\n\t"
         "mov.s              ecx, esi\n\t"
         "call               _jmp_addr_0x007fbac0\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, trailing_asm(".byte 0x90\n.byte 0xaa, 0x2e, 0x40, 0x00\n.byte 0x58, 0x2e, 0x40, 0x00\n.byte 0x81, 0x2e, 0x40, 0x00\n.byte 0xd3, 0x2e, 0x40, 0x00\n.byte 0xfc, 0x2e, 0x40, 0x00\n.byte 0xfb, 0x2f, 0x40, 0x00\n.byte 0x00, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x01, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x02, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x03, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x05, 0x05\n.byte 0x05, 0x05, 0x04, 0x90\n.byte 0x90, 0x90, 0x90, 0x90")))
 struct Abode* __cdecl Create__5AbodeFRC9MapCoordsPC10GAbodeInfoP4TownffUlUlfii(const struct MapCoords* coords, const struct GAbodeInfo* info, struct Town* town, float y_angle, float scale, uint32_t param_6, uint32_t param_7, float food, int wood, int param_10)
 {
     asm("{disp8} mov        eax, dword ptr [esp + 0x08]");              // 0x00402e20    8b442408
@@ -559,52 +558,12 @@ struct Abode* __cdecl Create__5AbodeFRC9MapCoordsPC10GAbodeInfoP4TownffUlUlfii(c
     asm("LAB__addr_0x00403093:");
     asm("mov.s              eax, esi");                                 // 0x00403093    8bc6
     asm("pop                esi");                                      // 0x00403095    5e
-    asm("ret");                                                         // 0x00403096    c3
     // Snippet: db, [0x00403097, 0x00403098)
-    asm(".byte 0x90");                        // 0x00403097
     // Snippet: jmptbl, [0x00403098, 0x004030b0)
-    asm(".byte 0xaa, 0x2e, 0x40, 0x00");      // 0x00403098
-    asm(".byte 0x58, 0x2e, 0x40, 0x00");      // 0x0040309c
-    asm(".byte 0x81, 0x2e, 0x40, 0x00");      // 0x004030a0
-    asm(".byte 0xd3, 0x2e, 0x40, 0x00");      // 0x004030a4
-    asm(".byte 0xfc, 0x2e, 0x40, 0x00");      // 0x004030a8
-    asm(".byte 0xfb, 0x2f, 0x40, 0x00");      // 0x004030ac
     // Snippet: ijmptbl, [0x004030b0, 0x00403130)
-    asm(".byte 0x00, 0x05, 0x05, 0x05");      // 0x004030b0
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030b4
-    asm(".byte 0x05, 0x05, 0x01, 0x05");      // 0x004030b8
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030bc
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030c0
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030c4
-    asm(".byte 0x05, 0x05, 0x02, 0x05");      // 0x004030c8
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030cc
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030d0
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030d4
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030d8
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030dc
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030e0
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030e4
-    asm(".byte 0x05, 0x05, 0x03, 0x05");      // 0x004030e8
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030ec
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030f0
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030f4
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030f8
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x004030fc
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x00403100
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x00403104
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x00403108
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x0040310c
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x00403110
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x00403114
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x00403118
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x0040311c
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x00403120
-    asm(".byte 0x05, 0x05, 0x05, 0x05");      // 0x00403124
-    asm(".byte 0x05, 0x05, 0x04, 0x90");      // 0x00403128
-    asm(".byte 0x90, 0x90, 0x90, 0x90");      // 0x0040312c
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall Init__5AbodeFiUlUl(struct Abode* this, const void* edx, int param_1, uint32_t food_amount, uint32_t wood_amount)
 {
     asm volatile (
@@ -639,16 +598,15 @@ void __fastcall Init__5AbodeFiUlUl(struct Abode* this, const void* edx, int para
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [eax + 0x914]\n"
         "LAB__addr_0x0040317d:\n\t"
-        "pop                esi\n\t"
-        "ret                0x000c"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct Abode* __cdecl CreateWithoutSpecial__5AbodeFRC9MapCoordsPC10GAbodeInfoP4Townfffi(const struct MapCoords* coords, const struct GAbodeInfo* info, struct Town* town, float y_angle, float scale, float food, int wood)
 {
+    struct Abode* result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -690,14 +648,13 @@ struct Abode* __cdecl CreateWithoutSpecial__5AbodeFRC9MapCoordsPC10GAbodeInfoP4T
         "LAB__addr_0x004031ed:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall CallVirtualFunctionsForCreation__5AbodeFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* coords)
 {
     asm volatile (
@@ -958,9 +915,7 @@ void __fastcall CallVirtualFunctionsForCreation__5AbodeFRC9MapCoords(struct Obje
         "%{disp8%} mov        dword ptr [esi + 0x44], eax\n\t"
         "%{disp8%} mov        dword ptr [esi + 0x48], ecx\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x20\n\t"
-        "ret                0x0004"
+        "add                esp, 0x20"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }

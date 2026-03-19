@@ -6,6 +6,7 @@ const float villager_dance_seconds_in_day_0x0099a954 = 86400.0f;
 uint32_t villager_dance_uint_0x00db9df4;
 float villager_dance_seconds_in_year_0x00db9df8;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x00759810(void)
 {
     asm volatile (
@@ -61,9 +62,10 @@ void __cdecl FUN_00759880__8VillagerFv(void)
     villager_dance_uint_0x00db9df4 = 0xffffffff;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct Villager* __fastcall FindImmediateNeighbour__8VillagerFv(struct Villager* this)
 {
+    struct Villager* result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               ebx\n\t"
@@ -118,11 +120,10 @@ struct Villager* __fastcall FindImmediateNeighbour__8VillagerFv(struct Villager*
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall DanceForEditingPurposes__8VillagerFv(struct Villager* this)
@@ -161,9 +162,10 @@ bool32_t __fastcall DanceButNotWorship__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall MoveToDancePos__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -198,16 +200,16 @@ bool32_t __fastcall MoveToDancePos__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               ?MoveToPos@Living@@QAEHXZ\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ControlledByCreature__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               esi\n\t"
@@ -256,16 +258,16 @@ bool32_t __fastcall ControlledByCreature__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ExitControlledByCreature__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               ebx\n\t"
         "%{disp8%} mov        ebx, dword ptr [esp + 0x08]\n\t"
@@ -362,11 +364,10 @@ bool32_t __fastcall ExitControlledByCreature__8VillagerFUc(struct Villager* this
         "LAB__addr_0x00759b71:\n\t"
         "pop                ebp\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void __fastcall SetStateAfterFinishingDance__8VillagerFv(struct Living* this)

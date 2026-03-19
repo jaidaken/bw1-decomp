@@ -100,12 +100,13 @@ void __fastcall DrawInHand__9GameThingFP16GInterfaceStatus(struct GameThing* thi
     return;
 }
 
+__attribute__((no_ret))
 bool __fastcall IsFunctional__9GameThingFv(struct GameThing* this)
 {
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "%{disp8%} jmp dword ptr [eax + 0x2c]"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }

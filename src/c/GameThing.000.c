@@ -25,6 +25,7 @@ const struct RTTIBaseClassDescriptor __RTTIBaseClassDescriptor__9GameThing = {
     .attributes = 0x0000000,
 };
 
+__attribute__((no_ret))
 float __fastcall CalculateInfluence__9GameThingFRC9MapCoords(struct GameThing* this, const void* edx, const struct MapCoords* param_1)
 {
     asm(
@@ -43,6 +44,7 @@ void __fastcall RemoveDance__9GameThingFv(struct GameThing* this)
 {
 }
 
+__attribute__((no_ret))
 bool __fastcall IsAvailable__9GameThingFv(struct GameThing* this)
 {
     asm(
@@ -74,6 +76,7 @@ bool __fastcall IsCreatureNotTooNear__9GameThingFP8Creature(struct GameThing* th
     return false;
 }
 
+__attribute__((no_ret))
 float __fastcall GetMaxAlignmentChangePerGameTurn__9GameThingFv(struct GameThing* this)
 {
     asm(
@@ -90,6 +93,7 @@ bool __fastcall GetComputerSeen__9GameThingFv(struct GameThing* this)
     return false;
 }
 
+__attribute__((no_ret))
 float __fastcall GetVillagerActivityDesire__9GameThingFP8Villager(struct GameThing* this, const void* edx, struct Villager* param_1)
 {
     asm(

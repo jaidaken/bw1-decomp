@@ -5,6 +5,7 @@ const float villager_farmer_seconds_in_day_0x0099a95c = 86400.0f;
 
 float villager_farmer_seconds_in_year_0x00db9dfc;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x00759b90(void)
 {
     asm volatile (
@@ -54,9 +55,10 @@ bool32_t __fastcall FarmerLookForField__8VillagerFv(struct Villager* this)
     return 0;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall VillagerBecomesFarmer__8VillagerFP5Field(struct Villager* this, const void* edx, struct Field* param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "test               eax, eax\n\t"
@@ -83,16 +85,16 @@ bool32_t __fastcall VillagerBecomesFarmer__8VillagerFP5Field(struct Villager* th
         "ret                0x0004\n"
         "LAB__addr_0x00759c33:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall SetFarmerGotoField__8VillagerFP5Fieldi(struct Villager* this, const void* edx, struct Field* param_1, int param_2)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x24\n\t"
         "push               esi\n\t"
@@ -169,15 +171,16 @@ bool32_t __fastcall SetFarmerGotoField__8VillagerFP5Fieldi(struct Villager* this
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x24\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x24"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FarmerArrivesAtFarm__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x24\n\t"
         "push               esi\n\t"
@@ -274,15 +277,16 @@ bool32_t __fastcall FarmerArrivesAtFarm__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x24\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x24"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FarmerDigsUpCrop__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -327,15 +331,16 @@ bool32_t __fastcall FarmerDigsUpCrop__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FarmerPlantsCrop__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -370,16 +375,16 @@ bool32_t __fastcall FarmerPlantsCrop__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0x8e8]\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall CheckSatisfyFoodDesire__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x40\n\t"
         "push               ebx\n\t"
@@ -723,16 +728,16 @@ bool32_t __fastcall CheckSatisfyFoodDesire__8VillagerFv(struct Villager* this)
         "pop                ebp\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x40\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x40"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall EnterFarming__8VillagerFUcUc(struct Villager* this, const void* edx, unsigned char param_1, unsigned char param_2)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -761,15 +766,16 @@ bool32_t __fastcall EnterFarming__8VillagerFUcUc(struct Villager* this, const vo
         "call               _jmp_addr_0x005283e0\n"
         "LAB__addr_0x0075a296:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ExitFarming__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -808,14 +814,13 @@ bool32_t __fastcall ExitFarming__8VillagerFUc(struct Villager* this, const void*
         "call               _jmp_addr_0x00528340\n"
         "LAB__addr_0x0075a303:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall Remove__31LHOrderedLinkedList_9Glocation_Fv(struct LHOrderedLinkedList__Glocation* this, const void* edx, struct Glocation* param_1)
 {
     asm volatile (
@@ -858,9 +863,7 @@ void __fastcall Remove__31LHOrderedLinkedList_9Glocation_Fv(struct LHOrderedLink
         "pop                edi\n\t"
         "%{disp8%} mov        dword ptr [esi + 0x04], eax\n\t"
         "pop                esi\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret                0x0004"
+        "mov                eax, 0x00000001"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }

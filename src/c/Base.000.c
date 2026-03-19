@@ -14,6 +14,7 @@ void __fastcall Serialise__4BaseFR7Archive(struct Base* this, const void* edx, s
 {
 }
 
+__attribute__((no_callee_saves, trailing_asm(".byte 0x45, 0x16, 0xa1, 0x03")))
 void __fastcall Delete__4BaseFv(struct Base* this)
 {
     if (this)
@@ -23,10 +24,6 @@ void __fastcall Delete__4BaseFv(struct Base* this)
         asm("push 0x1");                   // 0x004011c6    6a01
         asm("call dword ptr [eax + 4]");   // 0x004011c8    ff5004
     }
-    asm("ret");                            // 0x004011cb    c3
-    // Mystery bytes
-    asm(".byte 0x45, 0x16, 0xa1, 0x03");   // 0x004011cc
-    __builtin_unreachable();
 }
 
 void __fastcall ToBeDeleted__4BaseFi(struct Base* this, const void* edx, int param_1)

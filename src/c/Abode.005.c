@@ -1,8 +1,9 @@
 #include "Abode.h"
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 float __fastcall CalculateScoreForAddingVillagerToAbode__5AbodeFP8Villager(struct Abode* this, const void* edx, struct Villager* villager)
 {
+    float result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               esi\n\t"
@@ -119,13 +120,13 @@ float __fastcall CalculateScoreForAddingVillagerToAbode__5AbodeFP8Villager(struc
         "LAB__addr_0x00404cab:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall ChildToAdult__5AbodeFP8Villager(struct Abode* this, const void* edx, struct Villager* villager)
 {
     asm volatile (
@@ -163,11 +164,9 @@ void __fastcall ChildToAdult__5AbodeFP8Villager(struct Abode* this, const void* 
         "call               ?ChildToAdult@Town@@QAEXPAVVillager@@@Z\n"
         "LAB__addr_0x00404d1f:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 uint32_t __fastcall GetResource__5AbodeF13RESOURCE_TYPE(struct GameThing* this, const void* edx, enum RESOURCE_TYPE type)
@@ -175,20 +174,23 @@ uint32_t __fastcall GetResource__5AbodeF13RESOURCE_TYPE(struct GameThing* this, 
     return ((struct Abode*)this)->resources[type];
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall JustAddResource__5AbodeF13RESOURCE_TYPEUlb(struct GameThing* this, const void* edx, enum RESOURCE_TYPE param_1, uint32_t param_2, bool param_3)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
-        "add                dword ptr [ecx + edx * 0x4 + 0x000000bc], eax\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                dword ptr [ecx + edx * 0x4 + 0x000000bc], eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall JustRemoveResource__5AbodeF13RESOURCE_TYPEUlPb(struct GameThing* this, const void* edx, enum RESOURCE_TYPE param_1, uint32_t param_2, bool* param_3)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov eax, dword ptr [esp + 0x08]\n\t"
         "push esi\n\t"
@@ -200,15 +202,16 @@ uint32_t __fastcall JustRemoveResource__5AbodeF13RESOURCE_TYPEUlPb(struct GameTh
         "0:\n\t"
         "sub.s edx, eax\n\t"
         "%{disp32%} mov dword ptr [ecx + esi * 0x4 + 0x000000bc], edx\n\t"
-        "pop esi\n\t"
-        "ret 0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall AddResource__5AbodeF13RESOURCE_TYPEUlP16GInterfaceStatusbRC9MapCoordsi(struct GameThing* this, const void* edx, enum RESOURCE_TYPE type, uint32_t param_2, struct GInterfaceStatus* param_3, bool param_4, const struct MapCoords* coords, int param_6)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x74]\n\t"
         "test               eax, eax\n\t"
@@ -248,16 +251,16 @@ uint32_t __fastcall AddResource__5AbodeF13RESOURCE_TYPEUlP16GInterfaceStatusbRC9
         "push               esi\n\t"
         "push               edx\n\t"
         "call               dword ptr [eax + 0x8e4]\n\t"
-        "pop                esi\n\t"
-        "ret                0x0018"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, ret_cleanup_override(0x18)))
 uint32_t __fastcall DoResourceAdding__5AbodeF13RESOURCE_TYPEUlP16GInterfaceStatusbRC9MapCoordsi(struct MultiMapFixed* this, const void* edx, enum RESOURCE_TYPE type, struct GInterfaceStatus* iface, bool param_3, struct MapCoords* param_4, int param_5)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -360,15 +363,16 @@ uint32_t __fastcall DoResourceAdding__5AbodeF13RESOURCE_TYPEUlP16GInterfaceStatu
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0x8c]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0018"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall RemoveResource__5AbodeF13RESOURCE_TYPEUlP16GInterfaceStatusPb(struct GameThing* this, const void* edx, enum RESOURCE_TYPE type, uint32_t param_2, struct GInterfaceStatus* param_3, bool* param_4)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x74]\n\t"
         "test               eax, eax\n\t"
@@ -402,16 +406,16 @@ uint32_t __fastcall RemoveResource__5AbodeF13RESOURCE_TYPEUlP16GInterfaceStatusP
         "push               esi\n\t"
         "push               edx\n\t"
         "call               dword ptr [eax + 0x8e8]\n\t"
-        "pop                esi\n\t"
-        "ret                0x0010"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, ret_cleanup_override(0x00)))
 uint32_t __fastcall DoResourceRemoving__5AbodeF13RESOURCE_TYPEUlP16GInterfaceStatusPb(struct MultiMapFixed* this, const void* edx, enum RESOURCE_TYPE type, uint32_t param_2, struct GInterfaceStatus* iface, bool param_4)
 {
+    uint32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               ebx\n\t"
@@ -522,11 +526,10 @@ uint32_t __fastcall DoResourceRemoving__5AbodeF13RESOURCE_TYPEUlP16GInterfaceSta
         "%{disp8%} mov        ecx, dword ptr [esp + 0x04]\n\t"
         "push               0x0\n\t"
         "push               0x0\n\t"
-        "call               @FindType__9MapCoordsCF11OBJECT_TYPEP6Object@16\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "call               @FindType__9MapCoordsCF11OBJECT_TYPEP6Object@16"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 struct PlannedMultiMapFixed * __fastcall ConvertToPlanned__5AbodeFv(struct MultiMapFixed* this)

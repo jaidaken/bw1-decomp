@@ -2,8 +2,10 @@
 
 const double rdata_double_1_25 asm("__real@3ff4000000000000") = 1.25;
 
+__attribute__((no_callee_saves))
 struct PlannedAbode* __fastcall __ct__12PlannedAbodeFP5Abode(struct PlannedAbode* this, const void* edx, struct Abode* abode)
 {
+    struct PlannedAbode* result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "push               esi\n\t"
@@ -13,13 +15,13 @@ struct PlannedAbode* __fastcall __ct__12PlannedAbodeFP5Abode(struct PlannedAbode
         "%{disp8%} mov        dword ptr [esi + 0x48], 0x00000000\n\t"
         "mov                dword ptr [esi], 0x008aa3bc\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall Init__12PlannedAbodeFP4Town(struct PlannedAbode* this, const void* edx, struct Town* town)
 {
     asm volatile (
@@ -30,16 +32,15 @@ void __fastcall Init__12PlannedAbodeFP4Town(struct PlannedAbode* this, const voi
         "%{disp8%} je 0f\n\t"
         "push eax\n\t"
         "call ?AddPlanned@Town@@QAEXPAVPlannedMultiMapFixed@@@Z\n"
-        "0:\n\t"
-        "ret 0x0004"
+        "0:"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct PlannedAbode* __cdecl CreateNoInit__12PlannedAbodeFRC9MapCoordsPC10GAbodeInfoP4Townff(struct MapCoords* coords, struct GMultiMapFixedInfo* info, struct Town* town, float param_4, float param_5)
 {
+    struct PlannedAbode* result;
     asm volatile (
         "push               0x0000054f\n\t"
         "push               0x009c7fbc\n\t"
@@ -62,16 +63,16 @@ struct PlannedAbode* __cdecl CreateNoInit__12PlannedAbodeFRC9MapCoordsPC10GAbode
         "call               ??0PlannedAbode@@QAE@ABUMapCoords@@PBVGAbodeInfo@@PAVTown@@MMMH@Z\n\t"
         "ret\n"
         "LAB__addr_0x004055f9:\n\t"
-        "xor.s              eax, eax\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct PlannedAbode* __cdecl Create__12PlannedAbodeFRC9MapCoordsPC10GAbodeInfoP4Townff(struct MapCoords* coords, struct GMultiMapFixedInfo* info, struct Town* town, float param_4, float param_5)
 {
+    struct PlannedAbode* result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -109,16 +110,16 @@ struct PlannedAbode* __cdecl Create__12PlannedAbodeFRC9MapCoordsPC10GAbodeInfoP4
         "call               ?Init@PlannedAbode@@QAEXPAVTown@@@Z\n\t"
         "pop                edi\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct PlannedAbode* __cdecl Create__12PlannedAbodeFP5Abode(struct Abode* abode)
 {
+    struct PlannedAbode* result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -149,13 +150,13 @@ struct PlannedAbode* __cdecl Create__12PlannedAbodeFP5Abode(struct Abode* abode)
         "call               ?Init@PlannedAbode@@QAEXPAVTown@@@Z\n\t"
         "pop                edi\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall ToBeDeleted__12PlannedAbodeFi(struct Base* this, const void* edx, int param_1)
 {
     asm volatile (
@@ -171,15 +172,15 @@ void __fastcall ToBeDeleted__12PlannedAbodeFi(struct Base* this, const void* edx
         "push               eax\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?ToBeDeleted@GameThingWithPos@@UAEXH@Z\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x04), trailing_asm("call               dword ptr [__imp__CoFileTimeToDosDateTime@4]")))
 struct GPlannedAbodeInfo* __cdecl GetInfo__12PlannedAbodeFv(void)
 {
+    struct GPlannedAbodeInfo* result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x40]\n\t"
         "ret\n\t"
@@ -196,32 +197,32 @@ struct GPlannedAbodeInfo* __cdecl GetInfo__12PlannedAbodeFv(void)
         "nop\n\t"
         "nop\n\t"
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "%{disp8%} mov        dword ptr [ecx + 0x2c], eax\n\t"
-        "ret                0x0004\n\t"
-        "call               dword ptr [__imp__CoFileTimeToDosDateTime@4]"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp8%} mov        dword ptr [ecx + 0x2c], eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FUN_004056f0__12PlannedAbodeFP4Town(struct PlannedAbode* this, const void* edx, int param_1)
 {
+    bool32_t result;
     asm volatile (
         "call ?GetInfo@PlannedAbode@@SAPAVGPlannedAbodeInfo@@XZ\n\t"
         "%{disp32%} mov eax, dword ptr [eax + 0x00000120]\n\t"
         "and eax, dword ptr [esp + 0x04]\n\t"
         "neg eax\n\t"
         ".byte 0x1b, 0xc0\n\t"
-        "neg eax\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "neg eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct MultiMapFixed* __fastcall CreatePlanned__12PlannedAbodeFf(struct PlannedMultiMapFixed* this, const void* edx, float param_1)
 {
+    struct MultiMapFixed* result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -256,16 +257,16 @@ struct MultiMapFixed* __fastcall CreatePlanned__12PlannedAbodeFf(struct PlannedM
         "LAB__addr_0x0040575c:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct MultiMapFixed* __fastcall CreatePlannedNoFixedCheck__12PlannedAbodeFf(struct PlannedMultiMapFixed* this, const void* edx, float param_1)
 {
+    struct MultiMapFixed* result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -320,15 +321,16 @@ struct MultiMapFixed* __fastcall CreatePlannedNoFixedCheck__12PlannedAbodeFf(str
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall IsOkToBuild__12PlannedAbodeFv(struct PlannedAbode* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -354,16 +356,16 @@ bool32_t __fastcall IsOkToBuild__12PlannedAbodeFv(struct PlannedAbode* this)
         "call               ?IsSuitableForFixed@MapCoords@@QBEXW4MESH_LIST@@MM@Z\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall Save__12PlannedAbodeFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* file)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -384,16 +386,16 @@ uint32_t __fastcall Save__12PlannedAbodeFR10GameOSFile(struct GameThing* this, c
         "LAB__addr_0x00405857:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall Load__12PlannedAbodeFR10GameOSFile(struct GameThing* this, const void* edx, struct GameOSFile* file)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -414,9 +416,8 @@ uint32_t __fastcall Load__12PlannedAbodeFR10GameOSFile(struct GameThing* this, c
         "LAB__addr_0x00405887:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }

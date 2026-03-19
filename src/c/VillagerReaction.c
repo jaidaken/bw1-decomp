@@ -14,6 +14,7 @@ __attribute__((aligned(4))) char s_VillagerReaction_cpp[] = "C:\\dev\\MP\\Black\
 uint32_t villager_reaction_uint_0x00db9e30;
 float villager_reaction_seconds_in_year_0x00db9e34;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x00763310(void)
 {
     asm volatile (
@@ -69,9 +70,10 @@ void __cdecl FUN_00763380__8VillagerFv(void)
     villager_reaction_uint_0x00db9e30 = 0xffffffff;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAvailableForReaction__8VillagerF8REACTION(struct Living* this, const void* edx, enum REACTION param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall IsAvailableForReaction__8VillagerF8REACTION(struct Living* this, const void* edx, enum REACTION param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -119,16 +121,16 @@ bool __fastcall IsAvailableForReaction__8VillagerF8REACTION(struct Living* this,
         "LAB__addr_0x00763409:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsAvailableForBeliefButNotReaction__8VillagerF8REACTION(struct Living* this, const void* edx, enum REACTION param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall IsAvailableForBeliefButNotReaction__8VillagerF8REACTION(struct Living* this, const void* edx, enum REACTION param_1)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "lea                eax, dword ptr [eax + eax * 0x2]\n\t"
@@ -143,13 +145,13 @@ bool __fastcall IsAvailableForBeliefButNotReaction__8VillagerF8REACTION(struct L
         "xor.s              eax, eax\n\t"
         "ret                0x0004\n"
         "LAB__addr_0x00763435:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall AddReaction__8VillagerFP8Reaction15VILLAGER_STATES(struct Living* this, const void* edx, struct Reaction* param_1, enum VILLAGER_STATES param_2)
 {
     asm volatile (
@@ -167,11 +169,9 @@ void __fastcall AddReaction__8VillagerFP8Reaction15VILLAGER_STATES(struct Living
         "mov.s              ecx, esi\n\t"
         "call               ?AddReaction@Living@@UAEXPAVReaction@@W4VILLAGER_STATES@@@Z\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))
@@ -209,6 +209,7 @@ void __fastcall StorePreviousState__8VillagerFv(struct Living* this)
     );
 }
 
+__attribute__((no_callee_saves))
 void __fastcall UpdateHowImpressed__8VillagerFP8Reactioni(struct Living* this, const void* edx, struct Reaction* param_1, int param_2)
 {
     asm volatile (
@@ -299,16 +300,15 @@ void __fastcall UpdateHowImpressed__8VillagerFP8Reactioni(struct Living* this, c
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall DisplayHowImpressed__4TownFv(struct Town* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp32%} mov       eax, dword ptr [data_bytes + 0x30dc58]\n\t"
         "sub                esp, 0x0000012c\n\t"
@@ -460,11 +460,10 @@ bool32_t __fastcall DisplayHowImpressed__4TownFv(struct Town* this)
         "pop                ebp\n\t"
         "pop                ebx\n"
         "LAB__addr_0x007637bd:\n\t"
-        "add                esp, 0x0000012c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0000012c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void __fastcall StopReacting__8VillagerFv(struct Living* this)
@@ -493,20 +492,22 @@ void __fastcall StopReacting__8VillagerFv(struct Living* this)
     );
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall SetupMoveToPos__8VillagerFRC9MapCoords15VILLAGER_STATES(struct Villager* this, const void* edx, const struct MapCoords* param_1, enum VILLAGER_STATES param_2)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "push               eax\n\t"
         "push               edx\n\t"
-        "call               @SetupMoveToPos__6LivingFRC9MapCoordsUc@13\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "call               @SetupMoveToPos__6LivingFRC9MapCoordsUc@13"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToMagicTree__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -520,16 +521,15 @@ void __fastcall SetupReactToMagicTree__8VillagerFP16GameThingWithPosP8Reaction(s
         "call               dword ptr [eax + 0x990]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
         "%{disp32%} mov       dword ptr [esi + 0x000000bc], edx\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall FleeFromPredatorPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               ebx\n\t"
@@ -628,11 +628,10 @@ uint8_t __fastcall FleeFromPredatorPriority__8VillagerFP8ReactionP8Reaction(stru
         "pop                esi\n\t"
         "xor.s              al, al\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x08\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint8_t __fastcall ReactToScaffoldPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
@@ -645,6 +644,7 @@ uint8_t __fastcall ReactToScaffoldPriority__8VillagerFP8ReactionP8Reaction(struc
     return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupFleeFromPredator__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -666,13 +666,12 @@ void __fastcall SetupFleeFromPredator__8VillagerFP16GameThingWithPosP8Reaction(s
         "call               dword ptr [edx + 0x990]\n\t"
         "%{disp8%} mov        ecx, dword ptr [esp + 0x08]\n\t"
         "%{disp32%} mov       dword ptr [esi + 0x000000bc], ecx\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToFlyingObject__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -741,13 +740,12 @@ void __fastcall SetupReactToFlyingObject__8VillagerFP16GameThingWithPosP8Reactio
         "LAB__addr_0x00763a94:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupLookAtObject__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -755,13 +753,12 @@ void __fastcall SetupLookAtObject__8VillagerFP16GameThingWithPosP8Reaction(struc
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "push               eax\n\t"
         "push               edx\n\t"
-        "call               ?SetupLookAtObject@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z\n\t"
-        "ret                0x0008"
+        "call               ?SetupLookAtObject@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupLookAtSpell__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -769,13 +766,12 @@ void __fastcall SetupLookAtSpell__8VillagerFP16GameThingWithPosP8Reaction(struct
         "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
         "push               eax\n\t"
         "push               edx\n\t"
-        "call               ?SetupLookAtObject@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z\n\t"
-        "ret                0x0008"
+        "call               ?SetupLookAtObject@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupLookAtNiceSpell__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -784,15 +780,15 @@ void __fastcall SetupLookAtNiceSpell__8VillagerFP16GameThingWithPosP8Reaction(st
         "push               edx\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
         "push               edx\n\t"
-        "call               dword ptr [eax + 0x9ac]\n\t"
-        "ret                0x0008"
+        "call               dword ptr [eax + 0x9ac]"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-bool __fastcall FleeingFromObjectReaction__8VillagerFv(struct Living* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall FleeingFromObjectReaction__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -815,15 +811,16 @@ bool __fastcall FleeingFromObjectReaction__8VillagerFv(struct Living* this)
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [eax + 0x99c]\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall FleeingFromPredatorReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               ebx\n\t"
@@ -960,16 +957,16 @@ bool32_t __fastcall FleeingFromPredatorReaction__8VillagerFv(struct Villager* th
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall SetupGoAndHideInNearbyBuilding__8VillagerFP16GameThingWithPos(struct Villager* this, const void* edx, struct GameThingWithPos* param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               ebx\n\t"
@@ -1048,15 +1045,16 @@ bool32_t __fastcall SetupGoAndHideInNearbyBuilding__8VillagerFP16GameThingWithPo
         "pop                esi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x14\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall GoAndHideInNearbyBuilding__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x1c\n\t"
         "push               ebx\n\t"
@@ -1175,16 +1173,16 @@ bool32_t __fastcall GoAndHideInNearbyBuilding__8VillagerFv(struct Villager* this
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x1c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x1c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 struct Abode* __fastcall GetAbodeToHideInAtPos__8VillagerFRC9MapCoords(struct Villager* this, const void* edx, const struct MapCoords* param_1)
 {
+    struct Abode* result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -1236,15 +1234,16 @@ struct Abode* __fastcall GetAbodeToHideInAtPos__8VillagerFRC9MapCoords(struct Vi
         "LAB__addr_0x00763f6e:\n\t"
         "pop                edi\n\t"
         "mov.s              eax, esi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall LookToSeeIfItIsSafe__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               esi\n\t"
@@ -1337,15 +1336,16 @@ bool32_t __fastcall LookToSeeIfItIsSafe__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall NumGameTurnsToReactToPredatorFunction__8VillagerFP16GameThingWithPosUlf(struct Living* this, const void* edx, struct GameThingWithPos* param_1, uint32_t param_2, float param_3)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1367,16 +1367,16 @@ uint32_t __fastcall NumGameTurnsToReactToPredatorFunction__8VillagerFP16GameThin
         "ret                0x000c\n"
         "LAB__addr_0x007640cd:\n\t"
         "mov                eax, 0x7fffffff\n\t"
-        "pop                esi\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall NumGameTurnsBeforeReactingAgainToPredatorFunction__8VillagerFP16GameThingWithPosUlf(struct Living* this, const void* edx, struct GameThingWithPos* param_1, uint32_t param_2, float param_3)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1396,15 +1396,16 @@ uint32_t __fastcall NumGameTurnsBeforeReactingAgainToPredatorFunction__8Villager
         "push               eax\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?NumGameTurnsBeforeReactingAgainToPredatorFunction@Living@@UAEIPAVGameThingWithPos@@IM@Z\n\t"
-        "pop                esi\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall NumGameTurnsToReactToBurningObjectFunction__8VillagerFP16GameThingWithPosUlf(struct Living* this, const void* edx, struct GameThingWithPos* param_1, uint32_t param_2, float param_3)
 {
+    uint32_t result;
     asm volatile (
         "%{disp8%} mov        edx, dword ptr [esp + 0x0c]\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
@@ -1413,16 +1414,16 @@ uint32_t __fastcall NumGameTurnsToReactToBurningObjectFunction__8VillagerFP16Gam
         "push               edx\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x0c]\n\t"
         "push               edx\n\t"
-        "call               dword ptr [eax + 0xac0]\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "call               dword ptr [eax + 0xac0]"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall NumGameTurnsBeforeReactingAgainToBurningObjectFunction__8VillagerFP16GameThingWithPosUlf(struct Living* this, const void* edx, struct GameThingWithPos* param_1, uint32_t param_2, float param_3)
 {
+    uint32_t result;
     asm volatile (
         "push               ebx\n\t"
         "%{disp8%} mov        ebx, dword ptr [esp + 0x08]\n\t"
@@ -1464,15 +1465,16 @@ uint32_t __fastcall NumGameTurnsBeforeReactingAgainToBurningObjectFunction__8Vil
         "pop                edi\n\t"
         "pop                esi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                ebx\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall NumGameTurnsToReactToShieldFunction__8VillagerFP16GameThingWithPosUlf(struct Living* this, const void* edx, struct GameThingWithPos* param_1, uint32_t param_2, float param_3)
 {
+    uint32_t result;
     asm volatile (
         "push               edi\n\t"
         "mov.s              edi, ecx\n\t"
@@ -1523,15 +1525,16 @@ uint32_t __fastcall NumGameTurnsToReactToShieldFunction__8VillagerFP16GameThingW
         "push               ecx\n\t"
         "mov.s              ecx, edi\n\t"
         "call               dword ptr [eax + 0xac0]\n\t"
-        "pop                edi\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                edi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall NumGameTurnsBeforeReactingToShieldAgainFunction__8VillagerFP16GameThingWithPosUlf(struct Living* this, const void* edx, struct GameThingWithPos* param_1, uint32_t param_2, float param_3)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1582,15 +1585,16 @@ uint32_t __fastcall NumGameTurnsBeforeReactingToShieldAgainFunction__8VillagerFP
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0xac4]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall LookingAtObjectReaction__8VillagerFv(struct Living* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall LookingAtObjectReaction__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1622,25 +1626,27 @@ bool __fastcall LookingAtObjectReaction__8VillagerFv(struct Living* this)
         "LAB__addr_0x00764307:\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?LookingAtObjectReaction@PuzzleHorse@@UAE_NXZ\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_ret))
 bool __fastcall FleeingAndLookingAtObjectReaction__8VillagerFv(struct Living* this)
 {
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "jmp dword ptr [eax + 0x88c]"
-        ::: "eax", "ecx", "edx", "memory"
+        : : "c"(this) : "eax", "edx", "memory"
     );
     __builtin_unreachable();
 }
 
-bool __fastcall FollowingObjectReaction__8VillagerFv(struct Living* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall FollowingObjectReaction__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1658,16 +1664,16 @@ bool __fastcall FollowingObjectReaction__8VillagerFv(struct Living* this)
         "LAB__addr_0x00764343:\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?FollowingObjectReaction@PuzzleHorse@@UAE_NXZ\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall InspectObjectReaction__8VillagerFv(struct Living* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall InspectObjectReaction__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -1721,15 +1727,16 @@ bool __fastcall InspectObjectReaction__8VillagerFv(struct Living* this)
         "pop                ebx\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall PerformInspectionReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1773,16 +1780,16 @@ bool32_t __fastcall PerformInspectionReaction__8VillagerFv(struct Villager* this
         "mov.s              ecx, esi\n\t"
         "call               ?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               esi\n\t"
@@ -1903,15 +1910,16 @@ bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
         "pop                ebx\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall InitialiseTellOthersAboutObject__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1933,11 +1941,10 @@ bool32_t __fastcall InitialiseTellOthersAboutObject__8VillagerFv(struct Villager
         "%{disp8%} mov        word ptr [esi + 0x58], 0x0000\n\t"
         "call               dword ptr [eax + 0x8e8]\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -1970,8 +1977,10 @@ bool32_t __fastcall TellParticularVillagerAboutObject__8VillagerFv(struct Villag
     return 0;
 }
 
-bool __fastcall GotoFoodReaction__8VillagerFv(struct Living* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall GotoFoodReaction__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -1991,15 +2000,16 @@ bool __fastcall GotoFoodReaction__8VillagerFv(struct Living* this)
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0x99c]\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-bool __fastcall GotoWoodReaction__8VillagerFv(struct Living* this)
+__attribute__((no_callee_saves))
+bool32_t __fastcall GotoWoodReaction__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2025,16 +2035,16 @@ bool __fastcall GotoWoodReaction__8VillagerFv(struct Living* this)
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0x99c]\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall ArrivesAtWoodReaction__8VillagerFv(struct Living* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall ArrivesAtWoodReaction__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               ebx\n\t"
@@ -2181,16 +2191,16 @@ bool __fastcall ArrivesAtWoodReaction__8VillagerFv(struct Living* this)
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall StandardNumGameTurnsBeforeReactingToWoodAgainFunction__8VillagerFP16GameThingWithPosUlf(struct Living* this, const void* edx, struct GameThingWithPos* param_1, uint32_t param_2, float param_3)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2217,16 +2227,16 @@ uint32_t __fastcall StandardNumGameTurnsBeforeReactingToWoodAgainFunction__8Vill
         "push               eax\n\t"
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0xac4]\n\t"
-        "pop                esi\n\t"
-        "ret                0x000c"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall ArrivesAtFoodReaction__8VillagerFv(struct Living* this)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t __fastcall ArrivesAtFoodReaction__8VillagerFv(struct Living* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               esi\n\t"
@@ -2347,15 +2357,16 @@ bool __fastcall ArrivesAtFoodReaction__8VillagerFv(struct Living* this)
         "call               dword ptr [edx + 0x99c]\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall InitialiseBewilderedByMagicTreeReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2408,16 +2419,16 @@ bool32_t __fastcall InitialiseBewilderedByMagicTreeReaction__8VillagerFv(struct 
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [eax + 0x99c]\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall PerformBewilderedByMagicTreeReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x24\n\t"
         "push               ebx\n\t"
@@ -2549,15 +2560,16 @@ bool32_t __fastcall PerformBewilderedByMagicTreeReaction__8VillagerFv(struct Vil
         "pop                ebp\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x24\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x24"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall TurnToFaceMagicTree__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2588,15 +2600,16 @@ bool32_t __fastcall TurnToFaceMagicTree__8VillagerFv(struct Villager* this)
         "call               dword ptr [eax + 0x99c]\n"
         "LAB__addr_0x00764d5b:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall LookAtMagicTree__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2640,16 +2653,16 @@ bool32_t __fastcall LookAtMagicTree__8VillagerFv(struct Villager* this)
         "call               dword ptr [eax + 0x99c]\n"
         "LAB__addr_0x00764de0:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsInterestedInFoodObject__8VillagerFP6Object(struct Living* this, const void* edx, struct Object* param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall IsInterestedInFoodObject__8VillagerFP6Object(struct Living* this, const void* edx, struct Object* param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               esi\n\t"
@@ -2764,16 +2777,16 @@ bool __fastcall IsInterestedInFoodObject__8VillagerFP6Object(struct Living* this
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x14\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
-bool __fastcall IsInterestedInWoodObject__8VillagerFP6Object(struct Living* this, const void* edx, struct Object* param_1)
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+bool32_t __fastcall IsInterestedInWoodObject__8VillagerFP6Object(struct Living* this, const void* edx, struct Object* param_1)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               ebx\n\t"
@@ -2932,15 +2945,16 @@ bool __fastcall IsInterestedInWoodObject__8VillagerFP6Object(struct Living* this
         "pop                ebp\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x10\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ApproachHandReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -2970,16 +2984,16 @@ bool32_t __fastcall ApproachHandReaction__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "call               ?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall FindNearbyVillagerWhoIsntReacting__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "add                ecx, 0x14\n\t"
@@ -3046,16 +3060,16 @@ bool32_t __fastcall FindNearbyVillagerWhoIsntReacting__8VillagerFv(struct Villag
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebp\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToFlyingObjectPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               ebx\n\t"
@@ -3133,15 +3147,16 @@ uint8_t __fastcall ReactToFlyingObjectPriority__8VillagerFP8ReactionP8Reaction(s
         "pop                edi\n\t"
         "pop                esi\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x18\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ArrivesAtPickupBallReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -3215,11 +3230,10 @@ bool32_t __fastcall ArrivesAtPickupBallReaction__8VillagerFv(struct Villager* th
         "LAB__addr_0x007653db:\n\t"
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall WatchFlyingObjectReaction__8VillagerFv(struct Villager* this)
@@ -3260,8 +3274,10 @@ bool32_t __fastcall WatchFlyingObjectReaction__8VillagerFv(struct Villager* this
     return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall PointAtFlyingObjectReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -3333,13 +3349,13 @@ bool32_t __fastcall PointAtFlyingObjectReaction__8VillagerFv(struct Villager* th
         "LAB__addr_0x00765529:\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToFire__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -3411,16 +3427,15 @@ void __fastcall SetupReactToFire__8VillagerFP16GameThingWithPosP8Reaction(struct
         "LAB__addr_0x0076560a:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToFirePriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               ebx\n\t"
@@ -3624,16 +3639,16 @@ uint8_t __fastcall ReactToFirePriority__8VillagerFP8ReactionP8Reaction(struct Li
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ReactToFire__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               ebx\n\t"
@@ -3888,13 +3903,13 @@ bool32_t __fastcall ReactToFire__8VillagerFv(struct Villager* this)
         "pop                ebp\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToWood__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -3918,16 +3933,15 @@ void __fastcall SetupReactToWood__8VillagerFP16GameThingWithPosP8Reaction(struct
         "call               dword ptr [edx + 0x990]\n\t"
         "%{disp32%} mov       dword ptr [esi + 0x000000bc], edi\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToMagicShieldPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -3992,13 +4006,13 @@ uint8_t __fastcall ReactToMagicShieldPriority__8VillagerFP8ReactionP8Reaction(st
         "pop                edi\n\t"
         "xor.s              al, al\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToMagicShield__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -4131,15 +4145,15 @@ void __fastcall SetupReactToMagicShield__8VillagerFP16GameThingWithPosP8Reaction
         "LAB__addr_0x00765df6:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x28\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x28"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall AmazedByMagicShieldReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               esi\n\t"
@@ -4296,14 +4310,13 @@ bool32_t __fastcall AmazedByMagicShieldReaction__8VillagerFv(struct Villager* th
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall SetupReactToNewBuilding__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -4409,16 +4422,15 @@ void __fastcall SetupReactToNewBuilding__8VillagerFP16GameThingWithPosP8Reaction
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall DanceWhileReacting__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x18\n\t"
         "push               esi\n\t"
@@ -4490,16 +4502,16 @@ bool32_t __fastcall DanceWhileReacting__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x18\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x18"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToTeleportPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "push               esi\n\t"
@@ -4528,14 +4540,13 @@ uint8_t __fastcall ReactToTeleportPriority__8VillagerFP8ReactionP8Reaction(struc
         "sbb.s              al, al\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "and.s              eax, ecx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "and.s              eax, ecx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall SetupReactToTeleport__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -4585,16 +4596,15 @@ void __fastcall SetupReactToTeleport__8VillagerFP16GameThingWithPosP8Reaction(st
         "LAB__addr_0x007662de:\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV, noinline))
+__attribute__((no_callee_saves, XOR32rr_REV, noinline))
 bool32_t __fastcall GoToTeleportReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -4639,11 +4649,10 @@ bool32_t __fastcall GoToTeleportReaction__8VillagerFv(struct Villager* this)
         "call               @SetupMoveToWithHug__6LivingFRC9MapCoordsUc@13\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall GoToTeleportReactionQuickly__8VillagerFv(struct Villager* this)
@@ -4651,8 +4660,10 @@ bool32_t __fastcall GoToTeleportReactionQuickly__8VillagerFv(struct Villager* th
     __attribute__((musttail)) return GoToTeleportReaction__8VillagerFv(this);
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ExitReactToTeleport__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -4685,15 +4696,16 @@ bool32_t __fastcall ExitReactToTeleport__8VillagerFUc(struct Villager* this, con
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [edx + 0x910]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall TeleportReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -4728,16 +4740,16 @@ bool32_t __fastcall TeleportReaction__8VillagerFv(struct Villager* this)
         "call               dword ptr [eax + 0x99c]\n\t"
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToDeathPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "push               ebx\n\t"
         "%{disp8%} mov        ebx, dword ptr [esp + 0x08]\n\t"
@@ -4785,16 +4797,16 @@ uint8_t __fastcall ReactToDeathPriority__8VillagerFP8ReactionP8Reaction(struct L
         "pop                edi\n\t"
         "pop                esi\n\t"
         "xor.s              al, al\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToDroppedByHandPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -4882,13 +4894,13 @@ uint8_t __fastcall ReactToDroppedByHandPriority__8VillagerFP8ReactionP8Reaction(
         "LAB__addr_0x0076659f:\n\t"
         "pop                edi\n\t"
         "xor.s              al, al\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToDeath__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -4928,14 +4940,12 @@ void __fastcall SetupReactToDeath__8VillagerFP16GameThingWithPosP8Reaction(struc
         "%{disp8%} mov        eax, dword ptr [esp + 0x0c]\n\t"
         "pop                edi\n\t"
         "%{disp32%} mov       dword ptr [esi + 0x000000bc], eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall SetupReactToDroppedByHand__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -4968,16 +4978,15 @@ void __fastcall SetupReactToDroppedByHand__8VillagerFP16GameThingWithPosP8Reacti
         "call               ?SetDiscipleFollower@Villager@@QAEXW4VILLAGER_DISCIPLE@@@Z\n"
         "LAB__addr_0x0076666c:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall PointAtDeadPerson__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -5012,16 +5021,16 @@ bool32_t __fastcall PointAtDeadPerson__8VillagerFv(struct Villager* this)
         "LAB__addr_0x007666f2:\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall GoTowardsDeadPerson__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x14\n\t"
         "push               ebx\n\t"
@@ -5116,11 +5125,10 @@ bool32_t __fastcall GoTowardsDeadPerson__8VillagerFv(struct Villager* this)
         "pop                esi\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x14"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall LookAtDeadPerson__8VillagerFv(struct Villager* this)
@@ -5149,9 +5157,10 @@ bool32_t __fastcall LookAtDeadPerson__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall MournDeadPerson__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -5179,13 +5188,13 @@ bool32_t __fastcall MournDeadPerson__8VillagerFv(struct Villager* this)
         "LAB__addr_0x007668ab:\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToFainting__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -5194,11 +5203,9 @@ void __fastcall SetupReactToFainting__8VillagerFP16GameThingWithPosP8Reaction(st
         "%{disp32%} mov       dword ptr [ecx + 0x000000bc], ecx\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
         "push               edx\n\t"
-        "call               dword ptr [eax + 0x990]\n\t"
-        "ret                0x0008"
+        "call               dword ptr [eax + 0x990]"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 bool32_t __fastcall FaintingReaction__8VillagerFv(struct Villager* this)
@@ -5206,6 +5213,7 @@ bool32_t __fastcall FaintingReaction__8VillagerFv(struct Villager* this)
     return 1;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToConfused__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -5214,11 +5222,9 @@ void __fastcall SetupReactToConfused__8VillagerFP16GameThingWithPosP8Reaction(st
         "%{disp32%} mov       dword ptr [ecx + 0x000000bc], ecx\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
         "push               edx\n\t"
-        "call               dword ptr [eax + 0x990]\n\t"
-        "ret                0x0008"
+        "call               dword ptr [eax + 0x990]"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 bool32_t __fastcall StartConfusedReaction__8VillagerFv(struct Villager* this)
@@ -5235,8 +5241,10 @@ bool32_t __fastcall StartConfusedReaction__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ConfusedReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               esi\n\t"
@@ -5288,11 +5296,10 @@ bool32_t __fastcall ConfusedReaction__8VillagerFv(struct Villager* this)
         "LAB__addr_0x00766a00:\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x10\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x10"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint8_t __fastcall ReactToFallingTreePriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
@@ -5305,6 +5312,7 @@ uint8_t __fastcall ReactToFallingTreePriority__8VillagerFP8ReactionP8Reaction(st
     return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToFallingTree__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -5318,11 +5326,9 @@ void __fastcall SetupReactToFallingTree__8VillagerFP16GameThingWithPosP8Reaction
         "call               dword ptr [eax + 0x990]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
         "%{disp32%} mov       dword ptr [esi + 0x000000bc], edx\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 uint8_t __fastcall ReactToCrowdPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
@@ -5335,6 +5341,7 @@ uint8_t __fastcall ReactToCrowdPriority__8VillagerFP8ReactionP8Reaction(struct L
     return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToCrowd__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -5348,16 +5355,15 @@ void __fastcall SetupReactToCrowd__8VillagerFP16GameThingWithPosP8Reaction(struc
         "call               dword ptr [eax + 0x990]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
         "%{disp32%} mov       dword ptr [esi + 0x000000bc], edx\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall CrowdReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x28\n\t"
         "push               edi\n\t"
@@ -5492,16 +5498,16 @@ bool32_t __fastcall CrowdReaction__8VillagerFv(struct Villager* this)
         "call               ?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                edi\n\t"
-        "add                esp, 0x28\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x28"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall MoveTowardsObjectToLookAt__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -5555,15 +5561,16 @@ bool32_t __fastcall MoveTowardsObjectToLookAt__8VillagerFv(struct Villager* this
         "mov.s              ecx, esi\n\t"
         "call               ?MoveToPos@Living@@QAEHXZ\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall InitialiseImpressedReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -5595,16 +5602,16 @@ bool32_t __fastcall InitialiseImpressedReaction__8VillagerFv(struct Villager* th
         "call               dword ptr [eax + 0x99c]\n"
         "LAB__addr_0x00766d51:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall PerformImpressedReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -5649,16 +5656,16 @@ bool32_t __fastcall PerformImpressedReaction__8VillagerFv(struct Villager* this)
         "LAB__addr_0x00766ddc:\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToFightPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "%{disp8%} mov        eax, dword ptr [eax + 0x14]\n\t"
@@ -5679,13 +5686,13 @@ uint8_t __fastcall ReactToFightPriority__8VillagerFP8ReactionP8Reaction(struct L
         "%{disp32%} mov       ecx, dword ptr [data_bytes + 0x389e2c]\n\t"
         "sete               al\n\t"
         "dec                eax\n\t"
-        "and.s              eax, ecx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "and.s              eax, ecx"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToFight__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -5695,16 +5702,15 @@ void __fastcall SetupReactToFight__8VillagerFP16GameThingWithPosP8Reaction(struc
         "mov                edx, dword ptr [ecx]\n\t"
         "push               0x0000008f\n\t"
         "push               eax\n\t"
-        "call               dword ptr [edx + 0x990]\n\t"
-        "ret                0x0008"
+        "call               dword ptr [edx + 0x990]"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall InitialiseFightReaction__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x10\n\t"
         "push               ebx\n\t"
@@ -5833,14 +5839,13 @@ bool32_t __fastcall InitialiseFightReaction__8VillagerFv(struct Villager* this)
         "add                eax, 0x14\n\t"
         "push               eax\n\t"
         "call               @LookAtPos__6LivingFRC9MapCoordsUl@16\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall SetupReactToTownCelebration__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -6001,16 +6006,15 @@ void __fastcall SetupReactToTownCelebration__8VillagerFP16GameThingWithPosP8Reac
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToTownCelebrationPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "push               esi\n\t"
         "xor.s              eax, eax\n\t"
@@ -6048,13 +6052,13 @@ uint8_t __fastcall ReactToTownCelebrationPriority__8VillagerFP8ReactionP8Reactio
         "setne              al\n\t"
         "pop                esi\n\t"
         "dec                eax\n\t"
-        "and.s              eax, ecx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "and.s              eax, ecx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToBreeder__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -6068,16 +6072,15 @@ void __fastcall SetupReactToBreeder__8VillagerFP16GameThingWithPosP8Reaction(str
         "call               dword ptr [eax + 0x990]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
         "%{disp32%} mov       dword ptr [esi + 0x000000bc], edx\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToBreederPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "push               ebx\n\t"
         "%{disp8%} mov        ebx, dword ptr [esp + 0x08]\n\t"
@@ -6118,16 +6121,16 @@ uint8_t __fastcall ReactToBreederPriority__8VillagerFP8ReactionP8Reaction(struct
         "pop                edi\n\t"
         "pop                esi\n\t"
         "xor.s              al, al\n\t"
-        "pop                ebx\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ebx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ReactToBreeder__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -6148,15 +6151,16 @@ bool32_t __fastcall ReactToBreeder__8VillagerFv(struct Villager* this)
         "ret\n"
         "LAB__addr_0x007672b0:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall GoAndHaveSexWith__8VillagerFP8Villager(struct Villager* this, const void* edx, struct Villager* param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -6169,13 +6173,13 @@ bool32_t __fastcall GoAndHaveSexWith__8VillagerFP8Villager(struct Villager* this
         "%{disp32%} mov       dword ptr [esi + 0x00000118], edi\n\t"
         "%{disp32%} mov       dword ptr [edi + 0x00000118], esi\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToVillagerInHand__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -6189,16 +6193,15 @@ void __fastcall SetupReactToVillagerInHand__8VillagerFP16GameThingWithPosP8React
         "call               dword ptr [eax + 0x990]\n\t"
         "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
         "%{disp32%} mov       dword ptr [esi + 0x000000bc], edx\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToVillagerInHandPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "push               esi\n\t"
         "%{disp8%} mov        esi, dword ptr [esp + 0x08]\n\t"
@@ -6245,15 +6248,16 @@ uint8_t __fastcall ReactToVillagerInHandPriority__8VillagerFP8ReactionP8Reaction
         "LAB__addr_0x00767391:\n\t"
         "pop                edi\n\t"
         "xor.s              al, al\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall WaitForMate__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -6291,11 +6295,10 @@ bool32_t __fastcall WaitForMate__8VillagerFv(struct Villager* this)
         "call               dword ptr [edx + 0x99c]\n"
         "LAB__addr_0x007673ff:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall EnterDrowning__8VillagerFUcUc(struct Villager* this, const void* edx, unsigned char param_1, unsigned char param_2)
@@ -6308,9 +6311,10 @@ bool32_t __fastcall ExitDrowning__8VillagerFUc(struct Villager* this, const void
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToBurningObjectInHandPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "push               esi\n\t"
@@ -6343,13 +6347,13 @@ uint8_t __fastcall ReactToBurningObjectInHandPriority__8VillagerFP8ReactionP8Rea
         "LAB__addr_0x0076747e:\n\t"
         "%{disp32%} mov       al, byte ptr [data_bytes + 0x38a3a4]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToBurningObjectInHand__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -6359,13 +6363,12 @@ void __fastcall SetupReactToBurningObjectInHand__8VillagerFP16GameThingWithPosP8
         "mov                edx, dword ptr [ecx]\n\t"
         "push               0x6\n\t"
         "push               eax\n\t"
-        "call               dword ptr [edx + 0x990]\n\t"
-        "ret                0x0008"
+        "call               dword ptr [edx + 0x990]"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToMagicShieldStruck__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -6401,13 +6404,12 @@ void __fastcall SetupReactToMagicShieldStruck__8VillagerFP16GameThingWithPosP8Re
         "call               ?Init@JustWholeMapXZ@@QAEXABUMapCoords@@@Z\n"
         "LAB__addr_0x0076750f:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 void __fastcall SetupReactToMagicShieldDestroyed__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
     asm volatile (
@@ -6416,16 +6418,15 @@ void __fastcall SetupReactToMagicShieldDestroyed__8VillagerFP16GameThingWithPosP
         "add                eax, 0x14\n\t"
         "push               eax\n\t"
         "push               edx\n\t"
-        "call               ?SetupPanicReaction@Villager@@QAEIPAVReaction@@AAUMapCoords@@@Z\n\t"
-        "ret                0x0008"
+        "call               ?SetupPanicReaction@Villager@@QAEIPAVReaction@@AAUMapCoords@@@Z"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint8_t __fastcall ReactToMagicShieldStruckPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
 {
+    uint8_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
         "%{disp8%} mov        eax, dword ptr [eax + 0x14]\n\t"
@@ -6461,11 +6462,10 @@ uint8_t __fastcall ReactToMagicShieldStruckPriority__8VillagerFP8ReactionP8React
         "LAB__addr_0x00767596:\n\t"
         "pop                edi\n\t"
         "xor.s              al, al\n\t"
-        "pop                esi\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 uint8_t __fastcall ReactToMagicShieldDestroyedPriority__8VillagerFP8ReactionP8Reaction(struct Living* this, const void* edx, struct Reaction* param_1, struct Reaction* param_2)
@@ -6477,3 +6477,4 @@ uint8_t __fastcall ReactToMagicShieldDestroyedPriority__8VillagerFP8ReactionP8Re
     );
     return result;
 }
+

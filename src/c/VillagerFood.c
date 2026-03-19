@@ -5,6 +5,7 @@ const float villager_food_seconds_in_day_0x0099a97c = 86400.0f;
 
 float villager_food_seconds_in_year_0x00db9e08;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x0075b8e0(void)
 {
     asm volatile (
@@ -48,8 +49,10 @@ void __cdecl FUN_0075b920__8VillagerFv(void)
     );
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ShowPoisoned__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -72,16 +75,16 @@ bool32_t __fastcall ShowPoisoned__8VillagerFv(struct Villager* this)
         "call               ?PlayAnimThenSetState@Living@@QAEXEK@Z\n\t"
         "mov                eax, 0x00000001\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ChangeStateToFindFoodToEat__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               ebp\n\t"
@@ -212,11 +215,10 @@ bool32_t __fastcall ChangeStateToFindFoodToEat__8VillagerFv(struct Villager* thi
         "pop                esi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                ebp\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 float __fastcall CalculateLifeDesire__8VillagerFv(struct Living* this)
@@ -237,8 +239,10 @@ bool32_t __fastcall CheckHungryAtHome__8VillagerFv(struct Villager* this)
     return 1;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall GetDesireToPickupFood__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "%{disp32%} mov       cx, word ptr [ecx + 0x000000f4]\n\t"
@@ -257,11 +261,10 @@ bool32_t __fastcall GetDesireToPickupFood__8VillagerFv(struct Villager* this)
         "ret\n"
         "LAB__addr_0x0075bb41:\n\t"
         "%{disp32%} fld       dword ptr [_rdata_float0p0]\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 float __fastcall GetDesireForFood__8VillagerFv(struct Villager* this)
@@ -276,8 +279,10 @@ float __fastcall GetDesireForFood__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x04)))
 float __cdecl POWER_f___FfUl(float param_0, uint32_t param_1)
 {
+    float result;
     asm volatile (
         "%{disp8%} fld        dword ptr [esp + 0x04]\n\t"
         "%{disp32%} fcomp     dword ptr [_rdata_float1p0]\n\t"
@@ -295,13 +300,13 @@ float __cdecl POWER_f___FfUl(float param_0, uint32_t param_1)
         "dec                eax\n\t"
         "%{disp8%} fmul       dword ptr [esp + 0x04]\n\t"
         "%{disp8%} jne        LAB__addr_0x0075bb86\n\t"
-        "%{disp32%} fsubr     dword ptr [_rdata_float1p0]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp32%} fsubr     dword ptr [_rdata_float1p0]"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 void __fastcall GetDesireForLife__8VillagerFv(struct Villager* this)
 {
     asm volatile (
@@ -313,15 +318,15 @@ void __fastcall GetDesireForLife__8VillagerFv(struct Villager* this)
         "mov.s              ecx, esi\n\t"
         "fstp               dword ptr [esp]\n\t"
         "call               ?GetLifeDesireFromLife@Villager@@QAEMM@Z\n\t"
-        "pop                esi\n\t"
-        "ret"
+        "pop                esi"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
+__attribute__((no_callee_saves))
 float __fastcall GetLifeDesireFromLife__8VillagerFf(struct Villager* this, const void* edx, float param_1)
 {
+    float result;
     asm volatile (
         "%{disp8%} mov        ecx, dword ptr [ecx + 0x28]\n\t"
         "%{disp32%} fld       dword ptr [ecx + 0x0000035c]\n\t"
@@ -340,11 +345,10 @@ float __fastcall GetLifeDesireFromLife__8VillagerFf(struct Villager* this, const
         "fdivp              st(1), st\n\t"
         "fld                st(0)\n\t"
         "fmulp              st(1), st\n\t"
-        "%{disp32%} fsubr     dword ptr [_rdata_float1p0]\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "%{disp32%} fsubr     dword ptr [_rdata_float1p0]"
+        : "=t"(result) :: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((XOR32rr_REV))
@@ -368,8 +372,10 @@ uint32_t __fastcall GetAmountOfFoodRequiredForMeal__8VillagerFv(struct Villager*
     return result;
 }
 
+__attribute__((no_callee_saves))
 uint32_t __fastcall GetAmountOfFoodToEat__8VillagerFv(struct Villager* this)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x08\n\t"
         "push               esi\n\t"
@@ -419,16 +425,16 @@ uint32_t __fastcall GetAmountOfFoodToEat__8VillagerFv(struct Villager* this)
         "call               _jmp_addr_0x007a1400\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x08\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x08"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall CheckHungry__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               ebx\n\t"
@@ -617,16 +623,16 @@ bool32_t __fastcall CheckHungry__8VillagerFv(struct Villager* this)
         "pop                esi\n\t"
         "mov.s              eax, ebx\n\t"
         "pop                ebx\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall CheckSatisfyOwnFoodDesire__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -639,15 +645,16 @@ bool32_t __fastcall CheckSatisfyOwnFoodDesire__8VillagerFv(struct Villager* this
         "ret\n"
         "LAB__addr_0x0075bf15:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall EatFoodHeld__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -713,11 +720,10 @@ bool32_t __fastcall EatFoodHeld__8VillagerFv(struct Villager* this)
         "LAB__addr_0x0075bfee:\n\t"
         "%{disp32%} fld       dword ptr [esi + 0x000000e8]\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall EatFood__8VillagerFv(struct Villager* this)
@@ -747,8 +753,10 @@ bool32_t __fastcall EatFood__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall GetFoodFromHome__8VillagerFUl(struct Villager* this, const void* edx, unsigned long param_1)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -780,11 +788,10 @@ bool32_t __fastcall GetFoodFromHome__8VillagerFUl(struct Villager* this, const v
         "call               ?PickupFood@Villager@@QAEXF@Z\n"
         "LAB__addr_0x0075c084:\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 bool32_t __fastcall EatFoodAtHome__8VillagerFv(struct Villager* this)

@@ -6,8 +6,10 @@ const float rdata_float_0_1 asm("__real@3dcccccd") = 0.1f;
 const float rdata_float_1_1 asm("__real@3f8ccccd") = 1.1f;
 const float rdata_float_300_0 asm("__real@43960000") = 300.0f;
 
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 char* __fastcall GetAbodeText__5AbodeFPc(struct Abode* this, const void* edx, char* buff)
 {
+    char* result;
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
         "push esi\n\t"
@@ -27,16 +29,16 @@ char* __fastcall GetAbodeText__5AbodeFPc(struct Abode* this, const void* edx, ch
         "add esp, 0x10\n\t"
         "pop edi\n\t"
         "mov.s eax, esi\n\t"
-        "pop esi\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 size_t __fastcall SaveObject__5AbodeFR8LHOSFileRC9MapCoords(struct Object* this, const void* edx, struct LHOSFile* param_1, const struct MapCoords* param_2)
 {
+    size_t result;
     asm volatile (
         "sub                esp, 0x00000278\n\t"
         "push               ebp\n\t"
@@ -195,11 +197,10 @@ size_t __fastcall SaveObject__5AbodeFR8LHOSFileRC9MapCoords(struct Object* this,
         "pop                esi\n\t"
         "mov.s              eax, ebp\n\t"
         "pop                ebp\n\t"
-        "add                esp, 0x00000278\n\t"
-        "ret                0x0008"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x00000278"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 int __fastcall FUN_00405d80__5AbodeFv(struct Abode* this)
@@ -207,7 +208,7 @@ int __fastcall FUN_00405d80__5AbodeFv(struct Abode* this)
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))
 void __fastcall ReduceLife__5AbodeFfP7GPlayer(struct Object* this, const void* edx, float value, struct GPlayer* player)
 {
     asm volatile (
@@ -330,14 +331,12 @@ void __fastcall ReduceLife__5AbodeFfP7GPlayer(struct Object* this, const void* e
         "pop                esi\n\t"
         "pop                ebp\n\t"
         "pop                ebx\n\t"
-        "pop                ecx\n\t"
-        "ret                0x0008"
+        "pop                ecx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 void __fastcall IncreaseLife__5AbodeFf(struct Object* this, const void* edx, float value)
 {
     asm volatile (
@@ -381,11 +380,9 @@ void __fastcall IncreaseLife__5AbodeFf(struct Object* this, const void* edx, flo
         "%{disp8%} fld        dword ptr [esp + 0x10]\n\t"
         "pop                edi\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret                0x0004"
+        "pop                ecx"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
 enum TRIBE_TYPE __fastcall GetTribeType__5AbodeCFv(struct Abode* this)
@@ -393,9 +390,10 @@ enum TRIBE_TYPE __fastcall GetTribeType__5AbodeCFv(struct Abode* this)
     return this->town->tribe_type;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_callee_saves))
 struct GTribeInfo* __fastcall GetTribe__5AbodeFv(struct Abode* this)
 {
+    struct GTribeInfo* result;
     asm volatile (
         "push esi\n\t"
         "mov.s esi, ecx\n\t"
@@ -412,15 +410,16 @@ struct GTribeInfo* __fastcall GetTribe__5AbodeFv(struct Abode* this)
         "ret\n"
         "0:\n\t"
         "xor.s eax, eax\n\t"
-        "pop esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 struct GPlayer* __fastcall GetPlayer__5AbodeFv(struct GameThing* this)
 {
+    struct GPlayer* result;
     asm volatile (
         "push esi\n\t"
         "mov.s esi, ecx\n\t"
@@ -439,11 +438,10 @@ struct GPlayer* __fastcall GetPlayer__5AbodeFv(struct GameThing* this)
         "0:\n\t"
         "mov.s ecx, esi\n\t"
         "call ?GetPlayer@GameThing@@QAEPAVGPlayer@@XZ\n\t"
-        "pop esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
 void __fastcall ArriveHome__5AbodeFv(struct Abode* this)
@@ -462,9 +460,10 @@ void __fastcall LeaveHome__5AbodeFv(struct Abode* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
-bool GetNearestWaterPos__5AbodeFR9MapCoords(struct Abode* this, const void* edx, struct MapCoords* coords)
+__attribute__((XOR32rr_REV, no_callee_saves))
+bool32_t GetNearestWaterPos__5AbodeFR9MapCoords(struct Abode* this, const void* edx, struct MapCoords* coords)
 {
+    bool32_t result;
     asm volatile (
         "%{disp8%} mov dl, byte ptr [ecx + 0x7c]\n\t"
         "mov eax, 0x00000001\n\t"
@@ -482,14 +481,13 @@ bool GetNearestWaterPos__5AbodeFR9MapCoords(struct Abode* this, const void* edx,
         "pop esi\n\t"
         "ret 0x0004\n"
         "0:\n\t"
-        "xor.s eax, eax\n\t"
-        "ret 0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "xor.s eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, no_ret))
 bool __fastcall IsCivic__5AbodeFv(struct MultiMapFixed* this)
 {
     asm("{disp8} mov        eax, dword ptr [ecx + 0x28]");                   // 0x00405ff0    8b4128
@@ -558,3 +556,4 @@ bool __fastcall IsCivic__5AbodeFv(struct MultiMapFixed* this)
     asm(".byte 0x00");                        // 0x004060bc
     __builtin_unreachable();
 }
+

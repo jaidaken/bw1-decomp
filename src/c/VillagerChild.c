@@ -9,6 +9,7 @@ char s_VillagerChild_cpp[] = "C:\\dev\\MP\\Black\\VillagerChild.cpp";
 uint32_t villager_child_uint_0x00db9dd0;
 float villager_child_seconds_in_year_0x00db9dd4;
 
+__attribute__((no_ret))
 void __cdecl globl_ct_0x00757860(void)
 {
     asm volatile (
@@ -52,6 +53,7 @@ void __cdecl FUN_007578a0__8VillagerFv(void)
     );
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ChildFollowsMother__8VillagerFv(struct Villager* this)
 {
     asm("sub                esp, 0x20");                                     // 0x007578c0    83ec20
@@ -140,13 +142,12 @@ bool32_t __fastcall ChildFollowsMother__8VillagerFv(struct Villager* this)
     asm("mov                eax, 0x00000001");                               // 0x007579d9    b801000000
     asm("pop                esi");                                           // 0x007579de    5e
     asm("add                esp, 0x20");                                     // 0x007579df    83c420
-    asm("ret");                                                              // 0x007579e2    c3
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall ChildGotoCreche__8VillagerFv(struct Villager* this)
 {
+    uint32_t result;
     asm volatile (
         "sub                esp, 0x0c\n\t"
         "push               esi\n\t"
@@ -186,14 +187,13 @@ uint32_t __fastcall ChildGotoCreche__8VillagerFv(struct Villager* this)
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "add                esp, 0x0c\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "add                esp, 0x0c"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, trailing_asm("nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nLAB__addr_0x00757c80:\n{disp32} jmp       ?CheckNeededForTownDesire@Villager@@QAEIXZ")))
 void __cdecl GetNextDstPromemade__FP6CrecheRlP9MapCoordsRC9MapCoords(struct Creche* param_1, long* param_2, struct MapCoords* param_3, const struct MapCoords* param_4)
 {
     asm("{disp8} mov        eax, dword ptr [esp + 0x08]");                   // 0x00757a50    8b442408
@@ -399,22 +399,9 @@ void __cdecl GetNextDstPromemade__FP6CrecheRlP9MapCoordsRC9MapCoords(struct Crec
     asm("mov                dword ptr [ecx], ebx");                          // 0x00757c70    8919
     asm("pop                ebx");                                           // 0x00757c72    5b
     asm("add                esp, 0x20");                                     // 0x00757c73    83c420
-    asm("ret");                                                              // 0x00757c76    c3
-    asm("nop");                                                              // 0x00757c77    90
-    asm("nop");                                                              // 0x00757c78    90
-    asm("nop");                                                              // 0x00757c79    90
-    asm("nop");                                                              // 0x00757c7a    90
-    asm("nop");                                                              // 0x00757c7b    90
-    asm("nop");                                                              // 0x00757c7c    90
-    asm("nop");                                                              // 0x00757c7d    90
-    asm("nop");                                                              // 0x00757c7e    90
-    asm("nop");                                                              // 0x00757c7f    90
-    asm("LAB__addr_0x00757c80:");
-    asm("{disp32} jmp       ?CheckNeededForTownDesire@Villager@@QAEIXZ");    // 0x00757c80    e91b050000
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall ChildAtCreche__8VillagerFv(struct Villager* this)
 {
     asm("sub                esp, 0x38");                                     // 0x00757c90    83ec38
@@ -593,13 +580,12 @@ bool32_t __fastcall ChildAtCreche__8VillagerFv(struct Villager* this)
     asm("xor.s              eax, eax");                                      // 0x00757e6f    33c0
     asm("pop                ebx");                                           // 0x00757e71    5b
     asm("add                esp, 0x38");                                     // 0x00757e72    83c438
-    asm("ret");                                                              // 0x00757e75    c3
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall CheckChild__8VillagerFv(struct Villager* this)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -627,13 +613,13 @@ uint32_t __fastcall CheckChild__8VillagerFv(struct Villager* this)
         "ret\n"
         "LAB__addr_0x00757ebb:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ChildDecideWhatToDo__8VillagerFv(struct Villager* this)
 {
     asm("push               esi");                                           // 0x00757ec0    56
@@ -656,8 +642,6 @@ bool32_t __fastcall ChildDecideWhatToDo__8VillagerFv(struct Villager* this)
     asm("LAB__addr_0x00757ef0:");
     asm("mov                eax, 0x00000001");                               // 0x00757ef0    b801000000
     asm("pop                esi");                                           // 0x00757ef5    5e
-    asm("ret");                                                              // 0x00757ef6    c3
-    __builtin_unreachable();
 }
 
 bool32_t __fastcall CheckChildActivity__8VillagerFv(struct Villager* this)
@@ -687,9 +671,10 @@ bool32_t __fastcall ChildBecomesAdult__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall IsMotherAlive__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               esi\n\t"
         "push               edi\n\t"
@@ -721,16 +706,16 @@ bool32_t __fastcall IsMotherAlive__8VillagerFv(struct Villager* this)
         "LAB__addr_0x00757f89:\n\t"
         "pop                edi\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 bool32_t __fastcall CheckNeedNewAbode__8VillagerFv(struct Villager* this)
 {
+    bool32_t result;
     asm volatile (
         "push               ecx\n\t"
         "push               esi\n\t"
@@ -821,14 +806,13 @@ bool32_t __fastcall CheckNeedNewAbode__8VillagerFv(struct Villager* this)
         "LAB__addr_0x0075806f:\n\t"
         "xor.s              eax, eax\n\t"
         "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                ecx"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall MoveVillagerToAbode__8VillagerFP5Abode(struct Villager* this, const void* edx, struct Abode* abode)
 {
     asm volatile (
@@ -862,16 +846,15 @@ void __fastcall MoveVillagerToAbode__8VillagerFP5Abode(struct Villager* this, co
         "call               ?ForceMoveVillagerToAbode@Villager@@QAEXPAVAbode@@@Z\n\t"
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV))
 uint32_t __fastcall MakeChildOrphaned__8VillagerFP8Villager(struct Villager* this, const void* edx, struct Villager* param_1)
 {
+    uint32_t result;
     asm volatile (
         "push               esi\n\t"
         "mov.s              esi, ecx\n\t"
@@ -893,9 +876,8 @@ uint32_t __fastcall MakeChildOrphaned__8VillagerFP8Villager(struct Villager* thi
         "ret                0x0004\n"
         "LAB__addr_0x0075810c:\n\t"
         "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004"
-        ::: "eax", "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
-    __builtin_unreachable();
+    return result;
 }

@@ -30,6 +30,7 @@ void __cdecl jmp_addr_0x00401080(void)
     __asm__("{disp32} fstp     dword ptr [_abode_info_float_0x00c3c688]");  // 0x0040105c    d91d8cc6c300
 }
 
+__attribute__((no_ret))
 void __cdecl jmp_addr_0x004010a0(void)
 {
     asm("push              ebx");                                           // 0x004010a0    53
@@ -110,6 +111,7 @@ void __cdecl jmp_addr_0x00401130(void)
     );
 }
 
+__attribute__((no_ret))
 void __cdecl jmp_addr_0x00401140(void)
 {
     __asm__(

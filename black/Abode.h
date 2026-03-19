@@ -474,7 +474,7 @@ int __fastcall NumVillagersOfSex__5AbodeFv(struct Abode* this) asm("?NumVillager
 // win1.41 004045d0 mac 103d89d0 Abode::CalculateFoodNeededForDinner(void)
 int __fastcall CalculateFoodNeededForDinner__5AbodeFv(struct Abode* this) asm("?CalculateFoodNeededForDinner@Abode@@QAEHXZ");
 // win1.41 00404600 mac 1032c5d0 Abode::IsEnoughFoodForDinner(void)
-bool __fastcall IsEnoughFoodForDinner__5AbodeFv(struct Abode* this) asm("?IsEnoughFoodForDinner@Abode@@QAE_NXZ");
+bool32_t __fastcall IsEnoughFoodForDinner__5AbodeFv(struct Abode* this) asm("?IsEnoughFoodForDinner@Abode@@QAE_NXZ");
 // win1.41 00404630 mac 1032c250 Abode::GetOtherParent(Villager *)
 struct Villager* __fastcall GetSpouse__5AbodeFP8Villager(struct Abode* this, const void* edx, struct Villager* villager) asm("?GetSpouse@Abode@@QAEPAVVillager@@PAV2@@Z");
 // win1.41 00404660 mac 1032c3e0 Abode::GetRoomLeftForAdults(void)
@@ -637,7 +637,7 @@ void __fastcall DiscipleInHandNear__5AbodeFR8VillagerR16GInterfaceStatus(struct 
 // win1.41 00405bb0 mac 101ca440 Abode::SaveObject(LHOSFile &, MapCoords const &)
 size_t __fastcall SaveObject__5AbodeFR8LHOSFileRC9MapCoords(struct Object* this, const void* edx, struct LHOSFile* param_1, const struct MapCoords* param_2) asm("?SaveObject@Abode@@UAEIPAVLHOSFile@@PBUMapCoords@@@Z");
 // win1.41 00403ef0 mac 10589380 Abode::ShouldFootpathsGoRound(void)
-bool __fastcall ShouldFootpathsGoRound__5AbodeFv(struct Object* this) asm("?ShouldFootpathsGoRound@Abode@@UAE_NXZ");
+bool32_t __fastcall ShouldFootpathsGoRound__5AbodeFv(struct Object* this) asm("?ShouldFootpathsGoRound@Abode@@UAE_NXZ");
 // win1.41 004072a0 mac 10053220 Abode::GetInfluence(void)
 float __fastcall GetInfluence__5AbodeFv(struct MultiMapFixed* this) asm("?GetInfluence@Abode@@UAEMXZ");
 // win1.41 004016a0 mac 10066b80 Abode::IsRepaired(void)
@@ -651,9 +651,9 @@ float __fastcall GetPercentAbodeFullWithAdults__5AbodeFv(struct MultiMapFixed* t
 // win1.41 00407090 mac 10058a60 Abode::GetPercentAbodeFullWithChildren(void)
 float __fastcall GetPercentAbodeFullWithChildren__5AbodeFv(struct MultiMapFixed* this) asm("?GetPercentAbodeFullWithChildren@Abode@@UAEMXZ");
 // win1.41 00404720 mac 105b9180 Abode::Built(void)
-bool __fastcall Built__5AbodeFv(struct MultiMapFixed* this) asm("?Built@Abode@@UAE_NXZ");
+bool32_t __fastcall Built__5AbodeFv(struct MultiMapFixed* this) asm("?Built@Abode@@UAE_NXZ");
 // win1.41 004047b0 mac 105b9280 Abode::Repaired(void)
-bool __fastcall Repaired__5AbodeFv(struct MultiMapFixed* this) asm("?Repaired@Abode@@UAE_NXZ");
+bool32_t __fastcall Repaired__5AbodeFv(struct MultiMapFixed* this) asm("?Repaired@Abode@@UAE_NXZ");
 // win1.41 00401700 mac 105756c0 Abode::GetDestructionMesh(void)
 struct LH3DMesh* __fastcall GetDestructionMesh__5AbodeFv(struct MultiMapFixed* this) asm("?GetDestructionMesh@Abode@@UAEPAVLH3DMesh@@XZ");
 // win1.41 00403f40 mac 105861b0 Abode::RemoveDamage(void)

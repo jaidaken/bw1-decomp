@@ -473,12 +473,13 @@ void __fastcall Init__10EndGameBoxFUlUlPFiP8SetupBoxP12SetupControlii_v(struct D
 }
 
 // win1.41 0056e730 EndGameBox::Destroy - calls parent destroy and zeroes global
+__attribute__((no_callee_saves))
 void __fastcall Destroy__10EndGameBoxFv(struct DialogBoxBase* this)
 {
     asm volatile (
         "call              ?Destroy@DialogBoxBase@@UAEXXZ\n\t"
         "%{disp32%} mov      dword ptr [data_bytes + 0x34006c], 0x00000000"
-        ::: "eax", "ecx", "edx", "memory"
+        :: "c"(this) : "eax", "edx", "memory"
     );
 }
 

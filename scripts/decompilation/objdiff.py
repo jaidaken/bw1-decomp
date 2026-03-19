@@ -215,13 +215,18 @@ def disassemble_function(obj_path: Path, symbol: str) -> list:
                             break
                 continue
 
-            m = re.match(r'\s+([0-9a-f]+):\s+((?:[0-9a-f]{2}\s)+)\s+(.+)', line)
+            m = re.match(r'\s+([0-9a-f]+):\s+((?:[0-9a-f]{2}\s)+)\s*(.+)', line)
             if m:
                 instr_offset = int(m.group(1), 16)
                 hex_bytes = bytes.fromhex(m.group(2).strip().replace(" ", ""))
                 asm_text = m.group(3).strip()
-                if asm_text == "nop" and len(hex_bytes) == 1:
-                    break
+                # Stop at NOP padding AFTER a ret (function alignment).
+                # A single NOP after ret = end of function.
+                # NOPs inside the function body (trailing_bytes, etc.) are kept.
+                if asm_text == "nop" and len(hex_bytes) == 1 and instructions:
+                    last_bytes = instructions[-1][0]
+                    if last_bytes[0] in (0xC3, 0xC2):  # ret or ret N
+                        break
                 offset_to_idx[instr_offset] = len(instructions)
                 instructions.append((hex_bytes, asm_text, set()))
 
@@ -291,8 +296,11 @@ def find_asm_function(symbol: str) -> list:
         if m:
             hex_bytes = bytes.fromhex(m.group(1))
             asm_text = stripped.split("//")[0].strip()
+            # Stop at NOP padding AFTER ret (function alignment)
             if hex_bytes == b'\x90' and ('nop' in asm_text.lower() or not asm_text):
-                break
+                if instructions and instructions[-1][0][0] in (0xC3, 0xC2):
+                    break
+                # NOP not after ret — could be trailing bytes, keep going
             instructions.append((hex_bytes, asm_text, set()))
 
     return instructions

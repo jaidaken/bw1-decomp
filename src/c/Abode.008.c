@@ -1538,13 +1538,7 @@ bool __fastcall CanBeHiddenIn__5AbodeFv(struct Abode* this)
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__bind@4]")))
 float __fastcall GetPercentRepairedForNonFunctional__5AbodeFv(struct MultiMapFixed* this)
 {
-    float result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} fld       dword ptr [eax + 0x000001b8]"
-        : "=t"(result) :: "eax", "ecx", "edx", "memory"
-    );
-    return result;
+    return *(float*)((char*)(*(void**)((char*)this + 0x28)) + 0x1b8);
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

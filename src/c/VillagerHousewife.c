@@ -79,14 +79,13 @@ void __cdecl globl_ct_0x00761bd0(void)
     __attribute__((musttail)) return FUN_00761be0__8VillagerFv();
 }
 
+__attribute__((prefer_fmul_mem))
 void __cdecl FUN_00761be0__8VillagerFv(void)
 {
-    asm volatile (
-        "%{disp32%} fld  dword ptr [_villager_housewife_seconds_in_day_0x0099a9a8]\n\t"
-        "%{disp32%} fmul dword ptr [_villager_housewife_num_days_in_year_0x0099a9a4]\n\t"
-        "%{disp32%} fstp dword ptr [_villager_housewife_seconds_in_year_0x00db9e1c]"
-        ::: "memory"
-    );
+    extern float __opaque_a asm("_villager_housewife_seconds_in_day_0x0099a9a8");
+    extern float __opaque_b asm("_villager_housewife_num_days_in_year_0x0099a9a4");
+    extern float __opaque_c asm("_villager_housewife_seconds_in_year_0x00db9e1c");
+    __opaque_c = __opaque_a * __opaque_b;
 }
 
 bool32_t __fastcall HousewifeLookForWork__8VillagerFv(struct Villager* this)

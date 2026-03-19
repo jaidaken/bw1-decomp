@@ -39,14 +39,13 @@ void __cdecl globl_ct_0x0075f470(void)
     __attribute__((musttail)) return FUN_0075f480__8VillagerFv();
 }
 
+__attribute__((prefer_fmul_mem))
 void __cdecl FUN_0075f480__8VillagerFv(void)
 {
-    asm volatile (
-        "%{disp32%} fld  dword ptr [_villager_forester_seconds_in_day_0x0099a990]\n\t"
-        "%{disp32%} fmul dword ptr [_villager_forester_num_days_in_year_0x0099a98c]\n\t"
-        "%{disp32%} fstp dword ptr [_villager_forester_seconds_in_year_0x00db9e14]"
-        ::: "memory"
-    );
+    extern float __opaque_a asm("_villager_forester_seconds_in_day_0x0099a990");
+    extern float __opaque_b asm("_villager_forester_num_days_in_year_0x0099a98c");
+    extern float __opaque_c asm("_villager_forester_seconds_in_year_0x00db9e14");
+    __opaque_c = __opaque_a * __opaque_b;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV, noinline))

@@ -43,14 +43,13 @@ void __cdecl globl_ct_0x0076b950(void)
     __attribute__((musttail)) return FUN_0076b960__8VillagerFv();
 }
 
+__attribute__((prefer_fmul_mem))
 void __cdecl FUN_0076b960__8VillagerFv(void)
 {
-    asm volatile (
-        "%{disp32%} fld  dword ptr [_villager_trader_seconds_in_day_0x0099aa54]\n\t"
-        "%{disp32%} fmul dword ptr [_villager_trader_num_days_in_year_0x0099aa50]\n\t"
-        "%{disp32%} fstp dword ptr [_villager_trader_seconds_in_year_0x00dcb168]"
-        ::: "memory"
-    );
+    extern float __opaque_a asm("_villager_trader_seconds_in_day_0x0099aa54");
+    extern float __opaque_b asm("_villager_trader_num_days_in_year_0x0099aa50");
+    extern float __opaque_c asm("_villager_trader_seconds_in_year_0x00dcb168");
+    __opaque_c = __opaque_a * __opaque_b;
 }
 
 bool32_t __fastcall ArrivesInAbodeToPickUpExcess__8VillagerFv(struct Villager* this)

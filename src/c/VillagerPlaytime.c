@@ -40,14 +40,13 @@ void __cdecl globl_ct_0x007630b0(void)
     __attribute__((musttail)) return FUN_007630c0__8VillagerFv();
 }
 
+__attribute__((prefer_fmul_mem))
 void __cdecl FUN_007630c0__8VillagerFv(void)
 {
-    asm volatile (
-        "%{disp32%} fld  dword ptr [_villager_playtime_seconds_in_day_0x0099a9c8]\n\t"
-        "%{disp32%} fmul dword ptr [_villager_playtime_num_days_in_year_0x0099a9c4]\n\t"
-        "%{disp32%} fstp dword ptr [_villager_playtime_seconds_in_year_0x00db9e2c]"
-        ::: "memory"
-    );
+    extern float __opaque_a asm("_villager_playtime_seconds_in_day_0x0099a9c8");
+    extern float __opaque_b asm("_villager_playtime_num_days_in_year_0x0099a9c4");
+    extern float __opaque_c asm("_villager_playtime_seconds_in_year_0x00db9e2c");
+    __opaque_c = __opaque_a * __opaque_b;
 }
 
 __attribute__((no_callee_saves))

@@ -61,14 +61,12 @@ void __cdecl globl_ct_0x00756cd0(void)
     __attribute__((musttail)) return FUN_00756ce0__8VillagerFv();
 }
 
+__attribute__((prefer_fmul_mem))
 void __cdecl FUN_00756ce0__8VillagerFv(void)
 {
-    asm volatile (
-        "%{disp32%} fld       dword ptr [_rdata_float_pi_0x0099a928]\n\t"
-        "%{disp32%} fmul      dword ptr [_rdata_float0p5]\n\t"
-        "%{disp32%} fstp      dword ptr [_VillagerCheck_bss_globals + 8]"
-        ::: "memory"
-    );
+    extern float __opaque_ce0_a asm("_rdata_float_pi_0x0099a928");
+    extern float __opaque_ce0_b asm("_rdata_float0p5");
+    VillagerCheck_bss_globals.float_0x00db9dc8 = __opaque_ce0_a * __opaque_ce0_b;
 }
 
 extern void __cdecl FUN_00756d10__8VillagerFv(void) __attribute__((noinline));
@@ -78,14 +76,12 @@ void __cdecl globl_ct_0x00756d00(void)
     __attribute__((musttail)) return FUN_00756d10__8VillagerFv();
 }
 
+__attribute__((prefer_fmul_mem))
 void __cdecl FUN_00756d10__8VillagerFv(void)
 {
-    asm volatile (
-        "%{disp32%} fld  dword ptr [_villager_check_seconds_in_day_0x0099a930]\n\t"
-        "%{disp32%} fmul dword ptr [_villager_check_num_days_in_year_0x0099a92c]\n\t"
-        "%{disp32%} fstp dword ptr [_VillagerCheck_bss_globals + 0]"
-        ::: "memory"
-    );
+    extern float __opaque_d10_a asm("_villager_check_seconds_in_day_0x0099a930");
+    extern float __opaque_d10_b asm("_villager_check_num_days_in_year_0x0099a92c");
+    VillagerCheck_bss_globals.seconds_in_year_0x00db9dc0 = __opaque_d10_a * __opaque_d10_b;
 }
 
 __attribute__((no_callee_saves))

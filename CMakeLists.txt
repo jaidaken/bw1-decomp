@@ -40,6 +40,10 @@ set(CMAKE_C_COMPILER_WORKS ON)
 
 # Set the llvm utils before project so the toolchain selection has the right paths
 if (NOT LLVM_BINARIES_DIR)
+    # Use local LLVM fork if available, otherwise download a release
+    if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../llvm-project/install/bin/clang")
+        set(LLVM_BINARIES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../llvm-project/install/bin")
+    else()
     # Get the custom llvm for bw1-decomp
     set(LLVM_RELEASE_NAME "bw1-decomp-015")
     if (CMAKE_HOST_LINUX)
@@ -55,6 +59,7 @@ if (NOT LLVM_BINARIES_DIR)
     endif()
     FetchContent_MakeAvailable(llvm_binaries)
     set(LLVM_BINARIES_DIR "${llvm_binaries_SOURCE_DIR}/bin")
+    endif()
 endif()
 # CMAKE_EXECUTABLE_SUFFIX is set after project
 if (CMAKE_HOST_WIN32)

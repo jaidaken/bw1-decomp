@@ -63,7 +63,7 @@ uint32_t __fastcall MoveAlongPath__6ObjectFv(struct Object* this)
 }
 
 __attribute__((no_ret))
-bool __fastcall IsReachable__6ObjectFv(struct Object* this)
+bool32_t __fastcall IsReachable__6ObjectFv(struct Object* this)
 {
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"
@@ -197,7 +197,7 @@ uint32_t __fastcall ProcessState__6ObjectFv(struct Object* this)
 }
 
 __attribute__((XOR32rr_REV))
-bool __fastcall CanBePickedUp__6ObjectFv(struct Object* this)
+bool32_t __fastcall CanBePickedUp__6ObjectFv(struct Object* this)
 {
     return 0;
 }

@@ -45,7 +45,7 @@ void __fastcall RemoveDance__9GameThingFv(struct GameThing* this)
 }
 
 __attribute__((no_ret))
-bool __fastcall IsAvailable__9GameThingFv(struct GameThing* this)
+bool32_t __fastcall IsAvailable__9GameThingFv(struct GameThing* this)
 {
     asm(
         "xor.s       eax, eax                                                     \n"  // 0x00401810    33c0

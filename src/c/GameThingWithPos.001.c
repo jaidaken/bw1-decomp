@@ -40,7 +40,7 @@ float __fastcall GetLife__16GameThingWithPosFv(struct GameThingWithPos* this)
 }
 
 __attribute__((XOR32rr_REV))
-bool __fastcall IsMoving__16GameThingWithPosCFv(const struct GameThingWithPos* this)
+bool32_t __fastcall IsMoving__16GameThingWithPosCFv(const struct GameThingWithPos* this)
 {
     return 0;
 }
@@ -66,7 +66,7 @@ bool32_t __fastcall IsObjectInMap__16GameThingWithPosFv(struct GameThingWithPos*
 #endif
 
 __attribute__((XOR32rr_REV))
-bool __fastcall IsDrowning__16GameThingWithPosFv(struct GameThingWithPos* this)
+bool32_t __fastcall IsDrowning__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
     return 0;
 }

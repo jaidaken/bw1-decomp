@@ -101,7 +101,7 @@ void __fastcall DrawInHand__9GameThingFP16GInterfaceStatus(struct GameThing* thi
 }
 
 __attribute__((no_ret))
-bool __fastcall IsFunctional__9GameThingFv(struct GameThing* this)
+bool32_t __fastcall IsFunctional__9GameThingFv(struct GameThing* this)
 {
     asm volatile (
         "mov eax, dword ptr [ecx]\n\t"

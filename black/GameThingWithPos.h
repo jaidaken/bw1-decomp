@@ -775,14 +775,14 @@ struct GameThingWithPosVftable
   void (__fastcall* GetMovementDirection)(struct GameThingWithPos* this, const void* edx, struct LHPoint* pos);
   void (__fastcall* GetPhysicsMovementDirection)(struct GameThingWithPos* this, const void* edx, struct LHPoint* pos);
   void (__fastcall* GetInteractPos)(struct GameThingWithPos* this, const void* edx, struct LHPoint* pos);  /* 0x170 */
-  bool (__fastcall* IsMoving)(const struct GameThingWithPos* this);
+  bool32_t (__fastcall* IsMoving)(const struct GameThingWithPos* this);
   bool32_t (__fastcall* IsObjectInMap_0)(struct GameThingWithPos* this);
-  bool (__fastcall* IsDrowning)(struct GameThingWithPos* this);
+  bool32_t (__fastcall* IsDrowning)(struct GameThingWithPos* this);
   bool32_t (__fastcall* IsCannotBePickedUp)(const struct GameThingWithPos* this);  /* 0x180 */
   uint32_t (__fastcall* GetOverwritePickUpToolTip)(struct GameThingWithPos* this);
   bool (__fastcall* IsStompable)(struct GameThingWithPos* this);
   bool32_t (__fastcall* IsAvailableForStateChange)(struct GameThingWithPos* this);
-  bool (__fastcall* IsInteractable)(struct GameThingWithPos* this);  /* 0x190 */
+  bool32_t (__fastcall* IsInteractable)(struct GameThingWithPos* this);  /* 0x190 */
   uint32_t (__fastcall* GetOverwriteInteractableToolTip)(struct GameThingWithPos* this);
   uint32_t (__fastcall* GetOverwriteDropToolTip)(struct GameThingWithPos* this);
   uint32_t (__fastcall* GetOverwriteTapToolTip)(struct GameThingWithPos* this);
@@ -1137,11 +1137,11 @@ void __fastcall GetPhysicsMovementDirection__16GameThingWithPosFP7LHPoint(struct
 // win1.41 004019f0 mac 103efd20 GameThingWithPos::GetInteractPos(void)
 void __fastcall GetInteractPos__16GameThingWithPosFv(struct GameThingWithPos* this, const void* edx, struct LHPoint* pos) asm("?GetInteractPos@GameThingWithPos@@UAEXPAULHPoint@@@Z");
 // win1.41 004052b0 mac 103efb80 GameThingWithPos::IsMoving( const(void))
-bool __fastcall IsMoving__16GameThingWithPosCFv(const struct GameThingWithPos* this) asm("?IsMoving@GameThingWithPos@@UBE_NXZ");
+bool32_t __fastcall IsMoving__16GameThingWithPosCFv(const struct GameThingWithPos* this) asm("?IsMoving@GameThingWithPos@@UBE_NXZ");
 // win1.41 004052c0 mac 103f07b0 GameThingWithPos::IsObjectInMap(void)
 bool32_t __fastcall IsObjectInMap__16GameThingWithPosFv(struct GameThingWithPos* this) asm("?IsObjectInMap@GameThingWithPos@@UAE_NXZ");
 // win1.41 004052d0 mac 103ee440 GameThingWithPos::IsDrowning(void)
-bool __fastcall IsDrowning__16GameThingWithPosFv(struct GameThingWithPos* this) asm("?IsDrowning@GameThingWithPos@@UAE_NXZ");
+bool32_t __fastcall IsDrowning__16GameThingWithPosFv(struct GameThingWithPos* this) asm("?IsDrowning@GameThingWithPos@@UAE_NXZ");
 // win1.41 00401a10 mac 100cb2b0 GameThingWithPos::IsCannotBePickedUp( const(void))
 bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this) asm("?IsCannotBePickedUp@GameThingWithPos@@UBE_NXZ");
 // win1.41 00570590 mac 101bf190 GameThingWithPos::GetOverwritePickUpToolTip(void)
@@ -1151,7 +1151,7 @@ bool __fastcall IsStompable__16GameThingWithPosFv(struct GameThingWithPos* this)
 // win1.41 00401a30 mac 100cb210 GameThingWithPos::IsAvailableForStateChange(void)
 bool32_t __fastcall IsAvailableForStateChange__16GameThingWithPosFv(struct GameThingWithPos* this) asm("?IsAvailableForStateChange@GameThingWithPos@@UAE_NXZ");
 // win1.41 005701b0 mac 1007b9d0 GameThingWithPos::IsInteractable(void)
-bool __fastcall IsInteractable__16GameThingWithPosFv(struct GameThingWithPos* this) asm("?IsInteractable@GameThingWithPos@@UAE_NXZ");
+bool32_t __fastcall IsInteractable__16GameThingWithPosFv(struct GameThingWithPos* this) asm("?IsInteractable@GameThingWithPos@@UAE_NXZ");
 // win1.41 005705a0 mac 100b34e0 GameThingWithPos::GetOverwriteInteractableToolTip(void)
 uint32_t __fastcall GetOverwriteInteractableToolTip__16GameThingWithPosFv(struct GameThingWithPos* this) asm("?GetOverwriteInteractableToolTip@GameThingWithPos@@UAEIXZ");
 // win1.41 005705b0 mac 10097060 GameThingWithPos::GetOverwriteDropToolTip(void)

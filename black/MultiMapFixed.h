@@ -345,15 +345,15 @@ struct MultiMapFixedVftable
   float (__fastcall* GetPercentBuilt)(struct MultiMapFixed* this);  /* 0x880 */
   float (__fastcall* GetPercentRepaired)(struct MultiMapFixed* this);
   float (__fastcall* GetPercentRepairedFromWhenDamaged)(struct MultiMapFixed* this);
-  bool (__fastcall* IsRepaired)(struct MultiMapFixed* this);
-  bool (__fastcall* IsBuilt)(struct MultiMapFixed* this);  /* 0x890 */
+  bool32_t (__fastcall* IsRepaired)(struct MultiMapFixed* this);
+  bool32_t (__fastcall* IsBuilt)(struct MultiMapFixed* this);  /* 0x890 */
   float (__fastcall* GetPercentRepairedForNonFunctional)(struct MultiMapFixed* this);
   float (__fastcall* GetPercentForDrawBuilding)(struct MultiMapFixed* this);
   float (__fastcall* GetPercentAbodeFullWithAdults)(struct MultiMapFixed* this);
   float (__fastcall* GetPercentAbodeFullWithChildren)(struct MultiMapFixed* this);  /* 0x8a0 */
   bool (__fastcall* IsDrawBuilding)(struct MultiMapFixed* this);
-  bool (__fastcall* Built)(struct MultiMapFixed* this);
-  bool (__fastcall* Repaired)(struct MultiMapFixed* this);
+  bool32_t (__fastcall* Built)(struct MultiMapFixed* this);
+  bool32_t (__fastcall* Repaired)(struct MultiMapFixed* this);
   uint32_t (__fastcall* GetBuildingSiteWood)(struct MultiMapFixed* this, const void* edx, uint32_t* param_1);  /* 0x8b0 */
   struct LH3DMesh* (__fastcall* GetDestructionMesh)(struct MultiMapFixed* this);
   void (__fastcall* RemoveDamage)(struct MultiMapFixed* this);
@@ -555,9 +555,9 @@ float __fastcall GetPercentRepaired__13MultiMapFixedFv(struct MultiMapFixed* thi
 // win1.41 0052f010 mac 100debc0 MultiMapFixed::GetPercentRepairedFromWhenDamaged(void)
 float __fastcall GetPercentRepairedFromWhenDamaged__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?GetPercentRepairedFromWhenDamaged@MultiMapFixed@@UAEMXZ");
 // win1.41 00438d70 mac 10368f30 MultiMapFixed::IsRepaired(void)
-bool __fastcall IsRepaired__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?IsRepaired@MultiMapFixed@@UAE_NXZ");
+bool32_t __fastcall IsRepaired__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?IsRepaired@MultiMapFixed@@UAE_NXZ");
 // win1.41 00438d80 mac 10570e90 MultiMapFixed::IsBuilt(void)
-bool __fastcall IsBuilt__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?IsBuilt@MultiMapFixed@@UAE_NXZ");
+bool32_t __fastcall IsBuilt__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?IsBuilt@MultiMapFixed@@UAE_NXZ");
 // win1.41 0052efc0 mac 100dedd0 MultiMapFixed::GetPercentRepairedForNonFunctional(void)
 float __fastcall GetPercentRepairedForNonFunctional__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?GetPercentRepairedForNonFunctional@MultiMapFixed@@UAEMXZ");
 // win1.41 0052efd0 mac 100ded00 MultiMapFixed::GetPercentForDrawBuilding(void)
@@ -569,9 +569,9 @@ float __fastcall GetPercentAbodeFullWithChildren__13MultiMapFixedFv(struct Multi
 // win1.41 0052f0c0 mac 10040f00 MultiMapFixed::IsDrawBuilding(void)
 bool __fastcall IsDrawBuilding__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?IsDrawBuilding@MultiMapFixed@@UAE_NXZ");
 // win1.41 0052ebb0 mac 100dfda0 MultiMapFixed::Built(void)
-bool __fastcall Built__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?Built@MultiMapFixed@@UAE_NXZ");
+bool32_t __fastcall Built__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?Built@MultiMapFixed@@UAE_NXZ");
 // win1.41 0052ec70 mac 100dfca0 MultiMapFixed::Repaired(void)
-bool __fastcall Repaired__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?Repaired@MultiMapFixed@@UAE_NXZ");
+bool32_t __fastcall Repaired__13MultiMapFixedFv(struct MultiMapFixed* this) asm("?Repaired@MultiMapFixed@@UAE_NXZ");
 // win1.41 00401510 mac 100ddc00 MultiMapFixed::GetBuildingSiteWood(unsigned long *)
 uint32_t __fastcall GetBuildingSiteWood__13MultiMapFixedFPUl(struct MultiMapFixed* this, const void* edx, uint32_t* param_1) asm("?GetBuildingSiteWood@MultiMapFixed@@UAEIPAI@Z");
 // win1.41 00422020 mac 100a5620 MultiMapFixed::GetDestructionMesh(void)

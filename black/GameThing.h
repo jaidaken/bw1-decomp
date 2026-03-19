@@ -922,7 +922,7 @@ struct GameThingVftable
   void (__fastcall* SetPlayer)(struct GameThing* this, const void* edx, struct GPlayer* player);  /* 0x20 */
   float (__fastcall* CalculateInfluence)(struct GameThing* this, const void* edx, const struct MapCoords* param_1);
   void (__fastcall* RemoveDance)(struct GameThing* this);
-  bool (__fastcall* IsAvailable)(struct GameThing* this);
+  bool32_t (__fastcall* IsAvailable)(struct GameThing* this);
   bool (__fastcall* IsCreature_0)(struct GameThing* this, const void* edx, struct Creature* param_1);  /* 0x30 */
   bool (__fastcall* IsCreature_1)(struct GameThing* this);
   bool (__fastcall* IsCreatureNotTooNear)(struct GameThing* this, const void* edx, struct Creature* param_1);
@@ -964,7 +964,7 @@ struct GameThingVftable
   float (__fastcall* GetTownArtifactValue)(struct GameThing* this);
   bool (__fastcall* CanBecomeArtifact)(struct GameThing* this);
   void (__fastcall* DrawInHand)(struct GameThing* this, const void* edx, struct GInterfaceStatus* param_1);  /* 0xd0 */
-  bool (__fastcall* IsFunctional)(struct GameThing* this);
+  bool32_t (__fastcall* IsFunctional)(struct GameThing* this);
   char* (__fastcall* GetDebugText)(struct GameThing* this);
   uint32_t (__fastcall* GetSampleForAttack)(struct GameThing* this);
   uint32_t (__fastcall* GetGuidanceResourceType)(struct GameThing* this);  /* 0xe0 */
@@ -1044,7 +1044,7 @@ float __fastcall CalculateInfluence__9GameThingFRC9MapCoords(struct GameThing* t
 // win1.41 00401800 mac 10494700 GameThing::RemoveDance(void)
 void __fastcall RemoveDance__9GameThingFv(struct GameThing* this) asm("?RemoveDance@GameThing@@QAEXXZ");
 // win1.41 00401810 mac 100512d0 GameThing::IsAvailable(void)
-bool __fastcall IsAvailable__9GameThingFv(struct GameThing* this) asm("?IsAvailable@GameThing@@QAE_NXZ");
+bool32_t __fastcall IsAvailable__9GameThingFv(struct GameThing* this) asm("?IsAvailable@GameThing@@QAE_NXZ");
 // win1.41 00401820 mac 10494880 GameThing::IsCreature(Creature *)
 bool __fastcall IsCreature__9GameThingFP8Creature(struct GameThing* this, const void* edx, struct Creature* param_1) asm("?IsCreature@GameThing@@QAE_NPAVCreature@@@Z");
 // win1.41 00401830 mac 1002c400 GameThing::IsCreature(void)
@@ -1128,7 +1128,7 @@ bool __fastcall CanBecomeArtifact__9GameThingFv(struct GameThing* this) asm("?Ca
 // win1.41 00405230 mac 10199e20 GameThing::DrawInHand(GInterfaceStatus *)
 void __fastcall DrawInHand__9GameThingFP16GInterfaceStatus(struct GameThing* this, const void* edx, struct GInterfaceStatus* param_1) asm("?DrawInHand@GameThing@@QAEXPAVGInterfaceStatus@@@Z");
 // win1.41 00405240 mac 10067860 GameThing::IsFunctional(void)
-bool __fastcall IsFunctional__9GameThingFv(struct GameThing* this) asm("?IsFunctional@GameThing@@QAE_NXZ");
+bool32_t __fastcall IsFunctional__9GameThingFv(struct GameThing* this) asm("?IsFunctional@GameThing@@QAE_NXZ");
 // win1.41 00425da0 mac 1054ef00 GameThing::GetDebugText(void)
 char* __fastcall GetDebugText__9GameThingFv(struct GameThing* this) asm("?GetDebugText@GameThing@@QAEPADXZ");
 // win1.41 0071bc20 mac 1050ff50 GameThing::GetSampleForAttack(void)

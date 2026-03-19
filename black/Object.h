@@ -775,7 +775,7 @@ struct ObjectVftable
   void (__fastcall* SetYAngle)(struct Object* this, const void* edx, float angle);
   void (__fastcall* UpdateFrom3DPosition)(struct Object* this);
   uint32_t (__fastcall* MoveAlongPath)(struct Object* this);
-  bool (__fastcall* IsReachable)(struct Object* this);  /* 0x530 */
+  bool32_t (__fastcall* IsReachable)(struct Object* this);  /* 0x530 */
   bool (__fastcall* BlocksTownClearArea)(const struct Object* this);
   void (__fastcall* Create3DObject)(struct Object* this);
   struct Object* (__fastcall* GetMapChild)(struct Object* this, const void* edx, const struct MapCell* param_1);
@@ -792,7 +792,7 @@ struct ObjectVftable
   float (__fastcall* GetMeshRadius)(const struct Object* this);
   struct Game3DObject* (__fastcall* Get3DObjectForPSys)(struct Object* this);
   bool (__fastcall* GetPSysFireFlameMatrix)(struct Object* this, const void* edx, struct LHMatrix* matrix);  /* 0x570 */
-  bool (__fastcall* GetPSysFireLocalRndFlamePos)(struct Object* this, const void* edx, struct LHPoint* point, int* param_2);
+  bool32_t (__fastcall* GetPSysFireLocalRndFlamePos)(struct Object* this, const void* edx, struct LHPoint* point, int* param_2);
   bool (__fastcall* GetPSysFireWorldFlamePos)(struct Object* this, const void* edx, const struct LHPoint* param_1, int param_2, struct LHPoint* param_3);
   float (__fastcall* GetPSysFireLocalFlameScale)(struct Object* this);
   uint32_t (__fastcall* GetPSysFireMaxFlames)(struct Object* this);  /* 0x580 */
@@ -808,7 +808,7 @@ struct ObjectVftable
   void (__fastcall* SetBeliefSprite)(struct Object* this, const void* edx, struct LH3DSprite* sprite);
   struct LH3DSprite* (__fastcall* GetBeliefSprite)(struct Object* this);
   void (__fastcall* SetLife)(struct Object* this, const void* edx, float param_1);  /* 0x5b0 */
-  bool (__fastcall* IsAlive)(struct Object* this);
+  bool32_t (__fastcall* IsAlive)(struct Object* this);
   void (__fastcall* ReduceLife)(struct Object* this, const void* edx, float value, struct GPlayer* player);
   void (__fastcall* IncreaseLife)(struct Object* this, const void* edx, float value);
   float (__fastcall* GetSacrificeValue)(struct Object* this);  /* 0x5c0 */
@@ -837,7 +837,7 @@ struct ObjectVftable
   void (__fastcall* GetDrawRegion)(struct Object* this, const void* edx, struct LHRegion* param_1);
   uint32_t (__fastcall* ProcessState)(struct Object* this);  /* 0x620 */
   float (__fastcall* GetProjectileSpeed)(struct Object* this);
-  bool (__fastcall* CanBePickedUp)(struct Object* this);
+  bool32_t (__fastcall* CanBePickedUp)(struct Object* this);
   bool32_t (__fastcall* CanBeCrushed)(struct Object* this);
   float (__fastcall* GetTopPos)(struct Object* this);  /* 0x630 */
   float (__fastcall* GetVillagerHugRadius)(struct Object* this);
@@ -872,8 +872,8 @@ struct ObjectVftable
   bool (__fastcall* IsAttackable)(struct Object* this, const void* edx, struct Object* param_1);
   bool (__fastcall* IsAllied)(struct Object* this, const void* edx, struct Object* param_1);
   bool (__fastcall* IsTouching_1)(const struct Object* this, const void* edx, struct MapCoords* param_1, struct MapCoords* param_2);  /* 0x6b0 */
-  bool (__fastcall* IsTouching_2)(const struct Object* this, const void* edx, struct MapCoords* param_1);
-  bool (__fastcall* IsTouching_3)(const struct Object* this, const void* edx, struct Object* param_1, float param_2);
+  bool32_t (__fastcall* IsTouching_2)(const struct Object* this, const void* edx, struct MapCoords* param_1);
+  bool32_t (__fastcall* IsTouching_3)(const struct Object* this, const void* edx, struct Object* param_1, float param_2);
   void (__fastcall* StartOnFire)(struct Object* this);
   void (__fastcall* EndOnFire)(struct Object* this);  /* 0x6c0 */
   float (__fastcall* GetDistanceFromObject_1)(struct Object* this, const void* edx, struct Object* param_1);
@@ -937,12 +937,12 @@ struct ObjectVftable
   void (__fastcall* ReactToPhysicsImpact)(struct Object* this, const void* edx, struct PhysicsObject* param_1, bool param_2);
   bool (__fastcall* CanBecomeAPhysicsObject)(struct Object* this);  /* 0x7b0 */
   bool (__fastcall* GetAlwaysRemainsInPhysicsInternalSystem)(struct Object* this);
-  bool (__fastcall* HasSunk)(struct Object* this);
+  bool32_t (__fastcall* HasSunk)(struct Object* this);
   bool (__fastcall* CreatureMustAvoid)(struct Object* this, const void* edx, struct Creature* param_1);
   void (__fastcall* AddToRoutePlan)(struct Object* this, const void* edx, struct RPHolder* param_1, struct Creature* param_2, int param_3, void (__cdecl* param_4)(int param_1, struct Point2D param_2, float param_3, int param_4));  /* 0x7c0 */
   float (__fastcall* GetRoutePlanRadius)(struct Object* this, const void* edx, struct Creature* param_1);
   bool32_t (__fastcall* VillagerMustAvoid)(struct Object* this, const void* edx, struct Villager* param_1);
-  bool (__fastcall* IsFireMan)(struct Object* this);
+  bool32_t (__fastcall* IsFireMan)(struct Object* this);
   bool (__fastcall* IsARootedObject)(struct Object* this);  /* 0x7d0 */
   enum SOUND_COLLISION_TYPE (__fastcall* GetCollideSoundType)(struct Object* this);
   bool32_t (__fastcall* IsSolidToNewAbode)(struct Object* this);
@@ -951,7 +951,7 @@ struct ObjectVftable
   bool (__fastcall* GetLandingPoint)(struct Object* this, const void* edx, uint8_t param_1, struct LHPoint* param_2);
   uint32_t (__fastcall* GetTastiness)(struct Object* this);
   bool (__fastcall* IsScary)(struct Object* this);
-  bool (__fastcall* GetInspectObjectPos)(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos);  /* 0x7f0 */
+  bool32_t (__fastcall* GetInspectObjectPos)(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos);  /* 0x7f0 */
   void (__fastcall* DiscipleInHandNear)(struct Object* this, const void* edx, struct Villager* param_1, struct GInterfaceStatus* status);
   bool32_t (__fastcall* GetSpecialPos)(struct Object* this, const void* edx, uint32_t index, struct MapCoords* pos);
   struct GameThing* (__fastcall* GetTownArtifact)(struct Object* this);
@@ -974,7 +974,7 @@ struct ObjectVftable
   void (__fastcall* GetNearestEdge)(struct Object* this, const void* edx, float param_1, float param_2);  /* 0x840 */
   enum IMMERSION_EFFECT_TYPE (__fastcall* GetImmersionTexture)(struct Object* this);
   enum IMMERSION_EFFECT_TYPE (__fastcall* GetInHandImmersionTexture)(struct Object* this);
-  bool (__fastcall* ShouldFootpathsGoRound)(struct Object* this);
+  bool32_t (__fastcall* ShouldFootpathsGoRound)(struct Object* this);
   void (__fastcall* InitialiseIsFixedForMapList)(struct Object* this);  /* 0x850 */
   uint32_t (__fastcall* StandAnimation)(struct Object* this);
   struct NewCollide* (__fastcall* GetCollideData)(const struct Object* this);
@@ -1040,7 +1040,7 @@ void __fastcall __dt__6ObjectFv(struct Object* this, const void* edx, uint8_t pa
 // Non-virtual methods
 
 // win1.41 00637e00 mac 103d5f70 Object::IsTouching(Object *, float)
-bool __fastcall IsTouching__6ObjectFP6Objectf(const struct Object* this, const void* edx, struct Object* param_1, float param_2) asm("?IsTouching@Object@@UAE_NPAV1@M@Z");
+bool32_t __fastcall IsTouching__6ObjectFP6Objectf(const struct Object* this, const void* edx, struct Object* param_1, float param_2) asm("?IsTouching@Object@@UAE_NPAV1@M@Z");
 // win1.41 00638560 mac 1005ba80 Object::GetMapChild(MapCoords const &)
 struct Object* __fastcall GetMapChild__6ObjectFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* coord) asm("?GetMapChild@Object@@QAEPAV1@ABUMapCoords@@@Z");
 // win1.41 0063a810 mac 103d04b0 Object::CreateSmokyStuff(long, float, LH3DColor)
@@ -1087,7 +1087,7 @@ bool32_t __fastcall IsMoving__6ObjectCFv(const struct GameThingWithPos* this) as
 // win1.41 006392b0 mac 10037930 Object::IsObjectInMap(void)
 bool32_t __fastcall IsObjectInMap__6ObjectFv(struct GameThingWithPos* this) asm("?IsObjectInMap@Object@@UAE_NXZ");
 // win1.41 0063a780 mac 103d07e0 Object::IsDrowning(void)
-bool __fastcall IsDrowning__6ObjectFv(struct GameThingWithPos* this) asm("?IsDrowning@Object@@UAE_NXZ");
+bool32_t __fastcall IsDrowning__6ObjectFv(struct GameThingWithPos* this) asm("?IsDrowning@Object@@UAE_NXZ");
 // win1.41 006377f0 mac 103d6d80 Object::CleanupWhenDeleted(int)
 void __fastcall CleanupWhenDeleted__6ObjectFi(struct GameThingWithPos* this, const void* edx, int param_1) asm("?CleanupWhenDeleted@Object@@UAEXH@Z");
 // win1.41 00639860 mac 103d2e30 Object::GetImpressiveValue(Living *, Reaction *)
@@ -1181,7 +1181,7 @@ void __fastcall UpdateFrom3DPosition__6ObjectFv(struct Object* this) asm("?Updat
 // win1.41 00402550 mac 105890b0 Object::MoveAlongPath(void)
 uint32_t __fastcall MoveAlongPath__6ObjectFv(struct Object* this) asm("?MoveAlongPath@Object@@UAEIXZ");
 // win1.41 00402560 mac 1030b0c0 Object::IsReachable(void)
-bool __fastcall IsReachable__6ObjectFv(struct Object* this) asm("?IsReachable@Object@@UAE_NXZ");
+bool32_t __fastcall IsReachable__6ObjectFv(struct Object* this) asm("?IsReachable@Object@@UAE_NXZ");
 // win1.41 0063a920 mac 103d03c0 Object::BlocksTownClearArea( const(void))
 bool __fastcall BlocksTownClearArea__6ObjectCFv(const struct Object* this) asm("?BlocksTownClearArea@Object@@UAE_NXZ");
 // win1.41 006365f0 mac 103d9010 Object::Create3DObject(void)
@@ -1215,7 +1215,7 @@ struct Game3DObject* __fastcall Get3DObjectForPSys__6ObjectFv(struct Object* thi
 // win1.41 00732630 mac 101499d0 Object::GetPSysFireFlameMatrix(LHMatrix *)
 bool __fastcall GetPSysFireFlameMatrix__6ObjectFP8LHMatrix(struct Object* this, const void* edx, struct LHMatrix* matrix) asm("?GetPSysFireFlameMatrix@Object@@UAEIPAULHMatrix@@@Z");
 // win1.41 00732770 mac 10149520 Object::GetPSysFireLocalRndFlamePos(LHPoint *, long *)
-bool __fastcall GetPSysFireLocalRndFlamePos__6ObjectFP7LHPointPl(struct Object* this, const void* edx, struct LHPoint* point, int* param_2) asm("?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z");
+bool32_t __fastcall GetPSysFireLocalRndFlamePos__6ObjectFP7LHPointPl(struct Object* this, const void* edx, struct LHPoint* point, int* param_2) asm("?GetPSysFireLocalRndFlamePos@Object@@UAEIPAULHPoint@@PAH@Z");
 // win1.41 00732660 mac 10149810 Object::GetPSysFireWorldFlamePos(LHPoint const &, long, LHPoint *)
 bool __fastcall GetPSysFireWorldFlamePos__6ObjectFRC7LHPointlP7LHPoint(struct Object* this, const void* edx, const struct LHPoint* param_1, int param_2, struct LHPoint* param_3) asm("?GetPSysFireWorldFlamePos@Object@@UAE_NPBULHPoint@@HPAU2@@Z");
 // win1.41 00732950 mac 101493c0 Object::GetPSysFireLocalFlameScale(void)
@@ -1305,7 +1305,7 @@ uint32_t __fastcall ProcessState__6ObjectFv(struct Object* this) asm("?ProcessSt
 // win1.41 006380b0 mac 103d5740 Object::GetProjectileSpeed(void)
 float __fastcall GetProjectileSpeed__6ObjectFv(struct Object* this) asm("?GetProjectileSpeed@Object@@UAEMXZ");
 // win1.41 004026a0 mac 103e4940 Object::CanBePickedUp(void)
-bool __fastcall CanBePickedUp__6ObjectFv(struct Object* this) asm("?CanBePickedUp@Object@@UAE_NXZ");
+bool32_t __fastcall CanBePickedUp__6ObjectFv(struct Object* this) asm("?CanBePickedUp@Object@@UAE_NXZ");
 // win1.41 00425c50 mac 100add90 Object::CanBeCrushed(void)
 bool32_t __fastcall CanBeCrushed__6ObjectFv(struct Object* this) asm("?CanBeCrushed@Object@@UAEIXZ");
 // win1.41 00638160 mac 103d5490 Object::GetTopPos(void)
@@ -1375,7 +1375,7 @@ bool __fastcall IsAllied__6ObjectFP6Object(struct Object* this, const void* edx,
 // win1.41 00637e60 mac 103d5970 Object::IsTouching(MapCoords const &, MapCoords const &)
 bool __fastcall IsTouching__6ObjectFRC9MapCoordsRC9MapCoords(const struct Object* this, const void* edx, struct MapCoords* param_1, struct MapCoords* param_2) asm("?IsTouching@Object@@UAE_NPAUMapCoords@@0@Z");
 // win1.41 00637e30 mac 103d5ef0 Object::IsTouching(MapCoords const &)
-bool __fastcall IsTouching__6ObjectFRC9MapCoords(const struct Object* this, const void* edx, struct MapCoords* param_1) asm("?IsTouching@Object@@UAE_NPAUMapCoords@@@Z");
+bool32_t __fastcall IsTouching__6ObjectFRC9MapCoords(const struct Object* this, const void* edx, struct MapCoords* param_1) asm("?IsTouching@Object@@UAE_NPAUMapCoords@@@Z");
 // win1.41 00419300 mac 100a9e50 Object::StartOnFire(void)
 void __fastcall StartOnFire__6ObjectFv(struct Object* this) asm("?StartOnFire@Object@@UAEXXZ");
 // win1.41 004027b0 mac 100a8170 Object::EndOnFire(void)
@@ -1503,7 +1503,7 @@ bool __fastcall CanBecomeAPhysicsObject__6ObjectFv(struct Object* this) asm("?Ca
 // win1.41 00402a10 mac 103db1f0 Object::GetAlwaysRemainsInPhysicsInternalSystem(void)
 bool __fastcall GetAlwaysRemainsInPhysicsInternalSystem__6ObjectFv(struct Object* this) asm("?GetAlwaysRemainsInPhysicsInternalSystem@Object@@UAE_NXZ");
 // win1.41 00637470 mac 103d7730 Object::HasSunk(void)
-bool __fastcall HasSunk__6ObjectFv(struct Object* this) asm("?HasSunk@Object@@UAE_NXZ");
+bool32_t __fastcall HasSunk__6ObjectFv(struct Object* this) asm("?HasSunk@Object@@UAE_NXZ");
 // win1.41 00638740 mac 103d48a0 Object::CreatureMustAvoid(Creature *)
 bool __fastcall CreatureMustAvoid__6ObjectFP8Creature(struct Object* this, const void* edx, struct Creature* param_1) asm("?CreatureMustAvoid@Object@@UAEIPAVCreature@@@Z");
 // win1.41 00638790 mac 103d43b0 Object::AddToRoutePlan(RPHolder *, Creature *, int, void (*)(int, Point2D, float, int))
@@ -1513,7 +1513,7 @@ float __fastcall GetRoutePlanRadius__6ObjectFP8Creature(struct Object* this, con
 // win1.41 00638be0 mac 103d41e0 Object::VillagerMustAvoid(Villager *)
 bool32_t __fastcall VillagerMustAvoid__6ObjectFP8Villager(struct Object* this, const void* edx, struct Villager* param_1) asm("?VillagerMustAvoid@Object@@UAEIPAVVillager@@@Z");
 // win1.41 00639a00 mac 103d2b20 Object::IsFireMan(void)
-bool __fastcall IsFireMan__6ObjectFv(struct Object* this) asm("?IsFireMan@Object@@UAE_NXZ");
+bool32_t __fastcall IsFireMan__6ObjectFv(struct Object* this) asm("?IsFireMan@Object@@UAE_NXZ");
 // win1.41 00638730 mac 10097740 Object::IsARootedObject(void)
 bool __fastcall IsARootedObject__6ObjectFv(struct Object* this) asm("?IsARootedObject@Object@@UAE_NXZ");
 // win1.41 00637690 mac 103d7220 Object::GetCollideSoundType(void)
@@ -1531,7 +1531,7 @@ uint32_t __fastcall GetTastiness__6ObjectFv(struct Object* this) asm("?GetTastin
 // win1.41 00402ac0 mac 102fd110 Object::IsScary(void)
 bool __fastcall IsScary__6ObjectFv(struct Object* this) asm("?IsScary@Object@@UAE_NXZ");
 // win1.41 00638cb0 mac 103d3fe0 Object::GetInspectObjectPos(Villager *, MapCoords *)
-bool __fastcall GetInspectObjectPos__6ObjectFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos) asm("?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z");
+bool32_t __fastcall GetInspectObjectPos__6ObjectFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos) asm("?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z");
 // win1.41 0063ab10 mac 103cfef0 Object::DiscipleInHandNear(Villager &, GInterfaceStatus &)
 void __fastcall DiscipleInHandNear__6ObjectFR8VillagerR16GInterfaceStatus(struct Object* this, const void* edx, struct Villager* param_1, struct GInterfaceStatus* status) asm("?DiscipleInHandNear@Object@@UAEXPAVVillager@@PAVGInterfaceStatus@@@Z");
 // win1.41 00638cd0 mac 103d3f70 Object::GetSpecialPos(unsigned long, MapCoords *)
@@ -1575,7 +1575,7 @@ enum IMMERSION_EFFECT_TYPE __fastcall GetImmersionTexture__6ObjectFv(struct Obje
 // win1.41 0063a7c0 mac 103d0770 Object::GetInHandImmersionTexture(void)
 enum IMMERSION_EFFECT_TYPE __fastcall GetInHandImmersionTexture__6ObjectFv(struct Object* this) asm("?GetInHandImmersionTexture@Object@@UAE?AW4IMMERSION_EFFECT_TYPE@@XZ");
 // win1.41 00419a50 mac 100a5a00 Object::ShouldFootpathsGoRound(void)
-bool __fastcall ShouldFootpathsGoRound__6ObjectFv(struct Object* this) asm("?ShouldFootpathsGoRound@Object@@UAE_NXZ");
+bool32_t __fastcall ShouldFootpathsGoRound__6ObjectFv(struct Object* this) asm("?ShouldFootpathsGoRound@Object@@UAE_NXZ");
 // win1.41 0063a640 mac 103d0b20 Object::InitialiseIsFixedForMapList(void)
 void __fastcall InitialiseIsFixedForMapList__6ObjectFv(struct Object* this) asm("?InitialiseIsFixedForMapList@Object@@UAEXH@Z");
 // win1.41 00402b50 mac 10335f20 Object::StandAnimation(void)

@@ -800,26 +800,26 @@ struct LivingVftable
   struct MobileWallHugVftable super;  /* 0x0 */
   bool (__fastcall* AmILikelyToMove)(struct Living* this);  /* 0x874 */
   void (__fastcall* SetFoodSpeedup)(struct Living* this, const void* edx, bool speedup);
-  bool (__fastcall* IsFoodSpeedUp)(struct Living* this);
+  bool32_t (__fastcall* IsFoodSpeedUp)(struct Living* this);
   uint32_t (__fastcall* GetNumTurnsToDieOver)(struct Living* this);  /* 0x880 */
   struct MapCoords* (__fastcall* GetFinalDestPos)(struct Living* this, const void* edx, struct MapCoords* pos);
-  bool (__fastcall* FleeingFromObjectReaction)(struct Living* this);
-  bool (__fastcall* LookingAtObjectReaction)(struct Living* this);
+  bool32_t (__fastcall* FleeingFromObjectReaction)(struct Living* this);
+  bool32_t (__fastcall* LookingAtObjectReaction)(struct Living* this);
   bool (__fastcall* FleeingAndLookingAtObjectReaction)(struct Living* this);  /* 0x890 */
-  bool (__fastcall* FollowingObjectReaction)(struct Living* this);
-  bool (__fastcall* InspectObjectReaction)(struct Living* this);
-  bool (__fastcall* Dying)(struct Living* this);
-  bool (__fastcall* Dead)(struct Living* this);  /* 0x8a0 */
+  bool32_t (__fastcall* FollowingObjectReaction)(struct Living* this);
+  bool32_t (__fastcall* InspectObjectReaction)(struct Living* this);
+  bool32_t (__fastcall* Dying)(struct Living* this);
+  bool32_t (__fastcall* Dead)(struct Living* this);  /* 0x8a0 */
   bool (__fastcall* Downed)(struct Living* this);
-  bool (__fastcall* BeingEaten)(struct Living* this);
-  bool (__fastcall* GotoFoodReaction)(struct Living* this);
-  bool (__fastcall* GotoWoodReaction)(struct Living* this);  /* 0x8b0 */
+  bool32_t (__fastcall* BeingEaten)(struct Living* this);
+  bool32_t (__fastcall* GotoFoodReaction)(struct Living* this);
+  bool32_t (__fastcall* GotoWoodReaction)(struct Living* this);  /* 0x8b0 */
   bool (__fastcall* MoveInFlock)(struct Living* this);
-  bool (__fastcall* IsMovingForAnimation)(struct Living* this);
-  bool (__fastcall* ArrivesAtFoodReaction)(struct Living* this);
-  bool (__fastcall* ArrivesAtWoodReaction)(struct Living* this);  /* 0x8c0 */
-  bool (__fastcall* InHand)(struct Living* this);
-  bool (__fastcall* DecideWhatToDo)(struct Living* this);
+  bool32_t (__fastcall* IsMovingForAnimation)(struct Living* this);
+  bool32_t (__fastcall* ArrivesAtFoodReaction)(struct Living* this);
+  bool32_t (__fastcall* ArrivesAtWoodReaction)(struct Living* this);  /* 0x8c0 */
+  bool32_t (__fastcall* InHand)(struct Living* this);
+  bool32_t (__fastcall* DecideWhatToDo)(struct Living* this);
   void (__fastcall* Birthday)(struct Living* this);
   uint32_t (__fastcall* GetAge)(struct Living* this);  /* 0x8d0 */
   void (__fastcall* SetAge)(struct Living* this, const void* edx, uint32_t age);
@@ -830,7 +830,7 @@ struct LivingVftable
   int (__fastcall* SetTopState)(struct Living* this, const void* edx, enum VILLAGER_STATES state);
   void (__fastcall* StorePreviousState)(struct Living* this);
   void (__fastcall* SetStateSpeed)(struct Living* this);  /* 0x8f0 */
-  bool (__fastcall* IsFinalState)(struct Living* this, const void* edx, enum VILLAGER_STATES state);
+  bool32_t (__fastcall* IsFinalState)(struct Living* this, const void* edx, enum VILLAGER_STATES state);
   void (__fastcall* SetAnim__li)(struct Living* this, const void* edx, int param_1, int param_2);
   void (__fastcall* SetAnim__i)(struct Living* this, const void* edx, int param_1);
   enum ANIM_LIST (__fastcall* GetAnimId)(struct Living* this);  /* 0x900 */
@@ -857,17 +857,17 @@ struct LivingVftable
   int (__fastcall* ExitScriptWander)(struct Living* this, const void* edx, enum VILLAGER_STATES state);
   uint32_t (__fastcall* EnterPlayAnim)(struct Living* this, const void* edx, enum VILLAGER_STATES state_1, enum VILLAGER_STATES state_2);
   int (__fastcall* ExitPlayAnim)(struct Living* this, const void* edx, enum VILLAGER_STATES state);
-  bool (__fastcall* IsScriptState)(const struct Living* this, const void* edx, enum VILLAGER_STATES state);  /* 0x960 */
-  bool (__fastcall* IsScriptInterruptableState)(const struct Living* this, const void* edx, enum VILLAGER_STATES state);
+  bool32_t (__fastcall* IsScriptState)(const struct Living* this, const void* edx, enum VILLAGER_STATES state);  /* 0x960 */
+  bool32_t (__fastcall* IsScriptInterruptableState)(const struct Living* this, const void* edx, enum VILLAGER_STATES state);
   bool (__fastcall* IsStateForInterface)(const struct Living* this, const void* edx, enum VILLAGER_STATES state);
-  bool (__fastcall* IsStateExitFunctionSameAs)(const struct Living* this, const void* edx, enum VILLAGER_STATES state);
+  bool32_t (__fastcall* IsStateExitFunctionSameAs)(const struct Living* this, const void* edx, enum VILLAGER_STATES state);
   bool (__fastcall* IsDeathState)(const struct Living* this, const void* edx, enum VILLAGER_STATES state);  /* 0x970 */
   uint32_t (__fastcall* DebugShowTime)(struct Living* this, const void* edx, uint32_t param_1, uint8_t param_2, uint8_t param_3);
   bool (__fastcall* IsDancing)(struct Living* this);
-  bool (__fastcall* IsInterestedInFoodObject)(struct Living* this, const void* edx, struct Object* object);
-  bool (__fastcall* IsInterestedInWoodObject)(struct Living* this, const void* edx, struct Object* object);  /* 0x980 */
-  bool (__fastcall* IsAvailableForReaction)(struct Living* this, const void* edx, enum REACTION reaction);
-  bool (__fastcall* IsAvailableForBeliefButNotReaction)(struct Living* this, const void* edx, enum REACTION reaction);
+  bool32_t (__fastcall* IsInterestedInFoodObject)(struct Living* this, const void* edx, struct Object* object);
+  bool32_t (__fastcall* IsInterestedInWoodObject)(struct Living* this, const void* edx, struct Object* object);  /* 0x980 */
+  bool32_t (__fastcall* IsAvailableForReaction)(struct Living* this, const void* edx, enum REACTION reaction);
+  bool32_t (__fastcall* IsAvailableForBeliefButNotReaction)(struct Living* this, const void* edx, enum REACTION reaction);
   void (__fastcall* UpdateHowImpressed)(struct Living* this, const void* edx, struct Reaction* param_1, int param_2);
   void (__fastcall* AddReaction)(struct Living* this, const void* edx, struct Reaction* reaction, enum VILLAGER_STATES state);  /* 0x990 */
   void (__fastcall* StartReacting)(struct Living* this, const void* edx, enum REACTION type, struct GameThingWithPos* target, struct Reaction* reaction);

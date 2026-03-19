@@ -42,10 +42,14 @@ float __fastcall GetScale__6ObjectFv(struct GameThingWithPos* this)
     return ((struct Object*)this)->scale;
 }
 
-__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call               dword ptr [__imp__DirectDrawCreate@4]"), ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__DirectDrawCreate@4]"), ret_cleanup_override(0x0004)))
 void __fastcall SetJustScale__6ObjectFf(struct Object* this, const void* edx, float scale)
 {
-    this->scale = scale;
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
+        "%{disp8%} mov        dword ptr [ecx + 0x50], eax"
+        ::: "eax", "ecx", "edx", "memory"
+    );
 }
 
 void __fastcall UpdateFrom3DPosition__6ObjectFv(struct Object* this)

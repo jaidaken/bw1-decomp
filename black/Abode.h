@@ -524,9 +524,9 @@ float __fastcall CalculateDesireToGainMale__5AbodeFv(struct Abode* this) asm("?C
 // win1.41 00407540 mac 100af0d0 Abode::CalculateDesireToGainVillager(void)
 float __fastcall CalculateDesireToGainVillager__5AbodeFv(struct Abode* this) asm("?CalculateDesireToGainVillager@Abode@@QAEMXZ");
 // win1.41 004075b0 mac 10518900 Abode::TakeVillagerFrom(Abode&, int)
-bool __fastcall TakeVillagerFrom__5AbodeFR5Abodei(struct Abode* this, const void* edx, struct Abode* other, int param_2) asm("?TakeVillagerFrom@Abode@@QAE_NAAV1@@Z");
+bool32_t __fastcall TakeVillagerFrom__5AbodeFR5Abodei(struct Abode* this, const void* edx, struct Abode* other, int param_2) asm("?TakeVillagerFrom@Abode@@QAE_NAAV1@@Z");
 // win1.41 00407620 mac 10516470 Abode::SwapMaleForFemaleFrom(Abode&)
-bool __fastcall SwapMaleForFemaleFrom__5AbodeFR5Abode(struct Abode* this, const void* edx, struct Abode* other) asm("?SwapMaleForFemaleFrom@Abode@@QAE_NAAV1@@Z");
+bool32_t __fastcall SwapMaleForFemaleFrom__5AbodeFR5Abode(struct Abode* this, const void* edx, struct Abode* other) asm("?SwapMaleForFemaleFrom@Abode@@QAE_NAAV1@@Z");
 // win1.41 004076c0 mac 105a17d0 Abode::GetVillagerHealthTotal(void)
 float __fastcall GetVillagerHealthTotal__5AbodeFv(struct Abode* this) asm("?GetVillagerHealthTotal@Abode@@QAEMXZ");
 
@@ -557,7 +557,7 @@ struct Abode* __fastcall CastAbode__5AbodeFv(struct GameThing* this) asm("?CastA
 // win1.41 00403f10 mac 103c9730 Abode::GetNumberOfInstanceForGlobalList(void)
 uint16_t __fastcall GetNumberOfInstanceForGlobalList__5AbodeFv(struct GameThing* this) asm("?GetNumberOfInstanceForGlobalList@Abode@@UAEGXZ");
 // win1.41 00406200 mac 1005ff20 Abode::IsFunctional(void)
-bool __fastcall IsFunctional__5AbodeFv(struct GameThing* this) asm("?IsFunctional@Abode@@UAE_NXZ");
+bool32_t __fastcall IsFunctional__5AbodeFv(struct GameThing* this) asm("?IsFunctional@Abode@@UAE_NXZ");
 // win1.41 004017b0 mac 10434340 Abode::GetDebugText(void)
 char* __fastcall GetDebugText__5AbodeFv(struct GameThing* this) asm("?GetDebugText@Abode@@UAEPADXZ");
 // win1.41 00406d20 mac 101a2920 Abode::Load(GameOSFile &)
@@ -573,7 +573,7 @@ uint32_t __fastcall GetCreatureBeliefType__5AbodeFv(struct GameThingWithPos* thi
 // win1.41 00401760 mac 10110c50 Abode::GetOrigin(void)
 uint32_t __fastcall GetOrigin__5AbodeFv(struct GameThingWithPos* this) asm("?GetOrigin@Abode@@UAEIXZ");
 // win1.41 00407200 mac 1008a7b0 Abode::IsInteractable(void)
-bool __fastcall IsInteractable__5AbodeFv(struct GameThingWithPos* this) asm("?IsInteractable@Abode@@UAE_NXZ");
+bool32_t __fastcall IsInteractable__5AbodeFv(struct GameThingWithPos* this) asm("?IsInteractable@Abode@@UAE_NXZ");
 // win1.41 00401720 mac 10435a10 Abode::IsCastShadowAtNight(void)
 bool32_t __fastcall IsCastShadowAtNight__5AbodeFv(struct GameThingWithPos* this) asm("?IsCastShadowAtNight@Abode@@UAEIXZ");
 // win1.41 00401710 mac 100970f0 Abode::IsAbode(void)

@@ -24,12 +24,8 @@ float __fastcall GetScale__20PlannedMultiMapFixedFv(struct GameThingWithPos* thi
     return ((const struct PlannedMultiMapFixed*)this)->scale;
 }
 
-__attribute__((no_callee_saves, trailing_asm("call dword ptr [?GetTransportInfo@LHConnection@@QAE?AW4LH_RETURN@@PAVLHTransportInfo@@H@Z]")))
+__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call dword ptr [?GetTransportInfo@LHConnection@@QAE?AW4LH_RETURN@@PAVLHTransportInfo@@H@Z]")))
 void __fastcall SetScale__20PlannedMultiMapFixedFf(struct GameThingWithPos* this, const void* edx, float scale)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "%{disp8%} mov        dword ptr [ecx + 0x2c], eax"
-        :: "c"(this) : "eax", "edx", "memory"
-    );
+    ((struct PlannedMultiMapFixed*)this)->scale = scale;
 }

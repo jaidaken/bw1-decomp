@@ -20,12 +20,23 @@ doesn't prevent this because it's not a load fold - it's a compare-immediate.
 **Pattern to match:** `CMP8mi/CMP32mi [mem], 0` -> `MOV8rm/MOV32rm reg, [mem]; TEST8rr/TEST32rr reg, reg`
 **Priority:** High - blocks all non-zero-check boolification patterns
 
-## 3. PreferNegSbb: Add COND_NE support (blocks ~14 neg_sbb functions)
+## 3. PreferNegSbb: Add COND_NE support -- DONE
 
-**File:** X86PreferNegSbb.cpp (line 97-103)
-**Symptom:** Pass only matches `XOR+TEST+SETE` (== 0), not `XOR+TEST+SETNE` (!= 0).
-**Fix:** Add a second pattern that matches SETNE and generates `NEG+SBB+NEG`
-instead of `NEG+SBB+INC`. The SBB gives -1 for non-zero, NEG turns -1 to 1.
-For SETE (== 0): neg+sbb+inc (current, correct)
-For SETNE (!= 0): neg+sbb+neg (new, needed)
-**Priority:** Medium - 14 functions have this pattern
+**Status:** FIXED in commit 344c031b09dd (bw1-decomp branch).
+Added COND_NE support (neg+sbb+neg) and Pattern C (different register + MOV).
+Converted HousewifeLookForWork successfully. MD5 verified.
+
+Of the 13 remaining neg_sbb functions:
+- 9 have vtable calls (blocked by ISel crash #1)
+- 4 have named calls, but 3 use `sub/dec` before the sbb (equality comparison
+  with constant), which generates `cmp eax,N; sete` instead of `sub N; neg; sbb; inc`
+
+## 4. CMP reg, imm; SETE vs SUB imm; NEG; SBB; INC (blocks ~3 named-call neg_sbb)
+
+**File:** New pass or PreferNegSbb extension
+**Symptom:** LLVM generates `cmp eax, 4; sete cl` for `== 4` comparisons.
+MSVC 6.0 generates `sub al, 4; neg al; sbb eax, eax; inc eax`.
+**Pattern:** For `== N` where N is a small constant: replace `CMP+SETE` with
+`SUB N; NEG; SBB; INC`. This is the full MSVC 6.0 equality idiom.
+**Priority:** Low - only 3 functions (IsReadyForNewScriptAction, FUN_004056f0,
+CheckSatisfySuppyWorship) plus GetNextPlayerAndNeutral which has unique logic.

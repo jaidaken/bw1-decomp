@@ -49,7 +49,7 @@ bool32_t __fastcall IsMoving__16GameThingWithPosCFv(const struct GameThingWithPo
 __attribute__((expand_movzx))
 bool32_t __fastcall IsObjectInMap__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    return *((uint8_t*)this + 0x24) & 1;
+    return *(uint8_t*)((char*)this + offsetof(struct GameThingWithPos, field_0x24)) & 1;
 }
 #else
 bool32_t __fastcall IsObjectInMap__16GameThingWithPosFv(struct GameThingWithPos* this)

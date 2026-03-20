@@ -12,7 +12,7 @@ struct Abode* __fastcall CastAbode__5AbodeFv(struct GameThing* this)
 __attribute__((expand_movzx))
 bool32_t __fastcall GetShouldNotBeAddedToPlanned__5AbodeFv(struct MultiMapFixed* this)
 {
-    return (*((uint8_t*)this + 0x7c) >> 2) & 1;
+    return (*(uint8_t*)((char*)this + offsetof(struct Abode, field_0x7c)) >> 2) & 1;
 }
 #else
 bool32_t __fastcall GetShouldNotBeAddedToPlanned__5AbodeFv(struct MultiMapFixed* this)

@@ -58,7 +58,7 @@ struct Villager* __fastcall __ct__8VillagerFv(struct Villager* this)
 __attribute__((expand_movzx))
 bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)
 {
-    return (*((uint8_t*)this + 0xe0) >> 3) & 1;
+    return (*(uint8_t*)((char*)this + offsetof(struct Villager, field_0xe0)) >> 3) & 1;
 }
 #else
 bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)

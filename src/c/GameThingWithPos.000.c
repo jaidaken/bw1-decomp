@@ -68,7 +68,7 @@ struct MapCoords* __fastcall GetPos__16GameThingWithPosFv(const struct GameThing
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__GetOpenFileNameA@4]")))
 void __fastcall PhysicsEditorCreate__16GameThingWithPosFi(struct GameThingWithPos* this, const void* edx, int param_1)
 {
-    *(uint32_t*)((char*)this + 0x1c) = 0;
+    this->coords.altitude = 0.0f;
 }
 
 uint32_t __fastcall GetCreatureBeliefListType__16GameThingWithPosFv(struct GameThingWithPos* this)
@@ -127,7 +127,7 @@ void __fastcall GetInteractPos__16GameThingWithPosFv(struct GameThingWithPos* th
 __attribute__((expand_movzx))
 bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this)
 {
-    return (*(uint16_t*)((char*)this + 0x24) >> 13) & 1;
+    return (*(uint16_t*)((char*)this + offsetof(struct GameThingWithPos, field_0x24)) >> 13) & 1;
 }
 #else
 bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this)
@@ -1007,7 +1007,7 @@ enum DEATH_REASON __fastcall GetDeathReason__16GameThingWithPosFv(struct GameThi
 __attribute__((expand_movzx))
 bool32_t __fastcall IsInScript__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    return (*(uint16_t*)((char*)this + 0x24) >> 9) & 1;
+    return (*(uint16_t*)((char*)this + offsetof(struct GameThingWithPos, field_0x24)) >> 9) & 1;
 }
 #else
 bool32_t __fastcall IsInScript__16GameThingWithPosFv(struct GameThingWithPos* this)

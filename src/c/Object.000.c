@@ -302,15 +302,12 @@ bool __fastcall IsLockedInInteract__6ObjectFv(struct Object* this)
     return 0;
 }
 
+__attribute__((msvc6_regalloc))
 bool32_t __fastcall SetDying__6ObjectFv(struct Object* this)
 {
-    void* dummy;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "push 0x0\n\t"
-        "call dword ptr [eax + 0xc]"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Object*, int);
+    fn_t fn = ((fn_t*)(*(void**)this))[0xc / 4];
+    fn(this, 0);
     return 1;
 }
 

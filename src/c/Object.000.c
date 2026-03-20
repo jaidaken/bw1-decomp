@@ -541,7 +541,7 @@ bool __fastcall GetAlwaysRemainsInPhysicsInternalSystem__6ObjectFv(struct Object
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__DirectInputCreateA@4]")))
 bool32_t __fastcall IsSuitableForCreatureAction__6ObjectFv(struct GameThingWithPos* this)
 {
-    bool32_t result = *(bool32_t*)((char*)*(void**)((char*)this + 0x28) + 0xc0);
+    bool32_t result = ((struct Object*)this)->info->canCreatureInteractWithMe;
     return result;
 }
 

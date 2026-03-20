@@ -112,7 +112,7 @@ bool32_t __fastcall IsTouching_3__8VillagerCFP6Objectf(const struct Object* this
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__BinkService@4]")))
 int __fastcall GetMesh__8VillagerCFv(const struct Object* this)
 {
-    int result = *(int*)((char*)*(void**)((char*)this + 0x28) + 0x214);
+    int result = ((const struct GVillagerInfo*)this->info)->stdDetail;
     return result;
 }
 

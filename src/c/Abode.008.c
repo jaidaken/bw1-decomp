@@ -1,4 +1,5 @@
 #include "Abode.h"
+#include "AbodeInfo.h"
 
 const float rdata_float_0_7 asm("__real@3f333333") = 0.7f;
 const float rdata_float_0_3 asm("__real@3e999999") = 0.3f;
@@ -10,7 +11,7 @@ const float rdata_float_1_5 asm("__real@3fc00000") = 1.5f;
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__timeKillEvent@4]")))
 enum ABODE_TYPE __fastcall GetAbodeType__5AbodeFv(struct MultiMapFixed* this)
 {
-    enum ABODE_TYPE result = *(enum ABODE_TYPE*)((char*)*(void**)((char*)this + 0x28) + 0x120);
+    enum ABODE_TYPE result = ((const struct GAbodeInfo*)this->base.super_object.info)->abodeType;
     return result;
 }
 
@@ -1538,7 +1539,7 @@ bool __fastcall CanBeHiddenIn__5AbodeFv(struct Abode* this)
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__bind@4]")))
 float __fastcall GetPercentRepairedForNonFunctional__5AbodeFv(struct MultiMapFixed* this)
 {
-    return *(float*)((char*)(*(void**)((char*)this + 0x28)) + 0x1b8);
+    return ((const struct GAbodeInfo*)this->base.super_object.info)->thresholdForStopBeingFunctional;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

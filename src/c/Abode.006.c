@@ -447,13 +447,13 @@ struct GPlayer* __fastcall GetPlayer__5AbodeFv(struct GameThing* this)
 __attribute__((prefer_inc_dec_byte))
 void __fastcall ArriveHome__5AbodeFv(struct Abode* this)
 {
-    (*((uint8_t*)this + 0xb6))++;
+    this->field_0xb6++;
 }
 
 __attribute__((prefer_inc_dec_byte))
 void __fastcall LeaveHome__5AbodeFv(struct Abode* this)
 {
-    (*((uint8_t*)this + 0xb6))--;
+    this->field_0xb6--;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

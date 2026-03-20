@@ -10991,7 +10991,7 @@ uint32_t __fastcall AddResource__8VillagerF13RESOURCE_TYPEUlP16GInterfaceStatusb
 __attribute__((XOR32rr_REV, expand_movzx))
 enum VILLAGER_STATES __fastcall LookAtPreviousStateReactToTownEmergency__8VillagerFv(struct Villager* this)
 {
-    return *(uint8_t*)((char*)this + 0x8e);
+    return this->base.super.action.states[LIVING_ACTION_INDEX_PREVIOUS];
 }
 #else
 __attribute__((XOR32rr_REV))

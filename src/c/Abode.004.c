@@ -1,4 +1,5 @@
 #include "Abode.h"
+#include "AbodeInfo.h"
 
 __attribute__((no_callee_saves))
 void __fastcall DeleteAbodeSurroundingObjects__5AbodeFv(struct Abode* this)
@@ -984,16 +985,16 @@ struct Villager* __fastcall GetSpouse__5AbodeFP8Villager(struct Abode* this, con
 __attribute__((XOR32rr_REV, expand_movzx, msvc6_regalloc))
 int __fastcall GetRoomLeftForAdults__5AbodeFv(struct Abode* this)
 {
-    int max_adults = *(int*)((char*)*(void**)((char*)this + 0x28) + 0x174);
-    int num_adults = *((uint8_t*)this + 0xb4);
+    int max_adults = ((const struct GAbodeInfo*)this->base.super_object.info)->maxVillagersInAbode;
+    int num_adults = this->adult_count;
     return max_adults - num_adults;
 }
 
 __attribute__((XOR32rr_REV, expand_movzx, msvc6_regalloc))
 int __fastcall GetRoomLeftForChildren__5AbodeFv(struct Abode* this)
 {
-    int max_children = *(int*)((char*)*(void**)((char*)this + 0x28) + 0x178);
-    int num_children = *((uint8_t*)this + 0xb7);
+    int max_children = ((const struct GAbodeInfo*)this->base.super_object.info)->maxChildrenInAbode;
+    int num_children = this->field_0xb7;
     return max_children - num_children;
 }
 
@@ -1005,7 +1006,7 @@ void __fastcall FUN_004046a0__5AbodeFi(struct Abode* this, const void* edx, int 
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__SetWindowTextA@4]")))
 int __fastcall FUN_004046b0__5AbodeFv(struct Abode* this)
 {
-    int result = *(int*)((char*)*(void**)((char*)this + 0x28) + 0x110);
+    int result = ((const struct GMultiMapFixedInfo*)this->base.super_object.info)->maxVillagerNeededToBuild;
     return result;
 }
 

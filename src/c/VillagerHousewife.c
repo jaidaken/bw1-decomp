@@ -88,18 +88,10 @@ void __cdecl FUN_00761be0__8VillagerFv(void)
     __opaque_c = __opaque_a * __opaque_b;
 }
 
+__attribute__((prefer_neg_sbb, msvc6_regalloc))
 bool32_t __fastcall HousewifeLookForWork__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "call ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
-        "neg eax\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "neg eax"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    return GetAbode__8VillagerFv(this) != 0;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

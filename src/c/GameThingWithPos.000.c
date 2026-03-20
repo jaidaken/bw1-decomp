@@ -681,16 +681,10 @@ bool32_t __fastcall CanBeUsedForBuildingHomeByCreature__16GameThingWithPosFP8Cre
     return result;
 }
 
-__attribute__((no_callee_saves, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
 bool32_t __fastcall IsRock__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    bool32_t result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x1f0]"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    return ((struct GameThingWithPosVftable*)(*(void**)this))->IsRock_0(this);
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))

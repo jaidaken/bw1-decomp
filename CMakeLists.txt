@@ -40,25 +40,16 @@ set(CMAKE_C_COMPILER_WORKS ON)
 
 # Set the llvm utils before project so the toolchain selection has the right paths
 if (NOT LLVM_BINARIES_DIR)
-    # Use local LLVM fork if available, otherwise download a release
+    # Use local LLVM fork - required for bw1-decomp custom passes
     if (EXISTS "${CMAKE_CURRENT_SOURCE_DIR}/../llvm-project/install/bin/clang")
         set(LLVM_BINARIES_DIR "${CMAKE_CURRENT_SOURCE_DIR}/../llvm-project/install/bin")
     else()
-    # Get the custom llvm for bw1-decomp
-    set(LLVM_RELEASE_NAME "bw1-decomp-015")
-    if (CMAKE_HOST_LINUX)
-        FetchContent_Declare(
-            llvm_binaries
-            URL      https://github.com/jaidaken/llvm-project/releases/download/${LLVM_RELEASE_NAME}/llvm-ubuntu.zip
-        )
-    elseif (CMAKE_HOST_WIN32)
-        FetchContent_Declare(
-            llvm_binaries
-            URL      https://github.com/jaidaken/llvm-project/releases/download/${LLVM_RELEASE_NAME}/llvm-windows.zip
-        )
-    endif()
-    FetchContent_MakeAvailable(llvm_binaries)
-    set(LLVM_BINARIES_DIR "${llvm_binaries_SOURCE_DIR}/bin")
+        message(FATAL_ERROR
+            "Local LLVM fork not found at ${CMAKE_CURRENT_SOURCE_DIR}/../llvm-project/install/bin/clang\n"
+            "Build the LLVM fork first:\n"
+            "  cd ../llvm-project && cmake -Bbuild -Sllvm -G Ninja -DCMAKE_BUILD_TYPE=Release \\\n"
+            "    -DLLVM_TARGETS_TO_BUILD=X86 -DLLVM_ENABLE_PROJECTS=\"lld;clang\" \\\n"
+            "    -DCMAKE_INSTALL_PREFIX=./install && ninja -C build install\n")
     endif()
 endif()
 # CMAKE_EXECUTABLE_SUFFIX is set after project

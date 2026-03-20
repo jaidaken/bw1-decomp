@@ -848,16 +848,10 @@ bool32_t __fastcall IsToyCuddly__16GameThingWithPosFP8Creature(struct GameThingW
     return 0;
 }
 
-__attribute__((no_callee_saves, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
 bool32_t __fastcall IsLiving__16GameThingWithPosFP8Creature(const struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    bool32_t result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x3c4]"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    return ((struct GameThingWithPosVftable*)(*(void**)this))->IsLiving_1(this);
 }
 
 __attribute__((XOR32rr_REV))

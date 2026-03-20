@@ -164,16 +164,12 @@ uint32_t __fastcall ProcessBySpell__6ObjectFP5Spell(struct Object* this, const v
     return 1;
 }
 
-__attribute__((no_callee_saves, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
 int __fastcall GetDetailMesh__6ObjectCF12DETAIL_LEVEL(struct Object* this, const void* edx, int detail)
 {
-    int result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x608]"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef int (__attribute__((thiscall)) *fn_t)(struct Object*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x608 / 4];
+    return fn(this);
 }
 
 bool __fastcall IsG3DObjectDrawnInHand__6ObjectFv(struct Object* this)

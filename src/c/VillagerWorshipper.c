@@ -627,15 +627,12 @@ bool32_t __fastcall CheckVillagerGoBackToTownFromWorship__8VillagerFv(struct Vil
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, msvc6_regalloc))
 bool32_t __fastcall CheckNeededForSupplyWorship__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x30c]"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct Villager*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x30c / 4];
+    fn(this);
     return 0;
 }
 

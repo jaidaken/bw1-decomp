@@ -715,15 +715,12 @@ bool32_t __fastcall ForesterChopsTree__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((msvc6_regalloc))
 bool32_t __fastcall ForesterChopsTreeForBuilding__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "push 0x000000a3\n\t"
-        "call dword ptr [eax + 0x8e8]"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0xa3);
     return 1;
 }
 

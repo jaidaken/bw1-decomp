@@ -52,13 +52,19 @@ def detect_wrapper_state(func: AsmFunction, raw_body: str) -> str:
     """Detect whether the function is raw asm, a C-wrapper, or a call-wrapper.
 
     Returns one of:
-      "raw_asm"       - function body IS the asm (needs full conversion)
-      "c_wrapper"     - has return + asm volatile with constraints (body needs C replacement)
-      "call_wrapper"  - asm wraps a single call to another function
-      "pure_c"        - no asm at all (shouldn't be in the list but just in case)
+      "raw_asm"              - function body IS the asm (needs full conversion)
+      "c_wrapper"            - has return + asm volatile with constraints (body needs C replacement)
+      "call_wrapper"         - asm wraps a single call to another function
+      "conditionally_converted" - has #if HAS_EXPAND_MOVZX (or similar) with pure C path
+      "pure_c"               - no asm at all (shouldn't be in the list but just in case)
     """
     if not raw_body:
         return "raw_asm"
+
+    # Check for #if HAS_EXPAND_MOVZX or similar conditional C paths
+    # These functions have pure C when compiled with our LLVM fork
+    if re.search(r'#if\s+HAS_EXPAND_MOVZX', raw_body):
+        return "conditionally_converted"
 
     has_return = bool(re.search(r'\breturn\b', raw_body))
     has_output_constraint = '"=a"' in raw_body or '"=t"' in raw_body
@@ -198,8 +204,17 @@ def extract_raw_bodies(filepath: Path) -> dict[str, str]:
                     break
             pos += 1
         # Include attribute line + signature for return type detection
+        # Also look back up to 5 lines for #if guards
         attr_start = match.start()
-        bodies[func_name] = text[attr_start : pos + 1]
+        context_start = max(0, text.rfind("\n", 0, attr_start - 200) + 1) if attr_start > 200 else 0
+        context_start = max(0, attr_start - 200)
+        preceding_context = text[context_start:attr_start]
+        body_text = text[attr_start : pos + 1]
+        # Attach preceding context if it has preprocessor conditionals
+        if "#if" in preceding_context:
+            bodies[func_name] = preceding_context + body_text
+        else:
+            bodies[func_name] = body_text
 
     return bodies
 

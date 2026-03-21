@@ -3006,15 +3006,10 @@ int __fastcall GetWoodCapacity__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004), no_tail_call))
 void __fastcall RemoveFromDance__8VillagerFi(struct Living* this, const void* edx, int param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "call               ?RemoveFromDance@Living@@UAEXH@Z"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    RemoveFromDance__6LivingFi(this, edx, param_1);
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

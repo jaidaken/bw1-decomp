@@ -497,7 +497,7 @@ set(SOURCES_ZLIB
     src/asm/zlib/deflate.asm
     src/asm/zlib/inflate.asm
     src/asm/zlib/zutil.asm
-    src/asm/zlib/adler32.asm
+    src/c/zlib/adler32.c
     src/asm/zlib/trees.asm
     src/asm/zlib/infblock.asm
     src/asm/zlib/infcodes.asm
@@ -1053,10 +1053,3 @@ add_custom_target(wine-fix
     COMMENT "Applying Wine/Proton crash fixes"
 )
 
-if(OBJDIFF)
-    file(GLOB STAGING_FILES "src/staging/*.cpp" "src/staging/*.c")
-    # Force the msvc compiler even for zlib c files
-    set_source_files_properties(${STAGING_FILES} PROPERTIES LANGUAGE CXX)
-    add_library(runblack_objdiff_staging OBJECT ${STAGING_FILES})
-    target_link_libraries(runblack_objdiff_staging PRIVATE common_compile_options)
-endif()

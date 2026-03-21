@@ -298,24 +298,14 @@ bool32_t __fastcall IsCitadelHeart__16GameThingWithPosFv(struct GameThingWithPos
     return 0;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves))
+__attribute__((XOR32rr_REV, no_callee_saves, suppress_fp_imm, msvc6_regalloc))
 bool32_t __fastcall IsDamaged__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    bool32_t result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x11c]\n\t"
-        "%{disp32%} fcomp dword ptr [_rdata_float1p0]\n\t"
-        "fnstsw ax\n\t"
-        "test ah, 0x01\n\t"
-        "%{disp8%} je 0f\n\t"
-        "mov eax, 0x00000001\n\t"
-        "ret\n"
-        "0:\n\t"
-        "xor.s eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern const float __opaque_rdata_float1p0 asm("_rdata_float1p0");
+    typedef float (__attribute__((thiscall)) *GetHealthFn)(const struct GameThingWithPos*);
+    GetHealthFn fn = ((GetHealthFn*)(*(void**)this))[0x11c / 4];
+    float health = fn(this);
+    return health < __opaque_rdata_float1p0;
 }
 
 __attribute__((XOR32rr_REV))

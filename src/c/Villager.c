@@ -2621,20 +2621,13 @@ bool32_t __fastcall IsAMother__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0008)))
+__attribute__((no_callee_saves, ret_cleanup_override(0x0008), no_tail_call))
 bool32_t __fastcall StartMoveToObject__8VillagerFP6Object15VILLAGER_STATES(struct Villager* this, const void* edx, struct Object* param_1, enum VILLAGER_STATES param_2)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "push               edx\n\t"
-        "call               ?SetupMoveToObject@Living@@QAEIPAVObject@@E@Z\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    // Local int-typed declaration to avoid movzx on the byte param
+    extern bool __fastcall SetupMoveToObject_dword(struct Living*, const void*, struct Object*, int) asm("?SetupMoveToObject@Living@@QAEIPAVObject@@E@Z");
+    SetupMoveToObject_dword((struct Living*)this, edx, param_1, param_2);
+    return 1;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0008)))

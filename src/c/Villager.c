@@ -3,6 +3,7 @@
 #include "Villager.h"
 #include "VillagerInfo.h"
 #include "TribeInfo.h"
+#include "GameOSFile.h"
 #include <stdint.h>
 
 __attribute__((section(".bss"))) uint32_t villager_uint_0x00da6bc0;
@@ -8714,19 +8715,12 @@ bool32_t __fastcall LoadInHand__8VillagerFR10GameOSFile(struct Villager* this, c
     return result;
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004), no_tail_call))
 bool32_t __fastcall SaveFishing__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov      eax, dword ptr [ecx + 0x00000118]\n\t"
-        "%{disp8%} mov       ecx, dword ptr [esp + 0x04]\n\t"
-        "push              eax\n\t"
-        "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
-        "mov               eax, 0x00000001"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    struct GameThing* thing = *(struct GameThing**)((char*)this + 0x118);
+    WritePtr__10GameOSFileFP9GameThing(param_1, edx, thing);
+    return 1;
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
@@ -9707,19 +9701,12 @@ bool32_t __fastcall LoadTrader__8VillagerFR10GameOSFile(struct Villager* this, c
     return result;
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004), no_tail_call))
 bool32_t __fastcall SaveInspectObject__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov      eax, dword ptr [ecx + 0x00000118]\n\t"
-        "%{disp8%} mov       ecx, dword ptr [esp + 0x04]\n\t"
-        "push              eax\n\t"
-        "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
-        "mov               eax, 0x00000001"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    struct GameThing* thing = *(struct GameThing**)((char*)this + 0x118);
+    WritePtr__10GameOSFileFP9GameThing(param_1, edx, thing);
+    return 1;
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
@@ -9946,19 +9933,12 @@ bool32_t __fastcall LoadBreeder__8VillagerFR10GameOSFile(struct Villager* this, 
     return result;
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004), no_tail_call))
 bool32_t __fastcall SaveForesting__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov      eax, dword ptr [ecx + 0x00000118]\n\t"
-        "%{disp8%} mov       ecx, dword ptr [esp + 0x04]\n\t"
-        "push              eax\n\t"
-        "call              ?WritePtr@GameOSFile@@QAEXPAVGameThing@@@Z\n\t"
-        "mov               eax, 0x00000001"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    struct GameThing* thing = *(struct GameThing**)((char*)this + 0x118);
+    WritePtr__10GameOSFileFP9GameThing(param_1, edx, thing);
+    return 1;
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))

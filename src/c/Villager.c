@@ -4811,23 +4811,13 @@ bool __fastcall IsReactiveState__8VillagerFUl(struct Villager* this, const void*
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves))
+__attribute__((XOR32rr_REV, no_callee_saves, suppress_fp_imm, msvc6_regalloc))
 bool32_t __fastcall IsHungry__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} fld       dword ptr [ecx + 0x000000e8]\n\t"
-        "%{disp32%} fcomp     dword ptr [eax + 0x000002c0]\n\t"
-        "fnstsw             ax\n\t"
-        "test               ah, 0x41\n\t"
-        "%{disp8%} je         LAB__addr_0x0075261c\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret\n"
-        "LAB__addr_0x0075261c:\n\t"
-        "xor.s              eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
+    const struct GVillagerInfo* info = *(const struct GVillagerInfo* volatile*)((char*)this + 0x28);
+    float hunger = *(float volatile*)((char*)this + 0xe8);
+    float threshold = *(float*)((char*)info + 0x2c0);
+    bool32_t result = !(hunger > threshold);
     return result;
 }
 

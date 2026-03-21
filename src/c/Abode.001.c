@@ -61,28 +61,19 @@ bool32_t __fastcall IsRepaired__5AbodeFv(struct MultiMapFixed* this)
     return !(level < __opaque_rdata_float1p0);
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, suppress_fp_imm, msvc6_regalloc))
 bool32_t __fastcall IsBuilt__5AbodeFv(struct MultiMapFixed* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp8%} mov al, byte ptr [ecx + 0x58]\n\t"
-        "and al, 0x02\n\t"
-        "cmp al, 0x02\n\t"
-        "%{disp8%} je 0f\n\t"
-        "mov edx, dword ptr [ecx]\n\t"
-        "call dword ptr [edx + 0x880]\n\t"
-        "%{disp32%} fcomp dword ptr [_rdata_float1p0]\n\t"
-        "fnstsw ax\n\t"
-        "test ah, 0x01\n\t"
-        "%{disp8%} jne 0f\n\t"
-        "mov eax, 0x00000001\n\t"
-        "ret\n"
-        "0:\n\t"
-        "xor.s eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern const float __opaque_rdata_float1p0 asm("_rdata_float1p0");
+    uint8_t flags = *(uint8_t*)((char*)this + 0x58);
+    if ((flags & 0x02) == 0x02)
+        return 0;
+    typedef float (__attribute__((thiscall)) *GetBuildFn)(const struct MultiMapFixed*);
+    GetBuildFn fn = ((GetBuildFn*)(*(void**)this))[0x880 / 4];
+    float progress = fn(this);
+    if (progress < __opaque_rdata_float1p0)
+        return 0;
+    return 1;
 }
 
 __attribute__((XOR32rr_REV))

@@ -497,7 +497,7 @@ set(SOURCES_ZLIB
     src/asm/zlib/deflate.asm
     src/asm/zlib/inflate.asm
     src/asm/zlib/zutil.asm
-    src/c/zlib/adler32.c
+    src/asm/zlib/adler32.asm
     src/asm/zlib/trees.asm
     src/asm/zlib/infblock.asm
     src/asm/zlib/infcodes.asm

@@ -51,24 +51,14 @@ void __fastcall SetTown__5AbodeFP4Town(struct MultiMapFixed* this, const void* e
     ((struct Abode*)this)->town = town;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, suppress_fp_imm, msvc6_regalloc))
 bool32_t __fastcall IsRepaired__5AbodeFv(struct MultiMapFixed* this)
 {
-    bool32_t result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x884]\n\t"
-        "%{disp32%} fcomp dword ptr [_rdata_float1p0]\n\t"
-        "fnstsw ax\n\t"
-        "test ah, 0x01\n\t"
-        "%{disp8%} jne 0f\n\t"
-        "mov eax, 0x00000001\n\t"
-        "ret\n"
-        "0:\n\t"
-        "xor.s eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern const float __opaque_rdata_float1p0 asm("_rdata_float1p0");
+    typedef float (__attribute__((thiscall)) *GetRepairFn)(const struct MultiMapFixed*);
+    GetRepairFn fn = ((GetRepairFn*)(*(void**)this))[0x884 / 4];
+    float level = fn(this);
+    return !(level < __opaque_rdata_float1p0);
 }
 
 __attribute__((no_callee_saves))

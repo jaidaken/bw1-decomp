@@ -23,7 +23,7 @@ _adler32:                push             esi                                   
                          push             ebp                                           // 0x007c10ee    55
 .Lbl_addr_0x007c10ef:    cmp              ebx, 0x000015b0                               // 0x007c10ef    81fbb0150000
                          mov.s            eax, ebx                                      // 0x007c10f5    8bc3
-                         .byte            0x72, 0x5// {disp8} jb .Lbl_addr_0x007c10fe   // 0x007c10f7    7205
+                         {disp8} jb       .Lbl_addr_0x007c10fe                          // 0x007c10f7    7205
                          mov              eax, 0x000015b0                               // 0x007c10f9    b8b0150000
 .Lbl_addr_0x007c10fe:    sub.s            ebx, eax                                      // 0x007c10fe    2bd8
                          cmp              eax, 0x10                                     // 0x007c1100    83f810

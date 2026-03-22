@@ -2028,17 +2028,9 @@ bool32_t __fastcall AtAltarFinishedRest__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((prefer_neg_sbb, no_tail_call))
 bool32_t __fastcall CheckSatisfySuppyWorship__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "call ?GotoStoragePitForWorshipSupplies@Villager@@QAEIXZ\n\t"
-        "dec eax\n\t"
-        "neg eax\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "inc eax"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __fastcall __opaque_GotoStoragePitForWorshipSupplies(struct Villager*) asm("__thunk_call_GotoStoragePitForWorshipSupplies");
+    return __opaque_GotoStoragePitForWorshipSupplies(this) == 1;
 }

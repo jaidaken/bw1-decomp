@@ -257,20 +257,12 @@ uint32_t __fastcall IsFemaleVillager__8VillagerFv(struct GameThingWithPos* this)
     return result;
 }
 
+__attribute__((prefer_neg_sbb, no_tail_call))
 uint32_t __fastcall IsAChild__8VillagerFv(struct GameThingWithPos* this)
 {
-    void* dummy;
-    uint32_t result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0xaf8]\n\t"
-        "dec eax\n\t"
-        "neg eax\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "inc eax"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct GameThingWithPos*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0xaf8 / 4];
+    return fn(this) == 1;
 }
 
 #if HAS_EXPAND_MOVZX

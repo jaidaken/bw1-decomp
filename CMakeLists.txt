@@ -1029,6 +1029,7 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_FootballAttackerGoHomePriority=?FootballAttackerGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_FootballDefenderPassPriority=?FootballDefenderPassPriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_FootballDefenderGoHomePriority=?FootballDefenderGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
+        "/alternatename:__thunk_call_GotoStoragePitForWorshipSupplies=?GotoStoragePitForWorshipSupplies@Villager@@QAEIXZ"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

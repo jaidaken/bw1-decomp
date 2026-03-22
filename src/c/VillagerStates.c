@@ -1474,16 +1474,11 @@ bool32_t __fastcall EnterBreeder__8VillagerFUcUc(struct Villager* this, const vo
     return result;
 }
 
+__attribute__((no_tail_call))
 bool32_t __fastcall ExitBreeder__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
-    void* dummy;
-    asm volatile (
-        "push 0x1e\n\t"
-        "push ecx\n\t"
-        "call _jmp_addr_0x006e4780\n\t"
-        "add esp, 0x08"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    extern void __cdecl jmp_addr_0x006e4780_fwd(void*, int) asm("_jmp_addr_0x006e4780");
+    jmp_addr_0x006e4780_fwd(this, 0x1e);
     return 1;
 }
 

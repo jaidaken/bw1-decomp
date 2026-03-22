@@ -24,14 +24,11 @@ void __cdecl globl_ct_0x00768b80(void)
     __builtin_unreachable();
 }
 
+__attribute__((prefer_pop_cleanup))
 void __cdecl crt_global_destruction_register_0x00768ba0(void)
 {
-    asm volatile (
-        "push               0x00407870\n\t"
-        "call               _atexit\n\t"
-        "pop                ecx"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    extern int __cdecl atexit(void (*)(void));
+    atexit((void (*)(void))0x00407870);
 }
 
 extern void __cdecl FUN_00768bc0__8VillagerFv(void) __attribute__((noinline));

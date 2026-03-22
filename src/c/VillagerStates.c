@@ -41,14 +41,11 @@ void __cdecl globl_ct_0x00769470(void)
     __builtin_unreachable();
 }
 
+__attribute__((prefer_pop_cleanup))
 void __cdecl crt_global_destruction_register_0x00769490(void)
 {
-    asm volatile (
-        "push               0x00407870\n\t"
-        "call               _atexit\n\t"
-        "pop                ecx"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    extern int __cdecl atexit(void (*)(void));
+    atexit((void (*)(void))0x00407870);
 }
 
 extern void __cdecl FUN_007694b0__8VillagerFv(void) __attribute__((noinline));
@@ -151,14 +148,11 @@ struct GBaseInfo* __fastcall GetBaseInfo__23GVillagerStateTableInfoFRUl(struct G
     return result;
 }
 
+__attribute__((prefer_pop_cleanup))
 void __cdecl FUN_007695a0__8VillagerFv(void)
 {
-    asm volatile (
-        "push               0x007695b0\n\t"
-        "call               _atexit\n\t"
-        "pop                ecx"
-        :  :  : "eax", "ecx", "edx", "memory"
-    );
+    extern int __cdecl atexit(void (*)(void));
+    atexit((void (*)(void))0x007695b0);
 }
 
 void __cdecl FUN_007695b0__8VillagerFv(void)

@@ -194,14 +194,11 @@ struct GBaseInfo* __fastcall GetBaseInfo__13GVillagerInfoFRUl(struct GBaseInfo* 
     return result;
 }
 
+__attribute__((prefer_pop_cleanup))
 void __cdecl crt_global_destruction_register_VillagerInfo_ARRAY(void)
 {
-    asm volatile (
-        "push               0x0074f8c0\n\t"
-        "call               _atexit\n\t"
-        "pop                ecx"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    extern int __cdecl atexit(void (*)(void));
+    atexit((void (*)(void))0x0074f8c0);
 }
 
 void __cdecl atexit_destroy_GVillagerInfo_array(void) asm("??__FGVillagerInfo_ARRAY_00da6be8@@YAXXZ");

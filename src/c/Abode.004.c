@@ -198,14 +198,10 @@ bool32_t __fastcall ShouldFootpathsGoRound__5AbodeFv(struct Object* this)
     return result;
 }
 
-__attribute__((no_ret))
 void __fastcall DeleteDependancys__5AbodeFv(struct Abode* this)
 {
-    asm volatile (
-        "%{disp32%} jmp       ?RemoveAllVillagersFromAbode@Abode@@QAEXXZ"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    extern void __fastcall __opaque_RemoveAllVillagersFromAbode(struct Abode*) asm("__thunk_target_DeleteDependancys");
+    __attribute__((musttail)) return __opaque_RemoveAllVillagersFromAbode(this);
 }
 
 __attribute__((no_callee_saves))

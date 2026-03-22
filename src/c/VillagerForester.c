@@ -738,14 +738,10 @@ bool32_t __fastcall ForesterFinishedForestering__8VillagerFv(struct Villager* th
     return result;
 }
 
-__attribute__((no_ret))
 bool32_t __fastcall TakeWoodFromTreeForBuilding__8VillagerFv(struct Villager* this)
 {
-    asm volatile (
-        "%{disp32%} jmp       ?TakeWoodFromTree@Villager@@QAEIXZ"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    extern bool32_t __fastcall __opaque_TakeWoodFromTree(struct Villager*) asm("__thunk_target_TakeWoodFromTreeForBuilding");
+    __attribute__((musttail)) return __opaque_TakeWoodFromTree(this);
 }
 
 extern bool32_t __fastcall TakeWoodFromPot__8VillagerFv(struct Villager* this) __attribute__((noinline));

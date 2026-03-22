@@ -1268,14 +1268,10 @@ void __fastcall CalculateNearestFreeDestination__8VillagerFP9MapCoords(struct Vi
     );
 }
 
-__attribute__((no_ret))
 void __fastcall UpdateAttitudeToCreature__8VillagerFv(struct Villager* this)
 {
-    asm volatile (
-        "%{disp32%} jmp       ?UpdateReactiveStateFromAttitudeToCreature@Villager@@QAEIXZ"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    extern void __fastcall __opaque_UpdateReactiveState(struct Villager*) asm("__thunk_target_UpdateAttitudeToCreature");
+    __attribute__((musttail)) return __opaque_UpdateReactiveState(this);
 }
 
 __attribute__((no_callee_saves))

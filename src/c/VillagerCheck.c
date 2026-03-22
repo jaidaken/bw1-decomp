@@ -173,15 +173,11 @@ void __fastcall InteractDecideWhatToDoForOtherVillager__8VillagerFv(struct Villa
     );
 }
 
-__attribute__((no_ret))
 void __fastcall InteractDecideWhatToDo__8VillagerFv(struct Villager* this)
 {
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "jmp dword ptr [eax + 0x8c8]"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    typedef void (__fastcall *fn_t)(struct Villager*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x8c8 / 4];
+    __attribute__((musttail)) return fn(this);
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV, trailing_asm(".byte 0x8b, 0xff\n.byte 0x35, 0x6e, 0x75, 0x00\n.byte 0x3b, 0x6e, 0x75, 0x00\n.byte 0x41, 0x6e, 0x75, 0x00\n.byte 0x4d, 0x6e, 0x75, 0x00\n.byte 0x47, 0x6e, 0x75, 0x00\n.byte 0x53, 0x6e, 0x75, 0x00\n.byte 0x4d, 0x6e, 0x75, 0x00\n.byte 0x4d, 0x6e, 0x75, 0x00\n.byte 0x53, 0x6e, 0x75, 0x00\n.byte 0x4d, 0x6e, 0x75, 0x00")))

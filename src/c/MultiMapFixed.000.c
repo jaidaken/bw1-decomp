@@ -49,15 +49,11 @@ float __fastcall GetPercentBuilt__13MultiMapFixedFv(struct MultiMapFixed* this)
     return this->percent_built;
 }
 
-__attribute__((no_ret))
 float __fastcall GetPercentRepaired__13MultiMapFixedFv(struct MultiMapFixed* this)
 {
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "jmp dword ptr [eax + 0x11c]"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    typedef float (__fastcall *fn_t)(struct MultiMapFixed*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x11c / 4];
+    __attribute__((musttail)) return fn(this);
 }
 
 __attribute__((XOR32rr_REV))

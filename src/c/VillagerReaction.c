@@ -1631,15 +1631,11 @@ bool32_t __fastcall LookingAtObjectReaction__8VillagerFv(struct Living* this)
     return result;
 }
 
-__attribute__((no_ret))
 bool __fastcall FleeingAndLookingAtObjectReaction__8VillagerFv(struct Living* this)
 {
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "jmp dword ptr [eax + 0x88c]"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    typedef bool (__fastcall *fn_t)(struct Living*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x88c / 4];
+    __attribute__((musttail)) return fn(this);
 }
 
 __attribute__((no_callee_saves))

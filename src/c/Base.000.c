@@ -26,13 +26,12 @@ void __fastcall Delete__4BaseFv(struct Base* this)
     }
 }
 
+__attribute__((no_tail_call))
 void __fastcall ToBeDeleted__4BaseFi(struct Base* this, const void* edx, int param_1)
 {
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "%{disp8%} call dword ptr [eax + 8]"
-        :  : "c"(this) : "eax", "edx", "memory"
-    );
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Base*);
+    fn_t fn = ((fn_t*)(*(void**)this))[8 / 4];
+    fn(this);
 }
 
 __attribute__((XOR32rr_REV))

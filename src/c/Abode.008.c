@@ -1525,15 +1525,11 @@ struct MapCoords* __fastcall FUN_00407230__5AbodeFb(struct Abode* this, const vo
     return result;
 }
 
-__attribute__((no_ret))
 bool __fastcall CanBeHiddenIn__5AbodeFv(struct Abode* this)
 {
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "jmp dword ptr [eax + 0xd4]"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    typedef bool (__fastcall *fn_t)(struct Abode*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0xd4 / 4];
+    __attribute__((musttail)) return fn(this);
 }
 
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__bind@4]")))

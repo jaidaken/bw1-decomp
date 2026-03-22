@@ -10895,15 +10895,11 @@ uint32_t __fastcall ValidForPlaceInHand__8VillagerFP16GInterfaceStatus(struct Ob
     return result;
 }
 
-__attribute__((no_ret))
 bool __fastcall CanBecomeAPhysicsObject__8VillagerFv(struct Object* this)
 {
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "jmp dword ptr [eax + 0x530]"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    typedef bool (__fastcall *fn_t)(struct Object*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x530 / 4];
+    __attribute__((musttail)) return fn(this);
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0018)))

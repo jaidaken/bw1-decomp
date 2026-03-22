@@ -58,15 +58,11 @@ uint32_t __fastcall MoveAlongPath__6ObjectFv(struct Object* this)
     return 1;
 }
 
-__attribute__((no_ret))
 bool32_t __fastcall IsReachable__6ObjectFv(struct Object* this)
 {
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "%{disp8%} jmp dword ptr [eax + 0x2c]"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    typedef bool32_t (__fastcall *fn_t)(struct Object*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x2c / 4];
+    __attribute__((musttail)) return fn(this);
 }
 
 __attribute__((MOV32rr_REV))
@@ -230,16 +226,12 @@ float __fastcall GetFoodValue__6ObjectF9FOOD_TYPE(struct Object* this, const voi
     return result;
 }
 
-__attribute__((no_ret))
 enum FOOD_TYPE __fastcall GetFoodType__6ObjectFv(struct Object* this)
 {
-    asm volatile (
-        "%{disp8%} mov ecx, dword ptr [ecx + 0x28]\n\t"
-        "mov eax, dword ptr [ecx]\n\t"
-        "%{disp8%} jmp dword ptr [eax + 0x38]"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    struct GBaseInfo* info = (struct GBaseInfo*)this->info;
+    typedef enum FOOD_TYPE (__fastcall *fn_t)(struct Object*);
+    fn_t fn = ((fn_t*)(*(void**)info))[0x38 / 4];
+    __attribute__((musttail)) return fn((struct Object*)info);
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

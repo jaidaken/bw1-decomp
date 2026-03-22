@@ -6241,15 +6241,11 @@ void __fastcall ProcessFoodSpeedup__8VillagerFv(struct Villager* this)
     );
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004), no_tail_call))
 void __fastcall IncreaseLife__8VillagerFf(struct Object* this, const void* edx, float param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "call               ?IncreaseLife@Object@@UAEXM@Z"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    extern void __attribute__((thiscall)) IncreaseLife_Object_fwd(struct Object*, float) asm("?IncreaseLife@Object@@UAEXM@Z");
+    IncreaseLife_Object_fwd(this, param_1);
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0008)))

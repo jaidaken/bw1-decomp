@@ -204,35 +204,10 @@ void __fastcall DeleteDependancys__5AbodeFv(struct Abode* this)
     __attribute__((musttail)) return __opaque_RemoveAllVillagersFromAbode(this);
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, trailing_asm("nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nLAB__addr_0x00403f20:\n{disp32} mov eax, dword ptr [ecx + 0x00000090]\ntest eax, eax\n{disp8} jne LAB__addr_0x00403f31\n{disp32} fld dword ptr [_rdata_float1p0]\nret\nLAB__addr_0x00403f31:\n{disp8} fld dword ptr [eax + 0x18]\nret")))
 uint16_t __fastcall GetNumberOfInstanceForGlobalList__5AbodeFv(struct GameThing* this)
 {
-    uint16_t result;
-    asm volatile (
-        "mov                ax, 0x0001\n\t"
-        "ret\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n"
-        "LAB__addr_0x00403f20:\n\t"
-        "%{disp32%} mov       eax, dword ptr [ecx + 0x00000090]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} jne        LAB__addr_0x00403f31\n\t"
-        "%{disp32%} fld       dword ptr [_rdata_float1p0]\n\t"
-        "ret\n"
-        "LAB__addr_0x00403f31:\n\t"
-        "%{disp8%} fld        dword ptr [eax + 0x18]"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    return 1;
 }
 
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__DirectXSetupGetVersion]")))

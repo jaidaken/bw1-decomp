@@ -2637,14 +2637,11 @@ void __fastcall FootballDefenderSaveProcess__8VillagerFP8Football(struct Village
     );
 }
 
+__attribute__((no_tail_call))
 void __fastcall FootballDefenderClearProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    void* dummy;
-    asm volatile (
-        "push eax\n\t"
-        "call ?FootballDefenderSaveProcess@Villager@@QAEXPAVFootball@@@Z"
-        : "=c"(dummy) : "c"(this), "a"(param_1) : "edx", "memory"
-    );
+    extern void __attribute__((thiscall)) __opaque_FootballDefenderSaveProcess(struct Villager*, struct Football*) asm("__thunk_call_FootballDefenderSaveProcess");
+    __opaque_FootballDefenderSaveProcess(this, param_1);
 }
 
 __attribute__((no_callee_saves))
@@ -3510,14 +3507,11 @@ void __fastcall FootballGoalieSaveProcess__8VillagerFP8Football(struct Villager*
     );
 }
 
+__attribute__((no_tail_call))
 void __fastcall FootballGoalieClearProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    void* dummy;
-    asm volatile (
-        "push eax\n\t"
-        "call ?FootballGoalieSaveProcess@Villager@@QAEXPAVFootball@@@Z"
-        : "=c"(dummy) : "c"(this), "a"(param_1) : "edx", "memory"
-    );
+    extern void __attribute__((thiscall)) __opaque_FootballGoalieSaveProcess(struct Villager*, struct Football*) asm("__thunk_call_FootballGoalieSaveProcess");
+    __opaque_FootballGoalieSaveProcess(this, param_1);
 }
 
 __attribute__((no_callee_saves))
@@ -3683,14 +3677,11 @@ void __fastcall FootballGoalieGoHomeProcess__8VillagerFP8Football(struct Village
     );
 }
 
+__attribute__((no_tail_call))
 void __fastcall FootballGoalieIdleProcess__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    void* dummy;
-    asm volatile (
-        "push eax\n\t"
-        "call ?FootballGoalieLookProcess@Villager@@QAEXPAVFootball@@@Z"
-        : "=c"(dummy) : "c"(this), "a"(param_1) : "edx", "memory"
-    );
+    extern void __attribute__((thiscall)) __opaque_FootballGoalieLookProcess(struct Villager*, struct Football*) asm("__thunk_call_FootballGoalieLookProcess");
+    __opaque_FootballGoalieLookProcess(this, param_1);
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

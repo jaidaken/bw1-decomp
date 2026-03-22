@@ -2309,20 +2309,13 @@ void __fastcall SetupAfterTapOnAbode__8VillagerFR9MapCoords15VILLAGER_STATES(str
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, expand_movzx, no_tail_call))
 bool32_t __fastcall AfterTapOnAbode__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp32%} mov       al, byte ptr [ecx + 0x0000008e]\n\t"
-        "push               0x1\n\t"
-        "push               eax\n\t"
-        "call               ?PlayAnimThenSetState@Living@@QAEXEK@Z\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern void __attribute__((thiscall)) PlayAnimThenSetState_fwd(struct Villager*, unsigned char, unsigned long) asm("?PlayAnimThenSetState@Living@@QAEXEK@Z");
+    uint8_t val = *(uint8_t*)((char*)this + 0x8e);
+    PlayAnimThenSetState_fwd(this, val, 1);
+    return 1;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

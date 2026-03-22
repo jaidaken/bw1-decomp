@@ -54,26 +54,11 @@ struct Villager* __fastcall __ct__8VillagerFv(struct Villager* this)
     return result;
 }
 
-#if HAS_EXPAND_MOVZX
 __attribute__((expand_movzx))
 bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)
 {
     return (*(uint8_t*)((char*)this + offsetof(struct Villager, field_0xe0)) >> 3) & 1;
 }
-#else
-bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)
-{
-    bool32_t result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp32%} mov       al, byte ptr [ecx + 0x000000e0]\n\t"
-        "shr                eax, 3\n\t"
-        "and                eax, 0x01"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
-}
-#endif
 
 __attribute__((XOR32rr_REV, no_callee_saves))
 bool32_t __fastcall IsFoodSpeedUp__8VillagerFv(struct Living* this)
@@ -243,25 +228,11 @@ uint32_t __fastcall IsAChild__8VillagerFv(struct GameThingWithPos* this)
     return fn(this) == 1;
 }
 
-#if HAS_EXPAND_MOVZX
 __attribute__((XOR32rr_REV, expand_movzx))
 enum DEATH_REASON __fastcall GetDeathReason__8VillagerFv(struct GameThingWithPos* this)
 {
     return *(uint8_t*)((char*)this + 0x118);
 }
-#else
-__attribute__((XOR32rr_REV))
-enum DEATH_REASON __fastcall GetDeathReason__8VillagerFv(struct GameThingWithPos* this)
-{
-    enum DEATH_REASON result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp32%} mov       al, byte ptr [ecx + 0x00000118]"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
-}
-#endif
 
 uint32_t __fastcall GetSaveType__8VillagerFv(struct GameThing* this)
 {

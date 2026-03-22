@@ -335,11 +335,9 @@ void __cdecl globl_ct_0x0074f930(void)
 
 void __cdecl FUN_0074f940__8VillagerFv(void)
 {
-    asm volatile (
-        "%{disp32%} mov eax, dword ptr [_villager_ptr_0x00c234e0]\n\t"
-        "%{disp32%} mov dword ptr [_villager_uint_0x00da6bd8], eax"
-        ::: "eax", "memory"
-    );
+    extern uintptr_t __opaque_src asm("_villager_ptr_0x00c234e0");
+    extern uint32_t __opaque_dst asm("_villager_uint_0x00da6bd8");
+    __opaque_dst = __opaque_src;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0010)))
@@ -10927,25 +10925,11 @@ uint32_t __fastcall AddResource__8VillagerF13RESOURCE_TYPEUlP16GInterfaceStatusb
     return result;
 }
 
-#if HAS_EXPAND_MOVZX
 __attribute__((XOR32rr_REV, expand_movzx))
 enum VILLAGER_STATES __fastcall LookAtPreviousStateReactToTownEmergency__8VillagerFv(struct Villager* this)
 {
     return this->base.super.action.states[LIVING_ACTION_INDEX_PREVIOUS];
 }
-#else
-__attribute__((XOR32rr_REV))
-enum VILLAGER_STATES __fastcall LookAtPreviousStateReactToTownEmergency__8VillagerFv(struct Villager* this)
-{
-    enum VILLAGER_STATES result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp32%} mov       al, byte ptr [ecx + 0x0000008e]"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
-}
-#endif
 
 void __fastcall SetTown__8VillagerFP4Town(struct Villager* this, const void* edx, struct Town* town)
 {

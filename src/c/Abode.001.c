@@ -8,26 +8,11 @@ struct Abode* __fastcall CastAbode__5AbodeFv(struct GameThing* this)
     return ((struct Abode*)this);
 }
 
-#if HAS_EXPAND_MOVZX
 __attribute__((expand_movzx))
 bool32_t __fastcall GetShouldNotBeAddedToPlanned__5AbodeFv(struct MultiMapFixed* this)
 {
     return (*(uint8_t*)((char*)this + offsetof(struct Abode, field_0x7c)) >> 2) & 1;
 }
-#else
-bool32_t __fastcall GetShouldNotBeAddedToPlanned__5AbodeFv(struct MultiMapFixed* this)
-{
-    bool32_t result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp8%} mov        al, byte ptr [ecx + 0x7c]\n\t"
-        "shr                eax, 2\n\t"
-        "and                eax, 0x01"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
-}
-#endif
 
 void __fastcall SetShouldNotBeAddedToPlanned__5AbodeFi(struct MultiMapFixed* this, const void* edx, bool value)
 {

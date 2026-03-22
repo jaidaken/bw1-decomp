@@ -45,25 +45,11 @@ bool32_t __fastcall IsMoving__16GameThingWithPosCFv(const struct GameThingWithPo
     return 0;
 }
 
-#if HAS_EXPAND_MOVZX
 __attribute__((expand_movzx))
 bool32_t __fastcall IsObjectInMap__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
     return *(uint8_t*)((char*)this + offsetof(struct GameThingWithPos, field_0x24)) & 1;
 }
-#else
-bool32_t __fastcall IsObjectInMap__16GameThingWithPosFv(struct GameThingWithPos* this)
-{
-    bool32_t result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp8%} mov        al, byte ptr [ecx + 0x24]\n\t"
-        "and                eax, 0x01"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
-}
-#endif
 
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall IsDrowning__16GameThingWithPosFv(struct GameThingWithPos* this)

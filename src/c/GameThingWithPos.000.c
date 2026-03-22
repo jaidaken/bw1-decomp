@@ -123,26 +123,11 @@ void __fastcall GetInteractPos__16GameThingWithPosFv(struct GameThingWithPos* th
     );
 }
 
-#if HAS_EXPAND_MOVZX
 __attribute__((expand_movzx))
 bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this)
 {
     return (*(uint16_t*)((char*)this + offsetof(struct GameThingWithPos, field_0x24)) >> 13) & 1;
 }
-#else
-bool32_t __fastcall IsCannotBePickedUp__16GameThingWithPosCFv(const struct GameThingWithPos* this)
-{
-    bool32_t result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp8%} mov        ax, word ptr [ecx + 0x24]\n\t"
-        "shr                eax, 0xd\n\t"
-        "and                eax, 0x01"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
-}
-#endif
 
 __attribute__((XOR32rr_REV))
 bool __fastcall IsStompable__16GameThingWithPosFv(struct GameThingWithPos* this)
@@ -981,26 +966,11 @@ enum DEATH_REASON __fastcall GetDeathReason__16GameThingWithPosFv(struct GameThi
     return 0;
 }
 
-#if HAS_EXPAND_MOVZX
 __attribute__((expand_movzx))
 bool32_t __fastcall IsInScript__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
     return (*(uint16_t*)((char*)this + offsetof(struct GameThingWithPos, field_0x24)) >> 9) & 1;
 }
-#else
-bool32_t __fastcall IsInScript__16GameThingWithPosFv(struct GameThingWithPos* this)
-{
-    bool32_t result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp8%} mov        ax, word ptr [ecx + 0x24]\n\t"
-        "shr                eax, 9\n\t"
-        "and                eax, 0x01"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
-}
-#endif
 
 __attribute__((XOR32rr_REV))
 bool32_t __fastcall IsMaleVillager__16GameThingWithPosFv(struct GameThingWithPos* this)

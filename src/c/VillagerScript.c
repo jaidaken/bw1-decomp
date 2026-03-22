@@ -63,19 +63,10 @@ void __cdecl FUN_00768620__8VillagerFv(void)
     villager_script_uint_0x00db9e48 = 0xffffffff;
 }
 
+__attribute__((prefer_neg_sbb, prefer_neg_sbb_8bit, no_tail_call))
 uint32_t __fastcall IsReadyForNewScriptAction__8VillagerFv(struct GameThingWithPos* this)
 {
-    void* dummy;
-    uint32_t result;
-    asm volatile (
-        "call ?GetTopState@Living@@QBE?AW4VILLAGER_STATES@@XZ\n\t"
-        "sub al, 0x04\n\t"
-        "neg al\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "inc eax"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    return GetTopState__6LivingCFv((struct Living*)this) == 4;
 }
 
 __attribute__((no_callee_saves))

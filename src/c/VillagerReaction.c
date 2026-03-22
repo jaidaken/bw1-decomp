@@ -5205,18 +5205,14 @@ void __fastcall SetupReactToConfused__8VillagerFP16GameThingWithPosP8Reaction(st
     );
 }
 
+__attribute__((no_tail_call))
 bool32_t __fastcall StartConfusedReaction__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov       word ptr [ecx + 0x00000090], 0x0000\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               0x000000c4\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    *(uint16_t*)((char*)this + 0x90) = 0;
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0xc4);
+    return 1;
 }
 
 __attribute__((no_callee_saves))

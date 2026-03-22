@@ -1030,6 +1030,8 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_FootballDefenderPassPriority=?FootballDefenderPassPriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_FootballDefenderGoHomePriority=?FootballDefenderGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_GotoStoragePitForWorshipSupplies=?GotoStoragePitForWorshipSupplies@Villager@@QAEIXZ"
+        # ReadPtr alternatename for LoadFishing/LoadInspectObject/LoadForesting
+        "/alternatename:__thunk_call_ReadPtr=@ReadPtr__10GameOSFileFPP9GameThing@12"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

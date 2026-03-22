@@ -71,19 +71,9 @@ bool __fastcall IsCivic__12PlannedAbodeFv(struct PlannedMultiMapFixed* this)
     __builtin_unreachable();
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((msvc6_regalloc, no_tail_call))
 bool32_t __fastcall IsWonder__12PlannedAbodeFv(struct GameThingWithPos* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "call               ?GetInfo@PlannedAbode@@SAPAVGPlannedAbodeInfo@@XZ\n\t"
-        "%{disp32%} mov       edx, dword ptr [eax + 0x00000120]\n\t"
-        "xor.s              ecx, ecx\n\t"
-        "cmp                edx, 0x00000100\n\t"
-        "sete               cl\n\t"
-        "mov.s              eax, ecx"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    struct GPlannedAbodeInfo* info = GetInfo__12PlannedAbodeFv();
+    return *(uint32_t*)((char*)info + 0x120) == 0x100;
 }

@@ -640,10 +640,11 @@ bool32_t __fastcall ChildDecideWhatToDo__8VillagerFv(struct Villager* this)
     asm("pop                esi");                                           // 0x00757ef5    5e
 }
 
+__attribute__((no_tail_call))
 bool32_t __fastcall CheckChildActivity__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile ("call ?ChildDecideWhatToDo@Villager@@QAEIXZ" : "=c"(dummy) : "c"(this) : "eax", "edx", "memory");
+    extern bool32_t __fastcall __opaque_ChildDecideWhatToDo(struct Villager*) asm("__thunk_call_ChildDecideWhatToDo");
+    __opaque_ChildDecideWhatToDo(this);
     return 1;
 }
 

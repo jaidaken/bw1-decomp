@@ -1291,10 +1291,11 @@ uint32_t __fastcall ArrivesHome__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_tail_call))
 bool32_t __fastcall AtHome__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile ("call ?HomeDecideWhatToDo@Villager@@QAEIXZ" : "=c"(dummy) : "c"(this) : "eax", "edx", "memory");
+    extern bool32_t __fastcall __opaque_HomeDecideWhatToDo(struct Villager*) asm("__thunk_call_HomeDecideWhatToDo");
+    __opaque_HomeDecideWhatToDo(this);
     return 1;
 }
 

@@ -1019,6 +1019,9 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_target_DeleteDependancys=?RemoveAllVillagersFromAbode@Abode@@QAEXXZ"
         "/alternatename:__thunk_target_TakeWoodFromTreeForBuilding=?TakeWoodFromTree@Villager@@QAEIXZ"
         "/alternatename:__thunk_target_UpdateAttitudeToCreature=?UpdateReactiveStateFromAttitudeToCreature@Villager@@QAEIXZ"
+        # call+return aliases: opaque C names for same-TU call forwards
+        "/alternatename:__thunk_call_ChildDecideWhatToDo=?ChildDecideWhatToDo@Villager@@QAEIXZ"
+        "/alternatename:__thunk_call_HomeDecideWhatToDo=?HomeDecideWhatToDo@Villager@@QAEIXZ"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

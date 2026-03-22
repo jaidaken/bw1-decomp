@@ -4255,15 +4255,11 @@ bool32_t __fastcall ArrivedAtPickUpBallForDeadBall__8VillagerFv(struct Villager*
     return result;
 }
 
+__attribute__((no_tail_call))
 bool32_t __fastcall ArrivedAtPutDownBallForDeadBallStart__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile (
-        "push 0x1\n\t"
-        "push 0x51\n\t"
-        "call ?PlayAnimThenSetState@Living@@QAEXEK@Z"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    extern void __attribute__((thiscall)) PlayAnimThenSetState__6LivingFEK(struct Villager*, unsigned char, unsigned long) asm("?PlayAnimThenSetState@Living@@QAEXEK@Z");
+    PlayAnimThenSetState__6LivingFEK(this, 0x51, 0x1);
     return 1;
 }
 

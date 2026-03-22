@@ -79,15 +79,12 @@ bool32_t __fastcall MoveToFootballPitchConstruction__8VillagerFv(struct Villager
     return 1;
 }
 
+__attribute__((no_tail_call))
 bool32_t __fastcall FootballWalkToPosition__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "call               ?MoveTo@MobileWallHug@@QAEHXZ\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern int __fastcall MoveTo__14MobileWallHugFv(struct Villager*) asm("?MoveTo@MobileWallHug@@QAEHXZ");
+    MoveTo__14MobileWallHugFv(this);
+    return 1;
 }
 
 __attribute__((XOR32rr_REV))

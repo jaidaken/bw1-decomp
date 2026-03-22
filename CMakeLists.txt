@@ -1026,6 +1026,9 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_FootballDefenderSaveProcess=?FootballDefenderSaveProcess@Villager@@QAEXPAVFootball@@@Z"
         "/alternatename:__thunk_call_FootballGoalieSaveProcess=?FootballGoalieSaveProcess@Villager@@QAEXPAVFootball@@@Z"
         "/alternatename:__thunk_call_FootballGoalieLookProcess=?FootballGoalieLookProcess@Villager@@QAEXPAVFootball@@@Z"
+        "/alternatename:__thunk_call_FootballAttackerGoHomePriority=?FootballAttackerGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
+        "/alternatename:__thunk_call_FootballDefenderPassPriority=?FootballDefenderPassPriority@Villager@@QAEMPAVFootball@@@Z"
+        "/alternatename:__thunk_call_FootballDefenderGoHomePriority=?FootballDefenderGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

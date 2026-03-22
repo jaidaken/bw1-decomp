@@ -3234,16 +3234,11 @@ float __fastcall FootballDefenderGoToBallPriority__8VillagerFP8Football(struct V
     return rdata_float0p0;
 }
 
+__attribute__((no_tail_call))
 float __fastcall FootballDefenderGoHomePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    void* dummy;
-    float result;
-    asm volatile (
-        "push eax\n\t"
-        "call ?FootballAttackerGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
-        : "=t"(result), "=c"(dummy) : "c"(this), "a"(param_1) : "edx", "memory"
-    );
-    return result;
+    extern float __attribute__((thiscall)) __opaque_FootballAttackerGoHomePriority_2(struct Villager*, struct Football*) asm("__thunk_call_FootballAttackerGoHomePriority");
+    return __opaque_FootballAttackerGoHomePriority_2(this, param_1);
 }
 
 float __fastcall FootballDefenderIdlePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -3897,16 +3892,11 @@ float __fastcall FootballGoalieGoToBallPriority__8VillagerFP8Football(struct Vil
     return rdata_float0p0;
 }
 
+__attribute__((no_tail_call))
 float __fastcall FootballGoalieGoHomePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    void* dummy;
-    float result;
-    asm volatile (
-        "push eax\n\t"
-        "call ?FootballAttackerGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
-        : "=t"(result), "=c"(dummy) : "c"(this), "a"(param_1) : "edx", "memory"
-    );
-    return result;
+    extern float __attribute__((thiscall)) __opaque_FootballAttackerGoHomePriority(struct Villager*, struct Football*) asm("__thunk_call_FootballAttackerGoHomePriority");
+    return __opaque_FootballAttackerGoHomePriority(this, param_1);
 }
 
 float __fastcall FootballGoalieIdlePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
@@ -3922,16 +3912,11 @@ float __fastcall FootballGoalieIdlePriority__8VillagerFP8Football(struct Village
     return result;
 }
 
+__attribute__((no_tail_call))
 float __fastcall FootballGoaliePassPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    void* dummy;
-    float result;
-    asm volatile (
-        "push eax\n\t"
-        "call ?FootballDefenderPassPriority@Villager@@QAEMPAVFootball@@@Z"
-        : "=t"(result), "=c"(dummy) : "c"(this), "a"(param_1) : "edx", "memory"
-    );
-    return result;
+    extern float __attribute__((thiscall)) __opaque_FootballDefenderPassPriority(struct Villager*, struct Football*) asm("__thunk_call_FootballDefenderPassPriority");
+    return __opaque_FootballDefenderPassPriority(this, param_1);
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))

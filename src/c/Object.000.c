@@ -570,12 +570,11 @@ bool32_t __fastcall CanBeExaminedByCreature__6ObjectFP8Creature(struct GameThing
     return 1;
 }
 
+__attribute__((no_tail_call))
 bool32_t __fastcall IsOnFire__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile ("call _jmp_addr_0x00637cc0" : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory");
-    return result;
+    extern bool32_t __fastcall IsOnFire_thunk(struct GameThingWithPos*) asm("_jmp_addr_0x00637cc0");
+    return IsOnFire_thunk(this);
 }
 
 __attribute__((XOR32rr_REV))

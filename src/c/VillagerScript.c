@@ -238,20 +238,12 @@ int __fastcall ExitNoChangeState__6LivingF15VILLAGER_STATES(struct Living* this,
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, no_tail_call))
 uint32_t __fastcall EnterScriptWander__6LivingF15VILLAGER_STATES15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1, enum VILLAGER_STATES param_2)
 {
-    uint32_t result;
-    asm volatile (
-        "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               edx\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
-        "push               edx\n\t"
-        "call               dword ptr [eax + 0x940]"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct Living*, enum VILLAGER_STATES, enum VILLAGER_STATES);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x940 / 4];
+    return fn(this, param_1, param_2);
 }
 
 __attribute__((XOR32rr_REV))

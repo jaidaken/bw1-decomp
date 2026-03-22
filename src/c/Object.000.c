@@ -308,16 +308,10 @@ void __fastcall EndOnFire__6ObjectFv(struct Object* this)
     return;
 }
 
+__attribute__((no_tail_call))
 float __fastcall GetDistanceFromObject__6ObjectFRC9MapCoords(struct GameThingWithPos* this, const void* edx, const struct MapCoords* target)
 {
-    void* dummy;
-    float result;
-    asm volatile (
-        "push eax\n\t"
-        "call ?GetDistanceFromObject@GameThingWithPos@@UBEMPAUMapCoords@@@Z"
-        : "=t"(result), "=c"(dummy) : "c"(this), "a"(target) : "edx", "memory"
-    );
-    return result;
+    return GetDistanceFromObject__16GameThingWithPosFRC9MapCoords(this, edx, target);
 }
 
 bool32_t __fastcall NetworkUnfriendlyStartLockedSelect__6ObjectFv(struct Object* this)

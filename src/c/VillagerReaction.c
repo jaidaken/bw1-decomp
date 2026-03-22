@@ -744,30 +744,16 @@ void __fastcall SetupReactToFlyingObject__8VillagerFP16GameThingWithPosP8Reactio
     );
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, no_tail_call))
 void __fastcall SetupLookAtObject__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "push               edx\n\t"
-        "call               ?SetupLookAtObject@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    SetupLookAtObject__6LivingFP16GameThingWithPosP8Reaction(this, edx, param_1, param_2);
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, no_tail_call))
 void __fastcall SetupLookAtSpell__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "push               edx\n\t"
-        "call               ?SetupLookAtObject@Living@@UAEXPAVGameThingWithPos@@PAVReaction@@@Z"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    SetupLookAtObject__6LivingFP16GameThingWithPosP8Reaction(this, edx, param_1, param_2);
 }
 
 __attribute__((no_callee_saves))

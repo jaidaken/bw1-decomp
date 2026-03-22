@@ -479,18 +479,11 @@ bool32_t __fastcall GoHomeDropResource__8VillagerFv(struct Villager* this)
     __builtin_unreachable();
 }
 
-__attribute__((noinline))
+__attribute__((noinline, no_tail_call))
 bool32_t __fastcall GoHome__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push 0x000000ee\n\t"
-        "push 0x25\n\t"
-        "call ?DoGoingHome@Villager@@QAEIW4VILLAGER_STATES@@0@Z"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __attribute__((thiscall)) __opaque_DoGoingHome(struct Villager*, enum VILLAGER_STATES, enum VILLAGER_STATES) asm("__thunk_call_DoGoingHome");
+    return __opaque_DoGoingHome(this, 0x25, 0xee);
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))
@@ -3059,15 +3052,9 @@ bool32_t __fastcall ExitAtHome__8VillagerFUc(struct Villager* this, const void* 
     return result;
 }
 
+__attribute__((no_tail_call))
 bool32_t __fastcall GoHomeFromWorship__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push 0x000000fa\n\t"
-        "push 0x000000f9\n\t"
-        "call ?DoGoingHome@Villager@@QAEIW4VILLAGER_STATES@@0@Z"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __attribute__((thiscall)) __opaque_DoGoingHome(struct Villager*, enum VILLAGER_STATES, enum VILLAGER_STATES) asm("__thunk_call_DoGoingHome");
+    return __opaque_DoGoingHome(this, 0xf9, 0xfa);
 }

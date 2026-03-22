@@ -1022,6 +1022,7 @@ target_link_options(runblack-reassembled
         # call+return aliases: opaque C names for same-TU call forwards
         "/alternatename:__thunk_call_ChildDecideWhatToDo=?ChildDecideWhatToDo@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_HomeDecideWhatToDo=?HomeDecideWhatToDo@Villager@@QAEIXZ"
+        "/alternatename:__thunk_call_DoGoingHome=?DoGoingHome@Villager@@QAEIW4VILLAGER_STATES@@0@Z"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

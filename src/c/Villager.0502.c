@@ -223,38 +223,16 @@ uint32_t __fastcall IsVillager__8VillagerFP8Creature(struct GameThingWithPos* th
     return 1;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((msvc6_regalloc))
 uint32_t __fastcall IsMaleVillager__8VillagerFv(struct GameThingWithPos* this)
 {
-    void* dummy;
-    uint32_t result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} mov       edx, dword ptr [eax + 0x000001f8]\n\t"
-        "xor.s              ecx, ecx\n\t"
-        "test               edx, edx\n\t"
-        "sete               cl\n\t"
-        "mov.s              eax, ecx"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    return *(uint32_t*)((char*)*(void**)((char*)this + 0x28) + 0x1f8) == 0;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((msvc6_regalloc))
 uint32_t __fastcall IsFemaleVillager__8VillagerFv(struct GameThingWithPos* this)
 {
-    void* dummy;
-    uint32_t result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} mov       edx, dword ptr [eax + 0x000001f8]\n\t"
-        "xor.s              ecx, ecx\n\t"
-        "cmp                edx, 0x01\n\t"
-        "sete               cl\n\t"
-        "mov.s              eax, ecx"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    return *(uint32_t*)((char*)*(void**)((char*)this + 0x28) + 0x1f8) == 1;
 }
 
 __attribute__((prefer_neg_sbb, no_tail_call))

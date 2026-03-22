@@ -16,16 +16,10 @@ bool32_t __fastcall CanBeDestroyedByStoning__11FixedObjectFP8Creature(struct Gam
     return true;
 }
 
+__attribute__((expand_movzx, no_test_sete_fold))
 bool32_t __fastcall CanBeSetOnFire__11FixedObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    uint32_t val;
-    asm volatile (
-        "xor.s       eax, eax\n\t"
-        "%{disp8%} mov al, byte ptr [ecx + 0x0a]\n\t"
-        "not         al"
-        : "=a"(val) : "c"(this) : "edx", "memory"
-    );
-    return (val >> 3) & 1;
+    return (~*(uint8_t*)((char*)this + 0x0a) >> 3) & 1;
 }
 
 __attribute__((XOR32rr_REV))

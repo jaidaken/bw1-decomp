@@ -135,16 +135,10 @@ bool __fastcall IsStompable__16GameThingWithPosFv(struct GameThingWithPos* this)
     return 0;
 }
 
+__attribute__((expand_movzx, no_test_sete_fold))
 bool32_t __fastcall IsAvailableForStateChange__16GameThingWithPosFv(struct GameThingWithPos* this)
 {
-    uint32_t val;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp8%} mov        al, byte ptr [ecx + 0x24]\n\t"
-        "not                al"
-        : "=a"(val) : "c"(this) : "edx", "memory"
-    );
-    return (val >> 2) & 1;
+    return (~*(uint8_t*)((char*)this + 0x24) >> 2) & 1;
 }
 
 float __fastcall GetImpressiveIntensity__16GameThingWithPosF15IMPRESSIVE_TYPE(struct GameThingWithPos* this, const void* edx, enum IMPRESSIVE_TYPE type)

@@ -2054,19 +2054,20 @@ bool32_t __fastcall MakeScaredStiff__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves))
 bool32_t __fastcall ScaredStiff__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
+    extern bool32_t __fastcall __opaque_GoHome(struct Villager*) asm("?GoHome@Villager@@QAEIXZ");
+    int is_zero;
     asm volatile (
         "dec                word ptr [ecx + 0x58]\n\t"
-        "cmp                word ptr [ecx + 0x58], 0x00\n\t"
-        "%{disp8%} jne        LAB__addr_0x0076a8c0\n\t"
-        "call               ?GoHome@Villager@@QAEIXZ\n\t"
-        "LAB__addr_0x0076a8c0:\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "cmp                word ptr [ecx + 0x58], 0x00"
+        : "=@ccz"(is_zero) : "c"(this) : "memory"
     );
-    return result;
+    if (is_zero) {
+        __opaque_GoHome(this);
+    }
+    return 1;
 }
 
 __attribute__((no_callee_saves))

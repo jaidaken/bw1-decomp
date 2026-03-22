@@ -437,18 +437,12 @@ bool32_t __fastcall ScriptPlayAnim__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, no_tail_call))
 int __fastcall ExitPlayAnim__6LivingF15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1)
 {
-    int result;
-    asm volatile (
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               edx\n\t"
-        "call               dword ptr [eax + 0x914]"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef int (__attribute__((thiscall)) *fn_t)(struct Living*, enum VILLAGER_STATES);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x914 / 4];
+    return fn(this, param_1);
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

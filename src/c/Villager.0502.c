@@ -197,19 +197,12 @@ uint32_t __fastcall GetCreatureBeliefType__8VillagerFv(struct GameThingWithPos* 
     return 6;
 }
 
+__attribute__((prefer_neg_sbb, no_tail_call))
 uint32_t __fastcall CanBeImpressedByCreature__8VillagerFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1)
 {
-    void* dummy;
-    uint32_t result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x978]\n\t"
-        "neg eax\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "inc eax"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct GameThingWithPos*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x978 / 4];
+    return fn(this) == 0;
 }
 
 uint32_t __fastcall CanReceiveGifts__8VillagerFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1)

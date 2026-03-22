@@ -160,19 +160,12 @@ bool32_t __fastcall IsBeingBuilt__13MultiMapFixedFP8Creature(struct GameThingWit
     return result;
 }
 
+__attribute__((prefer_neg_sbb, no_tail_call))
 bool32_t __fastcall NeedsRepair__13MultiMapFixedFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x88c]\n\t"
-        "neg eax\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "inc eax"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct GameThingWithPos*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x88c / 4];
+    return fn(this) == 0;
 }
 
 bool32_t __fastcall IsFootpathLink__13MultiMapFixedFv(struct GameThing* this)

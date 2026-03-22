@@ -46,19 +46,12 @@ void __cdecl FUN_007630c0__8VillagerFv(void)
     __opaque_c = __opaque_a * __opaque_b;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, prefer_neg_sbb, no_tail_call))
 bool32_t __fastcall IsPlaytime__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x48]\n\t"
-        "neg eax\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "neg eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct Villager*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x48 / 4];
+    return fn(this) != 0;
 }
 
 bool32_t __fastcall CheckPlaytimeAvailableToPlayPFootball__8VillagerFv(struct Villager* this)

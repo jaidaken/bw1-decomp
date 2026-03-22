@@ -3990,38 +3990,10 @@ void __fastcall PopFromPrevious__8VillagerFv(struct Villager* this)
 }
 
 __attribute__((no_ret))
+__attribute__((no_ret, trailing_asm("ret\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nmov eax, dword ptr [ecx]\npush 0x0\npush 0x00bfed78\npush 0x009c7f80\npush 0x0\npush 0x3\ncall dword ptr [eax + 0x48]\nmov.s ecx, eax\ncall _jmp_addr_0x0073d7d0\nmov.s ecx, eax\ncall _jmp_addr_0x0066c9d0\npush eax\ncall ___RTDynamicCast\nadd esp, 0x14\nret")))
 struct Football* __fastcall GetFootball__8VillagerFv(struct Villager* this)
 {
-    struct Football* result = this->football;
-    asm volatile (
-        "ret\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               0x0\n\t"
-        "push               0x00bfed78\n\t"
-        "push               0x009c7f80\n\t"
-        "push               0x0\n\t"
-        "push               0x3\n\t"
-        "call               dword ptr [eax + 0x48]\n\t"
-        "mov.s              ecx, eax\n\t"
-        "call               _jmp_addr_0x0073d7d0\n\t"
-        "mov.s              ecx, eax\n\t"
-        "call               _jmp_addr_0x0066c9d0\n\t"
-        "push               eax\n\t"
-        "call               ___RTDynamicCast\n\t"
-        "add                esp, 0x14\n\t"
-        "ret"
-        :: "a"(result) : "memory"
-    );
-    __builtin_unreachable();
+    return this->football;
 }
 
 struct GTribeInfo* __fastcall GetTribe__8VillagerFv(struct Villager* this)
@@ -4291,45 +4263,10 @@ uint32_t __fastcall CanPauseForASecond__8VillagerFUc(struct Villager* this, cons
     return result;
 }
 
-__attribute__((XOR32rr_REV, no_ret))
+__attribute__((XOR32rr_REV, no_ret, trailing_asm("ret\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\npush esi\nmov.s esi, ecx\nmov eax, dword ptr [esi]\ncall dword ptr [eax + 0x48]\n{disp8} mov cx, word ptr [esi + 0x16]\ncmp cx, word ptr [eax + 0x0000072a]\n.byte 0x72, 0x26\n{disp8} mov si, word ptr [esi + 0x1a]\ncmp si, word ptr [eax + 0x0000072e]\n.byte 0x72, 0x19\ncmp cx, word ptr [eax + 0x00000736]\n{disp8} ja LAB__addr_0x007521ab\ncmp si, word ptr [eax + 0x0000073a]\n{disp8} ja LAB__addr_0x007521ab\nmov eax, 0x00000001\npop esi\nret\nLAB__addr_0x007521ab:\nxor.s eax, eax\npop esi\nret")))
 struct Abode* __fastcall GetAbode__8VillagerFv(const struct Villager* this)
 {
-    struct Abode* result = this->home;
-    asm volatile (
-        "ret\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "call               dword ptr [eax + 0x48]\n\t"
-        "%{disp8%} mov        cx, word ptr [esi + 0x16]\n\t"
-        "cmp                cx, word ptr [eax + 0x0000072a]\n\t"
-        ".byte              0x72, 0x26\n\t"
-        "%{disp8%} mov        si, word ptr [esi + 0x1a]\n\t"
-        "cmp                si, word ptr [eax + 0x0000072e]\n\t"
-        ".byte              0x72, 0x19\n\t"
-        "cmp                cx, word ptr [eax + 0x00000736]\n\t"
-        "%{disp8%} ja         LAB__addr_0x007521ab\n\t"
-        "cmp                si, word ptr [eax + 0x0000073a]\n\t"
-        "%{disp8%} ja         LAB__addr_0x007521ab\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x007521ab:\n\t"
-        "xor.s              eax, eax\n\t"
-        "pop                esi\n\t"
-        "ret"
-        :: "a"(result) : "memory"
-    );
-    __builtin_unreachable();
+    return this->home;
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))

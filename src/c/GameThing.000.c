@@ -44,18 +44,10 @@ void __fastcall RemoveDance__9GameThingFv(struct GameThing* this)
 {
 }
 
-__attribute__((no_callee_saves, trailing_asm("call        ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
+__attribute__((expand_movzx, no_test_sete_fold, prefer_8bit_ops, trailing_asm("call        ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
 bool32_t __fastcall IsAvailable__9GameThingFv(struct GameThing* this)
 {
-    bool32_t result;
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp8%} mov        al, byte ptr [ecx + 0x0a]\n\t"
-        "not                al\n\t"
-        "and                eax, 0x01"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    return (~*(uint8_t*)((char*)this + 0x0a)) & 1;
 }
 
 __attribute__((XOR32rr_REV))

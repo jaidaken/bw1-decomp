@@ -11938,18 +11938,10 @@ uint32_t __fastcall ThrowObjectFromHand__8VillagerFP16GInterfaceStatusi(struct O
     return result;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves))
+__attribute__((XOR32rr_REV, no_callee_saves, unfold_cmp_mem))
 bool32_t __fastcall IsDrowning__8VillagerFv(struct GameThingWithPos* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov       dl, byte ptr [ecx + 0x0000008c]\n\t"
-        "xor.s              eax, eax\n\t"
-        "cmp                dl, 0x10\n\t"
-        "sete               al"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    return *(uint8_t*)((char*)this + 0x8c) == 0x10;
 }
 
 __attribute__((no_callee_saves))

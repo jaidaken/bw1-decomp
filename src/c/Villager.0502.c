@@ -60,18 +60,10 @@ bool32_t __fastcall IsChild__8VillagerFv(struct Living* this)
     return (*(uint8_t*)((char*)this + offsetof(struct Villager, field_0xe0)) >> 3) & 1;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves))
+__attribute__((XOR32rr_REV, no_callee_saves, unfold_cmp_mem))
 bool32_t __fastcall IsFoodSpeedUp__8VillagerFv(struct Living* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov       dl, byte ptr [ecx + 0x000000f0]\n\t"
-        "xor.s              eax, eax\n\t"
-        "test               dl, dl\n\t"
-        "setne              al"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    return *(uint8_t*)((char*)this + 0xf0) != 0;
 }
 
 bool32_t __fastcall IsABeliever__8VillagerFv(struct Object* this)

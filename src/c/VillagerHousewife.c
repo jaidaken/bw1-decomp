@@ -497,20 +497,16 @@ bool32_t __fastcall HousewifeMakeDinner__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((no_callee_saves, msvc6_schedule))
 bool32_t __fastcall HousewifeServesDinner__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} mov       dx, word ptr [eax + 0x000002b4]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               0x6b\n\t"
-        "%{disp8%} mov        word ptr [ecx + 0x58], dx\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    const void* info = *(const void**)((char*)this + 0x28);
+    int16_t field_val = *(int16_t*)((char*)info + 0x2b4);
+    *(int16_t*)((char*)this + 0x58) = field_val;
+    typedef void (__fastcall *VtFn)(struct Villager*, const void*, int);
+    VtFn fn = ((VtFn*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0, 0x6b);
+    return 1;
 }
 
 bool32_t __fastcall HousewifeClearsAwayDinner__8VillagerFv(struct Villager* this)

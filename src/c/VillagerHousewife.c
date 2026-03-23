@@ -533,27 +533,24 @@ bool32_t __fastcall HousewifeClearsAwayDinner__8VillagerFv(struct Villager* this
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), MOV32rr_REV))
 bool32_t __fastcall HousewifeDoesHousework__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?CheckNeededForSpecial@Villager@@QAEIXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x0076200f\n\t"
-        "dec                word ptr [esi + 0x58]\n\t"
-        "cmp                word ptr [esi + 0x58], 0x00\n\t"
-        "%{disp8%} jne        LAB__addr_0x0076200f\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?GoHome@Villager@@QAEIXZ\n\t"
-        "LAB__addr_0x0076200f:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __fastcall __opaque_CheckNeededForSpecial(struct Villager*) asm("?CheckNeededForSpecial@Villager@@QAEIXZ");
+    extern bool32_t __fastcall __opaque_GoHome(struct Villager*) asm("?GoHome@Villager@@QAEIXZ");
+    bool32_t special = __opaque_CheckNeededForSpecial(this);
+    if (special != 1) {
+        int is_zero;
+        asm volatile (
+            "dec                word ptr [esi + 0x58]\n\t"
+            "cmp                word ptr [esi + 0x58], 0x00"
+            : "=@ccz"(is_zero) :: "memory"
+        );
+        if (is_zero) {
+            __opaque_GoHome(this);
+        }
+    }
+    return 1;
 }
 
 __attribute__((no_callee_saves))
@@ -973,19 +970,12 @@ bool32_t __fastcall HousewifeGivingBirth__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, trailing_asm("nop\nnop\nmov eax, 0x00000001\nret")))
 bool32_t __fastcall HousewifeGivenBirth__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov       word ptr [ecx + 0x000000f8], 0x0000\n\t"
-        "%{disp32%} jmp       ?GoHome@Villager@@QAEIXZ\n\t"
-        "nop\n\t"
-        "nop\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    *(int16_t*)((char*)this + 0xf8) = 0;
+    extern bool32_t __fastcall __opaque_GoHome(struct Villager*) asm("?GoHome@Villager@@QAEIXZ");
+    __attribute__((musttail)) return __opaque_GoHome(this);
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

@@ -11018,18 +11018,11 @@ struct MissionaryControl* __fastcall __ct__17MissionaryControlFv(struct Missiona
 __attribute__((XOR32rr_REV, no_callee_saves))
 struct GPlayer* __fastcall GetPlayer__17MissionaryControlFv(struct GameThing* this)
 {
-    struct GPlayer* result;
-    asm volatile (
-        "%{disp8%} mov        ecx, dword ptr [ecx + 0x2c]\n\t"
-        "test               ecx, ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x0075670c\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "%{disp8%} jmp        dword ptr [eax + 0x1c]\n"
-        "LAB__addr_0x0075670c:\n\t"
-        "xor.s              eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    void* field = *(void**)((char*)this + 0x2c);
+    if (!field) return 0;
+    typedef struct GPlayer* (__attribute__((thiscall)) *GetPlayerFn)(void*);
+    GetPlayerFn fn = ((GetPlayerFn*)(*(void**)field))[0x1c / 4];
+    __attribute__((musttail)) return fn(field);
 }
 
 const char* __fastcall GetText__17MissionaryControlFv(struct GameThingWithPos* this)

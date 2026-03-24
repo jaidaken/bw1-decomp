@@ -488,19 +488,11 @@ void __fastcall StopReacting__8VillagerFv(struct Living* this)
     );
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, no_tail_call))
 bool32_t __fastcall SetupMoveToPos__8VillagerFRC9MapCoords15VILLAGER_STATES(struct Villager* this, const void* edx, const struct MapCoords* param_1, enum VILLAGER_STATES param_2)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "push               edx\n\t"
-        "call               @SetupMoveToPos__6LivingFRC9MapCoordsUc@13"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern bool32_t __fastcall __opaque_SetupMoveToPos(struct Villager*, const void*, const struct MapCoords*, enum VILLAGER_STATES) asm("@SetupMoveToPos__6LivingFRC9MapCoordsUc@13");
+    return __opaque_SetupMoveToPos(this, edx, param_1, param_2);
 }
 
 __attribute__((no_callee_saves))

@@ -85,25 +85,23 @@ void __fastcall __dt__5AbodeFv(struct Abode* this)
     );
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, store_order("0xb6,0xb4,0xb7,0x94,0xbc,0xc0,0x8c,0x90,0x7c,0xb0,0xb5,0xb9")))
 void __fastcall SetToZero__5AbodeFv(struct Abode* this)
 {
-    asm volatile (
-        "xor.s eax, eax\n\t"
-        "%{disp32%} mov byte ptr [ecx + 0x000000b6], al\n\t"
-        "%{disp32%} mov byte ptr [ecx + 0x000000b4], al\n\t"
-        "%{disp32%} mov byte ptr [ecx + 0x000000b7], al\n\t"
-        "%{disp32%} mov dword ptr [ecx + 0x00000094], eax\n\t"
-        "%{disp32%} mov dword ptr [ecx + 0x000000bc], eax\n\t"
-        "%{disp32%} mov dword ptr [ecx + 0x000000c0], eax\n\t"
-        "%{disp32%} mov dword ptr [ecx + 0x0000008c], eax\n\t"
-        "%{disp32%} mov dword ptr [ecx + 0x00000090], eax\n\t"
-        "%{disp8%} mov byte ptr [ecx + 0x7c], al\n\t"
-        "%{disp32%} mov dword ptr [ecx + 0x000000b0], eax\n\t"
-        "%{disp32%} mov byte ptr [ecx + 0x000000b5], al\n\t"
-        "%{disp32%} mov byte ptr [ecx + 0x000000b9], al"
-        :  : "c"(this) : "eax", "edx", "memory"
-    );
+    uint32_t zero = 0;
+    asm volatile("" : "=a"(zero) : "0"(zero));
+    *(uint8_t*)((char*)this + 0xb6) = (uint8_t)zero;
+    *(uint8_t*)((char*)this + 0xb4) = (uint8_t)zero;
+    *(uint8_t*)((char*)this + 0xb7) = (uint8_t)zero;
+    *(uint32_t*)((char*)this + 0x94) = zero;
+    *(uint32_t*)((char*)this + 0xbc) = zero;
+    *(uint32_t*)((char*)this + 0xc0) = zero;
+    *(uint32_t*)((char*)this + 0x8c) = zero;
+    *(uint32_t*)((char*)this + 0x90) = zero;
+    *(uint8_t*)((char*)this + 0x7c) = (uint8_t)zero;
+    *(uint32_t*)((char*)this + 0xb0) = zero;
+    *(uint8_t*)((char*)this + 0xb5) = (uint8_t)zero;
+    *(uint8_t*)((char*)this + 0xb9) = (uint8_t)zero;
 }
 
 void __fastcall Delete__5AbodeFv(struct Base* this)

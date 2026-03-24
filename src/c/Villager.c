@@ -11825,18 +11825,13 @@ void __fastcall SexValidate__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 void __fastcall WallhugAndReactionValidate__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?FUN_00756990@Villager@@QAEXXZ\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?ReactionValidate@Villager@@QAEXXZ\n\t"
-        "pop                esi"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    extern void __fastcall __opaque_FUN_00756990(struct Villager*) asm("__thunk_call_FUN_00756990");
+    extern void __fastcall __opaque_ReactionValidate(struct Villager*) asm("__thunk_call_ReactionValidate");
+    __opaque_FUN_00756990(this);
+    __opaque_ReactionValidate(this);
 }
 
 void __fastcall ClosestObjectValidate__8VillagerFv(struct Villager* this)

@@ -1034,6 +1034,8 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_CheckNeededToMakeDinner=?CheckNeededToMakeDinner@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_CheckNeededForHouseWork=?CheckNeededForHouseWork@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_DeleteDependancys=?DeleteDependancys@Villager@@QAEXXZ"
+        "/alternatename:__thunk_call_FUN_00756990=?FUN_00756990@Villager@@QAEXXZ"
+        "/alternatename:__thunk_call_ReactionValidate=?ReactionValidate@Villager@@QAEXXZ"
         # ReadPtr alternatename for LoadFishing/LoadInspectObject/LoadForesting
         "/alternatename:__thunk_call_ReadPtr=@ReadPtr__10GameOSFileFPP9GameThing@12"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"

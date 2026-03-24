@@ -390,30 +390,24 @@ enum TRIBE_TYPE __fastcall GetTribeType__5AbodeCFv(struct Abode* this)
     return this->town->tribe_type;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves))
+__attribute__((XOR32rr_REV, forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 struct GTribeInfo* __fastcall GetTribe__5AbodeFv(struct Abode* this)
 {
-    struct GTribeInfo* result;
-    asm volatile (
-        "push esi\n\t"
-        "mov.s esi, ecx\n\t"
-        "mov eax, dword ptr [esi]\n\t"
-        "call dword ptr [eax + 0x48]\n\t"
-        "test eax, eax\n\t"
-        "%{disp8%} je 0f\n\t"
-        "mov edx, dword ptr [esi]\n\t"
-        "mov.s ecx, esi\n\t"
-        "call dword ptr [edx + 0x48]\n\t"
-        "mov.s ecx, eax\n\t"
-        "call ?GetTribe@Town@@QBEPAVGTribeInfo@@XZ\n\t"
-        "pop esi\n\t"
-        "ret\n"
-        "0:\n\t"
-        "xor.s eax, eax\n\t"
-        "pop esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef void* (__attribute__((thiscall)) *GetTownFn)(struct Abode*);
+    GetTownFn getTown = ((GetTownFn*)(*(void**)this))[0x48 / 4];
+    void* town = getTown(this);
+
+    if (!town)
+        return 0;
+
+    register void* vtable2 asm("edx");
+    vtable2 = *(void**)this;
+    asm volatile("" :: "r"(vtable2));
+    GetTownFn getTown2 = ((GetTownFn*)vtable2)[0x48 / 4];
+    void* town2 = getTown2(this);
+
+    extern struct GTribeInfo* __fastcall __opaque_GetTribe(void*) asm("?GetTribe@Town@@QBEPAVGTribeInfo@@XZ");
+    return __opaque_GetTribe(town2);
 }
 
 __attribute__((no_callee_saves))

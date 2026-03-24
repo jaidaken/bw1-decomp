@@ -7003,20 +7003,13 @@ uint32_t __fastcall VillagerCreated__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 uint32_t __fastcall RemoveFromGame__8VillagerFv(struct Object* this)
 {
-    void* dummy;
-    uint32_t result;
-    asm volatile (
-        "push              esi\n\t"
-        "mov.s             esi, ecx\n\t"
-        "call              ?DeleteDependancys@Villager@@QAEXXZ\n\t"
-        "mov.s             ecx, esi\n\t"
-        "call              ?RemoveFromGame@Living@@UAEIXZ\n\t"
-        "pop               esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern void __fastcall __opaque_DeleteDependancys(struct Object*) asm("__thunk_call_DeleteDependancys");
+    extern uint32_t __fastcall __opaque_RemoveFromGame_Living(struct Object*) asm("?RemoveFromGame@Living@@UAEIXZ");
+    __opaque_DeleteDependancys(this);
+    return __opaque_RemoveFromGame_Living(this);
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0008)))

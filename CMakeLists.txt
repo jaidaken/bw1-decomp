@@ -1030,8 +1030,10 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_FootballDefenderPassPriority=?FootballDefenderPassPriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_FootballDefenderGoHomePriority=?FootballDefenderGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_GotoStoragePitForWorshipSupplies=?GotoStoragePitForWorshipSupplies@Villager@@QAEIXZ"
+        "/alternatename:__thunk_call_ChangeStateToFindFoodToEat=?ChangeStateToFindFoodToEat@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_CheckNeededToMakeDinner=?CheckNeededToMakeDinner@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_CheckNeededForHouseWork=?CheckNeededForHouseWork@Villager@@QAEIXZ"
+        "/alternatename:__thunk_call_DeleteDependancys=?DeleteDependancys@Villager@@QAEXXZ"
         # ReadPtr alternatename for LoadFishing/LoadInspectObject/LoadForesting
         "/alternatename:__thunk_call_ReadPtr=@ReadPtr__10GameOSFileFPP9GameThing@12"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"

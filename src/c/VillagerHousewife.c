@@ -907,13 +907,11 @@ struct Villager* __fastcall ChildBorn__FR8Villager(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall HousewifeGivingBirth__8VillagerFv(struct Villager* this)
 {
     bool32_t result;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
         "dec                word ptr [esi + 0x58]\n\t"
         "%{disp8%} mov        ax, word ptr [esi + 0x58]\n\t"
         "test               ax, ax\n\t"
@@ -951,8 +949,7 @@ bool32_t __fastcall HousewifeGivingBirth__8VillagerFv(struct Villager* this)
         "pop                esi\n\t"
         "ret\n"
         "LAB__addr_0x0076248b:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
+        "mov                eax, 0x00000001"
         : "=a"(result) :: "ecx", "edx", "memory"
     );
     return result;

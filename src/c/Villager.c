@@ -5050,13 +5050,9 @@ bool32_t __fastcall IsAtOrOnTheWayToWorshipSite__8VillagerFv(struct Villager* th
 
 uint32_t __fastcall DebugShowTime__8VillagerFUlUcUc(struct Living* this, const void* edx, uint32_t param_1, uint8_t param_2, uint8_t param_3)
 {
-    uint32_t result;
-    asm volatile (
-        "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0xb04]"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct Living*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0xb04 / 4];
+    return fn(this);
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))

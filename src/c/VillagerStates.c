@@ -2822,23 +2822,14 @@ bool32_t __fastcall SetupWaitForCounter__8VillagerFUs15VILLAGER_STATES(struct Vi
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, prefer_neg_sbb, prefer_mov_push))
 uint32_t __fastcall SetupPauseForASecond__8VillagerF15VILLAGER_STATES(struct Villager* this, const void* edx, enum VILLAGER_STATES state)
 {
-    uint32_t result;
-    asm volatile (
-        "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
-        "mov eax, dword ptr [ecx]\n\t"
-        "push edx\n\t"
-        "push 0x000000ef\n\t"
-        "call dword ptr [eax + 0x8dc]\n\t"
-        "dec eax\n\t"
-        "neg eax\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "inc eax"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    register uint32_t st asm("edx") = state;
+    asm volatile ("" :: "r"(st));
+    typedef uint32_t (__attribute__((thiscall)) *VtFn)(struct Villager*, uint32_t, uint32_t);
+    VtFn fn = ((VtFn*)(*(void**)this))[0x8dc / 4];
+    return fn(this, 0xef, st) == 1;
 }
 
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))

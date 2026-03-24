@@ -1297,24 +1297,19 @@ bool32_t __fastcall SitsDownToDinner__8VillagerFv(struct Villager* this)
     return 1;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall GotoBedAtHome__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
+    typedef void (__attribute__((thiscall)) *SetStateFn)(struct Villager*, int);
+    SetStateFn fn = ((SetStateFn*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0x78);
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "push               0x78\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
         "%{disp8%} mov        ecx, dword ptr [esi + 0x28]\n\t"
         "%{disp32%} mov       dx, word ptr [ecx + 0x0000024c]\n\t"
-        "%{disp8%} mov        word ptr [esi + 0x58], dx\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+        "%{disp8%} mov        word ptr [esi + 0x58], dx"
+        :: : "ecx", "edx", "memory"
     );
-    return result;
+    return 1;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

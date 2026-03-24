@@ -200,7 +200,7 @@ uint32_t __fastcall IsVillager__8VillagerFP8Creature(struct GameThingWithPos* th
     return 1;
 }
 
-__attribute__((msvc6_regalloc))
+__attribute__((msvc6_regswap, expand_movzx, XOR32rr_REV))
 uint32_t __fastcall IsMaleVillager__8VillagerFv(struct GameThingWithPos* this)
 {
     return *(uint32_t*)((char*)*(void**)((char*)this + 0x28) + 0x1f8) == 0;

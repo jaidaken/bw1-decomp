@@ -2723,22 +2723,21 @@ bool32_t __fastcall InHand__8VillagerFv(struct Living* this)
     return result;
 }
 
-__attribute__((XOR32rr_REV))
+__attribute__((XOR32rr_REV, expand_movzx))
 uint32_t __fastcall EnterInHand__8VillagerF15VILLAGER_STATES15VILLAGER_STATES(struct Living* this, const void* edx, enum VILLAGER_STATES param_1, enum VILLAGER_STATES param_2)
 {
-    uint32_t result;
+    uint32_t val;
     asm volatile (
         "xor.s              eax, eax\n\t"
         "%{disp32%} mov       al, byte ptr [ecx + 0x000000f2]\n\t"
         "cmp                eax, 0x07\n\t"
         "%{disp8%} jne        LAB__addr_0x0076afef\n\t"
         "xor.s              eax, eax\n\t"
-        "LAB__addr_0x0076afef:\n\t"
-        "%{disp32%} mov       dword ptr [ecx + 0x0000010c], eax\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "LAB__addr_0x0076afef:"
+        : "=a"(val) : "c"(this) :
     );
-    return result;
+    *(uint32_t*)((char*)this + 0x10c) = val;
+    return 1;
 }
 
 __attribute__((no_callee_saves))

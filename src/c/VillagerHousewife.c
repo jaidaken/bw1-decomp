@@ -466,35 +466,35 @@ bool32_t __fastcall HousewifeReturnHomeWithFood__8VillagerFv(struct Villager* th
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall HousewifeMakeDinner__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
+    extern void* __attribute__((thiscall)) __opaque_GetAbode(struct Villager*) asm("?GetAbode@Villager@@QAEPAVAbode@@XZ");
+    extern bool32_t __attribute__((thiscall)) __opaque_IsEnoughFoodForDinner(void*) asm("?IsEnoughFoodForDinner@Abode@@QAE_NXZ");
+
+    void* abode = __opaque_GetAbode(this);
+    bool32_t enough = __opaque_IsEnoughFoodForDinner(abode);
+    if (enough != 1) {
+        asm volatile (
+            "mov                edx, dword ptr [esi]\n\t"
+            "push               0x65\n\t"
+            "mov.s              ecx, esi\n\t"
+            "call               dword ptr [edx + 0x8e8]\n\t"
+            "mov                eax, 0x00000001\n\t"
+            "pop                esi\n\t"
+            "ret"
+            ::: "eax", "ecx", "edx", "memory"
+        );
+        __builtin_unreachable();
+    }
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
-        "mov.s              ecx, eax\n\t"
-        "call               ?IsEnoughFoodForDinner@Abode@@QAE_NXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} jne        LAB__addr_0x00761f87\n\t"
         "mov                eax, dword ptr [esi]\n\t"
         "push               0x6a\n\t"
         "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x00761f87:\n\t"
-        "mov                edx, dword ptr [esi]\n\t"
-        "push               0x65\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x8e8]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "call               dword ptr [eax + 0x8e8]"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    return 1;
 }
 
 __attribute__((no_callee_saves, msvc6_schedule))

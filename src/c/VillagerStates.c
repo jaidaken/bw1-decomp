@@ -1665,13 +1665,10 @@ uint32_t __fastcall AtStructureAddResource__8VillagerFP13MultiMapFixed13RESOURCE
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall SetDying__8VillagerFv(struct Object* this)
 {
-    void* dummy;
-    bool32_t result;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
         "mov                eax, dword ptr [esi]\n\t"
         "push               edi\n\t"
         "call               dword ptr [eax + 0x48]\n\t"
@@ -1721,10 +1718,11 @@ bool32_t __fastcall SetDying__8VillagerFv(struct Object* this)
         "LAB__addr_0x0076a55f:\n\t"
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+        "pop                esi\n\t"
+        "ret"
+        : : "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    __builtin_unreachable();
 }
 
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))

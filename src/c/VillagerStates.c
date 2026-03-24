@@ -2468,13 +2468,10 @@ bool32_t __fastcall SetupWander__8VillagerFR14JustWholeMapXZ15VILLAGER_STATES(st
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall ExitSex__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
-    bool32_t result;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
         "%{disp8%} mov        ecx, dword ptr [esp + 0x08]\n\t"
         "mov                eax, dword ptr [esi]\n\t"
         "and                ecx, 0x000000ff\n\t"
@@ -2498,10 +2495,11 @@ bool32_t __fastcall ExitSex__8VillagerFUc(struct Villager* this, const void* edx
         "call               dword ptr [eax + 0x8e8]\n"
         "LAB__addr_0x0076add2:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "pop                esi\n\t"
+        "ret                0x0004"
+        : : "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

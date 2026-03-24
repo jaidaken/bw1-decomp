@@ -1981,28 +1981,16 @@ bool32_t __fastcall FindAMateAtHome__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((XOR32rr_REV, forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 bool32_t __fastcall CheckForSexAtHome__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "test               byte ptr [esi + 0x000000e0], 0x04\n\t"
-        "%{disp8%} je         LAB__addr_0x0076119e\n\t"
-        "call               ?IsSexuallyActive@Villager@@QAEIXZ\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x0076119e\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?StartHavingSexAtHome@Villager@@QAEIXZ\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x0076119e:\n\t"
-        "xor.s              eax, eax\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern bool32_t __fastcall __opaque_IsSexuallyActive(struct Villager*) asm("__thunk_call_IsSexuallyActive");
+    extern bool32_t __fastcall __opaque_StartHavingSexAtHome(struct Villager*) asm("__thunk_call_StartHavingSexAtHome");
+    if (!(*(uint8_t*)((char*)this + 0xe0) & 0x04))
+        return 0;
+    if (!__opaque_IsSexuallyActive(this))
+        return 0;
+    return __opaque_StartHavingSexAtHome(this);
 }
 
 __attribute__((no_callee_saves))

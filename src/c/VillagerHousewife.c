@@ -120,16 +120,17 @@ bool32_t __fastcall HousewifeAtHome__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, XOR32rr_REV))
 bool32_t __fastcall CheckNeededForHouseWork__8VillagerFv(struct Villager* this)
 {
+    extern void* __attribute__((thiscall)) __opaque_GetAbode(struct Villager*) asm("?GetAbode@Villager@@QAEPAVAbode@@XZ");
+    extern bool32_t __attribute__((thiscall)) __opaque_IsEnoughFoodForDinner(void*) asm("?IsEnoughFoodForDinner@Abode@@QAE_NXZ");
+
+    void* abode = __opaque_GetAbode(this);
+    bool32_t enough = __opaque_IsEnoughFoodForDinner(abode);
+
     bool32_t result;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
-        "mov.s              ecx, eax\n\t"
-        "call               ?IsEnoughFoodForDinner@Abode@@QAE_NXZ\n\t"
         "cmp                eax, 0x01\n\t"
         "%{disp8%} je         LAB__addr_0x00761c67\n\t"
         "mov                eax, dword ptr [esi]\n\t"
@@ -151,9 +152,8 @@ bool32_t __fastcall CheckNeededForHouseWork__8VillagerFv(struct Villager* this)
         "pop                esi\n\t"
         "ret\n"
         "LAB__addr_0x00761c89:\n\t"
-        "xor.s              eax, eax\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "xor.s              eax, eax"
+        : "=a"(result) : "a"(enough) : "ecx", "edx", "memory"
     );
     return result;
 }

@@ -138,14 +138,8 @@ void __cdecl FUN_00769550__8VillagerFv(void)
 __attribute__((no_callee_saves))
 struct GBaseInfo* __fastcall GetBaseInfo__23GVillagerStateTableInfoFRUl(struct GBaseInfo* this, const void* edx, uint32_t* param_1)
 {
-    struct GBaseInfo* result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "mov                dword ptr [eax], 0x000000ff\n\t"
-        "mov                eax, OFFSET _GVillagerStateTableInfos"
-        : "=a"(result) : : "ecx", "edx", "memory"
-    );
-    return result;
+    *param_1 = 0xff;
+    return (struct GBaseInfo*)GVillagerStateTableInfos;
 }
 
 __attribute__((prefer_pop_cleanup))

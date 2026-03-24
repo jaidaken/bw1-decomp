@@ -648,22 +648,20 @@ bool32_t __fastcall CheckChildActivity__8VillagerFv(struct Villager* this)
     return 1;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall ChildBecomesAdult__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
     bool32_t result;
+    *(uint32_t*)((char*)this + 0x100) = 0;
+    extern void __fastcall __opaque_CheckNeedNewAbode(struct Villager*) asm("__thunk_call_CheckNeedNewAbode");
+    __opaque_CheckNeedNewAbode(this);
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x00000100], 0x00000000\n\t"
-        "call               ?CheckNeedNewAbode@Villager@@QAEIXZ\n\t"
         "mov                eax, dword ptr [esi]\n\t"
         "push               0x000000ea\n\t"
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
     return result;
 }

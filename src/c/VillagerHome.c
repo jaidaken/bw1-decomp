@@ -2157,35 +2157,27 @@ bool32_t __fastcall MakeHomelessNoStateChange__8VillagerFv(struct Villager* this
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 bool32_t __fastcall HomelessStart__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "call               dword ptr [eax + 0x48]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?CheckHungry@Villager@@QAEIXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x00761352\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?CheckNeededForSomething@Villager@@QAEIXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x00761352\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?CheckHomelessMoveIntoAbode@Villager@@QAEIXZ\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} jne        LAB__addr_0x00761352\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?SetupNothingToDo@Villager@@QAEIXZ\n\t"
-        "LAB__addr_0x00761352:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    typedef void* (__attribute__((thiscall)) *GetTownFn)(struct Villager*);
+    GetTownFn getTown = ((GetTownFn*)(*(void**)this))[0x48 / 4];
+    getTown(this);
+
+    extern bool32_t __fastcall __opaque_CheckHungry(struct Villager*) asm("?CheckHungry@Villager@@QAEIXZ");
+    if (__opaque_CheckHungry(this) == 1) goto done;
+
+    extern bool32_t __fastcall __opaque_CheckNeededForSomething(struct Villager*) asm("__thunk_call_CheckNeededForSomething");
+    if (__opaque_CheckNeededForSomething(this) == 1) goto done;
+
+    extern bool32_t __fastcall __opaque_CheckHomelessMoveIntoAbode(struct Villager*) asm("__thunk_call_CheckHomelessMoveIntoAbode");
+    if (__builtin_expect(__opaque_CheckHomelessMoveIntoAbode(this) != 0, 1)) goto done;
+
+    extern void __fastcall __opaque_SetupNothingToDo(struct Villager*) asm("?SetupNothingToDo@Villager@@QAEIXZ");
+    __opaque_SetupNothingToDo(this);
+
+done:
+    return 1;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

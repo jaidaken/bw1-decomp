@@ -1607,31 +1607,27 @@ bool __fastcall FleeingAndLookingAtObjectReaction__8VillagerFv(struct Living* th
     __attribute__((musttail)) return fn(this);
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 bool32_t __fastcall FollowingObjectReaction__8VillagerFv(struct Living* this)
 {
-    bool32_t result;
+    uint32_t alive;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
         "%{disp32%} mov       ecx, dword ptr [esi + 0x000000bc]\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} jne        LAB__addr_0x00764343\n\t"
+        "call               dword ptr [eax + 0x2c]"
+        : "=a"(alive) :: "ecx", "edx", "memory"
+    );
+    if (__builtin_expect(alive != 0, 0)) {
+        extern bool32_t __attribute__((thiscall)) __opaque_FollowingObjReaction(struct Living*) asm("?FollowingObjectReaction@PuzzleHorse@@UAE_NXZ");
+        return __opaque_FollowingObjReaction(this);
+    }
+    asm volatile (
         "mov                edx, dword ptr [esi]\n\t"
         "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x99c]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x00764343:\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?FollowingObjectReaction@PuzzleHorse@@UAE_NXZ\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "call               dword ptr [edx + 0x99c]"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    return 1;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

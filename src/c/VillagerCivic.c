@@ -623,29 +623,20 @@ bool32_t __fastcall SetupWaitForWood__8VillagerFP12BuildingSite(struct Villager*
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall WaitForWood__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "push               0x1\n\t"
-        "call               @IsReadyForNewAnimation__6LivingFUl@12\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x007586d7\n\t"
-        "cmp                word ptr [esi + 0x000000f6], 0x00\n\t"
-        "%{disp8%} je         LAB__addr_0x007586d7\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "push               0x000000b8\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "LAB__addr_0x007586d7:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __attribute__((thiscall)) __opaque_IsReadyForNewAnimation(struct Villager*, unsigned long) asm("@IsReadyForNewAnimation__6LivingFUl@12");
+    if (__opaque_IsReadyForNewAnimation(this, 1) && *(int16_t*)((char*)this + 0xf6) != 0) {
+        asm volatile (
+            "mov                eax, dword ptr [esi]\n\t"
+            "push               0x000000b8\n\t"
+            "mov.s              ecx, esi\n\t"
+            "call               dword ptr [eax + 0x8e8]"
+            ::: "eax", "ecx", "edx", "memory"
+        );
+    }
+    return 1;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

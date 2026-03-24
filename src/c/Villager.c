@@ -1640,14 +1640,8 @@ int __fastcall CheckEveryTime__8VillagerFv(struct Villager* this)
 
 uint32_t __fastcall GetGameTurnsSinceLastChecked__8VillagerFv(struct Villager* this)
 {
-    uint32_t result;
-    asm volatile (
-        "%{disp32%} mov       eax, dword ptr [_game]\n\t"
-        "%{disp32%} mov       eax, dword ptr [eax + 0x00205a40]\n\t"
-        "sub                eax, dword ptr [ecx + 0x000000ec]"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern char* __opaque_game asm("_game");
+    return *(uint32_t*)(__opaque_game + 0x205a40) - (uint32_t)this->last_check_turn;
 }
 
 int __fastcall GetGameTurnLastChecked__8VillagerFv(struct Villager* this)
@@ -1657,12 +1651,10 @@ int __fastcall GetGameTurnLastChecked__8VillagerFv(struct Villager* this)
 
 void __fastcall SetGameTurnLastChecked__8VillagerFv(struct Villager* this)
 {
-    asm volatile (
-        "%{disp32%} mov       eax, dword ptr [_game]\n\t"
-        "%{disp32%} mov       edx, dword ptr [eax + 0x00205a40]\n\t"
-        "%{disp32%} mov       dword ptr [ecx + 0x000000ec], edx"
-        :  : "c"(this) : "eax", "edx", "memory"
-    );
+    extern char* __opaque_game asm("_game");
+    register uint32_t turn asm("edx") = *(uint32_t*)(__opaque_game + 0x205a40);
+    asm volatile ("" :: "r"(turn));
+    this->last_check_turn = (int)turn;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0010)))

@@ -4205,13 +4205,14 @@ bool32_t __fastcall StartMoveToPickUpBallForDeadBall__8VillagerFv(struct Village
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall ArrivedAtPickUpBallForDeadBall__8VillagerFv(struct Villager* this)
 {
+    void* dummy;
     bool32_t result;
-    extern struct Football* __attribute__((thiscall)) __opaque_GetFootball(struct Villager*) asm("?GetFootball@Villager@@QAEPAVFootball@@XZ");
-    struct Football* football = __opaque_GetFootball(this);
     asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "call               ?GetFootball@Villager@@QAEPAVFootball@@XZ\n\t"
         "push               0x2\n\t"
         "push               eax\n\t"
         "mov.s              ecx, esi\n\t"
@@ -4220,8 +4221,9 @@ bool32_t __fastcall ArrivedAtPickUpBallForDeadBall__8VillagerFv(struct Villager*
         "push               0x50\n\t"
         "mov.s              ecx, esi\n\t"
         "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "a"(football) : "ecx", "edx", "memory"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi"
+        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
     );
     return result;
 }

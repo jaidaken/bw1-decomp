@@ -6424,20 +6424,14 @@ void __fastcall SetState__8VillagerFUlUc(struct Living* this, const void* edx, e
     );
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 void __fastcall SetStateSpeed__8VillagerFv(struct Living* this)
 {
-    void* dummy;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "call               dword ptr [eax + 0xb04]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "push               eax\n\t"
-        "call               ?SetStateSpeed@Villager@@QAEXE@Z\n\t"
-        "pop                esi"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    typedef uint32_t (__attribute__((thiscall)) *GetStateFn)(struct Living*);
+    GetStateFn getFn = ((GetStateFn*)(*(void**)this))[0xb04 / 4];
+    uint32_t state = getFn(this);
+    extern void __attribute__((thiscall)) __opaque_SetStateSpeedUc(struct Living*, uint32_t) asm("__thunk_call_SetStateSpeedUc");
+    __opaque_SetStateSpeedUc(this, state);
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
@@ -11018,11 +11012,18 @@ struct MissionaryControl* __fastcall __ct__17MissionaryControlFv(struct Missiona
 __attribute__((XOR32rr_REV, no_callee_saves))
 struct GPlayer* __fastcall GetPlayer__17MissionaryControlFv(struct GameThing* this)
 {
-    struct GameThing* field = *(struct GameThing**)((char*)this + 0x2c);
-    if (!field) return 0;
-    typedef struct GPlayer* (__fastcall *fn_t)(struct GameThing*);
-    fn_t fn = ((fn_t*)(*(void**)field))[0x1c / 4];
-    __attribute__((musttail)) return fn(field);
+    struct GPlayer* result;
+    asm volatile (
+        "%{disp8%} mov        ecx, dword ptr [ecx + 0x2c]\n\t"
+        "test               ecx, ecx\n\t"
+        "%{disp8%} je         LAB__addr_0x0075670c\n\t"
+        "mov                eax, dword ptr [ecx]\n\t"
+        "%{disp8%} jmp        dword ptr [eax + 0x1c]\n"
+        "LAB__addr_0x0075670c:\n\t"
+        "xor.s              eax, eax"
+        : "=a"(result) :: "ecx", "edx", "memory"
+    );
+    return result;
 }
 
 const char* __fastcall GetText__17MissionaryControlFv(struct GameThingWithPos* this)

@@ -1037,6 +1037,7 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_DeleteDependancys=?DeleteDependancys@Villager@@QAEXXZ"
         "/alternatename:__thunk_call_FUN_00756990=?FUN_00756990@Villager@@QAEXXZ"
         "/alternatename:__thunk_call_ReactionValidate=?ReactionValidate@Villager@@QAEXXZ"
+        "/alternatename:__thunk_call_SetStateSpeedUc=?SetStateSpeed@Villager@@QAEXE@Z"
         # ReadPtr alternatename for LoadFishing/LoadInspectObject/LoadForesting
         "/alternatename:__thunk_call_ReadPtr=@ReadPtr__10GameOSFileFPP9GameThing@12"
         # VillagerHome.c same-TU call thunks

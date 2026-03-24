@@ -509,28 +509,23 @@ bool32_t __fastcall HousewifeServesDinner__8VillagerFv(struct Villager* this)
     return 1;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, insert_redundant_cmp, prefer_memory_dec))
 bool32_t __fastcall HousewifeClearsAwayDinner__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "dec                word ptr [esi + 0x58]\n\t"
-        "cmp                word ptr [esi + 0x58], 0x00\n\t"
-        "%{disp8%} jne        LAB__addr_0x00761fe1\n\t"
-        "call               ?EatFoodHeld@Villager@@QAEIXZ\n\t"
-        "fstp               st(0)\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "push               0x24\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "LAB__addr_0x00761fe1:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern float __attribute__((thiscall)) __opaque_EatFoodHeld(struct Villager*) asm("?EatFoodHeld@Villager@@QAEIXZ");
+    int16_t* counter = (int16_t*)((char*)this + 0x58);
+    --(*counter);
+    if (__builtin_expect(*counter == 0, 1)) {
+        __opaque_EatFoodHeld(this);
+        asm volatile (
+            "mov                eax, dword ptr [esi]\n\t"
+            "push               0x24\n\t"
+            "mov.s              ecx, esi\n\t"
+            "call               dword ptr [eax + 0x8e8]"
+            ::: "eax", "ecx", "edx", "memory"
+        );
+    }
+    return 1;
 }
 
 __attribute__((forced_callee_saves("esi"), MOV32rr_REV, insert_redundant_cmp))

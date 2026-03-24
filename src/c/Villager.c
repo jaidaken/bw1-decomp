@@ -11838,17 +11838,11 @@ void __fastcall ClosestObjectValidate__8VillagerFv(struct Villager* this)
     );
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, ret_cleanup_override(0x0004), no_tail_call))
 struct MapCoords* __fastcall GetFinalDestPos__8VillagerFP9MapCoords(struct Living* this, const void* edx, struct MapCoords* param_1)
 {
-    struct MapCoords* result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "call               @GetFinalDestPos__6LivingFP9MapCoords@12"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern struct MapCoords* __fastcall __opaque_LivingGetFinalDest(struct Living*, const void*, struct MapCoords*) asm("@GetFinalDestPos__6LivingFP9MapCoords@12");
+    return __opaque_LivingGetFinalDest(this, edx, param_1);
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0008)))

@@ -1841,26 +1841,14 @@ bool32_t __fastcall GetPromiscuity__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((XOR32rr_REV, forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 bool32_t __fastcall IsAvailableForSex__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?GetVillagerAvailableState@Villager@@QAE?AW4VILLAGER_STATES@@XZ\n\t"
-        "test               al, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x00761085\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?IsSexuallyActive@Villager@@QAEIXZ\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x00761085:\n\t"
-        "xor.s              eax, eax\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern bool32_t __fastcall __opaque_GetVillagerAvailableState(struct Villager*) asm("?GetVillagerAvailableState@Villager@@QAE?AW4VILLAGER_STATES@@XZ");
+    extern bool32_t __fastcall __opaque_IsSexuallyActive(struct Villager*) asm("__thunk_call_IsSexuallyActive");
+    if (__builtin_expect(__opaque_GetVillagerAvailableState(this) & 1, 1))
+        return __opaque_IsSexuallyActive(this);
+    return 0;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

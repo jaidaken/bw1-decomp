@@ -742,13 +742,10 @@ bool32_t __fastcall ArrivesAtStoragePitForResource__8VillagerF13RESOURCE_TYPEUl1
     return result;
 }
 
+__attribute__((forced_callee_saves("edi"), force_this_edi, MOV32rr_REV))
 bool32_t __fastcall ArrivesAtHomeWithFood__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
     asm volatile (
-        "push               edi\n\t"
-        "mov.s              edi, ecx\n\t"
         "call               ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
         "test               eax, eax\n\t"
         "%{disp8%} je         LAB__addr_0x00769b6a\n\t"
@@ -775,10 +772,11 @@ bool32_t __fastcall ArrivesAtHomeWithFood__8VillagerFv(struct Villager* this)
         "LAB__addr_0x00769b6a:\n\t"
         "mov.s              ecx, edi\n\t"
         "call               ?ArrivesHome@Villager@@QAEIXZ\n\t"
-        "pop                edi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+        "pop                edi\n\t"
+        "ret"
+        : : "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    __builtin_unreachable();
 }
 
 __attribute__((no_callee_saves))

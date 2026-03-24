@@ -410,32 +410,27 @@ struct GTribeInfo* __fastcall GetTribe__5AbodeFv(struct Abode* this)
     return __opaque_GetTribe(town2);
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 struct GPlayer* __fastcall GetPlayer__5AbodeFv(struct GameThing* this)
 {
-    struct GPlayer* result;
-    asm volatile (
-        "push esi\n\t"
-        "mov.s esi, ecx\n\t"
-        "mov eax, dword ptr [esi]\n\t"
-        "call dword ptr [eax + 0x48]\n\t"
-        "test eax, eax\n\t"
-        "%{disp8%} je 0f\n\t"
-        "mov edx, dword ptr [esi]\n\t"
-        "mov.s ecx, esi\n\t"
-        "call dword ptr [edx + 0x48]\n\t"
-        "mov edx, dword ptr [eax]\n\t"
-        "mov.s ecx, eax\n\t"
-        "call dword ptr [edx + 0x1c]\n\t"
-        "pop esi\n\t"
-        "ret\n"
-        "0:\n\t"
-        "mov.s ecx, esi\n\t"
-        "call ?GetPlayer@GameThing@@QAEPAVGPlayer@@XZ\n\t"
-        "pop esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef void* (__attribute__((thiscall)) *GetTownFn)(struct GameThing*);
+    GetTownFn getTown = ((GetTownFn*)(*(void**)this))[0x48 / 4];
+    void* town = getTown(this);
+
+    if (!town) {
+        extern struct GPlayer* __fastcall __opaque_GetPlayer_Base(struct GameThing*) asm("?GetPlayer@GameThing@@QAEPAVGPlayer@@XZ");
+        return __opaque_GetPlayer_Base(this);
+    }
+
+    register void* vtable2 asm("edx");
+    vtable2 = *(void**)this;
+    asm volatile("" :: "r"(vtable2));
+    GetTownFn getTown2 = ((GetTownFn*)vtable2)[0x48 / 4];
+    void* town2 = getTown2(this);
+
+    typedef struct GPlayer* (__attribute__((thiscall)) *GetPlayerFn)(void*);
+    GetPlayerFn getPlayer = ((GetPlayerFn*)(*(void**)town2))[0x1c / 4];
+    return getPlayer(town2);
 }
 
 __attribute__((prefer_inc_dec_byte))

@@ -11104,15 +11104,10 @@ struct MissionaryControl* __fastcall __ct__17MissionaryControlFP8VillagerP7GPlay
     return result;
 }
 
-__attribute__((no_ret))
+__attribute__((no_ret, trailing_asm("{disp32} jmp _jmp_addr_0x0056fa80")))
 void __fastcall __dt__17MissionaryControlFv(struct MissionaryControl* this)
 {
-    asm volatile (
-        "mov                dword ptr [ecx], 0x0099a424\n\t"
-        "%{disp32%} jmp       _jmp_addr_0x0056fa80"
-        : : "c"(this) : "eax", "edx", "memory"
-    );
-    __builtin_unreachable();
+    *(uint32_t*)((char*)this) = 0x0099a424;
 }
 
 __attribute__((no_callee_saves))

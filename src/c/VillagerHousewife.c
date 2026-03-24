@@ -1087,14 +1087,10 @@ bool32_t __fastcall HousewifeCalledToMakeDinner__8VillagerFv(struct Villager* th
     return result;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((forced_callee_saves("esi,edi"), force_this_edi, MOV32rr_REV, XOR32rr_REV))
 bool32_t __fastcall HousewifeAskForMeal__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
     asm volatile (
-        "push               esi\n\t"
-        "push               edi\n\t"
-        "mov.s              edi, ecx\n\t"
         "call               ?GetAbode@Villager@@QAEPAVAbode@@XZ\n\t"
         "%{disp32%} mov       esi, dword ptr [eax + 0x000000a0]\n\t"
         "test               esi, esi\n\t"
@@ -1131,10 +1127,11 @@ bool32_t __fastcall HousewifeAskForMeal__8VillagerFv(struct Villager* this)
         "call               dword ptr [eax + 0x8e8]\n\t"
         "pop                edi\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "pop                esi\n\t"
+        "ret"
+        : : "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV))

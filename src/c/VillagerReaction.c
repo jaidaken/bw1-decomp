@@ -753,36 +753,36 @@ void __fastcall SetupLookAtNiceSpell__8VillagerFP16GameThingWithPosP8Reaction(st
     fn(this, param_1, param_2);
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 bool32_t __fastcall FleeingFromObjectReaction__8VillagerFv(struct Living* this)
 {
-    bool32_t result;
+    uint32_t alive;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
         "%{disp32%} mov       ecx, dword ptr [esi + 0x000000bc]\n\t"
         "test               ecx, ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x00763b2a\n\t"
+        "%{disp8%} je         LAB__FleeObj_dead\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x00763b2a\n\t"
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x000000bc]\n\t"
-        "mov                edx, dword ptr [ecx]\n\t"
-        "call               dword ptr [edx + 0x1c]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?FleeingFromObjectReaction@PuzzleHorse@@UAE_NXZ\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x00763b2a:\n\t"
+        "call               dword ptr [eax + 0x2c]"
+        : "=a"(alive) :: "ecx", "edx", "memory"
+    );
+    if (__builtin_expect(alive != 0, 1)) {
+        asm volatile (
+            "%{disp32%} mov       ecx, dword ptr [esi + 0x000000bc]\n\t"
+            "mov                edx, dword ptr [ecx]\n\t"
+            "call               dword ptr [edx + 0x1c]"
+            ::: "eax", "ecx", "edx", "memory"
+        );
+        extern bool32_t __attribute__((thiscall)) __opaque_FleeingFromObjReaction(struct Living*) asm("?FleeingFromObjectReaction@PuzzleHorse@@UAE_NXZ");
+        return __opaque_FleeingFromObjReaction(this);
+    }
+    asm volatile ("LAB__FleeObj_dead:" ::: "memory");
+    asm volatile (
         "mov                eax, dword ptr [esi]\n\t"
         "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x99c]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "call               dword ptr [eax + 0x99c]"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    return 1;
 }
 
 __attribute__((no_callee_saves))

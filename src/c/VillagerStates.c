@@ -3296,15 +3296,14 @@ bool32_t __fastcall SitAndChillout__8VillagerFv(struct Villager* this)
 
 bool32_t __fastcall EnterSitAndChillOut__8VillagerFUcUc(struct Villager* this, const void* edx, unsigned char param_1, unsigned char param_2)
 {
-    bool32_t result;
+    const void* info = *(const void**)((char*)this + 0x28);
+    int16_t val;
     asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} mov       dx, word ptr [eax + 0x00000394]\n\t"
-        "%{disp8%} mov        word ptr [ecx + 0x58], dx\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "%{disp32%} mov       dx, word ptr [eax + 0x00000394]"
+        : "=d"(val) : "a"(info) :
     );
-    return result;
+    *(int16_t*)((char*)this + 0x58) = val;
+    return 1;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

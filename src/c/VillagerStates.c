@@ -172,25 +172,9 @@ void __cdecl FUN_007695b0__8VillagerFv(void)
     asm("LAB__addr_0x007695e2:");
 }
 
-__attribute__((no_callee_saves))
+__attribute__((msvc6_sdtor("_jmp_addr_0x00436960,??3Base@@SAXPAXK@Z,276,")))
 void __fastcall __dt__23GVillagerStateTableInfoFv(struct Base* this, const void* edx, uint32_t param_1)
-{
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               _jmp_addr_0x00436960\n\t"
-        "test               byte ptr [esp + 0x08], 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x0076960d\n\t"
-        "push               0x00000114\n\t"
-        "push               esi\n\t"
-        "call               ??3Base@@SAXPAXK@Z\n\t"
-        "add                esp, 0x08\n"
-        "LAB__addr_0x0076960d:\n\t"
-        "mov.s              eax, esi\n\t"
-        "pop                esi"
-        :: "c"(this) : "eax", "edx", "memory"
-    );
-}
+{}
 
 __attribute__((section(".rdata$r"), aligned(8)))
 const struct RTTIBaseClassDescriptor __RTTIBaseClassDescriptor__23GVillagerStateTableInfo = {

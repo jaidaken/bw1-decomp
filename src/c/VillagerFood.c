@@ -625,26 +625,15 @@ bool32_t __fastcall CheckHungry__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, XOR32rr_REV, no_tail_call))
 bool32_t __fastcall CheckSatisfyOwnFoodDesire__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?IsHungry@Villager@@QAE_NXZ\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x0075bf15\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?ChangeStateToFindFoodToEat@Villager@@QAEIXZ\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x0075bf15:\n\t"
-        "xor.s              eax, eax\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern bool32_t __fastcall __opaque_IsHungry(struct Villager*) asm("?IsHungry@Villager@@QAE_NXZ");
+    extern bool32_t __fastcall __opaque_ChangeStateToFindFoodToEat(struct Villager*) asm("__thunk_call_ChangeStateToFindFoodToEat");
+    if (__opaque_IsHungry(this)) {
+        return __opaque_ChangeStateToFindFoodToEat(this);
+    }
+    return 0;
 }
 
 __attribute__((no_callee_saves))

@@ -2857,25 +2857,15 @@ uint32_t __fastcall SetupPauseForASecond__8VillagerF15VILLAGER_STATES(struct Vil
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall PauseForASecond__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "push               0x1\n\t"
-        "call               @IsReadyForNewAnimation__6LivingFUl@12\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x0076b0c5\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?SetTopStateToFinal@Living@@QAEXXZ\n\t"
-        "LAB__addr_0x0076b0c5:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __attribute__((thiscall)) __opaque_IsReadyForNewAnimation(struct Villager*, uint32_t) asm("@IsReadyForNewAnimation__6LivingFUl@12");
+    extern void __attribute__((thiscall)) __opaque_SetTopStateToFinal(struct Villager*) asm("?SetTopStateToFinal@Living@@QAEXXZ");
+    if (__opaque_IsReadyForNewAnimation(this, 1)) {
+        __opaque_SetTopStateToFinal(this);
+    }
+    return 1;
 }
 
 __attribute__((no_callee_saves))

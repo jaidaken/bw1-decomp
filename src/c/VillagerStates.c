@@ -1727,13 +1727,10 @@ bool32_t __fastcall SetDying__8VillagerFv(struct Object* this)
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall Dying__8VillagerFv(struct Living* this)
 {
-    bool32_t result;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
         "mov                eax, dword ptr [esi]\n\t"
         "call               dword ptr [eax + 0x444]\n\t"
         "cmp                eax, 0x07\n\t"
@@ -1771,10 +1768,11 @@ bool32_t __fastcall Dying__8VillagerFv(struct Living* this)
         "add                esp, 0x10\n"
         "LAB__addr_0x0076a5cd:\n\t"
         "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "pop                esi\n\t"
+        "ret"
+        : : "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    __builtin_unreachable();
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

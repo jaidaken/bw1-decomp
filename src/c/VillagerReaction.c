@@ -753,18 +753,12 @@ void __fastcall SetupLookAtSpell__8VillagerFP16GameThingWithPosP8Reaction(struct
     SetupLookAtObject__6LivingFP16GameThingWithPosP8Reaction(this, edx, param_1, param_2);
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, no_tail_call))
 void __fastcall SetupLookAtNiceSpell__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
-    asm volatile (
-        "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               edx\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
-        "push               edx\n\t"
-        "call               dword ptr [eax + 0x9ac]"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Living*, struct GameThingWithPos*, struct Reaction*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x9ac / 4];
+    fn(this, param_1, param_2);
 }
 
 __attribute__((no_callee_saves))

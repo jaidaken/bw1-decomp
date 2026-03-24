@@ -200,19 +200,10 @@ void __fastcall DestroyedByBeam__5AbodeFv(struct Object* this)
     );
 }
 
-__attribute__((no_callee_saves))
+__attribute__((no_callee_saves, no_tail_call))
 bool32_t __fastcall GetInspectObjectPos__5AbodeFP8VillagerP9MapCoords(struct Object* this, const void* edx, struct Villager* param_1, struct MapCoords* pos)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp8%} mov eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
-        "push eax\n\t"
-        "push edx\n\t"
-        "call ?GetInspectObjectPos@Object@@UAEIPAVVillager@@PAUMapCoords@@@Z"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    return GetInspectObjectPos__6ObjectFP8VillagerP9MapCoords(this, edx, param_1, pos);
 }
 
 __attribute__((no_callee_saves))

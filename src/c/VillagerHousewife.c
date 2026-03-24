@@ -422,13 +422,11 @@ bool32_t __fastcall HousewifePickupFromStoragePit__8VillagerFv(struct Villager* 
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("edi"), force_this_edi, MOV32rr_REV))
 bool32_t __fastcall HousewifeReturnHomeWithFood__8VillagerFv(struct Villager* this)
 {
     bool32_t result;
     asm volatile (
-        "push               edi\n\t"
-        "mov.s              edi, ecx\n\t"
         "call               ?ArrivesHome@Villager@@QAEIXZ\n\t"
         "cmp                eax, 0x01\n\t"
         "%{disp8%} jne        LAB__addr_0x00761f52\n\t"
@@ -456,9 +454,8 @@ bool32_t __fastcall HousewifeReturnHomeWithFood__8VillagerFv(struct Villager* th
         "pop                edi\n\t"
         "ret\n"
         "LAB__addr_0x00761f52:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                edi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "mov                eax, 0x00000001"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
     return result;
 }

@@ -1880,35 +1880,34 @@ bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall InitialiseTellOthersAboutObject__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
+    uint32_t alive;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
         "%{disp32%} mov       ecx, dword ptr [esi + 0x000000bc]\n\t"
         "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} jne        LAB__addr_0x00764633\n\t"
+        "call               dword ptr [eax + 0x2c]"
+        : "=a"(alive) :: "ecx", "edx", "memory"
+    );
+    if (__builtin_expect(alive != 0, 0)) {
+        asm volatile (
+            "mov                eax, dword ptr [esi]\n\t"
+            "push               0x00000087\n\t"
+            "mov.s              ecx, esi\n\t"
+            "%{disp8%} mov        word ptr [esi + 0x58], 0x0000\n\t"
+            "call               dword ptr [eax + 0x8e8]"
+            ::: "eax", "ecx", "edx", "memory"
+        );
+        return 1;
+    }
+    asm volatile (
         "mov                edx, dword ptr [esi]\n\t"
         "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x99c]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x00764633:\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "push               0x00000087\n\t"
-        "mov.s              ecx, esi\n\t"
-        "%{disp8%} mov        word ptr [esi + 0x58], 0x0000\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "call               dword ptr [edx + 0x99c]"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    return 1;
 }
 
 __attribute__((XOR32rr_REV))

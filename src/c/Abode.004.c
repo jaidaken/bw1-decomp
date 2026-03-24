@@ -1087,28 +1087,25 @@ bool32_t __fastcall Built__5AbodeFv(struct MultiMapFixed* this)
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall Repaired__5AbodeFv(struct MultiMapFixed* this)
 {
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?Repaired@MultiMapFixed@@UAE_NXZ\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x48]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x004047cd\n\t"
-        "mov                edx, dword ptr [esi]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x914]\n"
-        "LAB__addr_0x004047cd:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern void __fastcall __opaque_Repaired_Base(struct MultiMapFixed*) asm("?Repaired@MultiMapFixed@@UAE_NXZ");
+    __opaque_Repaired_Base(this);
+
+    typedef void* (__attribute__((thiscall)) *GetTownFn)(struct MultiMapFixed*);
+    GetTownFn getTown = ((GetTownFn*)(*(void**)this))[0x48 / 4];
+    void* town = getTown(this);
+
+    if (town) {
+        register void* vtable asm("edx");
+        vtable = *(void**)this;
+        asm volatile("" :: "r"(vtable));
+        typedef void (__attribute__((thiscall)) *VtFn914)(struct MultiMapFixed*);
+        VtFn914 fn = ((VtFn914*)vtable)[0x914 / 4];
+        fn(this);
+    }
+    return 1;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

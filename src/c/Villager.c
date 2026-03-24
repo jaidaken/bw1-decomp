@@ -184,14 +184,9 @@ uint32_t __fastcall GetMesh__13GVillagerInfoCFv(const struct GObjectInfo* this)
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 struct GBaseInfo* __fastcall GetBaseInfo__13GVillagerInfoFRUl(struct GBaseInfo* this, const void* edx, uint32_t* param_1)
 {
-    struct GBaseInfo* result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "mov                dword ptr [eax], 0x00000054\n\t"
-        "mov                eax, OFFSET _VillagerInfos"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    extern struct GVillagerInfo __opaque_VillagerInfos[] asm("_VillagerInfos");
+    *param_1 = 0x54;
+    return (struct GBaseInfo*)__opaque_VillagerInfos;
 }
 
 __attribute__((prefer_pop_cleanup))

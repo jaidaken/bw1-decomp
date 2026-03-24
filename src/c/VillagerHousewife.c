@@ -533,20 +533,16 @@ bool32_t __fastcall HousewifeClearsAwayDinner__8VillagerFv(struct Villager* this
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), MOV32rr_REV))
+__attribute__((forced_callee_saves("esi"), MOV32rr_REV, insert_redundant_cmp))
 bool32_t __fastcall HousewifeDoesHousework__8VillagerFv(struct Villager* this)
 {
     extern bool32_t __fastcall __opaque_CheckNeededForSpecial(struct Villager*) asm("?CheckNeededForSpecial@Villager@@QAEIXZ");
     extern bool32_t __fastcall __opaque_GoHome(struct Villager*) asm("?GoHome@Villager@@QAEIXZ");
     bool32_t special = __opaque_CheckNeededForSpecial(this);
     if (special != 1) {
-        int is_zero;
-        asm volatile (
-            "dec                word ptr [esi + 0x58]\n\t"
-            "cmp                word ptr [esi + 0x58], 0x00"
-            : "=@ccz"(is_zero) :: "memory"
-        );
-        if (is_zero) {
+        int16_t* counter = (int16_t*)((char*)this + 0x58);
+        --(*counter);
+        if (__builtin_expect(*counter == 0, 1)) {
             __opaque_GoHome(this);
         }
     }

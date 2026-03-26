@@ -11779,24 +11779,18 @@ void __fastcall ReactionValidate__8VillagerFv(struct Villager* this)
     );
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 void __fastcall SexValidate__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x00000118]\n\t"
-        "test               ecx, ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x00756a71\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x00756a71\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x00000118], 0x00000000\n\t"
-        "LAB__addr_0x00756a71:\n\t"
-        "pop                esi"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    void* sub_obj = *(void**)((char*)this + 0x118);
+    if (sub_obj != 0) {
+        typedef uint32_t (__attribute__((thiscall)) *VtFn)(void*);
+        VtFn fn = ((VtFn*)(*(void**)sub_obj))[0x2c / 4];
+        uint32_t result = fn(sub_obj);
+        if (result != 1) {
+            *(void**)((char*)this + 0x118) = 0;
+        }
+    }
 }
 
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))

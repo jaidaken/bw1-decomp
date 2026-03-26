@@ -1020,6 +1020,8 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_target_TakeWoodFromTreeForBuilding=?TakeWoodFromTree@Villager@@QAEIXZ"
         "/alternatename:__thunk_target_UpdateAttitudeToCreature=?UpdateReactiveStateFromAttitudeToCreature@Villager@@QAEIXZ"
         # call+return aliases: opaque C names for same-TU call forwards
+        "/alternatename:__thunk_call_SaveTrader=?SaveTrader@Villager@@QAEIAAVGameOSFile@@@Z"
+        "/alternatename:__thunk_call_LoadTrader=?LoadTrader@Villager@@QAEIAAVGameOSFile@@@Z"
         "/alternatename:__thunk_call_ChildDecideWhatToDo=?ChildDecideWhatToDo@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_HomeDecideWhatToDo=?HomeDecideWhatToDo@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_DoGoingHome=?DoGoingHome@Villager@@QAEIW4VILLAGER_STATES@@0@Z"

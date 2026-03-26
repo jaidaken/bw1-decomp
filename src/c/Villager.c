@@ -9456,35 +9456,31 @@ bool32_t __fastcall LoadFire__8VillagerFR10GameOSFile(struct Villager* this, con
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall SaveDiscipleNothingToDo__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
-    bool32_t result;
     asm volatile (
         "cmp               byte ptr [ecx + 0x000000f2], 0x09\n\t"
-        "%{disp8%} jne       LAB__addr_0x00755773\n\t"
+        "%{disp8%} jne       1f\n\t"
         "%{disp8%} mov       eax, dword ptr [esp + 0x04]\n\t"
         "push              eax\n\t"
-        "call              ?SaveTrader@Villager@@QAEIAAVGameOSFile@@@Z\n"
-        "LAB__addr_0x00755773:\n\t"
-        "mov               eax, 0x00000001"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "call              __thunk_call_SaveTrader\n"
+        "1:"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    return 1;
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall LoadDiscipleNothingToDo__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)
 {
-    bool32_t result;
     asm volatile (
         "cmp               byte ptr [ecx + 0x000000f2], 0x09\n\t"
-        "%{disp8%} jne       LAB__addr_0x00755793\n\t"
+        "%{disp8%} jne       1f\n\t"
         "%{disp8%} mov       eax, dword ptr [esp + 0x04]\n\t"
         "push              eax\n\t"
-        "call              ?LoadTrader@Villager@@QAEIAAVGameOSFile@@@Z\n"
-        "LAB__addr_0x00755793:\n\t"
-        "mov               eax, 0x00000001"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "call              __thunk_call_LoadTrader\n"
+        "1:"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    return 1;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))

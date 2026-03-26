@@ -10822,26 +10822,16 @@ void __fastcall SetTown__8VillagerFP4Town(struct Villager* this, const void* edx
     this->town = town;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall ScriptInCrowd__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "push               0x1\n\t"
-        "call               @IsReadyForNewAnimation__6LivingFUl@12\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x0075655e\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?SetStateAnim@Living@@QAEXXZ\n\t"
-        "%{disp32%} mov       word ptr [esi + 0x00000090], 0x0000\n\t"
-        "LAB__addr_0x0075655e:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __attribute__((thiscall)) __opaque_IsReadyForNewAnimation(struct Villager*, uint32_t) asm("@IsReadyForNewAnimation__6LivingFUl@12");
+    extern void __attribute__((thiscall)) __opaque_SetStateAnim(struct Villager*) asm("?SetStateAnim@Living@@QAEXXZ");
+    if (__opaque_IsReadyForNewAnimation(this, 1)) {
+        __opaque_SetStateAnim(this);
+        *(int16_t*)((char*)this + 0x90) = 0;
+    }
+    return 1;
 }
 
 bool32_t __fastcall SaveLanded__8VillagerFR10GameOSFile(struct Villager* this, const void* edx, struct GameOSFile* param_1)

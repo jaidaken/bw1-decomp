@@ -766,12 +766,14 @@ bool32_t __fastcall FleeingFromObjectReaction__8VillagerFv(struct Living* this)
         : "=a"(alive) :: "ecx", "edx", "memory"
     );
     if (__builtin_expect(alive != 0, 1)) {
-        asm volatile (
-            "%{disp32%} mov       ecx, dword ptr [esi + 0x000000bc]\n\t"
-            "mov                edx, dword ptr [ecx]\n\t"
-            "call               dword ptr [edx + 0x1c]"
-            ::: "eax", "ecx", "edx", "memory"
-        );
+        {
+            void* sub_obj2 = *(void**)((char*)this + 0xbc);
+            register void** vt2 asm("edx") = *(void***)sub_obj2;
+            asm volatile ("" : "+r"(vt2));
+            typedef void (__attribute__((thiscall)) *SubFn)(void*);
+            SubFn sub_fn = ((SubFn*)vt2)[0x1c / 4];
+            sub_fn(sub_obj2);
+        }
         extern bool32_t __attribute__((thiscall)) __opaque_FleeingFromObjReaction(struct Living*) asm("?FleeingFromObjectReaction@PuzzleHorse@@UAE_NXZ");
         return __opaque_FleeingFromObjReaction(this);
     }

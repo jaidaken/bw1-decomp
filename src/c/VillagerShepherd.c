@@ -413,24 +413,16 @@ bool32_t __fastcall ShepherdTakesControlOfFlock__8VillagerFv(struct Villager* th
     return result;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
-__attribute__((split_word_stores, XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, split_word_stores, interleave_store_with_call("before_call")))
 bool32_t __fastcall ShepherdReleasesControlOfFlock__8VillagerFv(struct Villager* this)
 {
     if (__builtin_expect(*(void**)((char*)this + 0xb8) == 0, 0)) {
         return 0;
     }
-    register void* vt asm("eax");
-    vt = *(void**)this;
-    asm volatile (
-        "push               0x60"
-        : "+r"(vt) :: "memory"
-    );
     *(uint32_t*)((char*)this + 0x118) = 0x00240014;
-    asm volatile (
-        "call               dword ptr [eax + 0x8e8]"
-        :: "a"(vt), "c"(this) : "edx", "memory"
-    );
+    typedef void (__attribute__((thiscall)) *VtFn)(struct Villager*, uint32_t);
+    VtFn fn = ((VtFn*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0x60);
     return 1;
 }
 

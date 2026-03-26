@@ -797,16 +797,14 @@ void __fastcall Open__8WindmillFv(struct Windmill* this)
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__RegSetValueExA@4]")))
 void __fastcall Close__8WindmillFv(struct Windmill* this)
 {
-    asm volatile (
-        "%{disp32%} mov       ecx, dword ptr [_windmill_lh3d_object_00c4cc70]\n\t"
-        "test               ecx, ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x004059e9\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 4]\n\t"
-        "%{disp32%} mov       dword ptr [_windmill_lh3d_object_00c4cc70], 0x00000000\n"
-        "LAB__addr_0x004059e9:"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    extern void* __opaque_windmill_obj asm("_windmill_lh3d_object_00c4cc70");
+    void* obj = __opaque_windmill_obj;
+    if (obj != 0) {
+        typedef void (__attribute__((thiscall)) *VtFn)(void*);
+        VtFn fn = ((VtFn*)(*(void**)obj))[4 / 4];
+        fn(obj);
+        __opaque_windmill_obj = 0;
+    }
 }
 
 __attribute__((no_callee_saves))

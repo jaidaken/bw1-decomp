@@ -128,26 +128,38 @@ bool32_t __fastcall FootballMatchPaused__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx, no_tail_call))
+__attribute__((no_callee_saves))
 bool32_t __fastcall FootballMexicanWave__8VillagerFv(struct Villager* this)
 {
-    extern struct Football* __attribute__((thiscall)) __opaque_GetFootball(struct Villager*) asm("?GetFootball@Villager@@QAEPAVFootball@@XZ");
-    extern uint32_t __attribute__((thiscall)) __opaque_LookAtObject(struct Villager*, void*, uint32_t) asm("?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z");
-    extern void __attribute__((thiscall)) __opaque_PlayAnimThenSetState(struct Villager*, uint32_t, uint32_t) asm("?PlayAnimThenSetState@Living@@QAEXEK@Z");
-
-    typedef uint32_t (__attribute__((thiscall)) *fn_isplaytime_t)(struct Villager*);
-    fn_isplaytime_t isPlaytime = ((fn_isplaytime_t*)(*(void**)this))[0x48 / 4];
-    if (__builtin_expect(isPlaytime(this) != 0, 0)) {
-        struct Football* football = __opaque_GetFootball(this);
-        __opaque_LookAtObject(this, football, 2);
-        __opaque_PlayAnimThenSetState(this, 0x53, 1);
-        return 1;
-    }
-    register void* vtable asm("edx") = *(void**)this;
-    asm volatile("" :: "r"(vtable));
-    typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct Villager*);
-    fn_t fn = ((fn_t*)vtable)[0x8c8 / 4];
-    return fn(this);
+    bool32_t result;
+    asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "call               dword ptr [eax + 0x48]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} jne        LAB__addr_0x007631c8\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x8c8]\n\t"
+        "pop                esi\n\t"
+        "ret\n"
+        "LAB__addr_0x007631c8:\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?GetFootball@Villager@@QAEPAVFootball@@XZ\n\t"
+        "push               0x2\n\t"
+        "push               eax\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z\n\t"
+        "push               0x1\n\t"
+        "push               0x53\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?PlayAnimThenSetState@Living@@QAEXEK@Z\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
+    );
+    return result;
 }
 
 __attribute__((no_callee_saves))

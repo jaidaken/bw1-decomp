@@ -776,12 +776,9 @@ bool32_t __fastcall FleeingFromObjectReaction__8VillagerFv(struct Living* this)
         return __opaque_FleeingFromObjReaction(this);
     }
     asm volatile ("LAB__FleeObj_dead:" ::: "memory");
-    asm volatile (
-        "mov                eax, dword ptr [esi]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x99c]"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    typedef void (__attribute__((thiscall)) *StopFn)(struct Living*);
+    StopFn fn = ((StopFn*)(*(void**)this))[0x99c / 4];
+    fn(this);
     return 1;
 }
 

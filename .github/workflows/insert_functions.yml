@@ -1,8 +1,10 @@
 name: Insert Functions
 
 on:
-  issues:
-    types: [opened, edited]  # Trigger when a new issue is created or edited
+  # Disabled: use workflow_dispatch to run manually
+  # issues:
+  #   types: [opened, edited]
+  workflow_dispatch:
 
 jobs:
   insert-functions:

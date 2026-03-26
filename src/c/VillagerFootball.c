@@ -3120,19 +3120,24 @@ void __fastcall FootballDefenderPassProcess__8VillagerFP8Football(struct Village
     );
 }
 
+__attribute__((prefer_fmul_mem))
 float __fastcall FootballDefenderSavePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    float result;
+    float rand_result;
     asm volatile (
         "push               0x00000267\n\t"
         "push               0x00c2443c\n\t"
         "push               0x3e99999a\n\t"
-        "call               ?GameFloatRand@GRand@@SAMM@Z\n\t"
-        "%{disp32%} fadd      dword ptr [__real@3f333333]\n\t"
-        "add                esp, 0x0c"
-        : "=t"(result) : "c"(this) : "eax", "edx", "memory"
+        "call               ?GameFloatRand@GRand@@SAMM@Z"
+        : "=t"(rand_result) : "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    extern const float rdata_float_0_7 asm("__real@3f333333");
+    float final_result = rand_result + rdata_float_0_7;
+    asm volatile (
+        "add                esp, 0x0c"
+        ::: "memory"
+    );
+    return final_result;
 }
 
 float __fastcall FootballDefenderClearPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)

@@ -2032,18 +2032,14 @@ void __fastcall HomeDeleted__8VillagerFv(struct Villager* this)
     );
 }
 
-__attribute__((forced_callee_saves("esi,edi"), force_this_esi, MOV32rr_REV))
+__attribute__((forced_callee_saves("esi,edi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall MakeHomeless__8VillagerFv(struct Villager* this)
 {
     extern bool32_t __attribute__((thiscall)) __opaque_MakeHomelessNoStateChange(struct Villager*) asm("__thunk_call_MakeHomelessNoStateChange");
     bool32_t result = __opaque_MakeHomelessNoStateChange(this);
-    void* vtable = *(void**)this;
-    asm volatile (
-        "push               0x00000081\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x8e8]"
-        :: "a"(vtable) : "ecx", "edx", "memory"
-    );
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0x81);
     return result;
 }
 

@@ -239,11 +239,21 @@ enum FOOD_TYPE __fastcall GetFoodType__6ObjectFv(struct Object* this)
 __attribute__((XOR32rr_REV, no_callee_saves))
 bool32_t __fastcall IsMoving__6ObjectCFv(const struct GameThingWithPos* this)
 {
-    if (*(uint32_t*)((char*)this + 0x14) != *(uint32_t*)((char*)this + 0x2c))
-        return 1;
-    if (*(uint32_t*)((char*)this + 0x18) != *(uint32_t*)((char*)this + 0x30))
-        return 1;
-    return 0;
+    bool32_t result;
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [ecx + 0x14]\n\t"
+        "cmp                eax, dword ptr [ecx + 0x2c]\n\t"
+        "%{disp8%} jne        LAB__addr_0x00402723\n\t"
+        "%{disp8%} mov        edx, dword ptr [ecx + 0x18]\n\t"
+        "cmp                edx, dword ptr [ecx + 0x30]\n\t"
+        "%{disp8%} jne        LAB__addr_0x00402723\n\t"
+        "xor.s              eax, eax\n\t"
+        "ret\n"
+        "LAB__addr_0x00402723:\n\t"
+        "mov                eax, 0x00000001"
+        : "=a"(result) :: "ecx", "edx", "memory"
+    );
+    return result;
 }
 
 __attribute__((XOR32rr_REV))

@@ -11721,25 +11721,19 @@ void __fastcall MoveToObjectValidate__8VillagerFv(struct Villager* this)
     }
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 void __fastcall MoveOnStructureValidate__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?FUN_00756990@Villager@@QAEXXZ\n\t"
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x000000c0]\n\t"
-        "test               ecx, ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x007569f5\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x007569f5\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x000000c0], 0x00000000\n\t"
-        "LAB__addr_0x007569f5:\n\t"
-        "pop                esi"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    extern void __fastcall __opaque_FUN_00756990(struct Villager*) asm("__thunk_call_FUN_00756990");
+    __opaque_FUN_00756990(this);
+    void* sub_obj = *(void**)((char*)this + 0xc0);
+    if (sub_obj != 0) {
+        typedef uint32_t (__attribute__((thiscall)) *VtFn)(void*);
+        VtFn fn = ((VtFn*)(*(void**)sub_obj))[0x2c / 4];
+        if (fn(sub_obj) != 0) {
+            *(void**)((char*)this + 0xc0) = 0;
+        }
+    }
 }
 
 void __fastcall ReactionValidate__8VillagerFv(struct Villager* this)

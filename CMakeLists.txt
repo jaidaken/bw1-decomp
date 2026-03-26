@@ -1029,6 +1029,7 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_FootballAttackerGoHomePriority=?FootballAttackerGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_FootballDefenderPassPriority=?FootballDefenderPassPriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_FootballDefenderGoHomePriority=?FootballDefenderGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
+        "/alternatename:__thunk_call_FootballGoalieGoHomePriority=?FootballGoalieGoHomePriority@Villager@@QAEMPAVFootball@@@Z"
         "/alternatename:__thunk_call_GotoStoragePitForWorshipSupplies=?GotoStoragePitForWorshipSupplies@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_StartWorshippingAtWorshipSite=?StartWorshippingAtWorshipSite@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_ChangeStateToFindFoodToEat=?ChangeStateToFindFoodToEat@Villager@@QAEIXZ"

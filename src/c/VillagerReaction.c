@@ -1895,12 +1895,13 @@ bool32_t __fastcall InitialiseTellOthersAboutObject__8VillagerFv(struct Villager
         );
         return 1;
     }
-    asm volatile (
-        "mov                edx, dword ptr [esi]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x99c]"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    {
+        register void** vt asm("edx") = *(void***)this;
+        asm volatile ("" : "+r"(vt));
+        typedef void (__attribute__((thiscall)) *VtFn)(struct Villager*);
+        VtFn fn = ((VtFn*)vt)[0x99c / 4];
+        fn(this);
+    }
     return 1;
 }
 

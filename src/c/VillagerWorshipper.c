@@ -624,7 +624,7 @@ bool32_t __fastcall CheckVillagerGoBackToTownFromWorship__8VillagerFv(struct Vil
     return result;
 }
 
-__attribute__((XOR32rr_REV, msvc6_regalloc))
+__attribute__((XOR32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall CheckNeededForSupplyWorship__8VillagerFv(struct Villager* this)
 {
     typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct Villager*);

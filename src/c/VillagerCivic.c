@@ -623,18 +623,14 @@ bool32_t __fastcall SetupWaitForWood__8VillagerFP12BuildingSite(struct Villager*
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall WaitForWood__8VillagerFv(struct Villager* this)
 {
     extern bool32_t __attribute__((thiscall)) __opaque_IsReadyForNewAnimation(struct Villager*, unsigned long) asm("@IsReadyForNewAnimation__6LivingFUl@12");
     if (__opaque_IsReadyForNewAnimation(this, 1) && *(int16_t*)((char*)this + 0xf6) != 0) {
-        asm volatile (
-            "mov                eax, dword ptr [esi]\n\t"
-            "push               0x000000b8\n\t"
-            "mov.s              ecx, esi\n\t"
-            "call               dword ptr [eax + 0x8e8]"
-            ::: "eax", "ecx", "edx", "memory"
-        );
+        typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+        fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0xb8);
     }
     return 1;
 }

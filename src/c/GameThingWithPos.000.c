@@ -650,7 +650,7 @@ bool32_t __fastcall CanBeUsedForBuildingHomeByCreature__16GameThingWithPosFP8Cre
     return result;
 }
 
-__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, prefer_push_before_ecx, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
 bool32_t __fastcall IsRock__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
     return ((struct GameThingWithPosVftable*)(*(void**)this))->IsRock_0(this);
@@ -817,7 +817,7 @@ bool32_t __fastcall IsToyCuddly__16GameThingWithPosFP8Creature(struct GameThingW
     return 0;
 }
 
-__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, prefer_push_before_ecx, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
 bool32_t __fastcall IsLiving__16GameThingWithPosFP8Creature(const struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
     return ((struct GameThingWithPosVftable*)(*(void**)this))->IsLiving_1(this);

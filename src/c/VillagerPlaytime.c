@@ -83,26 +83,17 @@ bool32_t __fastcall CheckSatisfyPlaytimeDesire__8VillagerFv(struct Villager* thi
     return 0;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall WaitForKickOff__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?GetFootball@Villager@@QAEPAVFootball@@XZ\n\t"
-        "cmp                dword ptr [eax + 0x00000200], 0x01\n\t"
-        "%{disp8%} jne        LAB__addr_0x0076315d\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "push               0x49\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "LAB__addr_0x0076315d:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern struct Football* __attribute__((thiscall)) __opaque_GetFootball(struct Villager*) asm("?GetFootball@Villager@@QAEPAVFootball@@XZ");
+    struct Football* football = __opaque_GetFootball(this);
+    if (*(uint32_t*)((char*)football + 0x200) == 1) {
+        typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+        fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0x49);
+    }
+    return 1;
 }
 
 bool32_t __fastcall FootballMatchPaused__8VillagerFv(struct Villager* this)

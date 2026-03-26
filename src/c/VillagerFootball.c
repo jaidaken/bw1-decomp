@@ -3244,17 +3244,13 @@ float __fastcall FootballDefenderGoHomePriority__8VillagerFP8Football(struct Vil
     return __opaque_FootballAttackerGoHomePriority_2(this, param_1);
 }
 
+__attribute__((no_tail_call, prefer_fmul_mem))
 float __fastcall FootballDefenderIdlePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    void* dummy;
-    float result;
-    asm volatile (
-        "push eax\n\t"
-        "call ?FootballDefenderGoHomePriority@Villager@@QAEMPAVFootball@@@Z\n\t"
-        "%{disp32%} fsubr dword ptr [_rdata_float1p0]"
-        : "=t"(result), "=c"(dummy) : "c"(this), "a"(param_1) : "edx", "memory"
-    );
-    return result;
+    extern float __attribute__((thiscall)) __opaque_FootballDefenderGoHomePriority(struct Villager*, struct Football*) asm("__thunk_call_FootballDefenderGoHomePriority");
+    float result = __opaque_FootballDefenderGoHomePriority(this, param_1);
+    extern float _rdata_float1p0 asm("_rdata_float1p0");
+    return _rdata_float1p0 - result;
 }
 
 __attribute__((no_callee_saves))

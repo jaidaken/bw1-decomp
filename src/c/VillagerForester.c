@@ -712,7 +712,7 @@ bool32_t __fastcall ForesterChopsTree__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((msvc6_regalloc))
+__attribute__((prefer_push_before_ecx))
 bool32_t __fastcall ForesterChopsTreeForBuilding__8VillagerFv(struct Villager* this)
 {
     typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);

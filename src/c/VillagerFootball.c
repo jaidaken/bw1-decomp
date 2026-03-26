@@ -3140,19 +3140,24 @@ float __fastcall FootballDefenderSavePriority__8VillagerFP8Football(struct Villa
     return final_result;
 }
 
+__attribute__((prefer_fmul_mem))
 float __fastcall FootballDefenderClearPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    float result;
+    extern const float rdata_const_0x1ebdc asm("_rdata_const_0x1ebdc");
+    float rand_result;
     asm volatile (
         "push               0x0000026e\n\t"
         "push               0x00c2443c\n\t"
         "push               0x3ecccccd\n\t"
-        "call               ?GameFloatRand@GRand@@SAMM@Z\n\t"
-        "%{disp32%} fadd      dword ptr [rdata_bytes + 0x1ebdc]\n\t"
-        "add                esp, 0x0c"
-        : "=t"(result) : "c"(this) : "eax", "edx", "memory"
+        "call               ?GameFloatRand@GRand@@SAMM@Z"
+        : "=t"(rand_result) : "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    float final_result = rand_result + rdata_const_0x1ebdc;
+    asm volatile (
+        "add                esp, 0x0c"
+        ::: "memory"
+    );
+    return final_result;
 }
 
 __attribute__((no_callee_saves))

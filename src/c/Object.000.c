@@ -160,7 +160,7 @@ uint32_t __fastcall ProcessBySpell__6ObjectFP5Spell(struct Object* this, const v
     return 1;
 }
 
-__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, prefer_push_before_ecx, trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9"), ret_cleanup_override(0x0004)))
 int __fastcall GetDetailMesh__6ObjectCF12DETAIL_LEVEL(struct Object* this, const void* edx, int detail)
 {
     typedef int (__attribute__((thiscall)) *fn_t)(struct Object*);

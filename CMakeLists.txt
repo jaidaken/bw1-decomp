@@ -1035,6 +1035,8 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_GotoStoragePitForWorshipSupplies=?GotoStoragePitForWorshipSupplies@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_StartWorshippingAtWorshipSite=?StartWorshippingAtWorshipSite@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_ChangeStateToFindFoodToEat=?ChangeStateToFindFoodToEat@Villager@@QAEIXZ"
+        "/alternatename:__thunk_call_CheckChild=?CheckChild@Villager@@QAEIXZ"
+        "/alternatename:__thunk_call_ChildGotoCreche=?ChildGotoCreche@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_CheckNeedNewAbode=?CheckNeedNewAbode@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_CheckNeededToMakeDinner=?CheckNeededToMakeDinner@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_CheckNeededForHouseWork=?CheckNeededForHouseWork@Villager@@QAEIXZ"

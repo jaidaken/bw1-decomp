@@ -615,29 +615,22 @@ uint32_t __fastcall CheckChild__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall ChildDecideWhatToDo__8VillagerFv(struct Villager* this)
 {
-    asm("push               esi");                                           // 0x00757ec0    56
-    asm("mov.s              esi, ecx");                                      // 0x00757ec1    8bf1
-    asm("call               ?CheckChild@Villager@@QAEIXZ");                  // 0x00757ec3    e8b8ffffff
-    asm("cmp                eax, 0x01");                                     // 0x00757ec8    83f801
-    asm("{disp8} je         LAB__addr_0x00757ef0");                          // 0x00757ecb    7423
-    asm("mov.s              ecx, esi");                                      // 0x00757ecd    8bce
-    asm("call               LAB__addr_0x00757c80");                          // 0x00757ecf    e8acfdffff
-    asm("cmp                eax, 0x01");                                     // 0x00757ed4    83f801
-    asm("{disp8} je         LAB__addr_0x00757ef0");                          // 0x00757ed7    7417
-    asm("mov.s              ecx, esi");                                      // 0x00757ed9    8bce
-    asm("call               ?ChildGotoCreche@Villager@@QAEIXZ");             // 0x00757edb    e810fbffff
-    asm("test               eax, eax");                                      // 0x00757ee0    85c0
-    asm("{disp8} jne        LAB__addr_0x00757ef0");                          // 0x00757ee2    750c
-    asm("mov                eax, dword ptr [esi]");                          // 0x00757ee4    8b06
-    asm("push               0x72");                                          // 0x00757ee6    6a72
-    asm("mov.s              ecx, esi");                                      // 0x00757ee8    8bce
-    asm("call               dword ptr [eax + 0x8e8]");                       // 0x00757eea    ff90e8080000
-    asm("LAB__addr_0x00757ef0:");
-    asm("mov                eax, 0x00000001");                               // 0x00757ef0    b801000000
-    asm("pop                esi");                                           // 0x00757ef5    5e
+    extern uint32_t __fastcall __opaque_CheckChild(struct Villager*) asm("__thunk_call_CheckChild");
+    if (__builtin_expect(__opaque_CheckChild(this) == 1, 0)) goto done;
+    extern uint32_t __fastcall __opaque_CheckNeededForTownDesire(struct Villager*) asm("LAB__addr_0x00757c80");
+    if (__builtin_expect(__opaque_CheckNeededForTownDesire(this) == 1, 0)) goto done;
+    extern uint32_t __fastcall __opaque_ChildGotoCreche(struct Villager*) asm("__thunk_call_ChildGotoCreche");
+    if (__builtin_expect(__opaque_ChildGotoCreche(this) != 0, 0)) goto done;
+    {
+        typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+        fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0x72);
+    }
+done:
+    return 1;
 }
 
 __attribute__((no_tail_call))

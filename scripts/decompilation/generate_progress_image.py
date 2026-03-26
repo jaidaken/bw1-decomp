@@ -95,23 +95,6 @@ def main():
             edgecolor="#0d0d1a",
             linewidth=0.5,
         ))
-        # Only label large enough rectangles
-        if dx > 1.5 and dy > 1.5:
-            fontsize = min(8, max(4, min(dx, dy) * 0.8))
-            # Use dark text on gold/green, white on everything else
-            text_color = "#1a1a2e" if color in ("#FFD700", "#2ecc40") else "white"
-            # Rotate text vertically for tall narrow blocks
-            rotation = 90 if dy > dx * 2 else 0
-            ax.text(
-                x + dx / 2, y + dy / 2,
-                label,
-                ha="center", va="center",
-                color=text_color,
-                fontsize=fontsize,
-                fontweight="bold",
-                alpha=0.85,
-                rotation=rotation,
-            )
 
     ax.set_xlim(0, 100)
     ax.set_ylim(0, 60)

@@ -658,58 +658,37 @@ bool32_t __fastcall ArrivesAtBigForestForBuilding__8VillagerFv(struct Villager* 
 }
 
 __attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx, interleave_store_with_call("before_call")))
 bool32_t __fastcall ForesterChopsTree__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "push               ecx\n\t"
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "%{disp32%} mov       eax, dword ptr [esi + 0x00000118]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} jne        LAB__addr_0x0075fb03\n\t"
-        "%{disp8%} lea        eax, dword ptr [esp + 0x04]\n\t"
-        "push               eax\n\t"
-        "call               ?FindTreeNearVillager@Villager@@QAEIPAPAVTree@@@Z\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x0075fb03\n\t"
-        "%{disp8%} mov        ecx, dword ptr [esp + 0x04]\n\t"
-        "push               esi\n\t"
-        "push               ecx\n\t"
-        "call               _jmp_addr_0x005116a0\n\t"
-        "%{disp8%} mov        ecx, dword ptr [esp + 0x0c]\n\t"
-        "add                esp, 0x08\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x00000118], eax\n\t"
-        "mov                edx, dword ptr [ecx]\n\t"
-        "push               0x0\n\t"
-        "call               dword ptr [edx + 0xc]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "pop                ecx\n\t"
-        "ret\n"
-        "LAB__addr_0x0075fb03:\n\t"
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x00000118]\n\t"
-        "test               ecx, ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x0075fb1d\n\t"
-        "test               byte ptr [ecx + 0x24], 0x40\n\t"
-        "%{disp8%} je         LAB__addr_0x0075fb1d\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x0075fb33\n"
-        "LAB__addr_0x0075fb1d:\n\t"
-        "mov                edx, dword ptr [esi]\n\t"
-        "push               0x34\n\t"
-        "mov.s              ecx, esi\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x00000118], 0x00000000\n\t"
-        "call               dword ptr [edx + 0x8e8]\n"
-        "LAB__addr_0x0075fb33:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "pop                ecx"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    void* field_118 = *(void**)((char*)this + 0x118);
+    if (field_118 == 0) {
+        extern bool32_t __attribute__((thiscall)) __opaque_FindTreeNearVillager(struct Villager*, struct Tree**) asm("__thunk_call_FindTreeNearVillager");
+        struct Tree* tree;
+        if (__opaque_FindTreeNearVillager(this, &tree)) {
+            extern void* __cdecl jmp_addr_0x005116a0(struct Tree*, struct Villager*) asm("_jmp_addr_0x005116a0");
+            *(void**)((char*)this + 0x118) = jmp_addr_0x005116a0(tree, this);
+            typedef void (__attribute__((thiscall)) *VtFn0c)(struct Tree*, int);
+            VtFn0c fn = ((VtFn0c*)(*(void**)tree))[0xc / 4];
+            fn(tree, 0);
+            return 1;
+        }
+    }
+    field_118 = *(void**)((char*)this + 0x118);
+    if (field_118 && (*(uint8_t*)((char*)field_118 + 0x24) & 0x40)) {
+        typedef bool32_t (__attribute__((thiscall)) *VtFn2c)(void*);
+        VtFn2c fn = ((VtFn2c*)(*(void**)field_118))[0x2c / 4];
+        if (fn(field_118) == 1) {
+            return 1;
+        }
+    }
+    *(uint32_t*)((char*)this + 0x118) = 0;
+    {
+        typedef void (__attribute__((thiscall)) *VtFn8e8)(struct Villager*, int);
+        VtFn8e8 fn = ((VtFn8e8*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0x34);
+    }
+    return 1;
 }
 
 __attribute__((prefer_push_before_ecx))

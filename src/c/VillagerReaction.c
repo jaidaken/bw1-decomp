@@ -1873,7 +1873,7 @@ bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx, interleave_store_with_call("before_call")))
 bool32_t __fastcall InitialiseTellOthersAboutObject__8VillagerFv(struct Villager* this)
 {
     void* other = *(void**)((char*)this + 0xbc);
@@ -1881,14 +1881,10 @@ bool32_t __fastcall InitialiseTellOthersAboutObject__8VillagerFv(struct Villager
     IsAliveFn isAlive = ((IsAliveFn*)(*(void**)other))[0x2c / 4];
     uint32_t alive = isAlive(other);
     if (__builtin_expect(alive != 0, 0)) {
-        asm volatile (
-            "mov                eax, dword ptr [esi]\n\t"
-            "push               0x00000087\n\t"
-            "mov.s              ecx, esi\n\t"
-            "%{disp8%} mov        word ptr [esi + 0x58], 0x0000\n\t"
-            "call               dword ptr [eax + 0x8e8]"
-            ::: "eax", "ecx", "edx", "memory"
-        );
+        *(int16_t*)((char*)this + 0x58) = 0;
+        typedef void (__attribute__((thiscall)) *VtFn)(struct Villager*, uint32_t);
+        VtFn fn = ((VtFn*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0x87);
         return 1;
     }
     {

@@ -366,7 +366,7 @@ bool32_t __fastcall ExitControlledByCreature__8VillagerFUc(struct Villager* this
     return result;
 }
 
-__attribute__((msvc6_regalloc))
+__attribute__((prefer_push_before_ecx))
 void __fastcall SetStateAfterFinishingDance__8VillagerFv(struct Living* this)
 {
     typedef void (__attribute__((thiscall)) *fn_t)(struct Living*, int);

@@ -187,7 +187,7 @@ uint32_t __fastcall CanReceiveGifts__8VillagerFP8Creature(struct GameThingWithPo
     return 1;
 }
 
-__attribute__((no_callee_saves, msvc6_regalloc, trailing_asm("call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
+__attribute__((no_callee_saves, prefer_push_before_ecx, trailing_asm("call               ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
 uint32_t __fastcall CanBeHelpedByCreature__8VillagerFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* param_1)
 {
     typedef uint32_t (__attribute__((thiscall)) *fn_t)(struct GameThingWithPos*);

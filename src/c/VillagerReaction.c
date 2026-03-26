@@ -1607,13 +1607,10 @@ bool __fastcall FleeingAndLookingAtObjectReaction__8VillagerFv(struct Living* th
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 bool32_t __fastcall FollowingObjectReaction__8VillagerFv(struct Living* this)
 {
-    uint32_t alive;
-    asm volatile (
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x000000bc]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]"
-        : "=a"(alive) :: "ecx", "edx", "memory"
-    );
+    void* sub_obj = *(void**)((char*)this + 0xbc);
+    typedef uint32_t (__attribute__((thiscall)) *IsAliveFn)(void*);
+    IsAliveFn is_alive_fn = ((IsAliveFn*)(*(void**)sub_obj))[0x2c / 4];
+    uint32_t alive = is_alive_fn(sub_obj);
     if (__builtin_expect(alive != 0, 0)) {
         extern bool32_t __attribute__((thiscall)) __opaque_FollowingObjReaction(struct Living*) asm("?FollowingObjectReaction@PuzzleHorse@@UAE_NXZ");
         return __opaque_FollowingObjReaction(this);

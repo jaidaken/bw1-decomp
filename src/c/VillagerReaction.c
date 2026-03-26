@@ -1876,13 +1876,10 @@ bool32_t __fastcall ApproachObjectReaction__8VillagerFv(struct Villager* this)
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall InitialiseTellOthersAboutObject__8VillagerFv(struct Villager* this)
 {
-    uint32_t alive;
-    asm volatile (
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x000000bc]\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]"
-        : "=a"(alive) :: "ecx", "edx", "memory"
-    );
+    void* other = *(void**)((char*)this + 0xbc);
+    typedef uint32_t (__attribute__((thiscall)) *IsAliveFn)(void*);
+    IsAliveFn isAlive = ((IsAliveFn*)(*(void**)other))[0x2c / 4];
+    uint32_t alive = isAlive(other);
     if (__builtin_expect(alive != 0, 0)) {
         asm volatile (
             "mov                eax, dword ptr [esi]\n\t"

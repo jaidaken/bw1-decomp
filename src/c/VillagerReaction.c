@@ -5083,7 +5083,7 @@ bool32_t __fastcall GoTowardsDeadPerson__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx, interleave_store_with_call("before_call")))
 bool32_t __fastcall LookAtDeadPerson__8VillagerFv(struct Villager* this)
 {
     extern uint32_t __attribute__((thiscall)) __opaque_LookAtObject(struct Villager*, void*, uint32_t) asm("?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z");
@@ -5091,14 +5091,10 @@ bool32_t __fastcall LookAtDeadPerson__8VillagerFv(struct Villager* this)
     asm volatile("" :: "r"(obj));
     uint32_t r = __opaque_LookAtObject(this, obj, 1);
     if (r == 1) {
-        asm volatile (
-            "mov                eax, dword ptr [esi]\n\t"
-            "push               0x000000d0\n\t"
-            "mov.s              ecx, esi\n\t"
-            "%{disp8%} mov        word ptr [esi + 0x58], 0x0000\n\t"
-            "call               dword ptr [eax + 0x8e8]"
-            ::: "eax", "ecx", "edx", "memory"
-        );
+        *(int16_t*)((char*)this + 0x58) = 0;
+        typedef void (__attribute__((thiscall)) *VtFn)(struct Villager*, uint32_t);
+        VtFn fn = ((VtFn*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0xd0);
     }
     return 1;
 }

@@ -236,23 +236,7 @@ char* __fastcall GetDebugText__8VillagerFv(struct GameThing* this)
     return (char*)0x00bed194;
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((msvc6_sdtor("??1Villager@@UAE@XZ,??3Base@@SAXPAXK@Z,304,")))
 void __fastcall __dt__8VillagerFUi(struct Base* this, const void* edx, uint32_t param_1)
-{
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ??1Villager@@UAE@XZ\n\t"
-        "test               byte ptr [esp + 0x08], 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x0055cb5d\n\t"
-        "push               0x00000130\n\t"
-        "push               esi\n\t"
-        "call               ??3Base@@SAXPAXK@Z\n\t"
-        "add                esp, 0x08\n"
-        "LAB__addr_0x0055cb5d:\n\t"
-        "mov.s              eax, esi\n\t"
-        "pop                esi"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-}
+{}
 

@@ -1079,26 +1079,16 @@ struct WorshipSite* __fastcall GetWorshipSite__8VillagerFv(struct GameThingWithP
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall RestartWorshippingAtWorshipSite__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?StartWorshippingAtWorshipSite@Villager@@QAEIXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x0076c3ac\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "push               0x000000a3\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "LAB__addr_0x0076c3ac:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __fastcall __opaque_StartWorshippingAtWorshipSite(struct Villager*) asm("__thunk_call_StartWorshippingAtWorshipSite");
+    if (__opaque_StartWorshippingAtWorshipSite(this) != 1) {
+        typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+        fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0xa3);
+    }
+    return 1;
 }
 
 __attribute__((no_callee_saves))

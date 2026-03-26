@@ -11705,25 +11705,20 @@ __attribute__((aligned(4))) char s_MissionaryControl_00c236b8[] = "MissionaryCon
 __attribute__((aligned(4))) char s_MissionaryControl_00c236cc[] = "MissionaryControl:";
 
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))
 void __fastcall MoveToObjectValidate__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ?FUN_00756990@Villager@@QAEXXZ\n\t"
-        "%{disp8%} mov        ecx, dword ptr [esi + 0x60]\n\t"
-        "test               ecx, ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x007569c0\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "call               dword ptr [eax + 0x2c]\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x007569c0\n\t"
-        "%{disp8%} mov        dword ptr [esi + 0x60], 0x00000000\n\t"
-        "LAB__addr_0x007569c0:\n\t"
-        "pop                esi"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    extern void __fastcall __opaque_FUN_00756990(struct Villager*) asm("__thunk_call_FUN_00756990");
+    __opaque_FUN_00756990(this);
+    void* sub_obj = *(void**)((char*)this + 0x60);
+    if (sub_obj != 0) {
+        typedef uint32_t (__attribute__((thiscall)) *VtFn)(void*);
+        VtFn fn = ((VtFn*)(*(void**)sub_obj))[0x2c / 4];
+        uint32_t result = fn(sub_obj);
+        if (result != 1) {
+            *(void**)((char*)this + 0x60) = 0;
+        }
+    }
 }
 
 void __fastcall MoveOnStructureValidate__8VillagerFv(struct Villager* this)

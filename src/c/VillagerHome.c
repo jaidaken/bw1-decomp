@@ -2131,30 +2131,23 @@ bool32_t __fastcall MakeHomelessNoStateChange__8VillagerFv(struct Villager* this
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall HomelessStart__8VillagerFv(struct Villager* this)
 {
+    extern bool32_t __attribute__((thiscall)) __opaque_CheckHungry(struct Villager*) asm("?CheckHungry@Villager@@QAEIXZ");
+    extern bool32_t __attribute__((thiscall)) __opaque_CheckNeededForSomething(struct Villager*) asm("__thunk_call_CheckNeededForSomething");
+    extern bool32_t __attribute__((thiscall)) __opaque_CheckHomelessMoveIntoAbode(struct Villager*) asm("__thunk_call_CheckHomelessMoveIntoAbode");
+    extern void __attribute__((thiscall)) __opaque_SetupNothingToDo(struct Villager*) asm("?SetupNothingToDo@Villager@@QAEIXZ");
     typedef void* (__attribute__((thiscall)) *GetTownFn)(struct Villager*);
     GetTownFn getTown = ((GetTownFn*)(*(void**)this))[0x48 / 4];
     getTown(this);
-    asm volatile (
-        "mov.s              ecx, esi\n\t"
-        "call               ?CheckHungry@Villager@@QAEIXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x00761352\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?CheckNeededForSomething@Villager@@QAEIXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x00761352\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?CheckHomelessMoveIntoAbode@Villager@@QAEIXZ\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} jne        LAB__addr_0x00761352\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?SetupNothingToDo@Villager@@QAEIXZ\n\t"
-        "LAB__addr_0x00761352:"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    if (__builtin_expect(__opaque_CheckHungry(this) != 1, 1)) {
+        if (__builtin_expect(__opaque_CheckNeededForSomething(this) != 1, 1)) {
+            if (__builtin_expect(__opaque_CheckHomelessMoveIntoAbode(this) == 0, 1)) {
+                __opaque_SetupNothingToDo(this);
+            }
+        }
+    }
     return 1;
 }
 

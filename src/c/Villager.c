@@ -6971,23 +6971,23 @@ uint32_t __fastcall GetChillOutPos__8VillagerFR9MapCoords(struct Villager* this,
 __attribute__((XOR32rr_REV))
 uint32_t __fastcall VillagerCreated__8VillagerFv(struct Villager* this)
 {
-    uint32_t result;
     asm volatile (
         "xor.s             eax, eax\n\t"
         "%{disp8%} mov       ax, word ptr [ecx + 0x58]\n\t"
         "test              ax, ax\n\t"
         "%{disp8%} lea       edx, dword ptr [eax + -0x01]\n\t"
         "%{disp8%} mov       word ptr [ecx + 0x58], dx\n\t"
-        "%{disp8%} jne       LAB__addr_0x00753df3\n\t"
-        "%{disp8%} mov       word ptr [ecx + 0x58], ax\n\t"
-        "mov               eax, dword ptr [ecx]\n\t"
-        "push              0x000000a3\n\t"
-        "call              dword ptr [eax + 0x8e8]\n\t"
-        "LAB__addr_0x00753df3:\n\t"
-        "mov               eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "%{disp8%} jne       1f\n\t"
+        "%{disp8%} mov       word ptr [ecx + 0x58], ax"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    {
+        typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+        fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0xa3);
+    }
+    asm volatile ("1:" ::: "memory");
+    return 1;
 }
 
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_call))

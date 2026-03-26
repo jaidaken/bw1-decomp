@@ -1511,35 +1511,26 @@ bool32_t __fastcall CheckDeathFromOldAge__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx, insert_redundant_cmp))
 bool32_t __fastcall SleepingAtHome__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "call               dword ptr [eax + 0x48]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x00760da3\n\t"
-        "dec                word ptr [esi + 0x58]\n\t"
-        "cmp                word ptr [esi + 0x58], 0x00\n\t"
-        "%{disp8%} jne        LAB__addr_0x00760da3\n\t"
-        "push               0x3f800000\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?DoSleeping@Villager@@QAEIM@Z\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} jne        LAB__addr_0x00760da3\n\t"
-        "mov                edx, dword ptr [esi]\n\t"
-        "push               0x26\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x8e8]\n\t"
-        "LAB__addr_0x00760da3:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    typedef void* (__attribute__((thiscall)) *GetTownFn)(struct Villager*);
+    GetTownFn getTown = ((GetTownFn*)(*(void**)this))[0x48 / 4];
+    if (getTown(this)) {
+        int16_t* counter = (int16_t*)((char*)this + 0x58);
+        --(*counter);
+        if (__builtin_expect(*counter == 0, 1)) {
+            extern bool32_t __attribute__((thiscall)) __opaque_DoSleeping(struct Villager*, float) asm("__thunk_call_DoSleeping");
+            if (__builtin_expect(__opaque_DoSleeping(this, 1.0f) == 0, 1)) {
+                register void** vt asm("edx") = *(void***)this;
+                asm volatile("" : "+r"(vt));
+                typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+                fn_t fn = ((fn_t*)vt)[0x8e8 / 4];
+                fn(this, 0x26);
+            }
+        }
+    }
+    return 1;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

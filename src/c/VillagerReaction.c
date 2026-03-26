@@ -6358,15 +6358,11 @@ void __fastcall SetupReactToMagicShieldStruck__8VillagerFP16GameThingWithPosP8Re
 __attribute__((no_callee_saves))
 void __fastcall SetupReactToMagicShieldDestroyed__8VillagerFP16GameThingWithPosP8Reaction(struct Living* this, const void* edx, struct GameThingWithPos* param_1, struct Reaction* param_2)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "%{disp8%} mov        edx, dword ptr [esp + 0x08]\n\t"
-        "add                eax, 0x14\n\t"
-        "push               eax\n\t"
-        "push               edx\n\t"
-        "call               ?SetupPanicReaction@Villager@@QAEIPAVReaction@@AAUMapCoords@@@Z"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    extern uint32_t __attribute__((thiscall)) __opaque_SetupPanicReaction(struct Living*, struct Reaction*, void*) asm("?SetupPanicReaction@Villager@@QAEIPAVReaction@@AAUMapCoords@@@Z");
+    register struct Reaction* r asm("edx") = param_2;
+    asm volatile ("" :: "r"(r));
+    void* coords = (void*)((char*)param_1 + 0x14);
+    __opaque_SetupPanicReaction(this, r, coords);
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

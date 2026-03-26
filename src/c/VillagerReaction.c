@@ -1950,12 +1950,13 @@ bool32_t __fastcall GotoFoodReaction__8VillagerFv(struct Living* this)
         return __opaque_GotoFoodReaction(this);
     }
     asm volatile ("LAB__GotoFood_dead:" ::: "memory");
-    asm volatile (
-        "mov                edx, dword ptr [esi]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x99c]"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    {
+        register void** vt asm("edx") = *(void***)this;
+        asm volatile ("" : "+r"(vt));
+        typedef void (__attribute__((thiscall)) *VtFn)(struct Living*);
+        VtFn fn = ((VtFn*)vt)[0x99c / 4];
+        fn(this);
+    }
     return 1;
 }
 

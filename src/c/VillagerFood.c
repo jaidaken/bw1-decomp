@@ -217,17 +217,15 @@ bool32_t __fastcall ChangeStateToFindFoodToEat__8VillagerFv(struct Villager* thi
     return result;
 }
 
+__attribute__((no_float_truncation, prefer_fmul_mem, no_callee_saves))
 float __fastcall CalculateLifeDesire__8VillagerFv(struct Living* this)
 {
-    void* dummy;
-    float result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x11c]\n\t"
-        "%{disp32%} fsubr qword ptr [__real@8@3fff8000000000000000]"
-        : "=t"(result), "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
-    return result;
+    extern const double __opaque_real_1_0 asm("__real@8@3fff8000000000000000");
+    typedef float (__attribute__((thiscall)) *fn_t)(struct Living*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x11c / 4];
+    float val = fn(this);
+    asm volatile("" ::: "memory");
+    return __opaque_real_1_0 - val;
 }
 
 bool32_t __fastcall CheckHungryAtHome__8VillagerFv(struct Villager* this)

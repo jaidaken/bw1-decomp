@@ -4205,25 +4205,17 @@ bool32_t __fastcall StartMoveToPickUpBallForDeadBall__8VillagerFv(struct Village
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall ArrivedAtPickUpBallForDeadBall__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
     extern struct Football* __attribute__((thiscall)) __opaque_GetFootball(struct Villager*) asm("?GetFootball@Villager@@QAEPAVFootball@@XZ");
     struct Football* football = __opaque_GetFootball(this);
-    asm volatile (
-        "push               0x2\n\t"
-        "push               eax\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "push               0x50\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "a"(football) : "ecx", "edx", "memory"
-    );
-    return result;
+    extern uint32_t __attribute__((thiscall)) __opaque_LookAtObject(struct Villager*, struct Football*, unsigned long) asm("?LookAtObject@Living@@QAEIPAVGameThingWithPos@@K@Z");
+    __opaque_LookAtObject(this, football, 2);
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0x50);
+    return 1;
 }
 
 __attribute__((no_tail_call))

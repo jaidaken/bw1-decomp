@@ -498,7 +498,7 @@ bool32_t __fastcall HousewifeServesDinner__8VillagerFv(struct Villager* this)
     return 1;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, insert_redundant_cmp, prefer_memory_dec))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, insert_redundant_cmp, prefer_memory_dec, prefer_push_before_ecx))
 bool32_t __fastcall HousewifeClearsAwayDinner__8VillagerFv(struct Villager* this)
 {
     extern float __attribute__((thiscall)) __opaque_EatFoodHeld(struct Villager*) asm("?EatFoodHeld@Villager@@QAEIXZ");
@@ -506,13 +506,9 @@ bool32_t __fastcall HousewifeClearsAwayDinner__8VillagerFv(struct Villager* this
     --(*counter);
     if (__builtin_expect(*counter == 0, 1)) {
         __opaque_EatFoodHeld(this);
-        asm volatile (
-            "mov                eax, dword ptr [esi]\n\t"
-            "push               0x24\n\t"
-            "mov.s              ecx, esi\n\t"
-            "call               dword ptr [eax + 0x8e8]"
-            ::: "eax", "ecx", "edx", "memory"
-        );
+        typedef void (__attribute__((thiscall)) *VtFn)(struct Villager*, int);
+        VtFn fn = ((VtFn*)(*(void**)this))[0x8e8 / 4];
+        fn(this, 0x24);
     }
     return 1;
 }

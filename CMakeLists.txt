@@ -231,6 +231,8 @@ set(SOURCES_001
     src/asm/unprocessed/runblack.reassemble.0245.00491180-00491690.asm
     src/asm/unprocessed/runblack.reassemble.0248.00491690-004af640.asm
     src/asm/unprocessed/runblack.reassemble.0253.004af640-004c4ab0.asm
+    src/c/Creature.0253.c
+    src/asm/unprocessed/runblack.reassemble.0253b.004c4970-004c4ab0.asm
     src/asm/unprocessed/runblack.reassemble.0257.004c4ab0-004ca240.asm
     src/asm/unprocessed/runblack.reassemble.0262.004ca240-004cb410.asm
     src/asm/unprocessed/runblack.reassemble.0266.004cb410-004d0a20.asm
@@ -534,6 +536,7 @@ set(SOURCES_008
     src/asm/unprocessed/runblack.reassemble.1187.007f5040-007f5450.asm
     src/asm/unprocessed/runblack.reassemble.1192.007f5450-007f8970.asm
     src/asm/unprocessed/runblack.reassemble.1195.007f8970-0080b870.asm
+    src/c/LH3DComplexObject.000.c
     src/asm/unprocessed/runblack.reassemble.1199.0080b870-0081b370.asm
     src/asm/unprocessed/runblack.reassemble.1206.0081b370-0081e1f0.asm
     src/asm/unprocessed/runblack.reassemble.1213.0081e1f0-0082a2c0.asm

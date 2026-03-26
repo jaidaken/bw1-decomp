@@ -1067,8 +1067,6 @@ target_link_options(runblack-reassembled
         "/alternatename:__thunk_call_CheckWhenGoingToBed=?CheckWhenGoingToBed@Villager@@QAEIXZ"
         "/alternatename:__thunk_call_ChangeTribeIfRequired=?ChangeTribeIfRequired@Villager@@QAEIW4TRIBE_TYPE@@H@Z"
         "/alternatename:__thunk_call_ChangeInfo=?ChangeInfo@Villager@@QAEIPBVGVillagerInfo@@@Z"
-        # VillagerForester.c same-TU call thunks
-        "/alternatename:__thunk_call_FindTreeNearVillager=?FindTreeNearVillager@Villager@@QAEIPAPAVTree@@@Z"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/pdb:$<TARGET_FILE:runblack-reassembled>.pdb>"
         "$<$<OR:$<CONFIG:Debug>,$<CONFIG:RelWithDebInfo>>:/debug:FULL>"
 )

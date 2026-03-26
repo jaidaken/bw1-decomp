@@ -721,21 +721,20 @@ bool32_t __fastcall ForesterChopsTreeForBuilding__8VillagerFv(struct Villager* t
     return 1;
 }
 
+__attribute__((prefer_push_before_ecx))
 bool32_t __fastcall ForesterFinishedForestering__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
     asm volatile (
         "cmp                word ptr [ecx + 0x000000f6], 0x00\n\t"
-        "%{disp8%} jle        LAB__addr_0x0075fb6f\n\t"
-        "%{disp32%} jmp       ?GotWoodDecideWhatToDo@Villager@@QAEIXZ\n\t"
-        "LAB__addr_0x0075fb6f:\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               0x000000a3\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "%{disp8%} jle        1f\n\t"
+        "%{disp32%} jmp       ?GotWoodDecideWhatToDo@Villager@@QAEIXZ\n"
+        "1:"
+        :: "c"(this) : "memory"
     );
-    return result;
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0xa3);
+    return 1;
 }
 
 bool32_t __fastcall TakeWoodFromTreeForBuilding__8VillagerFv(struct Villager* this)

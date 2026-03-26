@@ -3837,18 +3837,11 @@ void __fastcall FootballGoaliePassProcess__8VillagerFP8Football(struct Villager*
     );
 }
 
+__attribute__((prefer_pop_cleanup))
 float __fastcall FootballGoalieSavePriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)
 {
-    float result;
-    asm volatile (
-        "push               0x00000360\n\t"
-        "push               0x00c2443c\n\t"
-        "push               0x3f800000\n\t"
-        "call               ?GameFloatRand@GRand@@SAMM@Z\n\t"
-        "add                esp, 0x0c"
-        : "=t"(result) : "c"(this) : "eax", "edx", "memory"
-    );
-    return result;
+    extern float __cdecl __opaque_GameFloatRand(float, void*, int) asm("?GameFloatRand@GRand@@SAMM@Z");
+    return __opaque_GameFloatRand(1.0f, (void*)0x00c2443c, 0x360);
 }
 
 float __fastcall FootballGoalieClearPriority__8VillagerFP8Football(struct Villager* this, const void* edx, struct Football* param_1)

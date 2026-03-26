@@ -1722,19 +1722,17 @@ bool32_t __fastcall HavingSex__8VillagerFv(struct Villager* this)
 
 bool32_t __fastcall StopHavingSex__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
     asm volatile (
         "test               byte ptr [ecx + 0x000000e0], 0x04\n\t"
-        "%{disp8%} je         LAB__addr_0x00760f5e\n\t"
+        "%{disp8%} je         LAB__stop_having_sex_vtable\n\t"
         "%{disp32%} jmp       ?GoHome@Villager@@QAEIXZ\n\t"
-        "LAB__addr_0x00760f5e:\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               0x000000a3\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "LAB__stop_having_sex_vtable:"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    typedef void (__attribute__((thiscall)) *VtFn)(struct Villager*, int);
+    VtFn fn = ((VtFn*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0xa3);
+    return 1;
 }
 
 bool32_t __fastcall StartHavingSexAtHome__8VillagerFv(struct Villager* this)

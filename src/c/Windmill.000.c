@@ -113,25 +113,9 @@ char* __fastcall GetDebugText__8WindmillFv(struct GameThing* this)
     return (char*)0x009c8048;  // ??_C@_09ABCDEFGH@Windmill?$AA@
 }
 
-__attribute__((no_callee_saves))
+__attribute__((msvc6_sdtor("??1Abode@@UAE@XZ,??3Base@@SAXPAXK@Z,196,")))
 void __fastcall __dt__8WindmillFv(struct Base* this, const void* edx, uint32_t param_1)
-{
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               ??1Abode@@UAE@XZ\n\t"
-        "test               byte ptr [esp + 0x08], 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x0040593d\n\t"
-        "push               0x000000c4\n\t"
-        "push               esi\n\t"
-        "call               ??3Base@@SAXPAXK@Z\n\t"
-        "add                esp, 0x08\n"
-        "LAB__addr_0x0040593d:\n\t"
-        "mov.s              eax, esi\n\t"
-        "pop                esi"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-}
+{}
 
 __attribute__((no_callee_saves, XOR32rr_REV))
 void __fastcall CallVirtualFunctionsForCreation__8WindmillFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* param_1)

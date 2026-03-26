@@ -3163,25 +3163,23 @@ bool32_t __fastcall DecideWhatToDo__8VillagerFv(struct Living* this)
 __attribute__((XOR32rr_REV, no_callee_saves))
 bool32_t __fastcall CheckTakeResourcesToStoragePit__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
     asm volatile (
         "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
         "movsx              edx, word ptr [ecx + 0x000000f6]\n\t"
         "cmp                edx, dword ptr [eax + 0x0000026c]\n\t"
-        "%{disp8%} jg         LAB__addr_0x00751704\n\t"
+        "%{disp8%} jg         1f\n\t"
         "movsx              edx, word ptr [ecx + 0x000000f4]\n\t"
         "cmp                edx, dword ptr [eax + 0x00000270]\n\t"
-        "%{disp8%} jg         LAB__addr_0x00751704\n\t"
+        "%{disp8%} jg         1f\n\t"
         "xor.s              eax, eax\n\t"
         "ret\n"
-        "LAB__addr_0x00751704:\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               0x1f\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "1:"
+        :: "c"(this) : "eax", "edx", "memory"
     );
-    return result;
+    typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x8e8 / 4];
+    fn(this, 0x1f);
+    return 1;
 }
 
 __attribute__((XOR32rr_REV, no_ret))

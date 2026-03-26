@@ -414,25 +414,24 @@ bool32_t __fastcall ShepherdTakesControlOfFlock__8VillagerFv(struct Villager* th
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((split_word_stores, XOR32rr_REV))
 bool32_t __fastcall ShepherdReleasesControlOfFlock__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
+    if (__builtin_expect(*(void**)((char*)this + 0xb8) == 0, 0)) {
+        return 0;
+    }
+    register void* vt asm("eax");
+    vt = *(void**)this;
     asm volatile (
-        "%{disp32%} mov       eax, dword ptr [ecx + 0x000000b8]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x00768f4c\n\t"
-        "mov                eax, dword ptr [ecx]\n\t"
-        "push               0x60\n\t"
-        "%{disp32%} mov       word ptr [ecx + 0x00000118], 0x0014\n\t"
-        "%{disp32%} mov       word ptr [ecx + 0x0000011a], 0x0024\n\t"
-        "call               dword ptr [eax + 0x8e8]\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret\n"
-        "LAB__addr_0x00768f4c:\n\t"
-        "xor.s              eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "push               0x60"
+        : "+r"(vt) :: "memory"
     );
-    return result;
+    *(uint32_t*)((char*)this + 0x118) = 0x00240014;
+    asm volatile (
+        "call               dword ptr [eax + 0x8e8]"
+        :: "a"(vt), "c"(this) : "edx", "memory"
+    );
+    return 1;
 }
 
 __attribute__((no_callee_saves))

@@ -294,7 +294,7 @@ bool __fastcall IsLockedInInteract__6ObjectFv(struct Object* this)
     return 0;
 }
 
-__attribute__((msvc6_regalloc))
+__attribute__((prefer_push_before_ecx))
 bool32_t __fastcall SetDying__6ObjectFv(struct Object* this)
 {
     typedef void (__attribute__((thiscall)) *fn_t)(struct Object*, int);

@@ -2144,15 +2144,13 @@ bool32_t __fastcall MakeHomelessNoStateChange__8VillagerFv(struct Villager* this
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall HomelessStart__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
+    typedef void* (__attribute__((thiscall)) *GetTownFn)(struct Villager*);
+    GetTownFn getTown = ((GetTownFn*)(*(void**)this))[0x48 / 4];
+    getTown(this);
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "call               dword ptr [eax + 0x48]\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?CheckHungry@Villager@@QAEIXZ\n\t"
         "cmp                eax, 0x01\n\t"
@@ -2167,12 +2165,10 @@ bool32_t __fastcall HomelessStart__8VillagerFv(struct Villager* this)
         "%{disp8%} jne        LAB__addr_0x00761352\n\t"
         "mov.s              ecx, esi\n\t"
         "call               ?SetupNothingToDo@Villager@@QAEIXZ\n\t"
-        "LAB__addr_0x00761352:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+        "LAB__addr_0x00761352:"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    return 1;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

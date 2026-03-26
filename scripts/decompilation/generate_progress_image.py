@@ -16,14 +16,14 @@ import squarify
 
 COLOR_TIERS = [
     # (min_pct, color,     label)
-    (100,      "#FFD700",  "100% matched"),   # gold
-    (95,       "#2ecc40",  "95-100%"),         # bright green
-    (90,       "#1a8f1a",  "90-95%"),          # medium green
-    (75,       "#0e6b2c",  "75-90%"),          # dark green
-    (50,       "#1a6b6b",  "50-75%"),          # teal
-    (25,       "#0c3795",  "25-50%"),          # dark blue
-    (0.01,     "#0d1b3e",  "1-25%"),           # deep navy
-    (0,        "#353535",  "Not started"),     # gray
+    (100,      "#FFD700",  "100% pure C"),      # gold
+    (95,       "#2ecc40",  "95-100% pure C"),   # bright green
+    (90,       "#1a8f1a",  "90-95%"),           # medium green
+    (75,       "#0e6b2c",  "75-90%"),           # dark green
+    (50,       "#1a6b6b",  "50-75%"),           # teal
+    (25,       "#0c3795",  "25-50%"),           # dark blue
+    (0.01,     "#0d1b3e",  "< 25%"),            # deep navy
+    (0,        "#353535",  "Not started"),       # gray
 ]
 
 
@@ -32,10 +32,13 @@ def get_color(unit):
     meta = unit.get("metadata", {})
     measures = unit.get("measures", {})
 
-    if meta.get("complete") or meta.get("auto_generated"):
-        return "#FFD700"  # gold - complete
+    if meta.get("auto_generated"):
+        return "#FFD700"  # gold - library code
 
-    pct = measures.get("matched_code_percent", 0)
+    # Use pure C percentage for finer-grained coloring when available
+    pct = measures.get("pure_c_percent", None)
+    if pct is None:
+        pct = measures.get("matched_code_percent", 0)
     if pct is None:
         pct = 0
 
@@ -93,10 +96,12 @@ def main():
             linewidth=0.5,
         ))
         # Only label large enough rectangles
-        if dx > 2 and dy > 1.5:
+        if dx > 1.5 and dy > 1.5:
             fontsize = min(8, max(4, min(dx, dy) * 0.8))
-            # Use dark text on gold, white on everything else
-            text_color = "#1a1a2e" if color == "#FFD700" else "white"
+            # Use dark text on gold/green, white on everything else
+            text_color = "#1a1a2e" if color in ("#FFD700", "#2ecc40") else "white"
+            # Rotate text vertically for tall narrow blocks
+            rotation = 90 if dy > dx * 2 else 0
             ax.text(
                 x + dx / 2, y + dy / 2,
                 label,
@@ -105,6 +110,7 @@ def main():
                 fontsize=fontsize,
                 fontweight="bold",
                 alpha=0.85,
+                rotation=rotation,
             )
 
     ax.set_xlim(0, 100)
@@ -118,13 +124,17 @@ def main():
     total_funcs = measures.get("total_functions", 0)
     total_code = int(measures.get("total_code", 0))
     matched_code = int(measures.get("matched_code", 0))
+    pure_c_pct = measures.get("pure_c_percent", None)
+    pure_c_funcs = measures.get("pure_c_functions", None)
 
-    title = (
-        f"Black & White Decompilation Progress\n"
-        f"{matched_code_pct:.2f}% code matched  |  "
+    title = f"Black & White Decompilation Progress\n"
+    title += (
+        f"{matched_code_pct:.2f}% decompiled  |  "
         f"{matched_funcs}/{total_funcs} functions  |  "
         f"{matched_code:,}/{total_code:,} bytes"
     )
+    if pure_c_pct is not None and pure_c_funcs is not None:
+        title += f"\n{pure_c_pct:.2f}% pure C ({pure_c_funcs}/{total_funcs} functions)"
     ax.set_title(title, color="white", fontsize=16, fontweight="bold", pad=20)
 
     # Legend — only include tiers that appear in the data
@@ -148,8 +158,9 @@ def main():
     plt.tight_layout()
     plt.savefig(output_path, dpi=150, bbox_inches="tight", facecolor=fig.get_facecolor())
     plt.close()
-    print(f"  Code: {matched_code_pct:.2f}% matched ({matched_code:,} / {total_code:,} bytes)")
-    print(f"  Functions: {matched_funcs} / {total_funcs} ({matched_funcs/total_funcs*100:.2f}%)")
+    print(f"  Decompiled: {matched_code_pct:.2f}% ({matched_code:,} / {total_code:,} bytes, {matched_funcs}/{total_funcs} functions)")
+    if pure_c_pct is not None and pure_c_funcs is not None:
+        print(f"  Pure C:     {pure_c_pct:.2f}% ({pure_c_funcs}/{total_funcs} functions)")
 
 
 if __name__ == "__main__":

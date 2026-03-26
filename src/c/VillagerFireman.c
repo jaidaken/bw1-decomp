@@ -1189,7 +1189,7 @@ bool32_t __fastcall ExitOnFire__8VillagerFUc(struct Villager* this, const void* 
     return result;
 }
 
-__attribute__((msvc6_regalloc))
+__attribute__((prefer_push_before_ecx))
 bool32_t __fastcall PutOutFireWithWater__8VillagerFv(struct Villager* this)
 {
     typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
@@ -1198,7 +1198,7 @@ bool32_t __fastcall PutOutFireWithWater__8VillagerFv(struct Villager* this)
     return 1;
 }
 
-__attribute__((msvc6_regalloc))
+__attribute__((prefer_push_before_ecx))
 bool32_t __fastcall GetWaterToPutOutFire__8VillagerFv(struct Villager* this)
 {
     typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);

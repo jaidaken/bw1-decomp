@@ -190,17 +190,19 @@ bool32_t __fastcall CanBePickedUp__6ObjectFv(struct Object* this)
     return 0;
 }
 
+__attribute__((no_float_truncation, prefer_fmul_mem, no_callee_saves))
 float __fastcall GetVillagerHugRadius__6ObjectFv(struct Object* this)
 {
-    float result;
-    asm volatile (
-        "mov eax, dword ptr [ecx]\n\t"
-        "call dword ptr [eax + 0x64]\n\t"
-        "%{disp32%} fmul dword ptr [_rdata_float1p05]\n\t"
-        "%{disp32%} fadd dword ptr [_rdata_float0p0005]"
-        : "=t"(result) : "c"(this) : "eax", "edx", "memory"
-    );
-    return result;
+    extern const float rdata_float1p05;
+    extern const float rdata_float0p0005;
+    typedef float (__attribute__((thiscall)) *fn_t)(struct Object*);
+    fn_t fn = ((fn_t*)(*(void**)this))[0x64 / 4];
+    float val = fn(this);
+    asm volatile("" ::: "memory");
+    val = val * rdata_float1p05;
+    asm volatile("" ::: "memory");
+    val = val + rdata_float0p0005;
+    return val;
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))

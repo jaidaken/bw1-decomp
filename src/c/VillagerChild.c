@@ -833,33 +833,25 @@ void __fastcall MoveVillagerToAbode__8VillagerFP5Abode(struct Villager* this, co
     );
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, XOR32rr_REV, prefer_push_before_ecx))
 uint32_t __fastcall MakeChildOrphaned__8VillagerFP8Villager(struct Villager* this, const void* edx, struct Villager* param_1)
 {
-    uint32_t result;
+    int match;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "%{disp32%} mov       eax, dword ptr [esi + 0x00000100]\n\t"
-        "cmp                eax, dword ptr [esp + 0x08]\n\t"
-        "%{disp8%} jne        LAB__addr_0x0075810c\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?IsVillagerAvailable@Villager@@QAE_NXZ\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x007580f9\n\t"
-        "mov                edx, dword ptr [esi]\n\t"
-        "push               0x00000083\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x8e8]\n"
-        "LAB__addr_0x007580f9:\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x00000100], 0x00000000\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004\n"
-        "LAB__addr_0x0075810c:\n\t"
-        "xor.s              eax, eax\n\t"
-        "pop                esi"
-        : "=a"(result) : "c"(this) : "edx", "memory"
+        "mov eax, dword ptr [esi + 0x100]\n\t"
+        "cmp eax, dword ptr [esp + 0x08]"
+        : "=@ccz"(match) : "S"(this) : "eax", "memory"
     );
-    return result;
+    if (__builtin_expect(!match, 0)) return 0;
+    asm volatile ("" ::: "ecx");
+    extern uint32_t __fastcall __opaque_IsVillagerAvailable(struct Villager*) asm("?IsVillagerAvailable@Villager@@QAE_NXZ");
+    if (__opaque_IsVillagerAvailable(this)) {
+        register void* vt asm("edx") = *(void**)this;
+        asm volatile ("" :: "r"(vt));
+        typedef void (__attribute__((thiscall)) *fn_t)(struct Villager*, int);
+        fn_t fn = ((fn_t*)vt)[0x8e8 / 4];
+        fn(this, 0x83);
+    }
+    *(uint32_t*)((char*)this + 0x100) = 0;
+    return 1;
 }

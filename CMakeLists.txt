@@ -552,7 +552,9 @@ set(SOURCES_008
     src/asm/unprocessed/runblack.reassemble.1246.00842030-008427a0.asm
     src/asm/unprocessed/runblack.reassemble.1251.008427a0-0084f2f0.asm
     src/asm/unprocessed/runblack.reassemble.1255.0084f2f0-008501b0.asm
-    src/asm/unprocessed/runblack.reassemble.1258.008501b0-00863ef0.asm
+    src/asm/unprocessed/runblack.reassemble.1258a.008501b0-0085e480.asm
+    src/c/CAnim.000.c
+    src/asm/unprocessed/runblack.reassemble.1258b.0085e490-00863ef0.asm
     src/asm/unprocessed/runblack.reassemble.1262.00863ef0-00864040.asm
     src/asm/unprocessed/runblack.reassemble.1265.00864040-00864190.asm
     src/asm/unprocessed/runblack.reassemble.1268.00864190-00864420.asm

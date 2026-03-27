@@ -196,7 +196,11 @@ set(SOURCES_001
     src/asm/unprocessed/runblack.reassemble.0105.00444d80-00447850.asm
     src/asm/unprocessed/runblack.reassemble.0110.00447850-00449de0.asm
     src/asm/unprocessed/runblack.reassemble.0113.00449de0-004509f0.asm
-    src/asm/unprocessed/runblack.reassemble.0121.004509f0-0046cf80.asm
+    src/asm/unprocessed/runblack.reassemble.0121a.004509f0-00462a50.asm
+    src/c/Citadel.000.c
+    src/asm/unprocessed/runblack.reassemble.0121b1.00462ae0-00469490.asm
+    src/c/CitadelPart.000.c
+    src/asm/unprocessed/runblack.reassemble.0121b2.00469500-0046cf80.asm
     src/asm/unprocessed/runblack.reassemble.0125.0046cf80-0046df60.asm
     src/asm/unprocessed/runblack.reassemble.0127.0046df60-0046f170.asm
     src/asm/unprocessed/runblack.reassemble.0130.0046f170-0046f590.asm
@@ -404,6 +408,7 @@ set(SOURCES_001
     src/asm/unprocessed/runblack.reassemble.0869.006dd460-006dd940.asm
     src/asm/unprocessed/runblack.reassemble.0872.006dd940-006ddf60.asm
     src/asm/unprocessed/runblack.reassemble.0875.006ddf60-006de220.asm
+    src/c/Reward.000.c
     src/asm/unprocessed/runblack.reassemble.0878.006de220-006f1b20.asm
     src/asm/unprocessed/runblack.reassemble.0882.006f1b20-006f5210.asm
     src/asm/unprocessed/runblack.reassemble.0887.006f5210-006f6fa0.asm
@@ -537,7 +542,9 @@ set(SOURCES_008
     src/asm/unprocessed/runblack.reassemble.1184.007ea0b0-007f5040.asm
     src/asm/unprocessed/runblack.reassemble.1187.007f5040-007f5450.asm
     src/asm/unprocessed/runblack.reassemble.1192.007f5450-007f8970.asm
-    src/asm/unprocessed/runblack.reassemble.1195.007f8970-0080b870.asm
+    src/asm/unprocessed/runblack.reassemble.1195a.007f8970-007f8d0f.asm
+    src/c/LH3DSmoke.000.c
+    src/asm/unprocessed/runblack.reassemble.1195b.007f8d30-0080b870.asm
     src/c/LH3DComplexObject.000.c
     src/asm/unprocessed/runblack.reassemble.1199a.0080b870-008188ff.asm
     src/c/LH3DTech.000.c

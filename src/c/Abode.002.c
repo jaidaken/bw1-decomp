@@ -177,24 +177,24 @@ void __fastcall ToBeDeleted__5AbodeFi(struct Base* this, const void* edx, int pa
     );
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi,edi"), force_this_esi, MOV32rr_REV, prefer_push_imm))
 void __fastcall DestroyedByBeam__5AbodeFv(struct Object* this)
 {
+    void** vtable = *(void***)this;
+    register void** vt asm("edi") = vtable;
+    asm volatile("" :: "r"(vt));
+
+    typedef float (__attribute__((thiscall)) *fn1_t)(struct Object*, int);
+    fn1_t fn1 = ((fn1_t*)vt)[0x11c / 4];
+    float val = fn1(this, 0);
+
     asm volatile (
-        "push esi\n\t"
-        "push edi\n\t"
-        "mov.s esi, ecx\n\t"
-        "mov edi, dword ptr [esi]\n\t"
-        "push 0x0\n\t"
-        "call dword ptr [edi + 0x11c]\n\t"
         "push ecx\n\t"
         "mov.s ecx, esi\n\t"
         "fstp dword ptr [esp]\n\t"
         "call dword ptr [edi + 0x5b8]\n\t"
-        "fstp st(0)\n\t"
-        "pop edi\n\t"
-        "pop esi"
-        ::: "eax", "ecx", "edx", "memory"
+        "fstp st(0)"
+        :: "t"(val) : "eax", "ecx", "edx", "memory", "st"
     );
 }
 

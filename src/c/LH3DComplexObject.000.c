@@ -63,12 +63,7 @@ void __attribute__((thiscall)) FUN_0080b8e0(struct LH3DComplexObject* this, uint
 __attribute__((no_callee_saves, trailing_asm("nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop")))
 float __fastcall FUN_0080b8f0(struct LH3DComplexObject* this)
 {
-    float result;
-    asm volatile (
-        "%{disp32%} fld dword ptr [ecx + 0x00000090]"
-        : "=t"(result) : "c"(this) : "memory"
-    );
-    return result;
+    return *(float*)((char*)this + 0x90);
 }
 
 // 0x0080b900: mov eax, 1; ret (+ 10 nops)

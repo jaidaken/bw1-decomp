@@ -94,27 +94,16 @@ bool32_t __fastcall HousewifeLookForWork__8VillagerFv(struct Villager* this)
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, XOR32rr_REV))
 bool32_t __fastcall HousewifeAtHome__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "test               byte ptr [esi + 0x000000e0], 0x04\n\t"
-        "%{disp8%} je         LAB__addr_0x00761c36\n\t"
-        "call               ?CheckNeededToMakeDinner@Villager@@QAEIXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} jne        LAB__addr_0x00761c28\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x00761c28:\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?CheckNeededForHouseWork@Villager@@QAEIXZ\n\t"
-        "cmp                eax, 0x01\n\t"
-        "%{disp8%} jne        LAB__addr_0x00761c36\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x00761c36:\n\t"
-        "xor.s              eax, eax"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    extern bool32_t __attribute__((thiscall)) __opaque_CheckNeededToMakeDinner(struct Villager*) asm("__thunk_call_CheckNeededToMakeDinner");
+    extern bool32_t __attribute__((thiscall)) __opaque_CheckNeededForHouseWork(struct Villager*) asm("__thunk_call_CheckNeededForHouseWork");
+
+    if (*(uint8_t*)((char*)this + 0xe0) & 0x04) {
+        if (__opaque_CheckNeededToMakeDinner(this) == 1)
+            return 1;
+        if (__opaque_CheckNeededForHouseWork(this) == 1)
+            return 1;
+    }
+    return 0;
 }
 
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, XOR32rr_REV))

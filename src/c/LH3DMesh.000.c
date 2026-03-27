@@ -541,22 +541,14 @@ uint32_t __fastcall GetSizeTnLData__8LH3DMeshFv(struct LH3DMesh* param_1)
     return result;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, no_tail_merge, prefer_test_ah("5:eax"), defer_zero_eax))
 uint32_t __fastcall GetSizeFootprintData_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
-    uint32_t result;
-    asm volatile (
-        "%{disp8%} mov eax, dword ptr [ecx + 0x04]\n\t"
-        "test ah, -0x80\n\t"
-        "%{disp8%} je 0f\n\t"
-        "%{disp8%} mov eax, dword ptr [ecx + 0x48]\n\t"
-        "%{disp8%} mov eax, dword ptr [eax + 0x08]\n\t"
-        "ret\n"
-        "0:\n\t"
-        "xor.s eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    uint32_t flags = *(uint32_t*)((char*)param_1 + 0x04);
+    if (__builtin_expect(flags & 0x8000, 1)) {
+        return *(uint32_t*)(*(char**)((char*)param_1 + 0x48) + 0x08);
+    }
+    return 0;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

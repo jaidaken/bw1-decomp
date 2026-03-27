@@ -96,10 +96,7 @@ void __cdecl globl_ct_0x008189c0(void)
 __attribute__((trailing_asm("nop")))
 void __cdecl jmp_addr_0x008189d0(void)
 {
-    asm volatile (
-        "%{disp32%} mov dword ptr [data_bytes + 0x4e3e70], 0x3f800000\n\t"
-        "%{disp32%} mov dword ptr [data_bytes + 0x4e3e74], 0x00000000\n\t"
-        "%{disp32%} mov dword ptr [data_bytes + 0x4e3e78], 0x00000000"
-        ::: "memory"
-    );
+    *(uint32_t*)(data_bytes + 0x4e3e70) = 0x3f800000;
+    *(uint32_t*)(data_bytes + 0x4e3e74) = 0x00000000;
+    *(uint32_t*)(data_bytes + 0x4e3e78) = 0x00000000;
 }

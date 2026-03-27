@@ -122,40 +122,34 @@ struct Villager* __fastcall FindImmediateNeighbour__8VillagerFv(struct Villager*
     return result;
 }
 
+__attribute__((no_callee_saves, interleave_add_push, no_tail_call))
 bool32_t __fastcall DanceForEditingPurposes__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov       eax, dword ptr [ecx + 0x000000d8]\n\t"
-        "%{disp8%} mov        edx, dword ptr [eax + 0x5c]\n\t"
-        "%{disp8%} mov        eax, dword ptr [eax + 0x18]\n\t"
-        "push               edx\n\t"
-        "push               0x00000099\n\t"
-        "add                eax, 0x14\n\t"
-        "push               eax\n\t"
-        "call               ?PerformDance@Living@@QAEIABUMapCoords@@EK@Z\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    register void* sub asm("eax") = *(void**)((char*)this + 0xd8);
+    asm volatile("" :: "r"(sub));
+    register unsigned long dance_duration asm("edx") = *(unsigned long*)((char*)sub + 0x5c);
+    asm volatile("" :: "r"(dance_duration));
+    register void* ptr asm("eax") = *(void**)((char*)sub + 0x18);
+    asm volatile("" :: "r"(ptr));
+    const struct MapCoords* coords = (const struct MapCoords*)((char*)ptr + 0x14);
+    extern bool32_t __attribute__((thiscall)) __opaque_PerformDance(struct Villager*, const struct MapCoords*, unsigned char, unsigned long) asm("?PerformDance@Living@@QAEIABUMapCoords@@EK@Z");
+    __opaque_PerformDance(this, coords, 0x99, dance_duration);
+    return 1;
 }
 
+__attribute__((no_callee_saves, interleave_add_push, no_tail_call))
 bool32_t __fastcall DanceButNotWorship__8VillagerFv(struct Villager* this)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp32%} mov       eax, dword ptr [ecx + 0x000000d8]\n\t"
-        "%{disp8%} mov        edx, dword ptr [eax + 0x5c]\n\t"
-        "%{disp8%} mov        eax, dword ptr [eax + 0x18]\n\t"
-        "push               edx\n\t"
-        "push               0x000000c1\n\t"
-        "add                eax, 0x14\n\t"
-        "push               eax\n\t"
-        "call               ?PerformDance@Living@@QAEIABUMapCoords@@EK@Z\n\t"
-        "mov                eax, 0x00000001"
-        : "=a"(result) : "c"(this) : "edx", "memory"
-    );
-    return result;
+    register void* sub asm("eax") = *(void**)((char*)this + 0xd8);
+    asm volatile("" :: "r"(sub));
+    register unsigned long dance_duration asm("edx") = *(unsigned long*)((char*)sub + 0x5c);
+    asm volatile("" :: "r"(dance_duration));
+    register void* ptr asm("eax") = *(void**)((char*)sub + 0x18);
+    asm volatile("" :: "r"(ptr));
+    const struct MapCoords* coords = (const struct MapCoords*)((char*)ptr + 0x14);
+    extern bool32_t __attribute__((thiscall)) __opaque_PerformDance(struct Villager*, const struct MapCoords*, unsigned char, unsigned long) asm("?PerformDance@Living@@QAEIABUMapCoords@@EK@Z");
+    __opaque_PerformDance(this, coords, 0xc1, dance_duration);
+    return 1;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

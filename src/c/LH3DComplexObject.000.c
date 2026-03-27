@@ -53,16 +53,10 @@ uint32_t __fastcall FUN_0080b8d0(struct LH3DComplexObject* this)
 }
 
 // 0x0080b8e0: mov eax, [esp+4]; mov [ecx + 0x90], eax; ret 4 (+ 3 nops)
-__attribute__((no_callee_saves, no_ret, trailing_asm("nop\nnop\nnop")))
-void __attribute__((thiscall)) FUN_0080b8e0(struct LH3DComplexObject* this, float value)
+__attribute__((no_callee_saves, trailing_asm("nop\nnop\nnop")))
+void __attribute__((thiscall)) FUN_0080b8e0(struct LH3DComplexObject* this, uint32_t value)
 {
-    asm volatile (
-        "%{disp8%} mov eax, dword ptr [esp + 0x04]\n\t"
-        "%{disp32%} mov dword ptr [ecx + 0x00000090], eax\n\t"
-        "ret 0x0004"
-        :: "c"(this) : "eax", "memory"
-    );
-    __builtin_unreachable();
+    *(uint32_t*)((char*)this + 0x90) = value;
 }
 
 // 0x0080b8f0: fld [ecx + 0x90]; ret (+ 9 nops)

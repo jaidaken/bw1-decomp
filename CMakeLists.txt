@@ -408,8 +408,9 @@ set(SOURCES_001
     src/asm/unprocessed/runblack.reassemble.0869.006dd460-006dd940.asm
     src/asm/unprocessed/runblack.reassemble.0872.006dd940-006ddf60.asm
     src/asm/unprocessed/runblack.reassemble.0875.006ddf60-006de220.asm
+    src/asm/unprocessed/runblack.reassemble.0878a.006de220-006e5650.asm
     src/c/Reward.000.c
-    src/asm/unprocessed/runblack.reassemble.0878.006de220-006f1b20.asm
+    src/asm/unprocessed/runblack.reassemble.0878b.006e5690-006f1b20.asm
     src/asm/unprocessed/runblack.reassemble.0882.006f1b20-006f5210.asm
     src/asm/unprocessed/runblack.reassemble.0887.006f5210-006f6fa0.asm
     src/asm/unprocessed/runblack.reassemble.0892.006f6fa0-006f94a0.asm

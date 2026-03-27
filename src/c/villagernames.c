@@ -2,7 +2,9 @@
 
 char s_Villagernames_cpp[] = "C:\\dev\\MP\\Black\\villagernames.cpp";
 
+__attribute__((opaque_global))
 struct VillagerNameBlock* CurrentVillagerNameBlock;
+__attribute__((opaque_global))
 void* PTR_00db9e28;
 
 __attribute__((no_ret))

@@ -42,10 +42,7 @@ void* __fastcall FUN_0080b8b0(struct LH3DComplexObject* this)
 __attribute__((no_callee_saves, trailing_asm("nop\nnop\nnop\nnop\nnop\nnop\nnop\nnop\nnop")))
 void __fastcall FUN_0080b8c0(struct LH3DComplexObject* this, uint32_t value)
 {
-    asm volatile (
-        "%{disp32%} mov dword ptr [ecx + 0x0000008c], edx"
-        :: "c"(this), "d"(value) : "memory"
-    );
+    *(uint32_t*)((char*)this + 0x8c) = value;
 }
 
 // 0x0080b8d0: mov eax, [ecx + 0x8c]; ret (+ 9 nops)

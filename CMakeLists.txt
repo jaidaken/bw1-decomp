@@ -538,7 +538,9 @@ set(SOURCES_008
     src/asm/unprocessed/runblack.reassemble.1192.007f5450-007f8970.asm
     src/asm/unprocessed/runblack.reassemble.1195.007f8970-0080b870.asm
     src/c/LH3DComplexObject.000.c
-    src/asm/unprocessed/runblack.reassemble.1199.0080b870-0081b370.asm
+    src/asm/unprocessed/runblack.reassemble.1199a.0080b870-008188ff.asm
+    src/c/LH3DTech.000.c
+    src/asm/unprocessed/runblack.reassemble.1199b.008189f0-0081b370.asm
     src/asm/unprocessed/runblack.reassemble.1206.0081b370-0081e1f0.asm
     src/asm/unprocessed/runblack.reassemble.1213.0081e1f0-0082a2c0.asm
     src/asm/unprocessed/runblack.reassemble.1216.0082a2c0-0082bf10.asm

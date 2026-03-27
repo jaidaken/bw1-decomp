@@ -35,9 +35,5 @@ void __cdecl globl_ct_0x0081e340(void)
 
 void __cdecl jmp_addr_0x0081e350(void)
 {
-    asm volatile (
-        "%{disp32%} mov eax, dword ptr [data_bytes + 0x2721dc]\n\t"
-        "%{disp32%} mov dword ptr [data_bytes + 0x4e43c4], eax"
-        ::: "eax", "memory"
-    );
+    *(uint32_t*)(data_bytes + 0x4e43c4) = *(uint32_t*)(data_bytes + 0x2721dc);
 }

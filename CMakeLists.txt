@@ -491,7 +491,9 @@ set(SOURCES_002
     src/asm/unprocessed/rdata.200.asm
     src/asm/unprocessed/rdata.r.200-libcpmt-rtti.asm
     src/asm/unprocessed/xdata.x.001.009bc428-009be430.asm
-    src/asm/unprocessed/runblack.reassemble.1062.007aee98-007bf030.asm # some libcpmt.lib
+    src/asm/unprocessed/runblack.reassemble.1062a.007aee98-007bc650.asm # some libcpmt.lib (part a)
+    src/c/LHOSFile.000.c
+    src/asm/unprocessed/runblack.reassemble.1062b.007bc6a0-007bf030.asm # some libcpmt.lib (part b)
     src/asm/unprocessed/runblack.reassemble.1063.007bf030-007bf210.asm
     src/asm/unprocessed/text.x.002.asm
 )

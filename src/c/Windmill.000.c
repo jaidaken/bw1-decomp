@@ -117,32 +117,16 @@ __attribute__((msvc6_sdtor("??1Abode@@UAE@XZ,??3Base@@SAXPAXK@Z,196,")))
 void __fastcall __dt__8WindmillFv(struct Base* this, const void* edx, uint32_t param_1)
 {}
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_preload_stack_param))
 void __fastcall CallVirtualFunctionsForCreation__8WindmillFRC9MapCoords(struct Object* this, const void* edx, const struct MapCoords* param_1)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "push               eax\n\t"
-        "call               ?CallVirtualFunctionsForCreation@Abode@@UAEXABUMapCoords@@@Z\n\t"
-        "test               byte ptr [esi + 0x0a], 0x01\n\t"
-        "%{disp8%} jne        LAB__addr_0x0040597c\n\t"
-        "push               0x0\n\t"
-        "push               0x1\n\t"
-        "push               0x1\n\t"
-        "push               0x0\n\t"
-        "push               -0x1\n\t"
-        "push               0x2\n\t"
-        "push               0x0\n\t"
-        "push               0xd\n\t"
-        "push               esi\n\t"
-        "call               ?Create@SoundTag@@SAPAV1@PAVGameThingWithPos@@K_NKKHHW4AUDIO_SFX_BANK_TYPE@@H@Z\n\t"
-        "add                esp, 0x24\n"
-        "LAB__addr_0x0040597c:\n\t"
-        "pop                esi"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    extern void __attribute__((thiscall)) __opaque_AbodeCVFC(struct Object*, const struct MapCoords*) asm("?CallVirtualFunctionsForCreation@Abode@@UAEXABUMapCoords@@@Z");
+    extern void* __cdecl __opaque_SoundTagCreate(void*, uint32_t, uint32_t, uint32_t, uint32_t, int, int, int, int) asm("?Create@SoundTag@@SAPAV1@PAVGameThingWithPos@@K_NKKHHW4AUDIO_SFX_BANK_TYPE@@H@Z");
+
+    __opaque_AbodeCVFC(this, param_1);
+    if (!(*(uint8_t*)((char*)this + 0x0a) & 0x01)) {
+        __opaque_SoundTagCreate(this, 0xd, 0, 2, 0xFFFFFFFF, 0, 1, 1, 0);
+    }
 }
 
 const struct RTTICompleteObjectLocator* const p__RTTICompleteObjectLocator__8Windmill = &__RTTICompleteObjectLocator__8Windmill;

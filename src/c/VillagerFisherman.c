@@ -413,40 +413,39 @@ bool32_t __fastcall EnterFishing__8VillagerFUcUc(struct Villager* this, const vo
     return result;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx))
 bool32_t __fastcall ExitFishing__8VillagerFUc(struct Villager* this, const void* edx, unsigned char param_1)
 {
-    bool32_t result;
+    /* Use asm for param load + first vtable call to match MSVC encoding */
+    int first_call_result;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "%{disp8%} mov        ecx, dword ptr [esp + 0x08]\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "and                ecx, 0x000000ff\n\t"
-        "push               ecx\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x96c]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} jne        LAB__addr_0x0075b8cc\n\t"
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x00000118]\n\t"
-        "test               ecx, ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x0075b8c2\n\t"
-        "mov                edx, dword ptr [ecx]\n\t"
-        "call               dword ptr [edx + 0x2c]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x0075b8c2\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [eax + 0x48]\n\t"
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x00000118]\n\t"
-        "push               esi\n\t"
-        "call               _jmp_addr_0x0052d290\n"
-        "LAB__addr_0x0075b8c2:\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x00000118], 0x00000000\n"
-        "LAB__addr_0x0075b8cc:\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "%{disp8%} mov ecx, dword ptr [esp + 0x08]\n\t"
+        "mov eax, dword ptr [esi]\n\t"
+        "and ecx, 0x000000ff\n\t"
+        "push ecx\n\t"
+        "mov.s ecx, esi\n\t"
+        "call dword ptr [eax + 0x96c]"
+        : "=a"(first_call_result) : "S"(this) : "ecx", "edx", "memory"
     );
-    return result;
+    if (__builtin_expect(first_call_result != 0, 0)) goto done;
+    {
+        void* fish_farm = *(void**)((char*)this + 0x118);
+        if (fish_farm) {
+            register void* ff_vt asm("edx") = *(void**)fish_farm;
+            asm volatile ("" :: "r"(ff_vt));
+            typedef uint32_t (__attribute__((thiscall)) *fn_2c_t)(void*);
+            fn_2c_t fn1 = ((fn_2c_t*)ff_vt)[0x2c / 4];
+            if (fn1(fish_farm)) {
+                typedef uint32_t (__attribute__((thiscall)) *fn_48_t)(struct Villager*);
+                fn_48_t fn2 = ((fn_48_t*)(*(void**)this))[0x48 / 4];
+                fn2(this);
+                void* ff2 = *(void**)((char*)this + 0x118);
+                extern void __attribute__((thiscall)) __opaque_RemoveFisherman(void*, struct Villager*) asm("_jmp_addr_0x0052d290");
+                __opaque_RemoveFisherman(ff2, this);
+            }
+        }
+        *(uint32_t*)((char*)this + 0x118) = 0;
+    }
+done:
+    return 1;
 }

@@ -111,7 +111,6 @@
 .extern _jmp_addr_0x00884100
 .extern _jmp_addr_0x00884570
 
-.globl _jmp_addr_0x0081e1f0
 .globl _jmp_addr_0x0081e360
 .globl _jmp_addr_0x0081e590
 .globl _jmp_addr_0x0081e820
@@ -204,8 +203,6 @@
 .globl _jmp_addr_0x00829a30
 .globl _jmp_addr_0x00829b20
 
-.globl _globl_ct_0x0081e320
-.globl _globl_ct_0x0081e340
 .globl _globl_ct_0x0081f9e0
 .globl _globl_ct_0x0081fa00
 .globl _globl_ct_0x0081fa20
@@ -222,153 +219,8 @@
 .globl _globl_ct_0x00829660
 .globl _globl_ct_0x00829d60
 
-start_0x0081e1f0_0x0082a2c0:
-// Snippet: asm, [0x0081e1f0, 0x0082a2ad)
-_jmp_addr_0x0081e1f0:    {disp8} mov        eax, dword ptr [esp + 0x08]                          // 0x0081e1f0    8b442408
-                         mov                ecx, dword ptr [eax]                                 // 0x0081e1f4    8b08
-                         {disp32} mov       dword ptr [data_bytes + 0x4e3e90], ecx               // 0x0081e1f6    890d909eea00
-                         {disp8} mov        edx, dword ptr [eax + 0x04]                          // 0x0081e1fc    8b5004
-                         {disp32} mov       dword ptr [data_bytes + 0x4e3e94], edx               // 0x0081e1ff    8915949eea00
-                         {disp8} mov        eax, dword ptr [eax + 0x08]                          // 0x0081e205    8b4008
-                         push               0x00ec7f58                                           // 0x0081e208    68587fec00
-                         {disp32} mov       dword ptr [data_bytes + 0x4e3e98], eax               // 0x0081e20d    a3989eea00
-                         {disp32} mov       dword ptr [data_bytes + 0x501f94], eax               // 0x0081e212    a3947fec00
-                         {disp32} mov       eax, dword ptr [_Direct3DDevice7]                    // 0x0081e217    a138a6ec00
-                         push               0x0                                                  // 0x0081e21c    6a00
-                         {disp32} mov       dword ptr [data_bytes + 0x501f8c], ecx               // 0x0081e21e    890d8c7fec00
-                         {disp32} mov       dword ptr [data_bytes + 0x501f90], edx               // 0x0081e224    8915907fec00
-                         mov                ecx, dword ptr [eax]                                 // 0x0081e22a    8b08
-                         push               eax                                                  // 0x0081e22c    50
-                         call               dword ptr [ecx + 0x48]                               // 0x0081e22d    ff5148
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e90]                    // 0x0081e230    d905909eea00
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e94]                    // 0x0081e236    d905949eea00
-                         {disp32} mov       edx, dword ptr [data_bytes + 0x4e3e90]               // 0x0081e23c    8b15909eea00
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e98]                    // 0x0081e242    d905989eea00
-                         {disp32} mov       eax, dword ptr [data_bytes + 0x4e3e94]               // 0x0081e248    a1949eea00
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e58]                    // 0x0081e24d    d905589eea00
-                         {disp32} mov       dword ptr [data_bytes + 0x4e3e80], edx               // 0x0081e253    8915809eea00
-                         fmul               st, st(1)                                            // 0x0081e259    d8c9
-                         {disp32} mov       ecx, dword ptr [data_bytes + 0x4e3e98]               // 0x0081e25b    8b0d989eea00
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e4c]                    // 0x0081e261    d9054c9eea00
-                         {disp32} mov       dword ptr [data_bytes + 0x4e3e84], eax               // 0x0081e267    a3849eea00
-                         fmul               st, st(3)                                            // 0x0081e26c    d8cb
-                         {disp8} mov        eax, dword ptr [esp + 0x04]                          // 0x0081e26e    8b442404
-                         {disp32} mov       dword ptr [data_bytes + 0x4e3e88], ecx               // 0x0081e272    890d889eea00
-                         faddp              st(1), st                                            // 0x0081e278    dec1
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e40]                    // 0x0081e27a    d905409eea00
-                         fmul               st, st(4)                                            // 0x0081e280    d8cc
-                         faddp              st(1), st                                            // 0x0081e282    dec1
-                         {disp32} fadd      dword ptr [data_bytes + 0x4e3e64]                    // 0x0081e284    d805649eea00
-                         {disp32} fstp      dword ptr [data_bytes + 0x4e3e80]                    // 0x0081e28a    d91d809eea00
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e5c]                    // 0x0081e290    d9055c9eea00
-                         fmul               st, st(1)                                            // 0x0081e296    d8c9
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e50]                    // 0x0081e298    d905509eea00
-                         fmul               st, st(3)                                            // 0x0081e29e    d8cb
-                         faddp              st(1), st                                            // 0x0081e2a0    dec1
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e44]                    // 0x0081e2a2    d905449eea00
-                         fmul               st, st(4)                                            // 0x0081e2a8    d8cc
-                         faddp              st(1), st                                            // 0x0081e2aa    dec1
-                         {disp32} fadd      dword ptr [data_bytes + 0x4e3e68]                    // 0x0081e2ac    d805689eea00
-                         {disp32} fstp      dword ptr [data_bytes + 0x4e3e84]                    // 0x0081e2b2    d91d849eea00
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e60]                    // 0x0081e2b8    d905609eea00
-                         fmul               st, st(1)                                            // 0x0081e2be    d8c9
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e54]                    // 0x0081e2c0    d905549eea00
-                         fmul               st, st(3)                                            // 0x0081e2c6    d8cb
-                         faddp              st(1), st                                            // 0x0081e2c8    dec1
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e48]                    // 0x0081e2ca    d905489eea00
-                         fmul               st, st(4)                                            // 0x0081e2d0    d8cc
-                         faddp              st(1), st                                            // 0x0081e2d2    dec1
-                         {disp32} fadd      dword ptr [data_bytes + 0x4e3e6c]                    // 0x0081e2d4    d8056c9eea00
-                         {disp32} fstp      dword ptr [data_bytes + 0x4e3e88]                    // 0x0081e2da    d91d889eea00
-                         fstp               st(0)                                                // 0x0081e2e0    ddd8
-                         fstp               st(0)                                                // 0x0081e2e2    ddd8
-                         fstp               st(0)                                                // 0x0081e2e4    ddd8
-                         {disp32} fld       dword ptr [data_bytes + 0x4e3e90]                    // 0x0081e2e6    d905909eea00
-                         fstp               dword ptr [eax]                                      // 0x0081e2ec    d918
-                         {disp32} mov       edx, dword ptr [data_bytes + 0x4e3e94]               // 0x0081e2ee    8b15949eea00
-                         {disp8} mov        dword ptr [eax + 0x04], edx                          // 0x0081e2f4    895004
-                         {disp32} mov       ecx, dword ptr [data_bytes + 0x4e3e98]               // 0x0081e2f7    8b0d989eea00
-                         {disp8} mov        dword ptr [eax + 0x08], ecx                          // 0x0081e2fd    894808
-                         ret                                                                     // 0x0081e300    c3
-                         nop                                                                     // 0x0081e301    90
-                         nop                                                                     // 0x0081e302    90
-                         nop                                                                     // 0x0081e303    90
-                         nop                                                                     // 0x0081e304    90
-                         nop                                                                     // 0x0081e305    90
-                         nop                                                                     // 0x0081e306    90
-                         nop                                                                     // 0x0081e307    90
-                         nop                                                                     // 0x0081e308    90
-                         nop                                                                     // 0x0081e309    90
-                         nop                                                                     // 0x0081e30a    90
-                         nop                                                                     // 0x0081e30b    90
-                         nop                                                                     // 0x0081e30c    90
-                         nop                                                                     // 0x0081e30d    90
-                         nop                                                                     // 0x0081e30e    90
-                         nop                                                                     // 0x0081e30f    90
-                         ret                                                                     // 0x0081e310    c3
-                         nop                                                                     // 0x0081e311    90
-                         nop                                                                     // 0x0081e312    90
-                         nop                                                                     // 0x0081e313    90
-                         nop                                                                     // 0x0081e314    90
-                         nop                                                                     // 0x0081e315    90
-                         nop                                                                     // 0x0081e316    90
-                         nop                                                                     // 0x0081e317    90
-                         nop                                                                     // 0x0081e318    90
-                         nop                                                                     // 0x0081e319    90
-                         nop                                                                     // 0x0081e31a    90
-                         nop                                                                     // 0x0081e31b    90
-                         nop                                                                     // 0x0081e31c    90
-                         nop                                                                     // 0x0081e31d    90
-                         nop                                                                     // 0x0081e31e    90
-                         nop                                                                     // 0x0081e31f    90
-_globl_ct_0x0081e320:    {disp32} jmp       .Lbl_addr_0x0081e330                                 // 0x0081e320    e90b000000
-                         nop                                                                     // 0x0081e325    90
-                         nop                                                                     // 0x0081e326    90
-                         nop                                                                     // 0x0081e327    90
-                         nop                                                                     // 0x0081e328    90
-                         nop                                                                     // 0x0081e329    90
-                         nop                                                                     // 0x0081e32a    90
-                         nop                                                                     // 0x0081e32b    90
-                         nop                                                                     // 0x0081e32c    90
-                         nop                                                                     // 0x0081e32d    90
-                         nop                                                                     // 0x0081e32e    90
-                         nop                                                                     // 0x0081e32f    90
-.Lbl_addr_0x0081e330:    ret                                                                     // 0x0081e330    c3
-                         nop                                                                     // 0x0081e331    90
-                         nop                                                                     // 0x0081e332    90
-                         nop                                                                     // 0x0081e333    90
-                         nop                                                                     // 0x0081e334    90
-                         nop                                                                     // 0x0081e335    90
-                         nop                                                                     // 0x0081e336    90
-                         nop                                                                     // 0x0081e337    90
-                         nop                                                                     // 0x0081e338    90
-                         nop                                                                     // 0x0081e339    90
-                         nop                                                                     // 0x0081e33a    90
-                         nop                                                                     // 0x0081e33b    90
-                         nop                                                                     // 0x0081e33c    90
-                         nop                                                                     // 0x0081e33d    90
-                         nop                                                                     // 0x0081e33e    90
-                         nop                                                                     // 0x0081e33f    90
-_globl_ct_0x0081e340:    {disp32} jmp       .Lbl_addr_0x0081e350                                 // 0x0081e340    e90b000000
-                         nop                                                                     // 0x0081e345    90
-                         nop                                                                     // 0x0081e346    90
-                         nop                                                                     // 0x0081e347    90
-                         nop                                                                     // 0x0081e348    90
-                         nop                                                                     // 0x0081e349    90
-                         nop                                                                     // 0x0081e34a    90
-                         nop                                                                     // 0x0081e34b    90
-                         nop                                                                     // 0x0081e34c    90
-                         nop                                                                     // 0x0081e34d    90
-                         nop                                                                     // 0x0081e34e    90
-                         nop                                                                     // 0x0081e34f    90
-.Lbl_addr_0x0081e350:    {disp32} mov       eax, dword ptr [data_bytes + 0x2721dc]               // 0x0081e350    a1dc81c300
-                         {disp32} mov       dword ptr [data_bytes + 0x4e43c4], eax               // 0x0081e355    a3c4a3ea00
-                         ret                                                                     // 0x0081e35a    c3
-                         nop                                                                     // 0x0081e35b    90
-                         nop                                                                     // 0x0081e35c    90
-                         nop                                                                     // 0x0081e35d    90
-                         nop                                                                     // 0x0081e35e    90
-                         nop                                                                     // 0x0081e35f    90
+start_0x0081e360_0x0082a2c0:
+// Snippet: asm, [0x0081e360, 0x0082a2ad)
 _jmp_addr_0x0081e360:    {disp32} mov       ecx, dword ptr [data_bytes + 0x4f394c]               // 0x0081e360    8b0d4c99eb00
                          cmp                ecx, 0x00000100                                      // 0x0081e366    81f900010000
                          {disp8} jl         .Lbl_addr_0x0081e371                                 // 0x0081e36c    7c03

@@ -362,21 +362,12 @@ bool32_t __fastcall CanActAsAContainer__16GameThingWithPosFP8Creature(struct Gam
     return 0;
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, prefer_neg_sbb, ret_cleanup_override(0x0004)))
 bool32_t __fastcall IsNotOnFire__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    bool32_t result;
-    asm volatile (
-        "%{disp8%} mov edx, dword ptr [esp + 0x04]\n\t"
-        "mov eax, dword ptr [ecx]\n\t"
-        "push edx\n\t"
-        "call dword ptr [eax + 0x298]\n\t"
-        "neg eax\n\t"
-        ".byte 0x1b, 0xc0\n\t"
-        "inc eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef bool32_t (__fastcall *IsOnFireFn)(struct GameThingWithPos*, const void*, struct Creature*);
+    IsOnFireFn fn = ((IsOnFireFn*)(*(void**)this))[0x298 / 4];
+    return fn(this, (const void*)creature, creature) == 0;
 }
 
 __attribute__((XOR32rr_REV))

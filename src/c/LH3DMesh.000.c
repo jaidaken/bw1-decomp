@@ -10,28 +10,26 @@ uint32_t __fastcall GetSizeFootprintData__8LH3DMeshFv(struct LH3DMesh* param_1)
     return 0;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, no_tail_merge, defer_zero_eax))
 uint32_t __fastcall GetSizeUV2Data__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    uint32_t flags = *(uint32_t*)((char*)param_1 + 0x04);
+    if (!(flags & 0x40000)) {
+        return 0;
+    }
     uint32_t result;
     asm volatile (
-        "%{disp8%} mov eax, dword ptr [ecx + 0x04]\n\t"
-        "test eax, 0x00040000\n\t"
-        "%{disp8%} jne 0f\n\t"
-        "xor.s eax, eax\n\t"
-        "ret\n"
-        "0:\n\t"
         "test ah, -0x80\n\t"
-        "%{disp8%} je 1f\n\t"
+        "%{disp8%} je 0f\n\t"
         "%{disp8%} mov eax, dword ptr [ecx + 0x48]\n\t"
         "%{disp8%} mov edx, dword ptr [eax + 0x08]\n\t"
         "add.s eax, edx\n\t"
         "ret\n"
-        "1:\n\t"
+        "0:\n\t"
         "%{disp8%} mov eax, dword ptr [ecx + 0x48]\n\t"
         "xor.s edx, edx\n\t"
         "add.s eax, edx"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        : "=a"(result) : "a"(flags), "c"(param_1) : "edx", "memory"
     );
     return result;
 }

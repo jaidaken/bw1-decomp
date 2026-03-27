@@ -566,29 +566,30 @@ uint32_t __fastcall GetSizeUV2Data_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
     return result;
 }
 
-__attribute__((no_callee_saves, XOR32rr_REV))
+__attribute__((no_callee_saves, XOR32rr_REV, no_tail_merge, defer_zero_eax))
 uint32_t __fastcall GetSizeNameData_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
 {
+    register uint32_t flags asm("edx") = *(uint32_t*)((char*)param_1 + 0x04);
+    if (__builtin_expect(!(flags & 0x80000), 0)) {
+        return 0;
+    }
     uint32_t result;
     asm volatile (
-        "%{disp8%} mov        edx, dword ptr [ecx + 0x04]\n\t"
-        "test               edx, 0x00080000\n\t"
-        "%{disp8%} je         LAB__addr_0x00403c46\n\t"
         "push               esi\n\t"
         "mov.s              esi, edx\n\t"
         "and                esi, 0x00008000\n\t"
         "push               edi\n\t"
-        "%{disp8%} je         LAB__addr_0x00403bff\n\t"
+        "%{disp8%} je         0f\n\t"
         "%{disp8%} mov        eax, dword ptr [ecx + 0x48]\n\t"
         "%{disp8%} mov        edi, dword ptr [eax + 0x08]\n\t"
-        "%{disp8%} jmp        LAB__addr_0x00403c01\n"
-        "LAB__addr_0x00403bff:\n\t"
+        "%{disp8%} jmp        1f\n"
+        "0:\n\t"
         "xor.s              edi, edi\n"
-        "LAB__addr_0x00403c01:\n\t"
+        "1:\n\t"
         "test               edx, 0x00040000\n\t"
-        "%{disp8%} je         LAB__addr_0x00403c38\n\t"
+        "%{disp8%} je         4f\n\t"
         "test               esi, esi\n\t"
-        "%{disp8%} je         LAB__addr_0x00403c23\n\t"
+        "%{disp8%} je         3f\n\t"
         "%{disp8%} mov        eax, dword ptr [ecx + 0x48]\n\t"
         "%{disp8%} mov        edx, dword ptr [eax + 0x08]\n\t"
         "add.s              eax, edx\n\t"
@@ -600,7 +601,7 @@ uint32_t __fastcall GetSizeNameData_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
         "pop                edi\n\t"
         "pop                esi\n\t"
         "ret\n"
-        "LAB__addr_0x00403c23:\n\t"
+        "3:\n\t"
         "%{disp8%} mov        eax, dword ptr [ecx + 0x48]\n\t"
         "xor.s              edx, edx\n\t"
         "add.s              eax, edx\n\t"
@@ -612,18 +613,15 @@ uint32_t __fastcall GetSizeNameData_dup1__8LH3DMeshFv(struct LH3DMesh* param_1)
         "pop                edi\n\t"
         "pop                esi\n\t"
         "ret\n"
-        "LAB__addr_0x00403c38:\n\t"
+        "4:\n\t"
         "%{disp8%} mov        eax, dword ptr [ecx + 0x48]\n\t"
         "xor.s              edx, edx\n\t"
         "add.s              eax, edx\n\t"
         "add.s              eax, edi\n\t"
         "mov                eax, dword ptr [eax]\n\t"
         "pop                edi\n\t"
-        "pop                esi\n\t"
-        "ret\n"
-        "LAB__addr_0x00403c46:\n\t"
-        "xor.s              eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "pop                esi"
+        : "=a"(result) : "d"(flags), "c"(param_1) : "memory"
     );
     return result;
 }

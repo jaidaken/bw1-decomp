@@ -283,18 +283,18 @@ enum ABODE_TYPE __fastcall GetAbodeType_GWorshipSiteInfo(const struct MultiMapFi
 // ====== PlannedMultiMapFixed ======
 
 __attribute__((XOR32rr_REV))
-bool __fastcall IsCivic__20PlannedMultiMapFixedFv(struct GameThingWithPos* this)
+bool __fastcall IsCivic__20PlannedMultiMapFixedFv(struct PlannedMultiMapFixed* this)
 {
     return 0;
 }
 
 __attribute__((XOR32rr_REV))
-uint32_t __fastcall IsWonder__20PlannedMultiMapFixedFv(struct GameThingWithPos* this)
+bool __fastcall IsWonder__20PlannedMultiMapFixedFv(struct GameThingWithPos* this)
 {
     return 0;
 }
 
-enum ABODE_TYPE __fastcall GetAbodeType__20PlannedMultiMapFixedFv(struct MultiMapFixed* this)
+enum ABODE_TYPE __fastcall GetAbodeType__20PlannedMultiMapFixedFv(struct PlannedMultiMapFixed* this)
 {
     return 1;
 }

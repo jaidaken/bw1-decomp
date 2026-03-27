@@ -4,16 +4,14 @@ extern char rdata_bytes[];
 
 // win1.41 007bc650 mac 10164fc0 LHOSFile::LHOSFile(void)
 // Bytes: 8bc1 c7006cf89900 c7400400000000 c3
-__attribute__((no_callee_saves, no_ret))
+__attribute__((no_callee_saves, MOV32rr_REV))
 struct LHOSFile* __fastcall __ct__8LHOSFileFv(struct LHOSFile* this)
 {
-    asm volatile (
-        "mov.s              eax, ecx\n\t"
-        "mov                dword ptr [eax], offset rdata_bytes + 0xf686c\n\t"
-        "%{disp8%} mov      dword ptr [eax + 0x04], 0x00000000\n\t"
-        "ret"
-        ::: "eax", "memory"
-    );
+    register struct LHOSFile* result asm("eax");
+    asm volatile ("" : "=r"(result) : "0"(this));
+    *(uint32_t*)((char*)result + 0x00) = (uint32_t)(rdata_bytes + 0xf686c);
+    *(uint32_t*)((char*)result + 0x04) = 0;
+    return result;
 }
 
 // win1.41 007bc660 mac 10164ef0 LHOSFile::~LHOSFile(bool)

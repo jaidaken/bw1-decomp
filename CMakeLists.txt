@@ -196,6 +196,7 @@ set(SOURCES_001
     src/asm/unprocessed/runblack.reassemble.0105.00444d80-00447850.asm
     src/asm/unprocessed/runblack.reassemble.0110.00447850-00449de0.asm
     src/asm/unprocessed/runblack.reassemble.0113.00449de0-004509f0.asm
+    src/c/Citadel.000.c
     src/asm/unprocessed/runblack.reassemble.0121.004509f0-0046cf80.asm
     src/asm/unprocessed/runblack.reassemble.0125.0046cf80-0046df60.asm
     src/asm/unprocessed/runblack.reassemble.0127.0046df60-0046f170.asm

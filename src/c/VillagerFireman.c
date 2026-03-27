@@ -1536,24 +1536,19 @@ bool32_t __fastcall OnFire__8VillagerFv(struct Villager* this)
     return result;
 }
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))
 bool32_t __fastcall FinishBeingOnFire__8VillagerFv(struct Villager* this)
 {
-    void* dummy;
-    bool32_t result;
     asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
         "%{disp32%} lea       eax, dword ptr [esi + 0x0000010c]\n\t"
         "push               eax\n\t"
         "%{disp32%} lea       ecx, dword ptr [esi + 0x00000080]\n\t"
-        "call               _jmp_addr_0x00603260\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               ?PopFromPrevious@Villager@@QAEXXZ\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi"
-        : "=a"(result), "=c"(dummy) : "c"(this) : "edx", "memory"
+        "call               _jmp_addr_0x00603260"
+        ::: "eax", "ecx", "edx", "memory"
     );
-    return result;
+    extern void __attribute__((thiscall)) __opaque_PopFromPrevious(struct Villager*) asm("?PopFromPrevious@Villager@@QAEXXZ");
+    __opaque_PopFromPrevious(this);
+    return 1;
 }
 
 __attribute__((XOR32rr_REV, no_callee_saves))

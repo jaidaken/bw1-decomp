@@ -198,7 +198,9 @@ set(SOURCES_001
     src/asm/unprocessed/runblack.reassemble.0113.00449de0-004509f0.asm
     src/asm/unprocessed/runblack.reassemble.0121a.004509f0-00462a50.asm
     src/c/Citadel.000.c
-    src/asm/unprocessed/runblack.reassemble.0121b.00462ae0-0046cf80.asm
+    src/asm/unprocessed/runblack.reassemble.0121b1.00462ae0-00469490.asm
+    src/c/CitadelPart.000.c
+    src/asm/unprocessed/runblack.reassemble.0121b2.00469500-0046cf80.asm
     src/asm/unprocessed/runblack.reassemble.0125.0046cf80-0046df60.asm
     src/asm/unprocessed/runblack.reassemble.0127.0046df60-0046f170.asm
     src/asm/unprocessed/runblack.reassemble.0130.0046f170-0046f590.asm
@@ -406,6 +408,7 @@ set(SOURCES_001
     src/asm/unprocessed/runblack.reassemble.0869.006dd460-006dd940.asm
     src/asm/unprocessed/runblack.reassemble.0872.006dd940-006ddf60.asm
     src/asm/unprocessed/runblack.reassemble.0875.006ddf60-006de220.asm
+    src/c/Reward.000.c
     src/asm/unprocessed/runblack.reassemble.0878.006de220-006f1b20.asm
     src/asm/unprocessed/runblack.reassemble.0882.006f1b20-006f5210.asm
     src/asm/unprocessed/runblack.reassemble.0887.006f5210-006f6fa0.asm

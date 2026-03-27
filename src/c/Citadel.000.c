@@ -19,6 +19,30 @@ char* __fastcall GetDebugText__12UR_PlasmaInfFv(struct GameThing* this) asm("?Ge
 uint32_t __fastcall GetSaveType_SpritePos_FireGraphic(struct GameThing* this) asm("?GetSaveType@SpritePos@FireGraphic@@UAEIXZ");
 enum ABODE_TYPE __fastcall GetAbodeType_GWorshipSiteInfo(const struct MultiMapFixed* this) asm("?GetAbodeType@GWorshipSiteInfo@@UBE?AW4ABODE_TYPE@@XZ");
 
+void __fastcall __dt__12GCitadelInfoFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GGCitadelInfo@@UAEPAXI@Z");
+
+void __fastcall __dt__17GCitadelHeartInfoFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GGCitadelHeartInfo@@UAEPAXI@Z");
+
+void __fastcall __dt__8LeashObjFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GLeashObj@@UAEPAXI@Z");
+
+void __fastcall __dt__19PlannedCitadelHeartFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GPlannedCitadelHeart@@UAEPAXI@Z");
+
+void __fastcall __dt__8PSysBaseFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GPSysBase@@UAEPAXI@Z");
+
+void __fastcall __dt__12UR_PlasmaInfFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GUR_PlasmaInf@@UAEPAXI@Z");
+
+void __fastcall __dt__23PlannedTownCitadelHeartFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GPlannedTownCitadelHeart@@UAEPAXI@Z");
+
+void __fastcall __dt__11CitadelPartFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GCitadelPart@@UAEPAXI@Z");
+
+void __fastcall __dt__18PlannedCitadelPartFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GPlannedCitadelPart@@UAEPAXI@Z");
+
+void __fastcall __dt__14GContainerInfoFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GGContainerInfo@@UAEPAXI@Z");
+
+void __fastcall __dt__9ContainerFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GContainer@@UAEPAXI@Z");
+
+void __fastcall __dt__7CitadelFv(struct Base* this, const void* edx, uint32_t param_1) asm("??_GCitadel@@UAEPAXI@Z");
+
 // ====== Citadel getters ======
 
 uint32_t __fastcall GetCreatureBeliefType__7CitadelFv(struct GameThingWithPos* this)

@@ -618,16 +618,16 @@ float __fastcall GetFacingPitch__6ObjectFv(struct Object* this)
 __attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp___ChangeParameters_CImmPeriodic__QAEHKKKJJJKPAUFEELIT_ENVELOPE___Z@4]"), ret_cleanup_override(0x0004)))
 void __fastcall SetHeadPos__6ObjectFP9MapCoords(struct Object* this, const void* edx, struct MapCoords* param_1)
 {
+    register struct MapCoords* dest asm("eax") = param_1;
+    register char* src asm("ecx") = (char*)this + 0x14;
     asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "add                ecx, 0x14\n\t"
-        "mov                edx, dword ptr [ecx]\n\t"
-        "mov                dword ptr [eax], edx\n\t"
-        "%{disp8%} mov        edx, dword ptr [ecx + 0x04]\n\t"
-        "%{disp8%} mov        dword ptr [eax + 0x04], edx\n\t"
-        "%{disp8%} mov        ecx, dword ptr [ecx + 0x08]\n\t"
-        "%{disp8%} mov        dword ptr [eax + 0x08], ecx"
-        ::: "eax", "ecx", "edx", "memory"
+        "mov edx, dword ptr [ecx]\n\t"
+        "mov dword ptr [eax], edx\n\t"
+        "%{disp8%} mov edx, dword ptr [ecx + 0x04]\n\t"
+        "%{disp8%} mov dword ptr [eax + 0x04], edx\n\t"
+        "%{disp8%} mov ecx, dword ptr [ecx + 0x08]\n\t"
+        "%{disp8%} mov dword ptr [eax + 0x08], ecx"
+        : : "a"(dest), "c"(src) : "edx", "memory"
     );
 }
 

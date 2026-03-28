@@ -48,14 +48,10 @@ void __cdecl globl_ct_0x004c4920(void)
     __attribute__((musttail)) return FUN_004c4930__8CreatureFv();
 }
 
+__attribute__((prefer_fmul_mem))
 void __cdecl FUN_004c4930__8CreatureFv(void)
 {
-    asm volatile (
-        "%{disp32%} fld       dword ptr [rdata_bytes + 0x26358]\n\t"
-        "%{disp32%} fmul      dword ptr [rdata_bytes + 0x26354]\n\t"
-        "%{disp32%} fstp      dword ptr [data_bytes + 0x2bc644]"
-        ::: "memory"
-    );
+    *(float*)(data_bytes + 0x2bc644) = *(float*)(rdata_bytes + 0x26358) * *(float*)(rdata_bytes + 0x26354);
 }
 
 // ============================================================================

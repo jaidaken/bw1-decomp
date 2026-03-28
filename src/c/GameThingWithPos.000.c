@@ -630,33 +630,23 @@ bool32_t __fastcall IsRock__16GameThingWithPosFP8Creature(struct GameThingWithPo
     return ((struct GameThingWithPosVftable*)(*(void**)this))->IsRock_0(this);
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((XOR32rr_REV, forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx, prefer_first_load_eax, prevent_setcc_merge, merge_return_blocks, ret_cleanup_override(0x0004)))
 bool32_t __fastcall IsPickupableRock__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "call               dword ptr [eax + 0x1f0]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x00401f8b\n\t"
-        "%{disp8%} mov        eax, dword ptr [esp + 0x08]\n\t"
-        "mov                edx, dword ptr [esi]\n\t"
-        "push               eax\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x258]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x00401f8b\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004\n"
-        "LAB__addr_0x00401f8b:\n\t"
-        "xor.s              eax, eax\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef bool32_t (__attribute__((thiscall)) *VtFn0)(struct GameThingWithPos*);
+    VtFn0 fn1 = ((VtFn0*)(*(void**)this))[0x1f0 / 4];
+    if (!fn1(this))
+        return 0;
+    // Force creature into EAX first, then vtable into EDX
+    register uint32_t cr asm("eax") = (uint32_t)(uintptr_t)creature;
+    asm volatile("" : "+a"(cr));
+    typedef bool32_t (__attribute__((thiscall)) *VtFn1)(struct GameThingWithPos*, struct Creature*);
+    register uint32_t vt asm("edx") = *(uint32_t*)this;
+    asm volatile("" : "+d"(vt));
+    VtFn1 fn2 = ((VtFn1*)(void*)(uintptr_t)vt)[0x258 / 4];
+    if (!fn2(this, (struct Creature*)(uintptr_t)cr))
+        return 0;
+    return 1;
 }
 
 __attribute__((XOR32rr_REV))

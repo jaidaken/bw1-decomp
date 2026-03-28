@@ -333,8 +333,8 @@ bool32_t __fastcall FarmerDigsUpCrop__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_merge, prefer_push_before_ecx, no_ret))
-void __fastcall FarmerPlantsCrop__8VillagerFv(struct Villager* this)
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_merge, prefer_push_before_ecx))
+bool32_t __fastcall FarmerPlantsCrop__8VillagerFv(struct Villager* this)
 {
     extern bool32_t __attribute__((thiscall)) __opaque_PlantCrop(void*, const void*) asm("?PlantCrop@Field@@QAEIABUMapCoords@@@Z");
     extern bool32_t __attribute__((thiscall)) __opaque_GetPlantCropPos(void*) asm("?GetPlantCropPos@Field@@QAEIXZ");

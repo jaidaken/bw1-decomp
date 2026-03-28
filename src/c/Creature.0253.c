@@ -7,26 +7,19 @@
 
 extern char rdata_bytes[] asm("rdata_bytes");
 extern char data_bytes[] asm("data_bytes");
-extern uint8_t _DAT_00fac934;
+extern uint8_t DAT_00fac934 asm("_DAT_00fac934");
 
 // ============================================================================
 // globl_ct_0x004c48f0: once-guard + atexit registration
 // ============================================================================
 
-__attribute__((no_callee_saves, no_branch_threading, OR32rr_REV))
+__attribute__((no_callee_saves, crt_guard_pattern, TestRev, OR32rr_REV, no_branch_threading, expand_movzx))
 void __cdecl globl_ct_0x004c48f0(void)
 {
     extern void __cdecl __opaque_crt_register(void) asm("_crt_global_destruction_register_0x004c4910");
-    asm volatile (
-        "%{disp32%} mov cl, byte ptr [_DAT_00fac934]\n\t"
-        "mov al, 0x01\n\t"
-        "test al, cl\n\t"
-        "%{disp8%} jne 1f\n\t"
-        "or.s cl, al\n\t"
-        "%{disp32%} mov byte ptr [_DAT_00fac934], cl\n"
-        "1:"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    if (!(DAT_00fac934 & 1)) {
+        DAT_00fac934 |= 1;
+    }
     __attribute__((musttail)) return __opaque_crt_register();
 }
 

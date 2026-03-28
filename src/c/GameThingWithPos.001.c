@@ -1,25 +1,19 @@
 #include "GameThingWithPos.h"
 
 
-__attribute__((no_callee_saves))
+__attribute__((forced_callee_saves("esi"), prefer_base_adjust, delayed_callee_save("esi:after_first_add")))
 struct MapCoords* __fastcall GetArrivePos__16GameThingWithPosFv(struct GameThingWithPos* this, const void* edx, struct MapCoords* param_1)
 {
-    struct MapCoords* result;
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "add                ecx, 0x14\n\t"
-        "push               esi\n\t"
-        "mov                esi, dword ptr [ecx]\n\t"
-        "mov.s              edx, eax\n\t"
-        "mov                dword ptr [edx], esi\n\t"
-        "%{disp8%} mov        esi, dword ptr [ecx + 0x04]\n\t"
-        "%{disp8%} mov        dword ptr [edx + 0x04], esi\n\t"
-        "%{disp8%} mov        ecx, dword ptr [ecx + 0x08]\n\t"
-        "%{disp8%} mov        dword ptr [edx + 0x08], ecx\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    register uint32_t tmp asm("esi");
+    register struct MapCoords* out asm("edx");
+    tmp = *(uint32_t*)((char*)this + 0x14);
+    asm volatile("mov.s %0, %1" : "=d"(out) : "a"(param_1) : "memory");
+    *(uint32_t*)((char*)out + 0x00) = tmp;
+    tmp = *(uint32_t*)((char*)this + 0x18);
+    asm volatile("" :: "S"(tmp));
+    *(uint32_t*)((char*)out + 0x04) = tmp;
+    *(uint32_t*)((char*)out + 0x08) = *(uint32_t*)((char*)this + 0x1c);
+    return param_1;
 }
 
 uint32_t __fastcall GetCreatureBeliefType__16GameThingWithPosFv(struct GameThingWithPos* this)

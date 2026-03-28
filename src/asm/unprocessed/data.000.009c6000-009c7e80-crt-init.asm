@@ -1192,6 +1192,8 @@ _data_bytes:
 .globl _data_var_0x2fefb0
 .set _data_var_0x2ff110, data_bytes + 0x2ff110
 .globl _data_var_0x2ff110
+.set _data_var_0x3003e0, data_bytes + 0x3003e0
+.globl _data_var_0x3003e0
 .set _data_var_0x30a6e8, data_bytes + 0x30a6e8
 .globl _data_var_0x30a6e8
 .set _data_var_0x30ab0c, data_bytes + 0x30ab0c

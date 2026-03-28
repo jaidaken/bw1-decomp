@@ -90,23 +90,20 @@ bool __fastcall IsAnimate__16GameThingWithPosFv(struct GameThingWithPos* this)
     return 0;
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((forced_callee_saves("esi"), prefer_base_adjust, delayed_callee_save("esi:after_first_add"), ret_cleanup_override(0x0004)))
 void __fastcall GetInteractPos__16GameThingWithPosFv(struct GameThingWithPos* this, const void* edx, struct LHPoint* pos)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "add                ecx, 0x14\n\t"
-        "push               esi\n\t"
-        "mov                esi, dword ptr [ecx]\n\t"
-        "mov.s              edx, eax\n\t"
-        "mov                dword ptr [edx], esi\n\t"
-        "%{disp8%} mov        esi, dword ptr [ecx + 0x04]\n\t"
-        "%{disp8%} mov        dword ptr [edx + 0x04], esi\n\t"
-        "%{disp8%} mov        ecx, dword ptr [ecx + 0x08]\n\t"
-        "%{disp8%} mov        dword ptr [edx + 0x08], ecx\n\t"
-        "pop                esi"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    register uint32_t tmp asm("esi");
+    register struct LHPoint* out asm("edx");
+    tmp = *(uint32_t*)((char*)this + 0x14);
+    asm volatile("mov.s %0, %1" : "=d"(out) : "a"(pos) : "memory");
+    *(uint32_t*)((char*)out + 0x00) = tmp;
+    tmp = *(uint32_t*)((char*)this + 0x18);
+    asm volatile("" :: "S"(tmp));
+    *(uint32_t*)((char*)out + 0x04) = tmp;
+    uint32_t last = *(uint32_t*)((char*)this + 0x1c);
+    asm volatile("" : "=c"(last) : "0"(last));
+    *(uint32_t*)((char*)out + 0x08) = last;
 }
 
 __attribute__((expand_movzx))

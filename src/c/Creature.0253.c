@@ -13,21 +13,21 @@ extern uint8_t _DAT_00fac934;
 // globl_ct_0x004c48f0: once-guard + atexit registration
 // ============================================================================
 
-__attribute__((no_ret))
+__attribute__((no_callee_saves, no_branch_threading, OR32rr_REV))
 void __cdecl globl_ct_0x004c48f0(void)
 {
+    extern void __cdecl __opaque_crt_register(void) asm("_crt_global_destruction_register_0x004c4910");
     asm volatile (
         "%{disp32%} mov cl, byte ptr [_DAT_00fac934]\n\t"
         "mov al, 0x01\n\t"
         "test al, cl\n\t"
-        "%{disp8%} jne LAB__addr_0x004c4904\n\t"
+        "%{disp8%} jne 1f\n\t"
         "or.s cl, al\n\t"
         "%{disp32%} mov byte ptr [_DAT_00fac934], cl\n"
-        "LAB__addr_0x004c4904:\n\t"
-        "%{disp32%} jmp _crt_global_destruction_register_0x004c4910"
+        "1:"
         ::: "eax", "ecx", "edx", "memory"
     );
-    __builtin_unreachable();
+    __attribute__((musttail)) return __opaque_crt_register();
 }
 
 __attribute__((prefer_pop_cleanup))

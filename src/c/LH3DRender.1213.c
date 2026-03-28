@@ -17,9 +17,9 @@ void __cdecl globl_ct_0x0081e320(void)
     __attribute__((musttail)) return jmp_addr_0x0081e330();
 }
 
+__attribute__((optnone))
 void __cdecl jmp_addr_0x0081e330(void)
 {
-    asm volatile ("" ::: "memory");
 }
 
 // ============================================================================

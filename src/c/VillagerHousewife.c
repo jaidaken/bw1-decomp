@@ -1023,18 +1023,20 @@ bool32_t __fastcall WillHousewifeGetPregnant__8VillagerFP8Villager(struct Villag
     return result;
 }
 
-__attribute__((no_callee_saves))
 bool32_t __fastcall HousewifeGetsPregnant__8VillagerFP8Villager(struct Villager* this, const void* edx, struct Villager* param_1)
 {
-    extern bool32_t __fastcall __opaque_GoHome(struct Villager*) asm("?GoHome@Villager@@QAEIXZ");
-    void* info = *(void**)((char*)this + 0x28);
-    int16_t val = *(int16_t*)((char*)info + 0x240);
-    uint8_t flags = *(uint8_t*)((char*)this + 0xe0);
-    *(int16_t*)((char*)this + 0xf8) = val;
-    if (__builtin_expect(!(flags & 0x04), 1)) {
-        return __opaque_GoHome(this);
-    }
-    return (bool32_t)(uint32_t)(uintptr_t)info;
+    bool32_t result;
+    asm volatile (
+        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
+        "%{disp32%} mov       dx, word ptr [eax + 0x00000240]\n\t"
+        "test               byte ptr [ecx + 0x000000e0], 0x04\n\t"
+        "%{disp32%} mov       word ptr [ecx + 0x000000f8], dx\n\t"
+        "%{disp8%} jne        LAB__addr_0x0076258f\n\t"
+        "call               ?GoHome@Villager@@QAEIXZ\n\t"
+        "LAB__addr_0x0076258f:"
+        : "=a"(result) : "c"(this) : "edx", "memory"
+    );
+    return result;
 }
 
 __attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV))

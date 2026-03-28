@@ -333,51 +333,48 @@ bool32_t __fastcall FarmerDigsUpCrop__8VillagerFv(struct Villager* this)
     return result;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, no_tail_merge, prefer_push_before_ecx))
+__attribute__((no_callee_saves))
 bool32_t __fastcall FarmerPlantsCrop__8VillagerFv(struct Villager* this)
 {
-    extern bool32_t __attribute__((thiscall)) __opaque_PlantCrop(void*, const void*) asm("?PlantCrop@Field@@QAEIABUMapCoords@@@Z");
-    extern bool32_t __attribute__((thiscall)) __opaque_GetPlantCropPos(void*) asm("?GetPlantCropPos@Field@@QAEIXZ");
-    void* field = *(void**)((char*)this + 0x118);
-    void* pos = (void*)((char*)this + 0x14);
-    bool32_t plant_result = __opaque_PlantCrop(field, pos);
-    asm volatile(
-        "test eax, eax\n\t"
-        "%{disp8%} je LAB__FPC_path3"
-        :: "a"(plant_result), "S"(this) : "memory"
+    bool32_t result;
+    asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "%{disp32%} mov       ecx, dword ptr [esi + 0x00000118]\n\t"
+        "%{disp8%} lea        eax, dword ptr [esi + 0x14]\n\t"
+        "push               eax\n\t"
+        "call               ?PlantCrop@Field@@QAEIABUMapCoords@@@Z\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00759f0e\n\t"
+        "%{disp32%} mov       ecx, dword ptr [esi + 0x00000118]\n\t"
+        "call               ?GetPlantCropPos@Field@@QAEIXZ\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00759ef8\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               0x43\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x8e8]\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "ret\n"
+        "LAB__addr_0x00759ef8:\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "push               0x000000a3\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [eax + 0x8e8]\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi\n\t"
+        "ret\n"
+        "LAB__addr_0x00759f0e:\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "push               0x000000a3\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x8e8]\n\t"
+        "mov                eax, 0x00000001\n\t"
+        "pop                esi"
+        : "=a"(result) :: "ecx", "edx", "memory"
     );
-    {
-        void* field2 = *(void**)((char*)this + 0x118);
-        bool32_t crop_pos = __opaque_GetPlantCropPos(field2);
-        asm volatile(
-            "test eax, eax\n\t"
-            "%{disp8%} je 0f\n\t"
-            "mov edx, dword ptr [esi]\n\t"
-            "push 0x43\n\t"
-            "mov.s ecx, esi\n\t"
-            "call dword ptr [edx + 0x8e8]\n\t"
-            "mov eax, 0x00000001\n\t"
-            "pop esi\n\t"
-            "ret\n"
-            "0:\n\t"
-            "mov eax, dword ptr [esi]\n\t"
-            "push 0x000000a3\n\t"
-            "mov.s ecx, esi\n\t"
-            "call dword ptr [eax + 0x8e8]\n\t"
-            "mov eax, 0x00000001\n\t"
-            "pop esi\n\t"
-            "ret\n"
-            "LAB__FPC_path3:\n\t"
-            "mov edx, dword ptr [esi]\n\t"
-            "push 0x000000a3\n\t"
-            "mov.s ecx, esi\n\t"
-            "call dword ptr [edx + 0x8e8]\n\t"
-            "mov eax, 0x00000001\n\t"
-            "pop esi"
-            :: "a"(crop_pos), "S"(this) : "ecx", "edx", "memory"
-        );
-    }
-    __builtin_unreachable();
+    return result;
 }
 
 __attribute__((no_callee_saves, XOR32rr_REV))

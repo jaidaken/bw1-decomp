@@ -5,8 +5,8 @@
 #include "Creature.h"
 #include <stdint.h>
 
-extern char rdata_bytes[];
-extern char data_bytes[];
+extern char rdata_bytes[] asm("rdata_bytes");
+extern char data_bytes[] asm("data_bytes");
 extern uint8_t _DAT_00fac934;
 
 // ============================================================================
@@ -72,8 +72,5 @@ void __cdecl globl_ct_0x004c4950(void)
 __attribute__((trailing_asm("call ?GetVillagerActivityDesire@GameThing@@QAEMPAVVillager@@@Z + 9")))
 void __cdecl FUN_004c4960__8CreatureFv(void)
 {
-    asm volatile (
-        "%{disp32%} mov       dword ptr [data_bytes + 0x2bc640], 0xffffffff"
-        ::: "memory"
-    );
+    *(uint32_t*)(data_bytes + 0x2bc640) = 0xffffffff;
 }

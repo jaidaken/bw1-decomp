@@ -104,39 +104,39 @@ void __fastcall SetToZero__5AbodeFv(struct Abode* this)
     *(uint8_t*)((char*)this + 0xb9) = (uint8_t)zero;
 }
 
-__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, prefer_push_before_ecx, no_tail_call))
 void __fastcall Delete__5AbodeFv(struct Base* this)
 {
-    typedef void (__attribute__((thiscall)) *vt_void_t)(struct Base*);
-    ((vt_void_t*)(*(void**)this))[0x910 / 4](this);
-
-    typedef void* (__attribute__((thiscall)) *vt_ptr_t)(struct Base*);
-    register void** edx_vt asm("edx") = *(void***)this;
-    asm volatile("" :: "r"(edx_vt));
-    void* result = ((vt_ptr_t*)edx_vt)[0x48 / 4](this);
-
-    if (result) {
-        extern char* __opaque_game asm("_game");
-        uint32_t field_14 = *(uint32_t*)(__opaque_game + 0x14);
-        asm volatile (
-            "test ch, -0x80\n\t"
-            "%{disp8%} jne 1f\n\t"
-            "mov edx, dword ptr [esi]\n\t"
-            "mov.s ecx, esi\n\t"
-            "call dword ptr [edx + 0x90c]\n"
-            "1:\n\t"
-            "mov eax, dword ptr [esi]\n\t"
-            "push esi\n\t"
-            "mov.s ecx, esi\n\t"
-            "call dword ptr [eax + 0x48]\n\t"
-            "mov.s ecx, eax\n\t"
-            "call _jmp_addr_0x00739a60"
-            :: "c"(field_14) : "eax", "edx", "memory"
-        );
-    }
-
-    extern void __attribute__((thiscall)) __opaque_ObjectDelete(struct Base*) asm("?Delete@Object@@UAEXH@Z");
-    __opaque_ObjectDelete(this);
+    void* dummy;
+    asm volatile (
+        "push               esi\n\t"
+        "mov.s              esi, ecx\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "call               dword ptr [eax + 0x910]\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x48]\n\t"
+        "test               eax, eax\n\t"
+        "%{disp8%} je         LAB__addr_0x00402c4c\n\t"
+        "%{disp32%} mov       eax, dword ptr [_game]\n\t"
+        "%{disp8%} mov        ecx, dword ptr [eax + 0x14]\n\t"
+        "test               ch, -0x80\n\t"
+        "%{disp8%} jne        LAB__addr_0x00402c3d\n\t"
+        "mov                edx, dword ptr [esi]\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [edx + 0x90c]\n\t"
+        "LAB__addr_0x00402c3d:\n\t"
+        "mov                eax, dword ptr [esi]\n\t"
+        "push               esi\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               dword ptr [eax + 0x48]\n\t"
+        "mov.s              ecx, eax\n\t"
+        "call               _jmp_addr_0x00739a60\n\t"
+        "LAB__addr_0x00402c4c:\n\t"
+        "mov.s              ecx, esi\n\t"
+        "call               ?Delete@Object@@UAEXH@Z\n\t"
+        "pop                esi"
+        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
+    );
 }
 
 __attribute__((no_callee_saves))

@@ -534,19 +534,19 @@ bool32_t __fastcall CanBePoodOn__6ObjectFP8Creature(struct GameThingWithPos* thi
 __attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
 bool32_t __fastcall CanBeAttackedByCreature__6ObjectFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
+    void* info = *(void**)((char*)this + 0x28);
+    register uint32_t attack asm("edx") = *(uint32_t*)((char*)info + 0xc4);
     bool32_t result;
     asm volatile (
-        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
-        "%{disp32%} mov       edx, dword ptr [eax + 0x000000c4]\n\t"
-        "test               edx, edx\n\t"
-        "%{disp8%} je         LAB__addr_0x00402a5b\n\t"
-        "cmp                dword ptr [esp + 0x04], ecx\n\t"
-        "%{disp8%} je         LAB__addr_0x00402a5b\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "ret                0x0004\n"
-        "LAB__addr_0x00402a5b:\n\t"
-        "xor.s              eax, eax"
-        : "=a"(result) :: "ecx", "edx", "memory"
+        "test edx, edx\n\t"
+        "%{disp8%} je 0f\n\t"
+        "cmp dword ptr [esp + 0x04], ecx\n\t"
+        "%{disp8%} je 0f\n\t"
+        "mov eax, 0x00000001\n\t"
+        "ret 0x0004\n"
+        "0:\n\t"
+        "xor.s eax, eax"
+        : "=a"(result) : "c"(this), "d"(attack) : "memory"
     );
     return result;
 }

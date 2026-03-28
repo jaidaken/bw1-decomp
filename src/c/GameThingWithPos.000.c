@@ -28,20 +28,12 @@ const struct RTTIBaseClassDescriptor __RTTIBaseClassDescriptor__16GameThingWithP
     .attributes = 0x0000000,
 };
 
-__attribute__((no_callee_saves, trailing_asm("call               dword ptr [__imp__BinkCopyToBuffer@28]"), ret_cleanup_override(0x0004)))
+__attribute__((no_callee_saves, prefer_base_adjust, trailing_asm("call               dword ptr [__imp__BinkCopyToBuffer@28]"), ret_cleanup_override(0x0004)))
 void __fastcall SetPos__16GameThingWithPosFRC9MapCoords(struct GameThingWithPos* this, const void* edx, const struct MapCoords* param_2)
 {
-    asm volatile (
-        "%{disp8%} mov        eax, dword ptr [esp + 0x04]\n\t"
-        "mov                edx, dword ptr [eax]\n\t"
-        "add                ecx, 0x14\n\t"
-        "mov                dword ptr [ecx], edx\n\t"
-        "%{disp8%} mov        edx, dword ptr [eax + 0x04]\n\t"
-        "%{disp8%} mov        dword ptr [ecx + 0x04], edx\n\t"
-        "%{disp8%} mov        eax, dword ptr [eax + 0x08]\n\t"
-        "%{disp8%} mov        dword ptr [ecx + 0x08], eax"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    *(uint32_t*)((char*)this + 0x14) = *(uint32_t*)((char*)param_2 + 0x00);
+    *(uint32_t*)((char*)this + 0x18) = *(uint32_t*)((char*)param_2 + 0x04);
+    *(uint32_t*)((char*)this + 0x1c) = *(uint32_t*)((char*)param_2 + 0x08);
 }
 
 __attribute__((no_callee_saves, ret_cleanup_override(0x0004)))

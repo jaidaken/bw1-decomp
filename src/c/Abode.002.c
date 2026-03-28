@@ -53,36 +53,27 @@ const struct RTTICompleteObjectLocator __RTTICompleteObjectLocator__5Abode = {
   .pClassDescriptor = &__RTTIClassHierarchyDescriptor__5Abode,
 };
 
+__attribute__((forced_callee_saves("esi"), force_this_esi, MOV32rr_REV, interleave_push_before_branch, no_tail_call))
 void __fastcall __dt__5AbodeFv(struct Abode* this)
 {
-    void* dummy;
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "%{disp32%} mov       ecx, dword ptr [esi + 0x0000008c]\n\t"
-        "test               ecx, ecx\n\t"
-        "push               edi\n\t"
-        "mov                dword ptr [esi], 0x008a9a64\n\t"
-        "%{disp8%} je         LAB__addr_0x00402b83\n\t"
-        "call               ?Release@LH3DSmoke@@QAEXXZ\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x0000008c], 0x00000000\n\t"
-        "LAB__addr_0x00402b83:\n\t"
-        "%{disp32%} mov       edi, dword ptr [esi + 0x00000090]\n\t"
-        "test               edi, edi\n\t"
-        "%{disp8%} je         LAB__addr_0x00402ba7\n\t"
-        "mov.s              ecx, edi\n\t"
-        "call               ??1FragMesh@@QAE@XZ\n\t"
-        "push               edi\n\t"
-        "call                ??3@YAXPAX@Z\n\t"
-        "add                esp, 0x04\n\t"
-        "%{disp32%} mov       dword ptr [esi + 0x00000090], 0x00000000\n\t"
-        "LAB__addr_0x00402ba7:\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               _jmp_addr_0x0052e280\n\t"
-        "pop                edi\n\t"
-        "pop                esi"
-        : "=c"(dummy) : "c"(this) : "eax", "edx", "memory"
-    );
+    void* smoke = *(void**)((char*)this + 0x8c);
+    *(uint32_t*)this = 0x008a9a64;
+    if (smoke) {
+        extern void __attribute__((thiscall)) __opaque_Release_LH3DSmoke(void*) asm("?Release@LH3DSmoke@@QAEXXZ");
+        __opaque_Release_LH3DSmoke(smoke);
+        *(uint32_t*)((char*)this + 0x8c) = 0;
+    }
+    register void* frag asm("edi") = *(void**)((char*)this + 0x90);
+    asm volatile("" :: "r"(frag));
+    if (frag) {
+        extern void __attribute__((thiscall)) __opaque_dtor_FragMesh(void*) asm("??1FragMesh@@QAE@XZ");
+        __opaque_dtor_FragMesh(frag);
+        extern void __cdecl __opaque_operator_delete(void*) asm("??3@YAXPAX@Z");
+        __opaque_operator_delete(frag);
+        *(uint32_t*)((char*)this + 0x90) = 0;
+    }
+    extern void __attribute__((thiscall)) __opaque_base_dtor(struct Abode*) asm("_jmp_addr_0x0052e280");
+    __opaque_base_dtor(this);
 }
 
 __attribute__((XOR32rr_REV, store_order("0xb6,0xb4,0xb7,0x94,0xbc,0xc0,0x8c,0x90,0x7c,0xb0,0xb5,0xb9")))

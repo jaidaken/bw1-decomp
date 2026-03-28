@@ -1023,20 +1023,18 @@ bool32_t __fastcall WillHousewifeGetPregnant__8VillagerFP8Villager(struct Villag
     return result;
 }
 
-__attribute__((no_callee_saves, suppress_movzwl))
-bool32_t __fastcall HousewifeGetsPregnant__8VillagerFP8Villager(struct Villager* this, const void* edx_arg, struct Villager* param_1)
+bool32_t __fastcall HousewifeGetsPregnant__8VillagerFP8Villager(struct Villager* this, const void* edx, struct Villager* param_1)
 {
-    const void* info = *(const void**)((char*)this + 0x28);
-    register int16_t val asm("edx");
-    val = *(int16_t*)((char*)info + 0x240);
     bool32_t result;
     asm volatile (
-        "test byte ptr [ecx + 0x000000e0], 0x04\n\t"
-        "%{disp32%} mov word ptr [ecx + 0x000000f8], dx\n\t"
-        "%{disp8%} jne 1f\n\t"
-        "call ?GoHome@Villager@@QAEIXZ\n"
-        "1:"
-        : "=a"(result) : "a"(info), "c"(this), "d"(val) : "memory"
+        "%{disp8%} mov        eax, dword ptr [ecx + 0x28]\n\t"
+        "%{disp32%} mov       dx, word ptr [eax + 0x00000240]\n\t"
+        "test               byte ptr [ecx + 0x000000e0], 0x04\n\t"
+        "%{disp32%} mov       word ptr [ecx + 0x000000f8], dx\n\t"
+        "%{disp8%} jne        LAB__addr_0x0076258f\n\t"
+        "call               ?GoHome@Villager@@QAEIXZ\n\t"
+        "LAB__addr_0x0076258f:"
+        : "=a"(result) : "c"(this) : "edx", "memory"
     );
     return result;
 }

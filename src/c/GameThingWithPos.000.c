@@ -911,21 +911,18 @@ bool32_t __fastcall IsReadyForNewScriptAction__16GameThingWithPosFv(struct GameT
     return 0;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((XOR32rr_REV, no_callee_saves, expand_movzx, prefer_byte_param_load("4"), ret_cleanup_override(0x0004)))
 void __fastcall SetControlledByScript__16GameThingWithPosFi(struct GameThingWithPos* this, const void* edx, int32_t param_1)
 {
-    asm volatile (
-        "xor.s              eax, eax\n\t"
-        "%{disp8%} mov        al, byte ptr [esp + 0x04]\n\t"
-        "xor.s              edx, edx\n\t"
-        "%{disp8%} mov        dx, word ptr [ecx + 0x24]\n\t"
-        "and                eax, 0x01\n\t"
-        "shl                eax, 0xa\n\t"
-        "and                edx, 0x0000fbff\n\t"
-        "or.s               eax, edx\n\t"
-        "%{disp8%} mov        word ptr [ecx + 0x24], ax"
-        ::: "eax", "ecx", "edx", "memory"
-    );
+    register uint32_t bit asm("eax") = (uint32_t)param_1;
+    register uint32_t flags asm("edx") = *(uint16_t*)((char*)this + 0x24);
+    asm volatile(
+        "and %0, 0x01\n\t"
+        "shl %0, 0x0a\n\t"
+        "and %1, 0x0000fbff\n\t"
+        "or.s %0, %1"
+        : "+a"(bit), "+d"(flags));
+    *(uint16_t*)((char*)this + 0x24) = (uint16_t)bit;
 }
 
 __attribute__((XOR32rr_REV))

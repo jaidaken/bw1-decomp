@@ -198,3 +198,24 @@ void sdtor_SetupStaticTextNoHit(void) {}
 void sdtor_SetupMP3Button(void) __asm__("??_GSetupMP3Button@@UAEPAXI@Z");
 __attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
 void sdtor_SetupMP3Button(void) {}
+
+// --- misc sdtors from staging 0073 ---
+void sdtor_GArena(void) __asm__("??_GGArena@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("_jmp_addr_0x0056fa80,??3Base@@SAXPAXK@Z,76,")))
+void sdtor_GArena(void) {}
+
+void sdtor_ArenaSpellIcon(void) __asm__("??_GArenaSpellIcon@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor(".Lbl_addr_0x00425410,??3Base@@SAXPAXK@Z,116,")))
+void sdtor_ArenaSpellIcon(void) {}
+
+void sdtor_GArrowInfo(void) __asm__("??_GGArrowInfo@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("_jmp_addr_0x00436960,??3Base@@SAXPAXK@Z,304,")))
+void sdtor_GArrowInfo(void) {}
+
+void sdtor_Arrow(void) __asm__("??_GArrow@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("_jmp_addr_0x00606ed0,??3Base@@SAXPAXK@Z,108,")))
+void sdtor_Arrow(void) {}
+
+void sdtor_TownArtifact(void) __asm__("??_GTownArtifact@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("_jmp_addr_0x0056fa80,??3Base@@SAXPAXK@Z,64,")))
+void sdtor_TownArtifact(void) {}

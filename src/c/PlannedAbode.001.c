@@ -66,22 +66,6 @@ char* __fastcall GetDebugText__12PlannedAbodeFv(struct GameThing* this)
     return debug_text_PlannedAbode;
 }
 
-__attribute__((no_callee_saves))
+__attribute__((msvc6_sdtor("_jmp_addr_0x0056fa80,??3Base@@SAXPAXK@Z,76,")))
 void __fastcall __dt__12PlannedAbodeFUi(struct Base* this, const void* edx, uint32_t param_1)
-{
-    asm volatile (
-        "push esi\n\t"
-        "mov.s esi, ecx\n\t"
-        "call _jmp_addr_0x0056fa80\n\t"
-        "test byte ptr [esp + 0x08], 0x01\n\t"
-        "%{disp8%} je 0f\n\t"
-        "push 0x4c\n\t"
-        "push esi\n\t"
-        "call ??3Base@@SAXPAXK@Z\n\t"
-        "add esp, 0x08\n"
-        "0:\n\t"
-        "mov.s eax, esi\n\t"
-        "pop esi"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-}
+{}

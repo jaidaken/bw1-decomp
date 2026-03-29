@@ -476,11 +476,10 @@ void __fastcall Init__10EndGameBoxFUlUlPFiP8SetupBoxP12SetupControlii_v(struct D
 __attribute__((no_callee_saves))
 void __fastcall Destroy__10EndGameBoxFv(struct DialogBoxBase* this)
 {
-    asm volatile (
-        "call              ?Destroy@DialogBoxBase@@UAEXXZ\n\t"
-        "%{disp32%} mov      dword ptr [data_bytes + 0x34006c], 0x00000000"
-        :: "c"(this) : "eax", "edx", "memory"
-    );
+    extern void __attribute__((thiscall)) __opaque_DialogBoxBase_Destroy(struct DialogBoxBase*) asm("?Destroy@DialogBoxBase@@UAEXXZ");
+    __opaque_DialogBoxBase_Destroy(this);
+    extern char data_bytes[] asm("data_bytes");
+    *(uint32_t*)(data_bytes + 0x34006c) = 0;
 }
 
 __attribute__((no_callee_saves, trailing_asm(".byte 0x90\n.byte 0x6a, 0xe7, 0x56, 0x00\n.byte 0xf4, 0xe7, 0x56, 0x00\n.byte 0xc9, 0xe7, 0x56, 0x00\n.byte 0xf4, 0xe7, 0x56, 0x00\n.byte 0x90, 0x90, 0x90, 0x90")))

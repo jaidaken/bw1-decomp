@@ -219,3 +219,48 @@ void sdtor_Arrow(void) {}
 void sdtor_TownArtifact(void) __asm__("??_GTownArtifact@@UAEPAXI@Z");
 __attribute__((msvc6_sdtor("_jmp_addr_0x0056fa80,??3Base@@SAXPAXK@Z,64,")))
 void sdtor_TownArtifact(void) {}
+
+// --- manual sdtors (original 11, all with vtable write) ---
+void sdtor_Feature(void) __asm__("??_GFeature@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1Feature@@UAE@XZ,??3Base@@SAXPAXK@Z,124,??_7Feature@@6B@")))
+void sdtor_Feature(void) {}
+
+void sdtor_CitadelBuildingSite(void) __asm__("??_GCitadelBuildingSite@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1CitadelBuildingSite@@UAE@XZ,??3Base@@SAXPAXK@Z,1628,??_7CitadelBuildingSite@@6B@")))
+void sdtor_CitadelBuildingSite(void) {}
+
+void sdtor_Mobile(void) __asm__("??_GMobile@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1Mobile@@UAE@XZ,??3Base@@SAXPAXK@Z,88,??_7Mobile@@6B@")))
+void sdtor_Mobile(void) {}
+
+void sdtor_Flowers(void) __asm__("??_GFlowers@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1Flowers@@UAE@XZ,??3Base@@SAXPAXK@Z,124,??_7Flowers@@6B@")))
+void sdtor_Flowers(void) {}
+
+void sdtor_Furniture(void) __asm__("??_GFurniture@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1Furniture@@UAE@XZ,??3Base@@SAXPAXK@Z,84,??_7Furniture@@6B@")))
+void sdtor_Furniture(void) {}
+
+void sdtor_GestureSystem(void) __asm__("??_GGestureSystem@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1GestureSystem@@UAE@XZ,??3Base@@SAXPAXK@Z,3224,??_7GestureSystem@@6B@")))
+void sdtor_GestureSystem(void) {}
+
+void sdtor_PSysInterface(void) __asm__("??_GPSysInterface@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1PSysInterface@@UAE@XZ,??3Base@@SAXPAXK@Z,20,??_7PSysInterface@@6B@")))
+void sdtor_PSysInterface(void) {}
+
+void sdtor_Particle3DPnt(void) __asm__("??_GParticle3DPnt@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1Particle3DPnt@@UAE@XZ,??3Base@@SAXPAXK@Z,24,??_7Particle3DPnt@@6B@")))
+void sdtor_Particle3DPnt(void) {}
+
+void sdtor_ParticleChainJoint(void) __asm__("??_GParticleChainJoint@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1ParticleChainJoint@@UAE@XZ,??3Base@@SAXPAXK@Z,40,??_7ParticleChainJoint@@6B@")))
+void sdtor_ParticleChainJoint(void) {}
+
+void sdtor_TownStats(void) __asm__("??_GTownStats@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1TownStats@@UAE@XZ,??3Base@@SAXPAXK@Z,280,??_7TownStats@@6B@")))
+void sdtor_TownStats(void) {}
+
+void sdtor_WorshipSiteUpgrade(void) __asm__("??_GWorshipSiteUpgrade@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1WorshipSiteUpgrade@@UAE@XZ,??3Base@@SAXPAXK@Z,132,??_7WorshipSiteUpgrade@@6B@")))
+void sdtor_WorshipSiteUpgrade(void) {}

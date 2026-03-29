@@ -133,3 +133,68 @@ void sdtor_GAnimatedStaticInfo(void) {}
 void sdtor_AnimatedStatic(void) __asm__("??_GAnimatedStatic@@UAEPAXI@Z");
 __attribute__((msvc6_sdtor("_jmp_addr_0x00422e30,??3Base@@SAXPAXK@Z,152,")))
 void sdtor_AnimatedStatic(void) {}
+
+// --- Setup* classes: 1-arg delete, all share SetupControl dtor ---
+void sdtor_SetupControl(void) __asm__("??_GSetupControl@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupControl(void) {}
+
+void sdtor_SetupButton(void) __asm__("??_GSetupButton@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupButton(void) {}
+
+void sdtor_SetupSlider(void) __asm__("??_GSetupSlider@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupSlider(void) {}
+
+void sdtor_SetupMultiList(void) __asm__("??_GSetupMultiList@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupMultiList(void) {}
+
+void sdtor_SetupEdit(void) __asm__("??_GSetupEdit@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupEdit(void) {}
+
+void sdtor_SetupBigButton(void) __asm__("??_GSetupBigButton@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupBigButton(void) {}
+
+void sdtor_SetupHLineGraph(void) __asm__("??_GSetupHLineGraph@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupHLineGraph(void) {}
+
+void sdtor_SetupVBarGraph(void) __asm__("??_GSetupVBarGraph@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupVBarGraph(void) {}
+
+void sdtor_SetupTabButton(void) __asm__("??_GSetupTabButton@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupTabButton(void) {}
+
+void sdtor_SetupPicture(void) __asm__("??_GSetupPicture@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupPicture(void) {}
+
+void sdtor_SetupColourPicker(void) __asm__("??_GSetupColourPicker@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupColourPicker(void) {}
+
+void sdtor_SetupCheckBox(void) __asm__("??_GSetupCheckBox@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupCheckBox(void) {}
+
+void sdtor_SetupStaticText(void) __asm__("??_GSetupStaticText@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupStaticText(void) {}
+
+void sdtor_SetupHSBarGraph(void) __asm__("??_GSetupHSBarGraph@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupHSBarGraph(void) {}
+
+void sdtor_SetupStaticTextNoHit(void) __asm__("??_GSetupStaticTextNoHit@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupStaticTextNoHit(void) {}
+
+void sdtor_SetupMP3Button(void) __asm__("??_GSetupMP3Button@@UAEPAXI@Z");
+__attribute__((msvc6_sdtor("??1SetupControl@@UAE@XZ,??3@YAXPAX@Z,0,")))
+void sdtor_SetupMP3Button(void) {}

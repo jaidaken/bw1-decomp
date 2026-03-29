@@ -84,18 +84,6 @@ void __cdecl dynamic_atexit_destructor_for_AbodeInfos__10GAbodeInfoFv(void)
     );
 }
 
+__attribute__((msvc6_sdtor("_jmp_addr_0x00436960,??3Base@@SAXPAXK@Z,456,")))
 void __fastcall __dt__10GAbodeInfoFUi(struct Base* this, const void* edx, uint32_t param_1)
-{
-    asm("push               esi");                                          // 0x00401320    56
-    asm("mov.s              esi, ecx");                                     // 0x00401321    8bf1
-    asm("call               _jmp_addr_0x00436960");                         // 0x00401323    e838560300
-    asm("test               byte ptr [esp + 0x08], 0x01");                  // 0x00401328    f644240801
-    asm("{disp8} je         LAB__addr_0x0040133d");                         // 0x0040132d    740e
-    asm("push               0x000001c8");                                   // 0x0040132f    68c8010000
-    asm("push               esi");                                          // 0x00401334    56
-    asm("call               ??3Base@@SAXPAXK@Z");                         // 0x00401335    e836560300
-    asm("add                esp, 0x08");                                    // 0x0040133a    83c408
-    asm("LAB__addr_0x0040133d:");
-    asm("mov.s              eax, esi");                                     // 0x0040133d    8bc6
-    asm("pop                esi");                                          // 0x0040133f    5e
-}
+{}

@@ -294,37 +294,18 @@ bool32_t __fastcall CanBeGivenToVillager__16GameThingWithPosFP8Creature(struct G
     return 0;
 }
 
-__attribute__((XOR32rr_REV, no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((forced_callee_saves("esi,edi"), force_this_esi, force_param_before_this, MOV32rr_REV, XOR32rr_REV, prefer_push_before_ecx, prefer_second_vtable_edx, epilogue_pop_interleave("1"), prevent_setcc_merge, merge_return_blocks, no_tail_merge, ret_cleanup_override(0x0004)))
+
 bool32_t __fastcall CanBeStonedAndEatenByCreature__16GameThingWithPosFP8Creature(struct GameThingWithPos* this, const void* edx, struct Creature* creature)
 {
-    bool32_t result;
-    asm volatile (
-        "push               esi\n\t"
-        "push               edi\n\t"
-        "%{disp8%} mov        edi, dword ptr [esp + 0x0c]\n\t"
-        "mov.s              esi, ecx\n\t"
-        "mov                eax, dword ptr [esi]\n\t"
-        "push               edi\n\t"
-        "call               dword ptr [eax + 0x258]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x00401c3e\n\t"
-        "mov                edx, dword ptr [esi]\n\t"
-        "push               edi\n\t"
-        "mov.s              ecx, esi\n\t"
-        "call               dword ptr [edx + 0x278]\n\t"
-        "test               eax, eax\n\t"
-        "%{disp8%} je         LAB__addr_0x00401c3e\n\t"
-        "pop                edi\n\t"
-        "mov                eax, 0x00000001\n\t"
-        "pop                esi\n\t"
-        "ret                0x0004\n"
-        "LAB__addr_0x00401c3e:\n\t"
-        "pop                edi\n\t"
-        "xor.s              eax, eax\n\t"
-        "pop                esi"
-        : "=a"(result) :: "ecx", "edx", "memory"
-    );
-    return result;
+    typedef bool32_t (__attribute__((thiscall)) *CreatureFn)(struct GameThingWithPos*, struct Creature*);
+    CreatureFn fn1 = ((CreatureFn*)(*(void**)this))[0x258 / 4];
+    if (!fn1(this, creature))
+        return 0;
+    CreatureFn fn2 = ((CreatureFn*)(*(void**)this))[0x278 / 4];
+    if (!fn2(this, creature))
+        return 0;
+    return 1;
 }
 
 __attribute__((XOR32rr_REV))

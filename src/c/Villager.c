@@ -223,25 +223,9 @@ void __cdecl atexit_destroy_GVillagerInfo_array(void)
     );
 }
 
-__attribute__((no_callee_saves, ret_cleanup_override(0x0004)))
+__attribute__((msvc6_sdtor("_jmp_addr_0x00436960,??3Base@@SAXPAXK@Z,932,")))
 void __fastcall __dt__13GVillagerInfoFv(struct Base* this, const void* edx, uint32_t param_1)
-{
-    asm volatile (
-        "push               esi\n\t"
-        "mov.s              esi, ecx\n\t"
-        "call               _jmp_addr_0x00436960\n\t"
-        "test               byte ptr [esp + 0x08], 0x01\n\t"
-        "%{disp8%} je         LAB__addr_0x0074f91d\n\t"
-        "push               0x000003a4\n\t"
-        "push               esi\n\t"
-        "call               ??3Base@@SAXPAXK@Z\n\t"
-        "add                esp, 0x08\n"
-        "LAB__addr_0x0074f91d:\n\t"
-        "mov.s              eax, esi\n\t"
-        "pop                esi"
-        ::: "eax", "ecx", "edx", "memory"
-    );
-}
+{}
 
 __attribute__((section(".rdata$r"), aligned(8)))
 const struct RTTIBaseClassDescriptor __RTTIBaseClassDescriptor__13GVillagerInfo = {
